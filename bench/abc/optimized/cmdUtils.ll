@@ -369,8 +369,7 @@ define ptr @CmdSplitLine(ptr noundef readonly captures(none) %0, ptr noundef %1,
   br label %15
 
 15:                                               ; preds = %15, %11
-  %indvar = phi i64 [ %indvar.next, %15 ], [ 0, %11 ]
-  %.161 = phi ptr [ %21, %15 ], [ %.060, %11 ]
+  %.161 = phi ptr [ %.060, %11 ], [ %21, %15 ]
   %16 = load i8, ptr %.161, align 1, !tbaa !8
   %17 = sext i8 %16 to i64
   %18 = getelementptr inbounds i16, ptr %14, i64 %17
@@ -378,7 +377,6 @@ define ptr @CmdSplitLine(ptr noundef readonly captures(none) %0, ptr noundef %1,
   %20 = and i16 %19, 8192
   %.not = icmp eq i16 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %.161, i64 1
-  %indvar.next = add i64 %indvar, 1
   br i1 %.not, label %.preheader76, label %15, !llvm.loop !50
 
 .preheader76:                                     ; preds = %15, %31
@@ -552,22 +550,26 @@ Vec_PtrFree.exit:                                 ; preds = %43
   tail call void @free(ptr noundef nonnull %5) #24
   %93 = load i8, ptr %.161, align 1, !tbaa !8
   switch i8 %93, label %.loopexit [
-    i8 59, label %95
+    i8 59, label %98
     i8 35, label %.preheader.preheader
   ]
 
 .preheader.preheader:                             ; preds = %Vec_PtrFree.exit
-  %94 = getelementptr i8, ptr %.060, i64 %indvars.iv82
-  %scevgep = getelementptr i8, ptr %94, i64 %indvar.next
+  %.060.lcssa84 = ptrtoint ptr %.060 to i64
+  %94 = ptrtoint ptr %.161 to i64
+  %95 = sub i64 %94, %.060.lcssa84
+  %96 = getelementptr i8, ptr %.060, i64 %indvars.iv82
+  %97 = getelementptr i8, ptr %96, i64 %95
+  %scevgep = getelementptr i8, ptr %97, i64 1
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep)
-  %scevgep85 = getelementptr i8, ptr %scevgep, i64 %strlen
+  %scevgep86 = getelementptr i8, ptr %scevgep, i64 %strlen
   br label %.loopexit
 
-95:                                               ; preds = %Vec_PtrFree.exit
+98:                                               ; preds = %Vec_PtrFree.exit
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader.preheader, %Vec_PtrFree.exit, %95
-  %.3 = phi ptr [ %21, %95 ], [ %.161, %Vec_PtrFree.exit ], [ %scevgep85, %.preheader.preheader ]
+.loopexit:                                        ; preds = %.preheader.preheader, %Vec_PtrFree.exit, %98
+  %.3 = phi ptr [ %21, %98 ], [ %.161, %Vec_PtrFree.exit ], [ %scevgep86, %.preheader.preheader ]
   ret ptr %.3
 }
 

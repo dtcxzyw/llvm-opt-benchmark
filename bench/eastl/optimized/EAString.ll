@@ -9549,12 +9549,12 @@ entry:
 if.then:                                          ; preds = %entry
   %and.i = bitcast double %0 to i64
   %cmp.i = icmp samesign ugt i64 %and.i, 9218868437227405312
-  %.sink109 = select i1 %cmp.i, i8 78, i8 73
-  %.sink108 = select i1 %cmp.i, i8 65, i8 78
+  %.sink108 = select i1 %cmp.i, i8 78, i8 73
+  %.sink107 = select i1 %cmp.i, i8 65, i8 78
   %.sink = select i1 %cmp.i, i8 78, i8 70
-  store i8 %.sink109, ptr %buffer, align 1
+  store i8 %.sink108, ptr %buffer, align 1
   %1 = getelementptr inbounds nuw i8, ptr %buffer, i64 1
-  store i8 %.sink108, ptr %1, align 1
+  store i8 %.sink107, ptr %1, align 1
   %2 = getelementptr inbounds nuw i8, ptr %buffer, i64 2
   store i8 %.sink, ptr %2, align 1
   %t.0 = getelementptr inbounds nuw i8, ptr %buffer, i64 3

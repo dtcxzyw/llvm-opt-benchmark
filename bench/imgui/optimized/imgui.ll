@@ -4240,8 +4240,7 @@ define void @_Z15ImStrTrimBlanksPc(ptr noundef %0) local_unnamed_addr #22 {
   br label %2
 
 2:                                                ; preds = %.critedge, %1
-  %indvar = phi i64 [ %indvar.next, %.critedge ], [ 0, %1 ]
-  %.0 = phi ptr [ %4, %.critedge ], [ %0, %1 ]
+  %.0 = phi ptr [ %0, %1 ], [ %4, %.critedge ]
   %3 = load i8, ptr %.0, align 1, !tbaa !210
   switch i8 %3, label %.preheader [
     i8 32, label %.critedge
@@ -4251,19 +4250,17 @@ define void @_Z15ImStrTrimBlanksPc(ptr noundef %0) local_unnamed_addr #22 {
 
 .critedge:                                        ; preds = %2, %2
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %indvar.next = add i64 %indvar, 1
   br label %2, !llvm.loop !262
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr i8, ptr %0, i64 %indvar
-  %scevgep = getelementptr i8, ptr %5, i64 1
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep)
-  %scevgep38 = getelementptr i8, ptr %scevgep, i64 %strlen
-  %6 = icmp ugt ptr %scevgep38, %.0
+  %5 = getelementptr i8, ptr %.0, i64 1
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %5)
+  %scevgep = getelementptr i8, ptr %5, i64 %strlen
+  %6 = icmp ugt ptr %scevgep, %.0
   br i1 %6, label %.lr.ph33, label %.critedge2
 
 .lr.ph33:                                         ; preds = %.preheader, %.critedge4
-  %.232 = phi ptr [ %7, %.critedge4 ], [ %scevgep38, %.preheader ]
+  %.232 = phi ptr [ %7, %.critedge4 ], [ %scevgep, %.preheader ]
   %7 = getelementptr inbounds i8, ptr %.232, i64 -1
   %8 = load i8, ptr %7, align 1, !tbaa !210
   switch i8 %8, label %.critedge2 [
@@ -4276,19 +4273,19 @@ define void @_Z15ImStrTrimBlanksPc(ptr noundef %0) local_unnamed_addr #22 {
   br i1 %9, label %.lr.ph33, label %.critedge2, !llvm.loop !263
 
 .critedge2:                                       ; preds = %2, %.critedge4, %.lr.ph33, %.preheader
-  %.2.lcssa = phi ptr [ %scevgep38, %.preheader ], [ %.232, %.lr.ph33 ], [ %7, %.critedge4 ], [ %.0, %2 ]
+  %.2.lcssa = phi ptr [ %scevgep, %.preheader ], [ %.232, %.lr.ph33 ], [ %7, %.critedge4 ], [ %.0, %2 ]
   %.not28 = icmp eq ptr %.0, %0
   %.pre = ptrtoint ptr %.2.lcssa to i64
-  %.pre39 = ptrtoint ptr %.0 to i64
-  %.pre41 = sub i64 %.pre, %.pre39
+  %.pre38 = ptrtoint ptr %.0 to i64
+  %.pre40 = sub i64 %.pre, %.pre38
   br i1 %.not28, label %.critedge2._crit_edge, label %10
 
 10:                                               ; preds = %.critedge2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %.0, i64 %.pre41, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %.0, i64 %.pre40, i1 false)
   br label %.critedge2._crit_edge
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.pre41
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.pre40
   store i8 0, ptr %11, align 1, !tbaa !210
   ret void
 }
