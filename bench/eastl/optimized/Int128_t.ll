@@ -3703,14 +3703,14 @@ for.body112.us:                                   ; preds = %for.body103, %for.i
   %mPart1.i64.val.us = load i64, ptr %mPart1.i64, align 8
   %shr.us = lshr i64 %mPart1.i64.val.us, %indvars.iv128
   %and.us = and i64 %shr.us, 15
-  %arrayidx.us = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and.us
-  %30 = load i8, ptr %arrayidx.us, align 1
-  %cmp114.not.us = icmp ne i8 %30, 48
+  %cmp114.not.us = icmp ne i64 %and.us, 0
   %spec.select48.us = select i1 %cmp114.not.us, i1 true, i1 %bNonZeroFound99.174.us
   %or.cond1.us = select i1 %cmp73, i1 true, i1 %spec.select48.us
   br i1 %or.cond1.us, label %if.then120.us, label %for.inc123.us
 
 if.then120.us:                                    ; preds = %for.body112.us
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and.us
+  %30 = load i8, ptr %arrayidx.us, align 1
   %incdec.ptr121.us = getelementptr inbounds nuw i8, ptr %pValue.addr.1176.us, i64 1
   store i8 %30, ptr %pValue.addr.1176.us, align 1
   br label %for.inc123.us
@@ -3727,14 +3727,14 @@ for.body103.split:                                ; preds = %for.body103
 for.body112.us78:                                 ; preds = %for.body103.split, %for.body112.us78
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %for.body112.us78 ], [ 60, %for.body103.split ]
   %pValue.addr.1176.us79 = phi ptr [ %incdec.ptr121.us91, %for.body112.us78 ], [ %pValue.addr.10102, %for.body103.split ]
-  %bNonZeroFound99.174.us81 = phi i1 [ %spec.select48.us88, %for.body112.us78 ], [ %bNonZeroFound99.0100, %for.body103.split ]
+  %bNonZeroFound99.174.us81 = phi i1 [ %spec.select48.us87, %for.body112.us78 ], [ %bNonZeroFound99.0100, %for.body103.split ]
   %this.val.us82 = load i64, ptr %this, align 8
   %shr.us84 = lshr i64 %this.val.us82, %indvars.iv126
   %and.us85 = and i64 %shr.us84, 15
-  %arrayidx.us86 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and.us85
-  %31 = load i8, ptr %arrayidx.us86, align 1
-  %cmp114.not.us87 = icmp ne i8 %31, 48
-  %spec.select48.us88 = select i1 %cmp114.not.us87, i1 true, i1 %bNonZeroFound99.174.us81
+  %cmp114.not.us86 = icmp ne i64 %and.us85, 0
+  %spec.select48.us87 = select i1 %cmp114.not.us86, i1 true, i1 %bNonZeroFound99.174.us81
+  %arrayidx.us90 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and.us85
+  %31 = load i8, ptr %arrayidx.us90, align 1
   %incdec.ptr121.us91 = getelementptr inbounds nuw i8, ptr %pValue.addr.1176.us79, i64 1
   store i8 %31, ptr %pValue.addr.1176.us79, align 1
   %indvars.iv.next127 = add nsw i64 %indvars.iv126, -4
@@ -3748,13 +3748,13 @@ for.body112:                                      ; preds = %for.body103.split, 
   %this.val = load i64, ptr %this, align 8
   %shr = lshr i64 %this.val, %indvars.iv
   %and = and i64 %shr, 15
-  %arrayidx = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and
-  %32 = load i8, ptr %arrayidx, align 1
-  %cmp114.not = icmp ne i8 %32, 48
+  %cmp114.not = icmp ne i64 %and, 0
   %spec.select48 = select i1 %cmp114.not, i1 true, i1 %bNonZeroFound99.174
   br i1 %spec.select48, label %if.then120, label %for.inc123
 
 if.then120:                                       ; preds = %for.body112
+  %arrayidx = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and
+  %32 = load i8, ptr %arrayidx, align 1
   %incdec.ptr121 = getelementptr inbounds nuw i8, ptr %pValue.addr.1176, i64 1
   store i8 %32, ptr %pValue.addr.1176, align 1
   br label %for.inc123
@@ -3766,7 +3766,7 @@ for.inc123:                                       ; preds = %if.then120, %for.bo
   br i1 %cmp111.not, label %for.inc125, label %for.body112, !llvm.loop !39
 
 for.inc125:                                       ; preds = %for.inc123, %for.body112.us78, %for.inc123.us
-  %.us-phi = phi i1 [ %spec.select48.us, %for.inc123.us ], [ %spec.select48.us88, %for.body112.us78 ], [ %spec.select48, %for.inc123 ]
+  %.us-phi = phi i1 [ %spec.select48.us, %for.inc123.us ], [ %spec.select48.us87, %for.body112.us78 ], [ %spec.select48, %for.inc123 ]
   %.us-phi77 = phi ptr [ %pValue.addr.12.us, %for.inc123.us ], [ %incdec.ptr121.us91, %for.body112.us78 ], [ %pValue.addr.12, %for.inc123 ]
   %dec126 = add nsw i32 %i100.0101, -1
   %cmp102.not = icmp eq i32 %i100.0101, 0
@@ -6458,14 +6458,14 @@ for.body90.us:                                    ; preds = %for.body82, %for.in
   %mPart1.i49.val.us = load i64, ptr %mPart1.i49, align 8
   %shr.us = lshr i64 %mPart1.i49.val.us, %indvars.iv143
   %and.us = and i64 %shr.us, 15
-  %arrayidx.us = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and.us
-  %20 = load i8, ptr %arrayidx.us, align 1
-  %cmp92.not.us = icmp ne i8 %20, 48
+  %cmp92.not.us = icmp ne i64 %and.us, 0
   %spec.select40.us = select i1 %cmp92.not.us, i1 true, i1 %bNonZeroFound78.189.us
   %or.cond1.us = select i1 %cmp52, i1 true, i1 %spec.select40.us
   br i1 %or.cond1.us, label %if.then98.us, label %for.inc101.us
 
 if.then98.us:                                     ; preds = %for.body90.us
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and.us
+  %20 = load i8, ptr %arrayidx.us, align 1
   %incdec.ptr99.us = getelementptr inbounds nuw i8, ptr %pValue.addr.991.us, i64 1
   store i8 %20, ptr %pValue.addr.991.us, align 1
   br label %for.inc101.us
@@ -6482,14 +6482,14 @@ for.body82.split:                                 ; preds = %for.body82
 for.body90.us93:                                  ; preds = %for.body82.split, %for.body90.us93
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %for.body90.us93 ], [ 60, %for.body82.split ]
   %pValue.addr.991.us94 = phi ptr [ %incdec.ptr99.us106, %for.body90.us93 ], [ %pValue.addr.8117, %for.body82.split ]
-  %bNonZeroFound78.189.us96 = phi i1 [ %spec.select40.us103, %for.body90.us93 ], [ %bNonZeroFound78.0115, %for.body82.split ]
+  %bNonZeroFound78.189.us96 = phi i1 [ %spec.select40.us102, %for.body90.us93 ], [ %bNonZeroFound78.0115, %for.body82.split ]
   %this.val.us97 = load i64, ptr %this, align 8
   %shr.us99 = lshr i64 %this.val.us97, %indvars.iv141
   %and.us100 = and i64 %shr.us99, 15
-  %arrayidx.us101 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and.us100
-  %21 = load i8, ptr %arrayidx.us101, align 1
-  %cmp92.not.us102 = icmp ne i8 %21, 48
-  %spec.select40.us103 = select i1 %cmp92.not.us102, i1 true, i1 %bNonZeroFound78.189.us96
+  %cmp92.not.us101 = icmp ne i64 %and.us100, 0
+  %spec.select40.us102 = select i1 %cmp92.not.us101, i1 true, i1 %bNonZeroFound78.189.us96
+  %arrayidx.us105 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and.us100
+  %21 = load i8, ptr %arrayidx.us105, align 1
   %incdec.ptr99.us106 = getelementptr inbounds nuw i8, ptr %pValue.addr.991.us94, i64 1
   store i8 %21, ptr %pValue.addr.991.us94, align 1
   %indvars.iv.next142 = add nsw i64 %indvars.iv141, -4
@@ -6503,13 +6503,13 @@ for.body90:                                       ; preds = %for.body82.split, %
   %this.val = load i64, ptr %this, align 8
   %shr = lshr i64 %this.val, %indvars.iv
   %and = and i64 %shr, 15
-  %arrayidx = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and
-  %22 = load i8, ptr %arrayidx, align 1
-  %cmp92.not = icmp ne i8 %22, 48
+  %cmp92.not = icmp ne i64 %and, 0
   %spec.select40 = select i1 %cmp92.not, i1 true, i1 %bNonZeroFound78.189
   br i1 %spec.select40, label %if.then98, label %for.inc101
 
 if.then98:                                        ; preds = %for.body90
+  %arrayidx = getelementptr inbounds nuw i8, ptr @.str.4, i64 %and
+  %22 = load i8, ptr %arrayidx, align 1
   %incdec.ptr99 = getelementptr inbounds nuw i8, ptr %pValue.addr.991, i64 1
   store i8 %22, ptr %pValue.addr.991, align 1
   br label %for.inc101
@@ -6521,7 +6521,7 @@ for.inc101:                                       ; preds = %if.then98, %for.bod
   br i1 %cmp89.not, label %for.inc103, label %for.body90, !llvm.loop !64
 
 for.inc103:                                       ; preds = %for.inc101, %for.body90.us93, %for.inc101.us
-  %.us-phi = phi i1 [ %spec.select40.us, %for.inc101.us ], [ %spec.select40.us103, %for.body90.us93 ], [ %spec.select40, %for.inc101 ]
+  %.us-phi = phi i1 [ %spec.select40.us, %for.inc101.us ], [ %spec.select40.us102, %for.body90.us93 ], [ %spec.select40, %for.inc101 ]
   %.us-phi92 = phi ptr [ %pValue.addr.10.us, %for.inc101.us ], [ %incdec.ptr99.us106, %for.body90.us93 ], [ %pValue.addr.10, %for.inc101 ]
   %dec104 = add nsw i32 %i79.0116, -1
   %cmp81.not = icmp eq i32 %i79.0116, 0

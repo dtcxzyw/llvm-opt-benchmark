@@ -1717,13 +1717,13 @@ _ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %_Z
   %277 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   %278 = load i8, ptr %277, align 1, !tbaa !15
   %279 = icmp eq i8 %278, 58
-  br i1 %279, label %.loopexit692.loopexit.split.loop.exit740, label %280
+  br i1 %279, label %.loopexit692.loopexit.split.loop.exit739, label %280
 
 280:                                              ; preds = %276
   %281 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %282 = load i8, ptr %281, align 1, !tbaa !15
   %283 = icmp eq i8 %282, 58
-  br i1 %283, label %.loopexit692.loopexit.split.loop.exit738, label %284
+  br i1 %283, label %.loopexit692.loopexit.split.loop.exit737, label %284
 
 284:                                              ; preds = %280
   %285 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
@@ -1783,16 +1783,16 @@ _ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %_Z
   %305 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   br label %.loopexit692
 
-.loopexit692.loopexit.split.loop.exit738:         ; preds = %280
+.loopexit692.loopexit.split.loop.exit737:         ; preds = %280
   %306 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %.loopexit692
 
-.loopexit692.loopexit.split.loop.exit740:         ; preds = %276
+.loopexit692.loopexit.split.loop.exit739:         ; preds = %276
   %307 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   br label %.loopexit692
 
-.loopexit692:                                     ; preds = %273, %.loopexit692.loopexit.split.loop.exit, %.loopexit692.loopexit.split.loop.exit738, %.loopexit692.loopexit.split.loop.exit740, %304, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %293
-  %.028.i.i.i = phi ptr [ %267, %304 ], [ %.029.lcssa.i.i.i, %293 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %305, %.loopexit692.loopexit.split.loop.exit ], [ %306, %.loopexit692.loopexit.split.loop.exit738 ], [ %307, %.loopexit692.loopexit.split.loop.exit740 ], [ %.02946.i.i.i, %273 ]
+.loopexit692:                                     ; preds = %273, %.loopexit692.loopexit.split.loop.exit, %.loopexit692.loopexit.split.loop.exit737, %.loopexit692.loopexit.split.loop.exit739, %304, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %293
+  %.028.i.i.i = phi ptr [ %267, %304 ], [ %.029.lcssa.i.i.i, %293 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %305, %.loopexit692.loopexit.split.loop.exit ], [ %306, %.loopexit692.loopexit.split.loop.exit737 ], [ %307, %.loopexit692.loopexit.split.loop.exit739 ], [ %.02946.i.i.i, %273 ]
   %308 = icmp eq ptr %.028.i.i.i, %267
   %309 = zext i1 %308 to i8
   store i8 %309, ptr %53, align 8, !tbaa !49
@@ -2658,8 +2658,8 @@ _ZN5boost7process2v211environment3getEPKc.exit271: ; preds = %._crit_edge.i.i.i.
 .lr.ph.i.i.i272:                                  ; preds = %_ZN5boost7process2v211environment3getEPKc.exit271, %635
   %630 = phi i8 [ %638, %635 ], [ %629, %_ZN5boost7process2v211environment3getEPKc.exit271 ]
   %.017.i.i.i = phi i64 [ %636, %635 ], [ 0, %_ZN5boost7process2v211environment3getEPKc.exit271 ]
-  %exitcond = icmp eq i64 %.017.i.i.i, 16
-  br i1 %exitcond, label %.critedge.i.i.i, label %631
+  %.not8.i.i.i = icmp eq i64 %.017.i.i.i, 16
+  br i1 %.not8.i.i.i, label %.critedge.i.i.i, label %631
 
 631:                                              ; preds = %.lr.ph.i.i.i272
   %632 = getelementptr inbounds nuw i8, ptr @.str.11, i64 %.017.i.i.i
@@ -3019,8 +3019,8 @@ _ZN5boost7process2v211environment3getEPKc.exit302: ; preds = %._crit_edge.i.i.i.
 .lr.ph.i.i.i304:                                  ; preds = %_ZN5boost7process2v211environment3getEPKc.exit302, %778
   %773 = phi i8 [ %781, %778 ], [ %772, %_ZN5boost7process2v211environment3getEPKc.exit302 ]
   %.017.i.i.i305 = phi i64 [ %779, %778 ], [ 0, %_ZN5boost7process2v211environment3getEPKc.exit302 ]
-  %exitcond729 = icmp eq i64 %.017.i.i.i305, 16
-  br i1 %exitcond729, label %.critedge.i.i.i309, label %774
+  %.not8.i.i.i306 = icmp eq i64 %.017.i.i.i305, 16
+  br i1 %.not8.i.i.i306, label %.critedge.i.i.i309, label %774
 
 774:                                              ; preds = %.lr.ph.i.i.i304
   %775 = getelementptr inbounds nuw i8, ptr @.str.11, i64 %.017.i.i.i305
@@ -4935,8 +4935,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i472: ; p
   %1485 = select i1 %1481, i64 15, i64 %1484
   %1486 = icmp ule i64 %1479, %1485
   %.not.i477 = icmp ugt i64 %1479, 15
-  %or.cond746 = or i1 %1486, %.not.i477
-  br i1 %or.cond746, label %1501, label %.critedge.i478
+  %or.cond745 = or i1 %1486, %.not.i477
+  br i1 %or.cond745, label %1501, label %.critedge.i478
 
 .critedge.i478:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i472
   %1487 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %174, i64 noundef 0, i64 noundef 0, ptr noundef %1480, i64 noundef %1478)

@@ -1020,7 +1020,7 @@ define internal i32 @git_clean_config(ptr noundef %0, ptr noundef %1, ptr nounde
 
 6:                                                ; preds = %4
   %7 = tail call i32 @git_column_config(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef nonnull @colopts) #16
-  br label %38
+  br label %37
 
 8:                                                ; preds = %4
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.32) #18
@@ -1030,35 +1030,31 @@ define internal i32 @git_clean_config(ptr noundef %0, ptr noundef %1, ptr nounde
 10:                                               ; preds = %8
   %11 = tail call i32 @git_config_colorbool(ptr noundef nonnull %0, ptr noundef %1) #16
   store i32 %11, ptr @clean_use_color, align 4, !tbaa !11
-  br label %38
+  br label %37
 
 12:                                               ; preds = %8
   %scevgep.i = getelementptr i8, ptr %0, i64 18
   br label %13
 
-13:                                               ; preds = %15, %12
-  %.07.i = phi ptr [ %0, %12 ], [ %16, %15 ]
-  %.06.idx.i = phi i64 [ 0, %12 ], [ %.06.add.i, %15 ]
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.33, i64 %.06.idx.i
-  %14 = load i8, ptr %.06.ptr.i, align 1, !tbaa !90
+13:                                               ; preds = %14, %12
+  %.07.i = phi ptr [ %0, %12 ], [ %16, %14 ]
+  %.06.idx.i = phi i64 [ 0, %12 ], [ %.06.add.i, %14 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 18
-  br i1 %exitcond.i, label %skip_prefix.exit, label %15
+  br i1 %exitcond.i, label %19, label %14
 
-15:                                               ; preds = %13
+14:                                               ; preds = %13
+  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.33, i64 %.06.idx.i
+  %15 = load i8, ptr %.06.ptr.i, align 1, !tbaa !90
   %16 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %17 = load i8, ptr %.07.i, align 1, !tbaa !90
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %18 = icmp eq i8 %17, %14
+  %18 = icmp eq i8 %17, %15
   br i1 %18, label %13, label %skip_prefix.exit, !llvm.loop !91
 
-skip_prefix.exit:                                 ; preds = %13, %15
-  %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %19, label %29
-
-19:                                               ; preds = %skip_prefix.exit
+19:                                               ; preds = %13
   %20 = tail call i32 @lookup_config(ptr noundef nonnull @color_interactive_slots, i32 noundef 6, ptr noundef %scevgep.i) #16
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %38, label %22
+  br i1 %21, label %37, label %22
 
 22:                                               ; preds = %19
   %.not26 = icmp eq ptr %1, null
@@ -1066,35 +1062,35 @@ skip_prefix.exit:                                 ; preds = %13, %15
 
 23:                                               ; preds = %22
   %24 = tail call i32 @config_error_nonbool(ptr noundef nonnull %0) #16
-  br label %38
+  br label %37
 
 25:                                               ; preds = %22
   %26 = zext nneg i32 %20 to i64
   %27 = getelementptr inbounds nuw [6 x [75 x i8]], ptr @clean_colors, i64 0, i64 %26
   %28 = tail call i32 @color_parse(ptr noundef nonnull %1, ptr noundef nonnull %27) #16
-  br label %38
+  br label %37
 
-29:                                               ; preds = %skip_prefix.exit
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.34) #18
-  %.not25 = icmp eq i32 %30, 0
-  br i1 %.not25, label %31, label %33
+skip_prefix.exit:                                 ; preds = %14
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.34) #18
+  %.not25 = icmp eq i32 %29, 0
+  br i1 %.not25, label %30, label %32
 
-31:                                               ; preds = %29
-  %32 = tail call i32 @git_config_bool(ptr noundef nonnull %0, ptr noundef %1) #16
-  store i32 %32, ptr @require_force, align 4, !tbaa !11
-  br label %38
+30:                                               ; preds = %skip_prefix.exit
+  %31 = tail call i32 @git_config_bool(ptr noundef nonnull %0, ptr noundef %1) #16
+  store i32 %31, ptr @require_force, align 4, !tbaa !11
+  br label %37
 
-33:                                               ; preds = %29
-  %34 = tail call i32 @git_color_config(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3) #16
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %38, label %36
+32:                                               ; preds = %skip_prefix.exit
+  %33 = tail call i32 @git_color_config(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3) #16
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %37, label %35
 
-36:                                               ; preds = %33
-  %37 = tail call i32 @git_default_config(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #16
-  br label %38
+35:                                               ; preds = %32
+  %36 = tail call i32 @git_default_config(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #16
+  br label %37
 
-38:                                               ; preds = %33, %23, %25, %19, %36, %31, %10, %6
-  %.0 = phi i32 [ %7, %6 ], [ %37, %36 ], [ 0, %31 ], [ 0, %10 ], [ %28, %25 ], [ -1, %23 ], [ 0, %19 ], [ -1, %33 ]
+37:                                               ; preds = %32, %23, %25, %19, %35, %30, %10, %6
+  %.0 = phi i32 [ %7, %6 ], [ %36, %35 ], [ 0, %30 ], [ 0, %10 ], [ %28, %25 ], [ -1, %23 ], [ 0, %19 ], [ -1, %32 ]
   ret i32 %.0
 }
 

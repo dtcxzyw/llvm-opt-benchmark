@@ -671,22 +671,22 @@ define internal fastcc range(i32 0, -1) i32 @tr2_dst_try_unix_domain_socket(ptr 
   %scevgep = getelementptr i8, ptr %1, i64 15
   br label %5
 
-5:                                                ; preds = %7, %2
-  %.07.i = phi ptr [ %1, %2 ], [ %8, %7 ]
-  %.06.i.idx = phi i64 [ 0, %2 ], [ %.06.i.add, %7 ]
-  %.06.i.ptr = getelementptr inbounds nuw i8, ptr @.str.14, i64 %.06.i.idx
-  %6 = load i8, ptr %.06.i.ptr, align 1, !tbaa !10
+5:                                                ; preds = %6, %2
+  %.07.i = phi ptr [ %1, %2 ], [ %8, %6 ]
+  %.06.i.idx = phi i64 [ 0, %2 ], [ %.06.i.add, %6 ]
   %exitcond = icmp eq i64 %.06.i.idx, 15
-  br i1 %exitcond, label %.thread, label %7
+  br i1 %exitcond, label %.thread, label %6
 
-7:                                                ; preds = %5
+6:                                                ; preds = %5
+  %.06.i.ptr = getelementptr inbounds nuw i8, ptr @.str.14, i64 %.06.i.idx
+  %7 = load i8, ptr %.06.i.ptr, align 1, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %9 = load i8, ptr %.07.i, align 1, !tbaa !10
   %.06.i.add = add nuw nsw i64 %.06.i.idx, 1
-  %10 = icmp eq i8 %9, %6
+  %10 = icmp eq i8 %9, %7
   br i1 %10, label %5, label %skip_prefix.exit.preheader, !llvm.loop !22
 
-skip_prefix.exit.preheader:                       ; preds = %7
+skip_prefix.exit.preheader:                       ; preds = %6
   %scevgep100 = getelementptr i8, ptr %1, i64 14
   br label %skip_prefix.exit
 
@@ -727,7 +727,6 @@ skip_prefix.exit35:                               ; preds = %skip_prefix.exit35.
 .thread:                                          ; preds = %5, %skip_prefix.exit, %skip_prefix.exit35
   %.not2476 = phi i1 [ false, %skip_prefix.exit35 ], [ true, %skip_prefix.exit ], [ false, %5 ]
   %.072 = phi ptr [ %scevgep102, %skip_prefix.exit35 ], [ %scevgep100, %skip_prefix.exit ], [ %scevgep, %5 ]
-  %.not.i107 = icmp eq i8 %6, 0
   %21 = load i8, ptr %.072, align 1, !tbaa !10
   switch i8 %21, label %53 [
     i8 0, label %.thread77
@@ -898,11 +897,11 @@ tr2_dst_try_uds_connect.exit:                     ; preds = %86
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %4) #13
   %96 = load i32, ptr %.pre-phi, align 4, !tbaa !18
   %.not26 = icmp ne i32 %96, 91
-  %brmerge = or i1 %.not.i107, %.not26
+  %brmerge = or i1 %exitcond, %.not26
   br i1 %brmerge, label %110, label %98
 
 97:                                               ; preds = %82
-  br i1 %.not.i107, label %110, label %98
+  br i1 %exitcond, label %110, label %98
 
 98:                                               ; preds = %95, %97
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %3) #13

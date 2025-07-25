@@ -35,15 +35,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, -256) i32 @parse_whitespace_rule(ptr noundef %0) local_unnamed_addr #0 {
-  %.not58 = icmp eq ptr %0, null
-  br i1 %.not58, label %.thread.thread, label %.lr.ph
+  %.not60 = icmp eq ptr %0, null
+  br i1 %.not60, label %skip_prefix.exit.thread53.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %39
-  %.061 = phi ptr [ %4, %39 ], [ %0, %1 ]
-  %.03460 = phi i32 [ %.236, %39 ], [ 1224, %1 ]
-  %.04859 = phi ptr [ %.250, %39 ], [ undef, %1 ]
-  %2 = tail call i64 @strspn(ptr noundef nonnull %.061, ptr noundef nonnull @.str) #12
-  %3 = getelementptr inbounds nuw i8, ptr %.061, i64 %2
+.lr.ph:                                           ; preds = %1, %skip_prefix.exit
+  %.062 = phi ptr [ %4, %skip_prefix.exit ], [ %0, %1 ]
+  %.03461 = phi i32 [ %.236, %skip_prefix.exit ], [ 1224, %1 ]
+  %2 = tail call i64 @strspn(ptr noundef nonnull %.062, ptr noundef nonnull @.str) #12
+  %3 = getelementptr inbounds nuw i8, ptr %.062, i64 %2
   %4 = tail call ptr @strchrnul(ptr noundef nonnull %3, i32 noundef 44) #12
   %5 = ptrtoint ptr %4 to i64
   %6 = ptrtoint ptr %3 to i64
@@ -55,7 +54,7 @@ define dso_local range(i32 0, -256) i32 @parse_whitespace_rule(ptr noundef %0) l
   %.1.idx = zext i1 %.not44 to i64
   %.1 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.idx
   %.not41 = icmp eq i64 %.037, 0
-  br i1 %.not41, label %.thread, label %.preheader
+  br i1 %.not41, label %skip_prefix.exit.thread53, label %.preheader
 
 10:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -77,40 +76,35 @@ define dso_local range(i32 0, -256) i32 @parse_whitespace_rule(ptr noundef %0) l
 
 17:                                               ; preds = %14
   %18 = xor i32 %16, -1
-  %19 = and i32 %.03460, %18
+  %19 = and i32 %.03461, %18
   br label %.loopexit
 
 20:                                               ; preds = %14
-  %21 = or i32 %16, %.03460
+  %21 = or i32 %16, %.03461
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %17, %20
-  %.3 = phi i32 [ %19, %17 ], [ %21, %20 ], [ %.03460, %10 ]
+  %.3 = phi i32 [ %19, %17 ], [ %21, %20 ], [ %.03461, %10 ]
   %scevgep.i = getelementptr i8, ptr %.1, i64 9
   br label %22
 
-22:                                               ; preds = %24, %.loopexit
-  %.07.i = phi ptr [ %.1, %.loopexit ], [ %25, %24 ]
-  %.06.idx.i = phi i64 [ 0, %.loopexit ], [ %.06.add.i, %24 ]
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.1, i64 %.06.idx.i
-  %23 = load i8, ptr %.06.ptr.i, align 1, !tbaa !4
+22:                                               ; preds = %23, %.loopexit
+  %.07.i = phi ptr [ %.1, %.loopexit ], [ %25, %23 ]
+  %.06.idx.i = phi i64 [ 0, %.loopexit ], [ %.06.add.i, %23 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 9
-  br i1 %exitcond.i, label %skip_prefix.exit, label %24
+  br i1 %exitcond.i, label %28, label %23
 
-24:                                               ; preds = %22
+23:                                               ; preds = %22
+  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.1, i64 %.06.idx.i
+  %24 = load i8, ptr %.06.ptr.i, align 1, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %26 = load i8, ptr %.07.i, align 1, !tbaa !4
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %27 = icmp eq i8 %26, %23
+  %27 = icmp eq i8 %26, %24
   br i1 %27, label %22, label %skip_prefix.exit, !llvm.loop !15
 
-skip_prefix.exit:                                 ; preds = %22, %24
-  %.250 = phi ptr [ %.04859, %24 ], [ %scevgep.i, %22 ]
-  %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %28, label %39
-
-28:                                               ; preds = %skip_prefix.exit
-  %29 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.250, ptr noundef null, i32 noundef 10) #13
+28:                                               ; preds = %22
+  %29 = tail call i64 @strtol(ptr noundef nonnull captures(none) %scevgep.i, ptr noundef null, i32 noundef 10) #13
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, -1
   %or.cond = icmp ult i32 %31, 63
@@ -119,32 +113,32 @@ skip_prefix.exit:                                 ; preds = %22, %24
 32:                                               ; preds = %28
   %33 = and i32 %.3, -64
   %34 = or disjoint i32 %33, %30
-  br label %39
+  br label %skip_prefix.exit
 
 35:                                               ; preds = %28
-  %36 = ptrtoint ptr %.250 to i64
+  %36 = ptrtoint ptr %scevgep.i to i64
   %37 = sub i64 %5, %36
   %38 = trunc i64 %37 to i32
-  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.2, i32 noundef %38, ptr noundef nonnull %.250) #13
-  br label %39
+  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.2, i32 noundef %38, ptr noundef nonnull %scevgep.i) #13
+  br label %skip_prefix.exit
 
-39:                                               ; preds = %skip_prefix.exit, %35, %32
-  %.236 = phi i32 [ %.3, %skip_prefix.exit ], [ %34, %32 ], [ %.3, %35 ]
+skip_prefix.exit:                                 ; preds = %23, %35, %32
+  %.236 = phi i32 [ %34, %32 ], [ %.3, %35 ], [ %.3, %23 ]
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %skip_prefix.exit.thread53, label %.lr.ph
 
-.thread:                                          ; preds = %39, %.lr.ph
-  %.034.lcssa = phi i32 [ %.236, %39 ], [ %.03460, %.lr.ph ]
-  %40 = and i32 %.034.lcssa, 2304
-  %or.cond47.not = icmp eq i32 %40, 2304
-  br i1 %or.cond47.not, label %41, label %.thread.thread
+skip_prefix.exit.thread53:                        ; preds = %skip_prefix.exit, %.lr.ph
+  %.034.lcssa = phi i32 [ %.236, %skip_prefix.exit ], [ %.03461, %.lr.ph ]
+  %39 = and i32 %.034.lcssa, 2304
+  %or.cond47.not = icmp eq i32 %39, 2304
+  br i1 %or.cond47.not, label %40, label %skip_prefix.exit.thread53.thread
 
-41:                                               ; preds = %.thread
+40:                                               ; preds = %skip_prefix.exit.thread53
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.3) #14
   unreachable
 
-.thread.thread:                                   ; preds = %1, %.thread
-  %.034.lcssa69 = phi i32 [ %.034.lcssa, %.thread ], [ 1224, %1 ]
+skip_prefix.exit.thread53.thread:                 ; preds = %1, %skip_prefix.exit.thread53
+  %.034.lcssa69 = phi i32 [ %.034.lcssa, %skip_prefix.exit.thread53 ], [ 1224, %1 ]
   ret i32 %.034.lcssa69
 }
 

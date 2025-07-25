@@ -4055,8 +4055,8 @@ _.exit.i:                                         ; preds = %95, %93
 
 .preheader.i.i:                                   ; preds = %105
   %115 = call ptr @readdir64(ptr noundef nonnull %114) #30
-  %.not1021.i.i = icmp eq ptr %115, null
-  br i1 %.not1021.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not1024.i.i = icmp eq ptr %115, null
+  br i1 %.not1024.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -4080,33 +4080,30 @@ _.exit.i.i:                                       ; preds = %119, %117
 
 124:                                              ; preds = %158, %.lr.ph.i.i
   %125 = phi ptr [ %115, %.lr.ph.i.i ], [ %159, %158 ]
-  %.01822.i.i = phi ptr [ undef, %.lr.ph.i.i ], [ %.1.i.i, %158 ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 19
   %scevgep.i.i.i = getelementptr i8, ptr %125, i64 31
   br label %127
 
-127:                                              ; preds = %129, %124
-  %.07.i.i.i = phi ptr [ %126, %124 ], [ %130, %129 ]
-  %.06.idx.i.i.i = phi i64 [ 0, %124 ], [ %.06.add.i.i.i, %129 ]
-  %.06.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @.str.96, i64 %.06.idx.i.i.i
-  %128 = load i8, ptr %.06.ptr.i.i.i, align 1, !tbaa !38
+127:                                              ; preds = %128, %124
+  %.07.i.i.i = phi ptr [ %126, %124 ], [ %130, %128 ]
+  %.06.idx.i.i.i = phi i64 [ 0, %124 ], [ %.06.add.i.i.i, %128 ]
   %exitcond.i.i.i = icmp eq i64 %.06.idx.i.i.i, 12
-  br i1 %exitcond.i.i.i, label %skip_prefix.exit.i.i, label %129
+  br i1 %exitcond.i.i.i, label %133, label %128
 
-129:                                              ; preds = %127
+128:                                              ; preds = %127
+  %.06.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @.str.96, i64 %.06.idx.i.i.i
+  %129 = load i8, ptr %.06.ptr.i.i.i, align 1, !tbaa !38
   %130 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 1
   %131 = load i8, ptr %.07.i.i.i, align 1, !tbaa !38
   %.06.add.i.i.i = add nuw nsw i64 %.06.idx.i.i.i, 1
-  %132 = icmp eq i8 %131, %128
+  %132 = icmp eq i8 %131, %129
   br i1 %132, label %127, label %skip_prefix.exit.i.i, !llvm.loop !94
 
-skip_prefix.exit.i.i:                             ; preds = %129, %127
-  %.1.i.i = phi ptr [ %.01822.i.i, %129 ], [ %scevgep.i.i.i, %127 ]
-  %.not.i.i.i = icmp eq i8 %128, 0
-  br i1 %.not.i.i.i, label %133, label %158, !llvm.loop !95
+skip_prefix.exit.i.i:                             ; preds = %128
+  br label %158, !llvm.loop !95
 
-133:                                              ; preds = %skip_prefix.exit.i.i
-  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1.i.i, ptr noundef nonnull readonly dereferenceable(1) %111) #29
+133:                                              ; preds = %127
+  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %111) #29
   %.not11.i.i = icmp eq i32 %134, 0
   br i1 %.not11.i.i, label %158, label %135, !llvm.loop !95
 
@@ -4162,9 +4159,9 @@ should_delete_shared_index.exit.thread.i.i:       ; preds = %_.exit.i.i.i, %get_
 
 should_delete_shared_index.exit.i.i:              ; preds = %144
   %151 = load i64, ptr %116, align 8, !tbaa !96
-  %.not20.i.i = icmp ugt i64 %151, %143
+  %.not23.i.i = icmp ugt i64 %151, %143
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #30
-  br i1 %.not20.i.i, label %158, label %152
+  br i1 %.not23.i.i, label %158, label %152
 
 152:                                              ; preds = %should_delete_shared_index.exit.i.i
   %153 = call i32 @unlink(ptr noundef %136) #30

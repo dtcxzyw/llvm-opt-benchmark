@@ -927,55 +927,41 @@ declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 nound
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @mbytes_to_str(i64 noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq i64 %0, -2
-  br i1 %2, label %16, label %.preheader.preheader
+  br i1 %2, label %15, label %.preheader
 
-.preheader.preheader:                             ; preds = %1
-  %3 = and i64 %0, 1023
-  %.not1836 = icmp eq i64 %3, 0
-  br i1 %.not1836, label %.lr.ph, label %.preheader._crit_edge
+.preheader:                                       ; preds = %1, %4
+  %.01327 = phi i32 [ %6, %4 ], [ 0, %1 ]
+  %.01426 = phi i64 [ %5, %4 ], [ %0, %1 ]
+  %3 = and i64 %.01426, 1023
+  %.not18 = icmp eq i64 %3, 0
+  br i1 %.not18, label %4, label %7
 
-.preheader:                                       ; preds = %.lr.ph
-  %4 = and i64 %.0142238, 1047552
-  %.not18 = icmp eq i64 %4, 0
-  br i1 %.not18, label %.lr.ph, label %.preheader._crit_edge.loopexit, !llvm.loop !11
+4:                                                ; preds = %.preheader
+  %5 = lshr exact i64 %.01426, 10
+  %6 = add nuw nsw i32 %.01327, 1
+  %cond = icmp eq i32 %6, 4
+  br i1 %cond, label %.loopexit, label %.preheader, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %.0142238 = phi i64 [ %5, %.preheader ], [ %0, %.preheader.preheader ]
-  %indvars.iv37 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
-  %5 = lshr exact i64 %.0142238, 10
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv37, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.thread.loopexit, label %.preheader, !llvm.loop !11
+7:                                                ; preds = %.preheader
+  %8 = icmp eq i32 %.01327, 0
+  br i1 %8, label %9, label %.loopexit
 
-.preheader._crit_edge.loopexit:                   ; preds = %.preheader
-  %6 = getelementptr inbounds nuw i8, ptr @.str.38, i64 %indvars.iv.next
-  %7 = load i8, ptr %6, align 1
-  br label %.preheader._crit_edge
+9:                                                ; preds = %7
+  %10 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.39, i64 noundef %.01426) #21
+  br label %15
 
-.preheader._crit_edge:                            ; preds = %.preheader._crit_edge.loopexit, %.preheader.preheader
-  %.lcssa = phi i8 [ 77, %.preheader.preheader ], [ %7, %.preheader._crit_edge.loopexit ]
-  %.01422.lcssa = phi i64 [ %0, %.preheader.preheader ], [ %5, %.preheader._crit_edge.loopexit ]
-  %8 = icmp eq i8 %.lcssa, 77
-  br i1 %8, label %9, label %.thread
-
-9:                                                ; preds = %.preheader._crit_edge
-  %10 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.39, i64 noundef %.01422.lcssa) #21
-  br label %16
-
-.thread.loopexit:                                 ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr @.str.38, i64 %indvars.iv.next
+.loopexit:                                        ; preds = %4, %7
+  %.01422 = phi i64 [ %.01426, %7 ], [ %5, %4 ]
+  %.pn.in = phi i32 [ %.01327, %7 ], [ 4, %4 ]
+  %.pn = zext nneg i32 %.pn.in to i64
+  %11 = getelementptr inbounds nuw i8, ptr @.str.38, i64 %.pn
   %12 = load i8, ptr %11, align 1
-  br label %.thread
+  %13 = sext i8 %12 to i32
+  %14 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.40, i64 noundef %.01422, i32 noundef %13) #21
+  br label %15
 
-.thread:                                          ; preds = %.thread.loopexit, %.preheader._crit_edge
-  %.01421 = phi i64 [ %.01422.lcssa, %.preheader._crit_edge ], [ %5, %.thread.loopexit ]
-  %13 = phi i8 [ %.lcssa, %.preheader._crit_edge ], [ %12, %.thread.loopexit ]
-  %14 = sext i8 %13 to i32
-  %15 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.40, i64 noundef %.01421, i32 noundef %14) #21
-  br label %16
-
-16:                                               ; preds = %1, %.thread, %9
-  %.0 = phi ptr [ %10, %9 ], [ %15, %.thread ], [ null, %1 ]
+15:                                               ; preds = %1, %.loopexit, %9
+  %.0 = phi ptr [ %10, %9 ], [ %14, %.loopexit ], [ null, %1 ]
   ret ptr %.0
 }
 

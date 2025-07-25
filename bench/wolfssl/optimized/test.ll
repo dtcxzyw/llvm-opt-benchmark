@@ -1322,7 +1322,7 @@ select.unfold:                                    ; preds = %10
   %.not26.not = icmp eq ptr %12, null
   %spec.select = select i1 %.not26.not, ptr %11, ptr %12
   tail call void @wolfSSL_Free(ptr noundef nonnull %spec.select) #19
-  br i1 %.not26.not, label %.thread47, label %17
+  br i1 %.not26.not, label %.thread47, label %const_byte_ptr_test.exit
 
 .thread47:                                        ; preds = %10, %select.unfold
   %13 = tail call ptr @__errno_location() #21
@@ -1332,25 +1332,16 @@ select.unfold:                                    ; preds = %10
   %16 = add nsw i32 %narrow.neg, -1073760313
   br label %simple_mem_test.exit.thread
 
-17:                                               ; preds = %select.unfold
+const_byte_ptr_test.exit:                         ; preds = %select.unfold
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store volatile i32 -1, ptr %1, align 4, !tbaa !22
   store volatile i32 0, ptr %1, align 4, !tbaa !22
   %.0..0..0..0..0..0..i = load volatile i32, ptr %1, align 4, !tbaa !22
-  %18 = icmp eq i32 %.0..0..0..0..0..0..i, 0
+  %17 = icmp ne i32 %.0..0..0..0..0..0..i, 0
   %.0..0..0..0..0..0.1.i = load volatile i32, ptr %1, align 4, !tbaa !22
-  br i1 %18, label %19, label %const_byte_ptr_test.exit
-
-19:                                               ; preds = %17
-  %20 = zext i32 %.0..0..0..0..0..0.1.i to i64
-  %21 = getelementptr inbounds nuw i8, ptr @const_byte_array, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !19
-  %23 = icmp ne i8 %22, 65
-  %24 = zext i1 %23 to i32
-  br label %const_byte_ptr_test.exit
-
-const_byte_ptr_test.exit:                         ; preds = %17, %19
-  %.0.i34 = phi i32 [ %24, %19 ], [ 1, %17 ]
+  %18 = icmp ne i32 %.0..0..0..0..0..0.1.i, 0
+  %narrow = select i1 %17, i1 true, i1 %18
+  %.0.i34 = zext i1 %narrow to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   br label %simple_mem_test.exit.thread
 

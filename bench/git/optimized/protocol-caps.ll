@@ -61,30 +61,26 @@ define dso_local noundef i32 @cap_object_info(ptr noundef %0, ptr noundef %1) lo
   %scevgep.i.i = getelementptr i8, ptr %14, i64 4
   br label %19
 
-19:                                               ; preds = %21, %18
-  %.07.i.i = phi ptr [ %14, %18 ], [ %22, %21 ]
-  %.06.idx.i.i = phi i64 [ 0, %18 ], [ %.06.add.i.i, %21 ]
-  %.06.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.06.idx.i.i
-  %20 = load i8, ptr %.06.ptr.i.i, align 1, !tbaa !16
+19:                                               ; preds = %20, %18
+  %.07.i.i = phi ptr [ %14, %18 ], [ %22, %20 ]
+  %.06.idx.i.i = phi i64 [ 0, %18 ], [ %.06.add.i.i, %20 ]
   %exitcond.i.i = icmp eq i64 %.06.idx.i.i, 4
-  br i1 %exitcond.i.i, label %skip_prefix.exit.i, label %21
+  br i1 %exitcond.i.i, label %parse_oid.exit, label %20
 
-21:                                               ; preds = %19
+20:                                               ; preds = %19
+  %.06.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.06.idx.i.i
+  %21 = load i8, ptr %.06.ptr.i.i, align 1, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
   %23 = load i8, ptr %.07.i.i, align 1, !tbaa !16
   %.06.add.i.i = add nuw nsw i64 %.06.idx.i.i, 1
-  %24 = icmp eq i8 %23, %20
-  br i1 %24, label %19, label %skip_prefix.exit.i, !llvm.loop !17
+  %24 = icmp eq i8 %23, %21
+  br i1 %24, label %19, label %26, !llvm.loop !17
 
-skip_prefix.exit.i:                               ; preds = %21, %19
-  %.not.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i, label %parse_oid.exit, label %26
-
-parse_oid.exit:                                   ; preds = %skip_prefix.exit.i
+parse_oid.exit:                                   ; preds = %19
   %25 = call ptr @string_list_append(ptr noundef nonnull %7, ptr noundef %scevgep.i.i) #9
   br label %.backedge
 
-26:                                               ; preds = %skip_prefix.exit.i
+26:                                               ; preds = %20
   call void (ptr, ptr, ...) @packet_writer_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull %14) #9
   br label %.backedge
 

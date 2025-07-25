@@ -3358,66 +3358,64 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseS
 62:                                               ; preds = %60
   %63 = load i8, ptr %54, align 1, !tbaa !4
   %.not1.i.i.i = icmp eq i8 %63, 0
-  br i1 %.not1.i.i.i, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not1.i.i.i, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %62, %68
-  %64 = phi i8 [ %71, %68 ], [ %63, %62 ]
-  %.02.i.i.i = phi i64 [ %69, %68 ], [ 0, %62 ]
-  %65 = getelementptr inbounds nuw i8, ptr @_ZZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEmE11anon_prefix, i64 %.02.i.i.i
-  %66 = load i8, ptr %65, align 1, !tbaa !4
-  %67 = icmp eq i8 %64, %66
-  br i1 %67, label %68, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i
+64:                                               ; preds = %.lr.ph.i.i.i
+  %65 = add nuw nsw i64 %.02.i.i.i, 1
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 %65
+  %67 = load i8, ptr %66, align 1, !tbaa !4
+  %.not.i.i.i = icmp eq i8 %67, 0
+  %.not12.i.i.i = icmp eq i64 %65, 11
+  %or.cond.i.i.i = or i1 %.not12.i.i.i, %.not.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i, label %.lr.ph.i.i.i, !llvm.loop !44
 
-68:                                               ; preds = %.lr.ph.i.i.i
-  %69 = add i64 %.02.i.i.i, 1
-  %70 = getelementptr inbounds nuw i8, ptr %54, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !4
-  %.not.i.i.i = icmp eq i8 %71, 0
-  br i1 %.not.i.i.i, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i, label %.lr.ph.i.i.i, !llvm.loop !44
+.lr.ph.i.i.i:                                     ; preds = %62, %64
+  %68 = phi i8 [ %67, %64 ], [ %63, %62 ]
+  %.02.i.i.i = phi i64 [ %65, %64 ], [ 0, %62 ]
+  %69 = getelementptr inbounds nuw i8, ptr @_ZZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEmE11anon_prefix, i64 %.02.i.i.i
+  %70 = load i8, ptr %69, align 1, !tbaa !4
+  %71 = icmp eq i8 %68, %70
+  br i1 %71, label %64, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i
 
-_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i: ; preds = %68, %.lr.ph.i.i.i, %62
-  %.0.lcssa.i.i.i = phi i64 [ 0, %62 ], [ %69, %68 ], [ %.02.i.i.i, %.lr.ph.i.i.i ]
-  %72 = getelementptr inbounds nuw i8, ptr @_ZZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEmE11anon_prefix, i64 %.0.lcssa.i.i.i
-  %73 = load i8, ptr %72, align 1, !tbaa !4
-  %74 = icmp eq i8 %73, 0
-  br i1 %74, label %75, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i
+_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i: ; preds = %64
+  br i1 %.not12.i.i.i, label %72, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i
 
-75:                                               ; preds = %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %77 = load i32, ptr %76, align 4
-  %.not.i20.i = icmp sgt i32 %77, -1
-  br i1 %.not.i20.i, label %79, label %78
+72:                                               ; preds = %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %74 = load i32, ptr %73, align 4
+  %.not.i20.i = icmp sgt i32 %74, -1
+  br i1 %.not.i20.i, label %76, label %75
 
-78:                                               ; preds = %75
+75:                                               ; preds = %72
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i64 noundef 21)
-  br label %79
+  br label %76
 
-_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i: ; preds = %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i, %60, %52
+_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i: ; preds = %.lr.ph.i.i.i, %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i, %62, %60, %52
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef %54, i64 noundef range(i64 -2147483648, 2147483648) %49)
-  br label %79
+  br label %76
 
-79:                                               ; preds = %75, %78, %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i
-  %80 = load i32, ptr %11, align 4, !tbaa !16
-  %81 = add i32 %80, %spec.select.i
-  store i32 %81, ptr %11, align 4, !tbaa !16
+76:                                               ; preds = %72, %75, %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i
+  %77 = load i32, ptr %11, align 4, !tbaa !16
+  %78 = add i32 %77, %spec.select.i
+  store i32 %78, ptr %11, align 4, !tbaa !16
   %.pre.i10 = load i32, ptr %3, align 4, !tbaa !17
-  %82 = add nsw i32 %.pre.i10, -2
-  br label %83
+  %79 = add nsw i32 %.pre.i10, -2
+  br label %80
 
 .thread:                                          ; preds = %.lr.ph.i.i, %42, %._crit_edge44.i, %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  br label %83
+  br label %80
 
-83:                                               ; preds = %79, %.thread
-  %84 = phi i32 [ %4, %.thread ], [ %82, %79 ]
-  %.1 = phi i1 [ false, %.thread ], [ true, %79 ]
+80:                                               ; preds = %76, %.thread
+  %81 = phi i32 [ %4, %.thread ], [ %79, %76 ]
+  %.1 = phi i1 [ false, %.thread ], [ true, %76 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %83
-  %85 = phi i32 [ %84, %83 ], [ %4, %1 ]
-  %.0 = phi i1 [ %.1, %83 ], [ false, %1 ]
-  store i32 %85, ptr %3, align 4, !tbaa !17
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %80
+  %82 = phi i32 [ %81, %80 ], [ %4, %1 ]
+  %.0 = phi i1 [ %.1, %80 ], [ false, %1 ]
+  store i32 %82, ptr %3, align 4, !tbaa !17
   ret i1 %.0
 }
 
@@ -10766,28 +10764,27 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseL
   %12 = getelementptr inbounds i8, ptr %.val14, i64 %11
   br label %13
 
-13:                                               ; preds = %.preheader, %17
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
-  %14 = phi i8 [ 95, %.preheader ], [ %19, %17 ]
+13:                                               ; preds = %.preheader, %18
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %18 ]
+  %14 = getelementptr inbounds nuw i8, ptr @.str.50, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !4
-  %.not12 = icmp eq i8 %16, %14
-  br i1 %.not12, label %17, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
+  %17 = load i8, ptr %14, align 1, !tbaa !4
+  %.not12 = icmp eq i8 %16, %17
+  br i1 %.not12, label %18, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-17:                                               ; preds = %13
+18:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw i8, ptr @.str.50, i64 %indvars.iv.next
-  %19 = load i8, ptr %18, align 1, !tbaa !4
-  %exitcond = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond, label %20, label %13, !llvm.loop !53
+  %.not = icmp eq i64 %indvars.iv.next, 11
+  br i1 %.not, label %19, label %13, !llvm.loop !53
 
-20:                                               ; preds = %17
-  %21 = add nsw i32 %.val15, 11
-  store i32 %21, ptr %10, align 4, !tbaa !16
+19:                                               ; preds = %18
+  %20 = add nsw i32 %.val15, 11
+  store i32 %20, ptr %10, align 4, !tbaa !16
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %13, %1, %20
-  %.011 = phi i1 [ true, %20 ], [ false, %1 ], [ false, %13 ]
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %13, %1, %19
+  %.011 = phi i1 [ true, %19 ], [ false, %1 ], [ false, %13 ]
   store i32 %3, ptr %2, align 4, !tbaa !17
   ret i1 %.011
 }

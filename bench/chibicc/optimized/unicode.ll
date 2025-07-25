@@ -176,7 +176,7 @@ define dso_local noundef zeroext i1 @is_ident1(i32 noundef %0) local_unnamed_add
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %5 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.next.i
   %6 = load i32, ptr %5, align 8, !tbaa !15
-  %.not.not.i = icmp eq i32 %6, -1
+  %.not.not.i = icmp eq i64 %indvars.iv.next.i, 106
   br i1 %.not.not.i, label %in_range.exit, label %.lr.ph.i, !llvm.loop !17
 
 in_range.exit:                                    ; preds = %2, %4
@@ -205,7 +205,7 @@ define dso_local noundef zeroext i1 @is_ident2(i32 noundef %0) local_unnamed_add
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %5 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.next.i.i
   %6 = load i32, ptr %5, align 8, !tbaa !15
-  %.not.not.i.i = icmp eq i32 %6, -1
+  %.not.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 106
   br i1 %.not.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !17
 
 .lr.ph.i:                                         ; preds = %4, %10
@@ -224,7 +224,7 @@ define dso_local noundef zeroext i1 @is_ident2(i32 noundef %0) local_unnamed_add
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %11 = getelementptr inbounds nuw i32, ptr @is_ident2.range, i64 %indvars.iv.next.i
   %12 = load i32, ptr %11, align 8, !tbaa !15
-  %.not.not.i = icmp eq i32 %12, -1
+  %.not.not.i = icmp eq i64 %indvars.iv.next.i, 12
   br i1 %.not.not.i, label %is_ident1.exit, label %.lr.ph.i, !llvm.loop !17
 
 is_ident1.exit:                                   ; preds = %2, %10, %8
@@ -320,7 +320,7 @@ decode_utf8.exit:                                 ; preds = %8, %19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %33 = getelementptr inbounds nuw i32, ptr @char_width.range1, i64 %indvars.iv.next.i.i
   %34 = load i32, ptr %33, align 8, !tbaa !15
-  %.not.not.i.i = icmp eq i32 %34, -1
+  %.not.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 288
   br i1 %.not.not.i.i, label %.lr.ph.i5.i, label %.lr.ph.i.i, !llvm.loop !17
 
 .lr.ph.i5.i:                                      ; preds = %32, %38
@@ -339,7 +339,7 @@ decode_utf8.exit:                                 ; preds = %8, %19
   %indvars.iv.next.i11.i = add nuw nsw i64 %indvars.iv.i6.i, 2
   %39 = getelementptr inbounds nuw i32, ptr @char_width.range2, i64 %indvars.iv.next.i11.i
   %40 = load i32, ptr %39, align 8, !tbaa !15
-  %.not.not.i12.i = icmp eq i32 %40, -1
+  %.not.not.i12.i = icmp eq i64 %indvars.iv.next.i11.i, 28
   br i1 %.not.not.i12.i, label %char_width.exit, label %.lr.ph.i5.i, !llvm.loop !17
 
 char_width.exit:                                  ; preds = %30, %36, %38
