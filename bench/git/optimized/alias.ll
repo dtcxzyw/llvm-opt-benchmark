@@ -38,13 +38,13 @@ define internal i32 @config_alias_cb(ptr noundef %0, ptr noundef %1, ptr readnon
   %scevgep.i = getelementptr i8, ptr %0, i64 6
   br label %5
 
-5:                                                ; preds = %6, %4
+5:                                                ; preds = %7, %4
   %.07.i = phi ptr [ %0, %4 ], [ %8, %6 ]
   %.06.idx.i = phi i64 [ 0, %4 ], [ %.06.add.i, %6 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 6
-  br i1 %exitcond.i, label %11, label %6
+  br i1 %exitcond.i, label %skip_prefix.exit, label %7
 
-6:                                                ; preds = %5
+7:                                                ; preds = %5
   %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str, i64 %.06.idx.i
   %7 = load i8, ptr %.06.ptr.i, align 1, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
@@ -53,7 +53,7 @@ define internal i32 @config_alias_cb(ptr noundef %0, ptr noundef %1, ptr readnon
   %10 = icmp eq i8 %9, %7
   br i1 %10, label %5, label %skip_prefix.exit, !llvm.loop !15
 
-11:                                               ; preds = %5
+skip_prefix.exit:                                 ; preds = %5
   %12 = load ptr, ptr %3, align 8, !tbaa !4
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %19, label %13
@@ -61,7 +61,7 @@ define internal i32 @config_alias_cb(ptr noundef %0, ptr noundef %1, ptr readnon
 13:                                               ; preds = %11
   %14 = tail call i32 @strcasecmp(ptr noundef %scevgep.i, ptr noundef nonnull %12) #10
   %.not14 = icmp eq i32 %14, 0
-  br i1 %.not14, label %15, label %skip_prefix.exit
+  br i1 %.not14, label %15, label %24
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -69,19 +69,19 @@ define internal i32 @config_alias_cb(ptr noundef %0, ptr noundef %1, ptr readnon
   tail call void @free(ptr noundef %17) #9
   store ptr null, ptr %16, align 8, !tbaa !13
   %18 = tail call i32 @git_config_string(ptr noundef nonnull %16, ptr noundef %0, ptr noundef %1) #9
-  br label %skip_prefix.exit
+  br label %24
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %.not13 = icmp eq ptr %21, null
-  br i1 %.not13, label %skip_prefix.exit, label %22
+  br i1 %.not13, label %24, label %22
 
 22:                                               ; preds = %19
   %23 = tail call ptr @string_list_append(ptr noundef nonnull %21, ptr noundef %scevgep.i) #9
-  br label %skip_prefix.exit
+  br label %24
 
-skip_prefix.exit:                                 ; preds = %6, %13, %22, %19, %15
+24:                                               ; preds = %6, %13, %22, %19, %15
   %.0 = phi i32 [ %18, %15 ], [ 0, %19 ], [ 0, %22 ], [ 0, %13 ], [ 0, %6 ]
   ret i32 %.0
 }

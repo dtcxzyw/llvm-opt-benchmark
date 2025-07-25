@@ -1384,18 +1384,18 @@ define void @ff_cavs_modify_mb_i(ptr noundef captures(none) initializes((1124, 1
   %.not24 = icmp eq i64 %35, 0
   br i1 %.not24, label %modify_pred.exit, label %36
 
-36:                                               ; preds = %27
+35:                                               ; preds = %27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.1) #14
   store i32 0, ptr %28, align 4, !tbaa !56
   br label %modify_pred.exit
 
-modify_pred.exit:                                 ; preds = %27, %36
-  %37 = load i32, ptr %9, align 4, !tbaa !56
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr @left_modifier_l, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !24
-  %41 = sext i8 %40 to i32
-  store i32 %41, ptr %9, align 4, !tbaa !56
+modify_pred.exit:                                 ; preds = %27, %35
+  %36 = load i32, ptr %9, align 4, !tbaa !56
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr @left_modifier_l, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !24
+  %40 = sext i8 %39 to i32
+  store i32 %40, ptr %9, align 4, !tbaa !56
   %42 = shl nuw i64 1, %38
   %43 = and i64 %42, 26
   %.not25 = icmp eq i64 %43, 0
@@ -1407,12 +1407,12 @@ modify_pred.exit:                                 ; preds = %27, %36
   br label %modify_pred.exit19
 
 modify_pred.exit19:                               ; preds = %modify_pred.exit, %44
-  %45 = load i32, ptr %1, align 4, !tbaa !56
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr @left_modifier_c, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !24
-  %49 = sext i8 %48 to i32
-  store i32 %49, ptr %1, align 4, !tbaa !56
+  %43 = load i32, ptr %1, align 4, !tbaa !56
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i8, ptr @left_modifier_c, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !24
+  %47 = sext i8 %46 to i32
+  store i32 %47, ptr %1, align 4, !tbaa !56
   %50 = and i32 %45, -3
   %51 = icmp eq i32 %50, 1
   br i1 %51, label %52, label %modify_pred.exit20
@@ -1423,19 +1423,19 @@ modify_pred.exit19:                               ; preds = %modify_pred.exit, %
   br label %modify_pred.exit20
 
 modify_pred.exit20:                               ; preds = %52, %modify_pred.exit19, %2
-  %53 = load i32, ptr %24, align 4, !tbaa !43
-  %54 = and i32 %53, 2
-  %.not18 = icmp eq i32 %54, 0
-  br i1 %.not18, label %55, label %modify_pred.exit23
+  %50 = load i32, ptr %24, align 4, !tbaa !43
+  %51 = and i32 %50, 2
+  %.not18 = icmp eq i32 %51, 0
+  br i1 %.not18, label %52, label %modify_pred.exit23
 
-55:                                               ; preds = %modify_pred.exit20
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %57 = load i32, ptr %56, align 4, !tbaa !56
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr @top_modifier_l, i64 %58
-  %60 = load i8, ptr %59, align 1, !tbaa !24
-  %61 = sext i8 %60 to i32
-  store i32 %61, ptr %56, align 4, !tbaa !56
+52:                                               ; preds = %modify_pred.exit20
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %54 = load i32, ptr %53, align 4, !tbaa !56
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i8, ptr @top_modifier_l, i64 %55
+  %57 = load i8, ptr %56, align 1, !tbaa !24
+  %58 = sext i8 %57 to i32
+  store i32 %58, ptr %53, align 4, !tbaa !56
   %62 = shl nuw i64 1, %58
   %63 = and i64 %62, 25
   %.not26 = icmp eq i64 %63, 0
@@ -1443,16 +1443,16 @@ modify_pred.exit20:                               ; preds = %52, %modify_pred.ex
 
 64:                                               ; preds = %55
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.1) #14
-  store i32 0, ptr %56, align 4, !tbaa !56
+  store i32 0, ptr %53, align 4, !tbaa !56
   br label %modify_pred.exit21
 
-modify_pred.exit21:                               ; preds = %55, %64
-  %65 = load i32, ptr %3, align 4, !tbaa !56
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr @top_modifier_l, i64 %66
-  %68 = load i8, ptr %67, align 1, !tbaa !24
-  %69 = sext i8 %68 to i32
-  store i32 %69, ptr %3, align 4, !tbaa !56
+modify_pred.exit21:                               ; preds = %52, %64
+  %61 = load i32, ptr %3, align 4, !tbaa !56
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds i8, ptr @top_modifier_l, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !24
+  %65 = sext i8 %64 to i32
+  store i32 %65, ptr %3, align 4, !tbaa !56
   %70 = shl nuw i64 1, %66
   %71 = and i64 %70, 25
   %.not27 = icmp eq i64 %71, 0
@@ -1464,12 +1464,12 @@ modify_pred.exit21:                               ; preds = %55, %64
   br label %modify_pred.exit22
 
 modify_pred.exit22:                               ; preds = %modify_pred.exit21, %72
-  %73 = load i32, ptr %1, align 4, !tbaa !56
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr @top_modifier_c, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !24
-  %77 = sext i8 %76 to i32
-  store i32 %77, ptr %1, align 4, !tbaa !56
+  %68 = load i32, ptr %1, align 4, !tbaa !56
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i8, ptr @top_modifier_c, i64 %69
+  %71 = load i8, ptr %70, align 1, !tbaa !24
+  %72 = sext i8 %71 to i32
+  store i32 %72, ptr %1, align 4, !tbaa !56
   %78 = and i32 %73, -2
   %79 = icmp eq i32 %78, 2
   br i1 %79, label %80, label %modify_pred.exit23

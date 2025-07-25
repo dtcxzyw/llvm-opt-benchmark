@@ -3887,7 +3887,7 @@ _Z4trimPKc.exit309:                               ; preds = %land.rhs5.i.i303, %
   %or.cond = and i1 %cmp.i.i317, %cmp.i312
   br i1 %or.cond, label %land.rhs.i.i328.preheader, label %if.then76
 
-land.rhs.i.i328.preheader:                        ; preds = %_Z4trimPKc.exit309
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i315: ; preds = %_Z4trimPKc.exit309
   %call2.i.i332 = tail call i32 @isspace(i32 noundef 97) #33
   %tobool.not.i.i333 = icmp ne i32 %call2.i.i332, 0
   %spec.select398 = select i1 %tobool.not.i.i283, i64 1, i64 4

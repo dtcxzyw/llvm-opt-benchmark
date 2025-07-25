@@ -927,16 +927,16 @@ declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 nound
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @mbytes_to_str(i64 noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq i64 %0, -2
-  br i1 %2, label %15, label %.preheader
+  br i1 %2, label %16, label %.preheader
 
-.preheader:                                       ; preds = %1, %4
+.thread.loopexit:                                 ; preds = %1, %4
   %.01327 = phi i32 [ %6, %4 ], [ 0, %1 ]
   %.01426 = phi i64 [ %5, %4 ], [ %0, %1 ]
   %3 = and i64 %.01426, 1023
   %.not18 = icmp eq i64 %3, 0
   br i1 %.not18, label %4, label %7
 
-4:                                                ; preds = %.preheader
+.thread:                                          ; preds = %.thread.loopexit
   %5 = lshr exact i64 %.01426, 10
   %6 = add nuw nsw i32 %.01327, 1
   %cond = icmp eq i32 %6, 4
@@ -960,7 +960,7 @@ define dso_local ptr @mbytes_to_str(i64 noundef %0) local_unnamed_addr #2 {
   %14 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.40, i64 noundef %.01422, i32 noundef %13) #21
   br label %15
 
-15:                                               ; preds = %1, %.loopexit, %9
+16:                                               ; preds = %1, %.loopexit, %9
   %.0 = phi ptr [ %10, %9 ], [ %14, %.loopexit ], [ null, %1 ]
   ret ptr %.0
 }

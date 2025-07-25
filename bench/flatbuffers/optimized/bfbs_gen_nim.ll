@@ -15396,7 +15396,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 5, ptr %5, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %6, align 1, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i5:                                 ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15406,7 +15406,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 5, ptr %8, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %9, align 1, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i9:                                 ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15416,7 +15416,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 4, ptr %11, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %12, align 4, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i13:                                ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15426,7 +15426,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 4, ptr %14, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %15, align 4, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i17:                                ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15436,7 +15436,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 5, ptr %17, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %18, align 1, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i21:                                ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15446,7 +15446,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 5, ptr %20, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %21, align 1, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i25:                                ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15456,7 +15456,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 6, ptr %23, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 0, ptr %24, align 2, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i29:                                ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15466,7 +15466,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 5, ptr %26, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %27, align 1, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i33:                                ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15476,7 +15476,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 6, ptr %29, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 0, ptr %30, align 2, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i37:                                ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15486,7 +15486,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 5, ptr %32, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %33, align 1, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i41:                                ; preds = %2
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15496,7 +15496,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 6, ptr %35, align 8, !tbaa !16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 0, ptr %36, align 2, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i45:                                ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15506,7 +15506,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 7, ptr %38, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %39, align 1, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i49:                                ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15516,7 +15516,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 7, ptr %41, align 8, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %42, align 1, !tbaa !18
-  br label %64
+  br label %69
 
 ._crit_edge.i.i53:                                ; preds = %2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15526,62 +15526,62 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
   store i64 6, ptr %44, align 8, !tbaa !16
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 0, ptr %45, align 2, !tbaa !18
-  br label %64
+  br label %69
 
 46:                                               ; preds = %2
   %47 = icmp ugt i32 %1, 19
   br i1 %47, label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread, label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit
 
 _ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit: ; preds = %46
-  %48 = zext nneg i32 %1 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr @_ZZN10reflection17EnumNamesBaseTypeEvE5names, i64 %48
-  %50 = load ptr, ptr %49, align 8, !tbaa !329
+  %49 = zext nneg i32 %1 to i64
+  %50 = getelementptr inbounds nuw ptr, ptr @_ZZN10reflection17EnumNamesBaseTypeEvE5names, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !329
   br label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread
 
-_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread: ; preds = %46, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit
+_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread:; preds = %46, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit
   %.0.i16 = phi ptr [ %50, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit ], [ @.str.20, %46 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %storemerge, ptr %0, align 8, !tbaa !13
-  %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i16) #27
+  %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i16) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
   store i64 %51, ptr %3, align 8, !tbaa !38
-  %52 = icmp ugt i64 %51, 15
-  br i1 %52, label %.noexc.i58, label %._crit_edge.i.i57
+  %57 = icmp ugt i64 %51, 15
+  br i1 %57, label %.noexc.i58, label %._crit_edge.i.i57
 
 .noexc.i58:                                       ; preds = %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread
-  %53 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %53, ptr %0, align 8, !tbaa !37
-  %54 = load i64, ptr %3, align 8, !tbaa !38
-  store i64 %54, ptr %storemerge, align 8, !tbaa !18
+  %58 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %58, ptr %0, align 8, !tbaa !37
+  %59 = load i64, ptr %3, align 8, !tbaa !38
+  store i64 %59, ptr %storemerge, align 8, !tbaa !18
   br label %._crit_edge.i.i57
 
 ._crit_edge.i.i57:                                ; preds = %.noexc.i58, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread
-  %55 = phi ptr [ %53, %.noexc.i58 ], [ %storemerge, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread ]
+  %60 = phi ptr [ %58, %.noexc.i58 ], [ %storemerge, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread ]
   switch i64 %51, label %58 [
-    i64 1, label %56
-    i64 0, label %59
+    i64 1, label %61
+    i64 0, label %64
   ]
 
-56:                                               ; preds = %._crit_edge.i.i57
-  %57 = load i8, ptr %.0.i16, align 1, !tbaa !18
-  store i8 %57, ptr %55, align 1, !tbaa !18
-  br label %59
-
-58:                                               ; preds = %._crit_edge.i.i57
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %.0.i16, i64 %51, i1 false)
-  br label %59
-
-59:                                               ; preds = %58, %56, %._crit_edge.i.i57
-  %60 = load i64, ptr %3, align 8, !tbaa !38
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %60, ptr %61, align 8, !tbaa !16
-  %62 = load ptr, ptr %0, align 8, !tbaa !37
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %60
-  store i8 0, ptr %63, align 1, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
+61:                                               ; preds = %._crit_edge.i.i57
+  %62 = load i8, ptr %.0.i16, align 1, !tbaa !18
+  store i8 %62, ptr %60, align 1, !tbaa !18
   br label %64
 
-64:                                               ; preds = %59, %._crit_edge.i.i53, %._crit_edge.i.i49, %._crit_edge.i.i45, %._crit_edge.i.i41, %._crit_edge.i.i37, %._crit_edge.i.i33, %._crit_edge.i.i29, %._crit_edge.i.i25, %._crit_edge.i.i21, %._crit_edge.i.i17, %._crit_edge.i.i13, %._crit_edge.i.i9, %._crit_edge.i.i5, %._crit_edge.i.i
+63:                                               ; preds = %._crit_edge.i.i57
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr nonnull align 1 %.0.i16, i64 %51, i1 false)
+  br label %64
+
+64:                                               ; preds = %63, %61, %._crit_edge.i.i57
+  %65 = load i64, ptr %3, align 8, !tbaa !38
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %65, ptr %66, align 8, !tbaa !16
+  %67 = load ptr, ptr %0, align 8, !tbaa !37
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %65
+  store i8 0, ptr %68, align 1, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
+  br label %69
+
+69:                                               ; preds = %64, %._crit_edge.i.i53, %._crit_edge.i.i49, %._crit_edge.i.i45, %._crit_edge.i.i41, %._crit_edge.i.i37, %._crit_edge.i.i33, %._crit_edge.i.i29, %._crit_edge.i.i25, %._crit_edge.i.i21, %._crit_edge.i.i17, %._crit_edge.i.i13, %._crit_edge.i.i9, %._crit_edge.i.i5, %._crit_edge.i.i
   ret void
 }
 

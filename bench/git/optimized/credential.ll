@@ -2157,13 +2157,13 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
   %scevgep.i = getelementptr i8, ptr %0, i64 11
   br label %5
 
-5:                                                ; preds = %6, %4
+5:                                                ; preds = %7, %4
   %.07.i = phi ptr [ %0, %4 ], [ %8, %6 ]
   %.06.idx.i = phi i64 [ 0, %4 ], [ %.06.add.i, %6 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 11
-  br i1 %exitcond.i, label %11, label %6
+  br i1 %exitcond.i, label %skip_prefix.exit, label %7
 
-6:                                                ; preds = %5
+7:                                                ; preds = %5
   %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.35, i64 %.06.idx.i
   %7 = load i8, ptr %.06.ptr.i, align 1, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
@@ -2172,13 +2172,13 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
   %10 = icmp eq i8 %9, %7
   br i1 %10, label %5, label %skip_prefix.exit, !llvm.loop !61
 
-11:                                               ; preds = %5
+skip_prefix.exit:                                 ; preds = %5
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %11
   %13 = tail call i32 @config_error_nonbool(ptr noundef %0) #19
-  br label %skip_prefix.exit
+  br label %64
 
 14:                                               ; preds = %11
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(7) @.str.36) #20
@@ -2192,11 +2192,11 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
 
 18:                                               ; preds = %16
   %19 = tail call ptr @string_list_append(ptr noundef %3, ptr noundef nonnull %1) #19
-  br label %skip_prefix.exit
+  br label %64
 
 20:                                               ; preds = %16
   tail call void @string_list_clear(ptr noundef %3, i32 noundef 0) #19
-  br label %skip_prefix.exit
+  br label %64
 
 21:                                               ; preds = %14
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(9) @.str.4) #20
@@ -2208,7 +2208,7 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
   %25 = load i16, ptr %24, align 8
   %26 = and i16 %25, 128
   %.not25 = icmp eq i16 %26, 0
-  br i1 %.not25, label %27, label %skip_prefix.exit
+  br i1 %.not25, label %27, label %64
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -2216,7 +2216,7 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
   tail call void @free(ptr noundef %29) #19
   %30 = tail call ptr @xstrdup(ptr noundef nonnull %1) #19
   store ptr %30, ptr %28, align 8, !tbaa !21
-  br label %skip_prefix.exit
+  br label %64
 
 31:                                               ; preds = %21
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(12) @.str.37) #20
@@ -2233,7 +2233,7 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
   %40 = and i16 %37, -65
   %41 = or disjoint i16 %39, %40
   store i16 %41, ptr %35, align 8
-  br label %skip_prefix.exit
+  br label %64
 
 42:                                               ; preds = %31
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(15) @.str.38) #20
@@ -2250,12 +2250,12 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
   %51 = and i16 %48, -257
   %52 = or disjoint i16 %50, %51
   store i16 %52, ptr %46, align 8
-  br label %skip_prefix.exit
+  br label %64
 
 53:                                               ; preds = %42
   %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(16) @.str.39) #20
   %.not28 = icmp eq i32 %54, 0
-  br i1 %.not28, label %55, label %skip_prefix.exit
+  br i1 %.not28, label %55, label %64
 
 55:                                               ; preds = %53
   %56 = tail call i32 @git_config_bool(ptr noundef %0, ptr noundef nonnull %1) #19
@@ -2267,9 +2267,9 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
   %62 = and i16 %59, -513
   %63 = or disjoint i16 %61, %62
   store i16 %63, ptr %57, align 8
-  br label %skip_prefix.exit
+  br label %64
 
-skip_prefix.exit:                                 ; preds = %6, %20, %18, %33, %53, %55, %44, %23, %27, %12
+64:                                               ; preds = %6, %20, %18, %33, %53, %55, %44, %23, %27, %12
   %.0 = phi i32 [ -1, %12 ], [ 0, %27 ], [ 0, %23 ], [ 0, %44 ], [ 0, %55 ], [ 0, %53 ], [ 0, %33 ], [ 0, %18 ], [ 0, %20 ], [ 0, %6 ]
   ret i32 %.0
 }

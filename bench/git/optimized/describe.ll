@@ -909,13 +909,13 @@ define internal noundef i32 @get_name(ptr noundef %0, ptr readnone captures(none
   %scevgep = getelementptr i8, ptr %0, i64 10
   br label %8
 
-8:                                                ; preds = %9, %5
+8:                                                ; preds = %10, %5
   %.07.i = phi ptr [ %0, %5 ], [ %11, %9 ]
   %.06.i.idx = phi i64 [ 0, %5 ], [ %.06.i.add, %9 ]
   %exitcond = icmp eq i64 %.06.i.idx, 10
-  br i1 %exitcond, label %skip_prefix.exit.thread.loopexit91, label %9
+  br i1 %exitcond, label %skip_prefix.exit.thread.loopexit91, label %10
 
-9:                                                ; preds = %8
+10:                                               ; preds = %8
   %.06.i.ptr = getelementptr inbounds nuw i8, ptr @.str.59, i64 %.06.i.idx
   %10 = load i8, ptr %.06.i.ptr, align 1, !tbaa !57
   %11 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
@@ -924,7 +924,7 @@ define internal noundef i32 @get_name(ptr noundef %0, ptr readnone captures(none
   %13 = icmp eq i8 %12, %10
   br i1 %13, label %8, label %skip_prefix.exit, !llvm.loop !58
 
-skip_prefix.exit:                                 ; preds = %9
+skip_prefix.exit:                                 ; preds = %10
   %14 = load i32, ptr @all, align 4, !tbaa !4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.critedge47, label %15
@@ -993,19 +993,19 @@ skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_p
   %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @exclude_patterns, i64 8), align 8, !tbaa !26
   %33 = getelementptr inbounds nuw %struct.string_list_item, ptr %31, i64 %32
   %34 = icmp ult ptr %30, %33
-  br i1 %34, label %.lr.ph115, label %.critedge
+  br i1 %34, label %.lr.ph114, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph115
-  %35 = getelementptr inbounds nuw i8, ptr %.02881114, i64 16
+.lr.ph:                                           ; preds = %.lr.ph114
+  %35 = getelementptr inbounds nuw i8, ptr %.02881113, i64 16
   %36 = load ptr, ptr @exclude_patterns, align 8, !tbaa !23
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @exclude_patterns, i64 8), align 8, !tbaa !26
   %38 = getelementptr inbounds nuw %struct.string_list_item, ptr %36, i64 %37
   %39 = icmp ult ptr %35, %38
-  br i1 %39, label %.lr.ph115, label %.critedge
+  br i1 %39, label %.lr.ph114, label %.critedge
 
-.lr.ph115:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02881114 = phi ptr [ %35, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %40 = load ptr, ptr %.02881114, align 8, !tbaa !27
+.lr.ph114:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02881113 = phi ptr [ %35, %.lr.ph ], [ %30, %.lr.ph.preheader ]
+  %40 = load ptr, ptr %.02881113, align 8, !tbaa !27
   %41 = tail call i32 @wildmatch(ptr noundef %40, ptr noundef %.060.ph, i32 noundef 0) #16
   %.not37 = icmp eq i32 %41, 0
   br i1 %.not37, label %.critedge47, label %.lr.ph
@@ -1025,24 +1025,24 @@ skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_p
   %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @patterns, i64 8), align 8, !tbaa !26
   %46 = getelementptr inbounds nuw %struct.string_list_item, ptr %44, i64 %45
   %47 = icmp ult ptr %43, %46
-  br i1 %47, label %.lr.ph117, label %.critedge47
+  br i1 %47, label %.lr.ph116, label %.critedge47
 
-.lr.ph85:                                         ; preds = %.lr.ph117
-  %48 = getelementptr inbounds nuw i8, ptr %.084116, i64 16
+.lr.ph85:                                         ; preds = %.lr.ph116
+  %48 = getelementptr inbounds nuw i8, ptr %.084115, i64 16
   %49 = load ptr, ptr @patterns, align 8, !tbaa !23
   %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @patterns, i64 8), align 8, !tbaa !26
   %51 = getelementptr inbounds nuw %struct.string_list_item, ptr %49, i64 %50
   %52 = icmp ult ptr %48, %51
-  br i1 %52, label %.lr.ph117, label %.critedge47
+  br i1 %52, label %.lr.ph116, label %.critedge47
 
-.lr.ph117:                                        ; preds = %.lr.ph85.preheader, %.lr.ph85
-  %.084116 = phi ptr [ %48, %.lr.ph85 ], [ %43, %.lr.ph85.preheader ]
-  %53 = load ptr, ptr %.084116, align 8, !tbaa !27
+.lr.ph116:                                        ; preds = %.lr.ph85.preheader, %.lr.ph85
+  %.084115 = phi ptr [ %48, %.lr.ph85 ], [ %43, %.lr.ph85.preheader ]
+  %53 = load ptr, ptr %.084115, align 8, !tbaa !27
   %54 = tail call i32 @wildmatch(ptr noundef %53, ptr noundef %.060.ph, i32 noundef 0) #16
   %.not40 = icmp eq i32 %54, 0
   br i1 %.not40, label %.critedge4, label %.lr.ph85
 
-.critedge4:                                       ; preds = %.lr.ph117, %15, %.critedge
+.critedge4:                                       ; preds = %.lr.ph116, %15, %.critedge
   %.not.i77 = phi i1 [ false, %15 ], [ %exitcond, %.critedge ], [ %exitcond, %.lr.ph117 ]
   %55 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %56 = call i32 @peel_iterated_oid(ptr noundef %55, ptr noundef %2, ptr noundef nonnull %7) #16
@@ -1179,7 +1179,7 @@ skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_p
   store ptr %117, ptr %115, align 8, !tbaa !72
   br label %.critedge47
 
-.critedge47:                                      ; preds = %25, %.lr.ph115, %.lr.ph85, %.lr.ph85.preheader, %42, %.thread.i, %91, %89, %86, %73, %skip_prefix.exit
+.critedge47:                                      ; preds = %25, %.lr.ph114, %.lr.ph85, %.lr.ph85.preheader, %42, %.thread.i, %91, %89, %86, %73, %skip_prefix.exit
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #16
   ret i32 0
 }

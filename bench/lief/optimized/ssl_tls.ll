@@ -5627,229 +5627,229 @@ define hidden void @mbedtls_ssl_config_init(ptr noundef writeonly captures(none)
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_config_defaults(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
 .preheader.i58.preheader:
-  %4 = alloca [256 x i8], align 16
+  %6 = alloca [256 x i8], align 16
   %5 = alloca [1 x i8], align 1
   br label %.preheader.i58
 
-.preheader.i58:                                   ; preds = %.preheader.i58.preheader, %._crit_edge.i68
-  %.022.i59 = phi i32 [ %.1.lcssa.i69, %._crit_edge.i68 ], [ 0, %.preheader.i58.preheader ]
+.preheader.i58:; preds = %.preheader.i58.preheader, %._crit_edge.i68
+  %.01521.i.ph = phi i32 [ %.1.lcssa.i69, %._crit_edge.i68 ], [ 0, %.preheader.i58.preheader ]
   %.01521.i60 = phi i64 [ %15, %._crit_edge.i68 ], [ 0, %.preheader.i58.preheader ]
   %.not25.i61 = icmp eq i64 %.01521.i60, 0
   br i1 %.not25.i61, label %._crit_edge.i68, label %.lr.ph.i62.preheader
 
 .lr.ph.i62.preheader:                             ; preds = %.preheader.i58
-  %6 = getelementptr inbounds nuw i16, ptr @ssl_preset_default_sig_algs, i64 %.01521.i60
-  %7 = load i16, ptr %6, align 2, !tbaa !101
-  %8 = zext i16 %7 to i32
+  %13 = getelementptr inbounds nuw i16, ptr @ssl_preset_default_sig_algs, i64 %.01521.i60
+  %14 = load i16, ptr %13, align 2, !tbaa !101
+  %15 = zext i16 %14 to i32
   br label %.lr.ph.i62
 
-.lr.ph.i62:                                       ; preds = %.lr.ph.i62.preheader, %13
+.lr.ph.i62:                                       ; preds = %.lr.ph.i62.preheader, %20
   %.119.i63 = phi i32 [ %.2.i66, %13 ], [ %.022.i59, %.lr.ph.i62.preheader ]
-  %.01418.i64 = phi i64 [ %14, %13 ], [ 0, %.lr.ph.i62.preheader ]
-  %9 = getelementptr inbounds nuw i16, ptr @ssl_preset_default_sig_algs, i64 %.01418.i64
-  %10 = load i16, ptr %9, align 2, !tbaa !101
-  %.not17.i65 = icmp eq i16 %7, %10
-  br i1 %.not17.i65, label %11, label %13
+  %.01418.i64 = phi i64 [ %21, %13 ], [ 0, %.lr.ph.i62.preheader ]
+  %16 = getelementptr inbounds nuw i16, ptr @ssl_preset_default_sig_algs, i64 %.01418.i64
+  %17 = load i16, ptr %16, align 2, !tbaa !101
+  %.not17.i65 = icmp eq i16 %14, %17
+  br i1 %.not17.i65, label %18, label %20
 
-11:                                               ; preds = %.lr.ph.i62
-  %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.158, i32 noundef %8, i64 noundef %.01418.i64, i64 noundef %.01521.i60)
-  br label %13
+18:                                               ; preds = %.lr.ph.i62
+  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.158, i32 noundef %15, i64 noundef %.01418.i64, i64 noundef %.01521.i60)
+  br label %20
 
-13:                                               ; preds = %11, %.lr.ph.i62
+20:                                               ; preds = %18, %.lr.ph.i62
   %.2.i66 = phi i32 [ %.119.i63, %.lr.ph.i62 ], [ -1, %11 ]
-  %14 = add nuw nsw i64 %.01418.i64, 1
-  %exitcond.not.i67 = icmp eq i64 %14, %.01521.i60
+  %21 = add nuw nsw i64 %.01418.i64, 1
+  %exitcond.not.i67 = icmp eq i64 %21, %.01521.i60
   br i1 %exitcond.not.i67, label %._crit_edge.i68, label %.lr.ph.i62, !llvm.loop !242
 
-._crit_edge.i68:                                  ; preds = %13, %.preheader.i58
+._crit_edge.i68:                                  ; preds = %20, %.preheader.i58
   %.1.lcssa.i69 = phi i32 [ %.022.i59, %.preheader.i58 ], [ %.2.i66, %13 ]
-  %15 = add nuw nsw i64 %.01521.i60, 1
-  %.not.i70 = icmp eq i64 %15, 9
-  br i1 %.not.i70, label %ssl_check_no_sig_alg_duplication.exit71, label %.preheader.i58, !llvm.loop !243
+  %22 = add nuw nsw i64 %.01521.i60, 1
+  %exitcond112 = icmp eq i64 %22, 9
+  br i1 %exitcond112, label %ssl_check_no_sig_alg_duplication.exit71, label %.preheader.i58, !llvm.loop !243
 
 ssl_check_no_sig_alg_duplication.exit71:          ; preds = %._crit_edge.i68
   %.not49 = icmp eq i32 %.1.lcssa.i69, 0
-  br i1 %.not49, label %17, label %16
+  br i1 %.not49, label %24, label %23
 
-16:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit71
+23:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit71
   %puts56 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %95
+  br label %102
 
-17:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit71
-  %18 = load i16, ptr @ssl_tls12_preset_suiteb_sig_algs, align 2, !tbaa !101
-  %.not20.i = icmp eq i16 %18, 0
+24:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit71
+  %25 = load i16, ptr @ssl_tls12_preset_suiteb_sig_algs, align 2, !tbaa !101
+  %.not20.i = icmp eq i16 %25, 0
   br i1 %.not20.i, label %ssl_check_no_sig_alg_duplication.exit85.thread, label %.preheader.i72
 
-.preheader.i72:                                   ; preds = %17, %._crit_edge.i82
+.preheader.i72:                                   ; preds = %24, %._crit_edge.i82
   %.022.i73 = phi i32 [ %.1.lcssa.i83, %._crit_edge.i82 ], [ 0, %17 ]
-  %.01521.i74 = phi i64 [ %28, %._crit_edge.i82 ], [ 0, %17 ]
-  %19 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_suiteb_sig_algs, i64 %.01521.i74
+  %.01521.i74 = phi i64 [ %35, %._crit_edge.i82 ], [ 0, %17 ]
+  %26 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_suiteb_sig_algs, i64 %.01521.i74
   %.not25.i75 = icmp eq i64 %.01521.i74, 0
   br i1 %.not25.i75, label %._crit_edge.i82, label %.lr.ph.i76
 
-.lr.ph.i76:                                       ; preds = %.preheader.i72, %26
+.lr.ph.i76:                                       ; preds = %.preheader.i72, %33
   %.119.i77 = phi i32 [ %.2.i80, %26 ], [ %.022.i73, %.preheader.i72 ]
-  %.01418.i78 = phi i64 [ %27, %26 ], [ 0, %.preheader.i72 ]
-  %20 = load i16, ptr %19, align 2, !tbaa !101
-  %21 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_suiteb_sig_algs, i64 %.01418.i78
-  %22 = load i16, ptr %21, align 2, !tbaa !101
-  %.not17.i79 = icmp eq i16 %20, %22
-  br i1 %.not17.i79, label %23, label %26
+  %.01418.i78 = phi i64 [ %34, %26 ], [ 0, %.preheader.i72 ]
+  %27 = load i16, ptr %26, align 2, !tbaa !101
+  %28 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_suiteb_sig_algs, i64 %.01418.i78
+  %29 = load i16, ptr %28, align 2, !tbaa !101
+  %.not17.i79 = icmp eq i16 %27, %29
+  br i1 %.not17.i79, label %30, label %33
 
-23:                                               ; preds = %.lr.ph.i76
-  %24 = zext i16 %20 to i32
-  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.158, i32 noundef %24, i64 noundef %.01418.i78, i64 noundef %.01521.i74)
-  br label %26
+30:                                               ; preds = %.lr.ph.i76
+  %31 = zext i16 %27 to i32
+  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.158, i32 noundef %31, i64 noundef %.01418.i78, i64 noundef %.01521.i74)
+  br label %33
 
-26:                                               ; preds = %23, %.lr.ph.i76
+33:                                               ; preds = %30, %.lr.ph.i76
   %.2.i80 = phi i32 [ %.119.i77, %.lr.ph.i76 ], [ -1, %23 ]
-  %27 = add nuw i64 %.01418.i78, 1
-  %exitcond.not.i81 = icmp eq i64 %27, %.01521.i74
+  %34 = add nuw i64 %.01418.i78, 1
+  %exitcond.not.i81 = icmp eq i64 %34, %.01521.i74
   br i1 %exitcond.not.i81, label %._crit_edge.i82, label %.lr.ph.i76, !llvm.loop !242
 
-._crit_edge.i82:                                  ; preds = %26, %.preheader.i72
+._crit_edge.i82:                                  ; preds = %33, %.preheader.i72
   %.1.lcssa.i83 = phi i32 [ %.022.i73, %.preheader.i72 ], [ %.2.i80, %26 ]
-  %28 = add i64 %.01521.i74, 1
-  %29 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_suiteb_sig_algs, i64 %28
-  %30 = load i16, ptr %29, align 2, !tbaa !101
-  %.not.i84 = icmp eq i16 %30, 0
+  %35 = add i64 %.01521.i74, 1
+  %36 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_suiteb_sig_algs, i64 %35
+  %37 = load i16, ptr %36, align 2, !tbaa !101
+  %.not.i84 = icmp eq i16 %37, 0
   br i1 %.not.i84, label %ssl_check_no_sig_alg_duplication.exit85, label %.preheader.i72, !llvm.loop !243
 
 ssl_check_no_sig_alg_duplication.exit85:          ; preds = %._crit_edge.i82
   %.not50 = icmp eq i32 %.1.lcssa.i83, 0
-  br i1 %.not50, label %ssl_check_no_sig_alg_duplication.exit85.thread, label %31
+  br i1 %.not50, label %ssl_check_no_sig_alg_duplication.exit85.thread, label %38
 
-31:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit85
+38:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit85
   %puts55 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %95
+  br label %102
 
-ssl_check_no_sig_alg_duplication.exit85.thread:   ; preds = %17, %ssl_check_no_sig_alg_duplication.exit85
-  %32 = load i16, ptr @ssl_tls12_preset_default_sig_algs, align 16, !tbaa !101
-  %.not20.i86 = icmp eq i16 %32, 0
+ssl_check_no_sig_alg_duplication.exit85.thread:   ; preds = %24, %ssl_check_no_sig_alg_duplication.exit85
+  %39 = load i16, ptr @ssl_tls12_preset_default_sig_algs, align 16, !tbaa !101
+  %.not20.i86 = icmp eq i16 %39, 0
   br i1 %.not20.i86, label %ssl_check_no_sig_alg_duplication.exit101.thread, label %.preheader.i87
 
 .preheader.i87:                                   ; preds = %ssl_check_no_sig_alg_duplication.exit85.thread, %._crit_edge.i97
   %.022.i88 = phi i32 [ %.1.lcssa.i98, %._crit_edge.i97 ], [ 0, %ssl_check_no_sig_alg_duplication.exit85.thread ]
-  %.01521.i89 = phi i64 [ %42, %._crit_edge.i97 ], [ 0, %ssl_check_no_sig_alg_duplication.exit85.thread ]
-  %33 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_default_sig_algs, i64 %.01521.i89
+  %.01521.i89 = phi i64 [ %49, %._crit_edge.i97 ], [ 0, %ssl_check_no_sig_alg_duplication.exit85.thread ]
+  %40 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_default_sig_algs, i64 %.01521.i89
   %.not25.i90 = icmp eq i64 %.01521.i89, 0
   br i1 %.not25.i90, label %._crit_edge.i97, label %.lr.ph.i91
 
-.lr.ph.i91:                                       ; preds = %.preheader.i87, %40
+.lr.ph.i91:                                       ; preds = %.preheader.i87, %47
   %.119.i92 = phi i32 [ %.2.i95, %40 ], [ %.022.i88, %.preheader.i87 ]
-  %.01418.i93 = phi i64 [ %41, %40 ], [ 0, %.preheader.i87 ]
-  %34 = load i16, ptr %33, align 2, !tbaa !101
-  %35 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_default_sig_algs, i64 %.01418.i93
-  %36 = load i16, ptr %35, align 2, !tbaa !101
-  %.not17.i94 = icmp eq i16 %34, %36
-  br i1 %.not17.i94, label %37, label %40
+  %.01418.i93 = phi i64 [ %48, %40 ], [ 0, %.preheader.i87 ]
+  %41 = load i16, ptr %40, align 2, !tbaa !101
+  %42 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_default_sig_algs, i64 %.01418.i93
+  %43 = load i16, ptr %42, align 2, !tbaa !101
+  %.not17.i94 = icmp eq i16 %41, %43
+  br i1 %.not17.i94, label %44, label %47
 
-37:                                               ; preds = %.lr.ph.i91
-  %38 = zext i16 %34 to i32
-  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.158, i32 noundef %38, i64 noundef %.01418.i93, i64 noundef %.01521.i89)
-  br label %40
+44:                                               ; preds = %.lr.ph.i91
+  %45 = zext i16 %41 to i32
+  %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.158, i32 noundef %45, i64 noundef %.01418.i93, i64 noundef %.01521.i89)
+  br label %47
 
-40:                                               ; preds = %37, %.lr.ph.i91
+47:                                               ; preds = %44, %.lr.ph.i91
   %.2.i95 = phi i32 [ %.119.i92, %.lr.ph.i91 ], [ -1, %37 ]
-  %41 = add nuw i64 %.01418.i93, 1
-  %exitcond.not.i96 = icmp eq i64 %41, %.01521.i89
+  %48 = add nuw i64 %.01418.i93, 1
+  %exitcond.not.i96 = icmp eq i64 %48, %.01521.i89
   br i1 %exitcond.not.i96, label %._crit_edge.i97, label %.lr.ph.i91, !llvm.loop !242
 
-._crit_edge.i97:                                  ; preds = %40, %.preheader.i87
+._crit_edge.i97:                                  ; preds = %47, %.preheader.i87
   %.1.lcssa.i98 = phi i32 [ %.022.i88, %.preheader.i87 ], [ %.2.i95, %40 ]
-  %42 = add i64 %.01521.i89, 1
-  %43 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_default_sig_algs, i64 %42
-  %44 = load i16, ptr %43, align 2, !tbaa !101
-  %.not.i99 = icmp eq i16 %44, 0
+  %49 = add i64 %.01521.i89, 1
+  %50 = getelementptr inbounds nuw i16, ptr @ssl_tls12_preset_default_sig_algs, i64 %49
+  %51 = load i16, ptr %50, align 2, !tbaa !101
+  %.not.i99 = icmp eq i16 %51, 0
   br i1 %.not.i99, label %ssl_check_no_sig_alg_duplication.exit101, label %.preheader.i87, !llvm.loop !243
 
 ssl_check_no_sig_alg_duplication.exit101:         ; preds = %._crit_edge.i97
   %.not51 = icmp eq i32 %.1.lcssa.i98, 0
-  br i1 %.not51, label %ssl_check_no_sig_alg_duplication.exit101.thread, label %45
+  br i1 %.not51, label %ssl_check_no_sig_alg_duplication.exit101.thread, label %52
 
-45:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit101
+52:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit101
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %95
+  br label %102
 
 ssl_check_no_sig_alg_duplication.exit101.thread:  ; preds = %ssl_check_no_sig_alg_duplication.exit85.thread, %ssl_check_no_sig_alg_duplication.exit101
-  %46 = trunc i32 %1 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %46, ptr %47, align 8, !tbaa !94
-  %48 = trunc i32 %2 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %48, ptr %49, align 1, !tbaa !29
-  %50 = icmp eq i32 %1, 0
-  br i1 %50, label %51, label %57
+  %53 = trunc i32 %1 to i8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %53, ptr %54, align 8, !tbaa !94
+  %55 = trunc i32 %2 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %55, ptr %56, align 1, !tbaa !29
+  %57 = icmp eq i32 %1, 0
+  br i1 %57, label %58, label %64
 
-51:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit101.thread
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 2, ptr %52, align 2, !tbaa !133
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %54 = load i8, ptr %53, align 1, !tbaa !201
-  %55 = and i8 %54, -4
-  %56 = or disjoint i8 %55, 1
-  store i8 %56, ptr %53, align 1, !tbaa !201
-  br label %57
+58:                                               ; preds = %ssl_check_no_sig_alg_duplication.exit101.thread
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 2, ptr %59, align 2, !tbaa !133
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %61 = load i8, ptr %60, align 1, !tbaa !201
+  %62 = and i8 %61, -4
+  %63 = or disjoint i8 %62, 1
+  store i8 %63, ptr %60, align 1, !tbaa !201
+  br label %64
 
-57:                                               ; preds = %51, %ssl_check_no_sig_alg_duplication.exit101.thread
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 1, ptr %58, align 1, !tbaa !195
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 1, ptr %59, align 2, !tbaa !196
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr @ssl_cookie_write_dummy, ptr %60, align 8, !tbaa !244
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr @ssl_cookie_check_dummy, ptr %61, align 8, !tbaa !245
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 1, ptr %62, align 1, !tbaa !128
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %63, align 4, !tbaa !194
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 0, ptr %64, align 1, !tbaa !246
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  store i32 1000, ptr %65, align 4, !tbaa !131
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i32 60000, ptr %66, align 8, !tbaa !132
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 16, ptr %67, align 4, !tbaa !200
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i16 0, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 354
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %69, i8 -1, i64 6, i1 false)
-  %70 = icmp eq i32 %1, 1
-  br i1 %70, label %71, label %73
+64:                                               ; preds = %58, %ssl_check_no_sig_alg_duplication.exit101.thread
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store i8 1, ptr %65, align 1, !tbaa !195
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i8 1, ptr %66, align 2, !tbaa !196
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr @ssl_cookie_write_dummy, ptr %67, align 8, !tbaa !244
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr @ssl_cookie_check_dummy, ptr %68, align 8, !tbaa !245
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  store i8 1, ptr %69, align 1, !tbaa !128
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %70, align 4, !tbaa !194
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  store i8 0, ptr %71, align 1, !tbaa !246
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 340
+  store i32 1000, ptr %72, align 4, !tbaa !131
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store i32 60000, ptr %73, align 8, !tbaa !132
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  store i32 16, ptr %74, align 4, !tbaa !200
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  store i16 0, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 354
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %76, i8 -1, i64 6, i1 false)
+  %77 = icmp eq i32 %1, 1
+  br i1 %77, label %78, label %80
 
-71:                                               ; preds = %57
+78:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 16 dereferenceable(256) @__const.mbedtls_ssl_config_defaults.dhm_p, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #26
   store i8 2, ptr %5, align 1
-  %72 = call i32 @mbedtls_ssl_conf_dh_param_bin(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull %5, i64 noundef 1)
-  %.not52 = icmp eq i32 %72, 0
+  %79 = call i32 @mbedtls_ssl_conf_dh_param_bin(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull %5, i64 noundef 1)
+  %.not52 = icmp eq i32 %79, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #26
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #26
-  br i1 %.not52, label %73, label %95
+  br i1 %.not52, label %80, label %102
 
-73:                                               ; preds = %71, %57
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 1, ptr %74, align 2, !tbaa !90
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 7, ptr %75, align 8, !tbaa !161
+80:                                               ; preds = %78, %64
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 1, ptr %81, align 2, !tbaa !90
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 7, ptr %82, align 8, !tbaa !161
   %.not110.not = icmp eq i32 %2, 1
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 771, ptr %76, align 4, !tbaa !81
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 771, ptr %83, align 4, !tbaa !81
   %cond = icmp eq i32 %3, 2
-  br i1 %.not110.not, label %77, label %.thread
+  br i1 %.not110.not, label %84, label %.thread
 
-77:                                               ; preds = %73
+84:                                               ; preds = %80
   store i32 771, ptr %0, align 8, !tbaa !82
   br i1 %cond, label %mbedtls_ssl_conf_is_tls12_only.exit.thread, label %83
 
-.thread:                                          ; preds = %73
+.thread:                                          ; preds = %80
   store i32 772, ptr %0, align 8, !tbaa !82
   br i1 %cond, label %mbedtls_ssl_conf_is_tls12_only.exit.thread, label %83
 
-mbedtls_ssl_conf_is_tls12_only.exit.thread:       ; preds = %.thread, %77
+mbedtls_ssl_conf_is_tls12_only.exit.thread:       ; preds = %.thread, %84
   %ssl_tls12_preset_suiteb_sig_algs.sink = phi ptr [ @ssl_tls12_preset_suiteb_sig_algs, %77 ], [ @ssl_preset_suiteb_sig_algs, %.thread ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @ssl_preset_suiteb_ciphersuites, ptr %78, align 8, !tbaa !160
@@ -5873,28 +5873,28 @@ mbedtls_ssl_conf_is_tls12_only.exit.thread:       ; preds = %.thread, %77
   %88 = icmp eq i32 %87, 771
   br i1 %88, label %mbedtls_ssl_conf_is_tls12_only.exit102, label %mbedtls_ssl_conf_is_tls12_only.exit102.thread
 
-mbedtls_ssl_conf_is_tls12_only.exit102:           ; preds = %83
+mbedtls_ssl_conf_is_tls12_only.exit102:; preds = %83
   %89 = load i32, ptr %0, align 8, !tbaa !82
   %.not109 = icmp eq i32 %89, 771
   br i1 %.not109, label %90, label %mbedtls_ssl_conf_is_tls12_only.exit102.thread
 
-mbedtls_ssl_conf_is_tls12_only.exit102.thread:    ; preds = %83, %mbedtls_ssl_conf_is_tls12_only.exit102
+mbedtls_ssl_conf_is_tls12_only.exit102.thread:; preds = %83, %mbedtls_ssl_conf_is_tls12_only.exit102
   br label %90
 
-90:                                               ; preds = %mbedtls_ssl_conf_is_tls12_only.exit102, %mbedtls_ssl_conf_is_tls12_only.exit102.thread
+90: ; preds = %mbedtls_ssl_conf_is_tls12_only.exit102, %mbedtls_ssl_conf_is_tls12_only.exit102.thread
   %ssl_preset_default_sig_algs.sink = phi ptr [ @ssl_preset_default_sig_algs, %mbedtls_ssl_conf_is_tls12_only.exit102.thread ], [ @ssl_tls12_preset_default_sig_algs, %mbedtls_ssl_conf_is_tls12_only.exit102 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %ssl_preset_default_sig_algs.sink, ptr %91, align 8, !tbaa !188
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr null, ptr %92, align 8, !tbaa !96
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr @ssl_preset_default_groups, ptr %93, align 8, !tbaa !103
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  store i32 1024, ptr %94, align 4, !tbaa !187
-  br label %95
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store ptr %ssl_preset_default_sig_algs.sink, ptr %98, align 8, !tbaa !188
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store ptr null, ptr %99, align 8, !tbaa !96
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store ptr @ssl_preset_default_groups, ptr %100, align 8, !tbaa !103
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 364
+  store i32 1024, ptr %101, align 4, !tbaa !187
+  br label %102
 
-95:                                               ; preds = %mbedtls_ssl_conf_is_tls12_only.exit.thread, %90, %71, %45, %31, %16
-  %.048 = phi i32 [ -110, %16 ], [ -110, %31 ], [ -110, %45 ], [ %72, %71 ], [ 0, %90 ], [ 0, %mbedtls_ssl_conf_is_tls12_only.exit.thread ]
+102:                                              ; preds = %mbedtls_ssl_conf_is_tls12_only.exit.thread, %90, %78, %52, %38, %23
+  %.048 = phi i32 [ -110, %16 ], [ -110, %31 ], [ -110, %45 ], [ %79, %71 ], [ 0, %90 ], [ 0, %mbedtls_ssl_conf_is_tls12_only.exit.thread ]
   ret i32 %.048
 }
 

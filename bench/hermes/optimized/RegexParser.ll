@@ -569,11 +569,11 @@ _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE15openAlternati
   %add.i.i = add i32 %21, 1
   store i32 %add.i.i, ptr %Size.i.i.i.i.i, align 8
   %.pre = load ptr, ptr %stack, align 8
-  %.pre266 = zext i32 %add.i.i to i64
+  %.pre271 = zext i32 %add.i.i to i64
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE15openAlternationERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEE.exit, %lor.lhs.false
-  %conv.i.i9.pre-phi = phi i64 [ %.pre266, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE15openAlternationERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEE.exit ], [ %conv.i.i4, %lor.lhs.false ]
+  %conv.i.i9.pre-phi = phi i64 [ %.pre271, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE15openAlternationERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEE.exit ], [ %conv.i.i4, %lor.lhs.false ]
   %22 = phi ptr [ %.pre, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE15openAlternationERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEE.exit ], [ %13, %lor.lhs.false ]
   %add.ptr.i.i10 = getelementptr inbounds nuw %"struct.hermes::regex::Parser<hermes::regex::Regex<hermes::regex::UTF16RegexTraits>, const char16_t *>::ParseStackElement", ptr %22, i64 %conv.i.i9.pre-phi
   %_M_finish.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i10, i64 -24
@@ -634,8 +634,8 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %arrayidx.i16 = getelementptr inbounds nuw i8, ptr @.str, i64 %inc.i
   %32 = load i8, ptr %arrayidx.i16, align 1
-  %tobool.not.i17 = icmp eq i64 %inc.i, 3
-  br i1 %tobool.not.i17, label %if.then14, label %for.body.i, !llvm.loop !4
+  %exitcond = icmp eq i64 %inc.i, 3
+  br i1 %exitcond, label %if.then14, label %for.body.i, !llvm.loop !4
 
 if.then14:                                        ; preds = %if.end.i
   store ptr %scevgep, ptr %current_, align 8
@@ -705,8 +705,8 @@ if.end.i40:                                       ; preds = %lor.lhs.false.i35
   %inc.i42 = add nuw nsw i64 %i.012.i32, 1
   %arrayidx.i43 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %inc.i42
   %44 = load i8, ptr %arrayidx.i43, align 1
-  %tobool.not.i44 = icmp eq i64 %inc.i42, 3
-  br i1 %tobool.not.i44, label %if.then16, label %for.body.i31, !llvm.loop !4
+  %exitcond261 = icmp eq i64 %inc.i42, 3
+  br i1 %exitcond261, label %if.then16, label %for.body.i31, !llvm.loop !4
 
 if.then16:                                        ; preds = %if.end.i40
   store ptr %scevgep, ptr %current_, align 8
@@ -758,7 +758,7 @@ _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14openLookaroun
   br label %sw.epilog
 
 if.else17:                                        ; preds = %lor.lhs.false.i35, %for.body.i31
-  %scevgep261 = getelementptr i8, ptr %6, i64 8
+  %scevgep262 = getelementptr i8, ptr %6, i64 8
   br label %for.body.i71
 
 for.body.i71:                                     ; preds = %if.end.i80, %if.else17
@@ -783,11 +783,11 @@ if.end.i80:                                       ; preds = %lor.lhs.false.i75
   %inc.i82 = add nuw nsw i64 %i.012.i72, 1
   %arrayidx.i83 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %inc.i82
   %56 = load i8, ptr %arrayidx.i83, align 1
-  %tobool.not.i84 = icmp eq i64 %inc.i82, 4
-  br i1 %tobool.not.i84, label %if.then19, label %for.body.i71, !llvm.loop !4
+  %exitcond263 = icmp eq i64 %inc.i82, 4
+  br i1 %exitcond263, label %if.then19, label %for.body.i71, !llvm.loop !4
 
 if.then19:                                        ; preds = %if.end.i80
-  store ptr %scevgep261, ptr %current_, align 8
+  store ptr %scevgep262, ptr %current_, align 8
   %57 = load ptr, ptr %this, align 8
   %markedCount_.i.i87 = getelementptr inbounds nuw i8, ptr %57, i64 138
   %58 = load i16, ptr %markedCount_.i.i87, align 2
@@ -855,11 +855,11 @@ if.end.i120:                                      ; preds = %lor.lhs.false.i115
   %inc.i122 = add nuw nsw i64 %i.012.i112, 1
   %arrayidx.i123 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %inc.i122
   %68 = load i8, ptr %arrayidx.i123, align 1
-  %tobool.not.i124 = icmp eq i64 %inc.i122, 4
-  br i1 %tobool.not.i124, label %if.then22, label %for.body.i111, !llvm.loop !4
+  %exitcond265 = icmp eq i64 %inc.i122, 4
+  br i1 %exitcond265, label %if.then22, label %for.body.i111, !llvm.loop !4
 
 if.then22:                                        ; preds = %if.end.i120
-  store ptr %scevgep261, ptr %current_, align 8
+  store ptr %scevgep262, ptr %current_, align 8
   %69 = load ptr, ptr %this, align 8
   %markedCount_.i.i127 = getelementptr inbounds nuw i8, ptr %69, i64 138
   %70 = load i16, ptr %markedCount_.i.i127, align 2
@@ -929,8 +929,8 @@ if.end.i160:                                      ; preds = %lor.lhs.false.i155
   %inc.i162 = add nuw nsw i64 %i.012.i152, 1
   %arrayidx.i163 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %inc.i162
   %80 = load i8, ptr %arrayidx.i163, align 1
-  %tobool.not.i164 = icmp eq i64 %inc.i162, 3
-  br i1 %tobool.not.i164, label %if.then25, label %for.body.i151, !llvm.loop !4
+  %exitcond267 = icmp eq i64 %inc.i162, 3
+  br i1 %exitcond267, label %if.then25, label %for.body.i151, !llvm.loop !4
 
 if.then25:                                        ; preds = %if.end.i160
   store ptr %scevgep, ptr %current_, align 8
@@ -956,8 +956,8 @@ if.end.i178:                                      ; preds = %lor.lhs.false.i173
   %inc.i180 = add nuw nsw i64 %i.012.i170, 1
   %arrayidx.i181 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %inc.i180
   %83 = load i8, ptr %arrayidx.i181, align 1
-  %tobool.not.i182 = icmp eq i64 %inc.i180, 3
-  br i1 %tobool.not.i182, label %if.then28, label %for.body.i169, !llvm.loop !4
+  %exitcond269 = icmp eq i64 %inc.i180, 3
+  br i1 %exitcond269, label %if.then28, label %for.body.i169, !llvm.loop !4
 
 if.then28:                                        ; preds = %if.end.i178
   store ptr %scevgep, ptr %current_, align 8
@@ -3405,8 +3405,8 @@ if.end.i117:                                      ; preds = %lor.lhs.false.i
   %inc.i119 = add nuw nsw i64 %i.012.i, 1
   %arrayidx.i = getelementptr inbounds nuw i8, ptr @.str.10, i64 %inc.i119
   %29 = load i8, ptr %arrayidx.i, align 1
-  %tobool.not.i = icmp eq i64 %inc.i119, 2
-  br i1 %tobool.not.i, label %if.then38, label %for.body.i115, !llvm.loop !4
+  %exitcond = icmp eq i64 %inc.i119, 2
+  br i1 %exitcond, label %if.then38, label %for.body.i115, !llvm.loop !4
 
 if.then38:                                        ; preds = %if.end.i117
   store ptr %scevgep, ptr %current_, align 8

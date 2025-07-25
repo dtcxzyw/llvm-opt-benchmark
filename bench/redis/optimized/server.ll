@@ -11788,8 +11788,8 @@ define dso_local void @addReplyFlagsForCommand(ptr noundef %0, ptr noundef reado
   %8 = zext i1 %.not22.i to i32
   %spec.select.i = add nuw nsw i32 %.01724.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !530
+  %exitcond = icmp eq i64 %indvars.iv.next.i, 20
+  br i1 %exitcond, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !530
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %9 = zext nneg i32 %spec.select.i to i64
@@ -11813,8 +11813,8 @@ define dso_local void @addReplyFlagsForCommand(ptr noundef %0, ptr noundef reado
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %16 = getelementptr inbounds nuw %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next33.i, i32 1
   %17 = load ptr, ptr %16, align 8, !tbaa !527
-  %.not20.i = icmp eq i64 %indvars.iv.next33.i, 20
-  br i1 %.not20.i, label %addReplyCommandFlags.exit, label %.lr.ph29.i, !llvm.loop !531
+  %exitcond3 = icmp eq i64 %indvars.iv.next33.i, 20
+  br i1 %exitcond3, label %addReplyCommandFlags.exit, label %.lr.ph29.i, !llvm.loop !531
 
 addReplyCommandFlags.exit:                        ; preds = %15
   ret void
@@ -11837,8 +11837,8 @@ define dso_local void @addReplyDocFlagsForCommand(ptr noundef %0, ptr noundef re
   %9 = zext i1 %.not22.i to i32
   %spec.select.i = add nuw nsw i32 %.01724.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !530
+  %exitcond = icmp eq i64 %indvars.iv.next.i, 2
+  br i1 %exitcond, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !530
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %10 = zext nneg i32 %spec.select.i to i64
@@ -11862,8 +11862,8 @@ define dso_local void @addReplyDocFlagsForCommand(ptr noundef %0, ptr noundef re
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %17 = getelementptr inbounds nuw %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next33.i, i32 1
   %18 = load ptr, ptr %17, align 8, !tbaa !527
-  %.not20.i = icmp eq i64 %indvars.iv.next33.i, 2
-  br i1 %.not20.i, label %addReplyCommandFlags.exit, label %.lr.ph29.i, !llvm.loop !531
+  %exitcond3 = icmp eq i64 %indvars.iv.next33.i, 2
+  br i1 %exitcond3, label %addReplyCommandFlags.exit, label %.lr.ph29.i, !llvm.loop !531
 
 addReplyCommandFlags.exit:                        ; preds = %16
   ret void
@@ -11883,8 +11883,8 @@ define dso_local void @addReplyFlagsForKeyArgs(ptr noundef %0, i64 noundef %1) l
   %6 = zext i1 %.not22.i to i32
   %spec.select.i = add nuw nsw i32 %.01724.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !530
+  %exitcond = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %exitcond, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !530
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %7 = zext nneg i32 %spec.select.i to i64
@@ -11908,8 +11908,8 @@ define dso_local void @addReplyFlagsForKeyArgs(ptr noundef %0, i64 noundef %1) l
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %14 = getelementptr inbounds nuw %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next33.i, i32 1
   %15 = load ptr, ptr %14, align 8, !tbaa !527
-  %.not20.i = icmp eq i64 %indvars.iv.next33.i, 11
-  br i1 %.not20.i, label %addReplyCommandFlags.exit, label %.lr.ph29.i, !llvm.loop !531
+  %exitcond2 = icmp eq i64 %indvars.iv.next33.i, 11
+  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %.lr.ph29.i, !llvm.loop !531
 
 addReplyCommandFlags.exit:                        ; preds = %13
   ret void
@@ -11929,8 +11929,8 @@ define dso_local void @addReplyFlagsForArg(ptr noundef %0, i64 noundef %1) local
   %6 = zext i1 %.not22.i to i32
   %spec.select.i = add nuw nsw i32 %.01724.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !530
+  %exitcond = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %exitcond, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !530
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %7 = zext nneg i32 %spec.select.i to i64
@@ -11954,8 +11954,8 @@ define dso_local void @addReplyFlagsForArg(ptr noundef %0, i64 noundef %1) local
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %14 = getelementptr inbounds nuw %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next33.i, i32 1
   %15 = load ptr, ptr %14, align 8, !tbaa !527
-  %.not20.i = icmp eq i64 %indvars.iv.next33.i, 3
-  br i1 %.not20.i, label %addReplyCommandFlags.exit, label %.lr.ph29.i, !llvm.loop !531
+  %exitcond2 = icmp eq i64 %indvars.iv.next33.i, 3
+  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %.lr.ph29.i, !llvm.loop !531
 
 addReplyCommandFlags.exit:                        ; preds = %13
   ret void
@@ -12121,8 +12121,8 @@ define dso_local void @addReplyCommandArgList(ptr noundef %0, ptr noundef readon
   %69 = zext i1 %.not22.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %.01724.i.i, %69
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 3
+  br i1 %exitcond.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %70 = zext nneg i32 %spec.select.i.i to i64
@@ -12146,8 +12146,8 @@ define dso_local void @addReplyCommandArgList(ptr noundef %0, ptr noundef readon
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %77 = getelementptr inbounds nuw %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next33.i.i, i32 1
   %78 = load ptr, ptr %77, align 8, !tbaa !527
-  %.not20.i.i = icmp eq i64 %indvars.iv.next33.i.i, 3
-  br i1 %.not20.i.i, label %addReplyFlagsForArg.exit, label %.lr.ph29.i.i, !llvm.loop !531
+  %exitcond2.i = icmp eq i64 %indvars.iv.next33.i.i, 3
+  br i1 %exitcond2.i, label %addReplyFlagsForArg.exit, label %.lr.ph29.i.i, !llvm.loop !531
 
 addReplyFlagsForArg.exit:                         ; preds = %76, %61
   %79 = load i32, ptr %24, align 8, !tbaa !540
@@ -12297,8 +12297,8 @@ define dso_local void @addReplyCommandKeySpecs(ptr noundef %0, ptr noundef reado
   %27 = zext i1 %.not22.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %.01724.i.i, %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 11
+  br i1 %exitcond.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %28 = zext nneg i32 %spec.select.i.i to i64
@@ -12322,8 +12322,8 @@ define dso_local void @addReplyCommandKeySpecs(ptr noundef %0, ptr noundef reado
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %35 = getelementptr inbounds nuw %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next33.i.i, i32 1
   %36 = load ptr, ptr %35, align 8, !tbaa !527
-  %.not20.i.i = icmp eq i64 %indvars.iv.next33.i.i, 11
-  br i1 %.not20.i.i, label %addReplyFlagsForKeyArgs.exit, label %.lr.ph29.i.i, !llvm.loop !531
+  %exitcond2.i = icmp eq i64 %indvars.iv.next33.i.i, 11
+  br i1 %exitcond2.i, label %addReplyFlagsForKeyArgs.exit, label %.lr.ph29.i.i, !llvm.loop !531
 
 addReplyFlagsForKeyArgs.exit:                     ; preds = %34
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.285) #43
@@ -12701,8 +12701,8 @@ sdslen.exit:                                      ; preds = %24, %31, %34, %38, 
   %56 = zext i1 %.not22.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %.01724.i.i, %56
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 20
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 20
+  br i1 %exitcond.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %57 = zext nneg i32 %spec.select.i.i to i64
@@ -12726,8 +12726,8 @@ sdslen.exit:                                      ; preds = %24, %31, %34, %38, 
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %64 = getelementptr inbounds nuw %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next33.i.i, i32 1
   %65 = load ptr, ptr %64, align 8, !tbaa !527
-  %.not20.i.i = icmp eq i64 %indvars.iv.next33.i.i, 20
-  br i1 %.not20.i.i, label %addReplyFlagsForCommand.exit, label %.lr.ph29.i.i, !llvm.loop !531
+  %exitcond3.i = icmp eq i64 %indvars.iv.next33.i.i, 20
+  br i1 %exitcond3.i, label %addReplyFlagsForCommand.exit, label %.lr.ph29.i.i, !llvm.loop !531
 
 addReplyFlagsForCommand.exit:                     ; preds = %63
   tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %.033) #43
@@ -12893,8 +12893,8 @@ define dso_local void @addReplyCommandDocs(ptr noundef %0, ptr noundef %1) #0 {
   %60 = zext i1 %.not22.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %.01724.i.i, %60
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 2
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 2
+  br i1 %exitcond.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %61 = zext nneg i32 %spec.select.i.i to i64
@@ -12918,8 +12918,8 @@ define dso_local void @addReplyCommandDocs(ptr noundef %0, ptr noundef %1) #0 {
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %68 = getelementptr inbounds nuw %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next33.i.i, i32 1
   %69 = load ptr, ptr %68, align 8, !tbaa !527
-  %.not20.i.i = icmp eq i64 %indvars.iv.next33.i.i, 2
-  br i1 %.not20.i.i, label %addReplyDocFlagsForCommand.exit, label %.lr.ph29.i.i, !llvm.loop !531
+  %exitcond3.i = icmp eq i64 %indvars.iv.next33.i.i, 2
+  br i1 %exitcond3.i, label %addReplyDocFlagsForCommand.exit, label %.lr.ph29.i.i, !llvm.loop !531
 
 addReplyDocFlagsForCommand.exit:                  ; preds = %67, %52
   %70 = load ptr, ptr %18, align 8, !tbaa !563
@@ -13032,9 +13032,9 @@ lookupCommand.exit.thread:                        ; preds = %2
   %17 = icmp ne ptr %16, null
   %18 = icmp ne i32 %8, 3
   %or.cond.i.i = select i1 %18, i1 %17, i1 false
-  br i1 %or.cond.i.i, label %lookupCommand.exit, label %lookupCommand.exit.thread43
+  br i1 %or.cond.i.i, label %lookupCommand.exit, label %lookupCommand.exit.thread42
 
-lookupCommand.exit.thread43:                      ; preds = %14
+lookupCommand.exit.thread42:                      ; preds = %14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -13054,9 +13054,9 @@ lookupCommand.exit:                               ; preds = %14
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %32, label %26
 
-26:                                               ; preds = %lookupCommand.exit.thread43, %lookupCommand.exit
-  %.0.i.i46 = phi ptr [ %13, %lookupCommand.exit.thread43 ], [ %24, %lookupCommand.exit ]
-  %27 = getelementptr i8, ptr %.0.i.i46, i64 112
+26:                                               ; preds = %lookupCommand.exit.thread42, %lookupCommand.exit
+  %.0.i.i45 = phi ptr [ %13, %lookupCommand.exit.thread43 ], [ %24, %lookupCommand.exit ]
+  %27 = getelementptr i8, ptr %.0.i.i45, i64 112
   %.val = load i64, ptr %27, align 8, !tbaa !450
   %28 = and i64 %.val, 536870912
   %.not.i = icmp eq i64 %28, 0
@@ -13066,15 +13066,15 @@ commandVisibleForClient.exit:                     ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !87
   %31 = and i64 %30, 4503599627370496
-  %.not47 = icmp eq i64 %31, 0
-  br i1 %.not47, label %32, label %commandVisibleForClient.exit.thread
+  %.not46 = icmp eq i64 %31, 0
+  br i1 %.not46, label %32, label %commandVisibleForClient.exit.thread
 
 32:                                               ; preds = %lookupCommand.exit.thread, %commandVisibleForClient.exit, %lookupCommand.exit
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.307) #43
   br label %97
 
 commandVisibleForClient.exit.thread:              ; preds = %26, %commandVisibleForClient.exit
-  %33 = tail call i32 @doesCommandHaveKeys(ptr noundef nonnull %.0.i.i46) #43
+  %33 = tail call i32 @doesCommandHaveKeys(ptr noundef nonnull %.0.i.i45) #43
   %.not35 = icmp eq i32 %33, 0
   br i1 %.not35, label %34, label %35
 
@@ -13083,17 +13083,17 @@ commandVisibleForClient.exit.thread:              ; preds = %26, %commandVisible
   br label %97
 
 35:                                               ; preds = %commandVisibleForClient.exit.thread
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i46, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i45, i64 104
   %37 = load i32, ptr %36, align 8, !tbaa !502
   %38 = icmp sgt i32 %37, 0
   %.pre = load i32, ptr %7, align 8, !tbaa !92
   %39 = add nsw i32 %.pre, -2
   %.not36 = icmp ne i32 %37, %39
-  %or.cond.not59 = select i1 %38, i1 %.not36, i1 false
+  %or.cond.not58 = select i1 %38, i1 %.not36, i1 false
   %40 = sub nsw i32 0, %37
   %41 = icmp slt i32 %39, %40
-  %or.cond57 = select i1 %or.cond.not59, i1 true, i1 %41
-  br i1 %or.cond57, label %42, label %43
+  %or.cond56 = select i1 %or.cond.not58, i1 true, i1 %41
+  br i1 %or.cond56, label %42, label %43
 
 42:                                               ; preds = %35
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.309) #43
@@ -13102,7 +13102,7 @@ commandVisibleForClient.exit.thread:              ; preds = %26, %commandVisible
 43:                                               ; preds = %35
   %44 = load ptr, ptr %4, align 8, !tbaa !90
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = call i32 @getKeysFromCommandWithSpecs(ptr noundef nonnull %.0.i.i46, ptr noundef nonnull %45, i32 noundef %39, i32 noundef 0, ptr noundef nonnull %3) #43
+  %46 = call i32 @getKeysFromCommandWithSpecs(ptr noundef nonnull %.0.i.i45, ptr noundef nonnull %45, i32 noundef %39, i32 noundef 0, ptr noundef nonnull %3) #43
   %.not37 = icmp eq i32 %46, 0
   br i1 %.not37, label %47, label %52
 
@@ -13134,20 +13134,20 @@ commandVisibleForClient.exit.thread:              ; preds = %26, %commandVisible
   br i1 %.not39, label %addReplyFlagsForKeyArgs.exit.us, label %.lr.ph.split
 
 addReplyFlagsForKeyArgs.exit.us:                  ; preds = %.lr.ph, %addReplyFlagsForKeyArgs.exit.us
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %addReplyFlagsForKeyArgs.exit.us ], [ 0, %.lr.ph ]
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %addReplyFlagsForKeyArgs.exit.us ], [ 0, %.lr.ph ]
   %58 = load ptr, ptr %4, align 8, !tbaa !90
   %59 = load ptr, ptr %57, align 8, !tbaa !570
-  %60 = getelementptr inbounds nuw %struct.keyReference, ptr %59, i64 %indvars.iv51
+  %60 = getelementptr inbounds nuw %struct.keyReference, ptr %59, i64 %indvars.iv50
   %61 = load i32, ptr %60, align 4, !tbaa !571
   %62 = sext i32 %61 to i64
   %63 = getelementptr ptr, ptr %58, i64 %62
   %64 = getelementptr i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !195
   call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %65) #43
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %66 = load i32, ptr %3, align 8, !tbaa !568
   %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next52, %67
+  %68 = icmp slt i64 %indvars.iv.next51, %67
   br i1 %68, label %addReplyFlagsForKeyArgs.exit.us, label %.loopexit, !llvm.loop !573
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %addReplyFlagsForKeyArgs.exit.loopexit
@@ -13178,8 +13178,8 @@ addReplyFlagsForKeyArgs.exit.us:                  ; preds = %.lr.ph, %addReplyFl
   %84 = zext i1 %.not22.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %.01724.i.i, %84
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.not.i.i40 = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %.not.i.i40, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 11
+  br i1 %exitcond.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !530
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %85 = zext nneg i32 %spec.select.i.i to i64
@@ -13203,8 +13203,8 @@ addReplyFlagsForKeyArgs.exit.us:                  ; preds = %.lr.ph, %addReplyFl
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %92 = getelementptr inbounds nuw %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next33.i.i, i32 1
   %93 = load ptr, ptr %92, align 8, !tbaa !527
-  %.not20.i.i = icmp eq i64 %indvars.iv.next33.i.i, 11
-  br i1 %.not20.i.i, label %addReplyFlagsForKeyArgs.exit.loopexit, label %.lr.ph29.i.i, !llvm.loop !531
+  %exitcond2.i = icmp eq i64 %indvars.iv.next33.i.i, 11
+  br i1 %exitcond2.i, label %addReplyFlagsForKeyArgs.exit.loopexit, label %.lr.ph29.i.i, !llvm.loop !531
 
 addReplyFlagsForKeyArgs.exit.loopexit:            ; preds = %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

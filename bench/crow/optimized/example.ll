@@ -12055,28 +12055,28 @@ _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit:      ; preds = %tailrecurse.i
   br label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %.lr.ph.i37.preheader, %tailrecurse.i42
-  %12 = phi i8 [ %16, %tailrecurse.i42 ], [ %2, %.lr.ph.i37.preheader ]
-  %.tr1419.i38 = phi i32 [ %15, %tailrecurse.i42 ], [ 6, %.lr.ph.i37.preheader ]
+  %13 = phi i8 [ %17, %tailrecurse.i42 ], [ %2, %.lr.ph.i37.preheader ]
+  %.tr1419.i38 = phi i32 [ %16, %tailrecurse.i42 ], [ 6, %.lr.ph.i37.preheader ]
   %.tr1318.i39.idx = phi i64 [ %.tr1318.i39.add, %tailrecurse.i42 ], [ 0, %.lr.ph.i37.preheader ]
-  %.tr17.i40 = phi ptr [ %14, %tailrecurse.i42 ], [ %0, %.lr.ph.i37.preheader ]
+  %.tr17.i40 = phi ptr [ %15, %tailrecurse.i42 ], [ %0, %.lr.ph.i37.preheader ]
   %.tr1318.i39.ptr = getelementptr inbounds nuw i8, ptr @.str.248, i64 %.tr1318.i39.idx
-  %13 = load i8, ptr %.tr1318.i39.ptr, align 1, !tbaa !14
+  %14 = load i8, ptr %.tr1318.i39.ptr, align 1, !tbaa !14
   %exitcond163 = icmp ne i64 %.tr1318.i39.idx, 6
-  %.not.i41 = icmp eq i8 %12, %13
-  %or.cond173 = select i1 %exitcond163, i1 %.not.i41, i1 false
-  br i1 %or.cond173, label %tailrecurse.i42, label %.lr.ph.i48.preheader
+  %.not.i41 = icmp eq i8 %13, %14
+  %or.cond178 = select i1 %exitcond163, i1 %.not.i41, i1 false
+  br i1 %or.cond178, label %tailrecurse.i42, label %.lr.ph.i48.preheader
 
 tailrecurse.i42:                                  ; preds = %.lr.ph.i37
-  %14 = getelementptr inbounds nuw i8, ptr %.tr17.i40, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.tr17.i40, i64 1
   %.tr1318.i39.add = add nuw nsw i64 %.tr1318.i39.idx, 1
-  %15 = add nsw i32 %.tr1419.i38, -1
-  %16 = load i8, ptr %14, align 1, !tbaa !14
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit47, label %.lr.ph.i37
+  %16 = add nsw i32 %.tr1419.i38, -1
+  %17 = load i8, ptr %15, align 1, !tbaa !14
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit47, label %.lr.ph.i37
 
 _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit47:    ; preds = %tailrecurse.i42
   %18 = icmp eq i64 %.tr1318.i39.add, 6
-  %19 = icmp eq i32 %15, 0
+  %19 = icmp eq i32 %16, 0
   %or.cond.i46 = and i1 %19, %18
   br i1 %or.cond.i46, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit.thread92, label %.lr.ph.i48.preheader
 
@@ -12084,24 +12084,24 @@ _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit47:    ; preds = %tailrecurse.i42
   br label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %.lr.ph.i48.preheader, %tailrecurse.i53
-  %20 = phi i8 [ %24, %tailrecurse.i53 ], [ %2, %.lr.ph.i48.preheader ]
-  %.tr1419.i49 = phi i32 [ %23, %tailrecurse.i53 ], [ 4, %.lr.ph.i48.preheader ]
+  %22 = phi i8 [ %26, %tailrecurse.i53 ], [ %2, %.lr.ph.i48.preheader ]
+  %.tr1419.i49 = phi i32 [ %25, %tailrecurse.i53 ], [ 4, %.lr.ph.i48.preheader ]
   %.tr1318.i50.idx = phi i64 [ %.tr1318.i50.add, %tailrecurse.i53 ], [ 0, %.lr.ph.i48.preheader ]
-  %.tr17.i51 = phi ptr [ %22, %tailrecurse.i53 ], [ %0, %.lr.ph.i48.preheader ]
+  %.tr17.i51 = phi ptr [ %24, %tailrecurse.i53 ], [ %0, %.lr.ph.i48.preheader ]
   %.tr1318.i50.ptr = getelementptr inbounds nuw i8, ptr @.str.249, i64 %.tr1318.i50.idx
-  %21 = load i8, ptr %.tr1318.i50.ptr, align 1, !tbaa !14
+  %23 = load i8, ptr %.tr1318.i50.ptr, align 1, !tbaa !14
   %exitcond164 = icmp ne i64 %.tr1318.i50.idx, 4
-  %.not.i52 = icmp eq i8 %20, %21
-  %or.cond174 = select i1 %exitcond164, i1 %.not.i52, i1 false
-  br i1 %or.cond174, label %tailrecurse.i53, label %.lr.ph.i59.preheader
+  %.not.i52 = icmp eq i8 %22, %23
+  %or.cond179 = select i1 %exitcond164, i1 %.not.i52, i1 false
+  br i1 %or.cond179, label %tailrecurse.i53, label %.lr.ph.i59.preheader
 
 tailrecurse.i53:                                  ; preds = %.lr.ph.i48
-  %22 = getelementptr inbounds nuw i8, ptr %.tr17.i51, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.tr17.i51, i64 1
   %.tr1318.i50.add = add nuw nsw i64 %.tr1318.i50.idx, 1
-  %23 = add nsw i32 %.tr1419.i49, -1
-  %24 = load i8, ptr %22, align 1, !tbaa !14
-  %25 = icmp eq i8 %24, 0
-  br i1 %25, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit58, label %.lr.ph.i48
+  %25 = add nsw i32 %.tr1419.i49, -1
+  %26 = load i8, ptr %24, align 1, !tbaa !14
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit58, label %.lr.ph.i48
 
 _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit58:    ; preds = %tailrecurse.i53
   %26 = icmp eq i64 %.tr1318.i50.add, 4
@@ -12113,24 +12113,24 @@ _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit58:    ; preds = %tailrecurse.i53
   br label %.lr.ph.i59
 
 .lr.ph.i59:                                       ; preds = %.lr.ph.i59.preheader, %tailrecurse.i64
-  %28 = phi i8 [ %32, %tailrecurse.i64 ], [ %2, %.lr.ph.i59.preheader ]
-  %.tr1419.i60 = phi i32 [ %31, %tailrecurse.i64 ], [ 4, %.lr.ph.i59.preheader ]
+  %31 = phi i8 [ %35, %tailrecurse.i64 ], [ %2, %.lr.ph.i59.preheader ]
+  %.tr1419.i60 = phi i32 [ %34, %tailrecurse.i64 ], [ 4, %.lr.ph.i59.preheader ]
   %.tr1318.i61.idx = phi i64 [ %.tr1318.i61.add, %tailrecurse.i64 ], [ 0, %.lr.ph.i59.preheader ]
-  %.tr17.i62 = phi ptr [ %30, %tailrecurse.i64 ], [ %0, %.lr.ph.i59.preheader ]
+  %.tr17.i62 = phi ptr [ %33, %tailrecurse.i64 ], [ %0, %.lr.ph.i59.preheader ]
   %.tr1318.i61.ptr = getelementptr inbounds nuw i8, ptr @.str.215, i64 %.tr1318.i61.idx
-  %29 = load i8, ptr %.tr1318.i61.ptr, align 1, !tbaa !14
+  %32 = load i8, ptr %.tr1318.i61.ptr, align 1, !tbaa !14
   %exitcond165 = icmp ne i64 %.tr1318.i61.idx, 4
-  %.not.i63 = icmp eq i8 %28, %29
-  %or.cond175 = select i1 %exitcond165, i1 %.not.i63, i1 false
-  br i1 %or.cond175, label %tailrecurse.i64, label %.lr.ph.i70.preheader
+  %.not.i63 = icmp eq i8 %31, %32
+  %or.cond180 = select i1 %exitcond165, i1 %.not.i63, i1 false
+  br i1 %or.cond180, label %tailrecurse.i64, label %.lr.ph.i70.preheader
 
 tailrecurse.i64:                                  ; preds = %.lr.ph.i59
-  %30 = getelementptr inbounds nuw i8, ptr %.tr17.i62, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.tr17.i62, i64 1
   %.tr1318.i61.add = add nuw nsw i64 %.tr1318.i61.idx, 1
-  %31 = add nsw i32 %.tr1419.i60, -1
-  %32 = load i8, ptr %30, align 1, !tbaa !14
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit69, label %.lr.ph.i59
+  %34 = add nsw i32 %.tr1419.i60, -1
+  %35 = load i8, ptr %33, align 1, !tbaa !14
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit69, label %.lr.ph.i59
 
 _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit69:    ; preds = %tailrecurse.i64
   %34 = icmp eq i64 %.tr1318.i61.add, 4
@@ -12142,24 +12142,24 @@ _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit69:    ; preds = %tailrecurse.i64
   br label %.lr.ph.i70
 
 .lr.ph.i70:                                       ; preds = %.lr.ph.i70.preheader, %tailrecurse.i75
-  %36 = phi i8 [ %40, %tailrecurse.i75 ], [ %2, %.lr.ph.i70.preheader ]
-  %.tr1419.i71 = phi i32 [ %39, %tailrecurse.i75 ], [ 3, %.lr.ph.i70.preheader ]
+  %40 = phi i8 [ %44, %tailrecurse.i75 ], [ %2, %.lr.ph.i70.preheader ]
+  %.tr1419.i71 = phi i32 [ %43, %tailrecurse.i75 ], [ 3, %.lr.ph.i70.preheader ]
   %.tr1318.i72.idx = phi i64 [ %.tr1318.i72.add, %tailrecurse.i75 ], [ 0, %.lr.ph.i70.preheader ]
-  %.tr17.i73 = phi ptr [ %38, %tailrecurse.i75 ], [ %0, %.lr.ph.i70.preheader ]
+  %.tr17.i73 = phi ptr [ %42, %tailrecurse.i75 ], [ %0, %.lr.ph.i70.preheader ]
   %.tr1318.i72.ptr = getelementptr inbounds nuw i8, ptr @.str.250, i64 %.tr1318.i72.idx
-  %37 = load i8, ptr %.tr1318.i72.ptr, align 1, !tbaa !14
+  %41 = load i8, ptr %.tr1318.i72.ptr, align 1, !tbaa !14
   %exitcond166 = icmp ne i64 %.tr1318.i72.idx, 3
-  %.not.i74 = icmp eq i8 %36, %37
-  %or.cond176 = select i1 %exitcond166, i1 %.not.i74, i1 false
-  br i1 %or.cond176, label %tailrecurse.i75, label %.lr.ph.i81.preheader
+  %.not.i74 = icmp eq i8 %40, %41
+  %or.cond181 = select i1 %exitcond166, i1 %.not.i74, i1 false
+  br i1 %or.cond181, label %tailrecurse.i75, label %.lr.ph.i81.preheader
 
 tailrecurse.i75:                                  ; preds = %.lr.ph.i70
-  %38 = getelementptr inbounds nuw i8, ptr %.tr17.i73, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.tr17.i73, i64 1
   %.tr1318.i72.add = add nuw nsw i64 %.tr1318.i72.idx, 1
-  %39 = add nsw i32 %.tr1419.i71, -1
-  %40 = load i8, ptr %38, align 1, !tbaa !14
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit80, label %.lr.ph.i70
+  %43 = add nsw i32 %.tr1419.i71, -1
+  %44 = load i8, ptr %42, align 1, !tbaa !14
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit80, label %.lr.ph.i70
 
 _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit80:    ; preds = %tailrecurse.i75
   %42 = icmp eq i64 %.tr1318.i72.add, 3
@@ -12171,24 +12171,24 @@ _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit80:    ; preds = %tailrecurse.i75
   br label %.lr.ph.i81
 
 .lr.ph.i81:                                       ; preds = %.lr.ph.i81.preheader, %tailrecurse.i86
-  %44 = phi i8 [ %48, %tailrecurse.i86 ], [ %2, %.lr.ph.i81.preheader ]
-  %.tr1419.i82 = phi i32 [ %47, %tailrecurse.i86 ], [ 7, %.lr.ph.i81.preheader ]
+  %49 = phi i8 [ %53, %tailrecurse.i86 ], [ %2, %.lr.ph.i81.preheader ]
+  %.tr1419.i82 = phi i32 [ %52, %tailrecurse.i86 ], [ 7, %.lr.ph.i81.preheader ]
   %.tr1318.i83.idx = phi i64 [ %.tr1318.i83.add, %tailrecurse.i86 ], [ 0, %.lr.ph.i81.preheader ]
-  %.tr17.i84 = phi ptr [ %46, %tailrecurse.i86 ], [ %0, %.lr.ph.i81.preheader ]
+  %.tr17.i84 = phi ptr [ %51, %tailrecurse.i86 ], [ %0, %.lr.ph.i81.preheader ]
   %.tr1318.i83.ptr = getelementptr inbounds nuw i8, ptr @.str.251, i64 %.tr1318.i83.idx
-  %45 = load i8, ptr %.tr1318.i83.ptr, align 1, !tbaa !14
+  %50 = load i8, ptr %.tr1318.i83.ptr, align 1, !tbaa !14
   %exitcond167 = icmp ne i64 %.tr1318.i83.idx, 7
-  %.not.i85 = icmp eq i8 %44, %45
-  %or.cond177 = select i1 %exitcond167, i1 %.not.i85, i1 false
-  br i1 %or.cond177, label %tailrecurse.i86, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91.thread
+  %.not.i85 = icmp eq i8 %49, %50
+  %or.cond182 = select i1 %exitcond167, i1 %.not.i85, i1 false
+  br i1 %or.cond182, label %tailrecurse.i86, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91.thread
 
 tailrecurse.i86:                                  ; preds = %.lr.ph.i81
-  %46 = getelementptr inbounds nuw i8, ptr %.tr17.i84, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.tr17.i84, i64 1
   %.tr1318.i83.add = add nuw nsw i64 %.tr1318.i83.idx, 1
-  %47 = add nsw i32 %.tr1419.i82, -1
-  %48 = load i8, ptr %46, align 1, !tbaa !14
-  %49 = icmp eq i8 %48, 0
-  br i1 %49, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91, label %.lr.ph.i81
+  %52 = add nsw i32 %.tr1419.i82, -1
+  %53 = load i8, ptr %51, align 1, !tbaa !14
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91, label %.lr.ph.i81
 
 _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91:    ; preds = %tailrecurse.i86
   %50 = icmp eq i64 %.tr1318.i83.add, 7
@@ -12197,7 +12197,7 @@ _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91:    ; preds = %tailrecurse.i86
   br i1 %or.cond.i90, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit.thread92, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91.thread
 
 _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91.thread: ; preds = %.lr.ph.i81, %1, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91
-  %52 = tail call noundef zeroext i1 @_ZN4crow11black_magic8is_equ_pEPKcS2_j(ptr noundef nonnull %0, ptr noundef nonnull @.str.252, i32 noundef 7)
+  %58 = tail call noundef zeroext i1 @_ZN4crow11black_magic8is_equ_pEPKcS2_j(ptr noundef nonnull %0, ptr noundef nonnull @.str.252, i32 noundef 7)
   br i1 %52, label %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit.thread92, label %53
 
 53:                                               ; preds = %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91.thread
@@ -12318,14 +12318,14 @@ _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91.thread: ; preds = %.lr.ph.i81, %1,
   unreachable
 
 _ZN4crow11black_magic8is_equ_pEPKcS2_j.exit.thread92: ; preds = %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit47, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit69, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91, %53, %57, %61, %65, %69, %73, %77, %81, %85, %89, %93, %97, %101, %105, %103, %99, %95, %91, %87, %83, %79, %75, %71, %67, %63, %59, %55, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91.thread, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit80, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit58, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit
-  %110 = phi i8 [ 1, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit ], [ 0, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit47 ], [ 2, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit58 ], [ 3, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit69 ], [ 4, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit80 ], [ 6, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91 ], [ 5, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91.thread ], [ 7, %53 ], [ 8, %55 ], [ 9, %57 ], [ 10, %59 ], [ 11, %61 ], [ 12, %63 ], [ 13, %65 ], [ 14, %67 ], [ 15, %69 ], [ 16, %71 ], [ 17, %73 ], [ 18, %75 ], [ 19, %77 ], [ 20, %79 ], [ 21, %81 ], [ 22, %83 ], [ 23, %85 ], [ 24, %87 ], [ 25, %89 ], [ 26, %91 ], [ 27, %93 ], [ 28, %95 ], [ 29, %97 ], [ 30, %99 ], [ 31, %101 ], [ 32, %103 ], [ 33, %105 ]
-  ret i8 %110
+  %116 = phi i8 [ 1, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit ], [ 0, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit47 ], [ 2, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit58 ], [ 3, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit69 ], [ 4, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit80 ], [ 6, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91 ], [ 5, %_ZN4crow11black_magic8is_equ_pEPKcS2_j.exit91.thread ], [ 7, %53 ], [ 8, %55 ], [ 9, %57 ], [ 10, %59 ], [ 11, %61 ], [ 12, %63 ], [ 13, %65 ], [ 14, %67 ], [ 15, %69 ], [ 16, %71 ], [ 17, %73 ], [ 18, %75 ], [ 19, %77 ], [ 20, %79 ], [ 21, %81 ], [ 22, %83 ], [ 23, %85 ], [ 24, %87 ], [ 25, %89 ], [ 26, %91 ], [ 27, %93 ], [ 28, %95 ], [ 29, %97 ], [ 30, %99 ], [ 31, %101 ], [ 32, %103 ], [ 33, %105 ]
+  ret i8 %116
 
-111:                                              ; preds = %107
-  %112 = landingpad { ptr, i32 }
+117:                                              ; preds = %107
+  %118 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr nonnull %108) #37
-  resume { ptr, i32 } %112
+  resume { ptr, i32 } %118
 }
 
 ; Function Attrs: mustprogress uwtable

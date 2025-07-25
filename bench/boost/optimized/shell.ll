@@ -2391,8 +2391,8 @@ common.resume:                                    ; preds = %.body, %556, %515, 
 .lr.ph.i:                                         ; preds = %207, %216
   %211 = phi i8 [ %219, %216 ], [ %210, %207 ]
   %.017.i = phi i64 [ %217, %216 ], [ 0, %207 ]
-  %.not8.i = icmp eq i64 %.017.i, 3
-  br i1 %.not8.i, label %.critedge.i, label %212
+  %exitcond = icmp eq i64 %.017.i, 3
+  br i1 %exitcond, label %.critedge.i, label %212
 
 212:                                              ; preds = %.lr.ph.i
   %213 = getelementptr inbounds nuw i8, ptr @.str.16, i64 %.017.i
@@ -2504,8 +2504,8 @@ common.resume:                                    ; preds = %.body, %556, %515, 
 .lr.ph.i84:                                       ; preds = %256, %266
   %261 = phi i8 [ %269, %266 ], [ %260, %256 ]
   %.017.i85 = phi i64 [ %267, %266 ], [ 0, %256 ]
-  %.not8.i86 = icmp eq i64 %.017.i85, 3
-  br i1 %.not8.i86, label %.critedge.i89, label %262
+  %exitcond141 = icmp eq i64 %.017.i85, 3
+  br i1 %exitcond141, label %.critedge.i89, label %262
 
 262:                                              ; preds = %.lr.ph.i84
   %263 = getelementptr inbounds nuw i8, ptr @.str.18, i64 %.017.i85
@@ -2617,8 +2617,8 @@ common.resume:                                    ; preds = %.body, %556, %515, 
 .lr.ph.i97:                                       ; preds = %306, %316
   %311 = phi i8 [ %319, %316 ], [ %310, %306 ]
   %.017.i98 = phi i64 [ %317, %316 ], [ 0, %306 ]
-  %.not8.i99 = icmp eq i64 %.017.i98, 7
-  br i1 %.not8.i99, label %.critedge.i102, label %312
+  %exitcond142 = icmp eq i64 %.017.i98, 7
+  br i1 %exitcond142, label %.critedge.i102, label %312
 
 312:                                              ; preds = %.lr.ph.i97
   %313 = getelementptr inbounds nuw i8, ptr @.str.20, i64 %.017.i98

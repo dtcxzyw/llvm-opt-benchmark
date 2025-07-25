@@ -117803,7 +117803,7 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules13flake8_bandit5rules24s
 6:                                                ; preds = %7, %1
   %.sroa.0.01.idx.i = phi i64 [ 0, %1 ], [ %.sroa.0.01.add.i, %7 ]
   %.not.i = icmp eq i64 %.sroa.0.01.idx.i, 7
-  br i1 %.not.i, label %18, label %7
+  br i1 %.not.i, label %80, label %7
 
 7:                                                ; preds = %6
   %.sroa.0.01.ptr.i = getelementptr inbounds nuw i8, ptr @anon.8ad231a129453d088979dfad2582f60a.681, i64 %.sroa.0.01.idx.i
@@ -117818,34 +117818,34 @@ _ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspiciou
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i8 0, ptr %11, align 8, !alias.scope !14107, !noalias !14110
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 57
-  br label %13
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store i8 0, ptr %42, align 8, !alias.scope !14107, !noalias !14110
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 57
+  br label %44
 
-13:                                               ; preds = %14, %_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17hfced40dcb7fae61aE.exit
+44:                                               ; preds = %14, %_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17hfced40dcb7fae61aE.exit
   %.sroa.0.01.idx.i3 = phi i64 [ 0, %_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17hfced40dcb7fae61aE.exit ], [ %.sroa.0.01.add.i6, %14 ]
   %.not.i4 = icmp eq i64 %.sroa.0.01.idx.i3, 8
-  br i1 %.not.i4, label %_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17h4fcb717a8428a1adE.exit, label %14
+  br i1 %.not.i4, label %_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17h4fcb717a8428a1adE.exit, label %45
 
-14:                                               ; preds = %13
+45:                                               ; preds = %44
   %.sroa.0.01.ptr.i5 = getelementptr inbounds nuw i8, ptr @anon.8ad231a129453d088979dfad2582f60a.682, i64 %.sroa.0.01.idx.i3
   %.sroa.0.01.add.i6 = add nuw nsw i64 %.sroa.0.01.idx.i3, 1
-  %15 = load i8, ptr %.sroa.0.01.ptr.i5, align 1, !noalias !14112, !noundef !9
-  %16 = zext nneg i8 %15 to i32
+  %46 = load i8, ptr %.sroa.0.01.ptr.i5, align 1, !noalias !14112, !noundef !9
+  %16 = zext nneg i8 %46 to i32
   %17 = call noundef range(i32 0, 1114113) i32 @"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4find17hf0ecab31dfd24186E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull align 1 dereferenceable(1) %11, ptr noalias noundef nonnull align 1 %12)
   %.not6.i7 = icmp eq i32 %17, %16
   br i1 %.not6.i7, label %13, label %_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17h4fcb717a8428a1adE.exit
 
-_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17h4fcb717a8428a1adE.exit: ; preds = %13, %14
+_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17h4fcb717a8428a1adE.exit: ; preds = %44, %14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
-  br label %19
+  br label %81
 
-18:                                               ; preds = %6
+80:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %19
+  br label %81
 
-19:                                               ; preds = %_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17h4fcb717a8428a1adE.exit, %18
+81:                                               ; preds = %_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17h4fcb717a8428a1adE.exit, %80
   %.sroa.0.0 = phi i1 [ true, %18 ], [ %.not.i4, %_ZN11ruff_linter5rules13flake8_bandit5rules24suspicious_function_call19suspicious_function10has_prefix17h4fcb717a8428a1adE.exit ]
   ret i1 %.sroa.0.0
 }

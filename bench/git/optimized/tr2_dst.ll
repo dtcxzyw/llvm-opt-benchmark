@@ -671,13 +671,13 @@ define internal fastcc range(i32 0, -1) i32 @tr2_dst_try_unix_domain_socket(ptr 
   %scevgep = getelementptr i8, ptr %1, i64 15
   br label %5
 
-5:                                                ; preds = %6, %2
+5:                                                ; preds = %7, %2
   %.07.i = phi ptr [ %1, %2 ], [ %8, %6 ]
   %.06.i.idx = phi i64 [ 0, %2 ], [ %.06.i.add, %6 ]
   %exitcond = icmp eq i64 %.06.i.idx, 15
-  br i1 %exitcond, label %.thread, label %6
+  br i1 %exitcond, label %.thread, label %7
 
-6:                                                ; preds = %5
+7:                                                ; preds = %5
   %.06.i.ptr = getelementptr inbounds nuw i8, ptr @.str.14, i64 %.06.i.idx
   %7 = load i8, ptr %.06.i.ptr, align 1, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
@@ -686,7 +686,7 @@ define internal fastcc range(i32 0, -1) i32 @tr2_dst_try_unix_domain_socket(ptr 
   %10 = icmp eq i8 %9, %7
   br i1 %10, label %5, label %skip_prefix.exit.preheader, !llvm.loop !22
 
-skip_prefix.exit.preheader:                       ; preds = %6
+skip_prefix.exit.preheader:                       ; preds = %7
   %scevgep100 = getelementptr i8, ptr %1, i64 14
   br label %skip_prefix.exit
 

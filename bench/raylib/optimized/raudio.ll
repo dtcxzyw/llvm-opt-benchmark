@@ -80984,13 +80984,13 @@ drmp3__malloc_from_callbacks.exit.i:              ; preds = %27, %21
   br label %48
 
 40:                                               ; preds = %40, %31
-  %.05.i = phi i64 [ 0, %31 ], [ %45, %40 ]
-  %41 = getelementptr inbounds nuw i32, ptr @.str.171, i64 %.05.i
+  %41 = phi i64 [ 0, %31 ], [ %45, %40 ]
+  %41 = getelementptr inbounds nuw i32, ptr @.str.171, i64 %41
   %42 = load i32, ptr %41, align 4
   %43 = trunc i32 %42 to i8
-  %44 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %.05.i
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %41
   store i8 %43, ptr %44, align 1
-  %45 = add nuw nsw i64 %.05.i, 1
+  %45 = add nuw nsw i64 %41, 1
   %46 = icmp eq i64 %45, 2
   br i1 %46, label %33, label %40
 

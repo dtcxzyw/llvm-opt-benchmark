@@ -657,13 +657,13 @@ define internal noundef i32 @pager_command_config(ptr noundef readonly captures(
   %scevgep.i = getelementptr i8, ptr %0, i64 6
   br label %5
 
-5:                                                ; preds = %6, %4
+5:                                                ; preds = %7, %4
   %.07.i = phi ptr [ %0, %4 ], [ %8, %6 ]
   %.06.idx.i = phi i64 [ 0, %4 ], [ %.06.add.i, %6 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 6
-  br i1 %exitcond.i, label %11, label %6
+  br i1 %exitcond.i, label %skip_prefix.exit, label %7
 
-6:                                                ; preds = %5
+7:                                                ; preds = %5
   %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.06.idx.i
   %7 = load i8, ptr %.06.ptr.i, align 1, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
@@ -672,11 +672,11 @@ define internal noundef i32 @pager_command_config(ptr noundef readonly captures(
   %10 = icmp eq i8 %9, %7
   br i1 %10, label %5, label %skip_prefix.exit, !llvm.loop !28
 
-11:                                               ; preds = %5
+skip_prefix.exit:                                 ; preds = %5
   %12 = load ptr, ptr %3, align 8, !tbaa !24
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(1) %12) #13
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %skip_prefix.exit
+  br i1 %.not, label %14, label %22
 
 14:                                               ; preds = %11
   %15 = tail call i32 @git_parse_maybe_bool(ptr noundef %1) #12
@@ -686,16 +686,16 @@ define internal noundef i32 @pager_command_config(ptr noundef readonly captures(
 
 18:                                               ; preds = %14
   store i32 %15, ptr %17, align 8, !tbaa !26
-  br label %skip_prefix.exit
+  br label %22
 
 19:                                               ; preds = %14
   store i32 1, ptr %17, align 8, !tbaa !26
   %20 = tail call ptr @xstrdup(ptr noundef %1) #12
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !27
-  br label %skip_prefix.exit
+  br label %22
 
-skip_prefix.exit:                                 ; preds = %6, %18, %19, %11
+22:                                               ; preds = %6, %18, %19, %skip_prefix.exit
   ret i32 0
 }
 

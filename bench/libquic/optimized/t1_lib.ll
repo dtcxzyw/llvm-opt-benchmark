@@ -686,30 +686,30 @@ tls12_get_sigid.exit:                             ; preds = %9
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 534) #21
   br label %.sink.split
 
-.preheader:                                       ; preds = %tls12_get_sigid.exit, %25
-  %.01929 = phi i64 [ %26, %25 ], [ 0, %tls12_get_sigid.exit ]
-  %.02328 = phi ptr [ %27, %25 ], [ @tls12_sigalgs, %tls12_get_sigid.exit ]
-  %19 = load i8, ptr %.02328, align 1, !tbaa !91
-  %20 = icmp eq i8 %3, %19
-  br i1 %20, label %21, label %25
+.preheader:                                       ; preds = %tls12_get_sigid.exit, %27
+  %.01929 = phi i64 [ %28, %25 ], [ 0, %tls12_get_sigid.exit ]
+  %.02328 = phi ptr [ %29, %25 ], [ @tls12_sigalgs, %tls12_get_sigid.exit ]
+  %21 = load i8, ptr %.02328, align 1, !tbaa !91
+  %22 = icmp eq i8 %3, %21
+  br i1 %22, label %23, label %27
 
-21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i8, ptr %.02328, i64 1
-  %23 = load i8, ptr %22, align 1, !tbaa !91
-  %24 = icmp eq i8 %4, %23
-  br i1 %24, label %.thread, label %25
+23:                                               ; preds = %.preheader
+  %24 = getelementptr inbounds nuw i8, ptr %.02328, i64 1
+  %25 = load i8, ptr %24, align 1, !tbaa !91
+  %26 = icmp eq i8 %4, %25
+  br i1 %26, label %.thread, label %27
 
-25:                                               ; preds = %.preheader, %21
-  %26 = add nuw nsw i64 %.01929, 2
-  %27 = getelementptr inbounds nuw i8, ptr %.02328, i64 2
-  %28 = icmp samesign ult i64 %.01929, 14
-  br i1 %28, label %.preheader, label %29, !llvm.loop !92
+27:                                               ; preds = %.preheader, %23
+  %28 = add nuw nsw i64 %.01929, 2
+  %29 = getelementptr inbounds nuw i8, ptr %.02328, i64 2
+  %30 = icmp samesign ult i64 %.01929, 14
+  br i1 %30, label %.preheader, label %31, !llvm.loop !92
 
-29:                                               ; preds = %25
+31:                                               ; preds = %27
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 548) #21
   br label %.sink.split
 
-.thread:                                          ; preds = %21
+.thread:                                          ; preds = %23
   switch i8 %3, label %tls12_get_hash.exit.thread [
     i8 2, label %30
     i8 4, label %32
@@ -719,7 +719,7 @@ tls12_get_sigid.exit:                             ; preds = %9
 
 tls12_get_hash.exit.thread:                       ; preds = %.thread
   store ptr null, ptr %1, align 8, !tbaa !93
-  br label %39
+  br label %41
 
 30:                                               ; preds = %.thread
   %31 = tail call ptr @EVP_sha1() #21
@@ -737,22 +737,22 @@ tls12_get_hash.exit.thread:                       ; preds = %.thread
   %37 = tail call ptr @EVP_sha512() #21
   br label %tls12_get_hash.exit
 
-tls12_get_hash.exit:                              ; preds = %30, %32, %34, %36
+38:                                               ; preds = %30, %32, %34, %36
   %.0.i = phi ptr [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
   store ptr %.0.i, ptr %1, align 8, !tbaa !93
-  %38 = icmp eq ptr %.0.i, null
-  br i1 %38, label %39, label %40
+  %40 = icmp eq ptr %.0.i, null
+  br i1 %40, label %41, label %42
 
-39:                                               ; preds = %tls12_get_hash.exit.thread, %tls12_get_hash.exit
+41:                                               ; preds = %tls12_get_hash.exit.thread, %tls12_get_hash.exit
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 231, ptr noundef nonnull @.str, i32 noundef 555) #21
   br label %.sink.split
 
-.sink.split:                                      ; preds = %tls12_get_sigid.exit.thread, %18, %29, %39
+.sink.split:                                      ; preds = %tls12_get_sigid.exit.thread, %18, %31, %41
   %.sink = phi i32 [ 47, %39 ], [ 47, %29 ], [ 47, %18 ], [ 80, %tls12_get_sigid.exit.thread ]
   store i32 %.sink, ptr %2, align 4, !tbaa !81
-  br label %40
+  br label %42
 
-40:                                               ; preds = %.sink.split, %tls12_get_hash.exit
+42:                                               ; preds = %.sink.split, %tls12_get_hash.exit
   %.0 = phi i32 [ 1, %tls12_get_hash.exit ], [ 0, %.sink.split ]
   ret i32 %.0
 }

@@ -945,7 +945,7 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
   %.0119 = load i32, ptr %.0119.in, align 4, !tbaa !10
   store i32 %.0112, ptr %7, align 64, !tbaa !44
   switch i32 %.0112, label %79 [
-    i32 6, label %213
+    i32 6, label %214
     i32 19, label %75
     i32 8, label %75
   ]
@@ -1114,7 +1114,7 @@ thread-pre-split:                                 ; preds = %123
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 786568
   br label %162
 
-153:                                              ; preds = %212
+153:                                              ; preds = %213
   tail call void @dt_colorspaces_cleanup_profile(ptr noundef %.0116148) #18
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %155 = load ptr, ptr %154, align 8, !tbaa !153
@@ -1124,14 +1124,14 @@ thread-pre-split:                                 ; preds = %123
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 516
   %160 = load i32, ptr %159, align 4, !tbaa !149
   %161 = tail call ptr @dt_ioppr_set_pipe_output_profile_info(ptr noundef %155, ptr noundef %157, i32 noundef %158, ptr noundef %.0113, i32 noundef %160) #18
-  br label %213
+  br label %214
 
-162:                                              ; preds = %148, %212
+162:                                              ; preds = %148, %213
   %indvars.iv = phi i64 [ 0, %148 ], [ %indvars.iv.next, %212 ]
   %163 = getelementptr inbounds nuw [3 x [65536 x float]], ptr %29, i64 0, i64 %indvars.iv
   %164 = load float, ptr %163, align 8, !tbaa !46
   %165 = fcmp reassoc nsz arcp contract afn ult float %164, 0.000000e+00
-  br i1 %165, label %210, label %166
+  br i1 %165, label %211, label %166
 
 166:                                              ; preds = %162
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
@@ -1175,7 +1175,7 @@ thread-pre-split:                                 ; preds = %123
   %195 = fcmp reassoc nsz arcp contract afn ogt float %194, 0.000000e+00
   br i1 %195, label %196, label %204
 
-196:                                              ; preds = %191
+196: ; preds = %191
   %197 = getelementptr inbounds nuw float, ptr @__const.commit_params.x, i64 %indvars.iv.i
   %198 = load float, ptr %197, align 4, !tbaa !46
   %199 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %194)
@@ -1185,7 +1185,7 @@ thread-pre-split:                                 ; preds = %123
   %203 = add nsw i32 %.03339.i, 1
   br label %204
 
-204:                                              ; preds = %196, %191
+204:; preds = %196, %191
   %.134.i = phi i32 [ %203, %196 ], [ %.03339.i, %191 ]
   %.1.i = phi nsz float [ %202, %196 ], [ %.040.i, %191 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1193,30 +1193,30 @@ thread-pre-split:                                 ; preds = %123
   br i1 %exitcond.not.i, label %dt_iop_estimate_exp.exit, label %191
 
 dt_iop_estimate_exp.exit:                         ; preds = %204
-  %205 = getelementptr inbounds nuw [3 x [3 x float]], ptr %152, i64 0, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw [3 x [3 x float]], ptr %152, i64 0, i64 %indvars.iv
   %.not.i = icmp eq i32 %.134.i, 0
-  %206 = sitofp i32 %.134.i to float
-  %207 = fdiv reassoc nsz arcp contract afn float %.1.i, %206
-  %.2.i = select nsz i1 %.not.i, float 1.000000e+00, float %207
-  store float 1.000000e+00, ptr %205, align 4, !tbaa !46
-  %208 = getelementptr inbounds nuw i8, ptr %205, i64 4
-  store float %189, ptr %208, align 4, !tbaa !46
-  %209 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store float %.2.i, ptr %209, align 4, !tbaa !46
+  %207 = sitofp i32 %.134.i to float
+  %208 = fdiv reassoc nsz arcp contract afn float %.1.i, %207
+  %.2.i = select nsz i1 %.not.i, float 1.000000e+00, float %208
+  store float 1.000000e+00, ptr %206, align 4, !tbaa !46
+  %209 = getelementptr inbounds nuw i8, ptr %206, i64 4
+  store float %189, ptr %209, align 4, !tbaa !46
+  %210 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  store float %.2.i, ptr %210, align 4, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
-  br label %212
+  br label %213
 
-210:                                              ; preds = %162
-  %211 = getelementptr inbounds nuw [3 x [3 x float]], ptr %152, i64 0, i64 %indvars.iv
-  store float -1.000000e+00, ptr %211, align 4, !tbaa !46
-  br label %212
+211:                                              ; preds = %162
+  %212 = getelementptr inbounds nuw [3 x [3 x float]], ptr %152, i64 0, i64 %indvars.iv
+  store float -1.000000e+00, ptr %212, align 4, !tbaa !46
+  br label %213
 
-212:                                              ; preds = %dt_iop_estimate_exp.exit, %210
+213:                                              ; preds = %dt_iop_estimate_exp.exit, %211
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %153, label %162
 
-213:                                              ; preds = %74, %153
+214:                                              ; preds = %74, %153
   ret void
 }
 

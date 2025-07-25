@@ -132,7 +132,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local i32 @grep_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @userdiff_config(ptr noundef %0, ptr noundef %1) #18
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %73, label %7
+  br i1 %6, label %74, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.1) #19
@@ -143,7 +143,7 @@ define dso_local i32 @grep_config(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %10 = tail call i32 @git_config_bool(ptr noundef nonnull %0, ptr noundef %1) #18
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 140
   store i32 %10, ptr %11, align 4, !tbaa !11
-  br label %73
+  br label %74
 
 12:                                               ; preds = %7
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.2) #19
@@ -183,7 +183,7 @@ parse_pattern_type_arg.exit:                      ; preds = %14, %16, %18, %20, 
   %.0.i = phi i32 [ 0, %14 ], [ 1, %16 ], [ 2, %18 ], [ 3, %20 ], [ 4, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 %.0.i, ptr %25, align 8, !tbaa !18
-  br label %73
+  br label %74
 
 26:                                               ; preds = %12
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.3) #19
@@ -194,7 +194,7 @@ parse_pattern_type_arg.exit:                      ; preds = %14, %16, %18, %20, 
   %29 = tail call i32 @git_config_bool(ptr noundef nonnull %0, ptr noundef %1) #18
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 %29, ptr %30, align 8, !tbaa !19
-  br label %73
+  br label %74
 
 31:                                               ; preds = %26
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @.str.4) #19
@@ -205,7 +205,7 @@ parse_pattern_type_arg.exit:                      ; preds = %14, %16, %18, %20, 
   %34 = tail call i32 @git_config_bool(ptr noundef nonnull %0, ptr noundef %1) #18
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i32 %34, ptr %35, align 4, !tbaa !20
-  br label %73
+  br label %74
 
 36:                                               ; preds = %31
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.5) #19
@@ -218,7 +218,7 @@ parse_pattern_type_arg.exit:                      ; preds = %14, %16, %18, %20, 
   %40 = zext i1 %.not48 to i32
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 108
   store i32 %40, ptr %41, align 4, !tbaa !21
-  br label %73
+  br label %74
 
 42:                                               ; preds = %36
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.6) #19
@@ -239,24 +239,24 @@ parse_pattern_type_arg.exit:                      ; preds = %14, %16, %18, %20, 
 49:                                               ; preds = %47
   %50 = tail call i32 @grep_config(ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %73, label %52
+  br i1 %51, label %74, label %52
 
 52:                                               ; preds = %49
   %53 = tail call i32 @grep_config(ptr noundef nonnull @.str.9, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %73, label %skip_prefix.exit
+  br i1 %54, label %74, label %73
 
 55:                                               ; preds = %47
   %scevgep.i = getelementptr i8, ptr %0, i64 11
   br label %56
 
-56:                                               ; preds = %57, %55
+56:                                               ; preds = %58, %55
   %.07.i = phi ptr [ %0, %55 ], [ %59, %57 ]
   %.06.idx.i = phi i64 [ 0, %55 ], [ %.06.add.i, %57 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 11
-  br i1 %exitcond.i, label %62, label %57
+  br i1 %exitcond.i, label %skip_prefix.exit, label %58
 
-57:                                               ; preds = %56
+58:                                               ; preds = %56
   %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.06.idx.i
   %58 = load i8, ptr %.06.ptr.i, align 1, !tbaa !23
   %59 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
@@ -265,10 +265,10 @@ parse_pattern_type_arg.exit:                      ; preds = %14, %16, %18, %20, 
   %61 = icmp eq i8 %60, %58
   br i1 %61, label %56, label %skip_prefix.exit, !llvm.loop !24
 
-62:                                               ; preds = %56
+skip_prefix.exit:                                 ; preds = %56
   %63 = tail call i32 @lookup_config(ptr noundef nonnull @color_grep_slots, i32 noundef 9, ptr noundef %scevgep.i) #18
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %73, label %65
+  br i1 %64, label %74, label %65
 
 65:                                               ; preds = %62
   %.not51 = icmp eq ptr %1, null
@@ -276,19 +276,19 @@ parse_pattern_type_arg.exit:                      ; preds = %14, %16, %18, %20, 
 
 66:                                               ; preds = %65
   %67 = tail call i32 @config_error_nonbool(ptr noundef nonnull %0) #18
-  br label %73
+  br label %74
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %70 = zext nneg i32 %63 to i64
   %71 = getelementptr inbounds nuw [9 x [75 x i8]], ptr %69, i64 0, i64 %70
   %72 = tail call i32 @color_parse(ptr noundef nonnull %1, ptr noundef nonnull %71) #18
-  br label %73
+  br label %74
 
-skip_prefix.exit:                                 ; preds = %57, %52
-  br label %73
+73:                                               ; preds = %57, %52
+  br label %74
 
-73:                                               ; preds = %66, %68, %62, %52, %49, %4, %skip_prefix.exit, %38, %33, %28, %parse_pattern_type_arg.exit, %9
+74:                                               ; preds = %66, %68, %62, %52, %49, %4, %73, %38, %33, %28, %parse_pattern_type_arg.exit, %9
   %.0 = phi i32 [ 0, %skip_prefix.exit ], [ 0, %38 ], [ 0, %33 ], [ 0, %28 ], [ 0, %parse_pattern_type_arg.exit ], [ 0, %9 ], [ -1, %4 ], [ -1, %49 ], [ -1, %52 ], [ %72, %68 ], [ -1, %66 ], [ -1, %62 ]
   ret i32 %.0
 }

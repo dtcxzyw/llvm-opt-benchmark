@@ -1322,7 +1322,7 @@ select.unfold:                                    ; preds = %10
   %.not26.not = icmp eq ptr %12, null
   %spec.select = select i1 %.not26.not, ptr %11, ptr %12
   tail call void @wolfSSL_Free(ptr noundef nonnull %spec.select) #19
-  br i1 %.not26.not, label %.thread47, label %const_byte_ptr_test.exit
+  br i1 %.not26.not, label %.thread47, label %17
 
 .thread47:                                        ; preds = %10, %select.unfold
   %13 = tail call ptr @__errno_location() #21
@@ -1332,12 +1332,12 @@ select.unfold:                                    ; preds = %10
   %16 = add nsw i32 %narrow.neg, -1073760313
   br label %simple_mem_test.exit.thread
 
-const_byte_ptr_test.exit:                         ; preds = %select.unfold
+17:                                               ; preds = %select.unfold
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store volatile i32 -1, ptr %1, align 4, !tbaa !22
   store volatile i32 0, ptr %1, align 4, !tbaa !22
   %.0..0..0..0..0..0..i = load volatile i32, ptr %1, align 4, !tbaa !22
-  %17 = icmp ne i32 %.0..0..0..0..0..0..i, 0
+  %18 = icmp ne i32 %.0..0..0..0..0..0..i, 0
   %.0..0..0..0..0..0.1.i = load volatile i32, ptr %1, align 4, !tbaa !22
   %18 = icmp ne i32 %.0..0..0..0..0..0.1.i, 0
   %narrow = select i1 %17, i1 true, i1 %18

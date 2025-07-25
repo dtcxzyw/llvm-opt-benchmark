@@ -1004,14 +1004,14 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang5NSAPI28getNSNumberLite
   %6 = getelementptr inbounds nuw %"class.clang::Selector", ptr %3, i64 %indvars.iv
   %.0.copyload.i.i.i.i.i = load i64, ptr %6, align 8
   %7 = icmp eq i64 %.0.copyload.i.i.i.i.i, 0
-  br i1 %7, label %_ZN4llvm9StringRefC2EPKc.exit.i.i, label %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i
+  br i1 %7, label %8, label %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !10
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 17344
-  %10 = load ptr, ptr %9, align 8, !tbaa !15
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE17ClassSelectorName, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !374
+8:                                                ; preds = %5
+  %9 = load ptr, ptr %0, align 8, !tbaa !10
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 17344
+  %11 = load ptr, ptr %10, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw ptr, ptr @_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE17ClassSelectorName, i64 %indvars.iv
+  %13 = load ptr, ptr %12, align 8, !tbaa !374
   %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #12
   %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr nonnull %12, i64 %13)
   %15 = ptrtoint ptr %14 to i64
@@ -1021,32 +1021,32 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %5
 
 _ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i, %5
   %.sroa.09.0.copyload.i.i = phi i64 [ %16, %_ZN4llvm9StringRefC2EPKc.exit.i.i ], [ %.0.copyload.i.i.i.i.i, %5 ]
-  %17 = icmp eq i64 %1, %.sroa.09.0.copyload.i.i
-  br i1 %17, label %.thread, label %18
+  %20 = icmp eq i64 %1, %.sroa.09.0.copyload.i.i
+  br i1 %20, label %.thread, label %21
 
-18:                                               ; preds = %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i
-  %19 = getelementptr inbounds nuw %"class.clang::Selector", ptr %4, i64 %indvars.iv
-  %.0.copyload.i.i.i.i3.i = load i64, ptr %19, align 8
-  %20 = icmp eq i64 %.0.copyload.i.i.i.i3.i, 0
-  br i1 %20, label %_ZN4llvm9StringRefC2EPKc.exit.i6.i, label %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit
+21:                                               ; preds = %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i
+  %22 = getelementptr inbounds nuw %"class.clang::Selector", ptr %4, i64 %indvars.iv
+  %.0.copyload.i.i.i.i3.i = load i64, ptr %22, align 8
+  %23 = icmp eq i64 %.0.copyload.i.i.i.i3.i, 0
+  br i1 %23, label %24, label %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit
 
-_ZN4llvm9StringRefC2EPKc.exit.i6.i:               ; preds = %18
-  %21 = load ptr, ptr %0, align 8, !tbaa !10
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 17344
-  %23 = load ptr, ptr %22, align 8, !tbaa !15
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE20InstanceSelectorName, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !374
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %0, align 8, !tbaa !10
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 17344
+  %27 = load ptr, ptr %26, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw ptr, ptr @_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE20InstanceSelectorName, i64 %indvars.iv
+  %29 = load ptr, ptr %28, align 8, !tbaa !374
   %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #12
   %27 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %23, ptr nonnull %25, i64 %26)
   %28 = ptrtoint ptr %27 to i64
   %29 = or disjoint i64 %28, 2
-  store i64 %29, ptr %19, align 8, !tbaa !394
+  store i64 %29, ptr %22, align 8, !tbaa !394
   br label %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit
 
-_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit: ; preds = %18, %_ZN4llvm9StringRefC2EPKc.exit.i6.i
+_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit: ; preds = %21, %_ZN4llvm9StringRefC2EPKc.exit.i6.i
   %.sroa.09.0.copyload.i4.i = phi i64 [ %29, %_ZN4llvm9StringRefC2EPKc.exit.i6.i ], [ %.0.copyload.i.i.i.i3.i, %18 ]
-  %30 = icmp eq i64 %1, %.sroa.09.0.copyload.i4.i
-  br i1 %30, label %.thread, label %.critedge
+  %36 = icmp eq i64 %1, %.sroa.09.0.copyload.i4.i
+  br i1 %36, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

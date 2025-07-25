@@ -725,13 +725,13 @@ define dso_local range(i32 -1, 1) i32 @git_column_config(ptr noundef %0, ptr nou
   %scevgep.i = getelementptr i8, ptr %0, i64 7
   br label %5
 
-5:                                                ; preds = %6, %4
+5:                                                ; preds = %7, %4
   %.07.i = phi ptr [ %0, %4 ], [ %8, %6 ]
   %.06.idx.i = phi i64 [ 0, %4 ], [ %.06.add.i, %6 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 7
-  br i1 %exitcond.i, label %sub_0, label %6
+  br i1 %exitcond.i, label %skip_prefix.exit, label %7
 
-6:                                                ; preds = %5
+7:                                                ; preds = %5
   %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.5, i64 %.06.idx.i
   %7 = load i8, ptr %.06.ptr.i, align 1, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
@@ -740,7 +740,7 @@ define dso_local range(i32 -1, 1) i32 @git_column_config(ptr noundef %0, ptr nou
   %10 = icmp eq i8 %9, %7
   br i1 %10, label %5, label %skip_prefix.exit, !llvm.loop !39
 
-sub_0:                                            ; preds = %5
+skip_prefix.exit:                                 ; preds = %5
   %11 = load i8, ptr %scevgep.i, align 1
   %.not18 = icmp eq i8 %11, 117
   br i1 %.not18, label %sub_1, label %.tail.thread
@@ -763,25 +763,25 @@ sub_1:                                            ; preds = %sub_0
 
 18:                                               ; preds = %17
   %19 = tail call i32 @config_error_nonbool(ptr noundef nonnull %0) #10
-  br label %skip_prefix.exit
+  br label %column_config.exit
 
 20:                                               ; preds = %17
   %21 = tail call fastcc i32 @parse_config(ptr noundef %3, ptr noundef %1)
   %.not7.i = icmp eq i32 %21, 0
-  br i1 %.not7.i, label %skip_prefix.exit, label %22
+  br i1 %.not7.i, label %column_config.exit, label %22
 
 22:                                               ; preds = %20
   %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, ptr noundef nonnull %1) #10
-  br label %skip_prefix.exit
+  br label %column_config.exit
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %.not10 = icmp eq ptr %2, null
-  br i1 %.not10, label %skip_prefix.exit, label %24
+  br i1 %.not10, label %column_config.exit, label %24
 
 24:                                               ; preds = %.tail.thread
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(1) %2) #11
   %.not11 = icmp eq i32 %25, 0
-  br i1 %.not11, label %26, label %skip_prefix.exit
+  br i1 %.not11, label %26, label %column_config.exit
 
 26:                                               ; preds = %24
   %.not.i13 = icmp eq ptr %1, null
@@ -789,18 +789,18 @@ sub_1:                                            ; preds = %sub_0
 
 27:                                               ; preds = %26
   %28 = tail call i32 @config_error_nonbool(ptr noundef nonnull %0) #10
-  br label %skip_prefix.exit
+  br label %column_config.exit
 
 29:                                               ; preds = %26
   %30 = tail call fastcc i32 @parse_config(ptr noundef %3, ptr noundef %1)
   %.not7.i14 = icmp eq i32 %30, 0
-  br i1 %.not7.i14, label %skip_prefix.exit, label %31
+  br i1 %.not7.i14, label %column_config.exit, label %31
 
 31:                                               ; preds = %29
   %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14, ptr noundef nonnull %scevgep.i, ptr noundef nonnull %1) #10
-  br label %skip_prefix.exit
+  br label %column_config.exit
 
-skip_prefix.exit:                                 ; preds = %6, %31, %29, %27, %22, %20, %18, %.tail.thread, %24
+column_config.exit:                               ; preds = %6, %31, %29, %27, %22, %20, %18, %.tail.thread, %24
   %.0 = phi i32 [ 0, %24 ], [ 0, %.tail.thread ], [ -1, %22 ], [ -1, %18 ], [ 0, %20 ], [ -1, %31 ], [ -1, %27 ], [ 0, %29 ], [ 0, %6 ]
   ret i32 %.0
 }

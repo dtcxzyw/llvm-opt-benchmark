@@ -61,13 +61,13 @@ define dso_local noundef i32 @cap_object_info(ptr noundef %0, ptr noundef %1) lo
   %scevgep.i.i = getelementptr i8, ptr %14, i64 4
   br label %19
 
-19:                                               ; preds = %20, %18
+19:                                               ; preds = %21, %18
   %.07.i.i = phi ptr [ %14, %18 ], [ %22, %20 ]
   %.06.idx.i.i = phi i64 [ 0, %18 ], [ %.06.add.i.i, %20 ]
   %exitcond.i.i = icmp eq i64 %.06.idx.i.i, 4
-  br i1 %exitcond.i.i, label %parse_oid.exit, label %20
+  br i1 %exitcond.i.i, label %parse_oid.exit, label %21
 
-20:                                               ; preds = %19
+21:                                               ; preds = %19
   %.06.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.06.idx.i.i
   %21 = load i8, ptr %.06.ptr.i.i, align 1, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1

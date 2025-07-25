@@ -113,7 +113,7 @@ define internal range(i32 -2147483648, 1) i32 @rv40_parse_slice_header(ptr nound
   %21 = lshr exact i32 128, %20
   %22 = and i32 %21, %19
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %23, label %190
+  br i1 %.not, label %23, label %208
 
 23:                                               ; preds = %3
   %24 = lshr i32 %spec.select.i, 3
@@ -154,7 +154,7 @@ define internal range(i32 -2147483648, 1) i32 @rv40_parse_slice_header(ptr nound
   %54 = tail call i32 @llvm.umin.i32(i32 %16, i32 %53)
   store i32 %54, ptr %8, align 8, !tbaa !63
   %.not27 = icmp ult i32 %52, 1073741824
-  br i1 %.not27, label %55, label %190
+  br i1 %.not27, label %55, label %208
 
 55:                                               ; preds = %23
   %56 = lshr i32 %54, 3
@@ -220,139 +220,139 @@ define internal range(i32 -2147483648, 1) i32 @rv40_parse_slice_header(ptr nound
   %103 = zext nneg i32 %100 to i64
   %104 = getelementptr inbounds nuw i32, ptr @rv40_standard_widths, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !71
-  %.not.i.i = icmp eq i32 %100, 7
+  %106 = icmp eq i32 %100, 7
   br i1 %.not.i.i, label %.preheader.i.i, label %get_dimension.exit.i
 
 .preheader.i.i:                                   ; preds = %91
-  %106 = getelementptr i8, ptr %1, i64 20
-  %.val17.i.i = load i32, ptr %106, align 4, !tbaa !72
-  br label %107
+  %124 = getelementptr i8, ptr %1, i64 20
+  %.val17.i.i = load i32, ptr %124, align 4, !tbaa !72
+  br label %125
 
-107:                                              ; preds = %111, %.preheader.i.i
-  %108 = phi i32 [ %121, %111 ], [ %102, %.preheader.i.i ]
-  %.2.i.i = phi i32 [ %123, %111 ], [ 0, %.preheader.i.i ]
-  %109 = sub nsw i32 %.val17.i.i, %108
-  %110 = icmp slt i32 %109, 8
-  br i1 %110, label %get_dimension.exit.i, label %111
+125:                                              ; preds = %129, %.preheader.i.i
+  %126 = phi i32 [ %139, %111 ], [ %102, %.preheader.i.i ]
+  %.2.i.i = phi i32 [ %141, %111 ], [ 0, %.preheader.i.i ]
+  %127 = sub nsw i32 %.val17.i.i, %126
+  %128 = icmp slt i32 %127, 8
+  br i1 %128, label %get_dimension.exit.i, label %129
 
-111:                                              ; preds = %107
-  %112 = lshr i32 %108, 3
-  %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i8, ptr %10, i64 %113
-  %115 = load i32, ptr %114, align 1, !tbaa !65
-  %116 = tail call i32 @llvm.bswap.i32(i32 %115)
-  %117 = and i32 %108, 7
-  %118 = shl i32 %116, %117
-  %119 = lshr i32 %118, 24
-  %120 = add i32 %108, 8
-  %121 = tail call i32 @llvm.umin.i32(i32 %16, i32 %120)
-  store i32 %121, ptr %8, align 8, !tbaa !63
-  %122 = shl nuw nsw i32 %119, 2
-  %123 = add nuw nsw i32 %122, %.2.i.i
-  %124 = icmp eq i32 %119, 255
-  br i1 %124, label %107, label %get_dimension.exit.i, !llvm.loop !73
+129:                                              ; preds = %125
+  %130 = lshr i32 %126, 3
+  %131 = zext nneg i32 %130 to i64
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 %131
+  %133 = load i32, ptr %132, align 1, !tbaa !65
+  %134 = tail call i32 @llvm.bswap.i32(i32 %133)
+  %135 = and i32 %126, 7
+  %136 = shl i32 %134, %135
+  %137 = lshr i32 %136, 24
+  %138 = add i32 %126, 8
+  %139 = tail call i32 @llvm.umin.i32(i32 %16, i32 %138)
+  store i32 %139, ptr %8, align 8, !tbaa !63
+  %140 = shl nuw nsw i32 %137, 2
+  %141 = add nuw nsw i32 %140, %.2.i.i
+  %142 = icmp eq i32 %137, 255
+  br i1 %142, label %125, label %get_dimension.exit.i, !llvm.loop !73
 
-get_dimension.exit.i:                             ; preds = %111, %107, %91
-  %125 = phi i32 [ %102, %91 ], [ %121, %111 ], [ %108, %107 ]
-  %.014.i.i = phi i32 [ %105, %91 ], [ %123, %111 ], [ -1094995529, %107 ]
-  %126 = lshr i32 %125, 3
-  %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw i8, ptr %10, i64 %127
-  %129 = load i32, ptr %128, align 1, !tbaa !65
-  %130 = tail call i32 @llvm.bswap.i32(i32 %129)
-  %131 = and i32 %125, 7
-  %132 = shl i32 %130, %131
-  %133 = lshr i32 %132, 29
-  %134 = add i32 %125, 3
-  %135 = tail call i32 @llvm.umin.i32(i32 %16, i32 %134)
-  store i32 %135, ptr %8, align 8, !tbaa !63
-  %136 = zext nneg i32 %133 to i64
-  %137 = getelementptr inbounds nuw i32, ptr @rv40_standard_heights, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !71
-  %139 = icmp ugt i32 %132, -1073741825
-  br i1 %139, label %140, label %156
+get_dimension.exit.i:                             ; preds = %129, %125, %91
+  %143 = phi i32 [ %102, %91 ], [ %139, %111 ], [ %126, %107 ]
+  %.014.i.i = phi i32 [ %105, %91 ], [ %141, %111 ], [ -1094995529, %107 ]
+  %144 = lshr i32 %143, 3
+  %145 = zext nneg i32 %144 to i64
+  %146 = getelementptr inbounds nuw i8, ptr %10, i64 %145
+  %147 = load i32, ptr %146, align 1, !tbaa !65
+  %148 = tail call i32 @llvm.bswap.i32(i32 %147)
+  %149 = and i32 %143, 7
+  %150 = shl i32 %148, %149
+  %151 = lshr i32 %150, 29
+  %152 = add i32 %143, 3
+  %153 = tail call i32 @llvm.umin.i32(i32 %16, i32 %152)
+  store i32 %153, ptr %8, align 8, !tbaa !63
+  %154 = zext nneg i32 %151 to i64
+  %155 = getelementptr inbounds nuw i32, ptr @rv40_standard_heights, i64 %154
+  %156 = load i32, ptr %155, align 4, !tbaa !71
+  %157 = icmp ugt i32 %150, -1073741825
+  br i1 %157, label %158, label %174
 
-140:                                              ; preds = %get_dimension.exit.i
-  %141 = lshr i32 %135, 3
-  %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw i8, ptr %10, i64 %142
-  %144 = load i8, ptr %143, align 1, !tbaa !65
-  %145 = icmp slt i32 %135, %16
-  %146 = zext i1 %145 to i32
-  %spec.select.i.i11.i = add i32 %135, %146
-  %147 = zext i8 %144 to i32
-  %148 = and i32 %135, 7
-  %149 = shl nuw nsw i32 %147, %148
-  %150 = lshr i32 %149, 7
+158:                                              ; preds = %get_dimension.exit.i
+  %159 = lshr i32 %153, 3
+  %160 = zext nneg i32 %159 to i64
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 %160
+  %162 = load i8, ptr %161, align 1, !tbaa !65
+  %163 = icmp slt i32 %153, %16
+  %164 = zext i1 %163 to i32
+  %spec.select.i.i11.i = add i32 %153, %164
+  %165 = zext i8 %162 to i32
+  %166 = and i32 %153, 7
+  %167 = shl nuw nsw i32 %165, %166
+  %168 = lshr i32 %167, 7
   store i32 %spec.select.i.i11.i, ptr %8, align 8, !tbaa !63
-  %151 = and i32 %150, 1
-  %152 = sub i32 %151, %138
-  %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw i32, ptr @rv40_standard_heights, i64 %153
-  %155 = load i32, ptr %154, align 4, !tbaa !71
-  br label %156
+  %169 = and i32 %168, 1
+  %170 = sub i32 %169, %156
+  %171 = zext i32 %170 to i64
+  %172 = getelementptr inbounds nuw i32, ptr @rv40_standard_heights, i64 %171
+  %173 = load i32, ptr %172, align 4, !tbaa !71
+  br label %174
 
-156:                                              ; preds = %140, %get_dimension.exit.i
-  %.promoted.i4.i = phi i32 [ %spec.select.i.i11.i, %140 ], [ %135, %get_dimension.exit.i ]
-  %.0.i5.i = phi i32 [ %155, %140 ], [ %138, %get_dimension.exit.i ]
+174:                                              ; preds = %158, %get_dimension.exit.i
+  %.promoted.i4.i = phi i32 [ %spec.select.i.i11.i, %140 ], [ %153, %get_dimension.exit.i ]
+  %.0.i5.i = phi i32 [ %173, %140 ], [ %156, %get_dimension.exit.i ]
   %.not.i6.i = icmp eq i32 %.0.i5.i, 0
   br i1 %.not.i6.i, label %.preheader.i8.i, label %rv40_parse_picture_size.exit
 
-.preheader.i8.i:                                  ; preds = %156
-  %157 = getelementptr i8, ptr %1, i64 20
-  %.val17.i9.i = load i32, ptr %157, align 4, !tbaa !72
-  br label %158
+.preheader.i8.i:                                  ; preds = %174
+  %175 = getelementptr i8, ptr %1, i64 20
+  %.val17.i9.i = load i32, ptr %175, align 4, !tbaa !72
+  br label %176
 
-158:                                              ; preds = %162, %.preheader.i8.i
-  %159 = phi i32 [ %172, %162 ], [ %.promoted.i4.i, %.preheader.i8.i ]
-  %.2.i10.i = phi i32 [ %174, %162 ], [ 0, %.preheader.i8.i ]
-  %160 = sub nsw i32 %.val17.i9.i, %159
-  %161 = icmp slt i32 %160, 8
-  br i1 %161, label %rv40_parse_picture_size.exit, label %162
+176:                                              ; preds = %180, %.preheader.i8.i
+  %177 = phi i32 [ %190, %162 ], [ %.promoted.i4.i, %.preheader.i8.i ]
+  %.2.i10.i = phi i32 [ %192, %162 ], [ 0, %.preheader.i8.i ]
+  %178 = sub nsw i32 %.val17.i9.i, %177
+  %179 = icmp slt i32 %178, 8
+  br i1 %179, label %rv40_parse_picture_size.exit, label %180
 
-162:                                              ; preds = %158
-  %163 = lshr i32 %159, 3
-  %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw i8, ptr %10, i64 %164
-  %166 = load i32, ptr %165, align 1, !tbaa !65
-  %167 = tail call i32 @llvm.bswap.i32(i32 %166)
-  %168 = and i32 %159, 7
-  %169 = shl i32 %167, %168
-  %170 = lshr i32 %169, 24
-  %171 = add i32 %159, 8
-  %172 = tail call i32 @llvm.umin.i32(i32 %16, i32 %171)
-  store i32 %172, ptr %8, align 8, !tbaa !63
-  %173 = shl nuw nsw i32 %170, 2
-  %174 = add nuw nsw i32 %173, %.2.i10.i
-  %175 = icmp eq i32 %170, 255
-  br i1 %175, label %158, label %rv40_parse_picture_size.exit, !llvm.loop !73
+180:                                              ; preds = %176
+  %181 = lshr i32 %177, 3
+  %182 = zext nneg i32 %181 to i64
+  %183 = getelementptr inbounds nuw i8, ptr %10, i64 %182
+  %184 = load i32, ptr %183, align 1, !tbaa !65
+  %185 = tail call i32 @llvm.bswap.i32(i32 %184)
+  %186 = and i32 %177, 7
+  %187 = shl i32 %185, %186
+  %188 = lshr i32 %187, 24
+  %189 = add i32 %177, 8
+  %190 = tail call i32 @llvm.umin.i32(i32 %16, i32 %189)
+  store i32 %190, ptr %8, align 8, !tbaa !63
+  %191 = shl nuw nsw i32 %188, 2
+  %192 = add nuw nsw i32 %191, %.2.i10.i
+  %193 = icmp eq i32 %188, 255
+  br i1 %193, label %176, label %rv40_parse_picture_size.exit, !llvm.loop !73
 
-rv40_parse_picture_size.exit:                     ; preds = %162, %158, %156, %80
+rv40_parse_picture_size.exit:                     ; preds = %180, %176, %174, %80
   %.035 = phi i32 [ %5, %80 ], [ %.014.i.i, %156 ], [ %.014.i.i, %158 ], [ %.014.i.i, %162 ]
-  %.034 = phi i32 [ %7, %80 ], [ %.0.i5.i, %156 ], [ %174, %162 ], [ -1094995529, %158 ]
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %177 = load ptr, ptr %176, align 8, !tbaa !75
-  %178 = tail call i32 @av_image_check_size(i32 noundef %.035, i32 noundef %.034, i32 noundef 0, ptr noundef %177) #8
-  %179 = icmp slt i32 %178, 0
-  br i1 %179, label %190, label %180
+  %.034 = phi i32 [ %7, %80 ], [ %.0.i5.i, %156 ], [ %192, %162 ], [ -1094995529, %158 ]
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %195 = load ptr, ptr %194, align 8, !tbaa !75
+  %196 = tail call i32 @av_image_check_size(i32 noundef %.035, i32 noundef %.034, i32 noundef 0, ptr noundef %195) #8
+  %197 = icmp slt i32 %196, 0
+  br i1 %197, label %208, label %198
 
-180:                                              ; preds = %rv40_parse_picture_size.exit
-  %181 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %.035, ptr %181, align 4, !tbaa !76
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %.034, ptr %182, align 4, !tbaa !77
-  %183 = add nsw i32 %.035, 15
-  %184 = ashr i32 %183, 4
-  %185 = add nsw i32 %.034, 15
-  %186 = ashr i32 %185, 4
-  %187 = mul nsw i32 %186, %184
-  %188 = tail call i32 @ff_rv34_get_start_offset(ptr noundef nonnull %1, i32 noundef %187) #8
-  %189 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %188, ptr %189, align 4, !tbaa !78
-  br label %190
+198:                                              ; preds = %rv40_parse_picture_size.exit
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i32 %.035, ptr %199, align 4, !tbaa !76
+  %200 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 %.034, ptr %200, align 4, !tbaa !77
+  %201 = add nsw i32 %.035, 15
+  %202 = ashr i32 %201, 4
+  %203 = add nsw i32 %.034, 15
+  %204 = ashr i32 %203, 4
+  %205 = mul nsw i32 %204, %202
+  %206 = tail call i32 @ff_rv34_get_start_offset(ptr noundef nonnull %1, i32 noundef %205) #8
+  %207 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 %206, ptr %207, align 4, !tbaa !78
+  br label %208
 
-190:                                              ; preds = %rv40_parse_picture_size.exit, %23, %3, %180
-  %.0 = phi i32 [ 0, %180 ], [ -1094995529, %3 ], [ -1094995529, %23 ], [ %178, %rv40_parse_picture_size.exit ]
+208:                                              ; preds = %rv40_parse_picture_size.exit, %23, %3, %198
+  %.0 = phi i32 [ 0, %180 ], [ -1094995529, %3 ], [ -1094995529, %23 ], [ %196, %rv40_parse_picture_size.exit ]
   ret i32 %.0
 }
 

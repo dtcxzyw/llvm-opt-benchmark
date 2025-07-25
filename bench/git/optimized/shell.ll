@@ -521,32 +521,32 @@ define internal i32 @do_generic_cmd(ptr noundef %0, ptr noundef %1) #0 {
 6:                                                ; preds = %4
   %7 = load i8, ptr %5, align 1, !tbaa !9
   %8 = icmp eq i8 %7, 45
-  br i1 %8, label %9, label %.preheader
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6, %4, %2
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.28) #15
   unreachable
 
-.preheader:                                       ; preds = %6, %10
+10:                                               ; preds = %6, %10
   %.07.i = phi ptr [ %12, %10 ], [ %0, %6 ]
   %.06.idx.i = phi i64 [ %.06.add.i, %10 ], [ 0, %6 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 4
-  br i1 %exitcond.i, label %15, label %10
+  br i1 %exitcond.i, label %15, label %13
 
-10:                                               ; preds = %.preheader
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.29, i64 %.06.idx.i
-  %11 = load i8, ptr %.06.ptr.i, align 1, !tbaa !9
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr @.str.29, i64 %.06.idx.i
+  %15 = load i8, ptr %.06.ptr.i, align 1, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %13 = load i8, ptr %.07.i, align 1, !tbaa !9
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %14 = icmp eq i8 %13, %11
-  br i1 %14, label %.preheader, label %skip_prefix.exit, !llvm.loop !22
+  %16 = icmp eq i8 %13, %11
+  br i1 %16, label %10, label %skip_prefix.exit, !llvm.loop !22
 
-skip_prefix.exit:                                 ; preds = %10
+17:                                               ; preds = %10
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30) #15
   unreachable
 
-15:                                               ; preds = %.preheader
+18:                                               ; preds = %.preheader
   %scevgep.i = getelementptr i8, ptr %0, i64 4
   store ptr %scevgep.i, ptr %3, align 16, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8

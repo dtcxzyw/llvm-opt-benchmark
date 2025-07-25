@@ -1509,13 +1509,13 @@ $_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm
 define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::mersenne_twister_engine", align 8
-  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #7
+  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %._crit_edge.i.i4
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #7
-  %7 = tail call i64 @time(ptr noundef null) #7
+  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #8
+  %7 = tail call i64 @time(ptr noundef null) #8
   store i64 %7, ptr %3, align 8, !tbaa !4
   br label %8
 
@@ -1560,7 +1560,7 @@ define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
 _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: ; preds = %16, %..loopexit_crit_edge.i.i.i.i
   %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %27 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray, i64 %.0.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #8
   %28 = load ptr, ptr %27, align 8, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %0, align 8, !tbaa !16
@@ -1570,7 +1570,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
   %31 = icmp ugt i64 %30, 15
   br i1 %31, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc.i:                                         ; preds = %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
+.noexc:                                           ; preds = %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
   %32 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %32, ptr %0, align 8, !tbaa !18
   %33 = load i64, ptr %2, align 8, !tbaa !4
@@ -1578,42 +1578,42 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
-  %34 = phi ptr [ %32, %.noexc.i ], [ %29, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit ]
+  %36 = phi ptr [ %32, %.noexc.i ], [ %29, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit ]
   switch i64 %30, label %37 [
-    i64 1, label %35
-    i64 0, label %38
+    i64 1, label %37
+    i64 0, label %40
   ]
 
-35:                                               ; preds = %._crit_edge.i.i
-  %36 = load i8, ptr %28, align 1, !tbaa !20
-  store i8 %36, ptr %34, align 1, !tbaa !20
-  br label %38
-
 37:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 %28, i64 %30, i1 false)
-  br label %38
+  %38 = load i8, ptr %28, align 1, !tbaa !20
+  store i8 %38, ptr %36, align 1, !tbaa !20
+  br label %40
 
-38:                                               ; preds = %37, %35, %._crit_edge.i.i
-  %39 = load i64, ptr %2, align 8, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %39, ptr %40, align 8, !tbaa !21
-  %41 = load ptr, ptr %0, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
-  store i8 0, ptr %42, align 1, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
-  br label %46
+39:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull align 1 %28, i64 %30, i1 false)
+  br label %40
+
+40:                                               ; preds = %39, %37, %._crit_edge.i.i
+  %41 = load i64, ptr %2, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %41, ptr %42, align 8, !tbaa !21
+  %43 = load ptr, ptr %0, align 8, !tbaa !18
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %41
+  store i8 0, ptr %44, align 1, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  br label %48
 
 ._crit_edge.i.i4:                                 ; preds = %1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %43, ptr %0, align 8, !tbaa !16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %43, ptr noundef nonnull align 1 dereferenceable(7) @.str.26, i64 7, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 7, ptr %44, align 8, !tbaa !21
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  store i8 0, ptr %45, align 1, !tbaa !20
-  br label %46
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %45, ptr %0, align 8, !tbaa !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %45, ptr noundef nonnull align 1 dereferenceable(7) @.str.26, i64 7, i1 false)
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 7, ptr %46, align 8, !tbaa !21
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 23
+  store i8 0, ptr %47, align 1, !tbaa !20
+  br label %48
 
-46:                                               ; preds = %._crit_edge.i.i4, %38
+48:                                               ; preds = %._crit_edge.i.i4, %40
   ret void
 }
 
@@ -1735,21 +1735,21 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::mersenne_twister_engine", align 8
-  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #7
+  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.noexc.i
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #7
-  %7 = tail call i64 @time(ptr noundef null) #7
+  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #8
+  %7 = tail call i64 @time(ptr noundef null) #8
   store i64 %7, ptr %3, align 8, !tbaa !4
   br label %8
 
@@ -1794,7 +1794,7 @@ define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable 
 _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit: ; preds = %16, %..loopexit_crit_edge.i.i.i.i
   %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %27 = getelementptr inbounds nuw %struct.Quote, ptr @__const._ZN3gmx12getCoolQuoteB5cxx11Ev.quoteArray, i64 %.0.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #8
   %.sroa.0.0.copyload = load ptr, ptr %27, align 16, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13
@@ -1804,7 +1804,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5Quote
 .noexc.i:                                         ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %0, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   store i64 41, ptr %2, align 8, !tbaa !4
   %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %29, ptr %0, align 8, !tbaa !18
@@ -1815,14 +1815,14 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5Quote
   store i64 %30, ptr %31, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   store i8 0, ptr %32, align 1, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   br label %33
 
 33:                                               ; preds = %.noexc.i, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit
   ret void
 }
 
-declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #6
+declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

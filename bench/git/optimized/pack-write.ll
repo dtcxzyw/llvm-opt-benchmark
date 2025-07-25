@@ -1009,13 +1009,13 @@ define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr no
   %scevgep.i = getelementptr inbounds nuw i8, ptr %4, i64 5
   br label %21
 
-21:                                               ; preds = %22, %20
+21:                                               ; preds = %23, %20
   %.07.i = phi ptr [ %4, %20 ], [ %24, %22 ]
   %.06.idx.i = phi i64 [ 0, %20 ], [ %.06.add.i, %22 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 5
-  br i1 %exitcond.i, label %27, label %22
+  br i1 %exitcond.i, label %skip_prefix.exit, label %23
 
-22:                                               ; preds = %21
+23:                                               ; preds = %21
   %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.06.idx.i
   %23 = load i8, ptr %.06.ptr.i, align 1, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
@@ -1024,20 +1024,20 @@ define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr no
   %26 = icmp eq i8 %25, %23
   br i1 %26, label %21, label %skip_prefix.exit, !llvm.loop !73
 
-27:                                               ; preds = %21
+skip_prefix.exit:                                 ; preds = %21
   %28 = call ptr @repo_get_object_directory(ptr noundef %0) #19
   %29 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.14, ptr noundef %28, ptr noundef nonnull %scevgep.i) #19
-  br label %skip_prefix.exit
+  br label %32
 
 30:                                               ; preds = %13, %3
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %skip_prefix.exit, label %31
+  br i1 %.not, label %32, label %31
 
 31:                                               ; preds = %30
   store i32 0, ptr %2, align 4, !tbaa !24
-  br label %skip_prefix.exit
+  br label %32
 
-skip_prefix.exit:                                 ; preds = %22, %27, %30, %31
+32:                                               ; preds = %22, %skip_prefix.exit, %30, %31
   %.1 = phi ptr [ null, %31 ], [ null, %30 ], [ %29, %27 ], [ null, %22 ]
   call void @llvm.lifetime.end.p0(i64 70, ptr nonnull %4) #19
   ret ptr %.1

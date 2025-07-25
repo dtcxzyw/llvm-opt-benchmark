@@ -61324,18 +61324,18 @@ define internal fastcc void @explain_data_prepare(ptr noundef captures(none) %0,
   br label %7
 
 7:                                                ; preds = %.lr.ph93, %str_in_array.exit76.thread
-  %indvars.iv101 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next102, %str_in_array.exit76.thread ]
+  %indvars.iv103 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next104, %str_in_array.exit76.thread ]
   %.092 = phi ptr [ null, %.lr.ph93 ], [ %.1, %str_in_array.exit76.thread ]
   %.05191 = phi i32 [ 0, %.lr.ph93 ], [ %.152, %str_in_array.exit76.thread ]
   %8 = tail call i32 @sqlite3_column_int(ptr noundef %1, i32 noundef 0) #43
   %9 = tail call ptr @sqlite3_column_text(ptr noundef %1, i32 noundef 1) #43
   %10 = tail call i32 @sqlite3_column_int(ptr noundef %1, i32 noundef 2) #43
   %11 = tail call i32 @sqlite3_column_int(ptr noundef %1, i32 noundef 3) #43
-  %12 = trunc nuw nsw i64 %indvars.iv101 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv103 to i32
   %13 = sub nsw i32 %12, %8
   %14 = add nsw i32 %11, %13
   %15 = sext i32 %.05191 to i64
-  %.not = icmp slt i64 %indvars.iv101, %15
+  %.not = icmp slt i64 %indvars.iv103, %15
   br i1 %.not, label %shell_check_oom.exit60, label %16
 
 16:                                               ; preds = %7
@@ -61372,8 +61372,8 @@ shell_check_oom.exit60:                           ; preds = %shell_check_oom.exi
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = getelementptr inbounds nuw ptr, ptr @__const.explain_data_prepare.azYield, i64 %indvars.iv.next.i
   %30 = load ptr, ptr %29, align 8, !tbaa !29
-  %.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %.not.i, label %str_in_array.exit, label %.lr.ph.i, !llvm.loop !1154
+  %exitcond = icmp eq i64 %indvars.iv.next.i, 5
+  br i1 %exitcond, label %str_in_array.exit, label %.lr.ph.i, !llvm.loop !1154
 
 .lr.ph.i:                                         ; preds = %shell_check_oom.exit60, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %shell_check_oom.exit60 ]
@@ -61384,13 +61384,13 @@ shell_check_oom.exit60:                           ; preds = %shell_check_oom.exi
 
 str_in_array.exit:                                ; preds = %28, %.lr.ph.i
   %.06.i = phi i32 [ 0, %28 ], [ 1, %.lr.ph.i ]
-  %34 = getelementptr inbounds nuw i32, ptr %.1, i64 %indvars.iv101
+  %34 = getelementptr inbounds nuw i32, ptr %.1, i64 %indvars.iv103
   store i32 %.06.i, ptr %34, align 4, !tbaa !36
   %35 = load ptr, ptr %5, align 8, !tbaa !634
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv101
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv103
   store i32 0, ptr %36, align 4, !tbaa !36
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %37 = trunc nuw i64 %indvars.iv.next102 to i32
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %37 = trunc nuw i64 %indvars.iv.next104 to i32
   store i32 %37, ptr %6, align 8, !tbaa !1114
   br label %.lr.ph.i63
 
@@ -61398,8 +61398,8 @@ str_in_array.exit:                                ; preds = %28, %.lr.ph.i
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
   %39 = getelementptr inbounds nuw ptr, ptr @__const.explain_data_prepare.azNext, i64 %indvars.iv.next.i65
   %40 = load ptr, ptr %39, align 8, !tbaa !29
-  %.not.i66 = icmp eq i64 %indvars.iv.next.i65, 6
-  br i1 %.not.i66, label %str_in_array.exit68.thread, label %.lr.ph.i63, !llvm.loop !1154
+  %exitcond97 = icmp eq i64 %indvars.iv.next.i65, 6
+  br i1 %exitcond97, label %str_in_array.exit68.thread, label %.lr.ph.i63, !llvm.loop !1154
 
 .lr.ph.i63:                                       ; preds = %str_in_array.exit, %38
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i65, %38 ], [ 0, %str_in_array.exit ]
@@ -61411,7 +61411,7 @@ str_in_array.exit:                                ; preds = %28, %.lr.ph.i
 str_in_array.exit68:                              ; preds = %.lr.ph.i63
   %44 = icmp sgt i32 %14, 0
   %45 = sext i32 %14 to i64
-  %46 = icmp sgt i64 %indvars.iv101, %45
+  %46 = icmp sgt i64 %indvars.iv103, %45
   %or.cond = select i1 %44, i1 %46, i1 false
   br i1 %or.cond, label %.lr.ph.preheader, label %str_in_array.exit68.thread
 
@@ -61430,7 +61430,7 @@ str_in_array.exit68:                              ; preds = %.lr.ph.i63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %sext = shl i64 %indvars.iv.next, 32
   %53 = ashr exact i64 %sext, 32
-  %54 = icmp slt i64 %53, %indvars.iv101
+  %54 = icmp slt i64 %53, %indvars.iv103
   br i1 %54, label %.lr.ph, label %str_in_array.exit68.thread, !llvm.loop !1155
 
 str_in_array.exit68.thread:                       ; preds = %38, %.lr.ph, %str_in_array.exit68
@@ -61440,7 +61440,7 @@ str_in_array.exit68.thread:                       ; preds = %38, %.lr.ph, %str_i
 
 str_in_array.exit76:                              ; preds = %str_in_array.exit68.thread
   %57 = sext i32 %14 to i64
-  %58 = icmp sgt i64 %indvars.iv101, %57
+  %58 = icmp sgt i64 %indvars.iv103, %57
   br i1 %58, label %59, label %str_in_array.exit76.thread
 
 59:                                               ; preds = %str_in_array.exit76
@@ -61458,15 +61458,15 @@ str_in_array.exit76:                              ; preds = %str_in_array.exit68
   br label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
-  %indvars.iv98 = phi i64 [ %66, %.lr.ph89.preheader ], [ %indvars.iv.next99, %.lr.ph89 ]
-  %67 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv98
+  %indvars.iv99 = phi i64 [ %66, %.lr.ph89.preheader ], [ %indvars.iv.next100, %.lr.ph89 ]
+  %67 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv99
   %68 = load i32, ptr %67, align 4, !tbaa !36
   %69 = add nsw i32 %68, 2
   store i32 %69, ptr %67, align 4, !tbaa !36
-  %indvars.iv.next99 = add nsw i64 %indvars.iv98, 1
-  %70 = and i64 %indvars.iv.next99, 4294967295
-  %exitcond.not = icmp eq i64 %70, %indvars.iv101
-  br i1 %exitcond.not, label %str_in_array.exit76.thread, label %.lr.ph89, !llvm.loop !1156
+  %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
+  %70 = and i64 %indvars.iv.next100, 4294967295
+  %exitcond102.not = icmp eq i64 %70, %indvars.iv103
+  br i1 %exitcond102.not, label %str_in_array.exit76.thread, label %.lr.ph89, !llvm.loop !1156
 
 str_in_array.exit76.thread:                       ; preds = %.lr.ph89, %str_in_array.exit68.thread, %59, %str_in_array.exit76
   %71 = tail call i32 @sqlite3_step(ptr noundef %1) #43
