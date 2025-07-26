@@ -107599,12 +107599,11 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
 
 .thread:                                          ; preds = %50, %15
   %.09.lcssa.ph = phi i64 [ %17, %50 ], [ %.0922, %15 ]
-  %.09.lcssa.ph.fr = freeze i64 %.09.lcssa.ph
   %.pre = load ptr, ptr %6, align 8
   %.pre25 = load ptr, ptr %9, align 8
-  %60 = icmp ult i64 %.09.lcssa.ph.fr, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph.fr
-  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre25, i64 %.09.lcssa.ph.fr
+  %60 = icmp ult i64 %.09.lcssa.ph, 8
+  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph
+  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre25, i64 %.09.lcssa.ph
   %63 = getelementptr i8, ptr %62, i64 -192
   %spec.select = select i1 %60, ptr %61, ptr %63
   br label %.thread.thread
@@ -109091,12 +109090,11 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
 
 .thread:                                          ; preds = %50, %15
   %.09.lcssa.ph = phi i64 [ %17, %50 ], [ %.0922, %15 ]
-  %.09.lcssa.ph.fr = freeze i64 %.09.lcssa.ph
   %.pre = load ptr, ptr %6, align 8
   %.pre25 = load ptr, ptr %9, align 8
-  %60 = icmp ult i64 %.09.lcssa.ph.fr, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph.fr
-  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre25, i64 %.09.lcssa.ph.fr
+  %60 = icmp ult i64 %.09.lcssa.ph, 8
+  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph
+  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre25, i64 %.09.lcssa.ph
   %63 = getelementptr i8, ptr %62, i64 -192
   %spec.select = select i1 %60, ptr %61, ptr %63
   br label %.thread.thread
@@ -113599,12 +113597,11 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
 
 .thread:                                          ; preds = %50, %15
   %.09.lcssa.ph = phi i64 [ %17, %50 ], [ %.0922, %15 ]
-  %.09.lcssa.ph.fr = freeze i64 %.09.lcssa.ph
   %.pre = load ptr, ptr %6, align 8
   %.pre25 = load ptr, ptr %9, align 8
-  %60 = icmp ult i64 %.09.lcssa.ph.fr, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph.fr
-  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre25, i64 %.09.lcssa.ph.fr
+  %60 = icmp ult i64 %.09.lcssa.ph, 8
+  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph
+  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre25, i64 %.09.lcssa.ph
   %63 = getelementptr i8, ptr %62, i64 -192
   %spec.select = select i1 %60, ptr %61, ptr %63
   br label %.thread.thread
@@ -115000,12 +114997,11 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
 
 .thread:                                          ; preds = %50, %15
   %.09.lcssa.ph = phi i64 [ %17, %50 ], [ %.0922, %15 ]
-  %.09.lcssa.ph.fr = freeze i64 %.09.lcssa.ph
   %.pre = load ptr, ptr %6, align 8
   %.pre25 = load ptr, ptr %9, align 8
-  %60 = icmp ult i64 %.09.lcssa.ph.fr, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph.fr
-  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre25, i64 %.09.lcssa.ph.fr
+  %60 = icmp ult i64 %.09.lcssa.ph, 8
+  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph
+  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre25, i64 %.09.lcssa.ph
   %63 = getelementptr i8, ptr %62, i64 -192
   %spec.select = select i1 %60, ptr %61, ptr %63
   br label %.thread.thread

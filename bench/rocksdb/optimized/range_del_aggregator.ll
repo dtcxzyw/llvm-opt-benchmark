@@ -6991,12 +6991,11 @@ _ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.ex
 
 .thread.i.i:                                      ; preds = %67, %.lr.ph.i.i
   %.011.lcssa.ph.i.i = phi i64 [ %58, %67 ], [ %.01120.i.i, %.lr.ph.i.i ]
-  %.011.lcssa.ph.fr.i.i = freeze i64 %.011.lcssa.ph.i.i
   %.pre.i.i = load ptr, ptr %51, align 8
   %.pre23.i.i = load ptr, ptr %42, align 8
-  %78 = icmp ult i64 %.011.lcssa.ph.fr.i.i, 8
-  %79 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.fr.i.i
-  %80 = getelementptr ptr, ptr %.pre23.i.i, i64 %.011.lcssa.ph.fr.i.i
+  %78 = icmp ult i64 %.011.lcssa.ph.i.i, 8
+  %79 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.i.i
+  %80 = getelementptr ptr, ptr %.pre23.i.i, i64 %.011.lcssa.ph.i.i
   %81 = getelementptr i8, ptr %80, i64 -64
   %spec.select.i.i = select i1 %78, ptr %79, ptr %81
   br label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit
@@ -7119,13 +7118,12 @@ _ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS
 
 .thread.i.i:                                      ; preds = %55, %.lr.ph.i.i
   %.09.lcssa.ph.i.i = phi i64 [ %47, %55 ], [ %.0918.i.i, %.lr.ph.i.i ]
-  %.09.lcssa.ph.fr.i.i = freeze i64 %.09.lcssa.ph.i.i
   %.pre.i.i = load ptr, ptr %40, align 8
   %.pre21.i.i = load ptr, ptr %29, align 8
   %.pre22.i.i = load i64, ptr %3, align 8, !tbaa !146
-  %66 = icmp ult i64 %.09.lcssa.ph.fr.i.i, 8
-  %67 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %.pre.i.i, i64 %.09.lcssa.ph.fr.i.i
-  %68 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %.pre21.i.i, i64 %.09.lcssa.ph.fr.i.i
+  %66 = icmp ult i64 %.09.lcssa.ph.i.i, 8
+  %67 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %.pre.i.i, i64 %.09.lcssa.ph.i.i
+  %68 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %.pre21.i.i, i64 %.09.lcssa.ph.i.i
   %69 = getelementptr i8, ptr %68, i64 -64
   %spec.select.i.i1 = select i1 %66, ptr %67, ptr %69
   br label %_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ForwardRangeDelIterator19EndKeyMinComparatorEE4pushERKS4_.exit
@@ -7970,12 +7968,11 @@ _ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.ex
 
 .thread.i.i:                                      ; preds = %67, %.lr.ph.i.i
   %.011.lcssa.ph.i.i = phi i64 [ %58, %67 ], [ %.01120.i.i, %.lr.ph.i.i ]
-  %.011.lcssa.ph.fr.i.i = freeze i64 %.011.lcssa.ph.i.i
   %.pre.i.i = load ptr, ptr %51, align 8
   %.pre23.i.i = load ptr, ptr %42, align 8
-  %78 = icmp ult i64 %.011.lcssa.ph.fr.i.i, 8
-  %79 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.fr.i.i
-  %80 = getelementptr ptr, ptr %.pre23.i.i, i64 %.011.lcssa.ph.fr.i.i
+  %78 = icmp ult i64 %.011.lcssa.ph.i.i, 8
+  %79 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.i.i
+  %80 = getelementptr ptr, ptr %.pre23.i.i, i64 %.011.lcssa.ph.i.i
   %81 = getelementptr i8, ptr %80, i64 -64
   %spec.select.i.i = select i1 %78, ptr %79, ptr %81
   br label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_23ReverseRangeDelIterator19EndKeyMaxComparatorEE4pushERKS2_.exit
@@ -8098,13 +8095,12 @@ _ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS
 
 .thread.i.i:                                      ; preds = %55, %.lr.ph.i.i
   %.09.lcssa.ph.i.i = phi i64 [ %47, %55 ], [ %.0918.i.i, %.lr.ph.i.i ]
-  %.09.lcssa.ph.fr.i.i = freeze i64 %.09.lcssa.ph.i.i
   %.pre.i.i = load ptr, ptr %40, align 8
   %.pre21.i.i = load ptr, ptr %29, align 8
   %.pre22.i.i = load i64, ptr %3, align 8, !tbaa !146
-  %66 = icmp ult i64 %.09.lcssa.ph.fr.i.i, 8
-  %67 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %.pre.i.i, i64 %.09.lcssa.ph.fr.i.i
-  %68 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %.pre21.i.i, i64 %.09.lcssa.ph.fr.i.i
+  %66 = icmp ult i64 %.09.lcssa.ph.i.i, 8
+  %67 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %.pre.i.i, i64 %.09.lcssa.ph.i.i
+  %68 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %.pre21.i.i, i64 %.09.lcssa.ph.i.i
   %69 = getelementptr i8, ptr %68, i64 -64
   %spec.select.i.i1 = select i1 %66, ptr %67, ptr %69
   br label %_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ReverseRangeDelIterator21StartKeyMaxComparatorEE4pushERKS4_.exit
@@ -10502,12 +10498,11 @@ _ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit:
 
 .thread.i.i:                                      ; preds = %294, %_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit
   %.011.lcssa.ph.i.i = phi i64 [ %239, %294 ], [ %.01120.i.i, %_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit ]
-  %.011.lcssa.ph.fr.i.i = freeze i64 %.011.lcssa.ph.i.i
   %.pre.i.i = load ptr, ptr %44, align 8
   %.pre23.i.i = load ptr, ptr %17, align 8
-  %305 = icmp ult i64 %.011.lcssa.ph.fr.i.i, 8
-  %306 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.fr.i.i
-  %307 = getelementptr ptr, ptr %.pre23.i.i, i64 %.011.lcssa.ph.fr.i.i
+  %305 = icmp ult i64 %.011.lcssa.ph.i.i, 8
+  %306 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.i.i
+  %307 = getelementptr ptr, ptr %.pre23.i.i, i64 %.011.lcssa.ph.i.i
   %308 = getelementptr i8, ptr %307, i64 -64
   %spec.select.i.i = select i1 %305, ptr %306, ptr %308
   br label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit

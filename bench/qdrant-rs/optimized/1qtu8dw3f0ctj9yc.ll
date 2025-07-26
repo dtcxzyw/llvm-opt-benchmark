@@ -893,14 +893,15 @@ define { i32, float } @_ZN6sparse6common13sparse_vector12SparseVector5score17ha9
   %20 = load ptr, ptr %19, align 8, !nonnull !5
   br label %24
 
-._crit_edge:                                      ; preds = %35, %2
-  %.041.lcssa = phi float [ 0.000000e+00, %2 ], [ %.142, %35 ]
-  %.039.lcssa = phi i8 [ 0, %2 ], [ %.140, %35 ]
-  %21 = trunc nuw i8 %.039.lcssa to i1
-  %.041. = select i1 %21, float %.041.lcssa, float undef
-  %. = zext nneg i8 %.039.lcssa to i32
-  %22 = insertvalue { i32, float } poison, i32 %., 0
-  %23 = insertvalue { i32, float } %22, float %.041., 1
+._crit_edge.loopexit:                             ; preds = %35
+  %21 = zext nneg i8 %.140 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %.041.lcssa = phi float [ 0.000000e+00, %2 ], [ %.142, %._crit_edge.loopexit ]
+  %.039.lcssa = phi i32 [ 0, %2 ], [ %21, %._crit_edge.loopexit ]
+  %22 = insertvalue { i32, float } poison, i32 %.039.lcssa, 0
+  %23 = insertvalue { i32, float } %22, float %.041.lcssa, 1
   ret { i32, float } %23
 
 24:                                               ; preds = %.lr.ph, %35
@@ -942,7 +943,7 @@ default.unreachable:                              ; preds = %24
   %36 = icmp ult i64 %.1, %4
   %37 = icmp ult i64 %.138, %6
   %or.cond = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond, label %24, label %._crit_edge
+  br i1 %or.cond, label %24, label %._crit_edge.loopexit
 
 38:                                               ; preds = %31
   %39 = icmp ult i64 %.03769, %16

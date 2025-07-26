@@ -155,10 +155,10 @@ read_ip_port.exit.thread.thread:                  ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   br label %.outer.split.i
 
-.outer.split.us.i:                                ; preds = %.outer.i
+.thread.i:                                        ; preds = %.outer.i
   %15 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 256, ptr noundef nonnull %11)
   %16 = call i32 @fclose(ptr noundef nonnull %11)
-  br i1 %.1.i, label %37, label %read_ip_port.exit.thread
+  br label %read_ip_port.exit
 
 .outer.split.i:                                   ; preds = %.outer.i, %14
   %.131 = phi ptr [ null, %14 ], [ %.232, %.outer.i ]
@@ -210,32 +210,27 @@ read_ip_port.exit.thread.thread:                  ; preds = %10
   %.1.i = phi i1 [ %.0.ph27.i, %26 ], [ true, %32 ], [ %.0.ph27.i, %30 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   %35 = select i1 %.1.i, i1 %.113.i, i1 false
-  %.fr.i = freeze i1 %35
-  br i1 %.fr.i, label %.outer.split.us.i, label %.outer.split.i, !llvm.loop !15
+  br i1 %35, label %.thread.i, label %.outer.split.i, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %17
   %36 = call i32 @fclose(ptr noundef nonnull %11)
-  br i1 %.0.ph27.i, label %37, label %read_ip_port.exit.thread
+  %37 = select i1 %.0.ph27.i, i1 %.012.ph26.i, i1 false
+  br i1 %37, label %read_ip_port.exit, label %read_ip_port.exit.thread
 
-37:                                               ; preds = %.critedge.i, %.outer.split.us.i
-  %.434 = phi ptr [ %.131, %.critedge.i ], [ %.232, %.outer.split.us.i ]
-  %.3 = phi i16 [ %.029, %.critedge.i ], [ %.1, %.outer.split.us.i ]
-  %.us-phi30.i = phi i1 [ %.012.ph26.i, %.critedge.i ], [ %.113.i, %.outer.split.us.i ]
-  br i1 %.us-phi30.i, label %read_ip_port.exit, label %read_ip_port.exit.thread
-
-read_ip_port.exit.thread:                         ; preds = %37, %.outer.split.us.i, %.critedge.i
-  %.str.18.sink = phi ptr [ @.str.17, %.critedge.i ], [ @.str.17, %.outer.split.us.i ], [ @.str.18, %37 ]
-  %.5.ph = phi ptr [ %.131, %.critedge.i ], [ %.232, %.outer.split.us.i ], [ %.434, %37 ]
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull %.str.18.sink) #20
+read_ip_port.exit.thread:                         ; preds = %.critedge.i
+  %.str.17.mux = select i1 %.0.ph27.i, ptr @.str.18, ptr @.str.17
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull %.str.17.mux) #20
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #20
-  %38 = icmp eq ptr %.5.ph, null
+  %38 = icmp eq ptr %.131, null
   br i1 %38, label %pmix_obj_run_constructors.exit, label %43
 
-read_ip_port.exit:                                ; preds = %37
+read_ip_port.exit:                                ; preds = %.critedge.i, %.thread.i
+  %.3 = phi ptr [ %.232, %.thread.i ], [ %.131, %.critedge.i ]
+  %.2 = phi i16 [ %.1, %.thread.i ], [ %.029, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #20
-  %39 = icmp eq ptr %.434, null
-  %40 = zext i16 %.3 to i32
-  %41 = icmp eq i16 %.3, 0
+  %39 = icmp eq ptr %.3, null
+  %40 = zext i16 %.2 to i32
+  %41 = icmp eq i16 %.2, 0
   %or.cond4 = select i1 %39, i1 true, i1 %41
   br i1 %or.cond4, label %42, label %44
 
@@ -243,8 +238,8 @@ read_ip_port.exit:                                ; preds = %37
   br i1 %39, label %pmix_obj_run_constructors.exit, label %43
 
 43:                                               ; preds = %read_ip_port.exit.thread, %42
-  %.54041 = phi ptr [ %.5.ph, %read_ip_port.exit.thread ], [ %.434, %42 ]
-  call void @free(ptr noundef nonnull %.54041) #20
+  %.33839 = phi ptr [ %.131, %read_ip_port.exit.thread ], [ %.3, %42 ]
+  call void @free(ptr noundef nonnull %.33839) #20
   br label %pmix_obj_run_constructors.exit
 
 44:                                               ; preds = %read_ip_port.exit
@@ -261,7 +256,7 @@ read_ip_port.exit:                                ; preds = %37
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 232), align 8, !tbaa !14
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %45, ptr noundef nonnull @.str.5, ptr noundef nonnull %.434, i32 noundef %40, ptr noundef %52) #20
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %45, ptr noundef nonnull @.str.5, ptr noundef nonnull %.3, i32 noundef %40, ptr noundef %52) #20
   br label %53
 
 53:                                               ; preds = %51, %46, %44
@@ -273,27 +268,27 @@ read_ip_port.exit:                                ; preds = %37
 56:                                               ; preds = %53
   %57 = call ptr @prte_strerror(i32 noundef -2) #20
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %57, ptr noundef nonnull @.str.7, i32 noundef 163) #20
-  call void @free(ptr noundef nonnull %.434) #20
+  call void @free(ptr noundef nonnull %.3) #20
   br label %pmix_obj_run_constructors.exit
 
 58:                                               ; preds = %53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i16 2, ptr %2, align 4, !tbaa !31
-  %59 = call zeroext i1 @pmix_net_isaddr(ptr noundef nonnull %.434) #20
+  %59 = call zeroext i1 @pmix_net_isaddr(ptr noundef nonnull %.3) #20
   br i1 %59, label %72, label %60
 
 60:                                               ; preds = %58
-  %61 = call ptr @gethostbyname(ptr noundef nonnull %.434) #20
+  %61 = call ptr @gethostbyname(ptr noundef nonnull %.3) #20
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %60
-  %64 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef nonnull %.434) #20
-  call void @free(ptr noundef nonnull %.434) #20
+  %64 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef nonnull %.3) #20
+  call void @free(ptr noundef nonnull %.3) #20
   br label %pmix_obj_run_constructors.exit
 
 65:                                               ; preds = %60
-  call void @free(ptr noundef nonnull %.434) #20
+  call void @free(ptr noundef nonnull %.3) #20
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !35
   %68 = load ptr, ptr %67, align 8, !tbaa !38
@@ -303,11 +298,11 @@ read_ip_port.exit:                                ; preds = %37
   br label %72
 
 72:                                               ; preds = %65, %58
-  %.030 = phi ptr [ %.434, %58 ], [ %71, %65 ]
+  %.030 = phi ptr [ %.3, %58 ], [ %71, %65 ]
   %73 = call i32 @inet_addr(ptr noundef %.030) #20
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %73, ptr %74, align 4, !tbaa !39
-  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %.3)
+  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %.2)
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %rev.i, ptr %75, align 2, !tbaa !40
   %76 = load i32, ptr @socket_fd, align 4, !tbaa !30

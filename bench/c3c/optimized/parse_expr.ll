@@ -2452,7 +2452,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %82 = tail call { i64, i64 } @i128_add64(i64 %74, i64 %75, i64 noundef %81) #8
   %83 = extractvalue { i64, i64 } %82, 0
   %84 = extractvalue { i64, i64 } %82, 1
-  %85 = add nsw i32 %.0213508, 1
+  %85 = add i32 %.0213508, 1
   br label %86
 
 86:                                               ; preds = %.lr.ph511, %71
@@ -3150,7 +3150,6 @@ read_int_suffix.exit:                             ; preds = %312, %294, %.lr.ph.
   %.0208 = phi i1 [ true, %29 ], [ true, %._crit_edge.i ], [ true, %.preheader.i14.i ], [ false, %50 ], [ false, %.preheader.i.i264 ], [ false, %67 ], [ true, %92 ], [ true, %96 ], [ true, %.preheader.i.i279 ], [ true, %113 ], [ true, %119 ], [ true, %._crit_edge.i270 ], [ true, %.preheader.i14.i271 ], [ false, %140 ], [ false, %144 ], [ false, %.preheader.i.i294 ], [ false, %161 ], [ false, %167 ], [ false, %._crit_edge.i285 ], [ false, %.preheader.i14.i286 ], [ true, %205 ], [ true, %209 ], [ true, %.preheader.i.i309 ], [ true, %226 ], [ true, %232 ], [ true, %._crit_edge.i300 ], [ true, %.preheader.i14.i301 ], [ false, %253 ], [ false, %257 ], [ false, %.preheader.i.i324 ], [ false, %274 ], [ false, %280 ], [ false, %._crit_edge.i315 ], [ false, %.preheader.i14.i316 ], [ true, %318 ], [ true, %322 ], [ true, %.preheader.i.i339 ], [ true, %339 ], [ true, %345 ], [ true, %._crit_edge.i330 ], [ true, %.preheader.i14.i331 ], [ false, %366 ], [ false, %370 ], [ false, %.preheader.i.i354 ], [ false, %387 ], [ false, %393 ], [ false, %._crit_edge.i345 ], [ false, %.preheader.i14.i346 ], [ true, %.lr.ph.i.i340 ], [ true, %332 ], [ true, %.lr.ph.i16.i333 ], [ true, %359 ], [ false, %.lr.ph.i.i355 ], [ false, %380 ], [ false, %.lr.ph.i16.i348 ], [ false, %407 ], [ false, %425 ], [ true, %.lr.ph.i16.i ], [ true, %43 ], [ false, %.lr.ph.i.i265 ], [ false, %60 ], [ true, %86 ], [ true, %.lr.ph.i.i280 ], [ true, %106 ], [ true, %.lr.ph.i16.i273 ], [ true, %133 ], [ false, %.lr.ph.i.i295 ], [ false, %154 ], [ false, %.lr.ph.i16.i288 ], [ false, %181 ], [ true, %199 ], [ true, %.lr.ph.i.i310 ], [ true, %219 ], [ true, %.lr.ph.i16.i303 ], [ true, %246 ], [ false, %.lr.ph.i.i325 ], [ false, %267 ], [ false, %.lr.ph.i16.i318 ], [ false, %294 ], [ true, %312 ]
   %.sroa.26.1 = phi i64 [ %.sroa.26.0509, %29 ], [ %.sroa.26.0509, %._crit_edge.i ], [ %.sroa.26.0509, %.preheader.i14.i ], [ %.sroa.26.0509, %50 ], [ %.sroa.26.0509, %.preheader.i.i264 ], [ %.sroa.26.0509, %67 ], [ %.sroa.26.3499, %92 ], [ %.sroa.26.3499, %96 ], [ %.sroa.26.3499, %.preheader.i.i279 ], [ %.sroa.26.3499, %113 ], [ %.sroa.26.3499, %119 ], [ %.sroa.26.3499, %._crit_edge.i270 ], [ %.sroa.26.3499, %.preheader.i14.i271 ], [ %.sroa.26.3499, %140 ], [ %.sroa.26.3499, %144 ], [ %.sroa.26.3499, %.preheader.i.i294 ], [ %.sroa.26.3499, %161 ], [ %.sroa.26.3499, %167 ], [ %.sroa.26.3499, %._crit_edge.i285 ], [ %.sroa.26.3499, %.preheader.i14.i286 ], [ %.sroa.26.5491, %205 ], [ %.sroa.26.5491, %209 ], [ %.sroa.26.5491, %.preheader.i.i309 ], [ %.sroa.26.5491, %226 ], [ %.sroa.26.5491, %232 ], [ %.sroa.26.5491, %._crit_edge.i300 ], [ %.sroa.26.5491, %.preheader.i14.i301 ], [ %.sroa.26.5491, %253 ], [ %.sroa.26.5491, %257 ], [ %.sroa.26.5491, %.preheader.i.i324 ], [ %.sroa.26.5491, %274 ], [ %.sroa.26.5491, %280 ], [ %.sroa.26.5491, %._crit_edge.i315 ], [ %.sroa.26.5491, %.preheader.i14.i316 ], [ %.sroa.26.7518, %318 ], [ %.sroa.26.7518, %322 ], [ %.sroa.26.7518, %.preheader.i.i339 ], [ %.sroa.26.7518, %339 ], [ %.sroa.26.7518, %345 ], [ %.sroa.26.7518, %._crit_edge.i330 ], [ %.sroa.26.7518, %.preheader.i14.i331 ], [ %.sroa.26.7518, %366 ], [ %.sroa.26.7518, %370 ], [ %.sroa.26.7518, %.preheader.i.i354 ], [ %.sroa.26.7518, %387 ], [ %.sroa.26.7518, %393 ], [ %.sroa.26.7518, %._crit_edge.i345 ], [ %.sroa.26.7518, %.preheader.i14.i346 ], [ %.sroa.26.7518, %.lr.ph.i.i340 ], [ %.sroa.26.7518, %332 ], [ %.sroa.26.7518, %.lr.ph.i16.i333 ], [ %.sroa.26.7518, %359 ], [ %.sroa.26.7518, %.lr.ph.i.i355 ], [ %.sroa.26.7518, %380 ], [ %.sroa.26.7518, %.lr.ph.i16.i348 ], [ %.sroa.26.7518, %407 ], [ %.sroa.26.8, %425 ], [ %.sroa.26.0509, %.lr.ph.i16.i ], [ %.sroa.26.0509, %43 ], [ %.sroa.26.0509, %.lr.ph.i.i265 ], [ %.sroa.26.0509, %60 ], [ %.sroa.26.2, %86 ], [ %.sroa.26.3499, %.lr.ph.i.i280 ], [ %.sroa.26.3499, %106 ], [ %.sroa.26.3499, %.lr.ph.i16.i273 ], [ %.sroa.26.3499, %133 ], [ %.sroa.26.3499, %.lr.ph.i.i295 ], [ %.sroa.26.3499, %154 ], [ %.sroa.26.3499, %.lr.ph.i16.i288 ], [ %.sroa.26.3499, %181 ], [ %.sroa.26.4, %199 ], [ %.sroa.26.5491, %.lr.ph.i.i310 ], [ %.sroa.26.5491, %219 ], [ %.sroa.26.5491, %.lr.ph.i16.i303 ], [ %.sroa.26.5491, %246 ], [ %.sroa.26.5491, %.lr.ph.i.i325 ], [ %.sroa.26.5491, %267 ], [ %.sroa.26.5491, %.lr.ph.i16.i318 ], [ %.sroa.26.5491, %294 ], [ %.sroa.26.6, %312 ]
   %.sroa.0119.1 = phi i64 [ %.sroa.0119.0510, %29 ], [ %.sroa.0119.0510, %._crit_edge.i ], [ %.sroa.0119.0510, %.preheader.i14.i ], [ %.sroa.0119.0510, %50 ], [ %.sroa.0119.0510, %.preheader.i.i264 ], [ %.sroa.0119.0510, %67 ], [ %.sroa.0119.3500, %92 ], [ %.sroa.0119.3500, %96 ], [ %.sroa.0119.3500, %.preheader.i.i279 ], [ %.sroa.0119.3500, %113 ], [ %.sroa.0119.3500, %119 ], [ %.sroa.0119.3500, %._crit_edge.i270 ], [ %.sroa.0119.3500, %.preheader.i14.i271 ], [ %.sroa.0119.3500, %140 ], [ %.sroa.0119.3500, %144 ], [ %.sroa.0119.3500, %.preheader.i.i294 ], [ %.sroa.0119.3500, %161 ], [ %.sroa.0119.3500, %167 ], [ %.sroa.0119.3500, %._crit_edge.i285 ], [ %.sroa.0119.3500, %.preheader.i14.i286 ], [ %.sroa.0119.5492, %205 ], [ %.sroa.0119.5492, %209 ], [ %.sroa.0119.5492, %.preheader.i.i309 ], [ %.sroa.0119.5492, %226 ], [ %.sroa.0119.5492, %232 ], [ %.sroa.0119.5492, %._crit_edge.i300 ], [ %.sroa.0119.5492, %.preheader.i14.i301 ], [ %.sroa.0119.5492, %253 ], [ %.sroa.0119.5492, %257 ], [ %.sroa.0119.5492, %.preheader.i.i324 ], [ %.sroa.0119.5492, %274 ], [ %.sroa.0119.5492, %280 ], [ %.sroa.0119.5492, %._crit_edge.i315 ], [ %.sroa.0119.5492, %.preheader.i14.i316 ], [ %.sroa.0119.7519, %318 ], [ %.sroa.0119.7519, %322 ], [ %.sroa.0119.7519, %.preheader.i.i339 ], [ %.sroa.0119.7519, %339 ], [ %.sroa.0119.7519, %345 ], [ %.sroa.0119.7519, %._crit_edge.i330 ], [ %.sroa.0119.7519, %.preheader.i14.i331 ], [ %.sroa.0119.7519, %366 ], [ %.sroa.0119.7519, %370 ], [ %.sroa.0119.7519, %.preheader.i.i354 ], [ %.sroa.0119.7519, %387 ], [ %.sroa.0119.7519, %393 ], [ %.sroa.0119.7519, %._crit_edge.i345 ], [ %.sroa.0119.7519, %.preheader.i14.i346 ], [ %.sroa.0119.7519, %.lr.ph.i.i340 ], [ %.sroa.0119.7519, %332 ], [ %.sroa.0119.7519, %.lr.ph.i16.i333 ], [ %.sroa.0119.7519, %359 ], [ %.sroa.0119.7519, %.lr.ph.i.i355 ], [ %.sroa.0119.7519, %380 ], [ %.sroa.0119.7519, %.lr.ph.i16.i348 ], [ %.sroa.0119.7519, %407 ], [ %.sroa.0119.8, %425 ], [ %.sroa.0119.0510, %.lr.ph.i16.i ], [ %.sroa.0119.0510, %43 ], [ %.sroa.0119.0510, %.lr.ph.i.i265 ], [ %.sroa.0119.0510, %60 ], [ %.sroa.0119.2, %86 ], [ %.sroa.0119.3500, %.lr.ph.i.i280 ], [ %.sroa.0119.3500, %106 ], [ %.sroa.0119.3500, %.lr.ph.i16.i273 ], [ %.sroa.0119.3500, %133 ], [ %.sroa.0119.3500, %.lr.ph.i.i295 ], [ %.sroa.0119.3500, %154 ], [ %.sroa.0119.3500, %.lr.ph.i16.i288 ], [ %.sroa.0119.3500, %181 ], [ %.sroa.0119.4, %199 ], [ %.sroa.0119.5492, %.lr.ph.i.i310 ], [ %.sroa.0119.5492, %219 ], [ %.sroa.0119.5492, %.lr.ph.i16.i303 ], [ %.sroa.0119.5492, %246 ], [ %.sroa.0119.5492, %.lr.ph.i.i325 ], [ %.sroa.0119.5492, %267 ], [ %.sroa.0119.5492, %.lr.ph.i16.i318 ], [ %.sroa.0119.5492, %294 ], [ %.sroa.0119.6, %312 ]
-  %.1214.fr = freeze i32 %.1214
   %427 = trunc nuw i8 %.1223 to i1
   br i1 %427, label %428, label %431
 
@@ -3164,7 +3163,7 @@ read_int_suffix.exit:                             ; preds = %312, %294, %.lr.ph.
   %432 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %433 = load i16, ptr %432, align 8
   %434 = and i16 %433, -1024
-  %435 = icmp sgt i32 %.1214.fr, 0
+  %435 = icmp sgt i32 %.1214, 0
   %spec.select829 = select i1 %435, i16 512, i16 0
   %436 = or disjoint i16 %434, %spec.select829
   %437 = or disjoint i16 %436, 1
@@ -3190,22 +3189,22 @@ is_power_of_two.exit:                             ; preds = %438
   br label %528
 
 446:                                              ; preds = %431
-  %.not241 = icmp eq i32 %.1214.fr, 0
+  %.not241 = icmp eq i32 %.1214, 0
   br i1 %.not241, label %453, label %447
 
 447:                                              ; preds = %446
-  %448 = shl nsw i32 %.1214.fr, 2
-  %449 = icmp sgt i32 %.1214.fr, 32
+  %448 = shl nsw i32 %.1214, 2
+  %449 = icmp sgt i32 %.1214, 32
   br i1 %449, label %450, label %453
 
 450:                                              ; preds = %447
   %451 = load i64, ptr %4, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %451, ptr noundef nonnull @.str.11, i32 noundef %.1214.fr) #8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %451, ptr noundef nonnull @.str.11, i32 noundef %.1214) #8
   %452 = load ptr, ptr @poisoned_expr, align 8
   br label %528
 
 453:                                              ; preds = %447, %446
-  %.1214624643663683 = phi i32 [ %.1214.fr, %447 ], [ 0, %446 ]
+  %.1214624643663683 = phi i32 [ %.1214, %447 ], [ 0, %446 ]
   %.2 = phi i32 [ %448, %447 ], [ 0, %446 ]
   %.not242 = icmp eq i32 %.0216, 0
   br i1 %.not242, label %460, label %454
@@ -3267,7 +3266,7 @@ is_power_of_two.exit362:                          ; preds = %466
   br i1 %.0208, label %485, label %488
 
 .thread369:                                       ; preds = %is_power_of_two.exit362, %is_power_of_two.exit
-  %.1214624643662 = phi i32 [ %.1214.fr, %is_power_of_two.exit ], [ %.1214624643663683, %is_power_of_two.exit362 ]
+  %.1214624643662 = phi i32 [ %.1214, %is_power_of_two.exit ], [ %.1214624643663683, %is_power_of_two.exit362 ]
   %.0216623644659 = phi i32 [ %.0216, %is_power_of_two.exit ], [ %.0216623644660684696, %is_power_of_two.exit362 ]
   %.0219622645656 = phi i32 [ %.0219, %is_power_of_two.exit ], [ %.0219622645657685695715, %is_power_of_two.exit362 ]
   %.1372 = phi i32 [ %.0210, %is_power_of_two.exit ], [ %467, %is_power_of_two.exit362 ]

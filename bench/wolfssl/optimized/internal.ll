@@ -6820,9 +6820,8 @@ define range(i32 -322, 1) i32 @CheckHostName(ptr noundef readonly captures(addre
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread22, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %6, %22
-  %.032.i = phi i32 [ %.2.i, %22 ], [ 0, %6 ]
-  %.12131.i = phi ptr [ %23, %22 ], [ %8, %6 ]
+.lr.ph.i:                                         ; preds = %6, %15
+  %.12131.i = phi ptr [ %16, %15 ], [ %8, %6 ]
   %10 = getelementptr inbounds nuw i8, ptr %.12131.i, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !249
   %12 = getelementptr inbounds nuw i8, ptr %.12131.i, i64 12
@@ -6832,41 +6831,22 @@ define range(i32 -322, 1) i32 @CheckHostName(ptr noundef readonly captures(addre
   br i1 %.not28.i, label %15, label %.thread24
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = icmp ne ptr %11, null
-  %17 = icmp ne i32 %13, 0
-  %or.cond.i = and i1 %16, %17
-  br i1 %or.cond.i, label %18, label %22
-
-18:                                               ; preds = %15
-  %19 = load i8, ptr %11, align 1, !tbaa !45
-  %20 = icmp eq i8 %19, 42
-  %spec.select.i = select i1 %20, i32 -1, i32 %.032.i
-  %21 = freeze i32 %spec.select.i
-  br label %22
-
-22:                                               ; preds = %18, %15
-  %.2.i = phi i32 [ %.032.i, %15 ], [ %21, %18 ]
-  %23 = load ptr, ptr %.12131.i, align 8, !tbaa !252
-  %.not27.i = icmp eq ptr %23, null
-  br i1 %.not27.i, label %CheckForAltNames.exit, label %.lr.ph.i, !llvm.loop !253
-
-CheckForAltNames.exit:                            ; preds = %22
-  %.not = icmp eq i32 %.2.i, 1
-  %spec.select = select i1 %.not, i32 0, i32 -322
-  br label %.thread24
+  %16 = load ptr, ptr %.12131.i, align 8, !tbaa !252
+  %.not27.i = icmp eq ptr %16, null
+  br i1 %.not27.i, label %.thread24, label %.lr.ph.i, !llvm.loop !253
 
 .thread22:                                        ; preds = %6, %4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %25 = load ptr, ptr %24, align 8, !tbaa !254
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %27 = load i32, ptr %26, align 8, !tbaa !255
-  %28 = tail call i32 @MatchDomainName(ptr noundef %25, i32 noundef %27, ptr noundef %1, i32 noundef %5, i32 noundef %3)
-  %.not26 = icmp eq i32 %28, 0
-  %.9 = select i1 %.not26, i32 -322, i32 0
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %18 = load ptr, ptr %17, align 8, !tbaa !254
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = load i32, ptr %19, align 8, !tbaa !255
+  %21 = tail call i32 @MatchDomainName(ptr noundef %18, i32 noundef %20, ptr noundef %1, i32 noundef %5, i32 noundef %3)
+  %.not27 = icmp eq i32 %21, 0
+  %.9 = select i1 %.not27, i32 -322, i32 0
   br label %.thread24
 
-.thread24:                                        ; preds = %.lr.ph.i, %CheckForAltNames.exit, %.thread22
-  %.1 = phi i32 [ %spec.select, %CheckForAltNames.exit ], [ %.9, %.thread22 ], [ 0, %.lr.ph.i ]
+.thread24:                                        ; preds = %.lr.ph.i, %15, %.thread22
+  %.1 = phi i32 [ %.9, %.thread22 ], [ 0, %.lr.ph.i ], [ -322, %15 ]
   ret i32 %.1
 }
 
@@ -6883,9 +6863,8 @@ define range(i32 -322, 1) i32 @CheckIPAddr(ptr noundef readonly captures(address
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread22.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %5, %21
-  %.032.i.i = phi i32 [ %.2.i.i, %21 ], [ 0, %5 ]
-  %.12131.i.i = phi ptr [ %22, %21 ], [ %7, %5 ]
+.lr.ph.i.i:                                       ; preds = %5, %14
+  %.12131.i.i = phi ptr [ %15, %14 ], [ %7, %5 ]
   %9 = getelementptr inbounds nuw i8, ptr %.12131.i.i, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !249
   %11 = getelementptr inbounds nuw i8, ptr %.12131.i.i, i64 12
@@ -6895,41 +6874,22 @@ define range(i32 -322, 1) i32 @CheckIPAddr(ptr noundef readonly captures(address
   br i1 %.not28.i.i, label %14, label %CheckHostName.exit
 
 14:                                               ; preds = %.lr.ph.i.i
-  %15 = icmp ne ptr %10, null
-  %16 = icmp ne i32 %12, 0
-  %or.cond.i.i = and i1 %15, %16
-  br i1 %or.cond.i.i, label %17, label %21
-
-17:                                               ; preds = %14
-  %18 = load i8, ptr %10, align 1, !tbaa !45
-  %19 = icmp eq i8 %18, 42
-  %spec.select.i.i = select i1 %19, i32 -1, i32 %.032.i.i
-  %20 = freeze i32 %spec.select.i.i
-  br label %21
-
-21:                                               ; preds = %17, %14
-  %.2.i.i = phi i32 [ %.032.i.i, %14 ], [ %20, %17 ]
-  %22 = load ptr, ptr %.12131.i.i, align 8, !tbaa !252
-  %.not27.i.i = icmp eq ptr %22, null
-  br i1 %.not27.i.i, label %CheckForAltNames.exit.i, label %.lr.ph.i.i, !llvm.loop !253
-
-CheckForAltNames.exit.i:                          ; preds = %21
-  %.not.i = icmp eq i32 %.2.i.i, 1
-  %spec.select.i = select i1 %.not.i, i32 0, i32 -322
-  br label %CheckHostName.exit
+  %15 = load ptr, ptr %.12131.i.i, align 8, !tbaa !252
+  %.not27.i.i = icmp eq ptr %15, null
+  br i1 %.not27.i.i, label %CheckHostName.exit, label %.lr.ph.i.i, !llvm.loop !253
 
 .thread22.i:                                      ; preds = %5, %2
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %24 = load ptr, ptr %23, align 8, !tbaa !254
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %26 = load i32, ptr %25, align 8, !tbaa !255
-  %27 = tail call i32 @MatchDomainName(ptr noundef %24, i32 noundef %26, ptr noundef nonnull readonly %1, i32 noundef %4, i32 noundef 0)
-  %.not26.i = icmp eq i32 %27, 0
-  %.9.i = select i1 %.not26.i, i32 -322, i32 0
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %17 = load ptr, ptr %16, align 8, !tbaa !254
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %19 = load i32, ptr %18, align 8, !tbaa !255
+  %20 = tail call i32 @MatchDomainName(ptr noundef %17, i32 noundef %19, ptr noundef nonnull readonly %1, i32 noundef %4, i32 noundef 0)
+  %.not27.i = icmp eq i32 %20, 0
+  %.9.i = select i1 %.not27.i, i32 -322, i32 0
   br label %CheckHostName.exit
 
-CheckHostName.exit:                               ; preds = %.lr.ph.i.i, %CheckForAltNames.exit.i, %.thread22.i
-  %.1.i = phi i32 [ %spec.select.i, %CheckForAltNames.exit.i ], [ %.9.i, %.thread22.i ], [ 0, %.lr.ph.i.i ]
+CheckHostName.exit:                               ; preds = %.lr.ph.i.i, %14, %.thread22.i
+  %.1.i = phi i32 [ %.9.i, %.thread22.i ], [ -322, %14 ], [ 0, %.lr.ph.i.i ]
   ret i32 %.1.i
 }
 

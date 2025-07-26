@@ -5255,7 +5255,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit127.thread.i:        ; preds = %347
 416:                                              ; preds = %359
   %417 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %418 = load i32, ptr %417, align 4, !tbaa !137
-  %419 = icmp eq i32 %418, 2
+  %.fr332.i = freeze i32 %418
+  %419 = icmp eq i32 %.fr332.i, 2
   %.not242307.i = icmp sgt i32 %300, 0
   %.not109302.i = icmp sgt i32 %298, 0
   %or.cond.i113 = and i1 %.not109302.i, %.not242307.i
@@ -5271,7 +5272,6 @@ _ZNSt6vectorIjSaIjEED2Ev.exit127.thread.i:        ; preds = %347
   %.381303.us.i.us = phi i1 [ %.583.us.i.us, %.thread200.us.i.loopexit186.us ], [ %.179308.us.i, %.preheader250.us.i ]
   %420 = icmp eq i32 %.069305.us.i.us, %.070310.us.i
   %or.cond.not245.not248.us.i.us = or i1 %419, %420
-  %or.cond.not245.not248.us.fr.i.us = freeze i1 %or.cond.not245.not248.us.i.us
   br label %.preheader249.split.us321.i.us
 
 .preheader249.split.us321.i.us:                   ; preds = %.preheader249.us.i.us, %.split277.us.i.us
@@ -5311,7 +5311,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit127.thread.i:        ; preds = %347
           to label %431 unwind label %.split.split.us.i.split.us
 
 431:                                              ; preds = %427
-  %.785.mux.us319.i.us = select i1 %or.cond.not245.not248.us.fr.i.us, i1 true, i1 %.785.us.i.us
+  %.785.mux.us319.i.us = select i1 %or.cond.not245.not248.us.i.us, i1 true, i1 %.785.us.i.us
   br label %432
 
 432:                                              ; preds = %431, %426
@@ -5376,8 +5376,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit127.thread.i:        ; preds = %347
   %.069305.us.i = phi i32 [ %450, %.thread200.us.i ], [ 0, %.preheader250.us.i ]
   %449 = icmp eq i32 %.069305.us.i, %.070310.us.i
   %or.cond.not245.not248.us.i = or i1 %419, %449
-  %or.cond.not245.not248.us.fr.i = freeze i1 %or.cond.not245.not248.us.i
-  br i1 %or.cond.not245.not248.us.fr.i, label %.preheader249.split.us.us.i, label %.preheader249.split.us321.i
+  br i1 %or.cond.not245.not248.us.i, label %.preheader249.split.us.us.i, label %.preheader249.split.us321.i
 
 .thread200.us.i:                                  ; preds = %438, %452
   %450 = add nuw nsw i32 %.069305.us.i, 1
@@ -5417,8 +5416,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit127.thread.i:        ; preds = %347
 ..thread205_crit_edge.us.i:                       ; preds = %.thread200.us.i.loopexit186.us, %.thread200.us.i
   %.us-phi250 = phi i1 [ %.179308.us.i, %.thread200.us.i ], [ %.583.us.i.us, %.thread200.us.i.loopexit186.us ]
   %459 = add nuw nsw i32 %.070310.us.i, 1
-  %exitcond345.not.i = icmp eq i32 %459, %300
-  br i1 %exitcond345.not.i, label %.loopexit251.i, label %.preheader250.us.i, !llvm.loop !144
+  %exitcond346.not.i = icmp eq i32 %459, %300
+  br i1 %exitcond346.not.i, label %.loopexit251.i, label %.preheader250.us.i, !llvm.loop !144
 
 .split291.split.us.i.split:                       ; preds = %.preheader249.split.us321.i
   %460 = landingpad { ptr, i32 }
@@ -6601,7 +6600,8 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit.i138:       ; preds = %._crit_edge.i136
 864:                                              ; preds = %849
   %865 = getelementptr inbounds nuw i8, ptr %768, i64 8
   %866 = load i32, ptr %865, align 4, !tbaa !137
-  %867 = icmp eq i32 %866, 2
+  %.fr363 = freeze i32 %866
+  %867 = icmp eq i32 %.fr363, 2
   %.not188457.i = icmp sgt i32 %773, 0
   br i1 %.not188457.i, label %.preheader311.lr.ph.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit198.i
 
@@ -7046,7 +7046,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.us.i.us.us.us: ; preds = %_ZNSt12_Vector_base
           to label %1004 unwind label %.split484.us.i.split.split
 
 1004:                                             ; preds = %1001
-  %.6164.mux.us.i = select i1 %or.cond.not290.not293.us.i.fr, i1 true, i1 %.6164.us.i
+  %.6164.mux.us.i = select i1 %or.cond.not290.not293.us.i, i1 true, i1 %.6164.us.i
   br label %._crit_edge399.us.thread.i
 
 ._crit_edge399.us.thread.i:                       ; preds = %1000, %1004
@@ -7059,8 +7059,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.us.i.us.us.us: ; preds = %_ZNSt12_Vector_base
   %.2160450.us.i = phi i1 [ %.us-phi339, %.thread256.us.i.split ], [ %.0158461.us.i, %.preheader311.us.i ]
   %1006 = icmp eq i32 %.0141452.us.i, %.0146463.us.i
   %or.cond.not290.not293.us.i = or i1 %867, %1006
-  %or.cond.not290.not293.us.i.fr = freeze i1 %or.cond.not290.not293.us.i
-  %brmerge.not.us.i147 = and i1 %2, %or.cond.not290.not293.us.i.fr
+  %brmerge.not.us.i147 = and i1 %2, %or.cond.not290.not293.us.i
   br i1 %brmerge.not.us.i147, label %.preheader310.us.i.split.split.us, label %.preheader310.us.i.split.split
 
 .preheader310.us.i.split.split.us:                ; preds = %.preheader310.us.i, %.thread.us.i.split.split.us.us
@@ -8538,7 +8537,8 @@ default.unreachable:                              ; preds = %96
 142:                                              ; preds = %85
   %143 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %144 = load i32, ptr %143, align 4, !tbaa !137
-  %145 = icmp eq i32 %144, 2
+  %.fr332 = freeze i32 %144
+  %145 = icmp eq i32 %.fr332, 2
   %.not242307 = icmp sgt i32 %21, 0
   %.not109302 = icmp sgt i32 %19, 0
   %or.cond = and i1 %.not242307, %.not109302
@@ -8586,7 +8586,7 @@ default.unreachable:                              ; preds = %96
           to label %156 unwind label %.split.split.us
 
 156:                                              ; preds = %152
-  %.785.mux.us319 = select i1 %or.cond.not245.not248.us.fr, i1 true, i1 %.785.us
+  %.785.mux.us319 = select i1 %or.cond.not245.not248.us, i1 true, i1 %.785.us
   br label %157
 
 157:                                              ; preds = %156, %151
@@ -8599,8 +8599,7 @@ default.unreachable:                              ; preds = %96
   %.381303.us = phi i1 [ %.179308.us, %.preheader250.us ], [ %.us-phi293.us, %.thread200.us ]
   %159 = icmp eq i32 %.069305.us, %.070310.us
   %or.cond.not245.not248.us = or i1 %145, %159
-  %or.cond.not245.not248.us.fr = freeze i1 %or.cond.not245.not248.us
-  %brmerge.not.us = and i1 %2, %or.cond.not245.not248.us.fr
+  %brmerge.not.us = and i1 %2, %or.cond.not245.not248.us
   br i1 %brmerge.not.us, label %.preheader249.split.us.us, label %.preheader249.split.us321
 
 .thread200.us:                                    ; preds = %147, %162
@@ -8641,8 +8640,8 @@ default.unreachable:                              ; preds = %96
 
 ..thread205_crit_edge.us:                         ; preds = %.thread200.us
   %169 = add nuw nsw i32 %.070310.us, 1
-  %exitcond345.not = icmp eq i32 %169, %21
-  br i1 %exitcond345.not, label %.loopexit251, label %.preheader250.us, !llvm.loop !203
+  %exitcond346.not = icmp eq i32 %169, %21
+  br i1 %exitcond346.not, label %.loopexit251, label %.preheader250.us, !llvm.loop !203
 
 .split291.split.us:                               ; preds = %.preheader249.split.us321
   %170 = landingpad { ptr, i32 }

@@ -2163,8 +2163,8 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
   %41 = and i32 %spec.select.i, 7
   %42 = shl nuw nsw i32 1, %41
   %43 = and i32 %42, %40
-  %.fr84 = freeze i32 %43
-  %44 = icmp eq i32 %.fr84, 0
+  %.fr85 = freeze i32 %43
+  %44 = icmp eq i32 %.fr85, 0
   br i1 %44, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 
 45:                                               ; preds = %33
@@ -2726,13 +2726,13 @@ get_lowhi_masks.exit.i:                           ; preds = %382, %324
 367:                                              ; preds = %get_lowhi_masks.exit.i
   %368 = shl i64 %.048.i68.i, 6
   %369 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %366, i1 true)
-  %370 = or disjoint i64 %369, %368
-  %.fr83 = freeze i64 %370
+  %.fr84 = freeze i64 %369
+  %370 = or i64 %.fr84, %368
   %371 = icmp eq i32 %.056.i66.i, %333
   br i1 %371, label %.thread56.i, label %373
 
 .thread56.i:                                      ; preds = %367
-  %372 = and i64 %.fr83, 4294967295
+  %372 = and i64 %370, 4294967295
   %.not53 = icmp eq i64 %372, 4294967295
   br i1 %.not53, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 
@@ -2755,7 +2755,7 @@ get_lowhi_masks.exit.i:                           ; preds = %382, %324
 382:                                              ; preds = %378, %373
   %.sink121.i = phi i32 [ 6, %378 ], [ -6, %373 ]
   %.157.i73.i = phi i32 [ %379, %378 ], [ %374, %373 ]
-  %.149.i75.i = phi i64 [ %381, %378 ], [ %.fr83, %373 ]
+  %.149.i75.i = phi i64 [ %381, %378 ], [ %370, %373 ]
   %.146.i76.i = phi i32 [ %380, %378 ], [ %.045.i69.i, %373 ]
   %383 = add i32 %.sink121.i, %.052.i67.i
   br label %get_lowhi_masks.exit.i

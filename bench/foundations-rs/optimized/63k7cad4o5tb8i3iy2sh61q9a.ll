@@ -12772,7 +12772,7 @@ default.unreachable14:                            ; preds = %120, %2
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i", %.noexc.i
   %63 = phi ptr [ %64, %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i" ], [ %61, %.noexc.i ]
-  %.sroa.02.015.i.i.i = phi i64 [ %87, %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i" ], [ 0, %.noexc.i ]
+  %.sroa.02.016.i.i.i = phi i64 [ %87, %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i" ], [ 0, %.noexc.i ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   %65 = load ptr, ptr %63, align 8, !alias.scope !388, !noalias !391, !nonnull !3, !noundef !3
@@ -12813,14 +12813,14 @@ default.unreachable14:                            ; preds = %120, %2
           to label %.noexc18.i unwind label %196
 
 "_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i": ; preds = %68, %.lr.ph.i.i.i
-  %87 = add nuw nsw i64 %.sroa.02.015.i.i.i, 1
+  %87 = add nuw nsw i64 %.sroa.02.016.i.i.i, 1
   %88 = icmp eq ptr %64, %62
   br i1 %88, label %_ZN3std4sync4mpmc5waker5Waker10try_select17h8e9bbccc4171ad3eE.exit.thread.i, label %.lr.ph.i.i.i
 
 .noexc18.i:                                       ; preds = %85, %80
-  %89 = icmp samesign ult i64 %.sroa.02.015.i.i.i, %56
+  %89 = icmp samesign ult i64 %.sroa.02.016.i.i.i, %56
   tail call void @llvm.assume(i1 %89)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h7ee4a281e5597e57E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(48) %54, i64 noundef %.sroa.02.015.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f17b68d495638beaead70223c2b0278.161)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h7ee4a281e5597e57E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(48) %54, i64 noundef %.sroa.02.016.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f17b68d495638beaead70223c2b0278.161)
           to label %_ZN3std4sync4mpmc5waker5Waker10try_select17h8e9bbccc4171ad3eE.exit.i unwind label %196
 
 _ZN3std4sync4mpmc5waker5Waker10try_select17h8e9bbccc4171ad3eE.exit.i: ; preds = %.noexc18.i
@@ -13382,7 +13382,7 @@ common.resume.i:                                  ; preds = %203, %.body.i20.i, 
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i", %.noexc.i
   %57 = phi ptr [ %58, %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i" ], [ %55, %.noexc.i ]
-  %.sroa.02.015.i.i.i = phi i64 [ %81, %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i" ], [ 0, %.noexc.i ]
+  %.sroa.02.016.i.i.i = phi i64 [ %81, %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i" ], [ 0, %.noexc.i ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
   %59 = load ptr, ptr %57, align 8, !alias.scope !429, !noalias !432, !nonnull !3, !noundef !3
@@ -13423,14 +13423,14 @@ common.resume.i:                                  ; preds = %203, %.body.i20.i, 
           to label %.noexc10.i unwind label %203, !noalias !414
 
 "_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4b724409dca22d43E.exit.i.i.i": ; preds = %62, %.lr.ph.i.i.i
-  %81 = add nuw nsw i64 %.sroa.02.015.i.i.i, 1
+  %81 = add nuw nsw i64 %.sroa.02.016.i.i.i, 1
   %82 = icmp eq ptr %58, %56
   br i1 %82, label %_ZN3std4sync4mpmc5waker5Waker10try_select17h8e9bbccc4171ad3eE.exit.thread.i, label %.lr.ph.i.i.i
 
 .noexc10.i:                                       ; preds = %79, %74
-  %83 = icmp samesign ult i64 %.sroa.02.015.i.i.i, %50
+  %83 = icmp samesign ult i64 %.sroa.02.016.i.i.i, %50
   tail call void @llvm.assume(i1 %83)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h7ee4a281e5597e57E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(48) %48, i64 noundef %.sroa.02.015.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f17b68d495638beaead70223c2b0278.161)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h7ee4a281e5597e57E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(48) %48, i64 noundef %.sroa.02.016.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f17b68d495638beaead70223c2b0278.161)
           to label %_ZN3std4sync4mpmc5waker5Waker10try_select17h8e9bbccc4171ad3eE.exit.i unwind label %203, !noalias !414
 
 _ZN3std4sync4mpmc5waker5Waker10try_select17h8e9bbccc4171ad3eE.exit.i: ; preds = %.noexc10.i

@@ -21973,7 +21973,7 @@ _ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
           cleanup
   br label %558
 
-95:                                               ; preds = %.invoke1134, %340, %337, %345, %.noexc316, %343, %350, %.noexc308, %347, %356, %353, %.noexc176, %334, %486, %_ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit109, %_ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit
+95:                                               ; preds = %.invoke1136, %340, %337, %345, %.noexc316, %343, %350, %.noexc308, %347, %356, %353, %.noexc176, %334, %486, %_ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit109, %_ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %558
@@ -22131,7 +22131,7 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit: ; preds = %.
   %145 = load i64, ptr %60, align 4
   %146 = load i32, ptr %59, align 8, !tbaa !79
   %.not.i.i117 = icmp eq i32 %146, 58
-  br i1 %.not.i.i117, label %.invoke1135, label %147
+  br i1 %.not.i.i117, label %.invoke1137, label %147
 
 147:                                              ; preds = %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit
   invoke void @_ZN4Luau6Parser20expectAndConsumeFailENS_6Lexeme4TypeEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef 58, ptr noundef nonnull @.str.167)
@@ -22150,13 +22150,13 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit: ; preds = %.
 
 150:                                              ; preds = %.noexc119
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
-          to label %.invoke1135 unwind label %236
+          to label %.invoke1137 unwind label %236
 
-.invoke1135:                                      ; preds = %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit, %150
+.invoke1137:                                      ; preds = %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit, %150
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
           to label %_ZN4Luau6Parser16expectAndConsumeEcPKc.exit123 unwind label %236
 
-_ZN4Luau6Parser16expectAndConsumeEcPKc.exit123:   ; preds = %.invoke1135, %.noexc119
+_ZN4Luau6Parser16expectAndConsumeEcPKc.exit123:   ; preds = %.invoke1137, %.noexc119
   %151 = load i32, ptr %37, align 4, !tbaa !287
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !10
@@ -22444,7 +22444,7 @@ _ZNSt6vectorIN4Luau12CstTypeTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26) #29
   br label %244
 
-236:                                              ; preds = %.invoke1135, %150, %.noexc118, %147
+236:                                              ; preds = %.invoke1137, %150, %.noexc118, %147
   %237 = landingpad { ptr, i32 }
           cleanup
   br label %244
@@ -22538,7 +22538,7 @@ _ZNSt6vectorIN4Luau12CstTypeTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #29
   br label %287
 
-255:                                              ; preds = %.invoke1136, %265, %262, %270, %.noexc293, %268, %275, %.noexc285, %272, %281, %278, %.noexc149, %259, %287
+255:                                              ; preds = %.invoke1138, %265, %262, %270, %.noexc293, %268, %275, %.noexc285, %272, %281, %278, %.noexc149, %259, %287
   %256 = landingpad { ptr, i32 }
           cleanup
   br label %558
@@ -22604,7 +22604,7 @@ _ZNSt6vectorIN4Luau12CstTypeTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #29
   %271 = load i32, ptr %59, align 8, !tbaa !79
   %.not.i.i284 = icmp eq i32 %271, 58
-  br i1 %.not.i.i284, label %.invoke1136, label %272
+  br i1 %.not.i.i284, label %.invoke1138, label %272
 
 272:                                              ; preds = %.noexc147
   invoke void @_ZN4Luau6Parser20expectAndConsumeFailENS_6Lexeme4TypeEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef 58, ptr noundef nonnull @.str.167)
@@ -22623,13 +22623,13 @@ _ZNSt6vectorIN4Luau12CstTypeTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
 
 275:                                              ; preds = %.noexc286
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
-          to label %.invoke1136 unwind label %255
+          to label %.invoke1138 unwind label %255
 
-.invoke1136:                                      ; preds = %.noexc147, %275
+.invoke1138:                                      ; preds = %.noexc147, %275
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
           to label %.noexc148 unwind label %255
 
-.noexc148:                                        ; preds = %.invoke1136, %.noexc286
+.noexc148:                                        ; preds = %.invoke1138, %.noexc286
   %276 = load i32, ptr %37, align 4, !tbaa !287
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !10
@@ -22905,7 +22905,7 @@ _ZNSt6vectorIN4Luau12CstTypeTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #29
   %346 = load i32, ptr %59, align 8, !tbaa !79
   %.not.i.i307 = icmp eq i32 %346, 58
-  br i1 %.not.i.i307, label %.invoke1134, label %347
+  br i1 %.not.i.i307, label %.invoke1136, label %347
 
 347:                                              ; preds = %.noexc174
   invoke void @_ZN4Luau6Parser20expectAndConsumeFailENS_6Lexeme4TypeEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef 58, ptr noundef nonnull @.str.167)
@@ -22924,13 +22924,13 @@ _ZNSt6vectorIN4Luau12CstTypeTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
 
 350:                                              ; preds = %.noexc309
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
-          to label %.invoke1134 unwind label %95
+          to label %.invoke1136 unwind label %95
 
-.invoke1134:                                      ; preds = %.noexc174, %350
+.invoke1136:                                      ; preds = %.noexc174, %350
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
           to label %.noexc175 unwind label %95
 
-.noexc175:                                        ; preds = %.invoke1134, %.noexc309
+.noexc175:                                        ; preds = %.invoke1136, %.noexc309
   %351 = load i32, ptr %37, align 4, !tbaa !287
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !10
@@ -23129,7 +23129,7 @@ _ZNSt6vectorIN4Luau12CstTypeTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   %404 = load i64, ptr %60, align 4
   %405 = load i32, ptr %59, align 8, !tbaa !79
   %.not.i.i190 = icmp eq i32 %405, 58
-  br i1 %.not.i.i190, label %.invoke1137, label %406
+  br i1 %.not.i.i190, label %.invoke1139, label %406
 
 406:                                              ; preds = %403
   invoke void @_ZN4Luau6Parser20expectAndConsumeFailENS_6Lexeme4TypeEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef 58, ptr noundef nonnull @.str.167)
@@ -23148,13 +23148,13 @@ _ZNSt6vectorIN4Luau12CstTypeTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
 
 409:                                              ; preds = %.noexc192
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
-          to label %.invoke1137 unwind label %481
+          to label %.invoke1139 unwind label %481
 
-.invoke1137:                                      ; preds = %403, %409
+.invoke1139:                                      ; preds = %403, %409
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
           to label %_ZN4Luau6Parser16expectAndConsumeEcPKc.exit196 unwind label %481
 
-_ZN4Luau6Parser16expectAndConsumeEcPKc.exit196:   ; preds = %.invoke1137, %.noexc192
+_ZN4Luau6Parser16expectAndConsumeEcPKc.exit196:   ; preds = %.invoke1139, %.noexc192
   %410 = load i32, ptr %37, align 4, !tbaa !287
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !10
@@ -23400,7 +23400,7 @@ _ZNSt6vectorIN4Luau12CstTypeTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   %480 = add i64 %.sroa.14472.0748, 1
   br label %_ZN4Luau6Parser12parseNameOptEPKc.exit.thread538
 
-481:                                              ; preds = %.invoke1137, %409, %.noexc191, %406
+481:                                              ; preds = %.invoke1139, %409, %.noexc191, %406
   %482 = landingpad { ptr, i32 }
           cleanup
   br label %558
@@ -23465,7 +23465,6 @@ _ZN4Luau6Parser12parseNameOptEPKc.exit.thread538: ; preds = %443, %479, %287, %3
 .loopexit556:                                     ; preds = %399, %388
   %.2523.ph.ph = phi i1 [ true, %388 ], [ false, %399 ]
   %.3.ph.ph = phi ptr [ %387, %388 ], [ %.0520747, %399 ]
-  %.sroa.15.4.ph.ph = phi i64 [ 0, %388 ], [ %.sroa.15.0749, %399 ]
   %.pre919.pr = load i32, ptr %59, align 8, !tbaa !79
   %488 = icmp eq i32 %.pre919.pr, 125
   %.sroa.5325.0.copyload = load i64, ptr %.sroa.6459.0..sroa_idx, align 4
@@ -23473,7 +23472,7 @@ _ZN4Luau6Parser12parseNameOptEPKc.exit.thread538: ; preds = %443, %479, %287, %3
 
 489:                                              ; preds = %.loopexit556.thread936, %.loopexit556
   %.sroa.5325.0.copyload947 = phi i64 [ %.sroa.5325.0.copyload942, %.loopexit556.thread936 ], [ %.sroa.5325.0.copyload, %.loopexit556 ]
-  %.sroa.15.4.ph946 = phi i64 [ %.sroa.15.3, %.loopexit556.thread936 ], [ %.sroa.15.4.ph.ph, %.loopexit556 ]
+  %.sroa.15.4.ph946 = phi i64 [ %.sroa.15.3, %.loopexit556.thread936 ], [ %.sroa.15.0749, %.loopexit556 ]
   %.sroa.14472.5.ph945 = phi i64 [ %.sroa.14472.3, %.loopexit556.thread936 ], [ %.sroa.14472.0748, %.loopexit556 ]
   %.3.ph944 = phi ptr [ %.2, %.loopexit556.thread936 ], [ %.3.ph.ph, %.loopexit556 ]
   %.2523.ph943 = phi i1 [ false, %.loopexit556.thread936 ], [ %.2523.ph.ph, %.loopexit556 ]
@@ -23488,7 +23487,7 @@ _ZN4Luau6Parser12parseNameOptEPKc.exit.thread538: ; preds = %443, %479, %287, %3
 
 492:                                              ; preds = %.loopexit556.thread, %.loopexit556
   %.sroa.5325.0.copyload935 = phi i64 [ %.sroa.5325.0.copyload926, %.loopexit556.thread ], [ %.sroa.5325.0.copyload, %.loopexit556 ]
-  %.sroa.15.1934 = phi i64 [ %.sroa.15.1.ph, %.loopexit556.thread ], [ %.sroa.15.4.ph.ph, %.loopexit556 ]
+  %.sroa.15.1934 = phi i64 [ %.sroa.15.1.ph, %.loopexit556.thread ], [ %.sroa.15.0749, %.loopexit556 ]
   %.sroa.14472.1932 = phi i64 [ %.sroa.14472.1.ph, %.loopexit556.thread ], [ %.sroa.14472.0748, %.loopexit556 ]
   %.1930 = phi ptr [ %.1.ph, %.loopexit556.thread ], [ %.3.ph.ph, %.loopexit556 ]
   %.1522928 = phi i1 [ false, %.loopexit556.thread ], [ %.2523.ph.ph, %.loopexit556 ]

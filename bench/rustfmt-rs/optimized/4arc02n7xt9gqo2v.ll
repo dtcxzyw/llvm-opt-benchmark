@@ -6292,7 +6292,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %.not35 = phi i1 [ true, %2 ], [ true, %32 ], [ false, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4c51be4c4d9f3c8bE.llvm.5923418642108526555.exit.i.i" ], [ false, %49 ], [ false, %47 ]
   %.sroa.4.033 = phi ptr [ %0, %2 ], [ %34, %32 ], [ %.sink18.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4c51be4c4d9f3c8bE.llvm.5923418642108526555.exit.i.i" ], [ %.sink18.i.i, %49 ], [ %.sink18.i.i, %47 ]
   %.sroa.16.131 = phi i64 [ 0, %2 ], [ %.sroa.16.0, %32 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4c51be4c4d9f3c8bE.llvm.5923418642108526555.exit.i.i" ], [ %46, %49 ], [ %46, %47 ]
-  %.sroa.415.029 = phi i64 [ undef, %2 ], [ undef, %32 ], [ %.sroa.16.0, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4c51be4c4d9f3c8bE.llvm.5923418642108526555.exit.i.i" ], [ %.sroa.16.0, %49 ], [ %.sroa.16.0, %47 ]
+  %.sroa.415.029 = phi i64 [ undef, %2 ], [ %.sroa.16.0, %47 ], [ %.sroa.16.0, %49 ], [ %.sroa.16.0, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4c51be4c4d9f3c8bE.llvm.5923418642108526555.exit.i.i" ], [ %.sroa.16.0, %32 ]
   %70 = phi i64 [ 0, %2 ], [ 0, %32 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4c51be4c4d9f3c8bE.llvm.5923418642108526555.exit.i.i" ], [ %46, %49 ], [ %46, %47 ]
   %71 = icmp eq ptr %.sroa.4.033, %3
   br i1 %71, label %.loopexit, label %.lr.ph.i9
@@ -7267,12 +7267,11 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   %.not6.i.not.i = icmp eq i32 %.sroa.4.0.i.ph10.i10.i.i, 32
   br i1 %.not6.i.not.i, label %4, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h47e02bff807e2236E.exit"
 
-"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h47e02bff807e2236E.exit": ; preds = %35, %4, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h48e2f16837d270d1E.exit.i"
-  %not.switch = phi i64 [ 1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h48e2f16837d270d1E.exit.i" ], [ 0, %4 ], [ 0, %35 ]
-  %50 = phi i64 [ %5, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h48e2f16837d270d1E.exit.i" ], [ undef, %4 ], [ undef, %35 ]
-  %51 = insertvalue { i64, i64 } poison, i64 %not.switch, 0
-  %52 = insertvalue { i64, i64 } %51, i64 %50, 1
-  ret { i64, i64 } %52
+"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h47e02bff807e2236E.exit": ; preds = %4, %35, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h48e2f16837d270d1E.exit.i"
+  %not.switch = phi i64 [ 1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h48e2f16837d270d1E.exit.i" ], [ 0, %35 ], [ 0, %4 ]
+  %50 = insertvalue { i64, i64 } poison, i64 %not.switch, 0
+  %51 = insertvalue { i64, i64 } %50, i64 %5, 1
+  ret { i64, i64 } %51
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable

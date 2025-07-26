@@ -90,7 +90,7 @@ define void @_ZNK5boost4urls22implementation_defined19ipv6_address_rule_t5parseE
   %.promoted = phi ptr [ %11, %4 ], [ %.promoted.pre, %.outer.backedge ]
   %.076.ph = phi ptr [ %11, %4 ], [ %.076.ph.be, %.outer.backedge ]
   %.074.ph = phi i1 [ false, %4 ], [ true, %.outer.backedge ]
-  %.072.ph = phi i32 [ -1, %4 ], [ %.072345, %.outer.backedge ]
+  %.072.ph = phi i32 [ -1, %4 ], [ %.072, %.outer.backedge ]
   %.0.ph = phi i32 [ 8, %4 ], [ %.0.ph.be, %.outer.backedge ]
   br label %12
 
@@ -295,7 +295,6 @@ _ZNKR5boost6system6resultINS_4urls6detail10h16_rule_t10value_typeENS0_10error_co
   br i1 %76, label %.thread245, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.cont195, %.cont
-  %.072345 = phi i32 [ %.072344, %.cont ], [ %.072, %.cont195 ]
   %.076.ph.be = phi ptr [ %13, %.cont ], [ %29, %.cont195 ]
   %.0.ph.be = phi i32 [ %159, %.cont ], [ %75, %.cont195 ]
   %.promoted.pre = load ptr, ptr %2, align 8, !tbaa !3
@@ -476,7 +475,6 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %26
   br i1 %.not273, label %_ZN5boost4urls7grammar12hexdig_valueEc.exit.thread, label %.thread258
 
 _ZN5boost4urls7grammar12hexdig_valueEc.exit.thread: ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %_ZN5boost4urls7grammar12hexdig_valueEc.exit
-  %.072344 = phi i32 [ -1, %_ZN5boost4urls7grammar12hexdig_valueEc.exit ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ], [ %.072, %26 ]
   br i1 %.074, label %161, label %145
 
 145:                                              ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit.thread
@@ -558,9 +556,8 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit132: ; preds = %
   br label %.thread232
 
 .thread245:                                       ; preds = %.cont, %.cont195, %.thread
-  %.072342 = phi i32 [ %.072, %.thread ], [ %.072344, %.cont ], [ %.072, %.cont195 ]
   %.1 = phi i32 [ %142, %.thread ], [ 0, %.cont195 ], [ 0, %.cont ]
-  %171 = icmp eq i32 %.072342, -1
+  %171 = icmp eq i32 %.072, -1
   br i1 %171, label %172, label %.thread258
 
 172:                                              ; preds = %.thread245
@@ -570,13 +567,12 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit132: ; preds = %
   br label %.thread232
 
 .thread258:                                       ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit, %15, %.thread245
-  %.072341 = phi i32 [ %.072342, %.thread245 ], [ %.072, %15 ], [ %.072, %_ZN5boost4urls7grammar12hexdig_valueEc.exit ]
   %.1262 = phi i32 [ %.1, %.thread245 ], [ %.0, %15 ], [ %.0, %_ZN5boost4urls7grammar12hexdig_valueEc.exit ]
-  %174 = icmp eq i32 %.072341, %.1262
+  %174 = icmp eq i32 %.072, %.1262
   br i1 %174, label %.thread258.thread, label %181
 
 .thread258.thread:                                ; preds = %46, %.thread258
-  %.1262267 = phi i32 [ %.072341, %.thread258 ], [ 0, %46 ]
+  %.1262267 = phi i32 [ %.072, %.thread258 ], [ 0, %46 ]
   %175 = shl i32 %.1262267, 1
   %176 = sub i32 14, %175
   %177 = sext i32 %176 to i64
@@ -587,7 +583,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit132: ; preds = %
   br label %207
 
 181:                                              ; preds = %.thread258
-  %182 = icmp eq i32 %.072341, 7
+  %182 = icmp eq i32 %.072, 7
   br i1 %182, label %183, label %191
 
 183:                                              ; preds = %181
@@ -603,9 +599,9 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit132: ; preds = %
   br label %207
 
 191:                                              ; preds = %181
-  %192 = shl i32 %.072341, 1
+  %192 = shl i32 %.072, 1
   %193 = sub i32 14, %192
-  %194 = sub nsw i32 %.072341, %.1262
+  %194 = sub nsw i32 %.072, %.1262
   %195 = shl nsw i32 %194, 1
   %196 = sub nsw i32 16, %195
   %197 = sext i32 %196 to i64

@@ -207,12 +207,12 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr noundef captures(none) %1, i32
 
 .sink.split:                                      ; preds = %87, %78, %69
   %.str.2.sink = phi ptr [ @.str, %69 ], [ @.str.1, %78 ], [ @.str.2, %87 ]
-  %.ph65 = phi i32 [ -6, %69 ], [ -6, %78 ], [ -5, %87 ]
+  %.ph67 = phi i32 [ -6, %69 ], [ -6, %78 ], [ -5, %87 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %28, ptr noundef nonnull %.str.2.sink) #5
   br label %106
 
 106:                                              ; preds = %.sink.split, %92
-  %107 = phi i32 [ -6, %92 ], [ %.ph65, %.sink.split ]
+  %107 = phi i32 [ -6, %92 ], [ %.ph67, %.sink.split ]
   %.not = icmp eq i16 %35, 0
   br i1 %.not, label %.thread19.thread, label %.thread
 
@@ -237,7 +237,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr noundef captures(none) %1, i32
 
 122:                                              ; preds = %111
   %123 = icmp eq i16 %115, 0
-  br i1 %123, label %.loopexit27, label %124
+  br i1 %123, label %.loopexit26, label %124
 
 124:                                              ; preds = %122
   %125 = and i32 %117, 1024
@@ -298,7 +298,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr noundef captures(none) %1, i32
   %166 = load ptr, ptr %133, align 8
   %167 = tail call i32 %165(ptr noundef %166) #4
   %168 = icmp eq i32 %167, 0
-  br i1 %168, label %.loopexit27, label %.loopexit
+  br i1 %168, label %.loopexit26, label %.loopexit
 
 169:                                              ; preds = %.preheader
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
@@ -373,30 +373,29 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr noundef captures(none) %1, i32
 213:                                              ; preds = %211
   %214 = tail call fastcc i32 @acknak(ptr noundef %0, i32 noundef %212), !range !10
   %215 = icmp slt i32 %214, 0
-  br i1 %215, label %.loopexit27, label %216
+  br i1 %215, label %.loopexit26, label %216
 
 216:                                              ; preds = %213, %211
   %217 = icmp sgt i32 %212, 0
-  br i1 %217, label %129, label %.loopexit27, !llvm.loop !11
+  br i1 %217, label %129, label %.loopexit26, !llvm.loop !11
 
-.loopexit27:                                      ; preds = %216, %213, %164, %122
+.loopexit26:                                      ; preds = %216, %213, %164, %122
   %218 = phi i32 [ 0, %122 ], [ %132, %164 ], [ %214, %213 ], [ %194, %216 ]
-  %.fr = freeze i32 %218
   %219 = load i16, ptr %114, align 4
   %220 = zext i16 %219 to i32
-  %221 = icmp slt i32 %.fr, %220
+  %221 = icmp slt i32 %218, %220
   br i1 %221, label %.thread19, label %254
 
-.thread19:                                        ; preds = %.loopexit27
-  %222 = icmp sgt i32 %.fr, -1
-  %spec.select = select i1 %222, i32 -5, i32 %.fr
+.thread19:                                        ; preds = %.loopexit26
+  %222 = icmp sgt i32 %218, -1
+  %spec.select = select i1 %222, i32 -5, i32 %218
   br label %.thread19.thread
 
 223:                                              ; preds = %.thread
   %224 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %225 = load i16, ptr %224, align 4
   %226 = icmp eq i16 %225, 0
-  br i1 %226, label %.loopexit28, label %227
+  br i1 %226, label %.loopexit27, label %227
 
 227:                                              ; preds = %223
   %228 = zext i16 %225 to i32
@@ -422,7 +421,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr noundef captures(none) %1, i32
   %243 = getelementptr i8, ptr %235, i64 1
   %244 = add nuw nsw i32 %234, 1
   %245 = icmp eq i32 %244, %228
-  br i1 %245, label %.loopexit28, label %233, !llvm.loop !12
+  br i1 %245, label %.loopexit27, label %233, !llvm.loop !12
 
 246:                                              ; preds = %233
   br i1 %239, label %.thread21, label %247
@@ -433,22 +432,22 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr noundef captures(none) %1, i32
 
 247:                                              ; preds = %246
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %28, ptr noundef nonnull @.str.6, i32 noundef %237) #5
-  br label %.loopexit28
+  br label %.loopexit27
 
-.loopexit28:                                      ; preds = %242, %247, %223
+.loopexit27:                                      ; preds = %242, %247, %223
   %248 = phi i32 [ %237, %247 ], [ 0, %223 ], [ %228, %242 ]
-  %.fr26 = freeze i32 %248
+  %.fr = freeze i32 %248
   %249 = load i16, ptr %224, align 4
   %250 = zext i16 %249 to i32
-  %251 = icmp slt i32 %.fr26, %250
+  %251 = icmp slt i32 %.fr, %250
   br i1 %251, label %252, label %254
 
-252:                                              ; preds = %.loopexit28
-  %253 = icmp sgt i32 %.fr26, -1
-  %spec.select25 = select i1 %253, i32 -5, i32 %.fr26
+252:                                              ; preds = %.loopexit27
+  %253 = icmp sgt i32 %.fr, -1
+  %spec.select25 = select i1 %253, i32 -5, i32 %.fr
   br label %.thread19.thread
 
-254:                                              ; preds = %.loopexit28, %.loopexit27
+254:                                              ; preds = %.loopexit27, %.loopexit26
   %255 = add nuw nsw i64 %31, 1
   %256 = icmp eq i64 %255, %29
   br i1 %256, label %.thread19.thread, label %30, !llvm.loop !13

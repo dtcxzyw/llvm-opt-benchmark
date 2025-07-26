@@ -42148,8 +42148,8 @@ nextc0.exit353:                                   ; preds = %nextc0.exit353.back
   br i1 %124, label %switch.early.test586, label %125
 
 switch.early.test586:                             ; preds = %122
-  %trunc834 = trunc nuw i32 %.3.fr to i8
-  switch i8 %trunc834, label %.loopexit587 [
+  %trunc848 = trunc nuw i32 %.3.fr to i8
+  switch i8 %trunc848, label %.loopexit587 [
     i8 102, label %125
     i8 101, label %125
     i8 100, label %125
@@ -42348,7 +42348,7 @@ pushback.exit.thread:                             ; preds = %.critedge.i332
   %211 = load i8, ptr %205, align 1, !tbaa !6
   %212 = icmp eq i8 %211, 10
   %213 = getelementptr inbounds nuw i8, ptr %204, i64 2
-  %spec.select774 = select i1 %212, ptr %213, ptr %205
+  %spec.select785 = select i1 %212, ptr %213, ptr %205
   br label %.thread483
 
 nextc0.exit362:                                   ; preds = %203
@@ -42362,7 +42362,7 @@ nextc0.exit362:                                   ; preds = %203
   br label %nextc0.exit373
 
 nextc0.exit373:                                   ; preds = %nextc0.exit373.backedge, %.preheader588
-  %217 = phi ptr [ %205, %.preheader588 ], [ %.be882, %nextc0.exit373.backedge ]
+  %217 = phi ptr [ %205, %.preheader588 ], [ %.be899, %nextc0.exit373.backedge ]
   %.6245 = phi i32 [ 0, %.preheader588 ], [ %.7246, %nextc0.exit373.backedge ]
   %.6 = phi i32 [ %214, %.preheader588 ], [ %.6.be, %nextc0.exit373.backedge ]
   %218 = icmp eq i32 %.6, 95
@@ -42437,7 +42437,7 @@ tokadd.exit364:                                   ; preds = %231, %222, %219
   br i1 %250, label %251, label %nextc0.exit373.backedge, !prof !189
 
 nextc0.exit373.backedge:                          ; preds = %245, %251, %253, %256
-  %.be882 = phi ptr [ %247, %245 ], [ %247, %251 ], [ %257, %256 ], [ %247, %253 ]
+  %.be899 = phi ptr [ %247, %245 ], [ %247, %251 ], [ %257, %256 ], [ %247, %253 ]
   %.6.be = phi i32 [ %249, %245 ], [ 13, %251 ], [ 10, %256 ], [ 13, %253 ]
   br label %nextc0.exit373, !llvm.loop !564
 
@@ -42457,7 +42457,7 @@ nextc0.exit373.backedge:                          ; preds = %245, %251, %253, %2
   br label %nextc0.exit373.backedge
 
 .thread483:                                       ; preds = %220, %219, %210, %208, %nextc0.exit362
-  %258 = phi ptr [ %205, %nextc0.exit362 ], [ %205, %208 ], [ %spec.select774, %210 ], [ %217, %219 ], [ %217, %220 ]
+  %258 = phi ptr [ %205, %nextc0.exit362 ], [ %205, %208 ], [ %spec.select785, %210 ], [ %217, %219 ], [ %217, %220 ]
   %.5244486 = phi i32 [ 0, %nextc0.exit362 ], [ 0, %208 ], [ 0, %210 ], [ %.6245, %219 ], [ %.6245, %220 ]
   %259 = load i16, ptr %3, align 8
   %260 = and i16 %259, -9
@@ -42561,7 +42561,7 @@ pushback.exit374.thread:                          ; preds = %.critedge.i355
   %308 = load i8, ptr %302, align 1, !tbaa !6
   %309 = icmp eq i8 %308, 10
   %310 = getelementptr inbounds nuw i8, ptr %301, i64 2
-  %spec.select775 = select i1 %309, ptr %310, ptr %302
+  %spec.select786 = select i1 %309, ptr %310, ptr %302
   br label %.thread515
 
 311:                                              ; preds = %300
@@ -42574,7 +42574,7 @@ pushback.exit374.thread:                          ; preds = %.critedge.i355
   br label %nextc0.exit394
 
 nextc0.exit394:                                   ; preds = %nextc0.exit394.backedge, %.preheader589
-  %315 = phi ptr [ %302, %.preheader589 ], [ %.be886, %nextc0.exit394.backedge ]
+  %315 = phi ptr [ %302, %.preheader589 ], [ %.be903, %nextc0.exit394.backedge ]
   %.9248 = phi i32 [ 0, %.preheader589 ], [ %.10249, %nextc0.exit394.backedge ]
   %.8.shrunk = phi i8 [ %303, %.preheader589 ], [ %.8.shrunk.be, %nextc0.exit394.backedge ]
   %316 = icmp eq i8 %.8.shrunk, 95
@@ -42648,7 +42648,7 @@ tokadd.exit385:                                   ; preds = %329, %321, %317
   br i1 %347, label %348, label %nextc0.exit394.backedge, !prof !189
 
 nextc0.exit394.backedge:                          ; preds = %343, %348, %350, %353
-  %.be886 = phi ptr [ %345, %343 ], [ %345, %348 ], [ %354, %353 ], [ %345, %350 ]
+  %.be903 = phi ptr [ %345, %343 ], [ %345, %348 ], [ %354, %353 ], [ %345, %350 ]
   %.8.shrunk.be = phi i8 [ %346, %343 ], [ 13, %348 ], [ 10, %353 ], [ 13, %350 ]
   br label %nextc0.exit394, !llvm.loop !565
 
@@ -42668,7 +42668,7 @@ nextc0.exit394.backedge:                          ; preds = %343, %348, %350, %3
   br label %nextc0.exit394.backedge
 
 .thread515:                                       ; preds = %317, %318, %307, %305, %311
-  %355 = phi ptr [ %302, %311 ], [ %302, %305 ], [ %spec.select775, %307 ], [ %315, %318 ], [ %315, %317 ]
+  %355 = phi ptr [ %302, %311 ], [ %302, %305 ], [ %spec.select786, %307 ], [ %315, %318 ], [ %315, %317 ]
   %.8247.ph = phi i32 [ 0, %311 ], [ 0, %305 ], [ 0, %307 ], [ %.9248, %318 ], [ %.9248, %317 ]
   %356 = load i16, ptr %3, align 8
   %357 = and i16 %356, -9
@@ -43041,7 +43041,7 @@ nextc0.exit446:                                   ; preds = %nextc0.exit446.back
   %511 = load i8, ptr %508, align 1, !tbaa !6
   %512 = icmp eq i8 %511, 10
   %513 = getelementptr inbounds nuw i8, ptr %503, i64 2
-  %spec.select776 = select i1 %512, ptr %513, ptr %508
+  %spec.select787 = select i1 %512, ptr %513, ptr %508
   br label %.split270
 
 514:                                              ; preds = %502
@@ -43054,7 +43054,7 @@ nextc0.exit446:                                   ; preds = %nextc0.exit446.back
   br label %.split270
 
 .split270:                                        ; preds = %510, %.split270.loopexit, %507
-  %518 = phi ptr [ %508, %507 ], [ %517, %.split270.loopexit ], [ %spec.select776, %510 ]
+  %518 = phi ptr [ %508, %507 ], [ %517, %.split270.loopexit ], [ %spec.select787, %510 ]
   %519 = load i16, ptr %3, align 8
   %520 = and i16 %519, -9
   store i16 %520, ptr %3, align 8
@@ -43074,7 +43074,7 @@ nextc0.exit446:                                   ; preds = %nextc0.exit446.back
   %529 = getelementptr inbounds i8, ptr %518, i64 -2
   %530 = load i8, ptr %529, align 1, !tbaa !6
   %531 = icmp eq i8 %530, 13
-  %spec.select777 = select i1 %531, ptr %529, ptr %521
+  %spec.select788 = select i1 %531, ptr %529, ptr %521
   br label %pushback.exit423.thread
 
 .split:                                           ; preds = %514
@@ -43088,21 +43088,21 @@ nextc0.exit446:                                   ; preds = %nextc0.exit446.back
   %537 = load i32, ptr %11, align 8, !tbaa !508
   %538 = load i32, ptr %19, align 4, !tbaa !474
   %.not.i419 = icmp slt i32 %537, %538
-  %.pre702 = load ptr, ptr %12, align 8, !tbaa !465
+  %.pre710 = load ptr, ptr %12, align 8, !tbaa !465
   br i1 %.not.i419, label %tokadd.exit420, label %539
 
 539:                                              ; preds = %.split
   %540 = shl nsw i32 %538, 1
   store i32 %540, ptr %19, align 4, !tbaa !474
   %541 = sext i32 %540 to i64
-  %542 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre702, i64 noundef %541, i64 noundef 1) #38
+  %542 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre710, i64 noundef %541, i64 noundef 1) #38
   store ptr %542, ptr %12, align 8, !tbaa !465
-  %.pre703 = load i32, ptr %11, align 8, !tbaa !508
+  %.pre711 = load i32, ptr %11, align 8, !tbaa !508
   br label %tokadd.exit420
 
 tokadd.exit420:                                   ; preds = %.split, %539
-  %543 = phi i32 [ %537, %.split ], [ %.pre703, %539 ]
-  %544 = phi ptr [ %.pre702, %.split ], [ %542, %539 ]
+  %543 = phi i32 [ %537, %.split ], [ %.pre711, %539 ]
+  %544 = phi ptr [ %.pre710, %.split ], [ %542, %539 ]
   %545 = add nsw i32 %543, 1
   store i32 %545, ptr %11, align 8, !tbaa !508
   %546 = sext i32 %543 to i64
@@ -43151,7 +43151,7 @@ tokadd.exit422:                                   ; preds = %tokadd.exit420, %55
   %569 = getelementptr inbounds i8, ptr %560, i64 -2
   %570 = load i8, ptr %569, align 1, !tbaa !6
   %571 = icmp eq i8 %570, 13
-  %spec.select778 = select i1 %571, ptr %569, ptr %561
+  %spec.select789 = select i1 %571, ptr %569, ptr %561
   br label %pushback.exit423.thread
 
 572:                                              ; preds = %556
@@ -43206,7 +43206,7 @@ tokadd.exit422:                                   ; preds = %tokadd.exit420, %55
   %592 = load i8, ptr %589, align 1, !tbaa !6
   %593 = icmp eq i8 %592, 10
   %594 = getelementptr inbounds nuw i8, ptr %584, i64 2
-  %spec.select779 = select i1 %593, ptr %594, ptr %589
+  %spec.select790 = select i1 %593, ptr %594, ptr %589
   br label %.thread575
 
 nextc0.exit432.thread:                            ; preds = %583
@@ -43219,7 +43219,7 @@ nextc0.exit432.thread:                            ; preds = %583
   br label %.thread575
 
 .thread575:                                       ; preds = %591, %.thread575.loopexit, %588
-  %598 = phi ptr [ %589, %588 ], [ %597, %.thread575.loopexit ], [ %spec.select779, %591 ]
+  %598 = phi ptr [ %589, %588 ], [ %597, %.thread575.loopexit ], [ %spec.select790, %591 ]
   %599 = load i16, ptr %3, align 8
   %600 = and i16 %599, -9
   store i16 %600, ptr %3, align 8
@@ -43239,7 +43239,7 @@ nextc0.exit432.thread:                            ; preds = %583
   %609 = getelementptr inbounds i8, ptr %598, i64 -2
   %610 = load i8, ptr %609, align 1, !tbaa !6
   %611 = icmp eq i8 %610, 13
-  %spec.select780 = select i1 %611, ptr %609, ptr %601
+  %spec.select791 = select i1 %611, ptr %609, ptr %601
   br label %pushback.exit423.thread
 
 612:                                              ; preds = %583, %583, %nextc0.exit432.thread
@@ -43263,11 +43263,11 @@ nextc0.exit432.thread:                            ; preds = %583
   %623 = sext i32 %622 to i64
   %624 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %623, i64 noundef 1) #38
   store ptr %624, ptr %12, align 8, !tbaa !465
-  %.pre701 = load i32, ptr %11, align 8, !tbaa !508
+  %.pre709 = load i32, ptr %11, align 8, !tbaa !508
   br label %tokadd.exit435
 
 tokadd.exit435:                                   ; preds = %612, %621
-  %625 = phi i32 [ %619, %612 ], [ %.pre701, %621 ]
+  %625 = phi i32 [ %619, %612 ], [ %.pre709, %621 ]
   %626 = phi ptr [ %.pre, %612 ], [ %624, %621 ]
   %627 = add nsw i32 %.1267, 1
   %628 = add nsw i32 %625, 1
@@ -43360,20 +43360,18 @@ nextc0.exit446.backedge:                          ; preds = %.critedge.i439, %65
 
 pushback.exit423.thread.loopexit:                 ; preds = %489, %572, %641, %.critedge.i410, %.critedge.i425, %nextc0.exit446
   %.1263.lcssa = phi i32 [ %.1263, %489 ], [ %.1263, %572 ], [ %.1263, %641 ], [ 0, %.critedge.i410 ], [ %.1263, %.critedge.i425 ], [ %.1263, %nextc0.exit446 ]
-  %.1259.lcssa = phi i32 [ %.1259, %489 ], [ %.1259, %572 ], [ %.1259, %641 ], [ 0, %.critedge.i410 ], [ 0, %.critedge.i425 ], [ %.1259, %nextc0.exit446 ]
-  %.pre704 = load i16, ptr %3, align 8
-  %.pre705 = load ptr, ptr %471, align 8, !tbaa !48
+  %.pre712 = load i16, ptr %3, align 8
+  %.pre713 = load ptr, ptr %471, align 8, !tbaa !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre706 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !44
-  %664 = and i16 %.pre704, -9
+  %.pre714 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !44
+  %664 = and i16 %.pre712, -9
   br label %pushback.exit423.thread
 
 pushback.exit423.thread:                          ; preds = %608, %568, %528, %pushback.exit423.thread.loopexit, %525, %.split270, %605, %.thread575, %565, %557
-  %665 = phi ptr [ %603, %605 ], [ %603, %.thread575 ], [ %563, %565 ], [ %563, %557 ], [ %523, %.split270 ], [ %523, %525 ], [ %.pre706, %pushback.exit423.thread.loopexit ], [ %523, %528 ], [ %563, %568 ], [ %603, %608 ]
-  %666 = phi ptr [ %601, %605 ], [ %601, %.thread575 ], [ %561, %565 ], [ %561, %557 ], [ %521, %.split270 ], [ %521, %525 ], [ %.pre705, %pushback.exit423.thread.loopexit ], [ %spec.select777, %528 ], [ %spec.select778, %568 ], [ %spec.select780, %608 ]
-  %667 = phi i16 [ %600, %605 ], [ %600, %.thread575 ], [ %559, %565 ], [ %559, %557 ], [ %520, %.split270 ], [ %520, %525 ], [ %664, %pushback.exit423.thread.loopexit ], [ %520, %528 ], [ %559, %568 ], [ %600, %608 ]
-  %.1263680 = phi i32 [ %.1263, %605 ], [ %.1263, %.thread575 ], [ %.1263, %565 ], [ %.1263, %557 ], [ 0, %.split270 ], [ 0, %525 ], [ %.1263.lcssa, %pushback.exit423.thread.loopexit ], [ 0, %528 ], [ %.1263, %568 ], [ %.1263, %608 ]
-  %.1259669 = phi i32 [ 0, %605 ], [ 0, %.thread575 ], [ %.1259, %565 ], [ %.1259, %557 ], [ 0, %.split270 ], [ 0, %525 ], [ %.1259.lcssa, %pushback.exit423.thread.loopexit ], [ 0, %528 ], [ %.1259, %568 ], [ 0, %608 ]
+  %665 = phi ptr [ %.pre714, %pushback.exit423.thread.loopexit ], [ %523, %525 ], [ %523, %.split270 ], [ %603, %605 ], [ %603, %.thread575 ], [ %563, %565 ], [ %563, %557 ], [ %523, %528 ], [ %563, %568 ], [ %603, %608 ]
+  %666 = phi ptr [ %.pre713, %pushback.exit423.thread.loopexit ], [ %521, %525 ], [ %521, %.split270 ], [ %601, %605 ], [ %601, %.thread575 ], [ %561, %565 ], [ %561, %557 ], [ %spec.select788, %528 ], [ %spec.select789, %568 ], [ %spec.select791, %608 ]
+  %667 = phi i16 [ %664, %pushback.exit423.thread.loopexit ], [ %520, %525 ], [ %520, %.split270 ], [ %600, %605 ], [ %600, %.thread575 ], [ %559, %565 ], [ %559, %557 ], [ %520, %528 ], [ %559, %568 ], [ %600, %608 ]
+  %.1263688 = phi i32 [ %.1263.lcssa, %pushback.exit423.thread.loopexit ], [ 0, %525 ], [ 0, %.split270 ], [ %.1263, %605 ], [ %.1263, %.thread575 ], [ %.1263, %565 ], [ %.1263, %557 ], [ 0, %528 ], [ %.1263, %568 ], [ %.1263, %608 ]
   store i16 %667, ptr %3, align 8
   %668 = getelementptr inbounds i8, ptr %666, i64 -1
   store ptr %668, ptr %471, align 8, !tbaa !48
@@ -43396,23 +43394,22 @@ pushback.exit423.thread:                          ; preds = %608, %568, %528, %p
   br label %pushback.exit447
 
 pushback.exit447:                                 ; preds = %nextc0.exit446, %pushback.exit423.thread, %670, %673, %677
-  %.1263679 = phi i32 [ %.1263680, %pushback.exit423.thread ], [ %.1263680, %670 ], [ %.1263680, %673 ], [ %.1263680, %677 ], [ %.1263, %nextc0.exit446 ]
-  %.1259668 = phi i32 [ %.1259669, %pushback.exit423.thread ], [ %.1259669, %670 ], [ %.1259669, %673 ], [ %.1259669, %677 ], [ %.1259, %nextc0.exit446 ]
+  %.1263687 = phi i32 [ %.1263688, %pushback.exit423.thread ], [ %.1263688, %670 ], [ %.1263688, %673 ], [ %.1263688, %677 ], [ %.1263, %nextc0.exit446 ]
   %.not314 = icmp eq i32 %.18257, 0
   br i1 %.not314, label %678, label %.thread551
 
 .thread551:                                       ; preds = %488, %450, %384, %287, %190, %459, %pushback.exit447
   %.0266 = phi i32 [ %.1267, %pushback.exit447 ], [ 0, %459 ], [ 0, %190 ], [ 0, %287 ], [ 0, %384 ], [ 0, %450 ], [ %.1267, %488 ]
-  %.0262 = phi i32 [ %.1263679, %pushback.exit447 ], [ 0, %459 ], [ 0, %190 ], [ 0, %287 ], [ 0, %384 ], [ 0, %450 ], [ %.1263, %488 ]
-  %.0258 = phi i32 [ %.1259668, %pushback.exit447 ], [ 0, %459 ], [ 0, %190 ], [ 0, %287 ], [ 0, %384 ], [ 0, %450 ], [ %.1259, %488 ]
+  %.0262 = phi i32 [ %.1263687, %pushback.exit447 ], [ 0, %459 ], [ 0, %190 ], [ 0, %287 ], [ 0, %384 ], [ 0, %450 ], [ %.1263, %488 ]
+  %.0258 = phi i32 [ %.1259, %pushback.exit447 ], [ 0, %459 ], [ 0, %190 ], [ 0, %287 ], [ 0, %384 ], [ 0, %450 ], [ %.1259, %488 ]
   %.17256 = phi i32 [ %.18257, %pushback.exit447 ], [ %.13252, %459 ], [ %.1240462, %190 ], [ %.5244487, %287 ], [ %.8247525, %384 ], [ %.13252, %450 ], [ %.18257, %488 ]
   tail call void (ptr, ptr, ...) @ripper_compile_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.649, i32 noundef %.17256) #31
   br label %678
 
 678:                                              ; preds = %.thread551, %pushback.exit447
   %.3269 = phi i32 [ %.0266, %.thread551 ], [ %.1267, %pushback.exit447 ]
-  %.3265 = phi i32 [ %.0262, %.thread551 ], [ %.1263679, %pushback.exit447 ]
-  %.3261 = phi i32 [ %.0258, %.thread551 ], [ %.1259668, %pushback.exit447 ]
+  %.3265 = phi i32 [ %.0262, %.thread551 ], [ %.1263687, %pushback.exit447 ]
+  %.3261 = phi i32 [ %.0258, %.thread551 ], [ %.1259, %pushback.exit447 ]
   %679 = load ptr, ptr %12, align 8, !tbaa !465
   %680 = load i32, ptr %11, align 8, !tbaa !508
   %681 = sext i32 %680 to i64

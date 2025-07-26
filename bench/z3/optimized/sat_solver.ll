@@ -10632,7 +10632,7 @@ define hidden noundef i32 @_ZNK3sat6solver16select_watch_litERKNS_6clauseEj(ptr 
   %.133 = phi i32 [ %.03237, %14 ], [ %.03237, %33 ], [ %.03237, %21 ], [ %36, %35 ], [ %.03237, %51 ], [ %.03237, %39 ]
   %.131 = phi i32 [ %.03038, %14 ], [ %34, %33 ], [ %.03038, %21 ], [ %.03038, %35 ], [ %.03038, %51 ], [ %.03038, %39 ]
   %.1 = phi i32 [ %.02939, %14 ], [ %.02939, %33 ], [ %.02939, %21 ], [ %.02939, %35 ], [ %52, %51 ], [ %.02939, %39 ]
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !312
 }
@@ -60013,9 +60013,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i907:         ; preds = %_ZNK6vectorIjLb0EjE
 
 .noexc329:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i907
   %1526 = icmp ult i32 %.05.lcssa.i.i887, %1525
-  %cond.fr1548 = freeze i1 %1526
-  %spec.select = select i1 %cond.fr1548, i64 %1447, i64 %1450
-  %spec.select1597 = select i1 %cond.fr1548, i32 %1444, i32 %1443
+  %spec.select = select i1 %1526, i64 %1447, i64 %1450
+  %spec.select1597 = select i1 %1526, i32 %1444, i32 %1443
   br label %.thread1552
 
 .thread1552:                                      ; preds = %.noexc329, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit15.i901, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i16.i903, %._crit_edge40.i.i
@@ -63624,8 +63623,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i52:          ; preds = %_ZNK6vectorIjLb0EjE
 _ZZN11max_cliquesIN3sat11neg_literalEE7cliquesERK7svectorIjjER5u_mapI8uint_setER6vectorIS4_Lb1EjEENKUljjE_clEjj.exit59: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i52
   %97 = icmp ult i32 %.05.lcssa.i.i32, %96
   %98 = or disjoint i64 %20, 1
-  %cond.fr = freeze i1 %97
-  %spec.select = select i1 %cond.fr, i64 %98, i64 %21
+  %spec.select = select i1 %97, i64 %98, i64 %21
   %.phi.trans.insert = getelementptr inbounds i32, ptr %0, i64 %spec.select
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !182
   br label %_ZZN11max_cliquesIN3sat11neg_literalEE7cliquesERK7svectorIjjER5u_mapI8uint_setER6vectorIS4_Lb1EjEENKUljjE_clEjj.exit59.thread
@@ -64102,8 +64100,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i61:          ; preds = %_ZNK6vectorIjLb0EjE
 _ZZN11max_cliquesIN3sat11neg_literalEE7cliquesERK7svectorIjjER5u_mapI8uint_setER6vectorIS4_Lb1EjEENKUljjE_clEjj.exit68: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i61
   %103 = icmp ult i32 %.05.lcssa.i.i41, %102
   %104 = or disjoint i64 %26, 1
-  %cond.fr = freeze i1 %103
-  %spec.select = select i1 %cond.fr, i64 %104, i64 %27
+  %spec.select = select i1 %103, i64 %104, i64 %27
   %.phi.trans.insert = getelementptr inbounds i32, ptr %0, i64 %spec.select
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !182
   br label %_ZZN11max_cliquesIN3sat11neg_literalEE7cliquesERK7svectorIjjER5u_mapI8uint_setER6vectorIS4_Lb1EjEENKUljjE_clEjj.exit68.thread

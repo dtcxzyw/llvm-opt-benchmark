@@ -811,7 +811,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv451
   %73 = load ptr, ptr %72, align 8, !tbaa !60
   %.not294 = icmp eq ptr %73, null
-  br i1 %.not294, label %.critedge4, label %74
+  br i1 %.not294, label %.critedge4.loopexit, label %74
 
 74:                                               ; preds = %71
   %75 = getelementptr i8, ptr %73, i64 32
@@ -834,41 +834,45 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %.2238 = phi i32 [ %.1237407, %74 ], [ %81, %80 ], [ %.1237407, %77 ]
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4, label %71, !llvm.loop !75
+  br i1 %exitcond.not, label %.critedge4.loopexit, label %71, !llvm.loop !75
 
-.critedge4:                                       ; preds = %71, %82, %.preheader400
-  %.1237.lcssa = phi i32 [ %.0236413, %.preheader400 ], [ %.2238, %82 ], [ %.1237407, %71 ]
-  %83 = getelementptr inbounds nuw i8, ptr %61, i64 36
-  %84 = load i32, ptr %83, align 4, !tbaa !73
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %calloc, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !68
-  %88 = and i32 %87, 1431655765
-  %89 = lshr i32 %87, 1
-  %90 = and i32 %89, 1431655765
-  %91 = add nuw i32 %90, %88
-  %92 = and i32 %91, 858993459
-  %93 = lshr i32 %91, 2
-  %94 = and i32 %93, 858993459
-  %95 = add nuw nsw i32 %94, %92
-  %96 = and i32 %95, 117901063
-  %97 = lshr i32 %95, 4
-  %98 = and i32 %97, 117901063
-  %99 = add nuw nsw i32 %98, %96
-  %100 = and i32 %99, 983055
-  %101 = lshr i32 %99, 8
-  %102 = and i32 %101, 983055
-  %103 = add nuw nsw i32 %102, %100
-  %104 = and i32 %103, 31
-  %105 = lshr i32 %103, 16
-  %106 = add i32 %105, %.0234414
-  %107 = add i32 %106, %104
-  %108 = freeze i32 %.1237.lcssa
+.critedge4.loopexit:                              ; preds = %82, %71
+  %.1237.lcssa.ph = phi i32 [ %.1237407, %71 ], [ %.2238, %82 ]
+  %83 = freeze i32 %.1237.lcssa.ph
+  br label %.critedge4
+
+.critedge4:                                       ; preds = %.critedge4.loopexit, %.preheader400
+  %.1237.lcssa = phi i32 [ %.0236413, %.preheader400 ], [ %83, %.critedge4.loopexit ]
+  %84 = getelementptr inbounds nuw i8, ptr %61, i64 36
+  %85 = load i32, ptr %84, align 4, !tbaa !73
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i32, ptr %calloc, i64 %86
+  %88 = load i32, ptr %87, align 4, !tbaa !68
+  %89 = and i32 %88, 1431655765
+  %90 = lshr i32 %88, 1
+  %91 = and i32 %90, 1431655765
+  %92 = add nuw i32 %91, %89
+  %93 = and i32 %92, 858993459
+  %94 = lshr i32 %92, 2
+  %95 = and i32 %94, 858993459
+  %96 = add nuw nsw i32 %95, %93
+  %97 = and i32 %96, 117901063
+  %98 = lshr i32 %96, 4
+  %99 = and i32 %98, 117901063
+  %100 = add nuw nsw i32 %99, %97
+  %101 = and i32 %100, 983055
+  %102 = lshr i32 %100, 8
+  %103 = and i32 %102, 983055
+  %104 = add nuw nsw i32 %103, %101
+  %105 = and i32 %104, 31
+  %106 = lshr i32 %104, 16
+  %107 = add i32 %106, %.0234414
+  %108 = add i32 %107, %105
   br label %109
 
 109:                                              ; preds = %.critedge4, %63, %59
-  %.3239 = phi i32 [ %.0236413, %59 ], [ %108, %.critedge4 ], [ %.0236413, %63 ]
-  %.1235 = phi i32 [ %.0234414, %59 ], [ %107, %.critedge4 ], [ %.0234414, %63 ]
+  %.3239 = phi i32 [ %.0236413, %59 ], [ %.1237.lcssa, %.critedge4 ], [ %.0236413, %63 ]
+  %.1235 = phi i32 [ %.0234414, %59 ], [ %108, %.critedge4 ], [ %.0234414, %63 ]
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %exitcond458.not = icmp eq i64 %indvars.iv.next455, %wide.trip.count457
   br i1 %exitcond458.not, label %.critedge2, label %59, !llvm.loop !76

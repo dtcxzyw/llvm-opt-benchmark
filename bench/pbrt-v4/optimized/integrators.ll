@@ -73418,6 +73418,7 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %29
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %59 = sext i32 %55 to i64
+  %.fr = freeze i32 %54
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader38, %.split48.us
@@ -73425,11 +73426,10 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %29
   %.02453 = phi float [ 0.000000e+00, %.preheader38 ], [ %.us-phi, %.split48.us ]
   %60 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv62
   %61 = load float, ptr %60, align 4, !tbaa !198
-  %62 = trunc i64 %indvars.iv62 to i32
-  %63 = add i32 %54, %62
-  %.fr55 = freeze i32 %63
-  %64 = icmp sgt i32 %.fr55, -1
-  %65 = zext nneg i32 %.fr55 to i64
+  %62 = trunc nuw nsw i64 %indvars.iv62 to i32
+  %63 = add i32 %.fr, %62
+  %64 = icmp sgt i32 %63, -1
+  %65 = zext nneg i32 %63 to i64
   br i1 %64, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %86
@@ -74722,6 +74722,7 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %12
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 72
   %43 = sext i32 %39 to i64
+  %.fr = freeze i32 %37
   br label %53
 
 44:                                               ; preds = %.loopexit
@@ -74747,17 +74748,16 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %12
   br i1 %56, label %57, label %.loopexit
 
 57:                                               ; preds = %53
-  %58 = trunc i64 %indvars.iv65 to i32
-  %59 = add i32 %37, %58
-  %.fr58 = freeze i32 %59
-  %60 = sext i32 %.fr58 to i64
+  %58 = trunc nuw nsw i64 %indvars.iv65 to i32
+  %59 = add i32 %.fr, %58
+  %60 = sext i32 %59 to i64
   %61 = load ptr, ptr %38, align 8, !tbaa !271
   %62 = getelementptr inbounds nuw float, ptr %61, i64 %60
   %63 = load float, ptr %62, align 4, !tbaa !198
   %64 = fmul float %55, %63
   %65 = fadd float %.02855, %64
-  %66 = icmp sgt i32 %.fr58, -1
-  %67 = zext nneg i32 %.fr58 to i64
+  %66 = icmp sgt i32 %59, -1
+  %67 = zext nneg i32 %59 to i64
   br i1 %66, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %57, %88

@@ -106,10 +106,10 @@ define noundef i32 @_Z16tMPI_Reduce_fastPKvPviP14tmpi_datatype_7tMPI_OpiP10tmpi_
   br label %45
 
 45:                                               ; preds = %.lr.ph, %101
-  %.092135 = phi i32 [ 0, %.lr.ph ], [ %107, %101 ]
-  %.094134 = phi i32 [ 2, %.lr.ph ], [ %106, %101 ]
-  %.096133 = phi i32 [ 1, %.lr.ph ], [ %105, %101 ]
-  %.098132 = phi i32 [ %12, %.lr.ph ], [ %104, %101 ]
+  %.092135 = phi i32 [ 0, %.lr.ph ], [ %106, %101 ]
+  %.094134 = phi i32 [ 2, %.lr.ph ], [ %105, %101 ]
+  %.096133 = phi i32 [ 1, %.lr.ph ], [ %104, %101 ]
+  %.098132 = phi i32 [ %12, %.lr.ph ], [ %103, %101 ]
   %46 = add i32 %.094134, -1
   %47 = and i32 %46, %15
   %48 = icmp eq i32 %47, 0
@@ -211,13 +211,12 @@ _Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit: ; pr
 
 101:                                              ; preds = %73, %81, %79
   %102 = lshr i32 %.098132, 1
-  %103 = and i32 %.098132, 1
-  %104 = add nuw nsw i32 %102, %103
-  %105 = shl nsw i32 %.096133, 1
-  %106 = shl nsw i32 %.094134, 1
-  %107 = add nuw nsw i32 %.092135, 1
-  %108 = icmp samesign ugt i32 %104, 1
-  br i1 %108, label %45, label %.thread118
+  %103 = sub nsw i32 %.098132, %102
+  %104 = shl nsw i32 %.096133, 1
+  %105 = shl nsw i32 %.094134, 1
+  %106 = add nuw nsw i32 %.092135, 1
+  %107 = icmp sgt i32 %103, 1
+  br i1 %107, label %45, label %.thread118
 
 .thread118:                                       ; preds = %101, %_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit, %33, %.thread125, %7, %31, %22, %18
   %.0 = phi i32 [ %32, %31 ], [ %23, %22 ], [ %20, %18 ], [ 0, %7 ], [ 0, %.thread125 ], [ 0, %33 ], [ 0, %101 ], [ %72, %_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit ]

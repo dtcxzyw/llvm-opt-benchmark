@@ -2883,11 +2883,10 @@ ic_strlen.exit:                                   ; preds = %2, %4
   %16 = add nuw i64 %.1.i, 1
   br i1 %or.cond4.i, label %str_prev_ofs.exit, label %.preheader.i
 
-str_prev_ofs.exit:                                ; preds = %.preheader.i, %12
-  %.021.i = phi i64 [ %.1.i, %12 ], [ %1, %.preheader.i ]
-  %.021.i.fr = freeze i64 %.021.i
-  %17 = icmp slt i64 %.021.i.fr, 1
-  %18 = sub nsw i64 %1, %.021.i.fr
+str_prev_ofs.exit:                                ; preds = %12, %.preheader.i
+  %.021.i = phi i64 [ %1, %.preheader.i ], [ %.1.i, %12 ]
+  %17 = icmp slt i64 %.021.i, 1
+  %18 = sub nsw i64 %1, %.021.i
   br i1 %17, label %str_prev_ofs.exit.thread, label %19
 
 str_prev_ofs.exit.thread:                         ; preds = %9, %str_prev_ofs.exit

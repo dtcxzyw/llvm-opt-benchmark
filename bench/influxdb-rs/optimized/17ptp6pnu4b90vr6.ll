@@ -268,10 +268,9 @@ define hidden { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4063f5455e75fb5aE.llvm.171605402441639591.exit, label %5
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h4063f5455e75fb5aE.llvm.171605402441639591.exit: ; preds = %5, %8
-  %.sroa.3.0.i = phi i64 [ undef, %8 ], [ %.0.i, %5 ]
   %.sroa.0.0.i = phi i64 [ 0, %8 ], [ 1, %5 ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.3.0.i, 1
+  %15 = insertvalue { i64, i64 } %14, i64 %.0.i, 1
   ret { i64, i64 } %15
 }
 
@@ -3183,26 +3182,26 @@ define internal fastcc void @"_ZN4core3ptr391drop_in_place$LT$hashbrown..scopegu
   br label %2
 
 2:                                                ; preds = %13, %0
-  %.sroa.0.07.i.i = phi i64 [ 0, %0 ], [ %spec.select6.i.i, %13 ]
-  %3 = icmp uge i64 %.sroa.0.07.i.i, %.0.val
+  %.sroa.0.06.i.i = phi i64 [ 0, %0 ], [ %spec.select5.i.i, %13 ]
+  %3 = icmp uge i64 %.sroa.0.06.i.i, %.0.val
   %not..i.i = xor i1 %3, true
   %4 = zext i1 %not..i.i to i64
-  %spec.select6.i.i = add nuw i64 %.sroa.0.07.i.i, %4
+  %spec.select5.i.i = add nuw i64 %.sroa.0.06.i.i, %4
   %5 = load ptr, ptr %.8.val, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.07.i.i
+  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.06.i.i
   %7 = load i8, ptr %6, align 1, !noundef !4
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = sub nsw i64 0, %.sroa.0.07.i.i
+  %10 = sub nsw i64 0, %.sroa.0.06.i.i
   %11 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 }, i64, i64 } }, ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -64
   tail call void @"_ZN4core3ptr115drop_in_place$LT$$LP$alloc..string..String$C$influxdb3_write..write_buffer..buffer_segment..PartitionBuffer$RP$$GT$17h1a5d5280654108deE.llvm.171605402441639591"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12), !noalias !904
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ugt i64 %spec.select6.i.i, %.0.val
+  %.not.i.i.i = icmp ugt i64 %spec.select5.i.i, %.0.val
   %or.cond.i.i = select i1 %3, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he7b444bfe386ad3fE.exit", label %2
 
@@ -3217,26 +3216,26 @@ define internal fastcc void @"_ZN4core3ptr395drop_in_place$LT$hashbrown..scopegu
   br label %2
 
 2:                                                ; preds = %13, %0
-  %.sroa.0.07.i.i = phi i64 [ 0, %0 ], [ %spec.select6.i.i, %13 ]
-  %3 = icmp uge i64 %.sroa.0.07.i.i, %.0.val
+  %.sroa.0.06.i.i = phi i64 [ 0, %0 ], [ %spec.select5.i.i, %13 ]
+  %3 = icmp uge i64 %.sroa.0.06.i.i, %.0.val
   %not..i.i = xor i1 %3, true
   %4 = zext i1 %not..i.i to i64
-  %spec.select6.i.i = add nuw i64 %.sroa.0.07.i.i, %4
+  %spec.select5.i.i = add nuw i64 %.sroa.0.06.i.i, %4
   %5 = load ptr, ptr %.8.val, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.07.i.i
+  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.06.i.i
   %7 = load i8, ptr %6, align 1, !noundef !4
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = sub nsw i64 0, %.sroa.0.07.i.i
+  %10 = sub nsw i64 0, %.sroa.0.06.i.i
   %11 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, ptr }, ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -32
   tail call void @"_ZN4core3ptr117drop_in_place$LT$$LP$alloc..string..String$C$alloc..sync..Arc$LT$influxdb3_write..catalog..DatabaseSchema$GT$$RP$$GT$17h39ccedf3665cfd40E.llvm.171605402441639591"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12), !noalias !907
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ugt i64 %spec.select6.i.i, %.0.val
+  %.not.i.i.i = icmp ugt i64 %spec.select5.i.i, %.0.val
   %or.cond.i.i = select i1 %3, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14344649283687d3E.exit", label %2
 
@@ -4491,10 +4490,9 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h40
   br i1 %13, label %15, label %6
 
 15:                                               ; preds = %6, %9
-  %.sroa.3.0 = phi i64 [ undef, %9 ], [ %.0, %6 ]
   %.sroa.0.0 = phi i64 [ 0, %9 ], [ 1, %6 ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1
+  %17 = insertvalue { i64, i64 } %16, i64 %.0, 1
   ret { i64, i64 } %17
 }
 

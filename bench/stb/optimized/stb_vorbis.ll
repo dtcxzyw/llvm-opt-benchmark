@@ -17961,20 +17961,19 @@ define void @compute_samples(i32 noundef %0, ptr noundef writeonly captures(none
 
 .lr.ph42.us:                                      ; preds = %.lr.ph42.us.preheader, %._crit_edge.us
   %indvars.iv73 = phi i64 [ 0, %.lr.ph42.us.preheader ], [ %indvars.iv.next74, %._crit_edge.us ]
-  %.03345.us = phi i32 [ 32, %.lr.ph42.us.preheader ], [ %spec.select.us.fr, %._crit_edge.us ]
+  %.03345.us = phi i32 [ 32, %.lr.ph42.us.preheader ], [ %spec.select.us, %._crit_edge.us ]
   %indvars75 = trunc i64 %indvars.iv73 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, i8 0, i64 128, i1 false)
-  %13 = add nsw i32 %.03345.us, %indvars75
+  %13 = add i32 %.03345.us, %indvars75
   %14 = icmp sgt i32 %13, %5
   %15 = trunc i64 %indvars.iv73 to i32
   %16 = sub i32 %5, %15
   %spec.select.us = select i1 %14, i32 %16, i32 %.03345.us
-  %spec.select.us.fr = freeze i32 %spec.select.us
-  %17 = icmp sgt i32 %spec.select.us.fr, 0
+  %17 = icmp sgt i32 %spec.select.us, 0
   br i1 %17, label %.lr.ph42.split.us.us.preheader, label %._crit_edge.us
 
 .lr.ph42.split.us.us.preheader:                   ; preds = %.lr.ph42.us
-  %wide.trip.count = zext nneg i32 %spec.select.us.fr to i64
+  %wide.trip.count = zext nneg i32 %spec.select.us to i64
   br label %.lr.ph42.split.us.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %.lr.ph42.us
@@ -17991,15 +17990,15 @@ define void @compute_samples(i32 noundef %0, ptr noundef writeonly captures(none
   %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 1136623616)
   %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 1136689151)
   %25 = trunc i32 %24 to i16
-  %gep78 = getelementptr inbounds nuw i16, ptr %invariant.gep77, i64 %indvars.iv68
-  store i16 %25, ptr %gep78, align 2, !tbaa !36
+  %gep79 = getelementptr inbounds nuw i16, ptr %invariant.gep78, i64 %indvars.iv68
+  store i16 %25, ptr %gep79, align 2, !tbaa !36
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !334
 
 .lr.ph.us.preheader:                              ; preds = %..loopexit_crit_edge.us.us
-  %wide.trip.count71 = zext nneg i32 %spec.select.us.fr to i64
-  %invariant.gep77 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv73
+  %wide.trip.count71 = zext nneg i32 %spec.select.us to i64
+  %invariant.gep78 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv73
   br label %.lr.ph.us
 
 .lr.ph42.split.us.us:                             ; preds = %.lr.ph42.split.us.us.preheader, %..loopexit_crit_edge.us.us
@@ -18361,19 +18360,18 @@ define void @convert_samples_short(i32 noundef %0, ptr noundef readonly captures
 
 .lr.ph42.us.i.us:                                 ; preds = %.lr.ph47.i.us, %._crit_edge.us.i.us
   %indvars.iv73.i.us = phi i64 [ %indvars.iv.next74.i.us, %._crit_edge.us.i.us ], [ 0, %.lr.ph47.i.us ]
-  %.03345.us.i.us = phi i32 [ %spec.select.us.fr.i.us, %._crit_edge.us.i.us ], [ 32, %.lr.ph47.i.us ]
+  %.03345.us.i.us = phi i32 [ %spec.select.us.i.us, %._crit_edge.us.i.us ], [ 32, %.lr.ph47.i.us ]
   %indvars75.i.us = trunc i64 %indvars.iv73.i.us to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  %39 = add nsw i32 %.03345.us.i.us, %indvars75.i.us
+  %39 = add i32 %.03345.us.i.us, %indvars75.i.us
   %40 = icmp sgt i32 %39, %6
   %41 = sub i32 %6, %indvars75.i.us
   %spec.select.us.i.us = select i1 %40, i32 %41, i32 %.03345.us.i.us
-  %spec.select.us.fr.i.us = freeze i32 %spec.select.us.i.us
-  %42 = icmp sgt i32 %spec.select.us.fr.i.us, 0
+  %42 = icmp sgt i32 %spec.select.us.i.us, 0
   br i1 %42, label %.lr.ph42.split.us.us.preheader.i.us, label %._crit_edge.us.i.us
 
 .lr.ph42.split.us.us.preheader.i.us:              ; preds = %.lr.ph42.us.i.us
-  %wide.trip.count.i.us = zext nneg i32 %spec.select.us.fr.i.us to i64
+  %wide.trip.count.i.us = zext nneg i32 %spec.select.us.i.us to i64
   br label %.lr.ph42.split.us.us.i.us
 
 .lr.ph42.split.us.us.i.us:                        ; preds = %..loopexit_crit_edge.us.us.i.us, %.lr.ph42.split.us.us.preheader.i.us
@@ -18410,7 +18408,7 @@ define void @convert_samples_short(i32 noundef %0, ptr noundef readonly captures
   br i1 %exitcond67.not.i.us, label %..preheader39_crit_edge.us.i.us, label %.lr.ph42.split.us.us.i.us, !llvm.loop !336
 
 ..preheader39_crit_edge.us.i.us:                  ; preds = %..loopexit_crit_edge.us.us.i.us
-  %invariant.gep77.i.us = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv73.i.us
+  %invariant.gep78.i.us = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv73.i.us
   br label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %.lr.ph.us.i.us, %..preheader39_crit_edge.us.i.us
@@ -18422,8 +18420,8 @@ define void @convert_samples_short(i32 noundef %0, ptr noundef readonly captures
   %61 = tail call i32 @llvm.smax.i32(i32 %60, i32 1136623616)
   %62 = tail call i32 @llvm.umin.i32(i32 %61, i32 1136689151)
   %63 = trunc i32 %62 to i16
-  %gep78.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep77.i.us, i64 %indvars.iv68.i.us
-  store i16 %63, ptr %gep78.i.us, align 2, !tbaa !36
+  %gep79.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep78.i.us, i64 %indvars.iv68.i.us
+  store i16 %63, ptr %gep79.i.us, align 2, !tbaa !36
   %indvars.iv.next69.i.us = add nuw nsw i64 %indvars.iv68.i.us, 1
   %exitcond72.not.i.us = icmp eq i64 %indvars.iv.next69.i.us, %wide.trip.count.i.us
   br i1 %exitcond72.not.i.us, label %._crit_edge.us.i.us, label %.lr.ph.us.i.us, !llvm.loop !334

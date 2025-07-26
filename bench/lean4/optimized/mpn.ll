@@ -1003,7 +1003,7 @@ define hidden noundef ptr @_ZN4lean13mpn_to_stringEPKjmPcm(ptr noundef readonly 
 11:                                               ; preds = %4
   %12 = load i32, ptr %0, align 4, !tbaa !3
   %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef %12) #14
-  br label %206
+  br label %204
 
 14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #14
@@ -1245,18 +1245,19 @@ _ZN4lean10mpn_bufferC2EmRKj.exit88:               ; preds = %.lr.ph, %_ZN4lean10
   br i1 %98, label %_ZN4lean10mpn_bufferC2EmRKj.exit88, label %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge, !llvm.loop !46
 
 99:                                               ; preds = %.critedge4, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge
-  %100 = phi i32 [ undef, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ], [ %157, %.critedge4 ]
-  %101 = phi ptr [ %88, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ], [ %.val50, %.critedge4 ]
-  %102 = phi ptr [ %87, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ], [ %111, %.critedge4 ]
-  %103 = phi i64 [ %.pre, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ], [ %171, %.critedge4 ]
-  %.039 = phi i64 [ 0, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ], [ %160, %.critedge4 ]
-  switch i64 %103, label %._crit_edge151 [
+  %100 = phi i32 [ %157, %.critedge4 ], [ undef, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ]
+  %101 = phi ptr [ %.val50, %.critedge4 ], [ %88, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ]
+  %102 = phi ptr [ %111, %.critedge4 ], [ %87, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ]
+  %103 = phi i64 [ %171, %.critedge4 ], [ %.pre, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge4 ], [ -1, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ]
+  %.039 = phi i64 [ %160, %.critedge4 ], [ 0, %_ZN4lean10mpn_bufferC2EmRKj.exit88._crit_edge ]
+  switch i64 %103, label %._crit_edge153 [
     i64 0, label %.critedge
     i64 1, label %104
   ]
 
-._crit_edge151:                                   ; preds = %99
-  %.pre152 = load ptr, ptr %5, align 8, !tbaa !21
+._crit_edge153:                                   ; preds = %99
+  %.pre154 = load ptr, ptr %5, align 8, !tbaa !21
   br label %107
 
 104:                                              ; preds = %99
@@ -1265,8 +1266,8 @@ _ZN4lean10mpn_bufferC2EmRKj.exit88:               ; preds = %.lr.ph, %_ZN4lean10
   %.not = icmp eq i32 %106, 0
   br i1 %.not, label %.critedge, label %107
 
-107:                                              ; preds = %._crit_edge151, %104
-  %108 = phi ptr [ %.pre152, %._crit_edge151 ], [ %105, %104 ]
+107:                                              ; preds = %._crit_edge153, %104
+  %108 = phi ptr [ %.pre154, %._crit_edge153 ], [ %105, %104 ]
   %109 = invoke fastcc noundef i64 @_ZN4leanL13div_normalizeEPKjmS1_mRNS_10mpn_bufferES3_(ptr noundef nonnull %108, i64 noundef %103, ptr noundef nonnull %9, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %7)
           to label %110 unwind label %.loopexit
 
@@ -1363,7 +1364,7 @@ _ZN4leanL5div_1ERNS_10mpn_bufferEjPj.exit:        ; preds = %_ZN4leanL5div_1ERNS
   %152 = lshr i32 %151, %.pre.i
   %gep134 = getelementptr i32, ptr %invariant.gep133, i64 %.val51
   store i32 %152, ptr %gep134, align 4, !tbaa !3
-  %.pre154 = load i32, ptr %8, align 4, !tbaa !3
+  %.pre156 = load i32, ptr %8, align 4, !tbaa !3
   br label %_ZN4leanL15div_unnormalizeERNS_10mpn_bufferES1_mPj.exit
 
 .preheader.i:                                     ; preds = %_ZN4leanL5div_1ERNS_10mpn_bufferEjPj.exit
@@ -1379,7 +1380,7 @@ _ZN4leanL5div_1ERNS_10mpn_bufferEjPj.exit:        ; preds = %_ZN4leanL5div_1ERNS
   br label %_ZN4leanL15div_unnormalizeERNS_10mpn_bufferES1_mPj.exit
 
 _ZN4leanL15div_unnormalizeERNS_10mpn_bufferES1_mPj.exit: ; preds = %.lr.ph4.i.preheader, %.preheader1.i, %.preheader.i
-  %157 = phi i32 [ %156, %.lr.ph4.i.preheader ], [ %.pre154, %.preheader1.i ], [ %100, %.preheader.i ]
+  %157 = phi i32 [ %156, %.lr.ph4.i.preheader ], [ %.pre156, %.preheader1.i ], [ %100, %.preheader.i ]
   %158 = trunc i32 %157 to i8
   %159 = add i8 %158, 48
   %160 = add i64 %.039, 1
@@ -1419,118 +1420,122 @@ _ZN4leanL15div_unnormalizeERNS_10mpn_bufferES1_mPj.exit: ; preds = %.lr.ph4.i.pr
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   %170 = load ptr, ptr %7, align 8, !tbaa !21
   %.not.i.i.i98 = icmp eq ptr %170, %87
-  br i1 %.not.i.i.i98, label %.body86, label %195
+  br i1 %.not.i.i.i98, label %.body86, label %193
 
 .critedge4:                                       ; preds = %.lr.ph131, %166, %_ZN4leanL15div_unnormalizeERNS_10mpn_bufferES1_mPj.exit
   %171 = phi i64 [ 0, %_ZN4leanL15div_unnormalizeERNS_10mpn_bufferES1_mPj.exit ], [ %163, %.lr.ph131 ], [ 0, %166 ]
+  %indvars.iv.next = add i64 %indvars.iv, 1
   br label %99, !llvm.loop !48
 
 .critedge:                                        ; preds = %99, %104
   %172 = getelementptr inbounds nuw i8, ptr %2, i64 %.039
   store i8 0, ptr %172, align 1, !tbaa !32
   %173 = add i64 %.039, -1
-  %174 = lshr i64 %173, 1
-  %175 = and i64 %173, 1
-  %176 = add nuw i64 %174, %175
-  %.not138 = icmp eq i64 %176, 0
-  br i1 %.not138, label %._crit_edge, label %.lr.ph136
+  %.not138 = icmp eq i64 %173, 0
+  br i1 %.not138, label %._crit_edge, label %.lr.ph136.preheader
+
+.lr.ph136.preheader:                              ; preds = %.critedge
+  %174 = lshr i64 %indvars.iv, 1
+  %175 = sub i64 %indvars.iv, %174
+  %umax = call i64 @llvm.umax.i64(i64 %175, i64 1)
+  br label %.lr.ph136
 
 ._crit_edge:                                      ; preds = %.lr.ph136, %.critedge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   %.not.i.i.i = icmp eq ptr %102, %87
-  br i1 %.not.i.i.i, label %_ZN4lean6bufferIjLm16EED2Ev.exit, label %177
+  br i1 %.not.i.i.i, label %_ZN4lean6bufferIjLm16EED2Ev.exit, label %176
 
-177:                                              ; preds = %._crit_edge
-  %178 = load i64, ptr %85, align 8, !tbaa !26
-  %179 = shl i64 %178, 2
-  call void @_ZdaPvm(ptr noundef nonnull %102, i64 noundef %179) #14
-  %.pre150 = load ptr, ptr %6, align 8, !tbaa !21
+176:                                              ; preds = %._crit_edge
+  %177 = load i64, ptr %85, align 8, !tbaa !26
+  %178 = shl i64 %177, 2
+  call void @_ZdaPvm(ptr noundef nonnull %102, i64 noundef %178) #14
+  %.pre152 = load ptr, ptr %6, align 8, !tbaa !21
   br label %_ZN4lean6bufferIjLm16EED2Ev.exit
 
-_ZN4lean6bufferIjLm16EED2Ev.exit:                 ; preds = %._crit_edge, %177
-  %180 = phi ptr [ %101, %._crit_edge ], [ %.pre150, %177 ]
+_ZN4lean6bufferIjLm16EED2Ev.exit:                 ; preds = %._crit_edge, %176
+  %179 = phi ptr [ %101, %._crit_edge ], [ %.pre152, %176 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #14
-  %.not.i.i.i94 = icmp eq ptr %180, %89
-  br i1 %.not.i.i.i94, label %_ZN4lean6bufferIjLm16EED2Ev.exit95, label %181
+  %.not.i.i.i94 = icmp eq ptr %179, %89
+  br i1 %.not.i.i.i94, label %_ZN4lean6bufferIjLm16EED2Ev.exit95, label %180
 
-181:                                              ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit
-  %182 = load i64, ptr %91, align 8, !tbaa !26
-  %183 = shl i64 %182, 2
-  call void @_ZdaPvm(ptr noundef %180, i64 noundef %183) #14
+180:                                              ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit
+  %181 = load i64, ptr %91, align 8, !tbaa !26
+  %182 = shl i64 %181, 2
+  call void @_ZdaPvm(ptr noundef %179, i64 noundef %182) #14
   br label %_ZN4lean6bufferIjLm16EED2Ev.exit95
 
-_ZN4lean6bufferIjLm16EED2Ev.exit95:               ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit, %181
+_ZN4lean6bufferIjLm16EED2Ev.exit95:               ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit, %180
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #14
-  %184 = load ptr, ptr %5, align 8, !tbaa !21
-  %.not.i.i.i96 = icmp eq ptr %184, %15
-  br i1 %.not.i.i.i96, label %_ZN4lean6bufferIjLm16EED2Ev.exit97, label %185
+  %183 = load ptr, ptr %5, align 8, !tbaa !21
+  %.not.i.i.i96 = icmp eq ptr %183, %15
+  br i1 %.not.i.i.i96, label %_ZN4lean6bufferIjLm16EED2Ev.exit97, label %184
 
-185:                                              ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit95
-  %186 = load i64, ptr %17, align 8, !tbaa !26
-  %187 = shl i64 %186, 2
-  call void @_ZdaPvm(ptr noundef %184, i64 noundef %187) #14
+184:                                              ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit95
+  %185 = load i64, ptr %17, align 8, !tbaa !26
+  %186 = shl i64 %185, 2
+  call void @_ZdaPvm(ptr noundef %183, i64 noundef %186) #14
   br label %_ZN4lean6bufferIjLm16EED2Ev.exit97
 
-_ZN4lean6bufferIjLm16EED2Ev.exit97:               ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit95, %185
+_ZN4lean6bufferIjLm16EED2Ev.exit97:               ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit95, %184
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #14
-  br label %206
+  br label %204
 
-.lr.ph136:                                        ; preds = %.critedge, %.lr.ph136
-  %.0135 = phi i64 [ %193, %.lr.ph136 ], [ 0, %.critedge ]
-  %188 = getelementptr inbounds nuw i8, ptr %2, i64 %.0135
-  %189 = sub i64 %173, %.0135
-  %190 = getelementptr inbounds nuw i8, ptr %2, i64 %189
-  %191 = load i8, ptr %188, align 1, !tbaa !32
-  %192 = load i8, ptr %190, align 1, !tbaa !32
-  store i8 %192, ptr %188, align 1, !tbaa !32
-  store i8 %191, ptr %190, align 1, !tbaa !32
-  %193 = add nuw i64 %.0135, 1
-  %194 = icmp ult i64 %193, %176
-  br i1 %194, label %.lr.ph136, label %._crit_edge, !llvm.loop !49
+.lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
+  %.0135 = phi i64 [ %192, %.lr.ph136 ], [ 0, %.lr.ph136.preheader ]
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 %.0135
+  %188 = sub i64 %173, %.0135
+  %189 = getelementptr inbounds nuw i8, ptr %2, i64 %188
+  %190 = load i8, ptr %187, align 1, !tbaa !32
+  %191 = load i8, ptr %189, align 1, !tbaa !32
+  store i8 %191, ptr %187, align 1, !tbaa !32
+  store i8 %190, ptr %189, align 1, !tbaa !32
+  %192 = add nuw i64 %.0135, 1
+  %exitcond.not = icmp eq i64 %192, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph136, !llvm.loop !49
 
-195:                                              ; preds = %169
-  %196 = load i64, ptr %85, align 8, !tbaa !26
-  %197 = shl i64 %196, 2
-  call void @_ZdaPvm(ptr noundef %170, i64 noundef %197) #14
+193:                                              ; preds = %169
+  %194 = load i64, ptr %85, align 8, !tbaa !26
+  %195 = shl i64 %194, 2
+  call void @_ZdaPvm(ptr noundef %170, i64 noundef %195) #14
   br label %.body86
 
-.body86:                                          ; preds = %195, %169
+.body86:                                          ; preds = %193, %169
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #14
-  %198 = load ptr, ptr %6, align 8, !tbaa !21
-  %.not.i.i.i100 = icmp eq ptr %198, %89
-  br i1 %.not.i.i.i100, label %.body, label %199
+  %196 = load ptr, ptr %6, align 8, !tbaa !21
+  %.not.i.i.i100 = icmp eq ptr %196, %89
+  br i1 %.not.i.i.i100, label %.body, label %197
 
-199:                                              ; preds = %.body86
-  %200 = load i64, ptr %91, align 8, !tbaa !26
+197:                                              ; preds = %.body86
+  %198 = load i64, ptr %91, align 8, !tbaa !26
   br label %.body.sink.split
 
-.body.sink.split:                                 ; preds = %72, %199
-  %.sink171 = phi i64 [ %200, %199 ], [ %53, %72 ]
-  %.sink = phi ptr [ %198, %199 ], [ %.pre.i.i54, %72 ]
-  %.pn45.pn.pn.ph = phi { ptr, i32 } [ %lpad.phi, %199 ], [ %73, %72 ]
-  %201 = shl i64 %.sink171, 2
-  call void @_ZdaPvm(ptr noundef %.sink, i64 noundef %201) #14
+.body.sink.split:                                 ; preds = %72, %197
+  %.sink175 = phi i64 [ %198, %197 ], [ %53, %72 ]
+  %.sink = phi ptr [ %196, %197 ], [ %.pre.i.i54, %72 ]
+  %.pn45.pn.pn.ph = phi { ptr, i32 } [ %lpad.phi, %197 ], [ %73, %72 ]
+  %199 = shl i64 %.sink175, 2
+  call void @_ZdaPvm(ptr noundef %.sink, i64 noundef %199) #14
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %.body86, %72
   %.pn45.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %lpad.phi, %.body86 ], [ %.pn45.pn.pn.ph, %.body.sink.split ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #14
-  %202 = load ptr, ptr %5, align 8, !tbaa !21
-  %.not.i.i.i102 = icmp eq ptr %202, %15
-  br i1 %.not.i.i.i102, label %_ZN4lean6bufferIjLm16EED2Ev.exit103, label %203
+  %200 = load ptr, ptr %5, align 8, !tbaa !21
+  %.not.i.i.i102 = icmp eq ptr %200, %15
+  br i1 %.not.i.i.i102, label %_ZN4lean6bufferIjLm16EED2Ev.exit103, label %201
 
-203:                                              ; preds = %.body
-  %204 = load i64, ptr %17, align 8, !tbaa !26
-  %205 = shl i64 %204, 2
-  call void @_ZdaPvm(ptr noundef %202, i64 noundef %205) #14
+201:                                              ; preds = %.body
+  %202 = load i64, ptr %17, align 8, !tbaa !26
+  %203 = shl i64 %202, 2
+  call void @_ZdaPvm(ptr noundef %200, i64 noundef %203) #14
   br label %_ZN4lean6bufferIjLm16EED2Ev.exit103
 
-_ZN4lean6bufferIjLm16EED2Ev.exit103:              ; preds = %.body, %203
+_ZN4lean6bufferIjLm16EED2Ev.exit103:              ; preds = %.body, %201
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #14
   br label %common.resume
 
-206:                                              ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit97, %11
+204:                                              ; preds = %_ZN4lean6bufferIjLm16EED2Ev.exit97, %11
   ret ptr %2
 }
 

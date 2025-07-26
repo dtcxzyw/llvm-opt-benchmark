@@ -52876,13 +52876,12 @@ asciilib__factorize.exit.i:                       ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %50 = icmp sgt i64 %.1.us.i.i.i, %.1.i.i.i
   %..i.i = tail call i64 @llvm.smax.i64(i64 %.1.us.i.i.i, i64 %.1.i.i.i)
-  %.fr237.i = freeze i64 %..i.i
   %.0.sroa.speculated.i.i = select i1 %50, i64 %.132.us.i.i.i, i64 %.132.i.i.i
   store i64 %.0.sroa.speculated.i.i, ptr %49, align 8, !tbaa !182
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.fr237.i, ptr %51, align 8, !tbaa !598
+  store i64 %..i.i, ptr %51, align 8, !tbaa !598
   %52 = getelementptr i8, ptr %2, i64 %.0.sroa.speculated.i.i
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %2, ptr %52, i64 %.fr237.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %2, ptr %52, i64 %..i.i)
   %53 = icmp eq i32 %bcmp.i, 0
   %54 = zext i1 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -52890,8 +52889,8 @@ asciilib__factorize.exit.i:                       ; preds = %46
   br i1 %53, label %.lr.ph.preheader.i, label %56
 
 56:                                               ; preds = %asciilib__factorize.exit.i
-  %57 = sub i64 %3, %.fr237.i
-  %..i = tail call i64 @llvm.smax.i64(i64 %.fr237.i, i64 %57)
+  %57 = sub i64 %3, %..i.i
+  %..i = tail call i64 @llvm.smax.i64(i64 %..i.i, i64 %57)
   %58 = add i64 %..i, 1
   store i64 %58, ptr %49, align 8, !tbaa !600
   br label %.lr.ph.preheader.i
@@ -52952,7 +52951,7 @@ asciilib__preprocess.exit:                        ; preds = %78
   %88 = getelementptr i8, ptr %0, i64 %3
   %89 = getelementptr i8, ptr %88, i64 -1
   %90 = getelementptr i8, ptr %0, i64 %1
-  %91 = add i64 %73, %.fr237.i
+  %91 = add i64 %73, %..i.i
   %92 = tail call i64 @llvm.smin.i64(i64 %3, i64 %91)
   br i1 %53, label %.preheader182.i, label %143
 
@@ -52963,8 +52962,8 @@ asciilib__preprocess.exit:                        ; preds = %78
 .preheader180.lr.ph.i:                            ; preds = %.preheader182.i
   %94 = sub nsw i64 0, %3
   %95 = sub i64 %3, %59
-  %96 = tail call i64 @llvm.smax.i64(i64 %.fr237.i, i64 %95)
-  %reass.sub = sub i64 %96, %.fr237.i
+  %96 = tail call i64 @llvm.smax.i64(i64 %..i.i, i64 %95)
+  %reass.sub = sub i64 %96, %..i.i
   %97 = add i64 %reass.sub, 1
   br label %.preheader180.i
 
@@ -52995,12 +52994,12 @@ asciilib__preprocess.exit:                        ; preds = %78
   %.2128.i = phi ptr [ %.4130.i, %132 ], [ %104, %.preheader180.i ]
   %106 = getelementptr i8, ptr %.2128.i, i64 %94
   %107 = getelementptr i8, ptr %106, i64 1
-  %108 = tail call i64 @llvm.smax.i64(i64 %.fr237.i, i64 %.1144.i)
+  %108 = tail call i64 @llvm.smax.i64(i64 %..i.i, i64 %.1144.i)
   %109 = icmp slt i64 %108, %3
   br i1 %109, label %.lr.ph.i5, label %.preheader177.i
 
 .preheader177.i:                                  ; preds = %122, %.preheader178.i
-  %110 = icmp slt i64 %.1144.i, %.fr237.i
+  %110 = icmp slt i64 %.1144.i, %..i.i
   br i1 %110, label %.lr.ph199.i, label %.preheader177._crit_edge.i
 
 .lr.ph.i5:                                        ; preds = %.preheader178.i, %122
@@ -53015,7 +53014,7 @@ asciilib__preprocess.exit:                        ; preds = %78
 115:                                              ; preds = %.lr.ph.i5
   %116 = icmp slt i64 %.0135197.i, %92
   %117 = getelementptr i8, ptr %.2128.i, i64 %73
-  %118 = sub i64 %.0135197.i, %.fr237.i
+  %118 = sub i64 %.0135197.i, %..i.i
   %119 = getelementptr i8, ptr %.2128.i, i64 %118
   %120 = getelementptr i8, ptr %119, i64 1
   %.3129.i = select i1 %116, ptr %117, ptr %120
@@ -53033,7 +53032,7 @@ asciilib__preprocess.exit:                        ; preds = %78
 
 124:                                              ; preds = %.lr.ph199.i
   %125 = add i64 %.1136198.i, 1
-  %exitcond275.not.i = icmp eq i64 %125, %.fr237.i
+  %exitcond275.not.i = icmp eq i64 %125, %..i.i
   br i1 %exitcond275.not.i, label %.preheader177._crit_edge.i, label %.lr.ph199.i, !llvm.loop !605
 
 .lr.ph199.i:                                      ; preds = %.preheader177.i, %124
@@ -53076,8 +53075,8 @@ asciilib__preprocess.exit:                        ; preds = %78
 
 .preheader175.lr.ph.i:                            ; preds = %143
   %146 = sub nsw i64 0, %3
-  %147 = icmp slt i64 %.fr237.i, %3
-  %.not152206.i = icmp sgt i64 %.fr237.i, 0
+  %147 = icmp slt i64 %..i.i, %3
+  %.not152206.i = icmp sgt i64 %..i.i, 0
   br i1 %147, label %.preheader175.us.i, label %.preheader175.us215.i
 
 .preheader175.us.i:                               ; preds = %.preheader175.lr.ph.i, %.preheader175.us.i.backedge
@@ -53109,7 +53108,7 @@ asciilib__preprocess.exit:                        ; preds = %78
 
 158:                                              ; preds = %.lr.ph208.us.i
   %159 = add nuw nsw i64 %.0207.us.i, 1
-  %exitcond277.not.i = icmp eq i64 %159, %.fr237.i
+  %exitcond277.not.i = icmp eq i64 %159, %..i.i
   br i1 %exitcond277.not.i, label %.thread170.i, label %.lr.ph208.us.i, !llvm.loop !607
 
 .lr.ph208.us.i:                                   ; preds = %..preheader_crit_edge.us.i, %158
@@ -53126,7 +53125,7 @@ asciilib__preprocess.exit:                        ; preds = %78
   br label %176
 
 165:                                              ; preds = %178, %.lr.ph205.us.i
-  %.0124203.us.i = phi i64 [ %.fr237.i, %.lr.ph205.us.i ], [ %179, %178 ]
+  %.0124203.us.i = phi i64 [ %..i.i, %.lr.ph205.us.i ], [ %179, %178 ]
   %166 = getelementptr i8, ptr %2, i64 %.0124203.us.i
   %167 = load i8, ptr %166, align 1, !tbaa !195
   %168 = getelementptr i8, ptr %157, i64 %.0124203.us.i
@@ -53137,7 +53136,7 @@ asciilib__preprocess.exit:                        ; preds = %78
 170:                                              ; preds = %165
   %171 = icmp slt i64 %.0124203.us.i, %92
   %172 = getelementptr i8, ptr %154, i64 %73
-  %173 = sub i64 %.0124203.us.i, %.fr237.i
+  %173 = sub i64 %.0124203.us.i, %..i.i
   %174 = getelementptr i8, ptr %154, i64 %173
   %175 = getelementptr i8, ptr %174, i64 1
   %.7133.us.i = select i1 %171, ptr %172, ptr %175
@@ -53185,7 +53184,7 @@ asciilib__preprocess.exit:                        ; preds = %78
 
 190:                                              ; preds = %192
   %191 = add nuw nsw i64 %.0207.us229.i, 1
-  %exitcond276.not.i = icmp eq i64 %191, %.fr237.i
+  %exitcond276.not.i = icmp eq i64 %191, %..i.i
   br i1 %exitcond276.not.i, label %.thread170.i, label %192, !llvm.loop !607
 
 192:                                              ; preds = %190, %.preheader.us225.i

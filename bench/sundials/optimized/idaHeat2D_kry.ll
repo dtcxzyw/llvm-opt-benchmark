@@ -417,10 +417,11 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %0, align 8, !tbaa !16
+  %.fr72 = freeze i64 %5
   %6 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #10
   %7 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #10
-  %8 = add nsw i64 %5, -1
-  %9 = icmp sgt i64 %5, 0
+  %8 = add i64 %.fr72, -1
+  %9 = icmp sgt i64 %.fr72, 0
   br i1 %9, label %.lr.ph58, label %._crit_edge59
 
 .lr.ph58:                                         ; preds = %4
@@ -432,7 +433,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %11 = load double, ptr %10, align 8, !tbaa !17
   %12 = uitofp nneg i64 %.04956.us to double
   %13 = fmul double %11, %12
-  %14 = mul nuw nsw i64 %.04956.us, %5
+  %14 = mul nuw nsw i64 %.04956.us, %.fr72
   %15 = fsub double 1.000000e+00, %13
   %16 = getelementptr double, ptr %6, i64 %14
   br label %17
@@ -450,13 +451,13 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %26 = getelementptr double, ptr %16, i64 %.055.us
   store double %25, ptr %26, align 8, !tbaa !20
   %27 = add nuw nsw i64 %.055.us, 1
-  %exitcond.not = icmp eq i64 %27, %5
+  %exitcond.not = icmp eq i64 %27, %.fr72
   br i1 %exitcond.not, label %._crit_edge.us, label %17
 
 ._crit_edge.us:                                   ; preds = %17
   %28 = add nuw nsw i64 %.04956.us, 1
-  %exitcond74.not = icmp eq i64 %28, %5
-  br i1 %exitcond74.not, label %._crit_edge59, label %.lr.ph.us, !llvm.loop !22
+  %exitcond75.not = icmp eq i64 %28, %.fr72
+  br i1 %exitcond75.not, label %._crit_edge59, label %.lr.ph.us, !llvm.loop !22
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us, %4
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %2) #10
@@ -518,48 +519,45 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
   br i1 %9, label %.lr.ph.us66.preheader, label %._crit_edge64
 
 .lr.ph.us66.preheader:                            ; preds = %resHeat.exit
-  %63 = shl i64 %5, 3
+  %63 = shl i64 %.fr72, 3
   br label %.lr.ph.us66
 
 .lr.ph.us66:                                      ; preds = %.lr.ph.us66.preheader, %._crit_edge.us69
   %.15062.us = phi i64 [ %75, %._crit_edge.us69 ], [ 0, %.lr.ph.us66.preheader ]
-  %64 = mul i64 %63, %.15062.us
-  %scevgep76 = getelementptr i8, ptr %7, i64 %64
-  %65 = mul nuw nsw i64 %.15062.us, %5
-  %66 = icmp eq i64 %.15062.us, 0
-  %67 = getelementptr double, ptr %7, i64 %65
-  br i1 %66, label %._crit_edge.us69.sink.split, label %.lr.ph.split.us68
+  %64 = mul nuw nsw i64 %.15062.us, %.fr72
+  %65 = icmp eq i64 %.15062.us, 0
+  %66 = getelementptr double, ptr %7, i64 %64
+  %67 = icmp eq i64 %.15062.us, %8
+  %or.cond = or i1 %65, %67
+  br i1 %or.cond, label %._crit_edge.us69.sink.split, label %.lr.ph.split.split.us70
 
-.lr.ph.split.split.us70:                          ; preds = %.lr.ph.split.us68, %72
-  %.160.us65 = phi i64 [ %73, %72 ], [ 0, %.lr.ph.split.us68 ]
+.lr.ph.split.split.us70:                          ; preds = %.lr.ph.us66, %72
+  %.160.us65 = phi i64 [ %73, %72 ], [ 0, %.lr.ph.us66 ]
   %68 = icmp eq i64 %.160.us65, 0
   %69 = icmp eq i64 %.160.us65, %8
   %or.cond54.us = or i1 %69, %68
   br i1 %or.cond54.us, label %70, label %72
 
 70:                                               ; preds = %.lr.ph.split.split.us70
-  %71 = getelementptr double, ptr %67, i64 %.160.us65
+  %71 = getelementptr double, ptr %66, i64 %.160.us65
   store double 0.000000e+00, ptr %71, align 8, !tbaa !20
   br label %72
 
 72:                                               ; preds = %70, %.lr.ph.split.split.us70
   %73 = add nuw nsw i64 %.160.us65, 1
-  %exitcond75.not = icmp eq i64 %73, %5
-  br i1 %exitcond75.not, label %._crit_edge.us69, label %.lr.ph.split.split.us70
+  %exitcond76.not = icmp eq i64 %73, %.fr72
+  br i1 %exitcond76.not, label %._crit_edge.us69, label %.lr.ph.split.split.us70
 
-.lr.ph.split.us68:                                ; preds = %.lr.ph.us66
-  %74 = icmp eq i64 %.15062.us, %8
-  %.fr.us = freeze i1 %74
-  br i1 %.fr.us, label %._crit_edge.us69.sink.split, label %.lr.ph.split.split.us70
-
-._crit_edge.us69.sink.split:                      ; preds = %.lr.ph.split.us68, %.lr.ph.us66
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep76, i8 0, i64 %63, i1 false), !tbaa !20
+._crit_edge.us69.sink.split:                      ; preds = %.lr.ph.us66
+  %74 = mul i64 %63, %.15062.us
+  %scevgep77 = getelementptr i8, ptr %7, i64 %74
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep77, i8 0, i64 %63, i1 false), !tbaa !20
   br label %._crit_edge.us69
 
 ._crit_edge.us69:                                 ; preds = %72, %._crit_edge.us69.sink.split
   %75 = add nuw nsw i64 %.15062.us, 1
-  %exitcond77.not = icmp eq i64 %75, %5
-  br i1 %exitcond77.not, label %._crit_edge64, label %.lr.ph.us66, !llvm.loop !25
+  %exitcond78.not = icmp eq i64 %75, %.fr72
+  br i1 %exitcond78.not, label %._crit_edge64, label %.lr.ph.us66, !llvm.loop !25
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us69, %resHeat.exit
   ret void

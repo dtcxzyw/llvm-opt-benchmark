@@ -439,8 +439,8 @@ common.resume:                                    ; preds = %120, %54
 
 103:                                              ; preds = %15
   %.val10 = load ptr, ptr %0, align 8
-  %.not.i12.i = icmp eq i64 %19, 0
-  br i1 %.not.i12.i, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h539e86137da34e45E.exit.thread79", label %.lr.ph.i
+  %.not.i11.i = icmp eq i64 %19, 0
+  br i1 %.not.i11.i, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h539e86137da34e45E.exit.thread79", label %.lr.ph.i
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h539e86137da34e45E.exit.thread79": ; preds = %103
   %104 = icmp ne ptr %.val10, null
@@ -474,11 +474,11 @@ common.resume:                                    ; preds = %120, %54
   br label %.lr.ph49
 
 113:                                              ; preds = %113, %.lr.ph.i
-  %.sroa.52.014.i = phi i64 [ %.sroa.0.0.i.i.i.i, %.lr.ph.i ], [ %115, %113 ]
-  %.sroa.01.013.i = phi i64 [ 0, %.lr.ph.i ], [ %114, %113 ]
-  %114 = add i64 %.sroa.01.013.i, 16
-  %115 = add i64 %.sroa.52.014.i, -1
-  %116 = getelementptr inbounds i8, ptr %.val10, i64 %.sroa.01.013.i
+  %.sroa.52.013.i = phi i64 [ %.sroa.0.0.i.i.i.i, %.lr.ph.i ], [ %115, %113 ]
+  %.sroa.01.012.i = phi i64 [ 0, %.lr.ph.i ], [ %114, %113 ]
+  %114 = add i64 %.sroa.01.012.i, 16
+  %115 = add i64 %.sroa.52.013.i, -1
+  %116 = getelementptr inbounds i8, ptr %.val10, i64 %.sroa.01.012.i
   %117 = load <16 x i8>, ptr %116, align 16, !noalias !45
   %.lobit.i.i = ashr <16 x i8> %117, splat (i8 7)
   %118 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>

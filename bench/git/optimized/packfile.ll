@@ -1378,7 +1378,6 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
   %.0634.i.i = phi i32 [ %.2.i.i, %find_lru_pack.exit.i.i ], [ 1, %.lr.ph.i ]
   %.0733.i.i = phi ptr [ %.29.i.i, %find_lru_pack.exit.i.i ], [ null, %.lr.ph.i ]
   %.01032.i.i = phi ptr [ %.212.i.i, %find_lru_pack.exit.i.i ], [ null, %.lr.ph.i ]
-  %.0634.fr.i.i = freeze i32 %.0634.i.i
   %.0733.fr.i.i = freeze ptr %.0733.i.i
   %30 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 144
   %31 = load i32, ptr %30, align 8, !tbaa !36
@@ -1403,15 +1402,15 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
   %40 = getelementptr inbounds nuw i8, ptr %.01032.i.i, i64 136
   %41 = load i64, ptr %40, align 8, !tbaa !37
   %42 = icmp sgt i64 %39, %41
-  %spec.select61.i.i = select i1 %42, ptr %.01032.i.i, ptr %.035.i.i
-  %spec.select62.i.i = select i1 %42, i32 %.0634.fr.i.i, i32 0
+  %spec.select60.i.i = select i1 %42, ptr %.01032.i.i, ptr %.035.i.i
+  %spec.select61.i.i = select i1 %42, i32 %.0634.i.i, i32 0
   br label %find_lru_pack.exit.i.i
 
 43:                                               ; preds = %33
   br i1 %.not29.i.i.i, label %find_lru_pack.exit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %43
-  %.not32.i.i.i = icmp eq i32 %.0634.fr.i.i, 0
+  %.not32.i.i.i = icmp ne i32 %.0634.i.i, 0
   %44 = getelementptr inbounds nuw i8, ptr %.0733.fr.i.i, i64 32
   br i1 %.not28.i.i.i, label %.lr.ph.i.us.i.i, label %.lr.ph.i.preheader.split.i.i
 
@@ -1421,12 +1420,12 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
   %.02537.i.us.i.i = phi ptr [ %53, %47 ], [ %35, %.lr.ph.i.preheader.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.02537.i.us.i.i, i64 36
   %46 = load i32, ptr %45, align 4, !tbaa !55
-  %.not31.i.us.i.i = icmp ne i32 %46, 0
-  %brmerge.not.i.i = and i1 %.not32.i.i.i, %.not31.i.us.i.i
-  br i1 %brmerge.not.i.i, label %find_lru_pack.exit.i.i, label %47
+  %.not31.i.us.i.i = icmp eq i32 %46, 0
+  %brmerge.i.i = select i1 %.not31.i.us.i.i, i1 true, i1 %.not32.i.i.i
+  br i1 %brmerge.i.i, label %47, label %find_lru_pack.exit.i.i
 
 47:                                               ; preds = %.lr.ph.i.us.i.i
-  %.039.i.us.mux.i.i = select i1 %.not31.i.us.i.i, i32 1, i32 %.039.i.us.i.i
+  %.039.i.us.mux.i.i = select i1 %.not31.i.us.i.i, i32 %.039.i.us.i.i, i32 1
   %48 = getelementptr inbounds nuw i8, ptr %.02537.i.us.i.i, i64 32
   %49 = load i32, ptr %48, align 8, !tbaa !85
   %50 = getelementptr inbounds nuw i8, ptr %.02338.i.us.i.i, i64 32
@@ -1438,7 +1437,7 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
   br i1 %.not30.i.us.i.i, label %find_lru_pack.exit.i.i, label %.lr.ph.i.us.i.i, !llvm.loop !90
 
 .lr.ph.i.preheader.split.i.i:                     ; preds = %.lr.ph.i.preheader.i.i
-  br i1 %.not32.i.i.i, label %.lr.ph.i.us16.i.i, label %.lr.ph.i.i.i
+  br i1 %.not32.i.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.us16.i.i
 
 .lr.ph.i.us16.i.i:                                ; preds = %.lr.ph.i.preheader.split.i.i, %66
   %.02338.i.us18.i.i = phi ptr [ %spec.select.i.us22.i.i, %66 ], [ %35, %.lr.ph.i.preheader.split.i.i ]
@@ -1480,7 +1479,7 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
   %73 = load i32, ptr %72, align 8, !tbaa !85
   %74 = icmp ugt i32 %71, %73
   %spec.select.i.i.i = select i1 %74, ptr %.02537.i.i.i, ptr %.02338.i.i.i
-  %75 = icmp eq i32 %.0634.fr.i.i, %spec.select.i.i
+  %75 = icmp eq i32 %.0634.i.i, %spec.select.i.i
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %.lr.ph.i.i.i
@@ -1495,10 +1494,10 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
   %.not30.i.i.i = icmp eq ptr %82, null
   br i1 %.not30.i.i.i, label %find_lru_pack.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !93
 
-find_lru_pack.exit.i.i:                           ; preds = %81, %76, %66, %56, %.lr.ph.i.us16.i.i, %47, %.lr.ph.i.us.i.i, %43, %37, %36, %.lr.ph.i.i
-  %.212.i.i = phi ptr [ %.01032.i.i, %.lr.ph.i.i ], [ %.01032.i.i, %36 ], [ %.035.i.i, %43 ], [ %spec.select61.i.i, %37 ], [ %.035.i.i, %47 ], [ %.01032.i.i, %.lr.ph.i.us.i.i ], [ %.01032.i.i, %.lr.ph.i.us16.i.i ], [ %.01032.i.i, %56 ], [ %.035.i.i, %66 ], [ %.035.i.i, %81 ], [ %.01032.i.i, %76 ]
-  %.29.i.i = phi ptr [ %.0733.fr.i.i, %.lr.ph.i.i ], [ null, %36 ], [ null, %43 ], [ null, %37 ], [ %spec.select.i.us.i.i, %47 ], [ null, %.lr.ph.i.us.i.i ], [ %.0733.fr.i.i, %.lr.ph.i.us16.i.i ], [ %.0733.fr.i.i, %56 ], [ %spec.select.i.us22.i.i, %66 ], [ %spec.select.i.i.i, %81 ], [ %.0733.fr.i.i, %76 ]
-  %.2.i.i = phi i32 [ %.0634.fr.i.i, %.lr.ph.i.i ], [ %.0634.fr.i.i, %36 ], [ 0, %43 ], [ %spec.select62.i.i, %37 ], [ %.039.i.us.mux.i.i, %47 ], [ 0, %.lr.ph.i.us.i.i ], [ 0, %.lr.ph.i.us16.i.i ], [ 0, %56 ], [ 0, %66 ], [ %spec.select.i.i, %81 ], [ %.0634.fr.i.i, %76 ]
+find_lru_pack.exit.i.i:                           ; preds = %66, %56, %.lr.ph.i.us16.i.i, %81, %76, %47, %.lr.ph.i.us.i.i, %43, %37, %36, %.lr.ph.i.i
+  %.212.i.i = phi ptr [ %.01032.i.i, %.lr.ph.i.i ], [ %.01032.i.i, %36 ], [ %.035.i.i, %43 ], [ %spec.select60.i.i, %37 ], [ %.035.i.i, %47 ], [ %.01032.i.i, %.lr.ph.i.us.i.i ], [ %.035.i.i, %81 ], [ %.01032.i.i, %76 ], [ %.01032.i.i, %.lr.ph.i.us16.i.i ], [ %.01032.i.i, %56 ], [ %.035.i.i, %66 ]
+  %.29.i.i = phi ptr [ %.0733.fr.i.i, %.lr.ph.i.i ], [ null, %36 ], [ null, %43 ], [ null, %37 ], [ %spec.select.i.us.i.i, %47 ], [ null, %.lr.ph.i.us.i.i ], [ %spec.select.i.i.i, %81 ], [ %.0733.fr.i.i, %76 ], [ %.0733.fr.i.i, %.lr.ph.i.us16.i.i ], [ %.0733.fr.i.i, %56 ], [ %spec.select.i.us22.i.i, %66 ]
+  %.2.i.i = phi i32 [ %.0634.i.i, %.lr.ph.i.i ], [ %.0634.i.i, %36 ], [ 0, %43 ], [ %spec.select61.i.i, %37 ], [ %.039.i.us.mux.i.i, %47 ], [ 0, %.lr.ph.i.us.i.i ], [ %spec.select.i.i, %81 ], [ %.0634.i.i, %76 ], [ 0, %.lr.ph.i.us16.i.i ], [ 0, %56 ], [ 0, %66 ]
   %83 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 16
   %.0.i.i = load ptr, ptr %83, align 8, !tbaa !63
   %.not.i.i = icmp eq ptr %.0.i.i, null

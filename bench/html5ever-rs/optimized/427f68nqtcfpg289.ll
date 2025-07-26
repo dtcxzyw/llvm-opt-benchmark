@@ -1436,14 +1436,14 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$
   %12 = icmp eq ptr %.sroa.0.020, %10
   br i1 %12, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit"
 
-default.unreachable35:                            ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit"
+default.unreachable34:                            ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit"
   unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit": ; preds = %11
   %13 = add nuw nsw i64 %.sroa.8.0, 1
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 8
   %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020), !range !176
-  switch i8 %15, label %default.unreachable35 [
+  switch i8 %15, label %default.unreachable34 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
     i8 1, label %11
@@ -1482,14 +1482,14 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$
   %12 = icmp eq ptr %.sroa.0.020, %10
   br i1 %12, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit"
 
-default.unreachable35:                            ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit"
+default.unreachable34:                            ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit"
   unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit": ; preds = %11
   %13 = add nuw nsw i64 %.sroa.8.0, 1
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 8
   %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020), !range !176
-  switch i8 %15, label %default.unreachable35 [
+  switch i8 %15, label %default.unreachable34 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
     i8 1, label %11

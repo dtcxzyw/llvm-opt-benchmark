@@ -3811,7 +3811,7 @@ _ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i: ; pre
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread": ; preds = %2, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit"
   %switch54 = phi i64 [ %.020.i.i, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit" ], [ 0, %2 ]
   %30 = getelementptr inbounds i8, ptr %3, i64 %switch54
-  %31 = sub nuw i64 %5, %switch54
+  %31 = sub i64 %5, %switch54
   store ptr %30, ptr %0, align 8
   store i64 %31, ptr %4, align 8
   store i8 12, ptr %1, align 1
@@ -3888,17 +3888,16 @@ _ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46: ; p
 
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread": ; preds = %.backedge.i.i, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit"
   %switch3957 = phi i64 [ %switch39, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit" ], [ %31, %.backedge.i.i ]
-  %switch3957.fr = freeze i64 %switch3957
-  %49 = getelementptr inbounds i8, ptr %30, i64 %switch3957.fr
-  %50 = sub nuw i64 %31, %switch3957.fr
+  %49 = getelementptr inbounds i8, ptr %30, i64 %switch3957
+  %50 = sub nuw i64 %31, %switch3957
   store ptr %49, ptr %0, align 8
   store i64 %50, ptr %4, align 8
-  %51 = icmp eq i64 %switch3957.fr, 0
+  %51 = icmp eq i64 %switch3957, 0
   %spec.select = select i1 %51, ptr null, ptr %30
   br label %52
 
 52:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread", %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread"
-  %switch395762 = phi i64 [ 0, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread" ], [ %switch3957.fr, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread" ]
+  %switch395762 = phi i64 [ 0, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread" ], [ %switch3957, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread" ]
   %53 = phi ptr [ null, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread" ], [ %spec.select, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread" ]
   %54 = insertvalue { ptr, i64 } poison, ptr %53, 0
   %55 = insertvalue { ptr, i64 } %54, i64 %switch395762, 1

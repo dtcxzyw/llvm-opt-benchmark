@@ -332,14 +332,13 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %.0340.i = phi i32 [ -1, %108 ], [ %.0340.i.be, %.thread74.backedge ]
   %.0.i.pn = phi ptr [ %.0.i, %108 ], [ %.1325.i.be, %.thread74.backedge ]
   %.1325.i = phi ptr [ %.0324.i, %108 ], [ %.1325.i.be, %.thread74.backedge ]
-  %.0340.i.fr = freeze i32 %.0340.i
   %.0335.i = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 1
   %.0348.i.in.in.in = load i64, ptr %.0335.i, align 1
   %.0348.i.in.in = mul i64 %.0348.i.in.in.in, 8503243848024064
   %.0348.i.in = lshr i64 %.0348.i.in.in, 55
-  %115 = sext i32 %.0340.i.fr to i64
+  %115 = sext i32 %.0340.i to i64
   %116 = sub nsw i64 0, %115
-  %117 = icmp sgt i32 %.0340.i.fr, 0
+  %117 = icmp sgt i32 %.0340.i, 0
   br i1 %117, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %.thread74
@@ -861,7 +860,7 @@ EmitInsertLen.exit:                               ; preds = %378, %353, %319, %2
   br i1 %exitcond.not, label %EmitLiterals.exit, label %403, !llvm.loop !149
 
 EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen.exit
-  %423 = icmp eq i32 %.0340.i.fr, %215
+  %423 = icmp eq i32 %.0340.i, %215
   br i1 %423, label %424, label %440
 
 424:                                              ; preds = %EmitLiterals.exit
@@ -941,7 +940,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 484:                                              ; preds = %440, %424
   %485 = phi i64 [ %437, %424 ], [ %480, %440 ]
-  %.3343.i = phi i32 [ %.0340.i.fr, %424 ], [ %215, %440 ]
+  %.3343.i = phi i32 [ %.0340.i, %424 ], [ %215, %440 ]
   store i64 %485, ptr %5, align 8, !tbaa !3, !noalias !33
   %486 = icmp ult i64 %214, 12
   br i1 %486, label %487, label %506
@@ -2340,14 +2339,13 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %.0340.i = phi i32 [ -1, %108 ], [ %.0340.i.be, %.thread74.backedge ]
   %.0.i.pn = phi ptr [ %.0.i, %108 ], [ %.1325.i.be, %.thread74.backedge ]
   %.1325.i = phi ptr [ %.0324.i, %108 ], [ %.1325.i.be, %.thread74.backedge ]
-  %.0340.i.fr = freeze i32 %.0340.i
   %.0335.i = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 1
   %.0348.i.in.in.in = load i64, ptr %.0335.i, align 1
   %.0348.i.in.in = mul i64 %.0348.i.in.in.in, 8503243848024064
   %.0348.i.in = lshr i64 %.0348.i.in.in, 53
-  %115 = sext i32 %.0340.i.fr to i64
+  %115 = sext i32 %.0340.i to i64
   %116 = sub nsw i64 0, %115
-  %117 = icmp sgt i32 %.0340.i.fr, 0
+  %117 = icmp sgt i32 %.0340.i, 0
   br i1 %117, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %.thread74
@@ -2869,7 +2867,7 @@ EmitInsertLen.exit:                               ; preds = %378, %353, %319, %2
   br i1 %exitcond.not, label %EmitLiterals.exit, label %403, !llvm.loop !149
 
 EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen.exit
-  %423 = icmp eq i32 %.0340.i.fr, %215
+  %423 = icmp eq i32 %.0340.i, %215
   br i1 %423, label %424, label %440
 
 424:                                              ; preds = %EmitLiterals.exit
@@ -2949,7 +2947,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 484:                                              ; preds = %440, %424
   %485 = phi i64 [ %437, %424 ], [ %480, %440 ]
-  %.3343.i = phi i32 [ %.0340.i.fr, %424 ], [ %215, %440 ]
+  %.3343.i = phi i32 [ %.0340.i, %424 ], [ %215, %440 ]
   store i64 %485, ptr %5, align 8, !tbaa !3, !noalias !33
   %486 = icmp ult i64 %214, 12
   br i1 %486, label %487, label %506
@@ -4348,14 +4346,13 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %.0340.i = phi i32 [ -1, %108 ], [ %.0340.i.be, %.thread74.backedge ]
   %.0.i.pn = phi ptr [ %.0.i, %108 ], [ %.1325.i.be, %.thread74.backedge ]
   %.1325.i = phi ptr [ %.0324.i, %108 ], [ %.1325.i.be, %.thread74.backedge ]
-  %.0340.i.fr = freeze i32 %.0340.i
   %.0335.i = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 1
   %.0348.i.in.in.in = load i64, ptr %.0335.i, align 1
   %.0348.i.in.in = mul i64 %.0348.i.in.in.in, 8503243848024064
   %.0348.i.in = lshr i64 %.0348.i.in.in, 51
-  %115 = sext i32 %.0340.i.fr to i64
+  %115 = sext i32 %.0340.i to i64
   %116 = sub nsw i64 0, %115
-  %117 = icmp sgt i32 %.0340.i.fr, 0
+  %117 = icmp sgt i32 %.0340.i, 0
   br i1 %117, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %.thread74
@@ -4877,7 +4874,7 @@ EmitInsertLen.exit:                               ; preds = %378, %353, %319, %2
   br i1 %exitcond.not, label %EmitLiterals.exit, label %403, !llvm.loop !149
 
 EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen.exit
-  %423 = icmp eq i32 %.0340.i.fr, %215
+  %423 = icmp eq i32 %.0340.i, %215
   br i1 %423, label %424, label %440
 
 424:                                              ; preds = %EmitLiterals.exit
@@ -4957,7 +4954,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 484:                                              ; preds = %440, %424
   %485 = phi i64 [ %437, %424 ], [ %480, %440 ]
-  %.3343.i = phi i32 [ %.0340.i.fr, %424 ], [ %215, %440 ]
+  %.3343.i = phi i32 [ %.0340.i, %424 ], [ %215, %440 ]
   store i64 %485, ptr %5, align 8, !tbaa !3, !noalias !33
   %486 = icmp ult i64 %214, 12
   br i1 %486, label %487, label %506
@@ -6356,14 +6353,13 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %.0340.i = phi i32 [ -1, %108 ], [ %.0340.i.be, %.thread74.backedge ]
   %.0.i.pn = phi ptr [ %.0.i, %108 ], [ %.1325.i.be, %.thread74.backedge ]
   %.1325.i = phi ptr [ %.0324.i, %108 ], [ %.1325.i.be, %.thread74.backedge ]
-  %.0340.i.fr = freeze i32 %.0340.i
   %.0335.i = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 1
   %.0348.i.in.in.in = load i64, ptr %.0335.i, align 1
   %.0348.i.in.in = mul i64 %.0348.i.in.in.in, 8503243848024064
   %.0348.i.in = lshr i64 %.0348.i.in.in, 49
-  %115 = sext i32 %.0340.i.fr to i64
+  %115 = sext i32 %.0340.i to i64
   %116 = sub nsw i64 0, %115
-  %117 = icmp sgt i32 %.0340.i.fr, 0
+  %117 = icmp sgt i32 %.0340.i, 0
   br i1 %117, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %.thread74
@@ -6885,7 +6881,7 @@ EmitInsertLen.exit:                               ; preds = %378, %353, %319, %2
   br i1 %exitcond.not, label %EmitLiterals.exit, label %403, !llvm.loop !149
 
 EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen.exit
-  %423 = icmp eq i32 %.0340.i.fr, %215
+  %423 = icmp eq i32 %.0340.i, %215
   br i1 %423, label %424, label %440
 
 424:                                              ; preds = %EmitLiterals.exit
@@ -6965,7 +6961,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 484:                                              ; preds = %440, %424
   %485 = phi i64 [ %437, %424 ], [ %480, %440 ]
-  %.3343.i = phi i32 [ %.0340.i.fr, %424 ], [ %215, %440 ]
+  %.3343.i = phi i32 [ %.0340.i, %424 ], [ %215, %440 ]
   store i64 %485, ptr %5, align 8, !tbaa !3, !noalias !33
   %486 = icmp ult i64 %214, 12
   br i1 %486, label %487, label %506

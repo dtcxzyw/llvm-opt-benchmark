@@ -1167,7 +1167,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 "_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us": ; preds = %34, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6483f31407df33eE.exit.us.i.us"
   %.sroa.0.0.i.i.us.i.us = phi i8 [ %35, %34 ], [ %19, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6483f31407df33eE.exit.us.i.us" ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  switch i8 %.sroa.0.0.i.i.us.i.us, label %.split19.us.i [
+  switch i8 %.sroa.0.0.i.i.us.i.us, label %.split18.us.i [
     i8 -1, label %.loopexit.us
     i8 0, label %.split86.us
     i8 1, label %.split.us.i.us
@@ -1230,13 +1230,13 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 "_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i": ; preds = %53, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6483f31407df33eE.exit.i"
   %.sroa.0.0.i.i.i = phi i8 [ %57, %53 ], [ %51, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6483f31407df33eE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  switch i8 %.sroa.0.0.i.i.i, label %.split19.us.i [
+  switch i8 %.sroa.0.0.i.i.i, label %.split18.us.i [
     i8 -1, label %.loopexit58
     i8 0, label %.split86.us
     i8 1, label %.split.i
   ]
 
-.split19.us.i:                                    ; preds = %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i", %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us"
+.split18.us.i:                                    ; preds = %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i", %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us"
   unreachable
 
 .loopexit58:                                      ; preds = %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i", %.split.i

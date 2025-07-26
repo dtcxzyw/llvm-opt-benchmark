@@ -16659,8 +16659,10 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
   %63 = ptrtoint ptr %61 to i64
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
-  %66 = ashr exact i64 %65, 2
+  %.fr71 = freeze i64 %65
+  %66 = ashr i64 %.fr71, 2
   %67 = add nsw i64 %66, -1
+  %umax = call i64 @llvm.umax.i64(i64 %66, i64 1)
   br label %69
 
 ._crit_edge:                                      ; preds = %.split64.us, %57
@@ -16696,8 +16698,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 83:                                               ; preds = %.thread.us, %.split.us
   %84 = add nuw i64 %.060.us, 1
-  %exitcond75.not = icmp eq i64 %84, %66
-  br i1 %exitcond75.not, label %.split64.us, label %.split.us, !llvm.loop !89
+  %exitcond77.not = icmp eq i64 %84, %umax
+  br i1 %exitcond77.not, label %.split64.us, label %.split.us, !llvm.loop !89
 
 .split62.us:                                      ; preds = %.thread.us
   %85 = landingpad { ptr, i32 }
@@ -16706,8 +16708,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 .split:                                           ; preds = %69
   %86 = icmp eq i64 %.03668, %67
-  %.fr = freeze i1 %86
-  br i1 %.fr, label %.split.split, label %.thread.us66
+  br i1 %86, label %.split.split, label %.thread.us66
 
 .thread.us66:                                     ; preds = %.split, %92
   %.060.us65 = phi i64 [ %93, %92 ], [ 0, %.split ]
@@ -16721,7 +16722,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 92:                                               ; preds = %.thread.us66
   %93 = add nuw i64 %.060.us65, 1
-  %exitcond.not = icmp eq i64 %93, %66
+  %exitcond.not = icmp eq i64 %93, %umax
   br i1 %exitcond.not, label %.split64.us, label %.thread.us66, !llvm.loop !90
 
 .split62.split.us:                                ; preds = %.thread.us66
@@ -16731,8 +16732,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 .split64.us:                                      ; preds = %92, %102, %83
   %95 = add nuw i64 %.03668, 1
-  %exitcond77.not = icmp eq i64 %95, %66
-  br i1 %exitcond77.not, label %._crit_edge, label %69, !llvm.loop !91
+  %exitcond79.not = icmp eq i64 %95, %umax
+  br i1 %exitcond79.not, label %._crit_edge, label %69, !llvm.loop !91
 
 .split.split:                                     ; preds = %.split, %102
   %.060 = phi i64 [ %103, %102 ], [ 0, %.split ]
@@ -16750,8 +16751,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 102:                                              ; preds = %.thread, %.split.split
   %103 = add nuw i64 %.060, 1
-  %exitcond73.not = icmp eq i64 %103, %66
-  br i1 %exitcond73.not, label %.split64.us, label %.split.split, !llvm.loop !92
+  %exitcond75.not = icmp eq i64 %103, %umax
+  br i1 %exitcond75.not, label %.split64.us, label %.split.split, !llvm.loop !92
 
 .split62.split:                                   ; preds = %.thread
   %104 = landingpad { ptr, i32 }
@@ -16956,8 +16957,10 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
   %57 = ptrtoint ptr %55 to i64
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
-  %60 = ashr exact i64 %59, 2
+  %.fr77 = freeze i64 %59
+  %60 = ashr i64 %.fr77, 2
   %61 = add nsw i64 %60, -1
+  %umax = call i64 @llvm.umax.i64(i64 %60, i64 1)
   br label %63
 
 ._crit_edge:                                      ; preds = %.split70.us, %51
@@ -16993,8 +16996,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 77:                                               ; preds = %.thread.us, %.split.us
   %78 = add nuw i64 %.066.us, 1
-  %exitcond81.not = icmp eq i64 %78, %60
-  br i1 %exitcond81.not, label %.split70.us, label %.split.us, !llvm.loop !93
+  %exitcond83.not = icmp eq i64 %78, %umax
+  br i1 %exitcond83.not, label %.split70.us, label %.split.us, !llvm.loop !93
 
 .split68.us:                                      ; preds = %.thread.us
   %79 = landingpad { ptr, i32 }
@@ -17003,8 +17006,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 .split:                                           ; preds = %63
   %80 = icmp eq i64 %.04074, %61
-  %.fr = freeze i1 %80
-  br i1 %.fr, label %.split.split, label %.thread.us72
+  br i1 %80, label %.split.split, label %.thread.us72
 
 .thread.us72:                                     ; preds = %.split, %86
   %.066.us71 = phi i64 [ %87, %86 ], [ 0, %.split ]
@@ -17018,7 +17020,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 86:                                               ; preds = %.thread.us72
   %87 = add nuw i64 %.066.us71, 1
-  %exitcond.not = icmp eq i64 %87, %60
+  %exitcond.not = icmp eq i64 %87, %umax
   br i1 %exitcond.not, label %.split70.us, label %.thread.us72, !llvm.loop !94
 
 .split68.split.us:                                ; preds = %.thread.us72
@@ -17028,8 +17030,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 .split70.us:                                      ; preds = %86, %96, %77
   %89 = add nuw i64 %.04074, 1
-  %exitcond83.not = icmp eq i64 %89, %60
-  br i1 %exitcond83.not, label %._crit_edge, label %63, !llvm.loop !95
+  %exitcond85.not = icmp eq i64 %89, %umax
+  br i1 %exitcond85.not, label %._crit_edge, label %63, !llvm.loop !95
 
 .split.split:                                     ; preds = %.split, %96
   %.066 = phi i64 [ %97, %96 ], [ 0, %.split ]
@@ -17047,8 +17049,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 96:                                               ; preds = %.thread, %.split.split
   %97 = add nuw i64 %.066, 1
-  %exitcond79.not = icmp eq i64 %97, %60
-  br i1 %exitcond79.not, label %.split70.us, label %.split.split, !llvm.loop !96
+  %exitcond81.not = icmp eq i64 %97, %umax
+  br i1 %exitcond81.not, label %.split70.us, label %.split.split, !llvm.loop !96
 
 .split68.split:                                   ; preds = %.thread
   %98 = landingpad { ptr, i32 }

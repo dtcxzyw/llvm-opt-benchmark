@@ -418,10 +418,8 @@ define ptr @CmdSplitLine(ptr noundef readonly captures(none) %0, ptr noundef %1,
   br label %.preheader76, !llvm.loop !51
 
 37:                                               ; preds = %.preheader76, %28
-  %.058.lcssa = phi i32 [ %.058, %.preheader76 ], [ 0, %28 ]
-  %.0.lcssa = phi i32 [ %.0, %.preheader76 ], [ 0, %28 ]
-  %38 = icmp ne i32 %.058.lcssa, 0
-  %39 = icmp ne i32 %.0.lcssa, 0
+  %38 = icmp ne i32 %.058, 0
+  %39 = icmp ne i32 %.0, 0
   %or.cond6 = select i1 %38, i1 true, i1 %39
   br i1 %or.cond6, label %40, label %43
 

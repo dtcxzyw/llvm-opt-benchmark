@@ -72,142 +72,165 @@ define hidden void @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE(ptr no
   %15 = add i64 %10, 1
   store i64 %15, ptr %0, align 8
   %exitcond.not = icmp eq i64 %15, 5
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !6
+  br i1 %exitcond.not, label %.critedge.thread, label %9, !llvm.loop !6
 
-.critedge:                                        ; preds = %9, %13
-  %.lcssa.ph = phi i64 [ %10, %9 ], [ 5, %13 ]
+.critedge:                                        ; preds = %9
   %.promoted.pre = load i64, ptr %7, align 8
-  %.lcssa.fr = freeze i64 %.lcssa.ph
   %.013 = load ptr, ptr @_ZN9LogTagSet5_listE, align 8
   %.not914 = icmp eq ptr %.013, null
   br i1 %.not914, label %._crit_edge, label %.lr.ph16
 
-.lr.ph16:                                         ; preds = %.critedge
+.critedge.thread:                                 ; preds = %13
+  %.01329 = load ptr, ptr @_ZN9LogTagSet5_listE, align 8
+  %.not91430 = icmp eq ptr %.01329, null
+  br i1 %.not91430, label %._crit_edge, label %.lr.ph16.thread
+
+.lr.ph16.thread:                                  ; preds = %.critedge.thread
+  %.promoted.pre28 = load i64, ptr %7, align 8
   %16 = load i8, ptr %5, align 4
-  %.fr23 = freeze i8 %16
-  %17 = trunc i8 %.fr23 to i1
-  %.not10.i = icmp eq i64 %.lcssa.fr, 0
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.fr2337 = freeze i8 %16
+  %17 = trunc i8 %.fr2337 to i1
+  br i1 %17, label %.lr.ph.i.us.preheader, label %.lr.ph16.split.split.preheader
+
+.lr.ph16:                                         ; preds = %.critedge
+  %18 = load i8, ptr %5, align 4
+  %.fr23 = freeze i8 %18
+  %19 = trunc i8 %.fr23 to i1
+  %.not10.i = icmp eq i64 %10, 0
   br i1 %.not10.i, label %.lr.ph16.split.us, label %.lr.ph16.split
 
 .lr.ph16.split.us:                                ; preds = %.lr.ph16, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us
   %.015.us = phi ptr [ %.0.us, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us ], [ %.013, %.lr.ph16 ]
-  %19 = phi i64 [ %23, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us ], [ %.promoted.pre, %.lr.ph16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.015.us, i64 8
-  %21 = load i64, ptr %20, align 8
-  %.not.i.us = icmp eq i64 %21, 0
-  %or.cond.i.us = select i1 %17, i1 true, i1 %.not.i.us
+  %20 = phi i64 [ %24, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us ], [ %.promoted.pre, %.lr.ph16 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.015.us, i64 8
+  %22 = load i64, ptr %21, align 8
+  %.not.i.us = icmp eq i64 %22, 0
+  %or.cond.i.us = select i1 %19, i1 true, i1 %.not.i.us
   br i1 %or.cond.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us
 
 _ZNK12LogSelection7selectsERK9LogTagSet.exit.us:  ; preds = %.lr.ph16.split.us
-  %22 = add i64 %19, 1
-  store i64 %22, ptr %7, align 8
+  %23 = add i64 %20, 1
+  store i64 %23, ptr %7, align 8
   br label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us
 
 _ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us: ; preds = %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us, %.lr.ph16.split.us
-  %23 = phi i64 [ %19, %.lr.ph16.split.us ], [ %22, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us ]
+  %24 = phi i64 [ %20, %.lr.ph16.split.us ], [ %23, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us ]
   %.0.us = load ptr, ptr %.015.us, align 8
   %.not9.us = icmp eq ptr %.0.us, null
   br i1 %.not9.us, label %._crit_edge, label %.lr.ph16.split.us, !llvm.loop !8
 
 .lr.ph16.split:                                   ; preds = %.lr.ph16
-  br i1 %17, label %.lr.ph.i.us, label %.lr.ph16.split.split
+  br i1 %19, label %.lr.ph.i.us.preheader, label %.lr.ph16.split.split.preheader
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph16.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20
-  %.015.us17 = phi ptr [ %.0.us21, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20 ], [ %.013, %.lr.ph16.split ]
-  %24 = phi i64 [ %37, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20 ], [ %.promoted.pre, %.lr.ph16.split ]
-  %25 = getelementptr inbounds nuw i8, ptr %.015.us17, i64 16
-  br label %26
+.lr.ph16.split.split.preheader:                   ; preds = %.lr.ph16.thread, %.lr.ph16.split
+  %.013333947 = phi ptr [ %.01329, %.lr.ph16.thread ], [ %.013, %.lr.ph16.split ]
+  %.promoted.pre324045 = phi i64 [ %.promoted.pre28, %.lr.ph16.thread ], [ %.promoted.pre, %.lr.ph16.split ]
+  %.lcssa.ph314142 = phi i64 [ 5, %.lr.ph16.thread ], [ %10, %.lr.ph16.split ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %.lr.ph16.split.split
 
-26:                                               ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us, %.lr.ph.i.us
-  %.09.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %36, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us ]
-  %27 = getelementptr inbounds [5 x i32], ptr %18, i64 0, i64 %.09.i.us
-  %28 = load i32, ptr %27, align 4
+.lr.ph.i.us.preheader:                            ; preds = %.lr.ph16.thread, %.lr.ph16.split
+  %.013333946 = phi ptr [ %.01329, %.lr.ph16.thread ], [ %.013, %.lr.ph16.split ]
+  %.promoted.pre324044 = phi i64 [ %.promoted.pre28, %.lr.ph16.thread ], [ %.promoted.pre, %.lr.ph16.split ]
+  %.lcssa.ph314143 = phi i64 [ 5, %.lr.ph16.thread ], [ %10, %.lr.ph16.split ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %.lr.ph.i.us
+
+.lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20
+  %.015.us17 = phi ptr [ %.0.us21, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20 ], [ %.013333946, %.lr.ph.i.us.preheader ]
+  %27 = phi i64 [ %40, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20 ], [ %.promoted.pre324044, %.lr.ph.i.us.preheader ]
+  %28 = getelementptr inbounds nuw i8, ptr %.015.us17, i64 16
   br label %29
 
-29:                                               ; preds = %34, %26
-  %.08.i.i.us = phi i64 [ 0, %26 ], [ %35, %34 ]
-  %30 = getelementptr inbounds nuw [5 x i32], ptr %25, i64 0, i64 %.08.i.i.us
+29:                                               ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us, %.lr.ph.i.us
+  %.09.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %39, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us ]
+  %30 = getelementptr inbounds [5 x i32], ptr %26, i64 0, i64 %.09.i.us
   %31 = load i32, ptr %30, align 4
-  %.not.i.i.us = icmp eq i32 %31, 0
-  br i1 %.not.i.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, label %32
+  br label %32
 
-32:                                               ; preds = %29
-  %33 = icmp eq i32 %28, %31
-  br i1 %33, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us, label %34
+32:                                               ; preds = %37, %29
+  %.08.i.i.us = phi i64 [ 0, %29 ], [ %38, %37 ]
+  %33 = getelementptr inbounds nuw [5 x i32], ptr %28, i64 0, i64 %.08.i.i.us
+  %34 = load i32, ptr %33, align 4
+  %.not.i.i.us = icmp eq i32 %34, 0
+  br i1 %.not.i.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, label %35
 
-34:                                               ; preds = %32
-  %35 = add nuw nsw i64 %.08.i.i.us, 1
-  %exitcond.not.i.i.us = icmp eq i64 %35, 5
-  br i1 %exitcond.not.i.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, label %29, !llvm.loop !10
+35:                                               ; preds = %32
+  %36 = icmp eq i32 %31, %34
+  br i1 %36, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us, label %37
 
-_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us: ; preds = %32
-  %36 = add nuw i64 %.09.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %36, %.lcssa.fr
-  br i1 %exitcond.not.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us, label %26, !llvm.loop !11
+37:                                               ; preds = %35
+  %38 = add nuw nsw i64 %.08.i.i.us, 1
+  %exitcond.not.i.i.us = icmp eq i64 %38, 5
+  br i1 %exitcond.not.i.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, label %32, !llvm.loop !10
 
-_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20: ; preds = %29, %34, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us
-  %37 = phi i64 [ %38, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us ], [ %24, %34 ], [ %24, %29 ]
+_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us: ; preds = %35
+  %39 = add nuw i64 %.09.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %39, %.lcssa.ph314143
+  br i1 %exitcond.not.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us, label %29, !llvm.loop !11
+
+_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20: ; preds = %32, %37, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us
+  %40 = phi i64 [ %41, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us ], [ %27, %37 ], [ %27, %32 ]
   %.0.us21 = load ptr, ptr %.015.us17, align 8
   %.not9.us22 = icmp eq ptr %.0.us21, null
   br i1 %.not9.us22, label %._crit_edge, label %.lr.ph.i.us, !llvm.loop !12
 
 _ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us: ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us
-  %38 = add i64 %24, 1
-  store i64 %38, ptr %7, align 8
+  %41 = add i64 %27, 1
+  store i64 %41, ptr %7, align 8
   br label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20
 
-.lr.ph16.split.split:                             ; preds = %.lr.ph16.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread
-  %.015 = phi ptr [ %.0, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread ], [ %.013, %.lr.ph16.split ]
-  %39 = phi i64 [ %55, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread ], [ %.promoted.pre, %.lr.ph16.split ]
-  %40 = getelementptr inbounds nuw i8, ptr %.015, i64 8
-  %41 = load i64, ptr %40, align 8
-  %.not.i = icmp eq i64 %.lcssa.fr, %41
+.lr.ph16.split.split:                             ; preds = %.lr.ph16.split.split.preheader, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread
+  %.015 = phi ptr [ %.0, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread ], [ %.013333947, %.lr.ph16.split.split.preheader ]
+  %42 = phi i64 [ %58, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread ], [ %.promoted.pre324045, %.lr.ph16.split.split.preheader ]
+  %43 = getelementptr inbounds nuw i8, ptr %.015, i64 8
+  %44 = load i64, ptr %43, align 8
+  %.not.i = icmp eq i64 %.lcssa.ph314142, %44
   br i1 %.not.i, label %.lr.ph.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread
 
 .lr.ph.i:                                         ; preds = %.lr.ph16.split.split
-  %42 = getelementptr inbounds nuw i8, ptr %.015, i64 16
-  br label %43
+  %45 = getelementptr inbounds nuw i8, ptr %.015, i64 16
+  br label %46
 
-43:                                               ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i, %.lr.ph.i
-  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %53, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i ]
-  %44 = getelementptr inbounds [5 x i32], ptr %18, i64 0, i64 %.09.i
-  %45 = load i32, ptr %44, align 4
-  br label %48
+46:                                               ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i, %.lr.ph.i
+  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %56, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i ]
+  %47 = getelementptr inbounds [5 x i32], ptr %25, i64 0, i64 %.09.i
+  %48 = load i32, ptr %47, align 4
+  br label %51
 
-46:                                               ; preds = %51
-  %47 = add nuw nsw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %47, 5
-  br i1 %exitcond.not.i.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, label %48, !llvm.loop !10
+49:                                               ; preds = %54
+  %50 = add nuw nsw i64 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %50, 5
+  br i1 %exitcond.not.i.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, label %51, !llvm.loop !10
 
-48:                                               ; preds = %46, %43
-  %.08.i.i = phi i64 [ 0, %43 ], [ %47, %46 ]
-  %49 = getelementptr inbounds nuw [5 x i32], ptr %42, i64 0, i64 %.08.i.i
-  %50 = load i32, ptr %49, align 4
-  %.not.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, label %51
+51:                                               ; preds = %49, %46
+  %.08.i.i = phi i64 [ 0, %46 ], [ %50, %49 ]
+  %52 = getelementptr inbounds nuw [5 x i32], ptr %45, i64 0, i64 %.08.i.i
+  %53 = load i32, ptr %52, align 4
+  %.not.i.i = icmp eq i32 %53, 0
+  br i1 %.not.i.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, label %54
 
-51:                                               ; preds = %48
-  %52 = icmp eq i32 %45, %50
-  br i1 %52, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i, label %46
+54:                                               ; preds = %51
+  %55 = icmp eq i32 %48, %53
+  br i1 %55, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i, label %49
 
-_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i:    ; preds = %51
-  %53 = add nuw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %53, %.lcssa.fr
-  br i1 %exitcond.not.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit, label %43, !llvm.loop !11
+_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i:    ; preds = %54
+  %56 = add nuw i64 %.09.i, 1
+  %exitcond.not.i = icmp eq i64 %56, %.lcssa.ph314142
+  br i1 %exitcond.not.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit, label %46, !llvm.loop !11
 
 _ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit: ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i
-  %54 = add i64 %39, 1
-  store i64 %54, ptr %7, align 8
+  %57 = add i64 %42, 1
+  store i64 %57, ptr %7, align 8
   br label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread
 
-_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread: ; preds = %48, %46, %.lr.ph16.split.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit
-  %55 = phi i64 [ %39, %.lr.ph16.split.split ], [ %54, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit ], [ %39, %46 ], [ %39, %48 ]
+_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread: ; preds = %51, %49, %.lr.ph16.split.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit
+  %58 = phi i64 [ %42, %.lr.ph16.split.split ], [ %57, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit ], [ %42, %49 ], [ %42, %51 ]
   %.0 = load ptr, ptr %.015, align 8
   %.not9 = icmp eq ptr %.0, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph16.split.split, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us, %.critedge
+._crit_edge:                                      ; preds = %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us, %.critedge.thread, %.critedge
   ret void
 }
 

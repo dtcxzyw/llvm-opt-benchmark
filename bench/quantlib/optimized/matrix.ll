@@ -2130,9 +2130,10 @@ declare double @llvm.fabs.f64(double) #18
 define linkonce_odr void @_ZN5boost7numeric5ublas13lu_substituteINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKT_RNS1_17matrix_expressionIT0_EE(ptr noundef nonnull align 8 dereferenceable(40) %m, ptr noundef nonnull align 1 dereferenceable(1) %e) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %e, align 8, !tbaa !21
+  %.fr.i.i = freeze i64 %0
   %size2_.i.i.i = getelementptr inbounds nuw i8, ptr %e, i64 8
   %1 = load i64, ptr %size2_.i.i.i, align 8, !tbaa !25
-  %cmp28.not.i.i = icmp eq i64 %0, 0
+  %cmp28.not.i.i = icmp eq i64 %.fr.i.i, 0
   %cmp626.not.i.i = icmp eq i64 %1, 0
   %or.cond.i.i = select i1 %cmp28.not.i.i, i1 true, i1 %cmp626.not.i.i
   br i1 %or.cond.i.i, label %_ZN5boost7numeric5ublas13inplace_solveINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKNS1_17matrix_expressionIT_EERNSA_IT0_EENS1_14unit_lower_tagE.exit, label %for.cond5.preheader.lr.ph.split.us.i.i
@@ -2149,13 +2150,12 @@ for.cond5.preheader.us.i.i:                       ; preds = %for.cond5.for.cond.
   %mul.i.i.i.us.i.i = mul i64 %n.029.us.i.i, %1
   %3 = getelementptr double, ptr %2, i64 %mul.i.i.i.us.i.i
   %m.023.us.i.i = add nuw i64 %n.029.us.i.i, 1
-  %cmp1524.us.i.i = icmp ult i64 %m.023.us.i.i, %0
-  %cmp1524.fr.us.i.i = freeze i1 %cmp1524.us.i.i
-  br i1 %cmp1524.fr.us.i.i, label %for.body8.us.us.i.i, label %for.cond5.for.cond.cleanup7_crit_edge.us.i.i
+  %cmp1524.us.i.i = icmp ult i64 %m.023.us.i.i, %.fr.i.i
+  br i1 %cmp1524.us.i.i, label %for.body8.us.us.i.i, label %for.cond5.for.cond.cleanup7_crit_edge.us.i.i
 
 for.cond5.for.cond.cleanup7_crit_edge.us.i.i:     ; preds = %if.end.us.us.i.i, %for.cond5.preheader.us.i.i
-  %exitcond43.not.i.i = icmp eq i64 %m.023.us.i.i, %0
-  br i1 %exitcond43.not.i.i, label %_ZN5boost7numeric5ublas13inplace_solveINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKNS1_17matrix_expressionIT_EERNSA_IT0_EENS1_14unit_lower_tagE.exit, label %for.cond5.preheader.us.i.i, !llvm.loop !56
+  %exitcond44.not.i.i = icmp eq i64 %m.023.us.i.i, %.fr.i.i
+  br i1 %exitcond44.not.i.i, label %_ZN5boost7numeric5ublas13inplace_solveINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKNS1_17matrix_expressionIT_EERNSA_IT0_EENS1_14unit_lower_tagE.exit, label %for.cond5.preheader.us.i.i, !llvm.loop !56
 
 for.body8.us.us.i.i:                              ; preds = %for.cond5.preheader.us.i.i, %if.end.us.us.i.i
   %l.027.us.us.i.i = phi i64 [ %inc23.us.us.i.i, %if.end.us.us.i.i ], [ 0, %for.cond5.preheader.us.i.i ]
@@ -2166,8 +2166,8 @@ for.body8.us.us.i.i:                              ; preds = %for.cond5.preheader
 
 if.end.us.us.i.i:                                 ; preds = %for.body17.us.us.i.i, %for.body8.us.us.i.i
   %inc23.us.us.i.i = add nuw i64 %l.027.us.us.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc23.us.us.i.i, %1
-  br i1 %exitcond.not.i.i, label %for.cond5.for.cond.cleanup7_crit_edge.us.i.i, label %for.body8.us.us.i.i, !llvm.loop !57
+  %exitcond43.not.i.i = icmp eq i64 %inc23.us.us.i.i, %1
+  br i1 %exitcond43.not.i.i, label %for.cond5.for.cond.cleanup7_crit_edge.us.i.i, label %for.body8.us.us.i.i, !llvm.loop !57
 
 for.body17.us.us.i.i:                             ; preds = %for.cond14.preheader.us.us.i.i, %for.body17.us.us.i.i
   %m.025.us.us.i.i = phi i64 [ %m.023.us.i.i, %for.cond14.preheader.us.us.i.i ], [ %m.0.us.us.i.i, %for.body17.us.us.i.i ]
@@ -2184,9 +2184,9 @@ for.body17.us.us.i.i:                             ; preds = %for.cond14.preheade
   %neg.us.us.i.i = fneg double %5
   %7 = tail call double @llvm.fmuladd.f64(double %neg.us.us.i.i, double %4, double %6)
   store double %7, ptr %gep.us.us.i.i, align 8, !tbaa !39
-  %m.0.us.us.i.i = add i64 %m.025.us.us.i.i, 1
-  %cmp15.us.us.i.i = icmp ult i64 %m.0.us.us.i.i, %0
-  br i1 %cmp15.us.us.i.i, label %for.body17.us.us.i.i, label %if.end.us.us.i.i, !llvm.loop !58
+  %m.0.us.us.i.i = add nuw i64 %m.025.us.us.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %m.0.us.us.i.i, %.fr.i.i
+  br i1 %exitcond.not.i.i, label %if.end.us.us.i.i, label %for.body17.us.us.i.i, !llvm.loop !58
 
 for.cond14.preheader.us.us.i.i:                   ; preds = %for.body8.us.us.i.i
   %invariant.gep.us.us.i.i = getelementptr double, ptr %2, i64 %l.027.us.us.i.i
@@ -2196,7 +2196,7 @@ for.cond14.preheader.us.us.i.i:                   ; preds = %for.body8.us.us.i.i
   br label %for.body17.us.us.i.i
 
 _ZN5boost7numeric5ublas13inplace_solveINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKNS1_17matrix_expressionIT_EERNSA_IT0_EENS1_14unit_lower_tagE.exit: ; preds = %for.cond5.for.cond.cleanup7_crit_edge.us.i.i, %entry
-  %n.034.i.i = add i64 %0, -1
+  %n.034.i.i = add i64 %.fr.i.i, -1
   %cmp35.i.i = icmp sgt i64 %n.034.i.i, -1
   br i1 %cmp35.i.i, label %for.cond6.preheader.lr.ph.i.i, label %_ZN5boost7numeric5ublas13inplace_solveINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKNS1_17matrix_expressionIT_EERNSA_IT0_EENS1_9upper_tagE.exit
 
@@ -2216,14 +2216,13 @@ for.cond6.preheader.lr.ph.split.us.i.i:           ; preds = %for.cond6.preheader
 
 for.cond6.preheader.us.i.i:                       ; preds = %for.cond6.for.cond.loopexit_crit_edge.us.i.i, %for.cond6.preheader.lr.ph.split.us.i.i
   %n.037.us.i.i = phi i64 [ %n.034.i.i, %for.cond6.preheader.lr.ph.split.us.i.i ], [ %n.0.us.i.i, %for.cond6.for.cond.loopexit_crit_edge.us.i.i ]
-  %n.0.in36.us.i.i = phi i64 [ %0, %for.cond6.preheader.lr.ph.split.us.i.i ], [ %n.037.us.i.i, %for.cond6.for.cond.loopexit_crit_edge.us.i.i ]
+  %n.0.in36.us.i.i = phi i64 [ %.fr.i.i, %for.cond6.preheader.lr.ph.split.us.i.i ], [ %n.037.us.i.i, %for.cond6.for.cond.loopexit_crit_edge.us.i.i ]
   %mul.i.i.us.i.i = mul i64 %n.037.us.i.i, %10
   %13 = getelementptr double, ptr %11, i64 %mul.i.i.us.i.i
   %arrayidx.i.i.us.i.i = getelementptr double, ptr %13, i64 %n.037.us.i.i
   %mul.i.i.i.us.i.i5 = mul i64 %n.037.us.i.i, %1
   %14 = getelementptr double, ptr %12, i64 %mul.i.i.i.us.i.i5
-  %n.0.in36.us.fr.i.i = freeze i64 %n.0.in36.us.i.i
-  %sub15.us.i.i = add i64 %n.0.in36.us.fr.i.i, -2
+  %sub15.us.i.i = add i64 %n.0.in36.us.i.i, -2
   %invariant.gep.us.i.i = getelementptr double, ptr %11, i64 %n.037.us.i.i
   %cmp1729.us.i.i = icmp sgt i64 %sub15.us.i.i, -1
   br i1 %cmp1729.us.i.i, label %for.body9.us.us.i.i, label %for.body9.us38.i.i

@@ -1067,7 +1067,7 @@ LZ4_compress_generic_validated.exit190:           ; preds = %._crit_edge743, %44
 .preheader:                                       ; preds = %505, %516
   %.9479.i112 = phi ptr [ %512, %516 ], [ %503, %505 ]
   %.5408.i113 = phi ptr [ %511, %516 ], [ %.0487.i50, %505 ]
-  %511 = getelementptr inbounds i8, ptr %.5408.i113, i64 -1
+  %511 = getelementptr i8, ptr %.5408.i113, i64 -1
   %512 = getelementptr inbounds i8, ptr %.9479.i112, i64 -1
   %513 = icmp ugt ptr %511, %.1421.i47
   %514 = icmp ugt ptr %512, %1
@@ -1118,14 +1118,13 @@ LZ4_compress_generic_validated.exit190:           ; preds = %._crit_edge743, %44
   %539 = add i32 %538, -270
   %540 = trunc i64 %522 to i32
   %541 = sub i32 %539, %540
-  %.fr997 = freeze i32 %541
-  %542 = udiv i32 %.fr997, 255
+  %542 = udiv i32 %541, 255
   %543 = zext nneg i32 %542 to i64
   %544 = add nuw nsw i64 %543, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %525, i8 -1, i64 %544, i1 false), !tbaa !4
   %scevgep978 = getelementptr i8, ptr %.1425.i46, i64 2
   %scevgep979 = getelementptr i8, ptr %scevgep978, i64 %543
-  %545 = urem i32 %.fr997, 255
+  %545 = urem i32 %541, 255
   br label %._crit_edge827
 
 ._crit_edge827:                                   ; preds = %.lr.ph826.preheader, %535
@@ -1532,7 +1531,7 @@ LZ4_count.exit321:                                ; preds = %.thread512, %567, %
 .preheader632:                                    ; preds = %745, %756
   %.9479.i = phi ptr [ %752, %756 ], [ %743, %745 ]
   %.5408.i = phi ptr [ %751, %756 ], [ %.0487.i776, %745 ]
-  %751 = getelementptr inbounds i8, ptr %.5408.i, i64 -1
+  %751 = getelementptr i8, ptr %.5408.i, i64 -1
   %752 = getelementptr inbounds i8, ptr %.9479.i, i64 -1
   %753 = icmp ugt ptr %751, %.1421.i809
   %754 = icmp ugt ptr %752, %1
@@ -1583,14 +1582,13 @@ LZ4_count.exit321:                                ; preds = %.thread512, %567, %
   %779 = add i32 %778, -270
   %780 = trunc i64 %762 to i32
   %781 = sub i32 %779, %780
-  %.fr994 = freeze i32 %781
-  %782 = udiv i32 %.fr994, 255
+  %782 = udiv i32 %781, 255
   %783 = zext nneg i32 %782 to i64
   %784 = add nuw nsw i64 %783, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %765, i8 -1, i64 %784, i1 false), !tbaa !4
   %scevgep972 = getelementptr i8, ptr %.1425.i808, i64 2
   %scevgep973 = getelementptr i8, ptr %scevgep972, i64 %783
-  %785 = urem i32 %.fr994, 255
+  %785 = urem i32 %781, 255
   br label %._crit_edge789
 
 ._crit_edge789:                                   ; preds = %.lr.ph788.preheader, %775
@@ -3500,7 +3498,7 @@ LZ4_prepareTable.exit73:                          ; preds = %.LZ4_prepareTable.e
 .preheader1002:                                   ; preds = %749, %760
   %.9479.i284 = phi ptr [ %756, %760 ], [ %747, %749 ]
   %.5408.i285 = phi ptr [ %755, %760 ], [ %.0487.i2291278, %749 ]
-  %755 = getelementptr inbounds i8, ptr %.5408.i285, i64 -1
+  %755 = getelementptr i8, ptr %.5408.i285, i64 -1
   %756 = getelementptr inbounds i8, ptr %.9479.i284, i64 -1
   %757 = icmp ugt ptr %755, %.1421.i2261311
   %758 = icmp ugt ptr %756, %1
@@ -3551,14 +3549,13 @@ LZ4_prepareTable.exit73:                          ; preds = %.LZ4_prepareTable.e
   %783 = add i32 %782, -270
   %784 = trunc i64 %766 to i32
   %785 = sub i32 %783, %784
-  %.fr1589 = freeze i32 %785
-  %786 = udiv i32 %.fr1589, 255
+  %786 = udiv i32 %785, 255
   %787 = zext nneg i32 %786 to i64
   %788 = add nuw nsw i64 %787, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %769, i8 -1, i64 %788, i1 false), !tbaa !4
   %scevgep1548 = getelementptr i8, ptr %.1425.i2251310, i64 2
   %scevgep1549 = getelementptr i8, ptr %scevgep1548, i64 %787
-  %789 = urem i32 %.fr1589, 255
+  %789 = urem i32 %785, 255
   br label %._crit_edge1291
 
 ._crit_edge1291:                                  ; preds = %.lr.ph1290.preheader, %779
@@ -3974,7 +3971,7 @@ LZ4_count.exit502:                                ; preds = %.thread807, %811, %
 .preheader:                                       ; preds = %985, %996
   %.9479.i361 = phi ptr [ %992, %996 ], [ %984, %985 ]
   %.5408.i362 = phi ptr [ %991, %996 ], [ %.0487.i299, %985 ]
-  %991 = getelementptr inbounds i8, ptr %.5408.i362, i64 -1
+  %991 = getelementptr i8, ptr %.5408.i362, i64 -1
   %992 = getelementptr inbounds i8, ptr %.9479.i361, i64 -1
   %993 = icmp ugt ptr %991, %.1421.i296
   %994 = icmp ugt ptr %992, %1
@@ -4025,14 +4022,13 @@ LZ4_count.exit502:                                ; preds = %.thread807, %811, %
   %1019 = add i32 %1018, -270
   %1020 = trunc i64 %1002 to i32
   %1021 = sub i32 %1019, %1020
-  %.fr1592 = freeze i32 %1021
-  %1022 = udiv i32 %.fr1592, 255
+  %1022 = udiv i32 %1021, 255
   %1023 = zext nneg i32 %1022 to i64
   %1024 = add nuw nsw i64 %1023, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1005, i8 -1, i64 %1024, i1 false), !tbaa !4
   %scevgep1554 = getelementptr i8, ptr %.1425.i295, i64 2
   %scevgep1555 = getelementptr i8, ptr %scevgep1554, i64 %1023
-  %1025 = urem i32 %.fr1592, 255
+  %1025 = urem i32 %1021, 255
   br label %._crit_edge1329
 
 ._crit_edge1329:                                  ; preds = %.lr.ph1328.preheader, %1015
@@ -4463,7 +4459,7 @@ LZ4_prepareTable.exit77:                          ; preds = %.thread1598, %1177,
 .preheader1007:                                   ; preds = %1230, %1241
   %.9479.i438 = phi ptr [ %1237, %1241 ], [ %1228, %1230 ]
   %.5408.i439 = phi ptr [ %1236, %1241 ], [ %.0487.i3761232, %1230 ]
-  %1236 = getelementptr inbounds i8, ptr %.5408.i439, i64 -1
+  %1236 = getelementptr i8, ptr %.5408.i439, i64 -1
   %1237 = getelementptr inbounds i8, ptr %.9479.i438, i64 -1
   %1238 = icmp ugt ptr %1236, %.1421.i3731265
   %1239 = icmp ugt ptr %1237, %1
@@ -4514,14 +4510,13 @@ LZ4_prepareTable.exit77:                          ; preds = %.thread1598, %1177,
   %1264 = add i32 %1263, -270
   %1265 = trunc i64 %1247 to i32
   %1266 = sub i32 %1264, %1265
-  %.fr1586 = freeze i32 %1266
-  %1267 = udiv i32 %.fr1586, 255
+  %1267 = udiv i32 %1266, 255
   %1268 = zext nneg i32 %1267 to i64
   %1269 = add nuw nsw i64 %1268, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1250, i8 -1, i64 %1269, i1 false), !tbaa !4
   %scevgep1542 = getelementptr i8, ptr %.1425.i3721264, i64 2
   %scevgep1543 = getelementptr i8, ptr %scevgep1542, i64 %1268
-  %1270 = urem i32 %.fr1586, 255
+  %1270 = urem i32 %1266, 255
   br label %._crit_edge1245
 
 ._crit_edge1245:                                  ; preds = %.lr.ph1244.preheader, %1260
@@ -6541,7 +6536,7 @@ LZ4_renormDictT.exit:                             ; preds = %15, %34
 .preheader:                                       ; preds = %136, %147
   %.9479.i = phi ptr [ %143, %147 ], [ %134, %136 ]
   %.5408.i = phi ptr [ %142, %147 ], [ %.0487.i1915, %136 ]
-  %142 = getelementptr inbounds i8, ptr %.5408.i, i64 -1
+  %142 = getelementptr i8, ptr %.5408.i, i64 -1
   %143 = getelementptr inbounds i8, ptr %.9479.i, i64 -1
   %144 = icmp ugt ptr %142, %.1421.i1949
   %145 = icmp ugt ptr %143, %95
@@ -6592,14 +6587,13 @@ LZ4_renormDictT.exit:                             ; preds = %15, %34
   %170 = add i32 %169, -270
   %171 = trunc i64 %153 to i32
   %172 = sub i32 %170, %171
-  %.fr2258 = freeze i32 %172
-  %173 = udiv i32 %.fr2258, 255
+  %173 = udiv i32 %172, 255
   %174 = zext nneg i32 %173 to i64
   %175 = add nuw nsw i64 %174, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %156, i8 -1, i64 %175, i1 false), !tbaa !4
   %scevgep2237 = getelementptr i8, ptr %.1425.i1948, i64 2
   %scevgep2238 = getelementptr i8, ptr %scevgep2237, i64 %174
-  %176 = urem i32 %.fr2258, 255
+  %176 = urem i32 %172, 255
   br label %._crit_edge1928
 
 ._crit_edge1928:                                  ; preds = %.lr.ph1927.preheader, %166
@@ -7034,7 +7028,7 @@ LZ4_count.exit829:                                ; preds = %.thread948, %198, %
 .preheader1473:                                   ; preds = %386, %397
   %.9479.i186 = phi ptr [ %393, %397 ], [ %384, %386 ]
   %.5408.i187 = phi ptr [ %392, %397 ], [ %.0487.i1241869, %386 ]
-  %392 = getelementptr inbounds i8, ptr %.5408.i187, i64 -1
+  %392 = getelementptr i8, ptr %.5408.i187, i64 -1
   %393 = getelementptr inbounds i8, ptr %.9479.i186, i64 -1
   %394 = icmp ugt ptr %392, %.1421.i1211902
   %395 = icmp ugt ptr %393, %346
@@ -7085,14 +7079,13 @@ LZ4_count.exit829:                                ; preds = %.thread948, %198, %
   %420 = add i32 %419, -270
   %421 = trunc i64 %403 to i32
   %422 = sub i32 %420, %421
-  %.fr2255 = freeze i32 %422
-  %423 = udiv i32 %.fr2255, 255
+  %423 = udiv i32 %422, 255
   %424 = zext nneg i32 %423 to i64
   %425 = add nuw nsw i64 %424, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %406, i8 -1, i64 %425, i1 false), !tbaa !4
   %scevgep2231 = getelementptr i8, ptr %.1425.i1201901, i64 2
   %scevgep2232 = getelementptr i8, ptr %scevgep2231, i64 %424
-  %426 = urem i32 %.fr2255, 255
+  %426 = urem i32 %422, 255
   br label %._crit_edge1882
 
 ._crit_edge1882:                                  ; preds = %.lr.ph1881.preheader, %416
