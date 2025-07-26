@@ -4980,94 +4980,95 @@ _ZN4absl7debian213node_hash_setIlNS0_13hash_internal4HashIlEESt8equal_toIlESaIlE
 .loopexit540.i:                                   ; preds = %.lr.ph.i.i143.i, %_ZN4absl7debian213node_hash_setIlNS0_13hash_internal4HashIlEESt8equal_toIlESaIlEECI2NS0_18container_internal12raw_hash_setINS9_17NodeHashSetPolicyIlEES4_S6_S7_EEIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlS7_EEEEET_SJ_mRKS4_RKS6_RKS7_.exit.i
   %.sroa.5.0.i137.i = phi ptr [ %.sroa.27.6.i, %_ZN4absl7debian213node_hash_setIlNS0_13hash_internal4HashIlEESt8equal_toIlESaIlEECI2NS0_18container_internal12raw_hash_setINS9_17NodeHashSetPolicyIlEES4_S6_S7_EEIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlS7_EEEEET_SJ_mRKS4_RKS6_RKS7_.exit.i ], [ %2001, %.lr.ph.i.i143.i ]
   %.sroa.0.0.i138.i = phi ptr [ %.sroa.0411.2.i, %_ZN4absl7debian213node_hash_setIlNS0_13hash_internal4HashIlEESt8equal_toIlESaIlEECI2NS0_18container_internal12raw_hash_setINS9_17NodeHashSetPolicyIlEES4_S6_S7_EEIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlS7_EEEEET_SJ_mRKS4_RKS6_RKS7_.exit.i ], [ %2000, %.lr.ph.i.i143.i ]
-  %2004 = phi i8 [ %1989, %_ZN4absl7debian213node_hash_setIlNS0_13hash_internal4HashIlEESt8equal_toIlESaIlEECI2NS0_18container_internal12raw_hash_setINS9_17NodeHashSetPolicyIlEES4_S6_S7_EEIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlS7_EEEEET_SJ_mRKS4_RKS6_RKS7_.exit.i ], [ %2002, %.lr.ph.i.i143.i ]
-  %2005 = icmp eq i8 %2004, -1
-  br i1 %2005, label %._crit_edge.i56, label %.lr.ph.i48
+  %.lcssa.i.i139.i = phi i8 [ %1989, %_ZN4absl7debian213node_hash_setIlNS0_13hash_internal4HashIlEESt8equal_toIlESaIlEECI2NS0_18container_internal12raw_hash_setINS9_17NodeHashSetPolicyIlEES4_S6_S7_EEIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlS7_EEEEET_SJ_mRKS4_RKS6_RKS7_.exit.i ], [ %2002, %.lr.ph.i.i143.i ]
+  %2004 = icmp eq i8 %.lcssa.i.i139.i, -1
+  br i1 %2004, label %._crit_edge.i56, label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %.loopexit540.i
-  %2006 = load ptr, ptr %172, align 8
-  %.fr = freeze ptr %2006
-  %2007 = load i64, ptr %1286, align 8
-  %2008 = ptrtoint ptr %.fr to i64
-  %2009 = lshr i64 %2008, 12
-  %2010 = load ptr, ptr %1285, align 8
-  %.not.i149.i = icmp ne ptr %.fr, null
-  call void @llvm.assume(i1 %.not.i149.i)
+  %2005 = load ptr, ptr %172, align 8
+  %2006 = load i64, ptr %1286, align 8
+  %2007 = ptrtoint ptr %2005 to i64
+  %2008 = lshr i64 %2007, 12
+  %2009 = load ptr, ptr %1285, align 8
+  %.not.i149.i = icmp eq ptr %2005, null
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE8iteratordeEv.exit.i
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE8iteratordeEv.exit.i: ; preds = %.lr.ph.i48, %._crit_edge.i.i.i54
-  %.sroa.0407.0808.i = phi ptr [ %.sroa.0407.1.i, %._crit_edge.i.i.i54 ], [ %.sroa.0.0.i138.i, %.lr.ph.i48 ]
-  %.sroa.7.0807.i = phi ptr [ %.sroa.7.1.i55, %._crit_edge.i.i.i54 ], [ %.sroa.5.0.i137.i, %.lr.ph.i48 ]
-  %2011 = load i64, ptr %.sroa.7.0807.i, align 8
-  %2012 = add i64 %2011, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
-  %2013 = zext i64 %2012 to i128
-  %2014 = mul nuw i128 %2013, 11376068507788127593
-  %2015 = lshr i128 %2014, 64
-  %2016 = xor i128 %2015, %2014
-  %2017 = trunc i128 %2016 to i64
-  %2018 = lshr i64 %2017, 7
-  %2019 = xor i64 %2018, %2009
-  %2020 = trunc i128 %2016 to i8
-  %2021 = and i8 %2020, 127
-  %2022 = insertelement <16 x i8> poison, i8 %2021, i64 0
-  %2023 = shufflevector <16 x i8> %2022, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %2024
+  %.sroa.0407.0808.i = phi ptr [ %.sroa.0.0.i138.i, %.lr.ph.i48 ], [ %.sroa.0407.1.i, %._crit_edge.i.i.i54 ]
+  %.sroa.7.0807.i = phi ptr [ %.sroa.5.0.i137.i, %.lr.ph.i48 ], [ %.sroa.7.1.i55, %._crit_edge.i.i.i54 ]
+  %2010 = load i64, ptr %.sroa.7.0807.i, align 8
+  %2011 = add i64 %2010, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
+  %2012 = zext i64 %2011 to i128
+  %2013 = mul nuw i128 %2012, 11376068507788127593
+  %2014 = lshr i128 %2013, 64
+  %2015 = xor i128 %2014, %2013
+  %2016 = trunc i128 %2015 to i64
+  %2017 = lshr i64 %2016, 7
+  %2018 = xor i64 %2017, %2008
+  %2019 = trunc i128 %2015 to i8
+  %2020 = and i8 %2019, 127
+  %2021 = insertelement <16 x i8> poison, i8 %2020, i64 0
+  %2022 = shufflevector <16 x i8> %2021, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %2023
 
-2024:                                             ; preds = %2043, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE8iteratordeEv.exit.i
-  %.pn28.i.i.i.i.i = phi i64 [ %2019, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE8iteratordeEv.exit.i ], [ %2045, %2043 ]
-  %.sroa.10.0.i.i.i.i.i = phi i64 [ 0, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE8iteratordeEv.exit.i ], [ %2044, %2043 ]
-  %.sroa.4.0.i.i.i.i.i = and i64 %.pn28.i.i.i.i.i, %2007
-  %2025 = getelementptr inbounds i8, ptr %.fr, i64 %.sroa.4.0.i.i.i.i.i
-  %2026 = load <16 x i8>, ptr %2025, align 1
-  %2027 = icmp eq <16 x i8> %2023, %2026
-  %2028 = bitcast <16 x i1> %2027 to i16
-  %.not26.i.i.i.i.i = icmp eq i16 %2028, 0
+2023:                                             ; preds = %2042, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE8iteratordeEv.exit.i
+  %.pn28.i.i.i.i.i = phi i64 [ %2018, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE8iteratordeEv.exit.i ], [ %2044, %2042 ]
+  %.sroa.10.0.i.i.i.i.i = phi i64 [ 0, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE8iteratordeEv.exit.i ], [ %2043, %2042 ]
+  %.sroa.4.0.i.i.i.i.i = and i64 %.pn28.i.i.i.i.i, %2006
+  %2024 = getelementptr inbounds i8, ptr %2005, i64 %.sroa.4.0.i.i.i.i.i
+  %2025 = load <16 x i8>, ptr %2024, align 1
+  %2026 = icmp eq <16 x i8> %2022, %2025
+  %2027 = bitcast <16 x i1> %2026 to i16
+  %.not26.i.i.i.i.i = icmp eq i16 %2027, 0
   br i1 %.not26.i.i.i.i.i, label %._crit_edge.i.i.i.i.i51, label %.lr.ph.preheader.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i:                       ; preds = %2024
-  %2029 = zext i16 %2028 to i32
+.lr.ph.preheader.i.i.i.i.i:                       ; preds = %2023
+  %2028 = zext i16 %2027 to i32
   br label %.lr.ph.i.i.i.i.i49
 
-.lr.ph.i.i.i.i.i49:                               ; preds = %2038, %.lr.ph.preheader.i.i.i.i.i
-  %.sroa.010.027.i.i.i.i.i = phi i32 [ %2040, %2038 ], [ %2029, %.lr.ph.preheader.i.i.i.i.i ]
-  %2030 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.027.i.i.i.i.i, i1 true)
-  %2031 = zext nneg i32 %2030 to i64
-  %2032 = add i64 %.sroa.4.0.i.i.i.i.i, %2031
-  %2033 = and i64 %2032, %2007
-  %2034 = getelementptr inbounds ptr, ptr %2010, i64 %2033
-  %2035 = load ptr, ptr %2034, align 8
-  %2036 = load i64, ptr %2035, align 8
-  %2037 = icmp eq i64 %2036, %2011
-  br i1 %2037, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_14const_iteratorERKl.exit.i.i, label %2038
+.lr.ph.i.i.i.i.i49:                               ; preds = %2037, %.lr.ph.preheader.i.i.i.i.i
+  %.sroa.010.027.i.i.i.i.i = phi i32 [ %2039, %2037 ], [ %2028, %.lr.ph.preheader.i.i.i.i.i ]
+  %2029 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.027.i.i.i.i.i, i1 true)
+  %2030 = zext nneg i32 %2029 to i64
+  %2031 = add i64 %.sroa.4.0.i.i.i.i.i, %2030
+  %2032 = and i64 %2031, %2006
+  %2033 = getelementptr inbounds ptr, ptr %2009, i64 %2032
+  %2034 = load ptr, ptr %2033, align 8
+  %2035 = load i64, ptr %2034, align 8
+  %2036 = icmp eq i64 %2035, %2010
+  br i1 %2036, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_14const_iteratorERKl.exit.i.i, label %2037
 
-2038:                                             ; preds = %.lr.ph.i.i.i.i.i49
-  %2039 = add nsw i32 %.sroa.010.027.i.i.i.i.i, -1
-  %2040 = and i32 %2039, %.sroa.010.027.i.i.i.i.i
-  %.not.i.i.i.i.i50 = icmp eq i32 %2040, 0
+2037:                                             ; preds = %.lr.ph.i.i.i.i.i49
+  %2038 = add nsw i32 %.sroa.010.027.i.i.i.i.i, -1
+  %2039 = and i32 %2038, %.sroa.010.027.i.i.i.i.i
+  %.not.i.i.i.i.i50 = icmp eq i32 %2039, 0
   br i1 %.not.i.i.i.i.i50, label %._crit_edge.i.i.i.i.i51, label %.lr.ph.i.i.i.i.i49
 
-._crit_edge.i.i.i.i.i51:                          ; preds = %2038, %2024
-  %2041 = icmp eq <16 x i8> %2026, splat (i8 -128)
-  %2042 = bitcast <16 x i1> %2041 to i16
-  %.not22.i.i.i.i.i = icmp eq i16 %2042, 0
-  br i1 %.not22.i.i.i.i.i, label %2043, label %.loopexit.i52
+._crit_edge.i.i.i.i.i51:                          ; preds = %2037, %2023
+  %2040 = icmp eq <16 x i8> %2025, splat (i8 -128)
+  %2041 = bitcast <16 x i1> %2040 to i16
+  %.not22.i.i.i.i.i = icmp eq i16 %2041, 0
+  br i1 %.not22.i.i.i.i.i, label %2042, label %.loopexit.i52
 
-2043:                                             ; preds = %._crit_edge.i.i.i.i.i51
-  %2044 = add i64 %.sroa.10.0.i.i.i.i.i, 16
-  %2045 = add i64 %2044, %.sroa.4.0.i.i.i.i.i
-  br label %2024, !llvm.loop !83
+2042:                                             ; preds = %._crit_edge.i.i.i.i.i51
+  %2043 = add i64 %.sroa.10.0.i.i.i.i.i, 16
+  %2044 = add i64 %2043, %.sroa.4.0.i.i.i.i.i
+  br label %2023, !llvm.loop !83
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_14const_iteratorERKl.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i49
-  %2046 = getelementptr inbounds i8, ptr %.fr, i64 %2033
+  br i1 %.not.i149.i, label %.loopexit.i52, label %2045
+
+2045:                                             ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_14const_iteratorERKl.exit.i.i
+  %2046 = getelementptr inbounds i8, ptr %2005, i64 %2032
   %2047 = load i8, ptr %2046, align 1
   %2048 = icmp sgt i8 %2047, -1
   br i1 %2048, label %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i.i53, label %.critedge.i.i.i.i.i
 
-.critedge.i.i.i.i.i:                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_14const_iteratorERKl.exit.i.i
+.critedge.i.i.i.i.i:                              ; preds = %2045
   call void @llvm.trap()
   unreachable
 
-.loopexit.i52:                                    ; preds = %._crit_edge.i.i.i.i.i51
+.loopexit.i52:                                    ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_14const_iteratorERKl.exit.i.i, %._crit_edge.i.i.i.i.i51
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %174) #23
   %2049 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %173)
           to label %.noexc150.i unwind label %2057
@@ -5119,7 +5120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit154.i:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %174) #23
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit209.i
 
-_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i.i53: ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_14const_iteratorERKl.exit.i.i
+_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i.i53: ; preds = %2045
   %2061 = getelementptr inbounds nuw i8, ptr %.sroa.0407.0808.i, i64 1
   %2062 = getelementptr inbounds nuw i8, ptr %.sroa.7.0807.i, i64 8
   %2063 = load i8, ptr %2061, align 1
