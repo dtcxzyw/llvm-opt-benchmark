@@ -941,28 +941,28 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_double_threshold(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp sgt i32 %3, 0
-  br i1 %9, label %.preheader.lr.ph, label %._crit_edge87
+  br i1 %9, label %.preheader.lr.ph, label %._crit_edge88
 
 .preheader.lr.ph:                                 ; preds = %8
   %10 = icmp sgt i32 %2, 0
   %11 = add nsw i32 %3, -1
   %12 = sext i32 %5 to i64
   %13 = sext i32 %7 to i64
-  br i1 %10, label %.preheader.us.preheader, label %._crit_edge87
+  br i1 %10, label %.preheader.us.preheader, label %._crit_edge88
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %14 = add nsw i32 %2, -1
   %15 = zext nneg i32 %14 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
-  %wide.trip.count98 = zext nneg i32 %2 to i64
+  %wide.trip.count99 = zext nneg i32 %2 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.086.us = phi i32 [ %72, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.06384.us = phi ptr [ %70, %._crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %.06482.us = phi ptr [ %71, %._crit_edge.us ], [ %6, %.preheader.us.preheader ]
-  %16 = icmp ne i32 %.086.us, 0
-  %17 = icmp ne i32 %.086.us, %11
+  %.087.us = phi i32 [ %72, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.06385.us = phi ptr [ %70, %._crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %.06483.us = phi ptr [ %71, %._crit_edge.us ], [ %6, %.preheader.us.preheader ]
+  %16 = icmp ne i32 %.087.us, 0
+  %17 = icmp ne i32 %.087.us, %11
   %18 = and i1 %17, %16
   br i1 %18, label %.lr.ph.split.us91.preheader, label %.lr.ph.split.us.us
 
@@ -979,8 +979,8 @@ define void @ff_double_threshold(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %22, label %68, label %23
 
 23:                                               ; preds = %.lr.ph.split.us91
-  %.not.us89 = icmp eq i64 %indvars.iv95, 0
-  br i1 %.not.us89, label %67, label %24
+  %.not.us90 = icmp eq i64 %indvars.iv95, 0
+  br i1 %.not.us90, label %67, label %24
 
 24:                                               ; preds = %23
   %25 = icmp ne i64 %indvars.iv95, %15
@@ -990,7 +990,7 @@ define void @ff_double_threshold(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 27:                                               ; preds = %24
   %28 = sub nsw i64 %indvars.iv95, %13
-  %29 = getelementptr i8, ptr %.06482.us, i64 %28
+  %29 = getelementptr i8, ptr %.06483.us, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -1
   %31 = load i8, ptr %30, align 1, !tbaa !4
   %32 = zext i8 %31 to i32
@@ -1049,34 +1049,34 @@ define void @ff_double_threshold(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %68
 
 68:                                               ; preds = %.lr.ph.split.us91, %27, %34, %38, %43, %48, %53, %58, %62, %67
-  %.sink102 = phi i8 [ 0, %67 ], [ %20, %62 ], [ %20, %58 ], [ %20, %53 ], [ %20, %48 ], [ %20, %43 ], [ %20, %38 ], [ %20, %34 ], [ %20, %27 ], [ %20, %.lr.ph.split.us91 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.06384.us, i64 %indvars.iv95
-  store i8 %.sink102, ptr %69, align 1, !tbaa !4
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %._crit_edge.us, label %.lr.ph.split.us91, !llvm.loop !29
+  %.sink103 = phi i8 [ 0, %67 ], [ %20, %62 ], [ %20, %58 ], [ %20, %53 ], [ %20, %48 ], [ %20, %43 ], [ %20, %38 ], [ %20, %34 ], [ %20, %27 ], [ %20, %.lr.ph.split.us91 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.06385.us, i64 %indvars.iv95
+  store i8 %.sink103, ptr %69, align 1, !tbaa !4
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv95, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
+  br i1 %exitcond100.not, label %._crit_edge.us, label %.lr.ph.split.us91, !llvm.loop !29
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us.us, %68
-  %70 = getelementptr inbounds i8, ptr %.06384.us, i64 %12
-  %71 = getelementptr inbounds i8, ptr %.06482.us, i64 %13
-  %72 = add nuw nsw i32 %.086.us, 1
-  %exitcond100.not = icmp eq i32 %72, %3
-  br i1 %exitcond100.not, label %._crit_edge87, label %.preheader.us, !llvm.loop !30
+  %70 = getelementptr inbounds i8, ptr %.06385.us, i64 %12
+  %71 = getelementptr inbounds i8, ptr %.06483.us, i64 %13
+  %72 = add nuw nsw i32 %.087.us, 1
+  %exitcond101.not = icmp eq i32 %72, %3
+  br i1 %exitcond101.not, label %._crit_edge88, label %.preheader.us, !llvm.loop !30
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %73 = getelementptr inbounds nuw i8, ptr %.06482.us, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i8, ptr %.06483.us, i64 %indvars.iv
   %74 = load i8, ptr %73, align 1, !tbaa !4
   %75 = zext i8 %74 to i32
   %76 = icmp slt i32 %1, %75
   %spec.select = select i1 %76, i8 %74, i8 0
-  %77 = getelementptr inbounds nuw i8, ptr %.06384.us, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %.06385.us, i64 %indvars.iv
   store i8 %spec.select, ptr %77, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !31
 
-._crit_edge87:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
+._crit_edge88:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
 }
 

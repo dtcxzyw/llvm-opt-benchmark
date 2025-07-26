@@ -541,7 +541,7 @@ define hidden void @_ZN2cv9Histogram26extractBackGroundHistogramERSt6vectorINS_3
 
 .lr.ph79.split.us:                                ; preds = %.lr.ph79.split.us.preheader, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
   %indvars.iv129 = phi i64 [ %25, %.lr.ph79.split.us.preheader ], [ %indvars.iv.next130, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
-  %.04278.us = phi double [ 0.000000e+00, %.lr.ph79.split.us.preheader ], [ %.us-phi.us152, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
+  %.04278.us = phi double [ 0.000000e+00, %.lr.ph79.split.us.preheader ], [ %.us-phi.us153, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
   %28 = load i32, ptr %15, align 4, !tbaa !19
   %.fr = freeze i32 %28
   %29 = zext i32 %.fr to i64
@@ -570,7 +570,7 @@ _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.us: ; preds = %.noexc
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.split.split.us.us, %._crit_edge65.us
-  %.us-phi.us152 = phi double [ %.2.us.us, %._crit_edge65.us ], [ %75, %._crit_edge65.split.split.us.us ], [ %.2.us85, %36 ]
+  %.us-phi.us153 = phi double [ %.2.us.us, %._crit_edge65.us ], [ %75, %._crit_edge65.split.split.us.us ], [ %.2.us85, %36 ]
   %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
   %lftr.wideiv132 = trunc i64 %indvars.iv.next130 to i32
   %exitcond133.not = icmp eq i32 %9, %lftr.wideiv132
@@ -696,7 +696,7 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us, %10
-  %.042.lcssa = phi double [ 0.000000e+00, %10 ], [ %.us-phi.us152, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ], [ 0.000000e+00, %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %.042.lcssa = phi double [ 0.000000e+00, %10 ], [ %.us-phi.us153, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ], [ 0.000000e+00, %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %77 = fdiv double 1.000000e+00, %.042.lcssa
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !21

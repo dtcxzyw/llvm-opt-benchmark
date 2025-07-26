@@ -866,8 +866,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImNSt7__cxx1112basic_stringIcSt
 
 .lr.ph140:                                        ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEEEvT_SF_.exit
   %333 = load i64, ptr %331, align 8, !tbaa !36
-  %.fr143 = freeze i64 %333
-  %334 = add i64 %.fr143, 4
+  %.fr = freeze i64 %333
+  %334 = add i64 %.fr, 4
   %invariant.umin = call i64 @llvm.umin.i64(i64 %334, i64 10)
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 16

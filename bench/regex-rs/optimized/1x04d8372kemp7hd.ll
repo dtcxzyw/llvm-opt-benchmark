@@ -12441,12 +12441,12 @@ define hidden void @_ZN14regex_automata4util8alphabet11ByteClasses10singletons17
   br label %3
 
 3:                                                ; preds = %1, %3
-  %.sroa.5.010 = phi i8 [ 0, %1 ], [ %5, %3 ]
-  %4 = icmp eq i8 %.sroa.5.010, -1
-  %5 = add nuw i8 %.sroa.5.010, 1
-  %6 = zext i8 %.sroa.5.010 to i64
+  %.sroa.5.012 = phi i8 [ 0, %1 ], [ %5, %3 ]
+  %4 = icmp eq i8 %.sroa.5.012, -1
+  %5 = add nuw i8 %.sroa.5.012, 1
+  %6 = zext i8 %.sroa.5.012 to i64
   %7 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %6
-  store i8 %.sroa.5.010, ptr %7, align 1
+  store i8 %.sroa.5.012, ptr %7, align 1
   br i1 %4, label %8, label %3
 
 8:                                                ; preds = %3
@@ -13587,16 +13587,16 @@ define noundef zeroext i1 @"_ZN75_$LT$regex_automata..util..alphabet..BitSet$u20
   br label %6
 
 6:                                                ; preds = %2, %20
-  %.sroa.5.011 = phi i8 [ 0, %2 ], [ %8, %20 ]
-  %7 = icmp eq i8 %.sroa.5.011, -1
-  %8 = add nuw i8 %.sroa.5.011, 1
+  %.sroa.5.013 = phi i8 [ 0, %2 ], [ %8, %20 ]
+  %7 = icmp eq i8 %.sroa.5.013, -1
+  %8 = add nuw i8 %.sroa.5.013, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %.sroa.5.011, ptr %4, align 1
+  store i8 %.sroa.5.013, ptr %4, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %.lobit.i = lshr i8 %.sroa.5.011, 7
+  %.lobit.i = lshr i8 %.sroa.5.013, 7
   %9 = zext nneg i8 %.lobit.i to i64
-  %10 = and i8 %.sroa.5.011, 127
+  %10 = and i8 %.sroa.5.013, 127
   %11 = getelementptr inbounds nuw [2 x i128], ptr %3, i64 0, i64 %9
   %12 = load i128, ptr %11, align 16, !alias.scope !3435, !noundef !9
   %13 = zext nneg i8 %10 to i128
@@ -14122,8 +14122,8 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..util..start..StartByteMap$
   br label %26
 
 26:                                               ; preds = %.preheader, %42
-  %.sroa.6.049 = phi i8 [ 0, %.preheader ], [ %.sroa.6.1.ph46, %42 ]
-  %27 = icmp eq i8 %.sroa.6.049, -1
+  %.sroa.6.051 = phi i8 [ 0, %.preheader ], [ %.sroa.6.1.ph48, %42 ]
+  %27 = icmp eq i8 %.sroa.6.051, -1
   br i1 %27, label %.thread, label %34
 
 28:                                               ; preds = %42
@@ -14142,8 +14142,8 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..util..start..StartByteMap$
   br label %.loopexit
 
 34:                                               ; preds = %26
-  %35 = add nuw i8 %.sroa.6.049, 1
-  %.not = icmp eq i8 %.sroa.6.049, 0
+  %35 = add nuw i8 %.sroa.6.051, 1
+  %.not = icmp eq i8 %.sroa.6.051, 0
   br i1 %.not, label %36, label %.thread
 
 .loopexit:                                        ; preds = %36, %.thread, %28, %2
@@ -14151,16 +14151,16 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..util..start..StartByteMap$
   ret i1 %.0
 
 36:                                               ; preds = %.thread, %34
-  %.sroa.6.1.ph46 = phi i8 [ %.sroa.6.1.ph45, %.thread ], [ 1, %34 ]
+  %.sroa.6.1.ph48 = phi i8 [ %.sroa.6.1.ph47, %.thread ], [ 1, %34 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %37 = zext i8 %.sroa.6.049 to i64
+  %37 = zext i8 %.sroa.6.051 to i64
   %38 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %37
   %39 = load i8, ptr %38, align 1, !range !811, !noundef !9
   store i8 %39, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %.sroa.6.049, ptr %4, align 1
+  store i8 %.sroa.6.051, ptr %4, align 1
   store ptr %4, ptr %5, align 8
   store ptr @"_ZN76_$LT$regex_automata..util..escape..DebugByte$u20$as$u20$core..fmt..Debug$GT$3fmt17hd0c05c922a507f9eE", ptr %19, align 8
   store ptr %7, ptr %20, align 8
@@ -14178,7 +14178,7 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..util..start..StartByteMap$
   br i1 %40, label %.loopexit, label %42
 
 .thread:                                          ; preds = %26, %34
-  %.sroa.6.1.ph45 = phi i8 [ %35, %34 ], [ -1, %26 ]
+  %.sroa.6.1.ph47 = phi i8 [ %35, %34 ], [ -1, %26 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store ptr @anon.09ebd1a1fbc06cbf73656c4d6a94c431.73, ptr %8, align 8
   store i64 1, ptr %15, align 8

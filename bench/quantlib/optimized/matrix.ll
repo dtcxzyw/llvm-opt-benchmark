@@ -2154,8 +2154,8 @@ for.cond5.preheader.us.i.i:                       ; preds = %for.cond5.for.cond.
   br i1 %cmp1524.us.i.i, label %for.body8.us.us.i.i, label %for.cond5.for.cond.cleanup7_crit_edge.us.i.i
 
 for.cond5.for.cond.cleanup7_crit_edge.us.i.i:     ; preds = %if.end.us.us.i.i, %for.cond5.preheader.us.i.i
-  %exitcond44.not.i.i = icmp eq i64 %m.023.us.i.i, %.fr.i.i
-  br i1 %exitcond44.not.i.i, label %_ZN5boost7numeric5ublas13inplace_solveINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKNS1_17matrix_expressionIT_EERNSA_IT0_EENS1_14unit_lower_tagE.exit, label %for.cond5.preheader.us.i.i, !llvm.loop !56
+  %exitcond43.not.i.i = icmp eq i64 %m.023.us.i.i, %.fr.i.i
+  br i1 %exitcond43.not.i.i, label %_ZN5boost7numeric5ublas13inplace_solveINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKNS1_17matrix_expressionIT_EERNSA_IT0_EENS1_14unit_lower_tagE.exit, label %for.cond5.preheader.us.i.i, !llvm.loop !56
 
 for.body8.us.us.i.i:                              ; preds = %for.cond5.preheader.us.i.i, %if.end.us.us.i.i
   %l.027.us.us.i.i = phi i64 [ %inc23.us.us.i.i, %if.end.us.us.i.i ], [ 0, %for.cond5.preheader.us.i.i ]
@@ -2166,8 +2166,8 @@ for.body8.us.us.i.i:                              ; preds = %for.cond5.preheader
 
 if.end.us.us.i.i:                                 ; preds = %for.body17.us.us.i.i, %for.body8.us.us.i.i
   %inc23.us.us.i.i = add nuw i64 %l.027.us.us.i.i, 1
-  %exitcond43.not.i.i = icmp eq i64 %inc23.us.us.i.i, %1
-  br i1 %exitcond43.not.i.i, label %for.cond5.for.cond.cleanup7_crit_edge.us.i.i, label %for.body8.us.us.i.i, !llvm.loop !57
+  %exitcond.not.i.i = icmp eq i64 %inc23.us.us.i.i, %1
+  br i1 %exitcond.not.i.i, label %for.cond5.for.cond.cleanup7_crit_edge.us.i.i, label %for.body8.us.us.i.i, !llvm.loop !57
 
 for.body17.us.us.i.i:                             ; preds = %for.cond14.preheader.us.us.i.i, %for.body17.us.us.i.i
   %m.025.us.us.i.i = phi i64 [ %m.023.us.i.i, %for.cond14.preheader.us.us.i.i ], [ %m.0.us.us.i.i, %for.body17.us.us.i.i ]
@@ -2185,8 +2185,8 @@ for.body17.us.us.i.i:                             ; preds = %for.cond14.preheade
   %7 = tail call double @llvm.fmuladd.f64(double %neg.us.us.i.i, double %4, double %6)
   store double %7, ptr %gep.us.us.i.i, align 8, !tbaa !39
   %m.0.us.us.i.i = add nuw i64 %m.025.us.us.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %m.0.us.us.i.i, %.fr.i.i
-  br i1 %exitcond.not.i.i, label %if.end.us.us.i.i, label %for.body17.us.us.i.i, !llvm.loop !58
+  %cmp15.us.us.i.i = icmp eq i64 %m.0.us.us.i.i, %.fr.i.i
+  br i1 %cmp15.us.us.i.i, label %if.end.us.us.i.i, label %for.body17.us.us.i.i, !llvm.loop !58
 
 for.cond14.preheader.us.us.i.i:                   ; preds = %for.body8.us.us.i.i
   %invariant.gep.us.us.i.i = getelementptr double, ptr %2, i64 %l.027.us.us.i.i

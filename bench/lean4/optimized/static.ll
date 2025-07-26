@@ -8443,7 +8443,7 @@ _ZL20mi_arena_purge_delayv.exit32:                ; preds = %mi_option_get.exit.
   br label %47
 
 47:                                               ; preds = %_ZL20mi_arena_purge_delayv.exit32, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
-  %.02052 = phi i64 [ 0, %_ZL20mi_arena_purge_delayv.exit32 ], [ %412, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread ]
+  %.02052 = phi i64 [ 0, %_ZL20mi_arena_purge_delayv.exit32 ], [ %413, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread ]
   %.02251 = phi i64 [ %45, %_ZL20mi_arena_purge_delayv.exit32 ], [ %.224.ph, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread ]
   %48 = getelementptr inbounds nuw [132 x %"struct.std::atomic.6"], ptr @_ZL9mi_arenas, i64 0, i64 %.02052
   %49 = load atomic i64, ptr %48 acquire, align 8
@@ -8484,11 +8484,11 @@ _ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_iden
   br label %68
 
 ._crit_edge.i:                                    ; preds = %.loopexit136.i
-  br i1 %.151.i, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit, label %390
+  br i1 %.151.i, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit, label %391
 
 68:                                               ; preds = %.loopexit136.i, %.lr.ph.i
-  %69 = phi i64 [ %63, %.lr.ph.i ], [ %387, %.loopexit136.i ]
-  %.049152.i = phi i64 [ 0, %.lr.ph.i ], [ %388, %.loopexit136.i ]
+  %69 = phi i64 [ %63, %.lr.ph.i ], [ %388, %.loopexit136.i ]
+  %.049152.i = phi i64 [ 0, %.lr.ph.i ], [ %389, %.loopexit136.i ]
   %.050151.i = phi i1 [ true, %.lr.ph.i ], [ %.151.i, %.loopexit136.i ]
   %.052150.i = phi i1 [ false, %.lr.ph.i ], [ %.153.i, %.loopexit136.i ]
   %70 = load ptr, ptr %64, align 8, !tbaa !155
@@ -8504,7 +8504,7 @@ _ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_iden
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge62.i, %.preheader135.i
-  %.046148.i = phi i64 [ 0, %.preheader135.i ], [ %385, %.critedge62.i ]
+  %.046148.i = phi i64 [ 0, %.preheader135.i ], [ %386, %.critedge62.i ]
   %.047147.i = phi i64 [ %72, %.preheader135.i ], [ %.148.i, %.critedge62.i ]
   %.2146.i = phi i1 [ %.050151.i, %.preheader135.i ], [ %.3.i, %.critedge62.i ]
   %.254145.i = phi i1 [ %.052150.i, %.preheader135.i ], [ %.355.i, %.critedge62.i ]
@@ -8570,8 +8570,8 @@ _Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i:  ; preds = %.lr.ph.i.i
   %98 = icmp ult i64 %.046148.i, %97
   br i1 %98, label %.preheader.i.i, label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i
 
-.preheader.i.i:                                   ; preds = %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i, %376
-  %.029.i.i = phi i64 [ %378, %376 ], [ %.046148.i, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ]
+.preheader.i.i:                                   ; preds = %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i, %377
+  %.029.i.i = phi i64 [ %379, %376 ], [ %.046148.i, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ]
   %.02328.i.i = phi i1 [ %.1.i.i, %376 ], [ false, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ]
   br label %99
 
@@ -8592,7 +8592,7 @@ _Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i:  ; preds = %.lr.ph.i.i
 .critedge.i.i:                                    ; preds = %103, %99
   %.022.lcssa.i.i = phi i64 [ %104, %103 ], [ %.02227.i.i, %99 ]
   %.not26.i.i = icmp eq i64 %.022.lcssa.i.i, 0
-  br i1 %.not26.i.i, label %376, label %107
+  br i1 %.not26.i.i, label %377, label %107
 
 107:                                              ; preds = %.critedge.i.i
   %108 = add i64 %.029.i.i, %73
@@ -9221,102 +9221,102 @@ _ZL14mi_arena_purgeP10mi_arena_smm.exit.i:        ; preds = %373, %._crit_edge.i
   %spec.select.i.i = select i1 %375, i1 true, i1 %.02328.i.i
   br label %376
 
-376:                                              ; preds = %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i, %.critedge.i.i
+377:                                              ; preds = %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i, %.critedge.i.i
   %.1.i.i = phi i1 [ %spec.select.i.i, %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i ], [ %.02328.i.i, %.critedge.i.i ]
-  %377 = add i64 %.029.i.i, 1
-  %378 = add i64 %377, %.022.lcssa.i.i
-  %379 = icmp ult i64 %378, %97
-  br i1 %379, label %.preheader.i.i, label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i, !llvm.loop !162
+  %378 = add i64 %.029.i.i, 1
+  %379 = add i64 %378, %.022.lcssa.i.i
+  %380 = icmp ult i64 %379, %97
+  br i1 %380, label %.preheader.i.i, label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i, !llvm.loop !162
 
-_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i: ; preds = %376
+_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i: ; preds = %377
   %spec.select.i = select i1 %.1.i.i, i1 %.2146.i, i1 false
   br label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i
 
 _ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i: ; preds = %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i
-  %380 = phi i1 [ false, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ], [ %spec.select.i, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i ]
-  %381 = xor i64 %85, -1
-  %382 = select i1 %83, i64 0, i64 %381
-  %383 = atomicrmw and ptr %75, i64 %382 acq_rel, align 8
+  %381 = phi i1 [ false, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ], [ %spec.select.i, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i ]
+  %382 = xor i64 %85, -1
+  %383 = select i1 %83, i64 0, i64 %382
+  %384 = atomicrmw and ptr %75, i64 %383 acq_rel, align 8
   br label %.critedge62.i
 
 .critedge62.i:                                    ; preds = %.loopexit.i, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i, %.critedge.i
   %.145138.i = phi i64 [ %.145144.i, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ 0, %.critedge.i ], [ 0, %.loopexit.i ]
   %.355.i = phi i1 [ true, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ %.254145.i, %.critedge.i ], [ %.254145.i, %.loopexit.i ]
-  %.3.i = phi i1 [ %380, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ %.2146.i, %.critedge.i ], [ %.2146.i, %.loopexit.i ]
+  %.3.i = phi i1 [ %381, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ %.2146.i, %.critedge.i ], [ %.2146.i, %.loopexit.i ]
   %.148.i = phi i64 [ %96, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ %.047147.i, %.critedge.i ], [ %.047147.i, %.loopexit.i ]
-  %384 = add nuw nsw i64 %.046148.i, 1
-  %385 = add i64 %384, %.145138.i
-  %386 = icmp ult i64 %385, 64
-  br i1 %386, label %.preheader.i, label %.loopexit136.loopexit.i, !llvm.loop !163
+  %385 = add nuw nsw i64 %.046148.i, 1
+  %386 = add i64 %385, %.145138.i
+  %387 = icmp ult i64 %386, 64
+  br i1 %387, label %.preheader.i, label %.loopexit136.loopexit.i, !llvm.loop !163
 
 .loopexit136.loopexit.i:                          ; preds = %.critedge62.i
   %.pre.i = load i64, ptr %62, align 8, !tbaa !107
   br label %.loopexit136.i
 
 .loopexit136.i:                                   ; preds = %.loopexit136.loopexit.i, %68
-  %387 = phi i64 [ %69, %68 ], [ %.pre.i, %.loopexit136.loopexit.i ]
+  %388 = phi i64 [ %69, %68 ], [ %.pre.i, %.loopexit136.loopexit.i ]
   %.153.i = phi i1 [ %.052150.i, %68 ], [ %.355.i, %.loopexit136.loopexit.i ]
   %.151.i = phi i1 [ %.050151.i, %68 ], [ %.3.i, %.loopexit136.loopexit.i ]
-  %388 = add nuw i64 %.049152.i, 1
-  %389 = icmp ult i64 %388, %387
-  br i1 %389, label %68, label %._crit_edge.i, !llvm.loop !164
+  %389 = add nuw i64 %.049152.i, 1
+  %390 = icmp ult i64 %389, %388
+  br i1 %390, label %68, label %._crit_edge.i, !llvm.loop !164
 
-390:                                              ; preds = %._crit_edge.i
-  %391 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 488), align 8, !tbaa !108
-  %392 = icmp eq i32 %391, 0
-  br i1 %392, label %393, label %mi_option_get.exit.i.i, !prof !17
+391:                                              ; preds = %._crit_edge.i
+  %392 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 488), align 8, !tbaa !108
+  %393 = icmp eq i32 %392, 0
+  br i1 %393, label %394, label %mi_option_get.exit.i.i, !prof !17
 
-393:                                              ; preds = %390
+394:                                              ; preds = %391
   call fastcc void @_ZL14mi_option_initP16mi_option_desc_s(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 480))
   br label %mi_option_get.exit.i.i
 
-mi_option_get.exit.i.i:                           ; preds = %393, %390
-  %394 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 480), align 16, !tbaa !112
-  %395 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 776), align 8, !tbaa !108
-  %396 = icmp eq i32 %395, 0
-  br i1 %396, label %397, label %_ZL20mi_arena_purge_delayv.exit.i, !prof !17
+mi_option_get.exit.i.i:                           ; preds = %394, %391
+  %395 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 480), align 16, !tbaa !112
+  %396 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 776), align 8, !tbaa !108
+  %397 = icmp eq i32 %396, 0
+  br i1 %397, label %398, label %_ZL20mi_arena_purge_delayv.exit.i, !prof !17
 
-397:                                              ; preds = %mi_option_get.exit.i.i
+398:                                              ; preds = %mi_option_get.exit.i.i
   call fastcc void @_ZL14mi_option_initP16mi_option_desc_s(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 768))
   br label %_ZL20mi_arena_purge_delayv.exit.i
 
-_ZL20mi_arena_purge_delayv.exit.i:                ; preds = %397, %mi_option_get.exit.i.i
-  %398 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 768), align 16, !tbaa !112
-  %399 = mul nsw i64 %398, %394
+_ZL20mi_arena_purge_delayv.exit.i:                ; preds = %398, %mi_option_get.exit.i.i
+  %399 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 768), align 16, !tbaa !112
+  %400 = mul nsw i64 %399, %395
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
-  %400 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #55
-  %401 = load i64, ptr %3, align 8, !tbaa !152
-  %402 = mul nsw i64 %401, 1000
-  %403 = load i64, ptr %46, align 8, !tbaa !154
-  %404 = sdiv i64 %403, 1000000
+  %401 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #55
+  %402 = load i64, ptr %3, align 8, !tbaa !152
+  %403 = mul nsw i64 %402, 1000
+  %404 = load i64, ptr %46, align 8, !tbaa !154
+  %405 = sdiv i64 %404, 1000000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
-  %405 = add i64 %402, %399
-  %406 = add i64 %405, %404
-  %407 = cmpxchg ptr %55, i64 0, i64 %406 acq_rel acquire, align 8
-  br i1 %.153.i, label %408, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
+  %406 = add i64 %403, %400
+  %407 = add i64 %406, %405
+  %408 = cmpxchg ptr %55, i64 0, i64 %407 acq_rel acquire, align 8
+  br i1 %.153.i, label %409, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
 
 _ZL18mi_arena_try_purgeP10mi_arena_slb.exit:      ; preds = %._crit_edge.i
-  br i1 %.153.i, label %408, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
+  br i1 %.153.i, label %409, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
 
-408:                                              ; preds = %_ZL20mi_arena_purge_delayv.exit.i, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit
-  %409 = icmp ult i64 %.02251, 2
-  br i1 %409, label %.thread42, label %410
+409:                                              ; preds = %_ZL20mi_arena_purge_delayv.exit.i, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit
+  %410 = icmp ult i64 %.02251, 2
+  br i1 %410, label %.thread42, label %411
 
-410:                                              ; preds = %408
-  %411 = add i64 %.02251, -1
+411:                                              ; preds = %409
+  %412 = add i64 %.02251, -1
   br label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
 
-_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread: ; preds = %_ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit.i, %57, %50, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit, %410, %47, %_ZL20mi_arena_purge_delayv.exit.i
-  %.224.ph = phi i64 [ %.02251, %_ZL20mi_arena_purge_delayv.exit.i ], [ %.02251, %47 ], [ %.02251, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit ], [ %411, %410 ], [ %.02251, %50 ], [ %.02251, %57 ], [ %.02251, %_ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit.i ]
-  %412 = add nuw i64 %.02052, 1
-  %exitcond.not = icmp eq i64 %412, %30
-  br i1 %exitcond.not, label %413, label %47, !llvm.loop !165
+_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread: ; preds = %_ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit.i, %57, %50, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit, %411, %47, %_ZL20mi_arena_purge_delayv.exit.i
+  %.224.ph = phi i64 [ %.02251, %_ZL20mi_arena_purge_delayv.exit.i ], [ %.02251, %47 ], [ %.02251, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit ], [ %412, %410 ], [ %.02251, %50 ], [ %.02251, %57 ], [ %.02251, %_ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit.i ]
+  %413 = add nuw i64 %.02052, 1
+  %exitcond.not = icmp eq i64 %413, %30
+  br i1 %exitcond.not, label %414, label %47, !llvm.loop !165
 
-413:                                              ; preds = %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
+414:                                              ; preds = %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
   store atomic i64 0, ptr @_ZL22mi_arenas_purge_expire release, align 64
   br label %.thread42
 
-.thread42:                                        ; preds = %408, %413
+.thread42:                                        ; preds = %409, %414
   store atomic i64 0, ptr @_ZZL19mi_arenas_try_purgebbE11purge_guard release, align 8
   br label %.critedge
 

@@ -18754,7 +18754,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i909:         ; preds = %_ZNK6vectorIjLb0EjE
 .noexc331:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i909
   %1527 = icmp ult i32 %.05.lcssa.i.i889, %1526
   %spec.select = select i1 %1527, i64 %1448, i64 %1451
-  %spec.select1599 = select i1 %1527, i32 %1445, i32 %1444
+  %spec.select = select i1 %1527, i32 %1445, i32 %1444
   br label %.thread1554
 
 .thread1554:                                      ; preds = %.noexc331, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit15.i903, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i16.i905, %._crit_edge40.i.i

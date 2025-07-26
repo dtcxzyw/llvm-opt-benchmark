@@ -74351,7 +74351,7 @@ define internal fastcc void @convert_samples_short(i32 noundef %0, ptr noundef r
   br i1 %exitcond67.not.i.us, label %..preheader39_crit_edge.us.i.us, label %.lr.ph42.split.us.us.i.us, !llvm.loop !304
 
 ..preheader39_crit_edge.us.i.us:                  ; preds = %..loopexit_crit_edge.us.us.i.us
-  %invariant.gep78.i.us = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv73.i.us
+  %invariant.gep77.i.us = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv73.i.us
   br label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %.lr.ph.us.i.us, %..preheader39_crit_edge.us.i.us
@@ -74363,8 +74363,8 @@ define internal fastcc void @convert_samples_short(i32 noundef %0, ptr noundef r
   %61 = tail call i32 @llvm.smax.i32(i32 %60, i32 1136623616)
   %62 = tail call i32 @llvm.umin.i32(i32 %61, i32 1136689151)
   %63 = trunc i32 %62 to i16
-  %gep79.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep78.i.us, i64 %indvars.iv68.i.us
-  store i16 %63, ptr %gep79.i.us, align 2
+  %gep78.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep77.i.us, i64 %indvars.iv68.i.us
+  store i16 %63, ptr %gep78.i.us, align 2
   %indvars.iv.next69.i.us = add nuw nsw i64 %indvars.iv68.i.us, 1
   %exitcond72.not.i.us = icmp eq i64 %indvars.iv.next69.i.us, %wide.trip.count.i.us
   br i1 %exitcond72.not.i.us, label %._crit_edge.us.i.us, label %.lr.ph.us.i.us

@@ -811,7 +811,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv451
   %73 = load ptr, ptr %72, align 8, !tbaa !60
   %.not294 = icmp eq ptr %73, null
-  br i1 %.not294, label %.critedge4.loopexit, label %74
+  br i1 %.not294, label %.critedge4, label %74
 
 74:                                               ; preds = %71
   %75 = getelementptr i8, ptr %73, i64 32
@@ -834,14 +834,14 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %.2238 = phi i32 [ %.1237407, %74 ], [ %81, %80 ], [ %.1237407, %77 ]
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4.loopexit, label %71, !llvm.loop !75
+  br i1 %exitcond.not, label %.critedge4, label %71, !llvm.loop !75
 
-.critedge4.loopexit:                              ; preds = %82, %71
-  %.1237.lcssa.ph = phi i32 [ %.1237407, %71 ], [ %.2238, %82 ]
-  %83 = freeze i32 %.1237.lcssa.ph
+.critedge4:                                       ; preds = %82, %71
+  %.1237.lcssa = phi i32 [ %.1237407, %71 ], [ %.2238, %82 ]
+  %83 = freeze i32 %.1237.lcssa
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.critedge4.loopexit, %.preheader400
+.critedge4:; preds = %.critedge4.loopexit, %.preheader400
   %.1237.lcssa = phi i32 [ %.0236413, %.preheader400 ], [ %83, %.critedge4.loopexit ]
   %84 = getelementptr inbounds nuw i8, ptr %61, i64 36
   %85 = load i32, ptr %84, align 4, !tbaa !73

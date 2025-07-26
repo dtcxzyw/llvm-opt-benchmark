@@ -3280,11 +3280,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1792:       ; preds = %280
 318:                                              ; preds = %315
   call fastcc void @_ZL14add_noarg_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.133, i32 noundef 30408819, i32 noundef -1)
   call fastcc void @_ZL14add_noarg_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.134, i32 noundef 13631603, i32 noundef -1)
-  %.pre3648 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3649 = load i64, ptr %290, align 8, !tbaa !88
   br label %319
 
 319:                                              ; preds = %315, %318
-  %320 = phi i64 [ %316, %315 ], [ %.pre3648, %318 ]
+  %320 = phi i64 [ %316, %315 ], [ %.pre3649, %318 ]
   %321 = and i64 %320, 4294967296
   %.not3508 = icmp eq i64 %321, 0
   %or.cond24 = and i1 %2, %.not3508
@@ -4838,7 +4838,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1906:       ; preds = %863, %865
 873:                                              ; preds = %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1906
   call fastcc void @_ZL14add_noarg_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.213, i32 noundef 270532723, i32 noundef -1)
   call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.214, i32 noundef 301990003)
-  %.pre3649 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3650 = load i64, ptr %870, align 8, !tbaa !88
   br label %1024
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1908.thread: ; preds = %659
@@ -5322,7 +5322,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1936:       ; preds = %1015
   br label %4911
 
 1024:                                             ; preds = %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1906, %873
-  %1025 = phi i64 [ %871, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1906 ], [ %.pre3649, %873 ]
+  %1025 = phi i64 [ %871, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1906 ], [ %.pre3650, %873 ]
   %1026 = and i64 %1025, 8192
   %.not3510 = icmp eq i64 %1026, 0
   %or.cond32 = and i1 %2, %.not3510
@@ -5705,11 +5705,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1956:       ; preds = %1139
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.261, i32 noundef 167776307, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.262, i32 noundef 167784499, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.263, i32 noundef 167780403, i32 noundef -33525633)
-  %.pre3650 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3651 = load i64, ptr %870, align 8, !tbaa !88
   br label %1152
 
 1152:                                             ; preds = %1148, %1151
-  %1153 = phi i64 [ %1149, %1148 ], [ %.pre3650, %1151 ]
+  %1153 = phi i64 [ %1149, %1148 ], [ %.pre3651, %1151 ]
   %1154 = and i64 %1153, 4294967296
   %.not3514 = icmp eq i64 %1154, 0
   %or.cond50 = and i1 %2, %.not3514
@@ -5724,11 +5724,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1956:       ; preds = %1139
   call fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.269, i32 noundef 1744834579, i32 noundef -67080065)
   call fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.270, i32 noundef 671092755, i32 noundef -67080065)
   call fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.271, i32 noundef 1207980051, i32 noundef -67080065)
-  %.pre3651 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3652 = load i64, ptr %870, align 8, !tbaa !88
   br label %1156
 
 1156:                                             ; preds = %1152, %1155
-  %1157 = phi i64 [ %1153, %1152 ], [ %.pre3651, %1155 ]
+  %1157 = phi i64 [ %1153, %1152 ], [ %.pre3652, %1155 ]
   %1158 = and i64 %1157, 8589934592
   %.not3515 = icmp eq i64 %1158, 0
   %or.cond53 = and i1 %2, %.not3515
@@ -5901,11 +5901,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966:       ; preds = %1206
   call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.278, i32 noundef 369098867)
   call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.279, i32 noundef 637534323)
   call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.280, i32 noundef 1711276147)
-  %.pre3652 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3653 = load i64, ptr %870, align 8, !tbaa !88
   br label %1219
 
 1219:                                             ; preds = %1215, %1218
-  %1220 = phi i64 [ %1216, %1215 ], [ %.pre3652, %1218 ]
+  %1220 = phi i64 [ %1216, %1215 ], [ %.pre3653, %1218 ]
   %1221 = and i64 %1220, 64
   %.not3517 = icmp eq i64 %1221, 0
   %or.cond61 = and i1 %2, %.not3517
@@ -5916,11 +5916,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966:       ; preds = %1206
   call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.282, i32 noundef 8231)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.283, i32 noundef -268435373, i32 noundef -1019777)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.284, i32 noundef -536870829, i32 noundef -1019777)
-  %.pre3653 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3654 = load i64, ptr %870, align 8, !tbaa !88
   br label %1223
 
 1223:                                             ; preds = %1219, %1222
-  %1224 = phi i64 [ %1220, %1219 ], [ %.pre3653, %1222 ]
+  %1224 = phi i64 [ %1220, %1219 ], [ %.pre3654, %1222 ]
   %1225 = and i64 %1224, -9223372036854775744
   %1226 = icmp eq i64 %1225, 0
   %or.cond3495.not = and i1 %2, %1226
@@ -6058,11 +6058,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966:       ; preds = %1206
   call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.356, i32 noundef 1146093651)
   call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.357, i32 noundef -1543487405)
   call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.358, i32 noundef -1543483309)
-  %.pre3654 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3655 = load i64, ptr %870, align 8, !tbaa !88
   br label %1254
 
 1254:                                             ; preds = %1249, %1253
-  %1255 = phi i64 [ %1250, %1249 ], [ %.pre3654, %1253 ]
+  %1255 = phi i64 [ %1250, %1249 ], [ %.pre3655, %1253 ]
   %1256 = and i64 %1255, 16
   %.not3526 = icmp eq i64 %1256, 0
   %or.cond94 = and i1 %2, %.not3526
@@ -6213,11 +6213,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966:       ; preds = %1206
   call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.410, i32 noundef 4135)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.411, i32 noundef -201326509, i32 noundef -1019777)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.412, i32 noundef -469761965, i32 noundef -1019777)
-  %.pre3655 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3656 = load i64, ptr %290, align 8, !tbaa !88
   br label %1284
 
 1284:                                             ; preds = %1280, %1283
-  %1285 = phi i64 [ %1281, %1280 ], [ %.pre3655, %1283 ]
+  %1285 = phi i64 [ %1281, %1280 ], [ %.pre3656, %1283 ]
   %1286 = and i64 %1285, 2
   %.not3532 = icmp eq i64 %1286, 0
   %or.cond116 = and i1 %2, %.not3532
@@ -6269,11 +6269,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966:       ; preds = %1206
   call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.440, i32 noundef -1509941165)
   call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.441, i32 noundef -1509945261)
   call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.442, i32 noundef -1509949357)
-  %.pre3656 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3657 = load i64, ptr %870, align 8, !tbaa !88
   br label %1292
 
 1292:                                             ; preds = %1288, %1291
-  %1293 = phi i64 [ %1289, %1288 ], [ %.pre3656, %1291 ]
+  %1293 = phi i64 [ %1289, %1288 ], [ %.pre3657, %1291 ]
   %1294 = and i64 %1293, 4611686018427387904
   %.not3534 = icmp eq i64 %1294, 0
   %or.cond122 = and i1 %2, %.not3534
@@ -6282,11 +6282,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966:       ; preds = %1206
 1295:                                             ; preds = %1292
   call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.443, i32 noundef 1149239379)
   call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.444, i32 noundef 1080033363)
-  %.pre3657 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3658 = load i64, ptr %870, align 8, !tbaa !88
   br label %1296
 
 1296:                                             ; preds = %1292, %1295
-  %1297 = phi i64 [ %1293, %1292 ], [ %.pre3657, %1295 ]
+  %1297 = phi i64 [ %1293, %1292 ], [ %.pre3658, %1295 ]
   %1298 = and i64 %1297, 256
   %.not3535 = icmp eq i64 %1298, 0
   %or.cond125 = and i1 %2, %.not3535
@@ -6308,11 +6308,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966:       ; preds = %1206
   call fastcc void @_ZL12add_xst_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.457, i32 noundef 1845510259, i32 noundef -33521665)
   call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.458, i32 noundef 1644167283)
   call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.459, i32 noundef 570425459)
-  %.pre3658 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3659 = load i64, ptr %870, align 8, !tbaa !88
   br label %1300
 
 1300:                                             ; preds = %1296, %1299
-  %1301 = phi i64 [ %1297, %1296 ], [ %.pre3658, %1299 ]
+  %1301 = phi i64 [ %1297, %1296 ], [ %.pre3659, %1299 ]
   %1302 = and i64 %1301, 68719476736
   %.not3536 = icmp eq i64 %1302, 0
   %or.cond128 = and i1 %2, %.not3536
@@ -8569,7 +8569,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2127:       ; preds = %2083, %2085
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2130:       ; preds = %2097, %2099
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %78) #27
-  %.pre3659 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3660 = load i64, ptr %870, align 8, !tbaa !88
   br label %2144
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2132.thread: ; preds = %2047
@@ -8701,7 +8701,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2138:       ; preds = %2135
   br label %4911
 
 2144:                                             ; preds = %.thread, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2130, %1300
-  %2145 = phi i64 [ %2045, %.thread ], [ %.pre3659, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2130 ], [ %1301, %1300 ]
+  %2145 = phi i64 [ %2045, %.thread ], [ %.pre3660, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2130 ], [ %1301, %1300 ]
   %2146 = and i64 %2145, 274877906944
   %.not3538 = icmp eq i64 %2146, 0
   %or.cond133 = and i1 %2, %.not3538
@@ -8856,7 +8856,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2147:       ; preds = %2183, %2185
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2150:       ; preds = %2197, %2199
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %82) #27
-  %.pre3660 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3661 = load i64, ptr %870, align 8, !tbaa !88
   br label %2244
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2152.thread: ; preds = %2147
@@ -8988,7 +8988,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2158:       ; preds = %2235
   br label %4911
 
 2244:                                             ; preds = %2144, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2150
-  %2245 = phi i64 [ %2145, %2144 ], [ %.pre3660, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2150 ]
+  %2245 = phi i64 [ %2145, %2144 ], [ %.pre3661, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2150 ]
   %2246 = and i64 %2245, 549755813888
   %.not3539 = icmp eq i64 %2246, 0
   %or.cond136 = and i1 %2, %.not3539
@@ -9143,7 +9143,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2167:       ; preds = %2283, %2285
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2170:       ; preds = %2297, %2299
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %86) #27
-  %.pre3661 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3662 = load i64, ptr %870, align 8, !tbaa !88
   br label %2344
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2172.thread: ; preds = %2247
@@ -9275,7 +9275,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2178:       ; preds = %2335
   br label %4911
 
 2344:                                             ; preds = %2244, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2170
-  %2345 = phi i64 [ %2245, %2244 ], [ %.pre3661, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2170 ]
+  %2345 = phi i64 [ %2245, %2244 ], [ %.pre3662, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2170 ]
   %2346 = and i64 %2345, 137438953472
   %.not3540 = icmp eq i64 %2346, 0
   %or.cond139 = and i1 %2, %.not3540
@@ -9883,7 +9883,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2221:       ; preds = %2549, %2551
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2224:       ; preds = %2563, %2565
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %98) #27
-  %.pre3662 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3663 = load i64, ptr %870, align 8, !tbaa !88
   br label %2640
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2226.thread: ; preds = %2471
@@ -10111,7 +10111,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2238:       ; preds = %2631
   br label %4911
 
 2640:                                             ; preds = %2344, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2224
-  %2641 = phi i64 [ %2345, %2344 ], [ %.pre3662, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2224 ]
+  %2641 = phi i64 [ %2345, %2344 ], [ %.pre3663, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2224 ]
   %2642 = and i64 %2641, 2199023255552
   %.not3541 = icmp eq i64 %2642, 0
   %or.cond144 = and i1 %2, %.not3541
@@ -10754,7 +10754,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2281:       ; preds = %2847, %2849
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2284:       ; preds = %2861, %2863
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %108) #27
-  %.pre3663 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3664 = load i64, ptr %870, align 8, !tbaa !88
   br label %2888
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2286.thread: ; preds = %2839
@@ -10822,7 +10822,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2288:       ; preds = %2879
   br label %4911
 
 2888:                                             ; preds = %2640, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2284
-  %2889 = phi i64 [ %2641, %2640 ], [ %.pre3663, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2284 ]
+  %2889 = phi i64 [ %2641, %2640 ], [ %.pre3664, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2284 ]
   %2890 = and i64 %2889, 4398046511104
   %.not3542 = icmp eq i64 %2890, 0
   %or.cond147 = and i1 %2, %.not3542
@@ -11546,8 +11546,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
 3142:                                             ; preds = %3150
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %119) #27
   %3143 = add nuw nsw i64 %.014273594, 1
-  %exitcond3640.not = icmp eq i64 %3143, 8
-  br i1 %exitcond3640.not, label %3060, label %3100, !llvm.loop !104
+  %exitcond3641.not = icmp eq i64 %3143, 8
+  br i1 %exitcond3641.not, label %3060, label %3100, !llvm.loop !104
 
 3144:                                             ; preds = %.preheader3579
   %3145 = shl nuw nsw i64 %.014033593, 29
@@ -11565,8 +11565,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %123) #27
   %3151 = add nuw nsw i64 %.014043592, 1
   %3152 = lshr i64 %.014033593, 1
-  %exitcond3639.not = icmp eq i64 %3151, 4
-  br i1 %exitcond3639.not, label %3142, label %.preheader3579, !llvm.loop !105
+  %exitcond3640.not = icmp eq i64 %3151, 4
+  br i1 %exitcond3640.not, label %3142, label %.preheader3579, !llvm.loop !105
 
 3153:                                             ; preds = %3149, %.preheader3579
   %3154 = landingpad { ptr, i32 }
@@ -14556,11 +14556,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2485:       ; preds = %4073, %_ZNSt6vector
 4081:                                             ; preds = %4078
   call fastcc void @_ZL17add_vector_v_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.862, i32 noundef 1208914007, i32 noundef -66064257)
   call fastcc void @_ZL17add_vector_v_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.863, i32 noundef 1208389719, i32 noundef -66064257)
-  %.pre3664 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3665 = load i64, ptr %290, align 8, !tbaa !88
   br label %4082
 
 4082:                                             ; preds = %4078, %4081
-  %4083 = phi i64 [ %4079, %4078 ], [ %.pre3664, %4081 ]
+  %4083 = phi i64 [ %4079, %4078 ], [ %.pre3665, %4081 ]
   %4084 = and i64 %4083, 2048
   %.not3545 = icmp eq i64 %4084, 0
   %or.cond156 = and i1 %2, %.not3545
@@ -14705,7 +14705,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2493:       ; preds = %4118, %4120
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2497:       ; preds = %4132, %4134
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %148) #27
-  %.pre3665 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3666 = load i64, ptr %290, align 8, !tbaa !88
   br label %4169
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2499.thread: ; preds = %4096
@@ -14805,7 +14805,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2503:       ; preds = %4160
   br label %4911
 
 4169:                                             ; preds = %4093, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2497
-  %4170 = phi i64 [ %4094, %4093 ], [ %.pre3665, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2497 ]
+  %4170 = phi i64 [ %4094, %4093 ], [ %.pre3666, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2497 ]
   %4171 = and i64 %4170, 8
   %.not3548 = icmp eq i64 %4171, 0
   %or.cond167 = and i1 %2, %.not3548
@@ -14847,7 +14847,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2503:       ; preds = %4160
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2507:       ; preds = %4180, %4182
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %149) #27
-  %.pre3666 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3667 = load i64, ptr %290, align 8, !tbaa !88
   br label %4197
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2509.thread: ; preds = %4172
@@ -14883,7 +14883,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2509:       ; preds = %4188
   br label %4911
 
 4197:                                             ; preds = %4169, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2507
-  %4198 = phi i64 [ %4170, %4169 ], [ %.pre3666, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2507 ]
+  %4198 = phi i64 [ %4170, %4169 ], [ %.pre3667, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2507 ]
   %4199 = and i64 %4198, 32
   %.not3549 = icmp eq i64 %4199, 0
   %or.cond170 = and i1 %2, %.not3549
@@ -14892,11 +14892,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2509:       ; preds = %4188
 4200:                                             ; preds = %4197
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.870, i32 noundef 234901555, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.871, i32 noundef 234909747, i32 noundef -33525633)
-  %.pre3667 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3668 = load i64, ptr %290, align 8, !tbaa !88
   br label %4201
 
 4201:                                             ; preds = %4197, %4200
-  %4202 = phi i64 [ %4198, %4197 ], [ %.pre3667, %4200 ]
+  %4202 = phi i64 [ %4198, %4197 ], [ %.pre3668, %4200 ]
   %4203 = and i64 %4202, 268435456
   %.not3550 = icmp eq i64 %4203, 0
   %or.cond173 = and i1 %2, %.not3550
@@ -14947,10 +14947,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2509:       ; preds = %4188
 
 .preheader3576:                                   ; preds = %.preheader3577, %.split3603.us
   %.012343604 = phi i32 [ 0, %.preheader3577 ], [ %4231, %.split3603.us ]
-  %.not3621 = icmp eq i32 %.012343604, 0
+  %.not3622 = icmp eq i32 %.012343604, 0
   %4210 = shl nuw nsw i32 %.012343604, 7
   %invariant.op = add nuw nsw i32 %4210, -843038605
-  br i1 %.not3621, label %.preheader3576.split.us, label %.preheader3576.split
+  br i1 %.not3622, label %.preheader3576.split.us, label %.preheader3576.split
 
 .preheader3576.split.us:                          ; preds = %.preheader3576, %4227
   %.012333595.us = phi i32 [ %4228, %4227 ], [ 0, %.preheader3576 ]
@@ -15000,8 +15000,8 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2513.us:    ; preds = %4222, %4220
 
 4227:                                             ; preds = %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2513.us, %.preheader3576.split.us
   %4228 = add nuw nsw i32 %.012333595.us, 1
-  %exitcond3642.not = icmp eq i32 %4228, 32
-  br i1 %exitcond3642.not, label %.split3603.us, label %.preheader3576.split.us, !llvm.loop !106
+  %exitcond3643.not = icmp eq i32 %4228, 32
+  br i1 %exitcond3643.not, label %.split3603.us, label %.preheader3576.split.us, !llvm.loop !106
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2515.thread.split.us: ; preds = %4213
   %4229 = landingpad { ptr, i32 }
@@ -15016,13 +15016,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2515.thread.split.us: ; preds = %4213
 
 .split3603.us:                                    ; preds = %4257, %4227
   %4231 = add nuw nsw i32 %.012343604, 1
-  %exitcond3643.not = icmp eq i32 %4231, 32
-  br i1 %exitcond3643.not, label %.loopexit3578, label %.preheader3576, !llvm.loop !108
+  %exitcond3644.not = icmp eq i32 %4231, 32
+  br i1 %exitcond3644.not, label %.loopexit3578, label %.preheader3576, !llvm.loop !108
 
 .preheader3576.split:                             ; preds = %.preheader3576, %4257
   %.012333595 = phi i32 [ %4258, %4257 ], [ 0, %.preheader3576 ]
-  %.not3622 = icmp eq i32 %.012333595, 0
-  br i1 %.not3622, label %4257, label %4232
+  %.not3623 = icmp eq i32 %.012333595, 0
+  br i1 %.not3623, label %4257, label %4232
 
 4232:                                             ; preds = %.preheader3576.split
   %4233 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
@@ -15110,8 +15110,8 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2515:       ; preds = %4248
 
 4257:                                             ; preds = %.preheader3576.split, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2513
   %4258 = add nuw nsw i32 %.012333595, 1
-  %exitcond3641.not = icmp eq i32 %4258, 32
-  br i1 %exitcond3641.not, label %.split3603.us, label %.preheader3576.split, !llvm.loop !109
+  %exitcond3642.not = icmp eq i32 %4258, 32
+  br i1 %exitcond3642.not, label %.split3603.us, label %.preheader3576.split, !llvm.loop !109
 
 .loopexit3578:                                    ; preds = %.split3603.us, %4209
   call fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.901, i32 noundef -841990029, i32 noundef -1019777)
@@ -15140,14 +15140,14 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2515:       ; preds = %4248
   br label %.loopexit
 
 .preheader3574:                                   ; preds = %.preheader3575, %4283
-  %.012263620 = phi i32 [ 0, %.preheader3575 ], [ %4284, %4283 ]
-  %4264 = shl nuw nsw i32 %.012263620, 7
-  %invariant.op3618 = add nuw nsw i32 %4264, -838844301
+  %.012263621 = phi i32 [ 0, %.preheader3575 ], [ %4284, %4283 ]
+  %4264 = shl nuw nsw i32 %.012263621, 7
+  %invariant.op3619 = add nuw nsw i32 %4264, -838844301
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader3574, %.split3617.us
-  %.012253619 = phi i32 [ 0, %.preheader3574 ], [ %4285, %.split3617.us ]
-  %4265 = or i32 %.012253619, %.012263620
+  %.012253620 = phi i32 [ 0, %.preheader3574 ], [ %4285, %.split3617.us ]
+  %4265 = or i32 %.012253620, %.012263621
   %.not3623 = icmp eq i32 %4265, 0
   %4266 = shl nuw nsw i32 %.012253619, 15
   %invariant.op3606.reass = add nuw nsw i32 %4266, %invariant.op3618
@@ -15191,8 +15191,8 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2515:       ; preds = %4248
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2519.us:    ; preds = %4275, %4273
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %151) #27
   %4280 = add nuw nsw i32 %.012243605.us, 1
-  %exitcond3644.not = icmp eq i32 %4280, 32
-  br i1 %exitcond3644.not, label %.split3617.us, label %.preheader.split.us, !llvm.loop !110
+  %exitcond3645.not = icmp eq i32 %4280, 32
+  br i1 %exitcond3645.not, label %.split3617.us, label %.preheader.split.us, !llvm.loop !110
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2521.thread.split.us: ; preds = %.preheader.split.us
   %4281 = landingpad { ptr, i32 }
@@ -15206,14 +15206,14 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2521.thread.split.us: ; preds = %.preheade
   br label %4303
 
 4283:                                             ; preds = %.split3617.us
-  %4284 = add nuw nsw i32 %.012263620, 1
-  %exitcond3647.not = icmp eq i32 %4284, 32
-  br i1 %exitcond3647.not, label %.loopexit, label %.preheader3574, !llvm.loop !111
+  %4284 = add nuw nsw i32 %.012263621, 1
+  %exitcond3648.not = icmp eq i32 %4284, 32
+  br i1 %exitcond3648.not, label %.loopexit, label %.preheader3574, !llvm.loop !111
 
 .split3617.us:                                    ; preds = %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2519.us, %4312
-  %4285 = add nuw nsw i32 %.012253619, 1
-  %exitcond3646.not = icmp eq i32 %4285, 32
-  br i1 %exitcond3646.not, label %4283, label %.preheader, !llvm.loop !112
+  %4285 = add nuw nsw i32 %.012253620, 1
+  %exitcond3647.not = icmp eq i32 %4285, 32
+  br i1 %exitcond3647.not, label %4283, label %.preheader, !llvm.loop !112
 
 .preheader.split:                                 ; preds = %.preheader, %4312
   %.012243605 = phi i32 [ %4313, %4312 ], [ 0, %.preheader ]
@@ -15305,8 +15305,8 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2521:       ; preds = %4303
 
 4312:                                             ; preds = %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2519, %.preheader.split
   %4313 = add nuw nsw i32 %.012243605, 1
-  %exitcond3645.not = icmp eq i32 %4313, 32
-  br i1 %exitcond3645.not, label %.split3617.us, label %.preheader.split, !llvm.loop !113
+  %exitcond3646.not = icmp eq i32 %4313, 32
+  br i1 %exitcond3646.not, label %.split3617.us, label %.preheader.split, !llvm.loop !113
 
 .loopexit:                                        ; preds = %4283, %4263, %4201
   %4314 = load i64, ptr %290, align 8, !tbaa !88
@@ -15787,7 +15787,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2553:       ; preds = %4474, %4477
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2557:       ; preds = %4496, %4498
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %160) #27
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.923, i32 noundef 2113929267, i32 noundef -33525633)
-  %.pre3668 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3669 = load i64, ptr %870, align 8, !tbaa !88
   br label %4513
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2559.thread: ; preds = %4488
@@ -15823,7 +15823,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2559:       ; preds = %4504
   br label %4911
 
 4513:                                             ; preds = %4484, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2557
-  %4514 = phi i64 [ %4485, %4484 ], [ %.pre3668, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2557 ]
+  %4514 = phi i64 [ %4485, %4484 ], [ %.pre3669, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2557 ]
   %4515 = and i64 %4514, 8796093022208
   %.not3558 = icmp eq i64 %4515, 0
   %or.cond197 = and i1 %2, %.not3558
@@ -15839,11 +15839,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2559:       ; preds = %4504
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.924, i32 noundef 973078579, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.925, i32 noundef 1040187443, i32 noundef -33525633)
   call fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.926, i32 noundef 805310483, i32 noundef -1019777)
-  %.pre3669 = load i32, ptr %1, align 8, !tbaa !74
+  %.pre3670 = load i32, ptr %1, align 8, !tbaa !74
   br label %4520
 
 4520:                                             ; preds = %4516, %4519
-  %4521 = phi i32 [ %4517, %4516 ], [ %.pre3669, %4519 ]
+  %4521 = phi i32 [ %4517, %4516 ], [ %.pre3670, %4519 ]
   %4522 = icmp ne i32 %4521, 32
   %or.cond201 = and i1 %2, %4522
   br i1 %or.cond201, label %4572, label %4523
@@ -16001,11 +16001,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2571:       ; preds = %4563
 4578:                                             ; preds = %4575
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.931, i32 noundef 838860851, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.932, i32 noundef 905969715, i32 noundef -33525633)
-  %.pre3670 = load i32, ptr %1, align 8, !tbaa !74
+  %.pre3671 = load i32, ptr %1, align 8, !tbaa !74
   br label %4579
 
 4579:                                             ; preds = %4575, %4578
-  %4580 = phi i32 [ %4576, %4575 ], [ %.pre3670, %4578 ]
+  %4580 = phi i32 [ %4576, %4575 ], [ %.pre3671, %4578 ]
   %4581 = icmp ne i32 %4580, 32
   %or.cond208 = and i1 %2, %4581
   br i1 %or.cond208, label %4631, label %4582
@@ -16169,11 +16169,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2583:       ; preds = %4622
   call fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.942, i32 noundef 275779603, i32 noundef -1019777)
   call fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.943, i32 noundef 272633875, i32 noundef -1019777)
   call fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.944, i32 noundef 273682451, i32 noundef -1019777)
-  %.pre3671 = load i32, ptr %1, align 8, !tbaa !74
+  %.pre3672 = load i32, ptr %1, align 8, !tbaa !74
   br label %4638
 
 4638:                                             ; preds = %4634, %4637
-  %4639 = phi i32 [ %4635, %4634 ], [ %.pre3671, %4637 ]
+  %4639 = phi i32 [ %4635, %4634 ], [ %.pre3672, %4637 ]
   %4640 = icmp ne i32 %4639, 32
   %or.cond215 = and i1 %2, %4640
   br i1 %or.cond215, label %4642, label %4641
@@ -16265,7 +16265,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2587:       ; preds = %4653, %4655
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2591:       ; preds = %4667, %4669
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %166) #27
-  %.pre3672 = load i64, ptr %870, align 8, !tbaa !88
+  %.pre3673 = load i64, ptr %870, align 8, !tbaa !88
   br label %4694
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2593.thread: ; preds = %4645
@@ -16333,7 +16333,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %4685
   br label %4911
 
 4694:                                             ; preds = %4642, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2591
-  %4695 = phi i64 [ %4643, %4642 ], [ %.pre3672, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2591 ]
+  %4695 = phi i64 [ %4643, %4642 ], [ %.pre3673, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2591 ]
   %4696 = and i64 %4695, 140737488355328
   %.not3562 = icmp eq i64 %4696, 0
   %or.cond221 = and i1 %2, %.not3562
@@ -16368,11 +16368,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %4685
   call fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.970, i32 noundef -738197417, i32 noundef -67080065)
   call fastcc void @_ZL18add_vector_vx_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.971, i32 noundef -738181033, i32 noundef -67080065)
   call fastcc void @_ZL19add_vector_viu_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.972, i32 noundef -738185129, i32 noundef -67080065)
-  %.pre3673 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3674 = load i64, ptr %290, align 8, !tbaa !88
   br label %4702
 
 4702:                                             ; preds = %4698, %4701
-  %4703 = phi i64 [ %4699, %4698 ], [ %.pre3673, %4701 ]
+  %4703 = phi i64 [ %4699, %4698 ], [ %.pre3674, %4701 ]
   %4704 = and i64 %4703, 512
   %.not3564 = icmp eq i64 %4704, 0
   %or.cond227 = and i1 %2, %.not3564
@@ -16383,11 +16383,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %4685
   call fastcc void @_ZL18add_vector_vx_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.974, i32 noundef 805331031, i32 noundef -67080065)
   call fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.975, i32 noundef 872423511, i32 noundef -67080065)
   call fastcc void @_ZL18add_vector_vx_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.976, i32 noundef 872439895, i32 noundef -67080065)
-  %.pre3674 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3675 = load i64, ptr %290, align 8, !tbaa !88
   br label %4706
 
 4706:                                             ; preds = %4702, %4705
-  %4707 = phi i64 [ %4703, %4702 ], [ %.pre3674, %4705 ]
+  %4707 = phi i64 [ %4703, %4702 ], [ %.pre3675, %4705 ]
   %4708 = and i64 %4707, 4096
   %.not3565 = icmp eq i64 %4708, 0
   %or.cond230 = and i1 %2, %.not3565
@@ -16396,11 +16396,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %4685
 4709:                                             ; preds = %4706
   call fastcc void @_ZL17add_vector_v_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.977, i32 noundef -1576492937, i32 noundef -32509825)
   call fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.978, i32 noundef -1308614537, i32 noundef -33525633)
-  %.pre3675 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3676 = load i64, ptr %290, align 8, !tbaa !88
   br label %4710
 
 4710:                                             ; preds = %4706, %4709
-  %4711 = phi i64 [ %4707, %4706 ], [ %.pre3675, %4709 ]
+  %4711 = phi i64 [ %4707, %4706 ], [ %.pre3676, %4709 ]
   %4712 = and i64 %4711, 8192
   %.not3566 = icmp eq i64 %4712, 0
   %or.cond233 = and i1 %2, %.not3566
@@ -16418,11 +16418,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %4685
   call fastcc void @_ZL17add_vector_v_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.987, i32 noundef -1509711753, i32 noundef -32509825)
   call fastcc void @_ZL19add_vector_viu_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.988, i32 noundef -1979703177, i32 noundef -33525633)
   call fastcc void @_ZL19add_vector_viu_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.989, i32 noundef -1442832265, i32 noundef -33525633)
-  %.pre3676 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3677 = load i64, ptr %290, align 8, !tbaa !88
   br label %4714
 
 4714:                                             ; preds = %4710, %4713
-  %4715 = phi i64 [ %4711, %4710 ], [ %.pre3676, %4713 ]
+  %4715 = phi i64 [ %4711, %4710 ], [ %.pre3677, %4713 ]
   %4716 = and i64 %4715, 49152
   %4717 = icmp eq i64 %4716, 0
   %or.cond3503.not = and i1 %2, %4717
@@ -16432,11 +16432,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %4685
   call fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.990, i32 noundef -1241505673, i32 noundef -33525633)
   call fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.991, i32 noundef -1174396809, i32 noundef -33525633)
   call fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.992, i32 noundef -1107287945, i32 noundef -33525633)
-  %.pre3677 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3678 = load i64, ptr %290, align 8, !tbaa !88
   br label %4719
 
 4719:                                             ; preds = %4714, %4718
-  %4720 = phi i64 [ %4715, %4714 ], [ %.pre3677, %4718 ]
+  %4720 = phi i64 [ %4715, %4714 ], [ %.pre3678, %4718 ]
   %4721 = and i64 %4720, 65536
   %.not3569 = icmp eq i64 %4721, 0
   %or.cond242 = and i1 %2, %.not3569
@@ -16446,11 +16446,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %4685
   call fastcc void @_ZL19add_vector_viu_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.993, i32 noundef -2046812041, i32 noundef -33525633)
   call fastcc void @_ZL17add_vector_v_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.994, i32 noundef -1576525705, i32 noundef -32509825)
   call fastcc void @_ZL17add_vector_v_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.995, i32 noundef -1509416841, i32 noundef -32509825)
-  %.pre3678 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3679 = load i64, ptr %290, align 8, !tbaa !88
   br label %4723
 
 4723:                                             ; preds = %4719, %4722
-  %4724 = phi i64 [ %4720, %4719 ], [ %.pre3678, %4722 ]
+  %4724 = phi i64 [ %4720, %4719 ], [ %.pre3679, %4722 ]
   %4725 = and i64 %4724, 131072
   %.not3570 = icmp eq i64 %4725, 0
   %or.cond245 = and i1 %2, %.not3570
@@ -16459,11 +16459,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %4685
 4726:                                             ; preds = %4723
   call fastcc void @_ZL19add_vector_viu_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.996, i32 noundef -1375723401, i32 noundef -33525633)
   call fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.997, i32 noundef -2113920905, i32 noundef -33525633)
-  %.pre3679 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3680 = load i64, ptr %290, align 8, !tbaa !88
   br label %4727
 
 4727:                                             ; preds = %4723, %4726
-  %4728 = phi i64 [ %4724, %4723 ], [ %.pre3679, %4726 ]
+  %4728 = phi i64 [ %4724, %4723 ], [ %.pre3680, %4726 ]
   %4729 = and i64 %4728, 1073741824
   %.not3571 = icmp eq i64 %4729, 0
   %or.cond248 = and i1 %2, %.not3571
@@ -16478,11 +16478,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %4685
   call fastcc void @_ZL12add_xst_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1003, i32 noundef 973082671, i32 noundef -100630529)
   call fastcc void @_ZL12add_xst_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1004, i32 noundef 973086767, i32 noundef -100630529)
   call fastcc void @_ZL12add_xst_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1005, i32 noundef 973090863, i32 noundef -100630529)
-  %.pre3680 = load i64, ptr %290, align 8, !tbaa !88
+  %.pre3681 = load i64, ptr %290, align 8, !tbaa !88
   br label %4731
 
 4731:                                             ; preds = %4727, %4730
-  %4732 = phi i64 [ %4728, %4727 ], [ %.pre3680, %4730 ]
+  %4732 = phi i64 [ %4728, %4727 ], [ %.pre3681, %4730 ]
   %4733 = and i64 %4732, 8589934592
   %.not3572 = icmp eq i64 %4733, 0
   %or.cond251 = and i1 %2, %.not3572

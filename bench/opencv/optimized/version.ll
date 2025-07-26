@@ -16698,8 +16698,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 83:                                               ; preds = %.thread.us, %.split.us
   %84 = add nuw i64 %.060.us, 1
-  %exitcond77.not = icmp eq i64 %84, %umax
-  br i1 %exitcond77.not, label %.split64.us, label %.split.us, !llvm.loop !89
+  %exitcond75.not = icmp eq i64 %84, %umax
+  br i1 %exitcond75.not, label %.split64.us, label %.split.us, !llvm.loop !89
 
 .split62.us:                                      ; preds = %.thread.us
   %85 = landingpad { ptr, i32 }
@@ -16732,8 +16732,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 .split64.us:                                      ; preds = %92, %102, %83
   %95 = add nuw i64 %.03668, 1
-  %exitcond79.not = icmp eq i64 %95, %umax
-  br i1 %exitcond79.not, label %._crit_edge, label %69, !llvm.loop !91
+  %exitcond77.not = icmp eq i64 %95, %umax
+  br i1 %exitcond77.not, label %._crit_edge, label %69, !llvm.loop !91
 
 .split.split:                                     ; preds = %.split, %102
   %.060 = phi i64 [ %103, %102 ], [ 0, %.split ]
@@ -16751,8 +16751,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 102:                                              ; preds = %.thread, %.split.split
   %103 = add nuw i64 %.060, 1
-  %exitcond75.not = icmp eq i64 %103, %umax
-  br i1 %exitcond75.not, label %.split64.us, label %.split.split, !llvm.loop !92
+  %exitcond73.not = icmp eq i64 %103, %umax
+  br i1 %exitcond73.not, label %.split64.us, label %.split.split, !llvm.loop !92
 
 .split62.split:                                   ; preds = %.thread
   %104 = landingpad { ptr, i32 }
@@ -16996,8 +16996,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 77:                                               ; preds = %.thread.us, %.split.us
   %78 = add nuw i64 %.066.us, 1
-  %exitcond83.not = icmp eq i64 %78, %umax
-  br i1 %exitcond83.not, label %.split70.us, label %.split.us, !llvm.loop !93
+  %exitcond81.not = icmp eq i64 %78, %umax
+  br i1 %exitcond81.not, label %.split70.us, label %.split.us, !llvm.loop !93
 
 .split68.us:                                      ; preds = %.thread.us
   %79 = landingpad { ptr, i32 }
@@ -17030,8 +17030,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 .split70.us:                                      ; preds = %86, %96, %77
   %89 = add nuw i64 %.04074, 1
-  %exitcond85.not = icmp eq i64 %89, %umax
-  br i1 %exitcond85.not, label %._crit_edge, label %63, !llvm.loop !95
+  %exitcond83.not = icmp eq i64 %89, %umax
+  br i1 %exitcond83.not, label %._crit_edge, label %63, !llvm.loop !95
 
 .split.split:                                     ; preds = %.split, %96
   %.066 = phi i64 [ %97, %96 ], [ 0, %.split ]
@@ -17049,8 +17049,8 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 
 96:                                               ; preds = %.thread, %.split.split
   %97 = add nuw i64 %.066, 1
-  %exitcond81.not = icmp eq i64 %97, %umax
-  br i1 %exitcond81.not, label %.split70.us, label %.split.split, !llvm.loop !96
+  %exitcond79.not = icmp eq i64 %97, %umax
+  br i1 %exitcond79.not, label %.split70.us, label %.split.split, !llvm.loop !96
 
 .split68.split:                                   ; preds = %.thread
   %98 = landingpad { ptr, i32 }

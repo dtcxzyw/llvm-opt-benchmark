@@ -1270,8 +1270,8 @@ _php_array_to_envp.exit:                          ; preds = %._crit_edge126.i, %
   %295 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %296 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %297 = load i32, ptr %296, align 8, !tbaa !82
-  %.not270482 = icmp eq i32 %297, 0
-  br i1 %.not270482, label %._crit_edge.thread, label %.lr.ph
+  %.not270481 = icmp eq i32 %297, 0
+  br i1 %.not270481, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %_php_array_to_envp.exit
   %298 = call i32 @posix_spawn_file_actions_init(ptr noundef nonnull %14) #13
@@ -1285,36 +1285,36 @@ _php_array_to_envp.exit:                          ; preds = %._crit_edge126.i, %
   br label %303
 
 303:                                              ; preds = %.lr.ph, %567
-  %.0236487 = phi i32 [ 0, %.lr.ph ], [ %.1, %567 ]
-  %.0238486 = phi i32 [ %297, %.lr.ph ], [ %568, %567 ]
-  %.0239485 = phi ptr [ %300, %.lr.ph ], [ %.1240, %567 ]
-  %.0242484 = phi i32 [ 0, %.lr.ph ], [ %.1243, %567 ]
-  %.0244483 = phi ptr [ null, %.lr.ph ], [ %.1245, %567 ]
+  %.0236486 = phi i32 [ 0, %.lr.ph ], [ %.1, %567 ]
+  %.0238485 = phi i32 [ %297, %.lr.ph ], [ %568, %567 ]
+  %.0239484 = phi ptr [ %300, %.lr.ph ], [ %.1240, %567 ]
+  %.0242483 = phi i32 [ 0, %.lr.ph ], [ %.1243, %567 ]
+  %.0244482 = phi ptr [ null, %.lr.ph ], [ %.1245, %567 ]
   %304 = load i32, ptr %295, align 8, !tbaa !41
   %305 = and i32 %304, 4
   %.not271 = icmp eq i32 %305, 0
   br i1 %.not271, label %309, label %306
 
 306:                                              ; preds = %303
-  %307 = getelementptr inbounds nuw i8, ptr %.0239485, i64 16
-  %308 = add i32 %.0242484, 1
+  %307 = getelementptr inbounds nuw i8, ptr %.0239484, i64 16
+  %308 = add i32 %.0242483, 1
   br label %316
 
 309:                                              ; preds = %303
-  %310 = getelementptr inbounds nuw i8, ptr %.0239485, i64 32
-  %311 = getelementptr inbounds nuw i8, ptr %.0239485, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %.0239484, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %.0239484, i64 16
   %312 = load i64, ptr %311, align 8, !tbaa !89
-  %313 = getelementptr inbounds nuw i8, ptr %.0239485, i64 24
+  %313 = getelementptr inbounds nuw i8, ptr %.0239484, i64 24
   %314 = load ptr, ptr %313, align 8, !tbaa !86
   %315 = trunc i64 %312 to i32
   br label %316
 
 316:                                              ; preds = %309, %306
-  %.0246 = phi i32 [ %.0242484, %306 ], [ %315, %309 ]
-  %.1245 = phi ptr [ %.0244483, %306 ], [ %314, %309 ]
-  %.1243 = phi i32 [ %308, %306 ], [ %.0242484, %309 ]
+  %.0246 = phi i32 [ %.0242483, %306 ], [ %315, %309 ]
+  %.1245 = phi ptr [ %.0244482, %306 ], [ %314, %309 ]
+  %.1243 = phi i32 [ %308, %306 ], [ %.0242483, %309 ]
   %.1240 = phi ptr [ %307, %306 ], [ %310, %309 ]
-  %317 = getelementptr inbounds nuw i8, ptr %.0239485, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %.0239484, i64 8
   %318 = load i8, ptr %317, align 8, !tbaa !41
   %319 = icmp eq i8 %318, 0
   br i1 %319, label %567, label %320, !prof !45
@@ -1328,7 +1328,7 @@ _php_array_to_envp.exit:                          ; preds = %._crit_edge126.i, %
   br label %close_all_descriptors.exit
 
 322:                                              ; preds = %320
-  %323 = sext i32 %.0236487 to i64
+  %323 = sext i32 %.0236486 to i64
   %324 = getelementptr inbounds %struct._descriptorspec_item, ptr %294, i64 %323
   store i32 %.0246, ptr %324, align 4, !tbaa !90
   %325 = load i8, ptr %317, align 8, !tbaa !41
@@ -1336,7 +1336,7 @@ _php_array_to_envp.exit:                          ; preds = %._crit_edge126.i, %
   br i1 %326, label %327, label %330, !prof !45
 
 327:                                              ; preds = %322
-  %328 = load ptr, ptr %.0239485, align 8, !tbaa !41
+  %328 = load ptr, ptr %.0239484, align 8, !tbaa !41
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %328, i64 16
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !41
@@ -1344,7 +1344,7 @@ _php_array_to_envp.exit:                          ; preds = %._crit_edge126.i, %
 
 330:                                              ; preds = %327, %322
   %331 = phi i8 [ %.pre, %327 ], [ %325, %322 ]
-  %.0241 = phi ptr [ %329, %327 ], [ %.0239485, %322 ]
+  %.0241 = phi ptr [ %329, %327 ], [ %.0239484, %322 ]
   switch i8 %331, label %564 [
     i8 9, label %332
     i8 7, label %348
@@ -1755,7 +1755,7 @@ zend_hash_index_find_deref.exit.i:                ; preds = %486
 500:                                              ; preds = %496
   %501 = load i64, ptr %.0.i.ph.i, align 8, !tbaa !41
   %502 = trunc i64 %501 to i32
-  %503 = call fastcc i32 @redirect_proc_descriptor(ptr noundef nonnull %324, i32 noundef %502, ptr noundef nonnull %294, i32 noundef %.0236487, i32 noundef %.0246)
+  %503 = call fastcc i32 @redirect_proc_descriptor(ptr noundef nonnull %324, i32 noundef %502, ptr noundef nonnull %294, i32 noundef %.0236486, i32 noundef %.0246)
   br label %zend_string_release.exit64.i
 
 zend_string_equals_cstr.exit74.thread.i:          ; preds = %zend_string_equals_cstr.exit74.i, %zend_string_equals.exit.thread110.i
@@ -1919,12 +1919,12 @@ set_proc_descriptor_from_array.exit:              ; preds = %zend_string_release
   br label %close_all_descriptors.exit
 
 565:                                              ; preds = %set_proc_descriptor_from_resource.exit, %set_proc_descriptor_from_array.exit
-  %566 = add nsw i32 %.0236487, 1
+  %566 = add nsw i32 %.0236486, 1
   br label %567
 
 567:                                              ; preds = %565, %316
-  %.1 = phi i32 [ %566, %565 ], [ %.0236487, %316 ]
-  %568 = add i32 %.0238486, -1
+  %.1 = phi i32 [ %566, %565 ], [ %.0236486, %316 ]
+  %568 = add i32 %.0238485, -1
   %.not270 = icmp eq i32 %568, 0
   br i1 %.not270, label %._crit_edge, label %303
 
@@ -2014,8 +2014,8 @@ set_proc_descriptor_from_array.exit:              ; preds = %zend_string_release
   br i1 %exitcond.not.i335, label %close_all_descriptors.exit, label %.lr.ph.i331
 
 close_parentends_of_pipes.exit:                   ; preds = %591, %._crit_edge.thread, %._crit_edge
-  %.not4661.i530 = phi i1 [ false, %._crit_edge.thread ], [ false, %._crit_edge ], [ true, %591 ]
-  %.0236.lcssa529 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ], [ %.1, %591 ]
+  %.not4661.i528 = phi i1 [ false, %._crit_edge.thread ], [ false, %._crit_edge ], [ true, %591 ]
+  %.0236.lcssa527 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ], [ %.1, %591 ]
   %.not273 = icmp eq ptr %.0370, null
   br i1 %.not273, label %606, label %602
 
@@ -2065,10 +2065,10 @@ close_parentends_of_pipes.exit:                   ; preds = %591, %._crit_edge.t
   br i1 %.not278, label %635, label %624
 
 624:                                              ; preds = %622
-  br i1 %.not4661.i530, label %.lr.ph.preheader.i337, label %close_all_descriptors.exit344
+  br i1 %.not4661.i528, label %.lr.ph.preheader.i337, label %close_all_descriptors.exit344
 
 .lr.ph.preheader.i337:                            ; preds = %624
-  %wide.trip.count.i338 = zext nneg i32 %.0236.lcssa529 to i64
+  %wide.trip.count.i338 = zext nneg i32 %.0236.lcssa527 to i64
   br label %.lr.ph.i339
 
 .lr.ph.i339:                                      ; preds = %633, %.lr.ph.preheader.i337
@@ -2147,13 +2147,13 @@ close_all_descriptors.exit344:                    ; preds = %633, %624
 zend_string_copy.exit:                            ; preds = %651, %657
   %660 = getelementptr inbounds nuw i8, ptr %652, i64 16
   store ptr %653, ptr %660, align 8, !tbaa !40
-  %661 = sext i32 %.0236.lcssa529 to i64
+  %661 = sext i32 %.0236.lcssa527 to i64
   %662 = shl nsw i64 %661, 3
   %663 = call noalias ptr @_emalloc(i64 noundef %662) #17
   %664 = getelementptr inbounds nuw i8, ptr %652, i64 8
   store ptr %663, ptr %664, align 8, !tbaa !21
   %665 = getelementptr inbounds nuw i8, ptr %652, i64 4
-  store i32 %.0236.lcssa529, ptr %665, align 4, !tbaa !13
+  store i32 %.0236.lcssa527, ptr %665, align 4, !tbaa !13
   %666 = load i32, ptr %13, align 4, !tbaa !4
   store i32 %666, ptr %652, align 8, !tbaa !31
   %667 = getelementptr inbounds nuw i8, ptr %652, i64 24
@@ -2162,15 +2162,15 @@ zend_string_copy.exit:                            ; preds = %651, %657
   store ptr %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !98
   %668 = getelementptr inbounds nuw i8, ptr %652, i64 44
   store i8 0, ptr %668, align 4, !tbaa !27
-  br i1 %.not4661.i530, label %.lr.ph495, label %._crit_edge496
+  br i1 %.not4661.i528, label %.lr.ph494, label %._crit_edge495
 
-.lr.ph495:                                        ; preds = %zend_string_copy.exit
+.lr.ph494:                                        ; preds = %zend_string_copy.exit
   %669 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %670 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  %wide.trip.count = zext nneg i32 %.0236.lcssa529 to i64
+  %wide.trip.count = zext nneg i32 %.0236.lcssa527 to i64
   br label %671
 
-671:                                              ; preds = %.lr.ph495, %712
+671:                                              ; preds = %.lr.ph494, %712
   %indvars.iv = phi i64 [ 0, %.lr.ph495 ], [ %indvars.iv.next, %712 ]
   %672 = getelementptr inbounds nuw %struct._descriptorspec_item, ptr %294, i64 %indvars.iv
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 8
@@ -2251,9 +2251,9 @@ switch.lookup:                                    ; preds = %678
 712:                                              ; preds = %.thread441, %693, %692
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge496, label %671
+  br i1 %exitcond.not, label %._crit_edge495, label %671
 
-._crit_edge496:                                   ; preds = %712, %zend_string_copy.exit
+._crit_edge495:                                   ; preds = %712, %zend_string_copy.exit
   %713 = load i32, ptr @le_proc_open, align 4, !tbaa !4
   %714 = call ptr @zend_register_resource(ptr noundef nonnull %652, i32 noundef %713) #13
   store ptr %714, ptr %1, align 8, !tbaa !41
@@ -2275,7 +2275,7 @@ close_all_descriptors.exit:                       ; preds = %get_string_paramete
   call void @_efree(ptr noundef nonnull %.sroa.0224.0) #13
   br label %_php_free_envp.exit
 
-_php_free_envp.exit:                              ; preds = %717, %716, %._crit_edge496
+_php_free_envp.exit:                              ; preds = %717, %716, %._crit_edge495
   %.sink = phi i32 [ 265, %._crit_edge496 ], [ 2, %716 ], [ 2, %717 ]
   %718 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %718, align 8, !tbaa !41

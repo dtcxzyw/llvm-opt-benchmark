@@ -17990,15 +17990,15 @@ define void @compute_samples(i32 noundef %0, ptr noundef writeonly captures(none
   %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 1136623616)
   %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 1136689151)
   %25 = trunc i32 %24 to i16
-  %gep79 = getelementptr inbounds nuw i16, ptr %invariant.gep78, i64 %indvars.iv68
-  store i16 %25, ptr %gep79, align 2, !tbaa !36
+  %gep78 = getelementptr inbounds nuw i16, ptr %invariant.gep77, i64 %indvars.iv68
+  store i16 %25, ptr %gep78, align 2, !tbaa !36
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !334
 
 .lr.ph.us.preheader:                              ; preds = %..loopexit_crit_edge.us.us
   %wide.trip.count71 = zext nneg i32 %spec.select.us to i64
-  %invariant.gep78 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv73
+  %invariant.gep77 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv73
   br label %.lr.ph.us
 
 .lr.ph42.split.us.us:                             ; preds = %.lr.ph42.split.us.us.preheader, %..loopexit_crit_edge.us.us
@@ -18408,7 +18408,7 @@ define void @convert_samples_short(i32 noundef %0, ptr noundef readonly captures
   br i1 %exitcond67.not.i.us, label %..preheader39_crit_edge.us.i.us, label %.lr.ph42.split.us.us.i.us, !llvm.loop !336
 
 ..preheader39_crit_edge.us.i.us:                  ; preds = %..loopexit_crit_edge.us.us.i.us
-  %invariant.gep78.i.us = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv73.i.us
+  %invariant.gep77.i.us = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv73.i.us
   br label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %.lr.ph.us.i.us, %..preheader39_crit_edge.us.i.us
@@ -18420,8 +18420,8 @@ define void @convert_samples_short(i32 noundef %0, ptr noundef readonly captures
   %61 = tail call i32 @llvm.smax.i32(i32 %60, i32 1136623616)
   %62 = tail call i32 @llvm.umin.i32(i32 %61, i32 1136689151)
   %63 = trunc i32 %62 to i16
-  %gep79.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep78.i.us, i64 %indvars.iv68.i.us
-  store i16 %63, ptr %gep79.i.us, align 2, !tbaa !36
+  %gep78.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep77.i.us, i64 %indvars.iv68.i.us
+  store i16 %63, ptr %gep78.i.us, align 2, !tbaa !36
   %indvars.iv.next69.i.us = add nuw nsw i64 %indvars.iv68.i.us, 1
   %exitcond72.not.i.us = icmp eq i64 %indvars.iv.next69.i.us, %wide.trip.count.i.us
   br i1 %exitcond72.not.i.us, label %._crit_edge.us.i.us, label %.lr.ph.us.i.us, !llvm.loop !334

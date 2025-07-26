@@ -155,7 +155,7 @@ read_ip_port.exit.thread.thread:                  ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   br label %.outer.split.i
 
-.thread.i:                                        ; preds = %.outer.i
+.outer.split.us.i:                                ; preds = %.outer.i
   %15 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 256, ptr noundef nonnull %11)
   %16 = call i32 @fclose(ptr noundef nonnull %11)
   br label %read_ip_port.exit
@@ -217,7 +217,7 @@ read_ip_port.exit.thread.thread:                  ; preds = %10
   %37 = select i1 %.0.ph27.i, i1 %.012.ph26.i, i1 false
   br i1 %37, label %read_ip_port.exit, label %read_ip_port.exit.thread
 
-read_ip_port.exit.thread:                         ; preds = %.critedge.i
+read_ip_port.exit.thread: ; preds = %.critedge.i
   %.str.17.mux = select i1 %.0.ph27.i, ptr @.str.18, ptr @.str.17
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull %.str.17.mux) #20
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #20
@@ -238,8 +238,8 @@ read_ip_port.exit:                                ; preds = %.critedge.i, %.thre
   br i1 %39, label %pmix_obj_run_constructors.exit, label %43
 
 43:                                               ; preds = %read_ip_port.exit.thread, %42
-  %.33839 = phi ptr [ %.131, %read_ip_port.exit.thread ], [ %.3, %42 ]
-  call void @free(ptr noundef nonnull %.33839) #20
+  %.54041 = phi ptr [ %.131, %read_ip_port.exit.thread ], [ %.3, %42 ]
+  call void @free(ptr noundef nonnull %.54041) #20
   br label %pmix_obj_run_constructors.exit
 
 44:                                               ; preds = %read_ip_port.exit

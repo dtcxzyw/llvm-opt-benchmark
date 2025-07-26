@@ -2163,8 +2163,8 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
   %41 = and i32 %spec.select.i, 7
   %42 = shl nuw nsw i32 1, %41
   %43 = and i32 %42, %40
-  %.fr85 = freeze i32 %43
-  %44 = icmp eq i32 %.fr85, 0
+  %.fr84 = freeze i32 %43
+  %44 = icmp eq i32 %.fr84, 0
   br i1 %44, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 
 45:                                               ; preds = %33

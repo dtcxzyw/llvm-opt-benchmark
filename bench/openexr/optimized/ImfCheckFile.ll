@@ -5416,8 +5416,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit127.thread.i:        ; preds = %347
 ..thread205_crit_edge.us.i:                       ; preds = %.thread200.us.i.loopexit186.us, %.thread200.us.i
   %.us-phi250 = phi i1 [ %.179308.us.i, %.thread200.us.i ], [ %.583.us.i.us, %.thread200.us.i.loopexit186.us ]
   %459 = add nuw nsw i32 %.070310.us.i, 1
-  %exitcond346.not.i = icmp eq i32 %459, %300
-  br i1 %exitcond346.not.i, label %.loopexit251.i, label %.preheader250.us.i, !llvm.loop !144
+  %exitcond345.not.i = icmp eq i32 %459, %300
+  br i1 %exitcond345.not.i, label %.loopexit251.i, label %.preheader250.us.i, !llvm.loop !144
 
 .split291.split.us.i.split:                       ; preds = %.preheader249.split.us321.i
   %460 = landingpad { ptr, i32 }
@@ -8640,8 +8640,8 @@ default.unreachable:                              ; preds = %96
 
 ..thread205_crit_edge.us:                         ; preds = %.thread200.us
   %169 = add nuw nsw i32 %.070310.us, 1
-  %exitcond346.not = icmp eq i32 %169, %21
-  br i1 %exitcond346.not, label %.loopexit251, label %.preheader250.us, !llvm.loop !203
+  %exitcond345.not = icmp eq i32 %169, %21
+  br i1 %exitcond345.not, label %.loopexit251, label %.preheader250.us, !llvm.loop !203
 
 .split291.split.us:                               ; preds = %.preheader249.split.us321
   %170 = landingpad { ptr, i32 }

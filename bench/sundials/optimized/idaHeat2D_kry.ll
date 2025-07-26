@@ -456,8 +456,8 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
 
 ._crit_edge.us:                                   ; preds = %17
   %28 = add nuw nsw i64 %.04956.us, 1
-  %exitcond75.not = icmp eq i64 %28, %.fr72
-  br i1 %exitcond75.not, label %._crit_edge59, label %.lr.ph.us, !llvm.loop !22
+  %exitcond74.not = icmp eq i64 %28, %.fr72
+  br i1 %exitcond74.not, label %._crit_edge59, label %.lr.ph.us, !llvm.loop !22
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us, %4
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %2) #10
@@ -527,7 +527,7 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
   %64 = mul nuw nsw i64 %.15062.us, %.fr72
   %65 = icmp eq i64 %.15062.us, 0
   %66 = getelementptr double, ptr %7, i64 %64
-  %67 = icmp eq i64 %.15062.us, %8
+  %66 = icmp eq i64 %.15062.us, %8
   %or.cond = or i1 %65, %67
   br i1 %or.cond, label %._crit_edge.us69.sink.split, label %.lr.ph.split.split.us70
 
@@ -545,10 +545,10 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
 
 72:                                               ; preds = %70, %.lr.ph.split.split.us70
   %73 = add nuw nsw i64 %.160.us65, 1
-  %exitcond76.not = icmp eq i64 %73, %.fr72
-  br i1 %exitcond76.not, label %._crit_edge.us69, label %.lr.ph.split.split.us70
+  %exitcond75.not = icmp eq i64 %73, %.fr72
+  br i1 %exitcond75.not, label %._crit_edge.us69, label %.lr.ph.split.split.us70
 
-._crit_edge.us69.sink.split:                      ; preds = %.lr.ph.us66
+.lr.ph.split.us68:                                ; preds = %.lr.ph.us66
   %74 = mul i64 %63, %.15062.us
   %scevgep77 = getelementptr i8, ptr %7, i64 %74
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep77, i8 0, i64 %63, i1 false), !tbaa !20
@@ -556,8 +556,8 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
 
 ._crit_edge.us69:                                 ; preds = %72, %._crit_edge.us69.sink.split
   %75 = add nuw nsw i64 %.15062.us, 1
-  %exitcond78.not = icmp eq i64 %75, %.fr72
-  br i1 %exitcond78.not, label %._crit_edge64, label %.lr.ph.us66, !llvm.loop !25
+  %exitcond77.not = icmp eq i64 %75, %.fr72
+  br i1 %exitcond77.not, label %._crit_edge64, label %.lr.ph.us66, !llvm.loop !25
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us69, %resHeat.exit
   ret void

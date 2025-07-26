@@ -2153,7 +2153,7 @@ PyObject_TypeCheck.exit.thread.i.i:               ; preds = %PyObject_TypeCheck.
   %.val43.i.i = load i16, ptr %40, align 2
   %41 = and i16 %.val43.i.i, 16
   %.not39.i.i = icmp eq i16 %41, 0
-  br i1 %.not39.i.i, label %42, label %is_normalized_quickcheck.exit.thread.thread.i
+  br i1 %.not39.i.i, label %42, label %is_normalized_quickcheck.exit.thread.thread34.i
 
 42:                                               ; preds = %PyObject_TypeCheck.exit.thread.i.i
   %43 = select i1 %.023.i, i32 4, i32 0
@@ -2173,7 +2173,7 @@ _PyUnicode_DATA.exit.i.i:                         ; preds = %49, %42
   %.0.i.i.i = phi ptr [ %.val4.i.i.i, %49 ], [ %48, %42 ]
   %.val42.i.i = load i64, ptr %20, align 8, !tbaa !21
   %50 = icmp sgt i64 %.val42.i.i, 0
-  br i1 %50, label %.lr.ph.i.i, label %is_normalized_quickcheck.exit.thread.thread.i
+  br i1 %50, label %.lr.ph.i.i, label %is_normalized_quickcheck.exit.thread.thread34.i
 
 .lr.ph.i.i:                                       ; preds = %_PyUnicode_DATA.exit.i.i
   switch i16 %46, label %PyUnicode_READ.exit.i.i [
@@ -2362,7 +2362,7 @@ Py_DECREF.exit.i:                                 ; preds = %145, %142, %139
   %147 = select i1 %146, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   br label %is_normalized_quickcheck.exit.thread.thread.i
 
-is_normalized_quickcheck.exit.thread.thread.i:    ; preds = %99, %PyUnicode_READ.exit.thread.us84.i.i, %71, %PyUnicode_READ.exit.thread.us68.i.i, %127, %_getrecord_ex.exit.i.i, %Py_DECREF.exit.i, %is_normalized_quickcheck.exit.i, %_PyUnicode_DATA.exit.i.i, %PyObject_TypeCheck.exit.thread.i.i
+is_normalized_quickcheck.exit.thread.thread34.i:  ; preds = %99, %PyUnicode_READ.exit.thread.us84.i.i, %71, %PyUnicode_READ.exit.thread.us68.i.i, %127, %_getrecord_ex.exit.i.i, %Py_DECREF.exit.i, %is_normalized_quickcheck.exit.i, %_PyUnicode_DATA.exit.i.i, %PyObject_TypeCheck.exit.thread.i.i
   %.021.i = phi ptr [ %147, %Py_DECREF.exit.i ], [ @_Py_TrueStruct, %is_normalized_quickcheck.exit.i ], [ @_Py_TrueStruct, %PyObject_TypeCheck.exit.thread.i.i ], [ @_Py_TrueStruct, %_PyUnicode_DATA.exit.i.i ], [ @_Py_FalseStruct, %_getrecord_ex.exit.i.i ], [ @_Py_FalseStruct, %127 ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us68.i.i ], [ @_Py_FalseStruct, %71 ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us84.i.i ], [ @_Py_FalseStruct, %99 ]
   %148 = load i32, ptr %.021.i, align 8, !tbaa !24
   %149 = icmp slt i32 %148, 0

@@ -167,7 +167,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %.sroa.16.3.i = phi i32 [ %.sroa.16.2.i, %63 ], [ %spec.select103.i, %64 ]
   %.sroa.041.3.i = phi i32 [ %.sroa.041.2.i, %63 ], [ %spec.select104.i, %64 ]
   %68 = icmp ne i32 %.sroa.041.3.i, -1
-  %69 = icmp slt i32 %.sroa.16.3.i, 2
+  %68 = icmp slt i32 %.sroa.16.3.i, 2
   %or.cond4.i = select i1 %68, i1 %69, i1 false
   %spec.select.i = select i1 %or.cond4.i, i32 -1, i32 %.sroa.041.3.i
   %spec.select.fr.i = freeze i32 %spec.select.i
@@ -181,15 +181,15 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   br i1 %71, label %.split.i, label %.split.us.preheader.i
 
 .split.us.preheader.i:                            ; preds = %67
-  %76 = sext i32 %spec.select.fr.i to i64
-  %77 = sext i32 %70 to i64
-  %78 = zext i32 %spec.select.fr.i to i64
+  %75 = sext i32 %spec.select.fr.i to i64
+  %76 = sext i32 %70 to i64
+  %77 = zext i32 %spec.select.fr.i to i64
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %92, %.split.us.preheader.i
   %indvars.iv159.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next160.i, %92 ]
   %.084126.us.i = phi ptr [ %6, %.split.us.preheader.i ], [ %.286.us.i, %92 ]
-  %.not89.us.i = icmp sge i64 %indvars.iv159.i, %76
+  %.not89.us.i = icmp sge i64 %indvars.iv159.i, %75
   %or.cond96.not115.us.i = and i1 %.not88.i, %.not89.us.i
   %79 = icmp slt i64 %indvars.iv159.i, %77
   %or.cond98.us.i = select i1 %or.cond96.not115.us.i, i1 %79, i1 false
@@ -214,7 +214,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   br label %92
 
 88:                                               ; preds = %.split.us.i
-  %89 = icmp eq i64 %indvars.iv159.i, %78
+  %89 = icmp eq i64 %indvars.iv159.i, %77
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88

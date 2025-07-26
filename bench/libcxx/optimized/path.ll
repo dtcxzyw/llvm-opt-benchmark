@@ -1082,12 +1082,12 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   %58 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #22
           to label %59 unwind label %.loopexit141
 
-59:                                               ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEEEEEEDaRT_m.exit.i.i.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %45
-  store ptr %.sroa.0.0.i109.ph, ptr %60, align 8, !tbaa !13
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
+.noexc46:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEEEEEEDaRT_m.exit.i.i.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %45
+  store ptr %.sroa.0.0.i109.ph, ptr %59, align 8, !tbaa !13
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.6.0.i108.ph, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !19
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i8 %.0.i.ph, ptr %61, align 8, !tbaa !58
   %.neg.i.i.i.i = sdiv exact i64 %45, -24
   %62 = getelementptr inbounds %"struct.std::__1::pair.2", ptr %60, i64 %.neg.i.i.i.i
@@ -1181,12 +1181,12 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   %94 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %93) #22
           to label %95 unwind label %.loopexit
 
-95:                                               ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEEEEEEDaRT_m.exit.i.i.i.i53
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 %81
+.noexc61:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEEEEEEDaRT_m.exit.i.i.i.i53
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %81
   store ptr @.str.1, ptr %96, align 8, !tbaa !13
-  %.sroa.3.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %.sroa.3.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 2, ptr %.sroa.3.0..sroa_idx.i54, align 8, !tbaa !19
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store i8 4, ptr %97, align 8, !tbaa !58
   %.neg.i.i.i.i55 = sdiv exact i64 %81, -24
   %98 = getelementptr inbounds %"struct.std::__1::pair.2", ptr %96, i64 %.neg.i.i.i.i55
@@ -1196,7 +1196,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %87) #21
   br label %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit"
 
-"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit": ; preds = %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit", %26, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit, %95, %75, %59, %39, %68
+"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit": ; preds = %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit", %26, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit, %.noexc61, %75, %.noexc46, %39, %68
   %.sroa.0.2 = phi ptr [ %.sroa.0.0, %68 ], [ %.sroa.0.0, %39 ], [ %62, %59 ], [ %.sroa.0.0, %75 ], [ %98, %95 ], [ %.sroa.0.0, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ], [ %.sroa.0.0, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i ], [ %.sroa.0.0, %26 ], [ %.sroa.0.0, %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit" ]
   %.sroa.17.1 = phi ptr [ %69, %68 ], [ %41, %39 ], [ %63, %59 ], [ %77, %75 ], [ %99, %95 ], [ %.sroa.17.0, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ], [ %.sroa.17.0, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i ], [ %.sroa.17.0, %26 ], [ %.sroa.17.0, %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit" ]
   %.sroa.35.2 = phi ptr [ %.sroa.35.0, %68 ], [ %.sroa.35.0, %39 ], [ %64, %59 ], [ %.sroa.35.0, %75 ], [ %100, %95 ], [ %.sroa.35.0, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ], [ %.sroa.35.0, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i ], [ %.sroa.35.0, %26 ], [ %.sroa.35.0, %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit" ]
@@ -1208,7 +1208,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
 101:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit141, %.loopexit.split-lp142
   %.pn28 = phi { ptr, i32 } [ %lpad.loopexit143, %.loopexit141 ], [ %lpad.loopexit.split-lp144, %.loopexit.split-lp142 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #19
-  br label %_ZNSt3__16vectorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEENS_9allocatorIS9_EEED2B8ne210000Ev.exit76
+  br label %.body
 
 102:                                              ; preds = %28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1221,7 +1221,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   %106 = load i8, ptr %0, align 8
   %107 = and i8 %106, 1
   %.not.i.i63 = icmp eq i8 %107, 0
-  br i1 %.not.i.i63, label %_ZNSt3__16vectorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEENS_9allocatorIS9_EEED2B8ne210000Ev.exit76, label %108
+  br i1 %.not.i.i63, label %.body, label %108
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1229,7 +1229,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   %111 = load i64, ptr %0, align 8
   %112 = and i64 %111, -2
   call void @_ZdlPvm(ptr noundef %110, i64 noundef %112) #21
-  br label %_ZNSt3__16vectorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEENS_9allocatorIS9_EEED2B8ne210000Ev.exit76
+  br label %.body
 
 113:                                              ; preds = %28
   br i1 %.024, label %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit65", label %117
@@ -1321,7 +1321,7 @@ _ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_tr
   %151 = load i8, ptr %0, align 8
   %152 = and i8 %151, 1
   %.not.i.i72 = icmp eq i8 %152, 0
-  br i1 %.not.i.i72, label %_ZNSt3__16vectorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEENS_9allocatorIS9_EEED2B8ne210000Ev.exit76, label %153
+  br i1 %.not.i.i72, label %.body, label %153
 
 153:                                              ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1329,16 +1329,16 @@ _ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_tr
   %156 = load i64, ptr %0, align 8
   %157 = and i64 %156, -2
   call void @_ZdlPvm(ptr noundef %155, i64 noundef %157) #21
-  br label %_ZNSt3__16vectorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEENS_9allocatorIS9_EEED2B8ne210000Ev.exit76
+  br label %.body
 
-_ZNSt3__14__fs10filesystem4pathC2B8ne210000IA2_cvEERKT_NS2_6formatE.exit: ; preds = %102, %148, %._crit_edge
-  %158 = ptrtoint ptr %.sroa.35.0 to i64
-  %159 = ptrtoint ptr %.sroa.0.0 to i64
-  %160 = sub i64 %158, %159
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %160) #21
+_ZNSt3__14__fs10filesystem4pathC2B8ne210000IA2_cvEERKT_NS2_6formatE.exit:; preds = %102, %148, %._crit_edge
+  %159 = ptrtoint ptr %.sroa.35.0 to i64
+  %160 = ptrtoint ptr %.sroa.0.0 to i64
+  %161 = sub i64 %159, %160
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %161) #21
   br label %_ZNSt3__14__fs10filesystem4pathC2B8ne210000ERKS2_.exit
 
-_ZNSt3__16vectorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEENS_9allocatorIS9_EEED2B8ne210000Ev.exit76: ; preds = %101, %104, %108, %150, %153
+.body:                                            ; preds = %101, %104, %108, %150, %153
   %.pn28.pn.pn = phi { ptr, i32 } [ %.pn28, %101 ], [ %105, %108 ], [ %105, %104 ], [ %.pn, %150 ], [ %.pn, %153 ]
   %161 = ptrtoint ptr %.sroa.35.0 to i64
   %162 = ptrtoint ptr %.sroa.0.0 to i64
