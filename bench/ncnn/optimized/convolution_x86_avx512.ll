@@ -86700,8 +86700,8 @@ _ZN17FastDivider_epu32C2Ej.exit.i.i:              ; preds = %496, %486
   %788 = mul <8 x i32> %787, %539
   %789 = mul <8 x i32> %785, %541
   %790 = add <8 x i32> %788, %789
-  %shift371 = shufflevector <8 x i32> %789, <8 x i32> poison, <8 x i32> <i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %791 = icmp eq <8 x i32> %789, %shift371
+  %shift372 = shufflevector <8 x i32> %789, <8 x i32> poison, <8 x i32> <i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %791 = icmp eq <8 x i32> %789, %shift372
   %792 = extractelement <8 x i1> %791, i64 0
   %or.cond3.i.i = and i1 %94, %792
   br i1 %or.cond3.i.i, label %793, label %879
@@ -87002,8 +87002,8 @@ _ZN17FastDivider_epu32C2Ej.exit.i.i:              ; preds = %496, %486
   %1002 = mul <4 x i32> %1001, %757
   %1003 = mul <4 x i32> %999, %759
   %1004 = add <4 x i32> %1002, %1003
-  %shift372 = shufflevector <4 x i32> %1003, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %1005 = icmp eq <4 x i32> %1003, %shift372
+  %shift371 = shufflevector <4 x i32> %1003, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %1005 = icmp eq <4 x i32> %1003, %shift371
   %1006 = extractelement <4 x i1> %1005, i64 0
   %or.cond5.i.i = and i1 %94, %1006
   br i1 %or.cond5.i.i, label %1007, label %1106
