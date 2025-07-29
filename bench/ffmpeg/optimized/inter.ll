@@ -1350,13 +1350,13 @@ define internal fastcc void @pred_regular_blk(ptr noundef %0, i32 noundef range(
   %43 = icmp sgt i32 %19, 0
   br i1 %43, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %.preheader.lr.ph
+.preheader.preheader:; preds = %.preheader.lr.ph
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %46 = phi i32 [ %50, %._crit_edge ], [ %24, %.preheader.preheader ]
+.preheader:; preds = %.preheader.preheader, %._crit_edge
+  %.04047 = phi i32 [ %50, %._crit_edge ], [ %24, %.preheader.preheader ]
   %47 = phi i32 [ %51, %._crit_edge ], [ %19, %.preheader.preheader ]
   %.048 = phi i32 [ %52, %._crit_edge ], [ 0, %.preheader.preheader ]
   %.04047 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader.preheader ]
@@ -1597,7 +1597,7 @@ define internal fastcc void @pred_regular_blk(ptr noundef %0, i32 noundef range(
   %157 = and i32 %.us-phi139.i.i, -5
   %158 = icmp ne i32 %157, 0
   %or.cond7.i.i = select i1 %or.cond3.i.i, i1 %158, i1 false
-  br i1 %or.cond7.i.i, label %159, label %.loopexit.i.i.loopexit.critedge
+  br i1 %or.cond7.i.i, label %159, label %.loopexit.i.i.critedge
 
 159:                                              ; preds = %151
   %160 = sext i32 %.us-phi139.i.i to i64
@@ -1705,9 +1705,9 @@ parametric_mv_refine.exit.i.i:                    ; preds = %188, %174, %172, %1
 parametric_mv_refine.exit132.i.i:                 ; preds = %214, %200, %198, %parametric_mv_refine.exit.i.i
   %.034.i131.i.i = phi i32 [ %.135.i130.i.i, %214 ], [ 0, %parametric_mv_refine.exit.i.i ], [ -8, %198 ], [ 8, %200 ]
   %216 = add nsw i32 %.034.i131.i.i, %155
-  br label %.loopexit.i.i.loopexit.critedge
+  br label %.loopexit.i.i.critedge
 
-.loopexit.i.i.loopexit.critedge:                  ; preds = %parametric_mv_refine.exit132.i.i, %151
+.loopexit.i.i.critedge:                           ; preds = %parametric_mv_refine.exit132.i.i, %151
   %.sroa.6.0.i.i = phi i32 [ %216, %parametric_mv_refine.exit132.i.i ], [ %155, %151 ]
   %.sroa.0.0.i.i = phi i32 [ %190, %parametric_mv_refine.exit132.i.i ], [ %153, %151 ]
   %217 = load i32, ptr %7, align 8, !tbaa !104
@@ -1726,7 +1726,7 @@ parametric_mv_refine.exit132.i.i:                 ; preds = %214, %200, %198, %p
   call void @ff_vvc_clip_mv(ptr noundef nonnull %indvars.iv.i27.i.sroa.gep38) #6
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %.loopexit.i.i.loopexit.critedge, %97
+.loopexit.i.i:                                    ; preds = %.loopexit.i.i.critedge, %97
   %.0111.i.i = phi i32 [ %102, %97 ], [ %.us-phi.i.i, %.loopexit.i.i.loopexit.critedge ]
   %225 = icmp slt i32 %.0111.i.i, %factor.op.mul.reass
   %spec.select41 = select i1 %225, i32 0, i32 %spec.select

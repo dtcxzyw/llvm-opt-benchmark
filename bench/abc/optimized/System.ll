@@ -20,33 +20,33 @@ define noundef double @_ZN5Gluco7memUsedEv() local_unnamed_addr #0 {
   %4 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3) #8
   %5 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.1)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZL11memReadStati.exit, label %.preheader.i
+  br i1 %6, label %_ZL11memReadStati.exit, label %.critedge.i
 
-.preheader.i:                                     ; preds = %0
+.critedge.i:                                      ; preds = %0
   %7 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #8
   %.not.i = icmp eq i32 %7, 1
-  br i1 %.not.i, label %.critedge, label %8, !llvm.loop !3
+  br i1 %.not.i, label %9, label %8, !llvm.loop !3
 
-8:                                                ; preds = %.preheader.i
+8:                                                ; preds = %.critedge.i
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @exit(i32 noundef 1) #9
   unreachable
 
-.critedge:                                        ; preds = %.preheader.i
-  %9 = call i32 @fclose(ptr noundef nonnull %5)
-  %10 = load i32, ptr %2, align 4, !tbaa !5
-  %11 = sitofp i32 %10 to double
+9:                                                ; preds = %.critedge.i
+  %10 = call i32 @fclose(ptr noundef nonnull %5)
+  %11 = load i32, ptr %2, align 4, !tbaa !5
+  %12 = sitofp i32 %11 to double
   br label %_ZL11memReadStati.exit
 
-_ZL11memReadStati.exit:                           ; preds = %0, %.critedge
-  %.0.i = phi double [ %11, %.critedge ], [ 0.000000e+00, %0 ]
+_ZL11memReadStati.exit:                           ; preds = %0, %9
+  %.0.i = phi double [ %12, %.critedge ], [ 0.000000e+00, %0 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #8
-  %12 = tail call i32 @getpagesize() #10
-  %13 = sitofp i32 %12 to double
-  %14 = fmul double %.0.i, %13
-  %15 = fmul double %14, 0x3EB0000000000000
-  ret double %15
+  %13 = tail call i32 @getpagesize() #10
+  %14 = sitofp i32 %13 to double
+  %15 = fmul double %.0.i, %14
+  %16 = fmul double %15, 0x3EB0000000000000
+  ret double %16
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

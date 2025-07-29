@@ -555,7 +555,7 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   %28 = add nsw i32 %6, -1
   %29 = icmp sgt i32 %6, 3
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  br i1 %29, label %.preheader.us.i, label %.preheader.i
+  br i1 %29, label %.preheader.us.i, label %.critedge
 
 .preheader.us.i:                                  ; preds = %26, %35
   %31 = phi i1 [ false, %35 ], [ true, %26 ]
@@ -626,7 +626,7 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.us-phi86.i, i32 noundef %.us-phi.i) #10
   br label %ff_h264_handle_aggregated_packet.exit
 
-.preheader.i:                                     ; preds = %26
+.critedge:                                        ; preds = %26
   %61 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef 0) #10
   %spec.select = tail call i32 @llvm.smin.i32(i32 %61, i32 0)
   br label %ff_h264_handle_aggregated_packet.exit
@@ -683,7 +683,7 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %15) #10
   br label %ff_h264_handle_aggregated_packet.exit
 
-ff_h264_handle_aggregated_packet.exit:            ; preds = %._crit_edge.us.i, %32, %.preheader.i, %83, %66, %65, %.thread.i, %88, %62, %20
+ff_h264_handle_aggregated_packet.exit:            ; preds = %._crit_edge.us.i, %32, %.critedge, %83, %66, %65, %.thread.i, %88, %62, %20
   %.0 = phi i32 [ -1094995529, %88 ], [ %18, %20 ], [ -1163346256, %62 ], [ -1094995529, %.thread.i ], [ -1094995529, %65 ], [ 0, %83 ], [ %75, %66 ], [ %spec.select, %.preheader.i ], [ %33, %32 ], [ 0, %._crit_edge.us.i ]
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %90 = load i32, ptr %89, align 8, !tbaa !52

@@ -46,14 +46,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_tool_relay_op(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq i8 %0, 9
-  br i1 %5, label %.split122.us, label %.critedge, !llvm.loop !3
+  br i1 %5, label %5, label %.critedge, !llvm.loop !3
 
-.split122.us:                                     ; preds = %4
+5:                                                ; preds = %4
   %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1632), align 8, !tbaa !5, !range !35, !noundef !36
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %.critedge
 
-8:                                                ; preds = %.split122.us
+8:                                                ; preds = %5
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_shift_caddy_t_class, i64 56), align 8, !tbaa !37
   %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #10
   %11 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !39
@@ -483,7 +483,7 @@ pmix_obj_run_destructors.exit113:                 ; preds = %.lr.ph.i110, %193
   tail call void @free(ptr noundef nonnull %10) #11
   br label %.critedge
 
-.critedge:                                        ; preds = %4, %147, %pmix_obj_update.exit80, %206, %204, %pmix_obj_update.exit77, %119, %117, %.split122.us
+.critedge:                                        ; preds = %4, %147, %pmix_obj_update.exit80, %206, %204, %pmix_obj_update.exit77, %119, %117, %5
   %.0 = phi i32 [ -25, %.split122.us ], [ %.067117, %117 ], [ %.067117, %119 ], [ %.067117, %pmix_obj_update.exit77 ], [ -25, %204 ], [ -25, %206 ], [ -25, %pmix_obj_update.exit80 ], [ 0, %147 ], [ -47, %4 ]
   ret i32 %.0
 }

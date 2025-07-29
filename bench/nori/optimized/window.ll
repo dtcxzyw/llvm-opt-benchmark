@@ -597,9 +597,9 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Window16mouse_drag_eventERKNS_5Arr
   %9 = and i32 %3, 1
   %.not = icmp ne i32 %9, 0
   %or.cond.not = and i1 %.not, %8
-  br i1 %or.cond.not, label %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.preheader.critedge, label %39
+  br i1 %or.cond.not, label %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge, label %39
 
-_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.preheader.critedge: ; preds = %5
+_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge:   ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %2, align 4
   %12 = load i32, ptr %10, align 8
@@ -617,12 +617,12 @@ _ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.preheader.critedge: ; preds = %5
   store i32 %20, ptr %10, align 8
   %.sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %21, ptr %.sroa_idx15, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i32, ptr %24, align 4
-  %27 = load i32, ptr %25, align 8
+  %29 = load i32, ptr %25, align 8
   %28 = sub nsw i32 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %30 = load i32, ptr %29, align 4
@@ -758,7 +758,7 @@ attributes #3 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

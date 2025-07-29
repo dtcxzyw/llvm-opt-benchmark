@@ -12701,7 +12701,7 @@ define internal void @_ZZN12_GLOBAL__N_143TailCallsModifiesTest_WithMetadataFrom
 define internal void @_ZZN12_GLOBAL__N_143TailCallsModifiesTest_WithMetadataFrom_Test8TestBodyEvEN17ForwardingLogSink4SendERKN4absl8LogEntryE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::log_internal::LogMessage", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load i32, ptr %4, align 8, !tbaa !441
@@ -12719,15 +12719,15 @@ define internal void @_ZZN12_GLOBAL__N_143TailCallsModifiesTest_WithMetadataFrom
 
 _ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit: ; preds = %11
   %12 = load ptr, ptr %5, align 8, !tbaa !448
-  %13 = load i64, ptr %6, align 8, !tbaa !449
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
-  %15 = load i64, ptr %7, align 8, !tbaa !450
+  %9 = load i64, ptr %6, align 8, !tbaa !449
+  %10 = getelementptr inbounds nuw i8, ptr %12, i64 %9
+  %11 = load i64, ptr %7, align 8, !tbaa !450
   %reass.sub = sub i64 %15, %13
   %16 = add i64 %reass.sub, -2
   %17 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 %16, ptr %14)
           to label %.loopexit unwind label %18
 
-.loopexit:                                        ; preds = %_ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit
+.loopexit:; preds = %_ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #31
   ret void

@@ -52140,9 +52140,9 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
   %15 = icmp eq ptr %.pre.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14721)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !14722
-  br i1 %15, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst..math..row..MathRun$GT$$GT$17h2f1b00aae658651aE.exit.i", label %16
+  br i1 %15, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst..math..row..MathRun$GT$$GT$17h2f1b00aae658651aE.exit.i", label %._crit_edge
 
-16:                                               ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$typst..math..row..MathRun$GT$$GT$$GT$17hfc917a3cc12f677aE.exit.i", %2
+._crit_edge:                                      ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$typst..math..row..MathRun$GT$$GT$$GT$17hfc917a3cc12f677aE.exit.i", %2
   call void @llvm.experimental.noalias.scope.decl(metadata !14723)
   call void @llvm.experimental.noalias.scope.decl(metadata !14726)
   call void @llvm.experimental.noalias.scope.decl(metadata !14728)
@@ -52449,9 +52449,9 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
   %.pre.i = load ptr, ptr %1, align 8, !alias.scope !14820, !noalias !14823
   %15 = icmp eq ptr %.pre.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14825)
-  br i1 %15, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h589b0c66eeafeaebE.exit.thread.i, label %16
+  br i1 %15, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h589b0c66eeafeaebE.exit.thread.i, label %._crit_edge
 
-16:                                               ; preds = %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$$LP$typst..visualize..color..Color$C$typst..layout..ratio..Ratio$RP$$GT$$GT$$GT$17hd6085f1f76dbfb67E.exit.i", %2
+._crit_edge:                                      ; preds = %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$$LP$typst..visualize..color..Color$C$typst..layout..ratio..Ratio$RP$$GT$$GT$$GT$17hd6085f1f76dbfb67E.exit.i", %2
   call void @llvm.experimental.noalias.scope.decl(metadata !14826)
   call void @llvm.experimental.noalias.scope.decl(metadata !14829)
   %17 = load ptr, ptr %8, align 8, !alias.scope !14832, !noalias !14833, !nonnull !4, !noundef !4

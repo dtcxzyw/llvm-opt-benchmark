@@ -52964,9 +52964,9 @@ define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 nound
   %78 = getelementptr inbounds nuw i8, ptr %56, i64 96
   %.pre.i = load i32, ptr %78, align 8, !tbaa !347
   %79 = icmp eq i32 %.pre.i, 0
-  br i1 %79, label %.lr.ph129, label %sqlite3_recover_errcode.exit
+  br i1 %79, label %.lr.ph129, label %sqlite3_recover_errcode.exit.thread
 
-.split.i:                                         ; preds = %.lr.ph129
+.critedge:                                        ; preds = %.lr.ph129
   br label %.lr.ph129, !llvm.loop !434
 
 .lr.ph129:                                        ; preds = %.split.preheader.i, %.split.i
@@ -52976,24 +52976,24 @@ define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 nound
   %81 = icmp ne i32 %80, 6
   %82 = icmp eq i32 %.pre.pre.i.i, 0
   %or.cond.i = select i1 %81, i1 %82, i1 false
-  br i1 %or.cond.i, label %.split.i, label %.sqlite3_recover_errcode.exit_crit_edge, !llvm.loop !434
+  br i1 %or.cond.i, label %.critedge, label %sqlite3_recover_errcode.exit, !llvm.loop !434
 
-.sqlite3_recover_errcode.exit_crit_edge:          ; preds = %.lr.ph129
+sqlite3_recover_errcode.exit:                     ; preds = %.lr.ph129
   br label %sqlite3_recover_errcode.exit, !llvm.loop !434
 
-sqlite3_recover_errcode.exit:                     ; preds = %.sqlite3_recover_errcode.exit_crit_edge, %.split.preheader.i
+sqlite3_recover_errcode.exit.thread:              ; preds = %sqlite3_recover_errcode.exit, %.split.preheader.i
   %83 = phi i32 [ %.pre.pre.i.i, %.sqlite3_recover_errcode.exit_crit_edge ], [ %.pre.i, %.split.preheader.i ]
   switch i32 %83, label %84 [
     i32 0, label %91
     i32 7, label %sqlite3_recover_errcode.exit85
   ]
 
-84:                                               ; preds = %sqlite3_recover_errcode.exit
+84:                                               ; preds = %sqlite3_recover_errcode.exit.thread
   %85 = getelementptr inbounds nuw i8, ptr %56, i64 104
   %86 = load ptr, ptr %85, align 8, !tbaa !348
   br label %sqlite3_recover_errcode.exit85
 
-sqlite3_recover_errcode.exit85:                   ; preds = %sqlite3_recover_errcode.exit, %84, %._crit_edge
+sqlite3_recover_errcode.exit85:                   ; preds = %sqlite3_recover_errcode.exit.thread, %84, %._crit_edge
   %87 = phi ptr [ @.str.52, %._crit_edge ], [ %86, %84 ], [ @.str.52, %sqlite3_recover_errcode.exit ]
   %88 = phi i32 [ 7, %._crit_edge ], [ %83, %84 ], [ %83, %sqlite3_recover_errcode.exit ]
   %89 = load ptr, ptr @stderr, align 8, !tbaa !14

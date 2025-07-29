@@ -5964,7 +5964,7 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.split.us: ; preds = %_ZN
 
 64:                                               ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.split.us
   switch i32 %63, label %.split.us [
-    i32 1, label %.split59.us
+    i32 1, label %.split53.us
     i32 0, label %65
   ]
 
@@ -5976,7 +5976,7 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.split.us: ; preds = %_ZN
   store i32 %69, ptr %9, align 4, !tbaa !16
   %70 = zext i32 %69 to i64
   %71 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %70) #26
-          to label %72 unwind label %.split53.us
+          to label %72 unwind label %.split55.us
 
 72:                                               ; preds = %65
   %73 = zext i32 %66 to i64
@@ -6003,7 +6003,7 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit.us: ; preds = %74, %72
           cleanup
   br label %.loopexit
 
-.split53.us:                                      ; preds = %65
+.split55.us:                                      ; preds = %65
   %79 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -6017,7 +6017,7 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.split: ; preds = %_ZN7ro
 
 81:                                               ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.split
   switch i32 %80, label %.split.us [
-    i32 1, label %.split59.us
+    i32 1, label %.split53.us
     i32 0, label %82
   ]
 
@@ -6026,7 +6026,7 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.split: ; preds = %_ZN7ro
           cleanup
   br label %.loopexit
 
-.loopexit.split-lp:                               ; preds = %.split.us, %.split59.us
+.loopexit.split-lp:                               ; preds = %.split.us, %.split53.us
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -6042,7 +6042,7 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.split: ; preds = %_ZN7ro
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 152
   %90 = load ptr, ptr %89, align 8, !noalias !279
   %91 = invoke noundef ptr %90(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %87)
-          to label %.noexc unwind label %.split53
+          to label %.noexc unwind label %.split55
 
 .noexc:                                           ; preds = %82
   %92 = zext i32 %83 to i64
@@ -6074,7 +6074,7 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit: ; preds = %93, %.noexc
   %103 = sub i32 %102, %83
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.split
 
-.split53:                                         ; preds = %82
+.split55:                                         ; preds = %82
   %104 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -6086,7 +6086,7 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit: ; preds = %93, %.noexc
   %107 = invoke i32 @inflateEnd(ptr noundef nonnull %10)
           to label %118 unwind label %.loopexit.split-lp
 
-.split59.us:                                      ; preds = %81, %64
+.split53.us:                                      ; preds = %81, %64
   %108 = phi ptr [ %62, %64 ], [ %58, %81 ]
   %109 = phi ptr [ %60, %64 ], [ %56, %81 ]
   %.in = phi ptr [ %.sink, %64 ], [ %.sink93, %81 ]
@@ -6099,7 +6099,7 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit: ; preds = %93, %.noexc
   %115 = invoke i32 @inflateEnd(ptr noundef nonnull %10)
           to label %.thread unwind label %.loopexit.split-lp
 
-.thread:                                          ; preds = %.split59.us
+.thread:                                          ; preds = %.split53.us
   %116 = ptrtoint ptr %.in to i64
   store i64 %110, ptr %0, align 8, !tbaa !107
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6140,7 +6140,7 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit35: ; preds = %.thread, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
   br label %129
 
-.loopexit:                                        ; preds = %.split53, %.split53.us, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split
+.loopexit:                                        ; preds = %.split55, %.split55.us, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split
   %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %104, %.split53 ], [ %79, %.split53.us ]
   call void @_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25

@@ -113690,9 +113690,9 @@ define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$$u5b$std..collecti
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h67def3c03608dcc0E.llvm.240573438051967091(ptr noalias noundef nonnull align 8 dereferenceable(48) %0), !noalias !13322
   tail call void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h18f8a73f8f6af598E.llvm.240573438051967091(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 96, i64 noundef 16)
-  br label %.split7.us
+  br label %"_ZN4core3ptr98drop_in_place$LT$std..collections..hash..set..HashSet$LT$datafusion_common..column..Column$GT$$GT$17h41bbe48b89449b47E.exit"
 
-.split7.us:                                       ; preds = %5, %1
+"_ZN4core3ptr98drop_in_place$LT$std..collections..hash..set..HashSet$LT$datafusion_common..column..Column$GT$$GT$17h41bbe48b89449b47E.exit": ; preds = %5, %1
   ret void
 }
 

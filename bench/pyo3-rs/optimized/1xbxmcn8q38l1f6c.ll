@@ -711,66 +711,66 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 2160
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %4)
-  br i1 %9, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread, label %12
+  br i1 %9, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread, label %10
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread: ; preds = %2
   store i64 22, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4)
-  br label %21
+  br label %20
 
-12:                                               ; preds = %.critedge, %2
+10:                                               ; preds = %.critedge, %2
   call void @_ZN4core3ops8function6FnOnce9call_once17hc9573aaa536acb0fE(ptr nonnull sret([352 x i8]) align 8 %4, ptr nonnull align 8 %10)
   %13 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %13, 22
   br i1 %.not.i, label %14, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
 
-14:                                               ; preds = %12
+13:                                               ; preds = %10
   invoke void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..array..iter..IntoIter$LT$syn..stmt..Stmt$C$3_usize$GT$$GT$$GT$17h8a7e01c654e03d94E"(ptr nonnull align 8 %1)
-          to label %17 unwind label %15
+          to label %17 unwind label %14
 
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %13
+  %15 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %1, align 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..stmt..Stmt$GT$$GT$17h1ceb2d7478514a7fE"(ptr nonnull align 8 %4) #6
-          to label %common.resume unwind label %18
+          to label %common.resume unwind label %17
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   store i64 0, ptr %1, align 8
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
 
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %14
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
   unreachable
 
-common.resume:                                    ; preds = %35, %15, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %16, %15 ], [ %36, %35 ]
+common.resume:                                    ; preds = %35, %14, %41
+  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %15, %15 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; preds = %12, %17
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; preds = %10, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 352, i1 false)
   %.pr6 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4)
   %.not = icmp eq i64 %.pr6, 22
-  br i1 %.not, label %21, label %20
+  br i1 %.not, label %20, label %19
 
-20:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
+19:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %8, i64 352, i1 false)
   br label %24
 
-21:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
+20:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
   call void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..stmt..Stmt$GT$$GT$17h1ceb2d7478514a7fE"(ptr nonnull align 8 %8)
   call void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h41635c4c83440bbfE"(ptr nonnull sret([1056 x i8]) align 8 %7, ptr nonnull align 8 %11)
   %22 = load i64, ptr %7, align 8
   %23 = icmp eq i64 %22, 22
   br i1 %23, label %25, label %40
 
-24:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit5, %20
+24:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit5, %19
   ret void
 
-25:                                               ; preds = %21
+25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %3)
   %27 = load i64, ptr %26, align 8
@@ -817,7 +817,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit5: ; p
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %3)
   br label %24
 
-40:                                               ; preds = %21
+40:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1056) %6, ptr noundef nonnull align 8 dereferenceable(1056) %7, i64 1056, i1 false)
   call void @"_ZN4core5array4iter94_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9into_iter17h5adbcce20a7fca83E"(ptr nonnull sret([1072 x i8]) align 8 %5, ptr nonnull align 8 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1072) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(1072) %5, i64 1072, i1 false)
@@ -835,7 +835,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit5: ; p
   store i64 1, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1072) %10, ptr noundef nonnull align 8 dereferenceable(1072) %.sroa.3, i64 1072, i1 false)
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %4)
-  br label %12
+  br label %10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

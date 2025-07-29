@@ -300,10 +300,10 @@ define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, p
   %.0.i = select i1 %54, i32 4, i32 %..i
   %56 = mul i32 %10, 20
   %smax = tail call i32 @llvm.smax.i32(i32 %56, i32 1)
-  %57 = add nsw i32 %smax, -1
-  br i1 %.not, label %.critedge, label %61
+  %64 = add nsw i32 %smax, -1
+  br i1 %.not, label %.preheader, label %61
 
-.critedge:                                        ; preds = %67, %53
+.preheader:                                       ; preds = %67, %53
   %58 = tail call i32 @BN_priv_rand_range_ex(ptr noundef %1, ptr noundef %12, i32 noundef 0, ptr noundef %7) #3
   %.not114 = icmp eq i32 %58, 0
   br i1 %.not114, label %.loopexit, label %59
@@ -361,7 +361,7 @@ define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, p
   ]
 
 80:                                               ; preds = %76, %74
-  %exitcond.not = icmp eq i32 %.096, %57
+  %exitcond.not = icmp eq i32 %.096, %64
   br i1 %exitcond.not, label %81, label %82
 
 81:                                               ; preds = %80

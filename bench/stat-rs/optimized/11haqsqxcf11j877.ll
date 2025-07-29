@@ -329,11 +329,11 @@ define internal fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..ar
   %9 = icmp ugt i64 %.val3, 1
   br i1 %7, label %.split.i, label %22
 
-.split.i:                                         ; preds = %1
+8:                                                ; preds = %1
   %10 = icmp eq i64 %.24.val, 0
-  br i1 %10, label %24, label %.split.split.i
+  br i1 %10, label %21, label %_ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit17.i
 
-.split.split.i:                                   ; preds = %.split.i
+_ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit17.i: ; preds = %8
   tail call void @llvm.assume(i1 %8)
   br i1 %9, label %_ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit17.us.i, label %_ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit17.i
 
@@ -362,7 +362,7 @@ _ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit.us.i: ; pr
 _ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit17.i: ; preds = %.split.split.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  %18 = load double, ptr %.8.val, align 8, !alias.scope !51, !noundef !7
+  %13 = load double, ptr %.8.val, align 8, !alias.scope !51, !noundef !7
   %19 = load double, ptr %.val, align 8, !alias.scope !59, !noalias !54, !noundef !7
   %20 = fmul double %18, %19
   %21 = bitcast double %20 to i64
@@ -372,60 +372,60 @@ _ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit17.i: ; pre
   invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.21, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.22) #12
           to label %.noexc6 unwind label %.loopexit.split-lp
 
-.noexc6:                                          ; preds = %22
+.noexc6:; preds = %22
   unreachable
 
-_ZN8nalgebra4base11blas_uninit11gemm_uninit17hf18836558e541eeeE.exit.loopexit.i: ; preds = %.noexc
+_ZN8nalgebra4base11blas_uninit11gemm_uninit17hf18836558e541eeeE.exit.loopexit.i:; preds = %.noexc
   %.sroa.06.0.copyload.pre.i = load i64, ptr %3, align 8
-  br label %24
+  br label %21
 
 .loopexit:                                        ; preds = %_ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit.us.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %20
 
 .loopexit.split-lp:                               ; preds = %22
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %20
 
-23:                                               ; preds = %.loopexit.split-lp, %.loopexit
+20:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr281drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h555edfec90c832ccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #13
-          to label %36 unwind label %34
+          to label %36 unwind label %31
 
-24:                                               ; preds = %_ZN8nalgebra4base11blas_uninit11gemm_uninit17hf18836558e541eeeE.exit.loopexit.i, %_ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit17.i, %.split.i
+21:                                               ; preds = %_ZN8nalgebra4base11blas_uninit11gemm_uninit17hf18836558e541eeeE.exit.loopexit.i, %_ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit17.i, %8
   %.sroa.06.0.copyload.i = phi i64 [ %.sroa.06.0.copyload.pre.i, %_ZN8nalgebra4base11blas_uninit11gemm_uninit17hf18836558e541eeeE.exit.loopexit.i ], [ %21, %_ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit17.i ], [ 0, %.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !68
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f9411735bae5566E.llvm.12303340874314762014"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i64, ptr %25, align 8, !range !79, !noalias !68, !noundef !7
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %"_ZN4core3ptr281drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h555edfec90c832ccE.exit", label %28
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %23 = load i64, ptr %22, align 8, !range !79, !noalias !68, !noundef !7
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %"_ZN4core3ptr281drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h555edfec90c832ccE.exit", label %25
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %30 = load i64, ptr %29, align 8, !noalias !68, !noundef !7
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %"_ZN4core3ptr281drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h555edfec90c832ccE.exit", label %32
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %27 = load i64, ptr %26, align 8, !noalias !68, !noundef !7
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %"_ZN4core3ptr281drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h555edfec90c832ccE.exit", label %29
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %2, align 8, !noalias !68, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %30, i64 noundef %26) #15
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %2, align 8, !noalias !68, !nonnull !7, !noundef !7
+  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %27, i64 noundef %23) #15
   br label %"_ZN4core3ptr281drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h555edfec90c832ccE.exit"
 
-"_ZN4core3ptr281drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h555edfec90c832ccE.exit": ; preds = %24, %28, %32
+"_ZN4core3ptr281drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h555edfec90c832ccE.exit": ; preds = %21, %25, %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !68
   ret i64 %.sroa.06.0.copyload.i
 
-34:                                               ; preds = %23
-  %35 = landingpad { ptr, i32 }
+31:                                               ; preds = %20
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
   unreachable
 
-36:                                               ; preds = %23
+33:                                               ; preds = %20
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -819,14 +819,14 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
 
 .preheader.i:                                     ; preds = %1
   %.not.i = icmp eq i64 %.24.val, 0
-  br i1 %.not.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit", label %.critedge.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i
+.critedge.lr.ph.i:                                ; preds = %.preheader.i
   %7 = icmp ne ptr %.val4, null
   tail call void @llvm.assume(i1 %7)
   %8 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %8)
-  br label %.loopexit.i
+  br label %.critedge.i
 
 9:                                                ; preds = %1
   invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.41, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.43) #12
@@ -835,7 +835,7 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
 .noexc:                                           ; preds = %9
   unreachable
 
-.loopexit.i:                                      ; preds = %.loopexit.i, %.lr.ph.i
+.critedge.i:                                      ; preds = %.critedge.i, %.critedge.lr.ph.i
   %.sroa.03.06.i = phi i64 [ 0, %.lr.ph.i ], [ %10, %.loopexit.i ]
   %10 = add nuw i64 %.sroa.03.06.i, 1
   %11 = getelementptr double, ptr %.val4, i64 %.sroa.03.06.i
@@ -843,9 +843,9 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
   %13 = load double, ptr %12, align 8, !alias.scope !157, !noundef !7
   store double %13, ptr %11, align 8, !alias.scope !160
   %exitcond.not.i = icmp eq i64 %10, %.24.val
-  br i1 %exitcond.not.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit", label %.loopexit.i
+  br i1 %exitcond.not.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit", label %.critedge.i
 
-"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit": ; preds = %.loopexit.i, %.preheader.i
+"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit": ; preds = %.critedge.i, %.preheader.i
   %.sroa.01.0.copyload = load i64, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8

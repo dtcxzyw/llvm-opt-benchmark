@@ -2988,9 +2988,9 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
   %12 = icmp eq ptr %.pre.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !575)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5), !noalias !576
-  br i1 %12, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$ruff_python_semantic..imports..NameImport$GT$$GT$17ha8be661ab751e4c5E.exit.i", label %13
+  br i1 %12, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$ruff_python_semantic..imports..NameImport$GT$$GT$17ha8be661ab751e4c5E.exit.i", label %._crit_edge
 
-13:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ruff_python_semantic..imports..NameImport$GT$$GT$$GT$17h48d0a4a6f30de9e5E.exit.i", %2
+._crit_edge:                                      ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ruff_python_semantic..imports..NameImport$GT$$GT$$GT$17h48d0a4a6f30de9e5E.exit.i", %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !577)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !580)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !582)

@@ -1175,9 +1175,9 @@ declare void @rtcSetGeometryInstancedScene(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7mitsuba10ShapeGroupIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE27compute_surface_interactionERKNS_3RayINS_5PointIfLm3EEES5_EERKNS_23PreliminaryIntersectionIfNS_5ShapeIfS5_EEEEjjb(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::SurfaceInteraction") align 16 %0, ptr noundef nonnull align 16 dereferenceable(508) %1, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 comdat align 2 {
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %16, label %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge
+  br i1 %.not, label %12, label %8
 
-_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge: ; preds = %7
+8:                                                ; preds = %7
   store float 0x7FF0000000000000, ptr %0, align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr null, ptr %8, align 8
@@ -1199,21 +1199,21 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.crited
   store float 0x7FF0000000000000, ptr %0, align 16
   br label %27
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %19 = load i32, ptr %18, align 8
-  %20 = zext i32 %19 to i64
-  %21 = load ptr, ptr %17, align 16
-  %22 = getelementptr inbounds nuw %"class.mitsuba::ref.65", ptr %21, i64 %20
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %23, align 16
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 168
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr dead_on_unwind writable sret(%"struct.mitsuba::SurfaceInteraction") align 16 %0, ptr noundef nonnull align 16 dereferenceable(403) %23, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %4, i32 noundef 1, i1 noundef zeroext true)
-  br label %27
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = load i32, ptr %14, align 8
+  %16 = zext i32 %15 to i64
+  %17 = load ptr, ptr %13, align 16
+  %18 = getelementptr inbounds nuw %"class.mitsuba::ref.65", ptr %17, i64 %16
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %19, align 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr dead_on_unwind writable sret(%"struct.mitsuba::SurfaceInteraction") align 16 %0, ptr noundef nonnull align 16 dereferenceable(403) %19, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %4, i32 noundef 1, i1 noundef zeroext true)
+  br label %23
 
-27:                                               ; preds = %16, %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge
+23:                                               ; preds = %12, %8
   ret void
 }
 

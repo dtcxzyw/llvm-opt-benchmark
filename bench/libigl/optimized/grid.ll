@@ -316,16 +316,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %18 = getelementptr double, ptr %12, i64 %indvars.iv35
   br label %20
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit._crit_edge: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit._crit_edge:; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   ret void
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit: ; preds = %20
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit:; preds = %20
   %19 = add nsw i32 %17, 1
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next36, %9
   br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !34
 
-20:                                               ; preds = %.preheader29, %20
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit._crit_edge: ; preds = %.preheader29, %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit._crit_edge
   %21 = phi i1 [ true, %.preheader29 ], [ false, %20 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi i32 [ %17, %.preheader29 ], [ %.sroa.6.0, %20 ]
   %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %20 ]

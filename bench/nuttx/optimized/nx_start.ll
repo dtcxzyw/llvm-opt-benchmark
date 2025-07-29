@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: noreturn nounwind uwtable
 define void @nx_start() #0 {
   %1 = alloca ptr, align 8
-  %2 = alloca i64, align 8
+  %0 = alloca i64, align 8
   %g_readytorun.promoted = load ptr, ptr @g_readytorun, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 976), ptr @g_idleargv, align 16
   store ptr @g_idletcb, ptr @g_running_tasks, align 8
@@ -68,7 +68,7 @@ define void @nx_start() #0 {
   store volatile i32 4, ptr @g_npidhash, align 4
   %9 = load volatile i32, ptr @g_npidhash, align 4
   %10 = icmp slt i32 %9, 2
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  br i1 %10, label %.lr.ph, label %.critedge49
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %11 = load volatile i32, ptr @g_npidhash, align 4
@@ -76,9 +76,9 @@ define void @nx_start() #0 {
   store volatile i32 %12, ptr @g_npidhash, align 4
   %13 = load volatile i32, ptr @g_npidhash, align 4
   %14 = icmp slt i32 %13, 2
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %14, label %.lr.ph, label %.critedge49, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %6
+.critedge49:                                      ; preds = %.lr.ph, %6
   %15 = load volatile i32, ptr @g_npidhash, align 4
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 3
@@ -123,7 +123,7 @@ define void @nx_start() #0 {
   %33 = call i32 @sched_unlock() #5
   br label %34
 
-34:                                               ; preds = %34, %._crit_edge
+34:                                               ; preds = %34, %.critedge49
   call void @up_idle() #5
   br label %34
 }

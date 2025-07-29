@@ -17997,9 +17997,9 @@ define internal fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17
   %.pre.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !5404, !noalias !5407
   %12 = icmp eq ptr %.pre.i.i.i.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5413)
-  br i1 %12, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i.i.i.i", label %13
+  br i1 %12, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i.i.i.i", label %._crit_edge.i.i.i
 
-13:                                               ; preds = %"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h32417d457f939b13E.exit.i.i.i.i", %8
+._crit_edge.i.i.i:                                ; preds = %"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h32417d457f939b13E.exit.i.i.i.i", %8
   call void @llvm.experimental.noalias.scope.decl(metadata !5414)
   call void @llvm.experimental.noalias.scope.decl(metadata !5417)
   %14 = load ptr, ptr %10, align 8, !alias.scope !5420, !noalias !5421, !nonnull !22, !noundef !22

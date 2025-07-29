@@ -7045,14 +7045,14 @@ _ZNSt6vectorIj13std_allocatorIjEE5clearEv.exit:   ; preds = %1, %8
   %29 = tail call noundef zeroext i1 @_ZN2lp8dioph_eq3imp11push_branchEv(ptr noundef nonnull align 8 dereferenceable(1300) %0)
   br i1 %29, label %.preheader, label %30
 
-30:                                               ; preds = %.loopexit
+.loopexit.loopexit:                               ; preds = %.loopexit
   %31 = load i32, ptr %14, align 8, !tbaa !367
   %32 = add i32 %31, -1
   store i32 %32, ptr %14, align 8, !tbaa !367
   %.not1.i = icmp eq i32 %31, 0
   br i1 %.not1.i, label %_ZN2lp8dioph_eq3imp14undo_branchingEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %30, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %.loopexit.loopexit, %.lr.ph.i
   %33 = load ptr, ptr %13, align 8, !tbaa !144
   tail call void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(2128) %33)
   %34 = load i32, ptr %14, align 8, !tbaa !367
@@ -7061,7 +7061,7 @@ _ZNSt6vectorIj13std_allocatorIjEE5clearEv.exit:   ; preds = %1, %8
   %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %_ZN2lp8dioph_eq3imp14undo_branchingEv.exit, label %.lr.ph.i, !llvm.loop !373
 
-_ZN2lp8dioph_eq3imp14undo_branchingEv.exit:       ; preds = %.lr.ph.i, %30
+_ZN2lp8dioph_eq3imp14undo_branchingEv.exit:       ; preds = %.lr.ph.i, %.loopexit.loopexit
   %36 = load ptr, ptr %13, align 8, !tbaa !144
   %37 = tail call noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(2128) %36)
   %38 = load ptr, ptr %13, align 8, !tbaa !144

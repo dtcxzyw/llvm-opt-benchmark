@@ -1329,9 +1329,9 @@ define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @"_ZN114_
   %.pre.i = load ptr, ptr %0, align 8, !alias.scope !358
   %13 = icmp eq ptr %.pre.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
-  br i1 %13, label %28, label %14
+  br i1 %13, label %28, label %._crit_edge
 
-14:                                               ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..ast..Ident$GT$$GT$$GT$17h8147ec796b19378cE.exit.i", %1
+._crit_edge:                                      ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..ast..Ident$GT$$GT$$GT$17h8147ec796b19378cE.exit.i", %1
   call void @llvm.experimental.noalias.scope.decl(metadata !362)
   call void @llvm.experimental.noalias.scope.decl(metadata !365)
   %15 = load ptr, ptr %8, align 8, !alias.scope !368, !nonnull !16, !noundef !16

@@ -226,7 +226,7 @@ define weak_odr void @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_8Spectr
   store i32 %12, ptr %8, align 4
   %13 = mul i32 %12, %7
   %.not = icmp eq i32 %1, %13
-  br i1 %.not, label %_ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIjNS0_IjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS7_5DepthsrS8_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES8_EE.exit.critedge, label %14
+  br i1 %.not, label %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge, label %14
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
@@ -234,13 +234,13 @@ define weak_odr void @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_8Spectr
   %16 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
   %17 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
   %.not47 = icmp eq ptr %17, null
-  br i1 %.not47, label %_ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIjNS0_IjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS7_5DepthsrS8_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES8_EE.exit.critedge, label %18
+  br i1 %.not47, label %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %20, 301
-  br i1 %21, label %22, label %_ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIjNS0_IjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS7_5DepthsrS8_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES8_EE.exit.critedge
+  br i1 %21, label %22, label %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge
 
 22:                                               ; preds = %18
   call void @_ZN10tinyformat6formatIJjEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -249,7 +249,7 @@ define weak_odr void @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_8Spectr
 
 23:                                               ; preds = %22
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
-  br label %_ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIjNS0_IjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS7_5DepthsrS8_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES8_EE.exit.critedge
+  br label %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge
 
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
@@ -257,7 +257,7 @@ define weak_odr void @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_8Spectr
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   resume { ptr, i32 } %25
 
-_ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIjNS0_IjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS7_5DepthsrS8_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES8_EE.exit.critedge: ; preds = %23, %18, %14, %2
+_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge: ; preds = %23, %18, %14, %2
   %26 = load i32, ptr %8, align 4
   %27 = load i32, ptr %9, align 8
   %28 = mul i32 %27, %26
@@ -288,32 +288,32 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIjNS0_IjLm2EE
   %46 = sub nsw i8 30, %42
   br label %_ZN5drjit7divisorIjiEC2Ej.exit
 
-47:                                               ; preds = %_ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIjNS0_IjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS7_5DepthsrS8_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES8_EE.exit.critedge
-  %48 = sub nsw i8 31, %42
-  %49 = zext nneg i8 %48 to i32
-  %50 = shl nuw i32 1, %49
-  %51 = zext i32 %50 to i64
-  %52 = shl nuw i64 %51, 32
-  %53 = zext i32 %26 to i64
-  %54 = udiv i64 %52, %53
-  %55 = urem i64 %52, %53
-  %.sroa.0.0.extract.trunc.i = trunc i64 %54 to i32
-  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %55 to i32
-  %56 = shl i32 %.sroa.0.0.extract.trunc.i, 1
-  %57 = or disjoint i32 %56, 1
-  %58 = shl i32 %.sroa.2.0.extract.trunc.i, 1
-  %.not.i = icmp uge i32 %58, %26
-  %59 = icmp slt i32 %.sroa.2.0.extract.trunc.i, 0
-  %or.cond.i = or i1 %59, %.not.i
-  %60 = add i32 %56, 2
-  %spec.select = select i1 %or.cond.i, i32 %60, i32 %57
+44:                                               ; preds = %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge
+  %45 = sub nsw i8 31, %42
+  %46 = zext nneg i8 %45 to i32
+  %47 = shl nuw i32 1, %46
+  %48 = zext i32 %47 to i64
+  %49 = shl nuw i64 %48, 32
+  %50 = zext i32 %26 to i64
+  %51 = udiv i64 %49, %50
+  %52 = urem i64 %49, %50
+  %.sroa.0.0.extract.trunc.i = trunc i64 %51 to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %52 to i32
+  %53 = shl i32 %.sroa.0.0.extract.trunc.i, 1
+  %54 = or disjoint i32 %53, 1
+  %55 = shl i32 %.sroa.2.0.extract.trunc.i, 1
+  %.not.i = icmp uge i32 %55, %26
+  %56 = icmp slt i32 %.sroa.2.0.extract.trunc.i, 0
+  %or.cond.i = or i1 %56, %.not.i
+  %57 = add i32 %53, 2
+  %spec.select = select i1 %or.cond.i, i32 %57, i32 %54
   br label %_ZN5drjit7divisorIjiEC2Ej.exit
 
-_ZN5drjit7divisorIjiEC2Ej.exit:                   ; preds = %47, %45
+_ZN5drjit7divisorIjiEC2Ej.exit:                   ; preds = %44, %45
   %.sroa.2.0 = phi i32 [ 0, %45 ], [ %spec.select, %47 ]
-  %.sroa.5.0 = phi i8 [ %46, %45 ], [ %48, %47 ]
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %26, ptr %61, align 8
+  %.sroa.5.0 = phi i8 [ %46, %45 ], [ %45, %47 ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %26, ptr %58, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %.sroa.2.0, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88

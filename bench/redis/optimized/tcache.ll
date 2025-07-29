@@ -3661,10 +3661,10 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %40, %54, %29, %20
   %56 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %3, i64 %.0.i15
   store ptr %.0.i.i, ptr %56, align 8, !tbaa !40
   %57 = add nuw nsw i64 %.0.i15, 1
-  %exitcond22.not = icmp eq i64 %57, %2
-  br i1 %exitcond22.not, label %.lr.ph17, label %10, !llvm.loop !185
+  %exitcond21.not = icmp eq i64 %57, %2
+  br i1 %exitcond21.not, label %tcache_bin_flush_metadata_visitor.exit.critedge, label %10, !llvm.loop !185
 
-.lr.ph17:                                         ; preds = %rtree_leaf_elm_lookup.exit.i, %.lr.ph17
+tcache_bin_flush_metadata_visitor.exit.critedge:  ; preds = %rtree_leaf_elm_lookup.exit.i, %tcache_bin_flush_metadata_visitor.exit.critedge
   %.025.i16 = phi i64 [ %68, %.lr.ph17 ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
   %58 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %3, i64 %.025.i16
   %59 = load ptr, ptr %58, align 8, !tbaa !40

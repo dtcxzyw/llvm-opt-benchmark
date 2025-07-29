@@ -690,14 +690,14 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
   store ptr null, ptr %4, align 8
   br label %5
 
-5:                                                ; preds = %.critedge, %39
-  %6 = load i64, ptr %0, align 8
+.preheader23:                                     ; preds = %.critedge, %38
+  %9 = load i64, ptr %0, align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 56), align 8
   %8 = call i32 %7(i64 noundef %6, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.preheader23, label %.loopexit
 
-.preheader23:                                     ; preds = %5
+.preheader:                                       ; preds = %5
   %10 = load i32, ptr %3, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -707,57 +707,57 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
   br i1 %12, label %.lr.ph26, label %._crit_edge
 
 .lr.ph26:                                         ; preds = %.preheader
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %30
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %29
 
-.lr.ph:                                           ; preds = %.preheader23, %26
+.lr.ph:                                           ; preds = %.preheader23, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader23 ]
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i32 noundef %16) #10
-  %17 = load ptr, ptr %4, align 8
-  %18 = call fastcc zeroext i1 @_test_core_dumping(ptr noundef %17)
-  br i1 %18, label %19, label %26
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i32 noundef %15) #10
+  %16 = load ptr, ptr %4, align 8
+  %17 = call fastcc zeroext i1 @_test_core_dumping(ptr noundef %16)
+  br i1 %17, label %18, label %25
 
-19:                                               ; preds = %.lr.ph
-  %20 = call i32 @get_log_level() #10
-  %21 = icmp sgt i32 %20, 4
-  br i1 %21, label %22, label %39
+18:                                               ; preds = %.lr.ph
+  %19 = call i32 @get_log_level() #10
+  %20 = icmp sgt i32 %19, 4
+  br i1 %20, label %21, label %38
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
-  %25 = load i32, ptr %24, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, i32 noundef %25) #10
-  br label %39
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, i32 noundef %24) #10
+  br label %38
 
-26:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.lr.ph
   call void @slurm_xfree(ptr noundef nonnull %4) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr %3, align 4
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.preheader, !llvm.loop !14
+  %26 = load i32, ptr %3, align 4
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph, label %.preheader, !llvm.loop !14
 
-30:                                               ; preds = %.lr.ph26, %30
+29:                                               ; preds = %.lr.ph26, %29
   %indvars.iv30 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next31, %30 ]
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv30
-  %33 = load i32, ptr %32, align 4
-  %34 = load i32, ptr %13, align 8
-  %35 = call i32 @kill(i32 noundef %33, i32 noundef %34) #10
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv30
+  %32 = load i32, ptr %31, align 4
+  %33 = load i32, ptr %12, align 8
+  %34 = call i32 @kill(i32 noundef %32, i32 noundef %33) #10
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %36 = load i32, ptr %3, align 4
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next31, %37
-  br i1 %38, label %30, label %._crit_edge, !llvm.loop !15
+  %35 = load i32, ptr %3, align 4
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next31, %36
+  br i1 %37, label %29, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.preheader23, %30, %.preheader
+._crit_edge:                                      ; preds = %.preheader23, %29, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %.loopexit
 
-39:                                               ; preds = %22, %19
+38:                                               ; preds = %21, %18
   call void @slurm_xfree(ptr noundef nonnull %4) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
@@ -769,18 +769,18 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
   store i32 0, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   store ptr null, ptr %4, align 8
-  %40 = call i32 @sleep(i32 noundef 5) #10
+  %39 = call i32 @sleep(i32 noundef 5) #10
   br label %5
 
-.loopexit:                                        ; preds = %5, %._crit_edge
+.loopexit:; preds = %.preheader, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 16), align 8
-  %42 = load i64, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load i32, ptr %43, align 8
-  %45 = call i32 %41(i64 noundef %42, i32 noundef %44) #10
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 16), align 8
+  %45 = load i64, ptr %0, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load i32, ptr %46, align 8
+  %48 = call i32 %41(i64 noundef %45, i32 noundef %47) #10
   call void @slurm_xfree(ptr noundef nonnull %1) #10
   ret ptr null
 }

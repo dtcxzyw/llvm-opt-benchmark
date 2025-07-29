@@ -19829,82 +19829,82 @@ define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ22generateRandomFd
   store i32 2147483647, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  br label %14
+  br label %.critedge
 
-14:                                               ; preds = %8, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
-  %15 = invoke noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5)
+.critedge:                                        ; preds = %8, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
+  %14 = invoke noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5)
           to label %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit unwind label %.loopexit
 
-_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %14
-  store i32 %15, ptr %6, align 4
-  %16 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19
-  %17 = icmp eq i32 %16, 35
-  br i1 %17, label %18, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
+_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %.critedge
+  store i32 %14, ptr %6, align 4
+  %15 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19
+  %16 = icmp eq i32 %15, 35
+  br i1 %16, label %17, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
-18:                                               ; preds = %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit
+17:                                               ; preds = %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %18
+.noexc:                                           ; preds = %17
   unreachable
 
 _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit
-  %19 = invoke { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRiRS7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = invoke { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRiRS7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit unwind label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
-  %20 = extractvalue { ptr, i8 } %19, 1
-  %21 = trunc i8 %20 to i1
-  %22 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19
-  br i1 %21, label %25, label %14, !llvm.loop !208
+  %19 = extractvalue { ptr, i8 } %18, 1
+  %20 = trunc i8 %19 to i1
+  %21 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19
+  br i1 %20, label %24, label %.critedge, !llvm.loop !208
 
-.loopexit:                                        ; preds = %14
+.loopexit:                                        ; preds = %.critedge
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %30
+  br label %29
 
-.loopexit.split-lp:                               ; preds = %2, %18
+.loopexit.split-lp:                               ; preds = %2, %17
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %30
+  br label %29
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit8:   ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %24 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19
-  br label %30
+  %23 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19
+  br label %29
 
-25:                                               ; preds = %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
-  %26 = load i32, ptr %6, align 4
+24:                                               ; preds = %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
+  %25 = load i32, ptr %6, align 4
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %3)
-          to label %_ZNSt13random_deviceD2Ev.exit unwind label %27
+          to label %_ZNSt13random_deviceD2Ev.exit unwind label %26
 
-27:                                               ; preds = %25
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #18
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #18
   unreachable
 
-_ZNSt13random_deviceD2Ev.exit:                    ; preds = %25
-  %.sroa.213.0.insert.ext = zext i32 %26 to i64
+_ZNSt13random_deviceD2Ev.exit:                    ; preds = %24
+  %.sroa.213.0.insert.ext = zext i32 %25 to i64
   %.sroa.213.0.insert.shift = shl nuw i64 %.sroa.213.0.insert.ext, 32
   %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.213.0.insert.shift, 1
   ret i64 %.sroa.012.0.insert.insert
 
-30:                                               ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8
-  %.pn = phi { ptr, i32 } [ %23, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+29:                                               ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8
+  %.pn = phi { ptr, i32 } [ %22, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %3)
-          to label %_ZNSt13random_deviceD2Ev.exit9 unwind label %31
+          to label %_ZNSt13random_deviceD2Ev.exit9 unwind label %30
 
-31:                                               ; preds = %30
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #18
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #18
   unreachable
 
-_ZNSt13random_deviceD2Ev.exit9:                   ; preds = %30
+_ZNSt13random_deviceD2Ev.exit9:                   ; preds = %29
   resume { ptr, i32 } %.pn
 }
 

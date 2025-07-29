@@ -4900,15 +4900,15 @@ define internal fastcc void @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7fla
   %17 = icmp eq ptr %.pre.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1106)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !1107
-  br i1 %17, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtB16_15LiteralSequenceEEEB18_.exit.i, label %18
+  br i1 %17, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtB16_15LiteralSequenceEEEB18_.exit.i, label %._crit_edge
 
-18:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtNtCs68wO5nsWeTG_5alloc3vec9into_iter8IntoIterTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtB1U_15LiteralSequenceEEEEB1W_.exit.i, %2
+._crit_edge:                                      ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtNtCs68wO5nsWeTG_5alloc3vec9into_iter8IntoIterTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtB1U_15LiteralSequenceEEEEB1W_.exit.i, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1116)
-  %19 = load ptr, ptr %10, align 8, !alias.scope !1118, !noalias !1119, !nonnull !4, !noundef !4
-  %20 = load ptr, ptr %11, align 8, !alias.scope !1118, !noalias !1119, !nonnull !4, !noundef !4
+  %19 = load ptr, ptr %10, align 8, !alias.scope !11._crit_edge, !noalias !1119, !nonnull !4, !noundef !4
+  %20 = load ptr, ptr %11, align 8, !alias.scope !11._crit_edge, !noalias !1119, !nonnull !4, !noundef !4
   %21 = icmp eq ptr %20, %19
   br i1 %21, label %_RNvYNvYINtNtNtCs68wO5nsWeTG_5alloc3vec9into_iter8IntoIterTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtBX_15LiteralSequenceEENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextINtNtNtB28_3ops8function6FnOnceTQB5_EE9call_onceBZ_.exit.thread.i.i, label %_RNvYNvYINtNtNtCs68wO5nsWeTG_5alloc3vec9into_iter8IntoIterTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtBX_15LiteralSequenceEENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextINtNtNtB28_3ops8function6FnOnceTQB5_EE9call_onceBZ_.exit.i.i
 

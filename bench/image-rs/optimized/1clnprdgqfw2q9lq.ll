@@ -28953,9 +28953,9 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$$u5b$image..codecs.
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i": ; preds = %10, %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !6020
-  br label %.split7
+  br label %"_ZN4core3ptr58drop_in_place$LT$image..codecs..ico..encoder..IcoFrame$GT$17h67b16e1fcdd4da9bE.exit"
 
-.split7:                                          ; preds = %1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i"
+"_ZN4core3ptr58drop_in_place$LT$image..codecs..ico..encoder..IcoFrame$GT$17h67b16e1fcdd4da9bE.exit": ; preds = %1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i"
   ret void
 }
 
@@ -38719,8 +38719,8 @@ _ZN5image6codecs3ico7encoder14write_direntry17hf19733d646e9913eE.exit.thread.i: 
   call void @llvm.experimental.noalias.scope.decl(metadata !7333)
   %188 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %189 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %190 = load i64, ptr %20, align 8, !range !907, !alias.scope !7336, !noundef !4
-  %191 = icmp eq i64 %190, -9223372036854775808
+  %188 = load i64, ptr %20, align 8, !range !907, !alias.scope !7336, !noundef !4
+  %189 = icmp eq i64 %188, -9223372036854775808
   call void @llvm.experimental.noalias.scope.decl(metadata !7341)
   call void @llvm.experimental.noalias.scope.decl(metadata !7342)
   br i1 %191, label %"_ZN4core3ptr79drop_in_place$LT$$u5b$image..codecs..ico..encoder..IcoFrame$u3b$$u20$1$u5d$$GT$17h957204733b3872aeE.exit", label %192
@@ -38735,7 +38735,7 @@ _ZN5image6codecs3ico7encoder14write_direntry17hf19733d646e9913eE.exit.thread.i: 
 
 195:                                              ; preds = %192
   %196 = load ptr, ptr %8, align 8, !noalias !7343, !nonnull !4, !noundef !4
-  %197 = load i64, ptr %188, align 8, !noalias !7343, !noundef !4
+  %194 = load i64, ptr %188, align 8, !noalias !7343, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %189, ptr noundef nonnull %196, i64 noundef %194, i64 noundef %197)
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i"
 

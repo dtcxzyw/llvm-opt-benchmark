@@ -1648,10 +1648,10 @@ define void @ossl_x448_derive_public_key(ptr noundef %0, ptr noundef readonly ca
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  call void @ossl_gf_mul(ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef nonnull %18) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %18, ptr noundef nonnull %17) #7
-  call void @gf_serialize(ptr noundef %0, ptr noundef nonnull %18, i32 noundef 1) #7
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  call void @ossl_gf_mul(ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef nonnull %16) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %16, ptr noundef nonnull %17) #7
+  call void @gf_serialize(ptr noundef %0, ptr noundef nonnull %16, i32 noundef 1) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 256) #7
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 256) #7

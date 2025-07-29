@@ -917,9 +917,9 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
   %15 = trunc nuw i64 %.pre.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6), !noalias !134
-  br i1 %15, label %16, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..CallableSignature$GT$$GT$17h95bb5c415f2d3638E.exit.i"
+  br i1 %15, label %._crit_edge, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..CallableSignature$GT$$GT$17h95bb5c415f2d3638E.exit.i"
 
-16:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$smallvec..IntoIter$LT$$u5b$ty_python_semantic..types..signatures..CallableSignature$u3b$$u20$1$u5d$$GT$$GT$$GT$17hc96287469d97768fE.exit.i", %2
+._crit_edge:                                      ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$smallvec..IntoIter$LT$$u5b$ty_python_semantic..types..signatures..CallableSignature$u3b$$u20$1$u5d$$GT$$GT$$GT$17hc96287469d97768fE.exit.i", %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)

@@ -3595,9 +3595,9 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$
   %.pre.i = load ptr, ptr %5, align 8, !alias.scope !916, !noalias !919
   %11 = icmp eq ptr %.pre.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
-  br i1 %11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd02517195f64760fE.exit.thread.i, label %12
+  br i1 %11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd02517195f64760fE.exit.thread.i, label %._crit_edge
 
-12:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17h0d197860a7f1d41fE.exit.i", %2
+._crit_edge:                                      ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17h0d197860a7f1d41fE.exit.i", %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !922)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !925)
   %13 = load ptr, ptr %6, align 8, !alias.scope !928, !noalias !929, !nonnull !4, !noundef !4

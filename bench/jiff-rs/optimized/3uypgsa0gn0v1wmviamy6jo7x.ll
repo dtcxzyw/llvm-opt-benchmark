@@ -3770,8 +3770,8 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind1
   %6 = trunc nuw i64 %5 to i1
   br i1 %6, label %18, label %.preheader.i
 
-.preheader.i:                                     ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 26
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %8 = load i8, ptr %7, align 2, !range !97, !alias.scope !502, !noalias !505, !noundef !24
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hca5eaaf20d5afd60E.exit.thread7.i", label %.lr.ph.i
@@ -3784,12 +3784,12 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %15 = load i64, ptr %14, align 8, !alias.scope !502, !noalias !505, !noundef !24
   %.promoted.i = load i8, ptr %10, align 1, !alias.scope !502, !noalias !505
-  %.promoted29.i = load i64, ptr %11, align 8, !alias.scope !502, !noalias !505
+  %17 = load i64, ptr %11, align 8, !alias.scope !502, !noalias !505
   %16 = trunc nuw i8 %.promoted.i to i1
-  %17 = icmp eq i64 %.promoted29.i, 0
+  %17 = icmp eq i64 %17, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 
-18:                                               ; preds = %2
+.critedge.i:                                      ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %21 = load i64, ptr %20, align 8, !alias.scope !500, !noalias !497, !noundef !24
@@ -3798,7 +3798,7 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind1
   %24 = load ptr, ptr %23, align 8, !alias.scope !500, !noalias !497, !nonnull !24, !align !151, !noundef !24
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %26 = load i64, ptr %25, align 8, !alias.scope !500, !noalias !497, !noundef !24
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %28 = load ptr, ptr %27, align 8, !alias.scope !500, !noalias !497, !nonnull !24, !align !151, !noundef !24
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %30 = load i64, ptr %29, align 8, !alias.scope !500, !noalias !497, !noundef !24

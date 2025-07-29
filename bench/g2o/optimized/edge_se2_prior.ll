@@ -878,25 +878,25 @@ define linkonce_odr noundef i32 @_ZNK3g2o8BaseEdgeILi3ENS_3SE2EE4rankEv(ptr noun
 define linkonce_odr void @_ZN3g2o12EdgeSE2Prior14linearizeOplusEv(ptr noundef nonnull align 16 dereferenceable(368) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen5BlockINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEELi2ELi2ELb0EEaSINS2_IdLi2ELi2ELi0ELi2ELi2EEEEERS7_RKNS_9DenseBaseIT_EE.exit.critedge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %2 = load ptr, ptr %1, align 8, !tbaa !159
+  %4 = load ptr, ptr %1, align 8, !tbaa !159
   %3 = load ptr, ptr %2, align 8, !tbaa !156
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load double, ptr %4, align 16, !tbaa !3, !noalias !186
-  %6 = tail call double @sin(double noundef %5) #20, !tbaa !63, !noalias !186
+  %8 = tail call double @sin(double noundef %5) #20, !tbaa !63, !noalias !186
   %7 = tail call double @cos(double noundef %5) #20, !tbaa !63, !noalias !186
   %8 = fneg double %6
-  %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %7, i64 0
-  %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %6, i64 1
-  %.sroa.5.16.vec.insert = insertelement <2 x double> poison, double %8, i64 0
-  %.sroa.5.24.vec.insert = insertelement <2 x double> %.sroa.5.16.vec.insert, double %7, i64 1
-  %9 = load ptr, ptr %1, align 8, !tbaa !159
-  %10 = load ptr, ptr %9, align 8, !tbaa !156, !noalias !189
+  %.sroa.02.8.vec.insert = insertelement <2 x double> poison, double %7, i64 0
+  %.sroa.54.16.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %6, i64 1
+  %.sroa.54.24.vec.insert = insertelement <2 x double> poison, double %8, i64 0
+  %.sroa.5.24.vec.insert = insertelement <2 x double> %.sroa.54.24.vec.insert, double %7, i64 1
+  %11 = load ptr, ptr %1, align 8, !tbaa !159
+  %10 = load ptr, ptr %11, align 8, !tbaa !156, !noalias !189
   store <2 x double> %.sroa.0.8.vec.insert, ptr %10, align 1, !tbaa !46
   %11 = getelementptr i8, ptr %10, i64 24
   store <2 x double> %.sroa.5.24.vec.insert, ptr %11, align 1, !tbaa !46
-  %12 = load ptr, ptr %1, align 8, !tbaa !159
-  %13 = load ptr, ptr %12, align 8, !tbaa !156
+  %14 = load ptr, ptr %1, align 8, !tbaa !159
+  %13 = load ptr, ptr %14, align 8, !tbaa !156
   %14 = getelementptr i8, ptr %13, i64 64
   store double 1.000000e+00, ptr %14, align 8, !tbaa !59
   ret void

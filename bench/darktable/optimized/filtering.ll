@@ -9070,52 +9070,52 @@ _local_copy_decode.exit:                          ; preds = %10, %12, %7
   %51 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %76
 
-52:                                               ; preds = %76
-  %53 = load ptr, ptr %51, align 8, !tbaa !250
+52:; preds = %76
+  %55 = load ptr, ptr %51, align 8, !tbaa !250
   call void @dt_bauhaus_combobox_set(ptr noundef %53, i32 noundef %.022) #20
-  %54 = load ptr, ptr %17, align 8, !tbaa !248
+  %57 = load ptr, ptr %17, align 8, !tbaa !248
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 352
   %56 = load ptr, ptr %55, align 8, !tbaa !126
   %57 = icmp eq ptr %17, %56
   br i1 %57, label %58, label %61
 
-58:                                               ; preds = %52
+58:; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 336
-  %60 = load ptr, ptr %59, align 8, !tbaa !124
+  %64 = load ptr, ptr %59, align 8, !tbaa !124
   br label %61
 
-61:                                               ; preds = %58, %52
+61:; preds = %58, %52
   %.0.i = phi ptr [ %60, %58 ], [ %56, %52 ]
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_local_copy_synchronise.exit, label %62
+  br i1 %.not.i, label %_local_copy_synchronise.exit, label %75
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds nuw i8, ptr %54, i64 360
-  %64 = load i32, ptr %63, align 8, !tbaa !183
-  %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %63, align 8, !tbaa !183
-  %66 = load ptr, ptr %51, align 8, !tbaa !250
-  %67 = call i32 @dt_bauhaus_combobox_get(ptr noundef %66) #20
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !250
-  call void @dt_bauhaus_combobox_set(ptr noundef %69, i32 noundef %67) #20
-  %70 = load ptr, ptr %17, align 8, !tbaa !248
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 360
-  %72 = load i32, ptr %71, align 8, !tbaa !183
-  %73 = add nsw i32 %72, -1
-  store i32 %73, ptr %71, align 8, !tbaa !183
+75:                                               ; preds = %61
+  %76 = getelementptr inbounds nuw i8, ptr %57, i64 360
+  %77 = load i32, ptr %76, align 8, !tbaa !183
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %76, align 8, !tbaa !183
+  %79 = load ptr, ptr %51, align 8, !tbaa !250
+  %80 = call i32 @dt_bauhaus_combobox_get(ptr noundef %79) #20
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !250
+  call void @dt_bauhaus_combobox_set(ptr noundef %82, i32 noundef %80) #20
+  %83 = load ptr, ptr %17, align 8, !tbaa !248
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 360
+  %85 = load i32, ptr %84, align 8, !tbaa !183
+  %86 = add nsw i32 %85, -1
+  store i32 %86, ptr %84, align 8, !tbaa !183
   br label %_local_copy_synchronise.exit
 
-_local_copy_synchronise.exit:                     ; preds = %61, %62
-  %74 = load i32, ptr %14, align 8, !tbaa !183
-  %75 = add nsw i32 %74, -1
-  store i32 %75, ptr %14, align 8, !tbaa !183
+_local_copy_synchronise.exit:                     ; preds = %61, %75
+  %87 = load i32, ptr %14, align 8, !tbaa !183
+  %88 = add nsw i32 %87, -1
+  store i32 %88, ptr %14, align 8, !tbaa !183
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #20
   br label %86
 
-76:                                               ; preds = %._crit_edge, %76
+89:                                               ; preds = %._crit_edge, %76
   %77 = phi i1 [ true, %._crit_edge ], [ false, %76 ]
   %indvars.iv.sroa.phi = phi ptr [ %3, %._crit_edge ], [ %indvars.iv.sroa.gep25, %76 ]
   %indvars.iv = phi i64 [ 1, %._crit_edge ], [ 2, %76 ]

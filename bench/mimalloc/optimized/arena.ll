@@ -253,19 +253,19 @@ define internal fastcc void @mi_arena_segment_os_mark_abandoned(ptr noundef %0) 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #20
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %mi_lock_acquire.exit, label %6
+  br i1 %.not.i, label %12, label %10
 
-6:                                                ; preds = %1
+10:                                               ; preds = %1
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef %5, ptr noundef nonnull @.str.17) #20
-  br label %mi_lock_acquire.exit
+  br label %12
 
-mi_lock_acquire.exit:                             ; preds = %1, %6
+12:                                               ; preds = %1, %6
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
-9:                                                ; preds = %mi_lock_acquire.exit
+9: ; preds = %12
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr %0, ptr %10, align 8, !tbaa !19
   br label %13

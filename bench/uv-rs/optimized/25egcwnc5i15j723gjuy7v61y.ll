@@ -864,9 +864,9 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches14t
   %.pre.i = load ptr, ptr %18, align 8, !alias.scope !181, !noalias !186
   %23 = icmp eq ptr %.pre.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  br i1 %23, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i", label %24
+  br i1 %23, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i", label %._crit_edge
 
-24:                                               ; preds = %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$17h3146354050b4df3bE.llvm.17257708092590423667.exit.i", %17
+._crit_edge:                                      ; preds = %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$17h3146354050b4df3bE.llvm.17257708092590423667.exit.i", %17
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
   call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %25 = load ptr, ptr %19, align 8, !alias.scope !196, !noalias !197, !nonnull !3, !noundef !3
@@ -1115,9 +1115,9 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches14t
   %.pre.i = load ptr, ptr %18, align 8, !alias.scope !267, !noalias !272
   %23 = icmp eq ptr %.pre.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
-  br i1 %23, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i", label %24
+  br i1 %23, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i", label %._crit_edge
 
-24:                                               ; preds = %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$17h3146354050b4df3bE.llvm.17257708092590423667.exit.i", %17
+._crit_edge:                                      ; preds = %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$17h3146354050b4df3bE.llvm.17257708092590423667.exit.i", %17
   call void @llvm.experimental.noalias.scope.decl(metadata !276)
   call void @llvm.experimental.noalias.scope.decl(metadata !279)
   %25 = load ptr, ptr %19, align 8, !alias.scope !282, !noalias !283, !nonnull !3, !noundef !3

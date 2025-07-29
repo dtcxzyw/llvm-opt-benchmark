@@ -250,13 +250,13 @@ define dso_local noundef zeroext i1 @lexer_next_token(ptr noundef %0) local_unna
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %.loopexit, label %.preheader16
 
-.preheader16:                                     ; preds = %3, %.critedge
+8:                                                ; preds = %3, %.critedge
   %8 = phi i8 [ %15, %.critedge ], [ %6, %3 ]
   %.promoted = phi ptr [ %14, %.critedge ], [ %5, %3 ]
   %.0 = phi i1 [ %13, %.critedge ], [ false, %3 ]
   br i1 %.0, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %.preheader16, %11
+.critedge17:                                      ; preds = %8, %.critedge.critedge17
   %9 = phi i8 [ %.pre, %11 ], [ %8, %.preheader16 ]
   %10 = phi ptr [ %12, %11 ], [ %.promoted, %.preheader16 ]
   switch i8 %9, label %11 [
@@ -264,18 +264,18 @@ define dso_local noundef zeroext i1 @lexer_next_token(ptr noundef %0) local_unna
     i8 10, label %.critedge
   ]
 
-11:                                               ; preds = %.preheader
+.critedge.preheader:                              ; preds = %.critedge17
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %12, ptr %4, align 8
-  %.pre = load i8, ptr %12, align 1
-  br label %.preheader, !llvm.loop !9
+  %.pre.pre = load i8, ptr %12, align 1
+  br label %.critedge17, !llvm.loop !9
 
-.critedge:                                        ; preds = %.preheader, %.preheader, %.preheader16
+.critedge:                                        ; preds = %.critedge17, %.preheader, %8
   %13 = tail call fastcc zeroext i1 @lexer_scan_token_inner(ptr noundef nonnull %0)
   %14 = load ptr, ptr %4, align 8
   %15 = load i8, ptr %14, align 1
   %.not15 = icmp eq i8 %15, 0
-  br i1 %.not15, label %.loopexit, label %.preheader16, !llvm.loop !10
+  br i1 %.not15, label %.loopexit, label %8, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.critedge, %3, %1
   %.013 = phi i1 [ true, %1 ], [ true, %3 ], [ false, %.critedge ]

@@ -516,25 +516,25 @@ ff_dcaadpcm_predict.exit:                         ; preds = %34
   %.0.i.us.i = trunc i64 %81 to i32
   br label %ff_dca_core_dequantize.exit
 
-.split.i:                                         ; preds = %65
+ff_dca_core_dequantize.exit:                      ; preds = %65
   %82 = trunc i64 %71 to i32
   %.0.i.i = mul i32 %63, %82
   br label %ff_dca_core_dequantize.exit
 
-ff_dca_core_dequantize.exit:                      ; preds = %.split.us.i, %.split.i
+ff_dca_core_dequantize.exit:; preds = %.split.us.i, %.split.i
   %.0.i.us.sink.i = phi i32 [ %.0.i.us.i, %.split.us.i ], [ %.0.i.i, %.split.i ]
   %83 = tail call i32 @llvm.smax.i32(i32 %.0.i.us.sink.i, i32 -8388608)
   %.0.i.i.us.i = tail call range(i32 -8388608, 8388608) i32 @llvm.smin.i32(i32 %83, i32 8388607)
-  %84 = add nsw i32 %.0.i.i.us.i, %.0.i.i9.i
-  store i32 %84, ptr %49, align 4, !tbaa !9
+  %79 = add nsw i32 %.0.i.i.us.i, %.0.i.i9.i
+  store i32 %79, ptr %49, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %ff_dca_core_dequantize.exit, %10
-  %85 = sext i32 %8 to i64
-  %86 = getelementptr inbounds [20 x i32], ptr %11, i64 0, i64 %85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %86, i64 16, i1 false)
+  %84 = sext i32 %8 to i64
+  %85 = getelementptr inbounds [20 x i32], ptr %11, i64 0, i64 %84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %85, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #9
   ret i32 0
 }

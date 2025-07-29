@@ -2012,23 +2012,23 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %398
   br label %.preheader353.us.i
 
 .preheader353.us.i:                               ; preds = %.loopexit350.us.i, %.preheader353.us.preheader.i
-  %.lcssa149155 = phi float [ %.lcssa149154, %.loopexit350.us.i ], [ %.sroa.6.promoted153, %.preheader353.us.preheader.i ]
-  %.lcssa152 = phi float [ %.lcssa151, %.loopexit350.us.i ], [ %.sroa.0.promoted150, %.preheader353.us.preheader.i ]
+  %.lcssa132138 = phi float [ %.lcssa132137, %.loopexit350.us.i ], [ %.sroa.6.promoted153, %.preheader353.us.preheader.i ]
+  %.lcssa135 = phi float [ %.lcssa134, %.loopexit350.us.i ], [ %.sroa.0.promoted150, %.preheader353.us.preheader.i ]
   %.0335358.us.i = phi i32 [ %455, %.loopexit350.us.i ], [ -4, %.preheader353.us.preheader.i ]
   %454 = add nsw i32 %.0335358.us.i, %447
   %or.cond348.us.i = icmp ult i32 %454, %3
   br i1 %or.cond348.us.i, label %.preheader.us.i63, label %.loopexit350.us.i
 
 .loopexit350.us.i:                                ; preds = %.loopexit.us.i65, %.preheader353.us.i
-  %.lcssa149154 = phi float [ %.lcssa149155, %.preheader353.us.i ], [ %474, %.loopexit.us.i65 ]
-  %.lcssa151 = phi float [ %.lcssa152, %.preheader353.us.i ], [ %475, %.loopexit.us.i65 ]
+  %.lcssa132137 = phi float [ %.lcssa132138, %.preheader353.us.i ], [ %474, %.loopexit.us.i65 ]
+  %.lcssa134 = phi float [ %.lcssa135, %.preheader353.us.i ], [ %475, %.loopexit.us.i65 ]
   %455 = add nsw i32 %.0335358.us.i, 1
   %exitcond373.not.i = icmp eq i32 %455, 5
-  br i1 %exitcond373.not.i, label %.loopexit352.us.i.loopexit145, label %.preheader353.us.i
+  br i1 %exitcond373.not.i, label %.loopexit352.us.i.loopexit, label %.preheader353.us.i
 
 456:                                              ; preds = %.preheader.us.i63, %.loopexit.us.i65
-  %457 = phi float [ %.lcssa149155, %.preheader.us.i63 ], [ %474, %.loopexit.us.i65 ]
-  %458 = phi float [ %.lcssa152, %.preheader.us.i63 ], [ %475, %.loopexit.us.i65 ]
+  %457 = phi float [ %.lcssa132138, %.preheader.us.i63 ], [ %474, %.loopexit.us.i65 ]
+  %458 = phi float [ %.lcssa135, %.preheader.us.i63 ], [ %475, %.loopexit.us.i65 ]
   %.0333357.us.i = phi i32 [ -4, %.preheader.us.i63 ], [ %476, %.loopexit.us.i65 ]
   %459 = add nsw i32 %.0333357.us.i, %453
   %or.cond349.us.i = icmp ult i32 %459, %2
@@ -2060,21 +2060,21 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %398
   %exitcond.not.i66 = icmp eq i32 %476, 5
   br i1 %exitcond.not.i66, label %.loopexit350.us.i, label %456
 
-.loopexit352.us.i.loopexit145:                    ; preds = %.loopexit350.us.i
+.loopexit352.us.i.loopexit:                       ; preds = %.loopexit350.us.i
   store float %.lcssa151, ptr %.sroa.0, align 16
   store float %.lcssa149154, ptr %.sroa.6, align 4
   br label %.loopexit352.us.i
 
-.loopexit352.us.i:                                ; preds = %483, %.loopexit352.us.i.loopexit145
+.loopexit352.us.i:                                ; preds = %483, %.loopexit352.us.i.loopexit
   %477 = getelementptr inbounds nuw float, ptr %.0, i64 %450
   %.sroa.0.0.148 = load float, ptr %.sroa.0, align 16, !tbaa !21
-  %478 = fcmp reassoc nsz arcp contract afn ult float %.sroa.0.0.148, %5
+  %.inv.us.i = fcmp reassoc nsz arcp contract afn ult float %.sroa.0.0.148, %5
   %.inv.us.i = fcmp reassoc nsz arcp contract afn ole float %.sroa.0.0.148, %6
   %..us.i = select reassoc nsz arcp contract afn i1 %.inv.us.i, float %.sroa.0.0.148, float %6
   %479 = select reassoc nsz arcp contract afn i1 %478, float %5, float %..us.i
   store float %479, ptr %477, align 4, !tbaa !21
   %.sroa.6.0.147 = load float, ptr %.sroa.6, align 4, !tbaa !21
-  %480 = fcmp reassoc nsz arcp contract afn ult float %.sroa.6.0.147, %5
+  %.inv.us.i.c = fcmp reassoc nsz arcp contract afn ult float %.sroa.6.0.147, %5
   %.inv.us.i.c = fcmp reassoc nsz arcp contract afn ole float %.sroa.6.0.147, %6
   %..us.i.c = select reassoc nsz arcp contract afn i1 %.inv.us.i.c, float %.sroa.6.0.147, float %6
   %481 = select reassoc nsz arcp contract afn i1 %480, float %5, float %..us.i.c

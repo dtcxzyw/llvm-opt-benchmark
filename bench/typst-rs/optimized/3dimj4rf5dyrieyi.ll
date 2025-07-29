@@ -16109,19 +16109,19 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$$u5b$alloc..borrow
   %2 = load ptr, ptr %0, align 8, !alias.scope !2604, !noundef !4
   %3 = icmp eq ptr %2, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2604)
-  br i1 %3, label %.split7, label %4
+  br i1 %3, label %.split6, label %4
 
-4:                                                ; preds = %1
-  %5 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !2607
-  %6 = icmp eq i64 %5, 1
-  br i1 %6, label %7, label %.split7
+3:                                                ; preds = %1
+  %4 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !2607
+  %5 = icmp eq i64 %4, 1
+  br i1 %5, label %6, label %"_ZN4core3ptr83drop_in_place$LT$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$GT$17h8d8d7f1948ca4466E.exit"
 
-7:                                                ; preds = %4
+6:                                                ; preds = %3
   tail call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.16845035774076767816(i8 noundef 2), !noalias !2607
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h770d7b3d46ee205cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %.split7
+  br label %"_ZN4core3ptr83drop_in_place$LT$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$GT$17h8d8d7f1948ca4466E.exit"
 
-.split7:                                          ; preds = %1, %4, %7
+"_ZN4core3ptr83drop_in_place$LT$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$GT$17h8d8d7f1948ca4466E.exit": ; preds = %1, %3, %6
   ret void
 }
 
@@ -20176,12 +20176,12 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$$u5b$typst..foundat
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3585)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3588)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3591)
-  %2 = load ptr, ptr %0, align 8, !alias.scope !3594, !nonnull !4, !noundef !4
-  %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !3594
-  %4 = icmp eq i64 %3, 1
-  br i1 %4, label %5, label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit"
+  %1 = load ptr, ptr %0, align 8, !alias.scope !3594, !nonnull !4, !noundef !4
+  %2 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !3594
+  %3 = icmp eq i64 %2, 1
+  br i1 %3, label %4, label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit"
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.16845035774076767816(i8 noundef 2), !noalias !3594
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h770d7b3d46ee205cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit"

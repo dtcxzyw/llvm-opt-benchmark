@@ -397,38 +397,38 @@ declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @mbedtls_chachapoly_self_test(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.mbedtls_chachapoly_context, align 8
-  %3 = alloca [200 x i8], align 16
-  %4 = alloca [16 x i8], align 16
+  %1 = alloca [200 x i8], align 16
+  %2 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   %.not27 = icmp eq i32 %0, 0
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 216
   br i1 %.not27, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %1
+.split.us:; preds = %1
   call void @mbedtls_chacha20_init(ptr noundef nonnull %2) #7
   call void @mbedtls_poly1305_init(ptr noundef nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = call i32 @mbedtls_chacha20_setkey(ptr noundef nonnull %2, ptr noundef nonnull @test_key) #7
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %.critedge
+  br i1 %8, label %9, label %.thread
 
-9:                                                ; preds = %.split.us
+9:; preds = %.split.us
   %10 = call fastcc i32 @chachapoly_crypt_and_tag(ptr noundef nonnull %2, i32 noundef 0, i64 noundef 114, ptr noundef nonnull @test_nonce, ptr noundef nonnull @test_aad, i64 noundef 12, ptr noundef nonnull @test_input, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.critedge
 
-12:                                               ; preds = %9
-  %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(114) %3, ptr noundef nonnull dereferenceable(114) @test_output, i64 114)
-  %13 = icmp eq i32 %bcmp.us, 0
+18:                                               ; preds = %9
+  %19 = call i32 @bcmp(ptr noundef nonnull dereferenceable(114) %3, ptr noundef nonnull dereferenceable(114) @test_output, i64 114)
+  %13 = icmp eq i32 %19, 0
   br i1 %13, label %14, label %.critedge
 
-14:                                               ; preds = %12
-  %bcmp30.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @test_mac, i64 16)
-  %15 = icmp eq i32 %bcmp30.us, 0
-  br i1 %15, label %.thread, label %.critedge
+20:                                               ; preds = %12
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) @test_mac, i64 16)
+  %21 = icmp eq i32 %bcmp, 0
+  br i1 %21, label %.thread, label %.thread
 
 .thread:                                          ; preds = %14
   call void @mbedtls_chacha20_free(ptr noundef nonnull %2) #7
@@ -457,33 +457,33 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chachapoly_self_test(i32 noundef %0)
   %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %21)
   br label %.critedge
 
-24:                                               ; preds = %20
+22:                                               ; preds = %20
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(114) %3, ptr noundef nonnull dereferenceable(114) @test_output, i64 114)
   %25 = icmp eq i32 %bcmp, 0
   br i1 %25, label %26, label %.split48.us
 
-.split48.us:                                      ; preds = %24
+23:                                               ; preds = %22
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %.critedge
+  br label %.thread
 
 26:                                               ; preds = %24
-  %bcmp30 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @test_mac, i64 16)
+  %bcmp30 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) @test_mac, i64 16)
   %27 = icmp eq i32 %bcmp30, 0
   br i1 %27, label %28, label %.split51.us
 
-.split51.us:                                      ; preds = %26
+27:                                               ; preds = %26
   %puts28 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %.critedge
+  br label %.thread
 
-28:                                               ; preds = %26
+29:                                               ; preds = %26
   call void @mbedtls_chacha20_free(ptr noundef nonnull %2) #7
   call void @mbedtls_poly1305_free(ptr noundef nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %puts29 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %putchar = call i32 @putchar(i32 10)
-  br label %.critedge
+  br label %.thread
 
-.critedge:                                        ; preds = %9, %.split.us, %.thread, %14, %12, %28, %.split51.us, %.split48.us, %.split44.us, %.split41.us
+.thread:                                          ; preds = %9, %.split.us, %.thread, %20, %18, %29, %27, %23, %.split44.us, %.split41.us
   %.024 = phi i32 [ -1, %.split41.us ], [ -1, %.split44.us ], [ -1, %.split48.us ], [ -1, %.split51.us ], [ 0, %28 ], [ -1, %12 ], [ -1, %14 ], [ 0, %.thread ], [ -1, %.split.us ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #7

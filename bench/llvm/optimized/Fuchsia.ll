@@ -5933,7 +5933,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit7: ; preds = %24, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains7Fuchsia22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) unnamed_addr #0 align 2 {
-_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge:
+_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:
   %1 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #18
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1
@@ -5951,20 +5951,20 @@ define hidden { i64, i64 } @_ZNK5clang6driver10toolchains7Fuchsia20getDefaultSan
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !95
   switch i32 %3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit [
-    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split
-    i32 28, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split
-    i32 38, label %.preheader
+    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5
+    i32 28, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5
+    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
   ]
 
-.preheader:                                       ; preds = %1
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split
+_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:   ; preds = %1
+  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split: ; preds = %1, %1, %.preheader
+_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5:  ; preds = %1, %1, %.preheader
   %_ZN5clang13SanitizerKind9SafeStackE.sink = phi ptr [ @_ZN5clang13SanitizerKind9SafeStackE, %.preheader ], [ @_ZN5clang13SanitizerKind15ShadowCallStackE, %1 ], [ @_ZN5clang13SanitizerKind15ShadowCallStackE, %1 ]
   %4 = load i64, ptr %_ZN5clang13SanitizerKind9SafeStackE.sink, align 8, !tbaa !97
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit:            ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split, %1
+_ZN5clang13SanitizerMaskoRERKS0_.exit:            ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5, %1
   %.sroa.0.0 = phi i64 [ 0, %1 ], [ %4, %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1

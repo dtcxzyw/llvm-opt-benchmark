@@ -2274,10 +2274,10 @@ define internal fastcc void @Vec_IntFill(ptr noundef captures(none) initializes(
   br label %Vec_IntGrow.exit
 
 Vec_IntGrow.exit:                                 ; preds = %2, %11
-  %13 = phi ptr [ %12, %11 ], [ %5, %2 ]
-  store i32 %1, ptr %13, align 4, !tbaa !11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 1, ptr %14, align 4, !tbaa !3
+  %12 = phi ptr [ %12, %11 ], [ %5, %2 ]
+  store i32 %1, ptr %12, align 4, !tbaa !11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 1, ptr %13, align 4, !tbaa !3
   ret void
 }
 

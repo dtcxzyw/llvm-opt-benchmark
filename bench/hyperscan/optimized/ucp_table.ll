@@ -1966,11 +1966,11 @@ _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable

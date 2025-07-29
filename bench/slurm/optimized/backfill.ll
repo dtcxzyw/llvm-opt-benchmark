@@ -5840,23 +5840,23 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %.b2628.pr = load i1, ptr @stop_backfill, align 1
   br i1 %.016.ph, label %thread-pre-split.split.us, label %thread-pre-split.split
 
-thread-pre-split.split.us:                        ; preds = %thread-pre-split
-  br i1 %.b2628.pr, label %.split.us, label %.critedge
+.critedge.preheader:                              ; preds = %thread-pre-split
+  br i1 %.b2628.pr, label %.loopexitthread-pre-split, label %.critedge.us
 
-.critedge:                                        ; preds = %thread-pre-split.split.us, %10
+.critedge.us:                                     ; preds = %.critedge.preheader, %10
   %9 = tail call fastcc i32 @_my_sleep(i64 noundef 1000000)
   %.b29.us = load i1, ptr @stop_backfill, align 1
-  br i1 %.b29.us, label %.split.us, label %10
+  br i1 %.b29.us, label %.loopexitthread-pre-split, label %10
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.us
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 321), align 1, !range !12, !noundef !13
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %.critedge, label %.split74.us, !llvm.loop !21
+  br i1 %12, label %.critedge.us, label %.split.us, !llvm.loop !21
 
 thread-pre-split.split:                           ; preds = %thread-pre-split
   br i1 %.b2628.pr, label %.split.us, label %.critedge165
 
-.critedge165:                                     ; preds = %thread-pre-split.split, %18
+.critedge:                                        ; preds = %thread-pre-split.split, %18
   %13 = load i32, ptr @backfill_interval, align 4
   %14 = icmp eq i32 %13, -1
   %15 = sext i32 %13 to i64
@@ -5864,27 +5864,27 @@ thread-pre-split.split:                           ; preds = %thread-pre-split
   %.sink = select i1 %14, i64 30000000, i64 %16
   %17 = tail call fastcc i32 @_my_sleep(i64 noundef %.sink)
   %.b29 = load i1, ptr @stop_backfill, align 1
-  br i1 %.b29, label %.split.us, label %18
+  br i1 %.b29, label %.loopexitthread-pre-split, label %18
 
-18:                                               ; preds = %.critedge165
+18:                                               ; preds = %.critedge
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 321), align 1, !range !12, !noundef !13
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %.critedge165, label %.split74.us, !llvm.loop !23
+  br i1 %20, label %.critedge, label %.split.us, !llvm.loop !23
 
-.split74.us:                                      ; preds = %18, %10
+.split.us:                                        ; preds = %18, %10
   %21 = load ptr, ptr @het_job_list, align 8
   %22 = tail call i32 @list_flush(ptr noundef %21) #15
   %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @config_lock) #15
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %26, label %24
 
-24:                                               ; preds = %.split74.us
+24:                                               ; preds = %.split.us
   %25 = tail call ptr @__errno_location() #16
   store i32 %23, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.backfill_agent) #17
   unreachable
 
-26:                                               ; preds = %.split74.us
+26:                                               ; preds = %.split.us
   %.b2730 = load i1, ptr @config_flag, align 1
   br i1 %.b2730, label %27, label %.thread
 
@@ -6090,8 +6090,8 @@ thread-pre-split.backedge:                        ; preds = %105, %39, %42, %36,
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.backfill_agent) #17
   unreachable
 
-.split.us:                                        ; preds = %thread-pre-split.split, %thread-pre-split.split.us, %.critedge165, %.critedge
-  %109 = load ptr, ptr @het_job_list, align 8
+.loopexitthread-pre-split:                        ; preds = %thread-pre-split.split, %.critedge.preheader, %.critedge, %.critedge.us
+  %.pr = load ptr, ptr @het_job_list, align 8
   %.not37 = icmp eq ptr %109, null
   br i1 %.not37, label %111, label %110
 
