@@ -3016,22 +3016,22 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %335 = add nsw i32 %.0413, 2
   %336 = getelementptr i8, ptr %331, i64 2
   store i16 %334, ptr %336, align 2, !tbaa !18
-  %337 = add nsw i32 %.0413, 1
+  %.pre529 = add nsw i32 %.0413, 1
   br label %.preheader
 
 .preheader:                                       ; preds = %326, %.thread478
-  %.pre-phi530 = phi i32 [ %337, %326 ], [ %.0413, %.thread478 ]
+  %.pre-phi530 = phi i32 [ %.pre529, %326 ], [ %.0413, %.thread478 ]
   %.pre-phi528 = phi i64 [ %330, %326 ], [ %323, %.thread478 ]
   %.7475483 = phi i32 [ %.7, %326 ], [ %.7475484, %.thread478 ]
   %.5477481 = phi i1 [ false, %326 ], [ %325, %.thread478 ]
   %.4417 = phi i32 [ %335, %326 ], [ %322, %.thread478 ]
-  %338 = sub nsw i32 %.0407, %.2392
-  %339 = trunc i32 %338 to i8
+  %337 = sub nsw i32 %.0407, %.2392
+  %338 = trunc i32 %337 to i8
   %scevgep502 = getelementptr i8, ptr %223, i64 %.pre-phi528
   %340 = sub i32 %.pre-phi530, %.0413
   %341 = zext i32 %340 to i64
   %342 = add nuw nsw i64 %341, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep502, i8 %339, i64 %342, i1 false), !tbaa !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep502, i8 %338, i64 %342, i1 false), !tbaa !53
   %343 = trunc i32 %.0413 to i8
   %scevgep507 = getelementptr i8, ptr %scevgep506, i64 %228
   %smax508 = tail call i32 @llvm.smax.i32(i32 %.7475483, i32 %248)

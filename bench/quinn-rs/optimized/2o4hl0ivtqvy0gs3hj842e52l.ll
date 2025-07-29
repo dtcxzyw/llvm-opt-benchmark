@@ -3439,7 +3439,7 @@ _ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit: ; preds 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.i, %.loopexit.loopexit, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit
-  %.sink15 = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ], [ 8, %.loopexit.loopexit ], [ 8, %.preheader.i ]
+  %.sroa.03.0.copyload = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ], [ 8, %.loopexit.loopexit ], [ 8, %.preheader.i ]
   %.sroa.03.0.copyload.sink = phi i64 [ %13, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ], [ %30, %.loopexit.loopexit ], [ 0, %.preheader.i ]
   %storemerge = phi i64 [ 1, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ], [ 0, %.loopexit.loopexit ], [ 0, %.preheader.i ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
@@ -3963,7 +3963,7 @@ _ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit: ; preds 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.i, %.loopexit.loopexit, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit
-  %.sink15 = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ], [ 8, %.loopexit.loopexit ], [ 8, %.preheader.i ]
+  %.sroa.03.0.copyload = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ], [ 8, %.loopexit.loopexit ], [ 8, %.preheader.i ]
   %.sroa.03.0.copyload.sink = phi i64 [ %13, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ], [ %30, %.loopexit.loopexit ], [ 0, %.preheader.i ]
   %storemerge = phi i64 [ 1, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ], [ 0, %.loopexit.loopexit ], [ 0, %.preheader.i ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
@@ -7183,7 +7183,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf7get_int17h18b8e771d582c3
   %12 = load i64, ptr %11, align 8, !alias.scope !2302, !noalias !2305, !noundef !3
   %13 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val1.i.i.i.i, i64 %12)
   %14 = icmp ult i64 %13, %1
-  br i1 %14, label %30, label %.preheader.i.i.i
+  br i1 %14, label %29, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %7
   %15 = icmp eq i64 %1, 0
@@ -7232,21 +7232,21 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf7get_int17h18b8e771d582c3
   %29 = tail call i64 @llvm.bswap.i64(i64 %.sroa.03.0.copyload.pre.i.i)
   br label %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit
 
-30:                                               ; preds = %7
+29:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !2296
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2293
   store i64 %1, ptr %5, align 8, !noalias !2293
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %13, ptr %31, align 8, !noalias !2293
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %13, ptr %30, align 8, !noalias !2293
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #20, !noalias !2293
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit: ; preds = %.preheader.i.i.i, %.loopexit.loopexit.i.i
-  %.sroa.03.0.copyload.sink.i.ph.i = phi i64 [ 0, %.preheader.i.i.i ], [ %29, %.loopexit.loopexit.i.i ]
+  %.sroa.03.0.copyload.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %29, %.loopexit.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !2296
   %.neg = mul nuw nsw i64 %1, 56
   %32 = and i64 %.neg, 56
-  %33 = shl i64 %.sroa.03.0.copyload.sink.i.ph.i, %32
+  %33 = shl i64 %.sroa.03.0.copyload.i.i, %32
   %34 = ashr exact i64 %33, %32
   ret i64 %34
 }
@@ -7789,11 +7789,11 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed1
   %12 = load i64, ptr %11, align 8, !alias.scope !2531, !noalias !2534, !noundef !3
   %13 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val1.i.i.i, i64 %12)
   %14 = icmp ult i64 %13, %1
-  br i1 %14, label %30, label %.preheader.i.i
+  br i1 %14, label %29, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %7
   %15 = icmp eq i64 %1, 0
-  br i1 %15, label %32, label %.lr.ph.i.i
+  br i1 %15, label %31, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %.val.i.i.i = load ptr, ptr %0, align 8, !alias.scope !2537, !noalias !2534, !nonnull !3, !noundef !3
@@ -7838,19 +7838,19 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed1
   %29 = tail call i64 @llvm.bswap.i64(i64 %.sroa.03.0.copyload.pre.i)
   br label %32
 
-30:                                               ; preds = %7
+29:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !2525
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %1, ptr %5, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %13, ptr %31, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %13, ptr %30, align 8
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #20
   unreachable
 
-32:                                               ; preds = %.loopexit.loopexit.i, %.preheader.i.i
-  %.sroa.03.0.copyload.sink.i.ph = phi i64 [ 0, %.preheader.i.i ], [ %29, %.loopexit.loopexit.i ]
+31:                                               ; preds = %.loopexit.loopexit.i, %.preheader.i.i
+  %.sroa.03.0.copyload.i = phi i64 [ 0, %.preheader.i.i ], [ %29, %.loopexit.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !2525
-  ret i64 %.sroa.03.0.copyload.sink.i.ph
+  ret i64 %.sroa.03.0.copyload.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

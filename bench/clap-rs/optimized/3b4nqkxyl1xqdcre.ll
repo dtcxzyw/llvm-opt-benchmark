@@ -2013,7 +2013,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN12clap_builder6output13help_templa
   store i128 89112216542684686001844060841048690714, ptr %2, align 16, !noalias !391
   %21 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h1e1e07fa67619203E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %40, label %23
+  br i1 %22, label %38, label %23
 
 23:                                               ; preds = %20
   call void @llvm.experimental.noalias.scope.decl(metadata !396)
@@ -2044,7 +2044,7 @@ _ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5
   %39 = select i1 %37, i64 100, i64 %38
   br label %44
 
-40:                                               ; preds = %20
+38:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !391
   br label %44
 

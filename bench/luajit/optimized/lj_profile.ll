@@ -96,13 +96,13 @@ define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef readonly
   %19 = load i8, ptr %16, align 1, !tbaa !33
   %20 = add i8 %19, -48
   %or.cond = icmp ult i8 %20, 10
-  br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !34
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !34
 
-.critedge.loopexit:                               ; preds = %.lr.ph
+.critedge:                                        ; preds = %.lr.ph
   %21 = tail call i32 @llvm.smax.i32(i32 %18, i32 1)
   br label %.critedge
 
-22:                                               ; preds = %9, %9
+22:; preds = %9, %9
   %23 = zext nneg i8 %10 to i32
   %24 = load i64, ptr %8, align 8, !tbaa !4
   %25 = inttoptr i64 %24 to ptr
@@ -111,11 +111,11 @@ define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef readonly
   %27 = tail call i32 @lj_trace_flushall(ptr noundef %0) #7
   br label %.critedgethread-pre-split
 
-.critedgethread-pre-split:                        ; preds = %22, %9
+.critedgethread-pre-split:; preds = %22, %9
   %.pr = load i8, ptr %11, align 1, !tbaa !33
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedgethread-pre-split, %.preheader, %.critedge.loopexit
+.critedge:; preds = %.critedgethread-pre-split, %.preheader, %.critedge
   %28 = phi i8 [ %.pr, %.critedgethread-pre-split ], [ %12, %.preheader ], [ %19, %.critedge.loopexit ]
   %.227 = phi i32 [ %.02537, %.critedgethread-pre-split ], [ 1, %.preheader ], [ %21, %.critedge.loopexit ]
   %.2 = phi ptr [ %11, %.critedgethread-pre-split ], [ %11, %.preheader ], [ %16, %.critedge.loopexit ]

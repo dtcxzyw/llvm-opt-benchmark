@@ -635,8 +635,8 @@ read_double.exit.thread:                          ; preds = %102, %101
   br label %read_utf8_string.exit
 
 read_utf8_string.exit:                            ; preds = %123, %117, %116
-  %.0123 = phi ptr [ @.str.5, %116 ], [ @.str.5, %117 ], [ %126, %123 ]
-  %.0 = phi i64 [ 0, %116 ], [ 0, %117 ], [ %130, %123 ]
+  %.1124 = phi ptr [ @.str.5, %116 ], [ @.str.5, %117 ], [ %126, %123 ]
+  %.0.i99 = phi i64 [ 0, %116 ], [ 0, %117 ], [ %130, %123 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
   %131 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
   store ptr %.0123, ptr %131, align 8, !tbaa !41
@@ -691,8 +691,8 @@ read_utf8_string.exit:                            ; preds = %123, %117, %116
   br label %read_octet_string.exit
 
 read_octet_string.exit:                           ; preds = %146, %148, %135, %134
-  %.0121 = phi ptr [ @.str.5, %134 ], [ @.str.5, %135 ], [ %136, %148 ], [ @.str.5, %146 ]
-  %.1 = phi i64 [ 0, %134 ], [ 0, %135 ], [ %157, %148 ], [ 0, %146 ]
+  %.1122 = phi ptr [ @.str.5, %134 ], [ @.str.5, %135 ], [ %136, %148 ], [ @.str.5, %146 ]
+  %.021.i = phi i64 [ 0, %134 ], [ 0, %135 ], [ %157, %148 ], [ 0, %146 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
   %158 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
   store ptr %.0121, ptr %158, align 8, !tbaa !41
@@ -741,8 +741,8 @@ read_octet_string.exit:                           ; preds = %146, %148, %135, %1
   br label %read_utf8_ptr.exit
 
 read_utf8_ptr.exit:                               ; preds = %174, %170, %167, %161
-  %.0119 = phi ptr [ null, %161 ], [ null, %170 ], [ %177, %174 ], [ null, %167 ]
-  %.2 = phi i64 [ 0, %161 ], [ 0, %170 ], [ %181, %174 ], [ 0, %167 ]
+  %.1120 = phi ptr [ null, %161 ], [ null, %170 ], [ %177, %174 ], [ null, %167 ]
+  %.0.i100 = phi i64 [ 0, %161 ], [ 0, %170 ], [ %181, %174 ], [ 0, %167 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
   %182 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
   store ptr %.0119, ptr %182, align 8, !tbaa !41
@@ -822,8 +822,8 @@ read_utf8_ptr.exit:                               ; preds = %174, %170, %167, %1
   br label %read_octet_ptr.exit
 
 read_octet_ptr.exit:                              ; preds = %208, %210, %199, %196, %185
-  %.0117 = phi ptr [ null, %185 ], [ null, %196 ], [ %.pre.i101, %210 ], [ null, %199 ], [ null, %208 ]
-  %.3 = phi i64 [ 0, %185 ], [ 0, %196 ], [ %219, %210 ], [ 0, %199 ], [ 0, %208 ]
+  %.1118 = phi ptr [ null, %185 ], [ null, %196 ], [ %.pre.i101, %210 ], [ null, %199 ], [ null, %208 ]
+  %.0.i102 = phi i64 [ 0, %185 ], [ 0, %196 ], [ %219, %210 ], [ 0, %199 ], [ 0, %208 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
   %220 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
   store ptr %.0117, ptr %220, align 8, !tbaa !41

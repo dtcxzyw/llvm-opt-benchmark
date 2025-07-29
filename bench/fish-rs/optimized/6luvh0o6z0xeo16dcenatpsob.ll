@@ -47626,7 +47626,7 @@ _ZN4fish12wcstringutil20fish_wcwidth_visible17he5c00ad01533ff22E.exit.i: ; preds
   br i1 %108, label %_ZN10widestring9utfstring11Utf32String6remove17hb840bfe953bd9d4aE.exit22.i, label %.invoke206
 
 _ZN10widestring9utfstring11Utf32String6remove17hb840bfe953bd9d4aE.exit22.i: ; preds = %_ZN4fish12wcstringutil20fish_wcwidth_visible17he5c00ad01533ff22E.exit.i
-  %109 = sub i64 %.sroa.09.042.i, %.sroa.0.0.sroa.speculated.i21.i
+  %109 = sub i64 %.sroa.09.042.i, %105
   %110 = load ptr, ptr %.sroa.4.0..sroa_idx77, align 8, !alias.scope !4107, !noalias !4097, !nonnull !3, !noundef !3
   %111 = add nuw nsw i64 %.sroa.0.043.i, 1
   %112 = getelementptr inbounds nuw i32, ptr %110, i64 %.sroa.0.043.i

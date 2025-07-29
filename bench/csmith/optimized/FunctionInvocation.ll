@@ -2428,9 +2428,9 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit111:             ; preds = %.noexc110.thread, %
   %245 = phi ptr [ %239, %.noexc110.thread ], [ %244, %243 ]
   %246 = phi ptr [ null, %.noexc110.thread ], [ %242, %243 ]
   store ptr %245, ptr %214, align 8, !tbaa !134
-  br i1 %.not.i.i.i.i.i.i.i.i.i100330, label %._crit_edge254, label %.lr.ph253
+  br i1 %.not.i.i.i.i.i.i.i.i.i100330, label %._crit_edge254, label %.lr.ph253.preheader
 
-.lr.ph253:                                        ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit111, %.lr.ph253
+.lr.ph253.preheader:                              ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit111, %.lr.ph253
   %.024252 = phi i64 [ %253, %.lr.ph253 ], [ 0, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit111 ]
   %247 = getelementptr inbounds nuw i32, ptr %.sroa.0157.3.lcssa321, i64 %.024252
   %248 = load i32, ptr %247, align 4, !tbaa !98

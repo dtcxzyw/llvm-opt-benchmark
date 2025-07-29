@@ -631,95 +631,95 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br label %44
 
 9:                                                ; preds = %4
-  br i1 %.not44, label %10, label %.thread68
+  br i1 %.not44, label %10, label %13
 
 10:                                               ; preds = %9
   %11 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
   %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %._crit_edge.thread, label %.lr.ph.split.us
 
-.thread68:                                        ; preds = %9
+13:                                               ; preds = %9
   %12 = load i32, ptr %3, align 4, !tbaa !30
-  %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 -1)
-  %14 = add nsw i32 %13, 1
+  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %12, i32 -1)
+  %14 = add nsw i32 %spec.store.select, 1
   %15 = zext nneg i32 %14 to i64
   %16 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
   %17 = icmp ugt i64 %16, %15
   br i1 %17, label %.lr.ph.split, label %._crit_edge.thread.thread
 
-.lr.ph.split.us:                                  ; preds = %10, %23
+.lr.ph.split.us:; preds = %10, %23
   %.061.us = phi ptr [ %.2.us, %23 ], [ null, %10 ]
   %.03460.us = phi i64 [ %24, %23 ], [ 0, %10 ]
   %18 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %.03460.us) #10
   %19 = load ptr, ptr %18, align 8, !tbaa !22
-  %20 = tail call i32 @OBJ_obj2nid(ptr noundef %19) #10
-  %21 = icmp eq i32 %20, %1
+  %17 = tail call i32 @OBJ_obj2nid(ptr noundef %19) #10
+  %21 = icmp eq i32 %17, %1
   br i1 %21, label %22, label %23
 
-22:                                               ; preds = %.lr.ph.split.us
+22:; preds = %.lr.ph.split.us
   %.not47.us = icmp eq ptr %.061.us, null
-  br i1 %.not47.us, label %23, label %.split.us
+  br i1 %.not47.us, label %22, label %.split.us
 
-23:                                               ; preds = %22, %.lr.ph.split.us
+22:                                               ; preds = %22, %.lr.ph.split.us
   %.2.us = phi ptr [ %.061.us, %.lr.ph.split.us ], [ %18, %22 ]
-  %24 = add nuw i64 %.03460.us, 1
-  %25 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
-  %26 = icmp ult i64 %24, %25
-  br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !40
+  %23 = add nuw i64 %.03460.us, 1
+  %24 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !40
 
-.lr.ph.split:                                     ; preds = %.thread68, %33
-  %.03460 = phi i64 [ %34, %33 ], [ %15, %.thread68 ]
-  %27 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %.03460) #10
-  %28 = load ptr, ptr %27, align 8, !tbaa !22
-  %29 = tail call i32 @OBJ_obj2nid(ptr noundef %28) #10
-  %30 = icmp eq i32 %29, %1
-  br i1 %30, label %.thread, label %33
+.lr.ph.split:                                     ; preds = %13, %32
+  %.03460 = phi i64 [ %33, %33 ], [ %15, %.thread68 ]
+  %26 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %.03460) #10
+  %27 = load ptr, ptr %26, align 8, !tbaa !22
+  %28 = tail call i32 @OBJ_obj2nid(ptr noundef %27) #10
+  %29 = icmp eq i32 %28, %1
+  br i1 %29, label %.thread, label %32
 
 .thread:                                          ; preds = %.lr.ph.split
-  %31 = trunc i64 %.03460 to i32
-  store i32 %31, ptr %3, align 4, !tbaa !30
-  br label %37
+  %30 = trunc i64 %.03460 to i32
+  store i32 %30, ptr %3, align 4, !tbaa !30
+  br label %36
 
 .split.us:                                        ; preds = %22
   %.not48 = icmp eq ptr %2, null
-  br i1 %.not48, label %44, label %32
+  br i1 %.not48, label %44, label %31
 
-32:                                               ; preds = %.split.us
+31:                                               ; preds = %.split.us
   store i32 -2, ptr %2, align 4, !tbaa !30
   br label %44
 
-33:                                               ; preds = %.lr.ph.split
-  %34 = add nuw i64 %.03460, 1
-  %35 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
-  %36 = icmp ult i64 %34, %35
-  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !42
+32:                                               ; preds = %.lr.ph.split
+  %33 = add nuw i64 %.03460, 1
+  %34 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
+  %35 = icmp ult i64 %33, %34
+  br i1 %35, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %23
+._crit_edge:                                      ; preds = %22
   %.not49 = icmp eq ptr %.2.us, null
-  br i1 %.not49, label %._crit_edge.thread, label %37
+  br i1 %.not49, label %._crit_edge.thread, label %36
 
-37:                                               ; preds = %.thread, %._crit_edge
-  %.154 = phi ptr [ %27, %.thread ], [ %.2.us, %._crit_edge ]
+36:                                               ; preds = %.thread, %._crit_edge
+  %.154 = phi ptr [ %26, %.thread ], [ %.2.us, %._crit_edge ]
   %.not51 = icmp eq ptr %2, null
-  br i1 %.not51, label %40, label %38
+  br i1 %.not51, label %39, label %37
 
-38:                                               ; preds = %37
-  %39 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %.154) #10
-  store i32 %39, ptr %2, align 4, !tbaa !30
-  br label %40
+37:                                               ; preds = %36
+  %38 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %.154) #10
+  store i32 %38, ptr %2, align 4, !tbaa !30
+  br label %39
 
-40:                                               ; preds = %38, %37
-  %41 = tail call ptr @X509V3_EXT_d2i(ptr noundef nonnull %.154)
+39:                                               ; preds = %37, %36
+  %40 = tail call ptr @X509V3_EXT_d2i(ptr noundef nonnull %.154)
   br label %44
 
-._crit_edge.thread:                               ; preds = %33, %10, %._crit_edge
-  br i1 %.not44, label %42, label %._crit_edge.thread.thread
+._crit_edge.thread:                               ; preds = %32, %10, %._crit_edge
+  br i1 %.not44, label %42, label %41
 
-._crit_edge.thread.thread:                        ; preds = %.thread68, %._crit_edge.thread
+41:                                               ; preds = %13, %._crit_edge.thread
   store i32 -1, ptr %3, align 4, !tbaa !30
   br label %42
 
-42:                                               ; preds = %._crit_edge.thread.thread, %._crit_edge.thread
+42:                                               ; preds = %41, %._crit_edge.thread
   %.not50 = icmp eq ptr %2, null
   br i1 %.not50, label %44, label %43
 
@@ -727,8 +727,8 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   store i32 -1, ptr %2, align 4, !tbaa !30
   br label %44
 
-44:                                               ; preds = %42, %43, %.split.us, %32, %7, %8, %40
-  %.033 = phi ptr [ %41, %40 ], [ null, %8 ], [ null, %7 ], [ null, %32 ], [ null, %.split.us ], [ null, %43 ], [ null, %42 ]
+44:                                               ; preds = %42, %43, %.split.us, %31, %7, %8, %39
+  %.033 = phi ptr [ %40, %40 ], [ null, %8 ], [ null, %7 ], [ null, %32 ], [ null, %.split.us ], [ null, %43 ], [ null, %42 ]
   ret ptr %.033
 }
 

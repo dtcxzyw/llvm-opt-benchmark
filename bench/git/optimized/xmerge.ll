@@ -2705,17 +2705,17 @@ is_eol_crlf.exit25.thread43:                      ; preds = %86, %69, %is_eol_cr
   br i1 %or.cond, label %.sink.split.i29, label %.critedge
 
 .sink.split.sink.split.i31:                       ; preds = %101
-  %123 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !58
-  %125 = getelementptr i8, ptr %124, i64 %106
+  %124 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %125 = load ptr, ptr %124, align 8, !tbaa !58
+  %126 = getelementptr i8, ptr %125, i64 %106
   br label %.sink.split.i29
 
 .sink.split.i29:                                  ; preds = %115, %.sink.split.sink.split.i31
-  %.sink31.i30 = phi ptr [ %125, %.sink.split.sink.split.i31 ], [ %118, %115 ]
-  %126 = getelementptr i8, ptr %.sink31.i30, i64 -2
-  %127 = load i8, ptr %126, align 1, !tbaa !72
-  %128 = icmp eq i8 %127, 13
-  %129 = zext i1 %128 to i32
+  %.sink31.i30 = phi ptr [ %126, %.sink.split.sink.split.i31 ], [ %118, %115 ]
+  %127 = getelementptr i8, ptr %.sink31.i30, i64 -2
+  %128 = load i8, ptr %127, align 1, !tbaa !72
+  %129 = icmp eq i8 %128, 13
+  %130 = zext i1 %129 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.sink.split.i29, %108, %101, %115, %109, %87, %84, %61, %40, %37, %14, %is_eol_crlf.exit, %is_eol_crlf.exit25

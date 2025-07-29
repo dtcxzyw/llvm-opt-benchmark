@@ -818,9 +818,9 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDe
   %38 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !80
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !98
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
-._crit_edge.loopexit:                             ; preds = %37
+._crit_edge:                                      ; preds = %37
   %40 = tail call i32 @llvm.smax.i32(i32 %.1, i32 0)
   br label %._crit_edge
 

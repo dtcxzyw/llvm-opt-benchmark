@@ -2014,8 +2014,8 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
     i32 1, label %5
     i32 0, label %27
     i32 3, label %39
-    i32 2, label %74
-    i32 4, label %93
+    i32 2, label %73
+    i32 4, label %92
   ]
 
 5:                                                ; preds = %2
@@ -2045,7 +2045,7 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   %sqrt = tail call float @llvm.sqrt.f32(float %25)
   %26 = fadd float %8, %sqrt
   %.sroa.049.4.vec.insert = insertelement <2 x float> %.sroa.049.0.vec.insert, float %26, i64 1
-  br label %112
+  br label %111
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -2063,7 +2063,7 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   %sqrt.i = tail call float @llvm.sqrt.f32(float %37)
   %38 = fadd float %30, %sqrt.i
   %.sroa.049.4.vec.insert60 = insertelement <2 x float> %.sroa.049.0.vec.insert52, float %38, i64 1
-  br label %112
+  br label %111
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -2081,11 +2081,11 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   %wide.trip.count = zext nneg i32 %44 to i64
   br label %54
 
-._crit_edge.loopexit:                             ; preds = %54
+._crit_edge:                                      ; preds = %54
   %49 = tail call float @llvm.sqrt.f32(float %73)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %39
+._crit_edge:; preds = %._crit_edge.loopexit, %39
   %.067.lcssa = phi float [ 0.000000e+00, %39 ], [ %49, %._crit_edge.loopexit ]
   %.0.lcssa = phi float [ %42, %39 ], [ %65, %._crit_edge.loopexit ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -2096,7 +2096,7 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   %.sroa.049.4.vec.insert62 = insertelement <2 x float> %.sroa.049.0.vec.insert54, float %53, i64 1
   br label %112
 
-54:                                               ; preds = %.lr.ph, %54
+54: ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %.0142 = phi float [ %42, %.lr.ph ], [ %65, %54 ]
   %.067141 = phi float [ 0.000000e+00, %.lr.ph ], [ %73, %54 ]
@@ -2124,24 +2124,24 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   %73 = select i1 %72, float %.067141, float %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %54, !llvm.loop !204
+  br i1 %exitcond.not, label %._crit_edge, label %54, !llvm.loop !204
 
-74:                                               ; preds = %2
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %76 = load <2 x float>, ptr %75, align 4
-  %77 = fsub <2 x float> %76, %1
-  %78 = fsub <2 x float> %76, %1
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %80 = load <2 x float>, ptr %79, align 4
-  %81 = fsub <2 x float> %80, %1
-  %82 = fsub <2 x float> %80, %1
+73:                                               ; preds = %2
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %75 = load <2 x float>, ptr %74, align 4
+  %76 = fsub <2 x float> %75, %1
+  %77 = fsub <2 x float> %75, %1
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %79 = load <2 x float>, ptr %78, align 4
+  %80 = fsub <2 x float> %79, %1
+  %81 = fsub <2 x float> %79, %1
   %83 = fmul <2 x float> %77, %77
   %84 = fmul <2 x float> %78, %78
   %shift152 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %85 = fadd <2 x float> %83, %shift152
   %86 = extractelement <2 x float> %85, i64 0
   %87 = fmul <2 x float> %81, %81
-  %88 = fmul <2 x float> %82, %82
+  %88 = fmul <2 x float> %81, %82
   %shift153 = shufflevector <2 x float> %88, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %89 = fadd <2 x float> %87, %shift153
   %90 = extractelement <2 x float> %89, i64 0
@@ -2149,17 +2149,17 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   %92 = select i1 %91, float %86, float %90
   %sqrt138 = tail call float @llvm.sqrt.f32(float %92)
   %.sroa.049.4.vec.insert64 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %sqrt138, i64 1
-  br label %112
+  br label %111
 
-93:                                               ; preds = %2
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %95 = load <2 x float>, ptr %94, align 4
-  %96 = fsub <2 x float> %95, %1
-  %97 = fsub <2 x float> %95, %1
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %99 = load <2 x float>, ptr %98, align 4
-  %100 = fsub <2 x float> %99, %1
-  %101 = fsub <2 x float> %99, %1
+92:                                               ; preds = %2
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %94 = load <2 x float>, ptr %93, align 4
+  %95 = fsub <2 x float> %94, %1
+  %96 = fsub <2 x float> %94, %1
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %98 = load <2 x float>, ptr %97, align 4
+  %99 = fsub <2 x float> %98, %1
+  %100 = fsub <2 x float> %98, %1
   %102 = fmul <2 x float> %96, %96
   %103 = fmul <2 x float> %97, %97
   %shift154 = shufflevector <2 x float> %103, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
@@ -2174,9 +2174,9 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   %111 = select i1 %110, float %105, float %109
   %sqrt139 = tail call float @llvm.sqrt.f32(float %111)
   %.sroa.049.4.vec.insert66 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %sqrt139, i64 1
-  br label %112
+  br label %111
 
-112:                                              ; preds = %2, %93, %74, %._crit_edge, %27, %5
+111:                                              ; preds = %2, %92, %73, %._crit_edge, %27, %5
   %.sroa.049.0 = phi <2 x float> [ zeroinitializer, %2 ], [ %.sroa.049.4.vec.insert, %5 ], [ %.sroa.049.4.vec.insert60, %27 ], [ %.sroa.049.4.vec.insert62, %._crit_edge ], [ %.sroa.049.4.vec.insert64, %74 ], [ %.sroa.049.4.vec.insert66, %93 ]
   ret <2 x float> %.sroa.049.0
 }

@@ -5279,7 +5279,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   %55 = icmp eq i32 %52, 0
   br i1 %55, label %.loopexit13, label %.preheader12, !llvm.loop !272
 
-.loopexit13:                                      ; preds = %.preheader12
+.loopexit13:; preds = %.preheader12
   %56 = call i32 @llvm.umax.i32(i32 %41, i32 %47)
   br label %57
 
@@ -5304,7 +5304,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   %71 = icmp eq i32 %68, 0
   br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !273
 
-.loopexit:                                        ; preds = %.preheader
+.loopexit:; preds = %.preheader
   %72 = call i32 @llvm.umax.i32(i32 %58, i32 %63)
   br label %73
 

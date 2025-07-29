@@ -253,7 +253,7 @@ define hidden noundef i32 @_ZN3ue219findMaxInfixMatchesERKNS_7left_idERKSt3setIN
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %51, label %8
+  br i1 %.not, label %49, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %7, i64 24
@@ -357,16 +357,16 @@ _ZNK3ue25depthcvjEv.exit35.i:                     ; preds = %44
   %.sroa.speculated17.i = call i64 @llvm.umax.i64(i64 %.02939.i, i64 %.1.i)
   %48 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.038.i) #23
   %.not.i = icmp eq ptr %48, %16
-  br i1 %.not.i, label %.critedge25.loopexit.i, label %18
+  br i1 %.not.i, label %.critedge25.i, label %18
 
-.critedge25.loopexit.i:                           ; preds = %.critedge27.i
+.critedge25.i:                                    ; preds = %.critedge27.i
   %49 = call i64 @llvm.umin.i64(i64 %.sroa.speculated17.i, i64 4294967295)
   %50 = trunc nuw i64 %49 to i32
   br label %_ZN3ue2L19findMaxInfixMatchesERKNS_11CastleProtoERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE.exit
 
-51:                                               ; preds = %2
-  %52 = load ptr, ptr %0, align 8
-  %.not7 = icmp eq ptr %52, null
+49:                                               ; preds = %2
+  %50 = load ptr, ptr %0, align 8
+  %.not7 = icmp eq ptr %50, null
   br i1 %.not7, label %_ZN3ue2L19findMaxInfixMatchesERKNS_11CastleProtoERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE.exit, label %53
 
 53:                                               ; preds = %51
@@ -378,7 +378,7 @@ _ZNK3ue25depthcvjEv.exit35.i:                     ; preds = %44
   %57 = tail call fastcc noundef i32 @_ZN3ue2L21findMaxLiteralMatchesERKNS_8NGHolderERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(136) %56, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %_ZN3ue2L19findMaxInfixMatchesERKNS_11CastleProtoERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE.exit
 
-_ZN3ue2L19findMaxInfixMatchesERKNS_11CastleProtoERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE.exit: ; preds = %44, %18, %.critedge25.loopexit.i, %12, %8, %51, %53, %55
+_ZN3ue2L19findMaxInfixMatchesERKNS_11CastleProtoERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE.exit: ; preds = %44, %18, %.critedge25.i, %12, %8, %49, %53, %55
   %.0 = phi i32 [ %57, %55 ], [ -1, %53 ], [ -1, %51 ], [ -1, %8 ], [ 0, %12 ], [ %50, %.critedge25.loopexit.i ], [ -1, %18 ], [ -1, %44 ]
   ret i32 %.0
 }

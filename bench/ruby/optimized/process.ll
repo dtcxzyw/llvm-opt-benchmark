@@ -9276,7 +9276,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.ex
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1000, ptr %48, align 8, !tbaa !265
   store i64 1000000000, ptr %6, align 16, !tbaa !266
-  br label %105
+  br label %104
 
 49:                                               ; preds = %43
   %50 = load i64, ptr @id_TIME_BASED_CLOCK_REALTIME, align 8, !tbaa !43
@@ -9289,7 +9289,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.ex
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %54, align 8, !tbaa !265
   store i64 1000000000, ptr %6, align 16, !tbaa !266
-  br label %105
+  br label %104
 
 55:                                               ; preds = %49
   %56 = load i64, ptr @id_TIMES_BASED_CLOCK_MONOTONIC, align 8, !tbaa !43
@@ -9303,7 +9303,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.ex
   store i64 0, ptr %4, align 8, !tbaa !261
   %61 = tail call i64 @sysconf(i32 noundef 2) #27
   store i64 %61, ptr %6, align 16, !tbaa !266
-  br label %105
+  br label %104
 
 62:                                               ; preds = %55
   %63 = load i64, ptr @id_GETRUSAGE_BASED_CLOCK_PROCESS_CPUTIME_ID, align 8, !tbaa !43
@@ -9316,7 +9316,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.ex
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1000, ptr %67, align 8, !tbaa !265
   store i64 1000000000, ptr %6, align 16, !tbaa !266
-  br label %105
+  br label %104
 
 68:                                               ; preds = %62
   %69 = load i64, ptr @id_TIMES_BASED_CLOCK_PROCESS_CPUTIME_ID, align 8, !tbaa !43
@@ -9330,20 +9330,20 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.ex
   store i64 0, ptr %4, align 8, !tbaa !261
   %74 = tail call i64 @sysconf(i32 noundef 2) #27
   store i64 %74, ptr %6, align 16, !tbaa !266
-  br label %105
+  br label %104
 
 75:                                               ; preds = %68
   %76 = load i64, ptr @id_CLOCK_BASED_CLOCK_PROCESS_CPUTIME_ID, align 8, !tbaa !43
   %77 = tail call i64 @rb_id2sym(i64 noundef %76) #27
   %78 = icmp eq i64 %16, %77
-  br i1 %78, label %79, label %103
+  br i1 %78, label %79, label %102
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %80, align 8, !tbaa !265
   store i64 0, ptr %4, align 8, !tbaa !261
   store i64 1000000, ptr %6, align 16, !tbaa !266
-  br label %105
+  br label %104
 
 RB_SYMBOL_P.exit.thread40:                        ; preds = %19, %RB_SYMBOL_P.exit
   %81 = and i64 %16, 1
@@ -9390,25 +9390,25 @@ rb_num2int_inline.exit:                           ; preds = %82, %84
   %102 = call double @llvm.fmuladd.f64(double %100, double 1.000000e+09, double %101)
   br label %105
 
-103:                                              ; preds = %75
-  %104 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.257, i64 noundef %16) #27
-  tail call void @rb_syserr_fail_str(i32 noundef 22, i64 noundef %104) #29
+102:                                              ; preds = %75
+  %103 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.257, i64 noundef %16) #27
+  tail call void @rb_syserr_fail_str(i32 noundef 22, i64 noundef %103) #29
   unreachable
 
-105:                                              ; preds = %94, %79, %72, %66, %59, %53, %47
+104:                                              ; preds = %94, %79, %72, %66, %59, %53, %47
   %.val39 = phi i64 [ 1000000000, %94 ], [ 1000000, %79 ], [ %74, %72 ], [ 1000000000, %66 ], [ %61, %59 ], [ 1000000000, %53 ], [ 1000000000, %47 ]
-  %106 = phi double [ %102, %94 ], [ 1.000000e+00, %79 ], [ 1.000000e+00, %72 ], [ 1.000000e+03, %66 ], [ 1.000000e+00, %59 ], [ 1.000000e+09, %53 ], [ 1.000000e+03, %47 ]
+  %105 = phi double [ %102, %94 ], [ 1.000000e+00, %79 ], [ 1.000000e+00, %72 ], [ 1.000000e+03, %66 ], [ 1.000000e+00, %59 ], [ 1.000000e+09, %53 ], [ 1.000000e+03, %47 ]
   %107 = load i64, ptr @id_hertz, align 8, !tbaa !43
   %108 = call i64 @rb_id2sym(i64 noundef %107) #27
   %109 = icmp eq i64 %15, %108
-  br i1 %109, label %110, label %127
+  br i1 %109, label %110, label %128
 
-110:                                              ; preds = %105
+110:                                              ; preds = %104
   %111 = sitofp i64 %.val39 to double
-  %112 = fdiv double %111, %106
+  %112 = fdiv double %111, %105
   %113 = bitcast double %112 to i64
   %cond.i.i = icmp eq i64 %113, 3458764513820540928
-  br i1 %cond.i.i, label %125, label %114
+  br i1 %cond.i.i, label %126, label %114
 
 114:                                              ; preds = %110
   %115 = lshr i64 %113, 60
@@ -9424,20 +9424,20 @@ rb_num2int_inline.exit:                           ; preds = %82, %84
   %122 = or disjoint i64 %121, 2
   br label %timetick2dblnum_reciprocal.exit
 
-123:                                              ; preds = %114
-  %124 = icmp eq i64 %113, 0
-  br i1 %124, label %timetick2dblnum_reciprocal.exit, label %125
+124:                                              ; preds = %114
+  %125 = icmp eq i64 %113, 0
+  br i1 %125, label %timetick2dblnum_reciprocal.exit, label %126
 
-125:                                              ; preds = %123, %110
-  %126 = call i64 @rb_float_new_in_heap(double noundef %112) #27
+126:                                              ; preds = %124, %110
+  %127 = call i64 @rb_float_new_in_heap(double noundef %112) #27
   br label %timetick2dblnum_reciprocal.exit
 
-127:                                              ; preds = %105
-  %128 = call fastcc i64 @make_clock_result(ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %15)
+128:                                              ; preds = %104
+  %129 = call fastcc i64 @make_clock_result(ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %15)
   br label %timetick2dblnum_reciprocal.exit
 
-timetick2dblnum_reciprocal.exit:                  ; preds = %125, %123, %119, %127
-  %.0 = phi i64 [ %128, %127 ], [ %126, %125 ], [ %122, %119 ], [ -9223372036854775806, %123 ]
+timetick2dblnum_reciprocal.exit:                  ; preds = %126, %124, %119, %128
+  %.0 = phi i64 [ %129, %127 ], [ %127, %125 ], [ %122, %119 ], [ -9223372036854775806, %123 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27

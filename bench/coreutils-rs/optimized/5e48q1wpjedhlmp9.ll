@@ -979,7 +979,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9dd3261f05bc11e5E.llvm.14244403617401860137.exit"
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
-  %14 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.4.0.copyload), !noalias !562
+  %12 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.4.0.copyload), !noalias !562
   unreachable
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9dd3261f05bc11e5E.llvm.14244403617401860137.exit": ; preds = %2, %.lr.ph.split.us.i.i, %.noexc5.i
@@ -2169,7 +2169,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h271
   %6 = load i64, ptr %5, align 8, !alias.scope !1129, !noundef !4
   %.promoted = load i64, ptr %0, align 8, !alias.scope !1129
   %.not.i9 = icmp eq i64 %6, %.promoted
-  br i1 %.not.i9, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i9, label %18, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   store i64 1, ptr %0, align 8, !alias.scope !1129
@@ -2197,10 +2197,10 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h271
   br label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %19 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.val.i.i, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
+  %17 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.val.i.i, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
   unreachable
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %13, %4
+18:                                               ; preds = %.lr.ph.split.us, %13, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %18, %13 ], [ %1, %.lr.ph.split.us ]
   ret i64 %.0.lcssa
 }
@@ -3786,7 +3786,7 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h271a32cced83bfdeE.llvm.14244403617401860137.exit
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %18 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
+  %16 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
   unreachable
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h271a32cced83bfdeE.llvm.14244403617401860137.exit: ; preds = %.noexc5, %.lr.ph.split.us.i, %3

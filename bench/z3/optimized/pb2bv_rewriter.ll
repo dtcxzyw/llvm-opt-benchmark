@@ -17000,9 +17000,9 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIP4exprLb
   %38 = icmp eq ptr %37, null
   br i1 %38, label %._crit_edge, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33
 
-_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33:           ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
-  %39 = getelementptr inbounds i8, ptr %37, i64 -4
-  %40 = load i32, ptr %39, align 4, !tbaa !98
+39:                                               ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
+  %40 = getelementptr inbounds i8, ptr %37, i64 -4
+  %41 = load i32, ptr %40, align 4, !tbaa !98
   %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 %.0.i)
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -17020,9 +17020,9 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit33:           ; preds = %_ZNK6vectorIP4exprL
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, %._crit_edge.loopexit, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33
-  %.0.i3288 = phi i32 [ %41, %._crit_edge.loopexit ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
-  %46 = phi i32 [ %151, %._crit_edge.loopexit ], [ %34, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33 ], [ %34, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
-  %47 = phi ptr [ %147, %._crit_edge.loopexit ], [ %35, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33 ], [ %35, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
+  %46 = phi i32 [ %41, %._crit_edge.loopexit ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
+  %47 = phi i32 [ %151, %._crit_edge.loopexit ], [ %34, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33 ], [ %34, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
+  %48 = phi ptr [ %147, %._crit_edge.loopexit ], [ %35, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33 ], [ %35, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
   %48 = phi ptr [ %.pre85, %._crit_edge.loopexit ], [ %36, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit33 ], [ %36, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit35, label %50
@@ -17245,7 +17245,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit52:   ; preds = %135, %145
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %59, !llvm.loop !292
 
 152:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit37
-  %153 = zext i32 %.0.i3288 to i64
+  %153 = zext i32 %46 to i64
   %154 = getelementptr inbounds nuw ptr, ptr %53, i64 %153
   %155 = getelementptr inbounds i8, ptr %47, i64 -8
   %156 = load i32, ptr %155, align 4, !tbaa !98

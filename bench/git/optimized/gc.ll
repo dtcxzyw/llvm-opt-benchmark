@@ -3822,7 +3822,7 @@ define internal range(i32 0, 2) i32 @maintenance_task_incremental_repack(ptr nou
 _.exit:                                           ; preds = %10, %12
   %.0.i = phi ptr [ %13, %12 ], [ @.str.142, %10 ]
   tail call void (ptr, ...) @warning(ptr noundef %.0.i) #21
-  br label %62
+  br label %61
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #21
@@ -3857,7 +3857,7 @@ multi_pack_index_write.exit:                      ; preds = %22, %24
   %.0.i.i = phi ptr [ %25, %24 ], [ @.str.145, %22 ]
   %26 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #21
-  br label %62
+  br label %61
 
 27:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #21
@@ -3892,7 +3892,7 @@ multi_pack_index_expire.exit:                     ; preds = %34, %36
   %.0.i.i11 = phi ptr [ %37, %36 ], [ @.str.146, %34 ]
   %38 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i11) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #21
-  br label %62
+  br label %61
 
 39:                                               ; preds = %32
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #21
@@ -3929,21 +3929,21 @@ multi_pack_index_expire.exit:                     ; preds = %34, %36
   %50 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !45
   %.not.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !151
+  br i1 %.not.i.i, label %get_auto_pack_size.exit.i, label %.lr.ph.i.i, !llvm.loop !151
 
-._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
+get_auto_pack_size.exit.i:                        ; preds = %.lr.ph.i.i
   %52 = call i64 @llvm.smin.i64(i64 %.115.i.i, i64 2147483646)
   %53 = add nuw nsw i64 %52, 1
   br label %get_auto_pack_size.exit.i
 
-get_auto_pack_size.exit.i:                        ; preds = %._crit_edge.loopexit.i.i, %44
+get_auto_pack_size.exit.i:; preds = %._crit_edge.loopexit.i.i, %44
   %.014.lcssa.i.i = phi i64 [ 1, %44 ], [ %53, %._crit_edge.loopexit.i.i ]
   %54 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %3, ptr noundef nonnull @.str.147, i64 noundef %.014.lcssa.i.i) #21
   %55 = call i32 @run_command(ptr noundef nonnull %3) #21
   %.not1.i14 = icmp eq i32 %55, 0
   br i1 %.not1.i14, label %61, label %56
 
-56:                                               ; preds = %get_auto_pack_size.exit.i
+56:; preds = %get_auto_pack_size.exit.i
   %57 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i.i15 = icmp eq i32 %57, 0
   br i1 %.not4.i.i15, label %multi_pack_index_repack.exit, label %58
@@ -3954,15 +3954,15 @@ get_auto_pack_size.exit.i:                        ; preds = %._crit_edge.loopexi
 
 multi_pack_index_repack.exit:                     ; preds = %56, %58
   %.0.i.i17 = phi ptr [ %59, %58 ], [ @.str.148, %56 ]
-  %60 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i17) #21
+  %59 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i17) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #21
-  br label %62
+  br label %61
 
-61:                                               ; preds = %get_auto_pack_size.exit.i
+60:                                               ; preds = %get_auto_pack_size.exit.i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #21
-  br label %62
+  br label %61
 
-62:                                               ; preds = %61, %multi_pack_index_repack.exit, %multi_pack_index_expire.exit, %multi_pack_index_write.exit, %_.exit
+61:                                               ; preds = %60, %multi_pack_index_repack.exit, %multi_pack_index_expire.exit, %multi_pack_index_write.exit, %_.exit
   %.0 = phi i32 [ 0, %_.exit ], [ 1, %multi_pack_index_write.exit ], [ 1, %multi_pack_index_expire.exit ], [ 0, %61 ], [ 1, %multi_pack_index_repack.exit ]
   ret i32 %.0
 }

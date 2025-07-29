@@ -27069,13 +27069,13 @@ output_file_close.exit3184:                       ; preds = %3874, %3878
   %.12128.ph = phi i32 [ %.021274069, %output_file_close.exit3184 ], [ %3873, %3872 ], [ %3870, %3869 ], [ %3867, %3866 ], [ %3864, %3863 ], [ %.021274069, %3861 ], [ %.021274069, %3859 ]
   %indvars.iv.next4397 = add nuw nsw i64 %indvars.iv4396, 1
   %exitcond4402.not = icmp eq i64 %indvars.iv.next4397, %wide.trip.count4401
-  br i1 %exitcond4402.not, label %._crit_edge4073.loopexit, label %3849, !llvm.loop !617
+  br i1 %exitcond4402.not, label %._crit_edge4073, label %3849, !llvm.loop !617
 
-._crit_edge4073.loopexit:                         ; preds = %3884
+._crit_edge4073:                                  ; preds = %3884
   %3885 = tail call i32 @llvm.umax.i32(i32 %.12128.ph, i32 1)
   br label %._crit_edge4073
 
-._crit_edge4073:                                  ; preds = %._crit_edge4073.loopexit, %3846
+3888:                                             ; preds = %._crit_edge4073, %3846
   %.02127.lcssa = phi i32 [ 1, %3846 ], [ %3885, %._crit_edge4073.loopexit ]
   %3886 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %3887 = load ptr, ptr %3886, align 8, !tbaa !616
@@ -27087,8 +27087,8 @@ output_file_close.exit3184:                       ; preds = %3874, %3878
   %3891 = tail call i32 @sqlite3_trace_v2(ptr noundef %3889, i32 noundef 0, ptr noundef null, ptr noundef null) #43
   br label %test_breakpoint.exit
 
-3892:                                             ; preds = %._crit_edge4073
-  %3893 = tail call i32 @sqlite3_trace_v2(ptr noundef %3889, i32 noundef %.02127.lcssa, ptr noundef nonnull @sql_trace_callback, ptr noundef nonnull %1) #43
+3891:                                             ; preds = %._crit_edge4073
+  %spec.store.select195 = tail call i32 @sqlite3_trace_v2(ptr noundef %3889, i32 noundef %.02127.lcssa, ptr noundef nonnull @sql_trace_callback, ptr noundef nonnull %1) #43
   br label %test_breakpoint.exit
 
 3894:                                             ; preds = %3345, %.thread3624
@@ -27347,7 +27347,7 @@ thread-pre-split3636:                             ; preds = %4010
   %4034 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4033, ptr noundef nonnull @.str.1249, ptr noundef nonnull %128) #46
   br label %test_breakpoint.exit
 
-test_breakpoint.exit:                             ; preds = %.thread3232, %.preheader3764, %.lr.ph4063, %4025, %3495, %2879, %2472, %2209, %.critedge2814, %1685, %1679, %3892, %3890, %3881, %.thread3616, %3344, %3090, %._crit_edge4122, %3058, %3082, %3080, %3047, %2867, %2727, %2584, %2507, %2536, %._crit_edge4052, %2459, %2450, %2282, %2135, %2132, %2082, %2078, %2005, %1848, %1844, %1747, %1663, %1700, %1639, %1642, %1626, %.thread3326, %1024, %.loopexit3766, %.thread3253, %728, %726, %711, %660, %305, %303, %271, %267, %close_db.exit, %2494, %799, %817, %809, %795, %779, %780, %450, %463, %465, %460, %417, %427, %162, %164, %155, %262, %281, %285, %288, %337, %466, %._crit_edge3934, %603, %738, %827, %824, %1048, %1053, %1056, %2040, %2035, %._crit_edge4056, %shell_strncpy.exit3073, %2481, %2618, %2609, %2744, %2886, %2880, %3221, %3223, %3210, %3217, %3215, %3362, %3358, %3829, %3943, %3993, %.critedge2854, %4004, %._crit_edge4068, %3900, %3837, %3841, %2296, %2338, %shell_check_oom.exit3058, %.critedge2817.thread, %2370, %2335, %2013, %1752, %output_file_close.exit.tail, %1719, %1031, %1039, %773, %767, %769, %762, %730, %615, %.thread3246, %482, %tryToClone.exit, %375, %307, %252, %256, %169, %148
+test_breakpoint.exit:                             ; preds = %.thread3232, %.preheader3764, %.lr.ph4063, %4025, %3495, %2879, %2472, %2209, %.critedge2814, %1685, %1679, %3891, %3890, %3881, %.thread3616, %3344, %3090, %._crit_edge4122, %3058, %3082, %3080, %3047, %2867, %2727, %2584, %2507, %2536, %._crit_edge4052, %2459, %2450, %2282, %2135, %2132, %2082, %2078, %2005, %1848, %1844, %1747, %1663, %1700, %1639, %1642, %1626, %.thread3326, %1024, %.loopexit3766, %.thread3253, %728, %726, %711, %660, %305, %303, %271, %267, %close_db.exit, %2494, %799, %817, %809, %795, %779, %780, %450, %463, %465, %460, %417, %427, %162, %164, %155, %262, %281, %285, %288, %337, %466, %._crit_edge3934, %603, %738, %827, %824, %1048, %1053, %1056, %2040, %2035, %._crit_edge4056, %shell_strncpy.exit3073, %2481, %2618, %2609, %2744, %2886, %2880, %3221, %3223, %3210, %3217, %3215, %3362, %3358, %3829, %3943, %3993, %.critedge2854, %4004, %._crit_edge4068, %3900, %3837, %3841, %2296, %2338, %shell_check_oom.exit3058, %.critedge2817.thread, %2370, %2335, %2013, %1752, %output_file_close.exit.tail, %1719, %1031, %1039, %773, %767, %769, %762, %730, %615, %.thread3246, %482, %tryToClone.exit, %375, %307, %252, %256, %169, %148
   %.02138 = phi i32 [ 1, %148 ], [ 0, %155 ], [ 0, %162 ], [ 0, %164 ], [ %170, %169 ], [ %.22140, %close_db.exit ], [ 0, %252 ], [ 1, %256 ], [ 1, %262 ], [ 1, %285 ], [ 0, %281 ], [ 1, %288 ], [ 1, %307 ], [ %.32141, %337 ], [ 0, %tryToClone.exit ], [ 1, %375 ], [ 1, %466 ], [ 0, %482 ], [ %.521434561, %._crit_edge3934 ], [ 0, %.thread3246 ], [ %605, %603 ], [ %616, %615 ], [ 1, %730 ], [ %739, %738 ], [ 0, %762 ], [ 0, %767 ], [ 0, %769 ], [ 1, %773 ], [ 1, %824 ], [ 0, %827 ], [ %.10, %.loopexit3766 ], [ %.12, %1024 ], [ 0, %1031 ], [ 1, %1039 ], [ 0, %1053 ], [ 0, %1048 ], [ 0, %1056 ], [ %.18, %1626 ], [ 0, %1719 ], [ %.24, %1747 ], [ 1, %1752 ], [ 0, %output_file_close.exit.tail ], [ 1, %2013 ], [ 0, %2035 ], [ 1, %2040 ], [ 0, %.critedge2817.thread ], [ 0, %2296 ], [ 0, %2335 ], [ 0, %2338 ], [ %.40, %2370 ], [ 0, %shell_check_oom.exit3058 ], [ 0, %._crit_edge4056 ], [ 0, %shell_strncpy.exit3073 ], [ 0, %2481 ], [ %.46, %2584 ], [ 0, %2609 ], [ 1, %2618 ], [ %.48, %2727 ], [ 0, %2744 ], [ %.55, %2867 ], [ %.63, %2886 ], [ %.63, %2880 ], [ %.66, %3047 ], [ 0, %3210 ], [ 0, %3215 ], [ 0, %3217 ], [ 0, %3221 ], [ 1, %3223 ], [ %.71, %3344 ], [ 0, %3358 ], [ 0, %3362 ], [ 1, %3495 ], [ 0, %3829 ], [ 0, %3837 ], [ 1, %3841 ], [ 0, %3900 ], [ 0, %3943 ], [ 0, %._crit_edge4068 ], [ 0, %3993 ], [ 0, %4004 ], [ 1, %.critedge2854 ], [ 0, %427 ], [ 0, %417 ], [ 0, %450 ], [ 1, %460 ], [ 0, %465 ], [ 0, %463 ], [ 2, %780 ], [ 2, %779 ], [ 0, %795 ], [ 0, %809 ], [ 0, %817 ], [ 0, %799 ], [ 2, %2494 ], [ 0, %267 ], [ 0, %271 ], [ 0, %303 ], [ 0, %305 ], [ 1, %660 ], [ 0, %711 ], [ 0, %726 ], [ 0, %728 ], [ 0, %.thread3253 ], [ %.14.ph, %.thread3326 ], [ 1, %1639 ], [ %1643, %1642 ], [ 1, %1663 ], [ 0, %1700 ], [ %.29, %2005 ], [ 1, %1844 ], [ 1, %1848 ], [ 0, %2135 ], [ 0, %2132 ], [ 1, %2078 ], [ 1, %2082 ], [ %.38, %2282 ], [ 0, %._crit_edge4052 ], [ 1, %2450 ], [ 1, %2459 ], [ 1, %2507 ], [ %.45, %2536 ], [ 1, %3058 ], [ 0, %3082 ], [ 0, %3080 ], [ 1, %3090 ], [ 0, %._crit_edge4122 ], [ %.74.ph, %.thread3616 ], [ 1, %3881 ], [ 0, %3892 ], [ 0, %3890 ], [ 1, %1679 ], [ 1, %1685 ], [ 1, %.critedge2814 ], [ 1, %2209 ], [ 0, %2472 ], [ %.63, %2879 ], [ 0, %4025 ], [ 0, %.lr.ph4063 ], [ 0, %.preheader3764 ], [ 0, %.thread3232 ]
   %4035 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4036 = load i32, ptr %4035, align 4, !tbaa !559
@@ -50718,7 +50718,7 @@ define internal void @shellDtostr(ptr noundef %0, i32 noundef %1, ptr noundef re
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call double @sqlite3_value_double(ptr noundef %5) #43
   %7 = icmp sgt i32 %1, 1
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -50728,10 +50728,10 @@ define internal void @shellDtostr(ptr noundef %0, i32 noundef %1, ptr noundef re
   %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 350)
   br label %14
 
-14:                                               ; preds = %3, %8
-  %spec.store.select = phi i32 [ %13, %8 ], [ 26, %3 ]
+12:                                               ; preds = %3, %8
+  %13 = phi i32 [ %13, %8 ], [ 26, %3 ]
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4) #43
-  %15 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 400, ptr noundef nonnull %4, ptr noundef nonnull @.str.649, i32 noundef %spec.store.select, double noundef %6) #43
+  %15 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 400, ptr noundef nonnull %4, ptr noundef nonnull @.str.649, i32 noundef %13, double noundef %6) #43
   call void @sqlite3_result_text(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #43
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #43
   ret void

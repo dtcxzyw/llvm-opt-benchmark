@@ -8767,11 +8767,11 @@ define i32 @FT_Set_Pixel_Sizes(ptr noundef readonly captures(address_is_null) %0
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %6, label %8
 
-6:                                                ; preds = %3
+6:; preds = %3
   %7 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
   br label %10
 
-8:                                                ; preds = %3
+8:; preds = %3
   %9 = icmp eq i32 %2, 0
   %spec.select = select i1 %9, i32 %1, i32 %2
   br label %10
@@ -8782,21 +8782,21 @@ define i32 @FT_Set_Pixel_Sizes(ptr noundef readonly captures(address_is_null) %0
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %.013, i32 65535)
   %spec.store.select3 = tail call i32 @llvm.umin.i32(i32 %.0, i32 65535)
   store i32 0, ptr %4, align 8, !tbaa !352
-  %11 = shl nuw nsw i32 %spec.store.select1, 6
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %12, ptr %13, align 8, !tbaa !355
-  %14 = shl nuw nsw i32 %spec.store.select3, 6
-  %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %15, ptr %16, align 8, !tbaa !357
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 0, ptr %17, align 8, !tbaa !354
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 0, ptr %18, align 4, !tbaa !356
-  %19 = call i32 @FT_Request_Size(ptr noundef %0, ptr noundef nonnull %4)
+  %7 = shl nuw nsw i32 %spec.store.select1, 6
+  %8 = zext nneg i32 %7 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %8, ptr %9, align 8, !tbaa !355
+  %10 = shl nuw nsw i32 %spec.store.select3, 6
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %11, ptr %12, align 8, !tbaa !357
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 0, ptr %13, align 8, !tbaa !354
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 0, ptr %14, align 4, !tbaa !356
+  %15 = call i32 @FT_Request_Size(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #34
-  ret i32 %19
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable

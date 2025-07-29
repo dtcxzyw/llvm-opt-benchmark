@@ -99031,8 +99031,8 @@ define hidden void @_ZNK19rearrangeL_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %3, %11
   %.0.i.i = phi i32 [ 2, %11 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
-  %14 = add i32 %9, 1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %15 = add i32 %9, 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32

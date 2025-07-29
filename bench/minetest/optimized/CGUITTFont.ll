@@ -7431,9 +7431,9 @@ cleanup:                                          ; preds = %_ZNK3irr3gui10CGUIT
   %44 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !139
   %add.ptr.i = getelementptr inbounds i32, ptr %43, i64 %44
   %cmp.i136.not = icmp eq ptr %incdec.ptr.i153, %add.ptr.i
-  br i1 %cmp.i136.not, label %for.end.loopexit, label %for.body, !llvm.loop !290
+  br i1 %cmp.i136.not, label %for.end, label %for.body, !llvm.loop !290
 
-for.end.loopexit:                                 ; preds = %cleanup
+for.end:                                          ; preds = %cleanup
   %45 = call i32 @llvm.umax.i32(i32 %retval.sroa.0.2, i32 %line.sroa.0.1)
   %46 = zext i32 %45 to i64
   br label %for.end

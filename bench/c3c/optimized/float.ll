@@ -201,8 +201,8 @@ define dso_local { double, i32 } @float_from_string(ptr noundef readonly capture
   %switch.maskindex = trunc i32 %57 to i16
   %switch.shifted = lshr i16 279, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond151 = select i1 %58, i1 %switch.lobit, i1 false
-  br i1 %or.cond151, label %switch.lookup, label %59
+  %or.cond150 = select i1 %58, i1 %switch.lobit, i1 false
+  br i1 %or.cond150, label %switch.lookup, label %59
 
 59:                                               ; preds = %.critedge12
   %.not78 = icmp eq ptr %1, null
@@ -413,8 +413,8 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
   %switch.maskindex = trunc i32 %51 to i16
   %switch.shifted = lshr i16 279, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond138 = select i1 %52, i1 %switch.lobit, i1 false
-  br i1 %or.cond138, label %switch.lookup, label %53
+  %or.cond137 = select i1 %52, i1 %switch.lobit, i1 false
+  br i1 %or.cond137, label %switch.lookup, label %53
 
 53:                                               ; preds = %.critedge12
   %.not75 = icmp eq ptr %1, null
