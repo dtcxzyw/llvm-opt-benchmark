@@ -4998,17 +4998,13 @@ _ZNK6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE4sizeEv.exit: ; p
   %.0.i = phi i32 [ %130, %128 ], [ 0, %_ZN6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE6resizeEj.exit ]
   %131 = load ptr, ptr %25, align 8, !tbaa !322
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit60, label %133
+  br i1 %132, label %._crit_edge225, label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit60
 
-133:                                              ; preds = %_ZNK6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE4sizeEv.exit
-  %134 = getelementptr inbounds i8, ptr %131, i64 -4
-  %135 = load i32, ptr %134, align 4, !tbaa !280
-  br label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit60
-
-_ZNK3euf13th_euf_solver12get_num_varsEv.exit60:   ; preds = %133, %_ZNK6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE4sizeEv.exit
-  %.0.i.i59 = phi i32 [ %135, %133 ], [ 0, %_ZNK6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE4sizeEv.exit ]
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.0.i.i59, i32 %.0.i)
-  %.not226 = icmp eq i32 %.sroa.speculated, 0
+_ZNK3euf13th_euf_solver12get_num_varsEv.exit60:   ; preds = %_ZNK6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE4sizeEv.exit
+  %133 = getelementptr inbounds i8, ptr %131, i64 -4
+  %134 = load i32, ptr %133, align 4, !tbaa !280
+  %135 = call i32 @llvm.umin.i32(i32 %134, i32 %.0.i)
+  %.not226 = icmp eq i32 %135, 0
   br i1 %.not226, label %._crit_edge225, label %.lr.ph224
 
 .lr.ph224:                                        ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit60
@@ -5020,10 +5016,10 @@ _ZNK3euf13th_euf_solver12get_num_varsEv.exit60:   ; preds = %133, %_ZNK6vectorI1
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 312
   %142 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %143 = getelementptr inbounds nuw i8, ptr %12, i64 520
-  %wide.trip.count = zext i32 %.sroa.speculated to i64
+  %wide.trip.count = zext i32 %135 to i64
   br label %152
 
-._crit_edge225:                                   ; preds = %._crit_edge, %_ZNK3euf13th_euf_solver12get_num_varsEv.exit60
+._crit_edge225:                                   ; preds = %._crit_edge, %_ZNK6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE4sizeEv.exit, %_ZNK3euf13th_euf_solver12get_num_varsEv.exit60
   %144 = load ptr, ptr %11, align 8, !tbaa !256
   %.not.i.i = icmp eq ptr %144, null
   br i1 %.not.i.i, label %_ZN6vectorIjLb0EjED2Ev.exit, label %145

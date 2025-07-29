@@ -6552,7 +6552,7 @@ define dso_local void @adjustOpenFilesLimit() local_unnamed_addr #0 {
   store i64 %22, ptr %18, align 8, !tbaa !365
   %25 = call i32 @setrlimit64(i32 noundef 7, ptr noundef nonnull %1) #43
   %.not = icmp eq i32 %25, -1
-  br i1 %.not, label %.lr.ph, label %.thread
+  br i1 %.not, label %.lr.ph, label %..thread_crit_edge50
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %.04648 = phi i64 [ %22, %24 ], [ %4, %.lr.ph.preheader ]
@@ -6560,65 +6560,68 @@ define dso_local void @adjustOpenFilesLimit() local_unnamed_addr #0 {
   %27 = icmp ult i64 %.04648, 16
   br i1 %27, label %.thread, label %21
 
-.thread:                                          ; preds = %21, %24, %.lr.ph, %.preheader
-  %.131 = phi i32 [ 0, %.preheader ], [ %26, %.lr.ph ], [ %26, %24 ], [ %26, %21 ]
-  %.1 = phi i64 [ %4, %.preheader ], [ %22, %21 ], [ %22, %24 ], [ %16, %.lr.ph ]
-  %spec.select = call i64 @llvm.umax.i64(i64 %.1, i64 %16)
-  %28 = icmp ult i64 %spec.select, %4
-  br i1 %28, label %29, label %47
+..thread_crit_edge50:                             ; preds = %24
+  %28 = call i64 @llvm.umax.i64(i64 %22, i64 %16)
+  br label %.thread
 
-29:                                               ; preds = %.thread
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7516), align 4, !tbaa !358
-  %31 = trunc i64 %spec.select to i32
-  %32 = add i32 %31, -32
-  store i32 %32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7516), align 4, !tbaa !358
-  %33 = icmp ult i64 %spec.select, 33
-  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
-  %35 = icmp sgt i32 %34, 3
-  br i1 %33, label %36, label %39
+.thread:                                          ; preds = %21, %.lr.ph, %..thread_crit_edge50, %.preheader
+  %.131 = phi i32 [ %26, %..thread_crit_edge50 ], [ 0, %.preheader ], [ %26, %.lr.ph ], [ %26, %21 ]
+  %.1 = phi i64 [ %28, %..thread_crit_edge50 ], [ %4, %.preheader ], [ %16, %.lr.ph ], [ %16, %21 ]
+  %29 = icmp ult i64 %.1, %4
+  br i1 %29, label %30, label %48
 
-36:                                               ; preds = %29
-  br i1 %35, label %38, label %37
+30:                                               ; preds = %.thread
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7516), align 4, !tbaa !358
+  %32 = trunc i64 %.1 to i32
+  %33 = add i32 %32, -32
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7516), align 4, !tbaa !358
+  %34 = icmp ult i64 %.1, 33
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
+  %36 = icmp sgt i32 %35, 3
+  br i1 %34, label %37, label %40
 
-37:                                               ; preds = %36
+37:                                               ; preds = %30
+  br i1 %36, label %39, label %38
+
+38:                                               ; preds = %37
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.138, i64 noundef %16, i64 noundef %4)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %36, %37
+39:                                               ; preds = %37, %38
   call void @exit(i32 noundef 1) #48
   unreachable
 
-39:                                               ; preds = %29
-  br i1 %35, label %.thread44, label %40
+40:                                               ; preds = %30
+  br i1 %36, label %.thread44, label %41
 
-40:                                               ; preds = %39
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.139, i32 noundef %30, i64 noundef %4)
+41:                                               ; preds = %40
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.139, i32 noundef %31, i64 noundef %4)
   %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
-  %41 = icmp sgt i32 %.pr, 3
-  br i1 %41, label %.thread44, label %42
+  %42 = icmp sgt i32 %.pr, 3
+  br i1 %42, label %.thread44, label %43
 
-42:                                               ; preds = %40
-  %43 = call ptr @strerror(i32 noundef %.131) #43
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.140, i64 noundef %4, ptr noundef %43)
+43:                                               ; preds = %41
+  %44 = call ptr @strerror(i32 noundef %.131) #43
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.140, i64 noundef %4, ptr noundef %44)
   %.pr42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
-  %44 = icmp sgt i32 %.pr42, 3
-  br i1 %44, label %.thread44, label %45
+  %45 = icmp sgt i32 %.pr42, 3
+  br i1 %45, label %.thread44, label %46
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7516), align 4, !tbaa !358
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.141, i64 noundef %spec.select, i32 noundef %46)
+46:                                               ; preds = %43
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7516), align 4, !tbaa !358
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.141, i64 noundef %.1, i32 noundef %47)
   br label %.thread44
 
-47:                                               ; preds = %.thread
-  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
-  %49 = icmp sgt i32 %48, 2
-  br i1 %49, label %.thread44, label %50
+48:                                               ; preds = %.thread
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
+  %50 = icmp sgt i32 %49, 2
+  br i1 %50, label %.thread44, label %51
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.142, i64 noundef %4, i64 noundef %16)
   br label %.thread44
 
-.thread44:                                        ; preds = %39, %40, %15, %45, %42, %50, %47, %14
+.thread44:                                        ; preds = %40, %41, %15, %46, %43, %51, %48, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #43
   ret void
 }

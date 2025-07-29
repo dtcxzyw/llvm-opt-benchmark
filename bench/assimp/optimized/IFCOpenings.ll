@@ -9452,7 +9452,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i: ; preds = %110
 .noexc187.thread:                                 ; preds = %_ZNSt6vectorI10aiVector3tIdESaIS1_EEC2ERKS3_.exit, %114, %.noexc187
   %116 = phi ptr [ %112, %114 ], [ %112, %.noexc187 ], [ null, %_ZNSt6vectorI10aiVector3tIdESaIS1_EEC2ERKS3_.exit ]
   %.not.i.i.i.i.i.i.i.i.i759 = phi i1 [ false, %114 ], [ true, %.noexc187 ], [ true, %_ZNSt6vectorI10aiVector3tIdESaIS1_EEC2ERKS3_.exit ]
-  %.pre-phi747758 = phi i64 [ %115, %114 ], [ 0, %.noexc187 ], [ 0, %_ZNSt6vectorI10aiVector3tIdESaIS1_EEC2ERKS3_.exit ]
+  %.pre-phi747758 = phi i64 [ %115, %114 ], [ 1, %.noexc187 ], [ 1, %_ZNSt6vectorI10aiVector3tIdESaIS1_EEC2ERKS3_.exit ]
   %117 = ptrtoint ptr %.0.lcssa.i.i.i.i.i to i64
   %118 = ptrtoint ptr %100 to i64
   %119 = sub i64 %117, %118
@@ -9508,7 +9508,6 @@ _ZNSt6vectorI10aiVector2tIdESaIS1_EE5clearEv.exit: ; preds = %122, %125
   %135 = load double, ptr %43, align 8
   %136 = load double, ptr %44, align 8
   %137 = load double, ptr %45, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi747758, i64 1)
   br label %146
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit449
@@ -9842,7 +9841,7 @@ _ZN6Assimp3IFCL17IsDuplicateVertexERK10aiVector2tIdERKSt6vectorIS2_SaIS2_EE.exit
   %.1425 = phi double [ %.0424605, %198 ], [ %.0424605, %203 ], [ %.sroa.speculated322, %_ZN6Assimp3IFCL17IsDuplicateVertexERK10aiVector2tIdERKSt6vectorIS2_SaIS2_EE.exit ]
   %.3149 = phi i64 [ %202, %198 ], [ %.0146606, %203 ], [ %287, %_ZN6Assimp3IFCL17IsDuplicateVertexERK10aiVector2tIdERKSt6vectorIS2_SaIS2_EE.exit ]
   %288 = add nuw i64 %.0145607, 1
-  %exitcond720.not = icmp eq i64 %288, %umax
+  %exitcond720.not = icmp eq i64 %288, %.pre-phi747758
   br i1 %exitcond720.not, label %._crit_edge.loopexit, label %146, !llvm.loop !235
 
 289:                                              ; preds = %._crit_edge

@@ -15700,8 +15700,8 @@ H5S__hyper_bounds.exit.thread:                    ; preds = %55, %.preheader.i, 
   %72 = icmp ugt i64 %71, 4294967295
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond186 = select i1 %72, i1 true, i1 %exitcond.not
-  br i1 %or.cond186, label %.loopexit, label %.lr.ph, !llvm.loop !255
+  %or.cond184 = select i1 %72, i1 true, i1 %exitcond.not
+  br i1 %or.cond184, label %.loopexit, label %.lr.ph, !llvm.loop !255
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader115, %H5S__hyper_bounds.exit.thread
   %.084 = phi i1 [ false, %H5S__hyper_bounds.exit.thread ], [ false, %.preheader115 ], [ %72, %.lr.ph ]
@@ -15934,12 +15934,12 @@ H5S__hyper_is_regular.exit:                       ; preds = %79, %120
 
 187:                                              ; preds = %185
   %188 = icmp ugt i64 %.282.fr, 65534
-  %spec.select184 = select i1 %188, i8 4, i8 2
+  %spec.select182 = select i1 %188, i8 4, i8 2
   br label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %187, %._crit_edge, %185
   %.ph = phi i1 [ true, %185 ], [ %183, %._crit_edge ], [ true, %187 ]
-  %.0.i105.ph = phi i8 [ 8, %185 ], [ 2, %._crit_edge ], [ %spec.select184, %187 ]
+  %.0.i105.ph = phi i8 [ 8, %185 ], [ 2, %._crit_edge ], [ %spec.select182, %187 ]
   %189 = load ptr, ptr %16, align 8, !tbaa !10
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 1032
   %191 = getelementptr i8, ptr %189, i64 1040
@@ -15970,14 +15970,13 @@ H5S__hyper_is_regular.exit:                       ; preds = %79, %120
 
 199:                                              ; preds = %197
   %200 = icmp ugt i64 %.2.fr, 65535
-  %spec.select185 = select i1 %200, i8 4, i8 2
+  %201 = call i8 @llvm.umax.i8(i8 %.0.i105.ph, i8 4)
+  %spec.select183 = select i1 %200, i8 %201, i8 %.0.i105.ph
   br label %H5S__hyper_get_enc_size_real.exit109
 
 H5S__hyper_get_enc_size_real.exit109:             ; preds = %199, %.preheader114, %._crit_edge127, %197
-  %.0.i105164167 = phi i8 [ %.0.i105.ph, %._crit_edge127 ], [ %.0.i105.ph, %197 ], [ 2, %.preheader114 ], [ %.0.i105.ph, %199 ]
-  %.0.i107 = phi i8 [ 2, %._crit_edge127 ], [ 8, %197 ], [ 2, %.preheader114 ], [ %spec.select185, %199 ]
-  %201 = call i8 @llvm.umax.i8(i8 %.0.i105164167, i8 %.0.i107)
-  store i8 %201, ptr %3, align 1, !tbaa !10
+  %.0.i107 = phi i8 [ %.0.i105.ph, %._crit_edge127 ], [ 8, %197 ], [ 2, %.preheader114 ], [ %spec.select183, %199 ]
+  store i8 %.0.i107, ptr %3, align 1, !tbaa !10
   br label %218
 
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131

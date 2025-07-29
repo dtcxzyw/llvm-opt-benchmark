@@ -15829,26 +15829,25 @@ define internal fastcc void @_ZL17updateCallProfilePN4llvm8FunctionERKNS_8ValueM
 
 12:                                               ; preds = %6
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %19, label %13
+  br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %12
   %14 = tail call { i64, i8 } @_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %5, i1 noundef zeroext false) #20
   %15 = extractvalue { i64, i8 } %14, 0
   %16 = extractvalue { i64, i8 } %14, 1
   %17 = trunc nuw i8 %16 to i1
-  %18 = select i1 %17, i64 %15, i64 0
   %.pre = load i64, ptr %2, align 8, !tbaa !71
-  br label %19
+  %18 = tail call i64 @llvm.umin.i64(i64 %.pre, i64 %15)
+  %19 = select i1 %17, i64 %18, i64 0
+  br label %20
 
-19:                                               ; preds = %12, %13
-  %20 = phi i64 [ %.pre, %13 ], [ %10, %12 ]
-  %.sroa.4.0 = phi i64 [ %18, %13 ], [ 0, %12 ]
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %20, i64 %.sroa.4.0)
+20:                                               ; preds = %12, %13
+  %.sroa.speculated = phi i64 [ %19, %13 ], [ 0, %12 ]
   %21 = sub nsw i64 0, %.sroa.speculated
   tail call void @_ZN4llvm19updateProfileCalleeEPNS_8FunctionElPKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEE(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %1)
   br label %22
 
-22:                                               ; preds = %6, %19
+22:                                               ; preds = %6, %20
   ret void
 }
 

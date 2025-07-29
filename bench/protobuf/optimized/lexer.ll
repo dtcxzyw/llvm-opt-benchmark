@@ -2689,7 +2689,7 @@ lpad268:                                          ; preds = %invoke.cont267
 
 sw.epilog:                                        ; preds = %if.end255, %sw.bb260, %sw.bb259, %sw.bb258
   %cmp276647 = phi i1 [ false, %if.end255 ], [ true, %sw.bb258 ], [ true, %sw.bb259 ], [ true, %sw.bb260 ]
-  %lookahead.0 = phi i64 [ 0, %if.end255 ], [ 1, %sw.bb258 ], [ 2, %sw.bb259 ], [ 3, %sw.bb260 ]
+  %lookahead.0 = phi i64 [ 1, %if.end255 ], [ 1, %sw.bb258 ], [ 2, %sw.bb259 ], [ 3, %sw.bb260 ]
   %call271 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %on_heap) #20
   br i1 %call271, label %if.end274, label %if.then272
 
@@ -2698,14 +2698,10 @@ if.then272:                                       ; preds = %sw.epilog
           to label %if.end274 unwind label %lpad34.loopexit.split-lp.loopexit
 
 if.end274:                                        ; preds = %if.then272, %sw.epilog
-  br i1 %cmp276647, label %do.body277.preheader, label %sw.epilog340
+  br i1 %cmp276647, label %do.body277, label %sw.epilog340
 
-do.body277.preheader:                             ; preds = %if.end274
-  %umax = call i64 @llvm.umax.i64(i64 %lookahead.0, i64 1)
-  br label %do.body277
-
-do.body277:                                       ; preds = %do.body277.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %do.body277.preheader ], [ %indvars.iv.next, %for.inc ]
+do.body277:                                       ; preds = %if.end274, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end274 ]
   invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13BufferAtLeastEm(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.41") align 8 %ref.tmp279, ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 1)
           to label %invoke.cont281 unwind label %lpad34.loopexit
 
@@ -2953,7 +2949,7 @@ for.inc:                                          ; preds = %.noexc395
   %add6.i394 = add i64 %167, 1
   store i64 %add6.i394, ptr %col.i, align 8, !noalias !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %lookahead.0
   br i1 %exitcond.not, label %sw.epilog340, label %do.body277, !llvm.loop !86
 
 sw.epilog340:                                     ; preds = %for.inc, %if.end274, %if.then.i.i.i.i264, %cleanup198, %if.end226
@@ -8034,9 +8030,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

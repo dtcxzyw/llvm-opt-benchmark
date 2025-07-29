@@ -232,17 +232,20 @@ define hidden double @_Py_dg_strtod(ptr noundef %0, ptr noundef writeonly captur
   %89 = load i8, ptr %88, align 1, !tbaa !4
   %90 = add i8 %89, -48
   %91 = icmp ult i8 %90, 10
-  br i1 %91, label %.lr.ph852, label %._crit_edge853, !llvm.loop !16
+  br i1 %91, label %.lr.ph852, label %._crit_edge853.loopexit, !llvm.loop !16
 
-._crit_edge853:                                   ; preds = %.lr.ph852, %._crit_edge845
-  %.10.lcssa = phi ptr [ %.9.lcssa, %._crit_edge845 ], [ %88, %.lr.ph852 ]
-  %.0413.lcssa = phi i32 [ 0, %._crit_edge845 ], [ %87, %.lr.ph852 ]
-  %92 = ptrtoint ptr %.10.lcssa to i64
-  %93 = ptrtoint ptr %.9.lcssa to i64
-  %94 = sub i64 %92, %93
-  %95 = icmp sgt i64 %94, 9
-  %96 = tail call i32 @llvm.umin.i32(i32 %.0413.lcssa, i32 1100000000)
-  %..0413 = select i1 %95, i32 1100000000, i32 %96
+._crit_edge853.loopexit:                          ; preds = %.lr.ph852
+  %92 = tail call i32 @llvm.umin.i32(i32 %87, i32 1100000000)
+  br label %._crit_edge853
+
+._crit_edge853:                                   ; preds = %._crit_edge853.loopexit, %._crit_edge845
+  %.10.lcssa = phi ptr [ %.9.lcssa, %._crit_edge845 ], [ %88, %._crit_edge853.loopexit ]
+  %.0413.lcssa = phi i32 [ 0, %._crit_edge845 ], [ %92, %._crit_edge853.loopexit ]
+  %93 = ptrtoint ptr %.10.lcssa to i64
+  %94 = ptrtoint ptr %.9.lcssa to i64
+  %95 = sub i64 %93, %94
+  %96 = icmp sgt i64 %95, 9
+  %..0413 = select i1 %96, i32 1100000000, i32 %.0413.lcssa
   %97 = sub nsw i32 0, %..0413
   %.2472 = select i1 %.0463, i32 %..0413, i32 %97
   %98 = icmp ne ptr %.10.lcssa, %.9.lcssa

@@ -140,7 +140,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br i1 %.not.i9.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h95de6a553ace9846E.llvm.14244403617401860137.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i.i"
-  %.010.i.i = phi i64 [ %.0.sroa.speculated.i.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i.i" ], [ %1, %2 ]
+  %.010.i.i = phi i64 [ %.0.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i.i" ], [ %1, %2 ]
   %9 = phi i64 [ %10, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i.i" ], [ %.promoted.i.i, %2 ]
   %10 = add nuw nsw i64 %9, 1
   %11 = icmp ult i64 %9, 9
@@ -158,17 +158,17 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %19 = extractvalue { i64, i64 } %18, 0
   %switch.i.i.i.i.i.i = icmp eq i64 %19, 0
   %20 = extractvalue { i64, i64 } %18, 1
-  %.1.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 %20
+  %21 = tail call i64 @llvm.umax.i64(i64 %.010.i.i, i64 %20)
+  %22 = select i1 %switch.i.i.i.i.i.i, i64 %.010.i.i, i64 %21
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i.i": ; preds = %.noexc5.i, %.lr.ph.i.i
-  %.0.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %.noexc5.i ], [ 0, %.lr.ph.i.i ]
-  %.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.010.i.i, i64 %.0.i.i.i.i.i.i)
+  %.0.i.i.i.i.i.i = phi i64 [ %22, %.noexc5.i ], [ %.010.i.i, %.lr.ph.i.i ]
   %.not.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h95de6a553ace9846E.llvm.14244403617401860137.exit", label %.lr.ph.i.i
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h95de6a553ace9846E.llvm.14244403617401860137.exit": ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i.i", %2
-  %.0.lcssa.i.i = phi i64 [ %1, %2 ], [ %.0.sroa.speculated.i.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i.i" ]
+  %.0.lcssa.i.i = phi i64 [ %1, %2 ], [ %.0.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
   ret i64 %.0.lcssa.i.i
 }
@@ -420,7 +420,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br i1 %.not.i9.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd66298d616969753E.llvm.14244403617401860137.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i.i"
-  %.010.i.i = phi i64 [ %.0.sroa.speculated.i.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i.i" ], [ %1, %2 ]
+  %.010.i.i = phi i64 [ %.0.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i.i" ], [ %1, %2 ]
   %9 = phi i64 [ %10, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i.i" ], [ %.promoted.i.i, %2 ]
   %10 = add nuw nsw i64 %9, 1
   %11 = icmp ult i64 %9, 2
@@ -438,17 +438,17 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %19 = extractvalue { i64, i64 } %18, 0
   %switch.i.i.i.i.i.i = icmp eq i64 %19, 0
   %20 = extractvalue { i64, i64 } %18, 1
-  %.1.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 %20
+  %21 = tail call i64 @llvm.umax.i64(i64 %.010.i.i, i64 %20)
+  %22 = select i1 %switch.i.i.i.i.i.i, i64 %.010.i.i, i64 %21
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i.i": ; preds = %.noexc5.i, %.lr.ph.i.i
-  %.0.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %.noexc5.i ], [ 0, %.lr.ph.i.i ]
-  %.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.010.i.i, i64 %.0.i.i.i.i.i.i)
+  %.0.i.i.i.i.i.i = phi i64 [ %22, %.noexc5.i ], [ %.010.i.i, %.lr.ph.i.i ]
   %.not.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd66298d616969753E.llvm.14244403617401860137.exit", label %.lr.ph.i.i
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd66298d616969753E.llvm.14244403617401860137.exit": ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i.i", %2
-  %.0.lcssa.i.i = phi i64 [ %1, %2 ], [ %.0.sroa.speculated.i.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i.i" ]
+  %.0.lcssa.i.i = phi i64 [ %1, %2 ], [ %.0.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   ret i64 %.0.lcssa.i.i
 }
@@ -909,7 +909,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br i1 %.not.i9.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h796c178d240fc694E.llvm.14244403617401860137.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i.i"
-  %.010.i.i = phi i64 [ %.0.sroa.speculated.i.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i.i" ], [ %1, %2 ]
+  %.010.i.i = phi i64 [ %.0.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i.i" ], [ %1, %2 ]
   %9 = phi i64 [ %10, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i.i" ], [ %.promoted.i.i, %2 ]
   %10 = add nuw nsw i64 %9, 1
   %11 = icmp ult i64 %9, 4
@@ -927,17 +927,17 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %19 = extractvalue { i64, i64 } %18, 0
   %switch.i.i.i.i.i.i = icmp eq i64 %19, 0
   %20 = extractvalue { i64, i64 } %18, 1
-  %.1.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 %20
+  %21 = tail call i64 @llvm.umax.i64(i64 %.010.i.i, i64 %20)
+  %22 = select i1 %switch.i.i.i.i.i.i, i64 %.010.i.i, i64 %21
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i.i": ; preds = %.noexc5.i, %.lr.ph.i.i
-  %.0.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %.noexc5.i ], [ 0, %.lr.ph.i.i ]
-  %.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.010.i.i, i64 %.0.i.i.i.i.i.i)
+  %.0.i.i.i.i.i.i = phi i64 [ %22, %.noexc5.i ], [ %.010.i.i, %.lr.ph.i.i ]
   %.not.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h796c178d240fc694E.llvm.14244403617401860137.exit", label %.lr.ph.i.i
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h796c178d240fc694E.llvm.14244403617401860137.exit": ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i.i", %2
-  %.0.lcssa.i.i = phi i64 [ %1, %2 ], [ %.0.sroa.speculated.i.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i.i" ]
+  %.0.lcssa.i.i = phi i64 [ %1, %2 ], [ %.0.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   ret i64 %.0.lcssa.i.i
 }
@@ -967,27 +967,23 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
   %8 = icmp eq i8 %7, 2
-  br i1 %8, label %.noexc5.i, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i.i"
+  br i1 %8, label %.noexc5.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9dd3261f05bc11e5E.llvm.14244403617401860137.exit"
 
 .noexc5.i:                                        ; preds = %.lr.ph.split.us.i.i
   %9 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.4.0.copyload), !noalias !562
   %10 = extractvalue { i64, i64 } %9, 0
   %switch.i.i.i.i.us.i.i = icmp eq i64 %10, 0
   %11 = extractvalue { i64, i64 } %9, 1
-  %.1.i.i.i.i.us.i.i = select i1 %switch.i.i.i.i.us.i.i, i64 0, i64 %11
-  br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i.i"
-
-"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i.i": ; preds = %.noexc5.i, %.lr.ph.split.us.i.i
-  %.0.i.i.i.i.us.i.i = phi i64 [ %.1.i.i.i.i.us.i.i, %.noexc5.i ], [ 0, %.lr.ph.split.us.i.i ]
-  %.0.sroa.speculated.i.i.i.i.i.us.i.i = tail call noundef i64 @llvm.umax.i64(i64 %1, i64 %.0.i.i.i.i.us.i.i)
+  %12 = tail call i64 @llvm.umax.i64(i64 %1, i64 %11)
+  %13 = select i1 %switch.i.i.i.i.us.i.i, i64 %1, i64 %12
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9dd3261f05bc11e5E.llvm.14244403617401860137.exit"
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
-  %12 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.4.0.copyload), !noalias !562
+  %14 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.4.0.copyload), !noalias !562
   unreachable
 
-"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9dd3261f05bc11e5E.llvm.14244403617401860137.exit": ; preds = %2, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i.i"
-  %.0.lcssa.i.i = phi i64 [ %.0.sroa.speculated.i.i.i.i.i.us.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i.i" ], [ %1, %2 ]
+"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9dd3261f05bc11e5E.llvm.14244403617401860137.exit": ; preds = %2, %.lr.ph.split.us.i.i, %.noexc5.i
+  %.0.lcssa.i.i = phi i64 [ %1, %2 ], [ %13, %.noexc5.i ], [ %1, %.lr.ph.split.us.i.i ]
   ret i64 %.0.lcssa.i.i
 }
 
@@ -2173,7 +2169,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h271
   %6 = load i64, ptr %5, align 8, !alias.scope !1129, !noundef !4
   %.promoted = load i64, ptr %0, align 8, !alias.scope !1129
   %.not.i9 = icmp eq i64 %6, %.promoted
-  br i1 %.not.i9, label %18, label %.lr.ph
+  br i1 %.not.i9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   store i64 1, ptr %0, align 8, !alias.scope !1129
@@ -2189,27 +2185,23 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h271
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %12 = icmp eq i8 %11, 2
-  br i1 %12, label %13, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us"
+  br i1 %12, label %13, label %._crit_edge
 
 13:                                               ; preds = %.lr.ph.split.us
   %14 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.val.i.i, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
   %15 = extractvalue { i64, i64 } %14, 0
   %switch.i.i.i.i.us = icmp eq i64 %15, 0
   %16 = extractvalue { i64, i64 } %14, 1
-  %.1.i.i.i.i.us = select i1 %switch.i.i.i.i.us, i64 0, i64 %16
-  br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us"
-
-"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us": ; preds = %13, %.lr.ph.split.us
-  %.0.i.i.i.i.us = phi i64 [ %.1.i.i.i.i.us, %13 ], [ 0, %.lr.ph.split.us ]
-  %.0.sroa.speculated.i.i.i.i.i.us = tail call noundef i64 @llvm.umax.i64(i64 %1, i64 %.0.i.i.i.i.us)
-  br label %18
+  %17 = tail call i64 @llvm.umax.i64(i64 %1, i64 %16)
+  %18 = select i1 %switch.i.i.i.i.us, i64 %1, i64 %17
+  br label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %17 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.val.i.i, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
+  %19 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.val.i.i, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
   unreachable
 
-18:                                               ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us", %4
-  %.0.lcssa = phi i64 [ %.0.sroa.speculated.i.i.i.i.i.us, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us" ], [ %1, %4 ]
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %13, %4
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %18, %13 ], [ %1, %.lr.ph.split.us ]
   ret i64 %.0.lcssa
 }
 
@@ -2317,7 +2309,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h65d
   br label %7
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit"
-  %.010 = phi i64 [ %1, %.lr.ph ], [ %.0.sroa.speculated.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit" ]
+  %.010 = phi i64 [ %1, %.lr.ph ], [ %.0.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit" ]
   %8 = phi i64 [ %.promoted, %.lr.ph ], [ %9, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit" ]
   %9 = add nuw nsw i64 %8, 1
   store i64 %9, ptr %0, align 8, !alias.scope !1168
@@ -2336,17 +2328,17 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h65d
   %19 = extractvalue { i64, i64 } %18, 0
   %switch.i.i.i.i = icmp eq i64 %19, 0
   %20 = extractvalue { i64, i64 } %18, 1
-  %.1.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 %20
+  %21 = tail call i64 @llvm.umax.i64(i64 %.010, i64 %20)
+  %22 = select i1 %switch.i.i.i.i, i64 %.010, i64 %21
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit": ; preds = %7, %17
-  %.0.i.i.i.i = phi i64 [ %.1.i.i.i.i, %17 ], [ 0, %7 ]
-  %.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.010, i64 %.0.i.i.i.i)
+  %.0.i.i.i.i = phi i64 [ %22, %17 ], [ %.010, %7 ]
   %.not.i = icmp eq i64 %6, %9
   br i1 %.not.i, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit", %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %.0.sroa.speculated.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit" ]
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %.0.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit" ]
   ret i64 %.0.lcssa
 }
 
@@ -2755,7 +2747,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc5c
   br label %7
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit"
-  %.010 = phi i64 [ %1, %.lr.ph ], [ %.0.sroa.speculated.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit" ]
+  %.010 = phi i64 [ %1, %.lr.ph ], [ %.0.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit" ]
   %8 = phi i64 [ %.promoted, %.lr.ph ], [ %9, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit" ]
   %9 = add nuw nsw i64 %8, 1
   store i64 %9, ptr %0, align 8, !alias.scope !1331
@@ -2774,17 +2766,17 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc5c
   %19 = extractvalue { i64, i64 } %18, 0
   %switch.i.i.i.i = icmp eq i64 %19, 0
   %20 = extractvalue { i64, i64 } %18, 1
-  %.1.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 %20
+  %21 = tail call i64 @llvm.umax.i64(i64 %.010, i64 %20)
+  %22 = select i1 %switch.i.i.i.i, i64 %.010, i64 %21
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit": ; preds = %7, %17
-  %.0.i.i.i.i = phi i64 [ %.1.i.i.i.i, %17 ], [ 0, %7 ]
-  %.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.010, i64 %.0.i.i.i.i)
+  %.0.i.i.i.i = phi i64 [ %22, %17 ], [ %.010, %7 ]
   %.not.i = icmp eq i64 %6, %9
   br i1 %.not.i, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit", %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %.0.sroa.speculated.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit" ]
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %.0.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit" ]
   ret i64 %.0.lcssa
 }
 
@@ -2837,7 +2829,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd3e
   br label %7
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit"
-  %.010 = phi i64 [ %1, %.lr.ph ], [ %.0.sroa.speculated.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit" ]
+  %.010 = phi i64 [ %1, %.lr.ph ], [ %.0.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit" ]
   %8 = phi i64 [ %.promoted, %.lr.ph ], [ %9, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit" ]
   %9 = add nuw nsw i64 %8, 1
   store i64 %9, ptr %0, align 8, !alias.scope !1352
@@ -2856,17 +2848,17 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd3e
   %19 = extractvalue { i64, i64 } %18, 0
   %switch.i.i.i.i = icmp eq i64 %19, 0
   %20 = extractvalue { i64, i64 } %18, 1
-  %.1.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 %20
+  %21 = tail call i64 @llvm.umax.i64(i64 %.010, i64 %20)
+  %22 = select i1 %switch.i.i.i.i, i64 %.010, i64 %21
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit": ; preds = %7, %17
-  %.0.i.i.i.i = phi i64 [ %.1.i.i.i.i, %17 ], [ 0, %7 ]
-  %.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.010, i64 %.0.i.i.i.i)
+  %.0.i.i.i.i = phi i64 [ %22, %17 ], [ %.010, %7 ]
   %.not.i = icmp eq i64 %6, %9
   br i1 %.not.i, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit", %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %.0.sroa.speculated.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit" ]
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %.0.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit" ]
   ret i64 %.0.lcssa
 }
 
@@ -3429,7 +3421,7 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   br i1 %.not.i9.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc5cac8cccc526dd1E.llvm.14244403617401860137.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i"
-  %.010.i = phi i64 [ %.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i" ], [ %1, %3 ]
+  %.010.i = phi i64 [ %.0.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i" ], [ %1, %3 ]
   %7 = phi i64 [ %8, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i" ], [ %.promoted.i, %3 ]
   %8 = add nuw nsw i64 %7, 1
   store i64 %8, ptr %4, align 8, !alias.scope !1649, !noalias !1652
@@ -3448,17 +3440,17 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   %17 = extractvalue { i64, i64 } %16, 0
   %switch.i.i.i.i.i = icmp eq i64 %17, 0
   %18 = extractvalue { i64, i64 } %16, 1
-  %.1.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 %18
+  %19 = tail call i64 @llvm.umax.i64(i64 %.010.i, i64 %18)
+  %20 = select i1 %switch.i.i.i.i.i, i64 %.010.i, i64 %19
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i": ; preds = %.noexc5, %.lr.ph.i
-  %.0.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %.noexc5 ], [ 0, %.lr.ph.i ]
-  %.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.010.i, i64 %.0.i.i.i.i.i)
+  %.0.i.i.i.i.i = phi i64 [ %20, %.noexc5 ], [ %.010.i, %.lr.ph.i ]
   %.not.i.i = icmp eq i64 %6, %8
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc5cac8cccc526dd1E.llvm.14244403617401860137.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hc5cac8cccc526dd1E.llvm.14244403617401860137.exit: ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i", %3
-  %.0.lcssa.i = phi i64 [ %1, %3 ], [ %.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i" ]
+  %.0.lcssa.i = phi i64 [ %1, %3 ], [ %.0.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h75845b1b331c83dcE.exit.i" ]
   ret i64 %.0.lcssa.i
 }
 
@@ -3670,7 +3662,7 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   br i1 %.not.i9.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h65d11a16d948edf5E.llvm.14244403617401860137.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i"
-  %.010.i = phi i64 [ %.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i" ], [ %1, %3 ]
+  %.010.i = phi i64 [ %.0.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i" ], [ %1, %3 ]
   %7 = phi i64 [ %8, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i" ], [ %.promoted.i, %3 ]
   %8 = add nuw nsw i64 %7, 1
   store i64 %8, ptr %4, align 8, !alias.scope !1792, !noalias !1795
@@ -3689,17 +3681,17 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   %17 = extractvalue { i64, i64 } %16, 0
   %switch.i.i.i.i.i = icmp eq i64 %17, 0
   %18 = extractvalue { i64, i64 } %16, 1
-  %.1.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 %18
+  %19 = tail call i64 @llvm.umax.i64(i64 %.010.i, i64 %18)
+  %20 = select i1 %switch.i.i.i.i.i, i64 %.010.i, i64 %19
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i": ; preds = %.noexc5, %.lr.ph.i
-  %.0.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %.noexc5 ], [ 0, %.lr.ph.i ]
-  %.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.010.i, i64 %.0.i.i.i.i.i)
+  %.0.i.i.i.i.i = phi i64 [ %20, %.noexc5 ], [ %.010.i, %.lr.ph.i ]
   %.not.i.i = icmp eq i64 %6, %8
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h65d11a16d948edf5E.llvm.14244403617401860137.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h65d11a16d948edf5E.llvm.14244403617401860137.exit: ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i", %3
-  %.0.lcssa.i = phi i64 [ %1, %3 ], [ %.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i" ]
+  %.0.lcssa.i = phi i64 [ %1, %3 ], [ %.0.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h63a97c0471a7ae49E.exit.i" ]
   ret i64 %.0.lcssa.i
 }
 
@@ -3782,27 +3774,23 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %12 = icmp eq i8 %11, 2
-  br i1 %12, label %.noexc5, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i"
+  br i1 %12, label %.noexc5, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h271a32cced83bfdeE.llvm.14244403617401860137.exit
 
 .noexc5:                                          ; preds = %.lr.ph.split.us.i
   %13 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
   %14 = extractvalue { i64, i64 } %13, 0
   %switch.i.i.i.i.us.i = icmp eq i64 %14, 0
   %15 = extractvalue { i64, i64 } %13, 1
-  %.1.i.i.i.i.us.i = select i1 %switch.i.i.i.i.us.i, i64 0, i64 %15
-  br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i"
-
-"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i": ; preds = %.noexc5, %.lr.ph.split.us.i
-  %.0.i.i.i.i.us.i = phi i64 [ %.1.i.i.i.i.us.i, %.noexc5 ], [ 0, %.lr.ph.split.us.i ]
-  %.0.sroa.speculated.i.i.i.i.i.us.i = tail call noundef i64 @llvm.umax.i64(i64 %1, i64 %.0.i.i.i.i.us.i)
+  %16 = tail call i64 @llvm.umax.i64(i64 %1, i64 %15)
+  %17 = select i1 %switch.i.i.i.i.us.i, i64 %1, i64 %16
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h271a32cced83bfdeE.llvm.14244403617401860137.exit
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %16 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
+  %18 = tail call { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hf58c9031b6b45c74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
   unreachable
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h271a32cced83bfdeE.llvm.14244403617401860137.exit: ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i", %3
-  %.0.lcssa.i = phi i64 [ %.0.sroa.speculated.i.i.i.i.i.us.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h648cd3c060582a42E.exit.us.i" ], [ %1, %3 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h271a32cced83bfdeE.llvm.14244403617401860137.exit: ; preds = %.noexc5, %.lr.ph.split.us.i, %3
+  %.0.lcssa.i = phi i64 [ %1, %3 ], [ %17, %.noexc5 ], [ %1, %.lr.ph.split.us.i ]
   ret i64 %.0.lcssa.i
 }
 
@@ -3933,7 +3921,7 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   br i1 %.not.i9.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd3efd4290829cf01E.llvm.14244403617401860137.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i"
-  %.010.i = phi i64 [ %.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i" ], [ %1, %3 ]
+  %.010.i = phi i64 [ %.0.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i" ], [ %1, %3 ]
   %7 = phi i64 [ %8, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i" ], [ %.promoted.i, %3 ]
   %8 = add nuw nsw i64 %7, 1
   store i64 %8, ptr %4, align 8, !alias.scope !1940, !noalias !1943
@@ -3952,17 +3940,17 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   %17 = extractvalue { i64, i64 } %16, 0
   %switch.i.i.i.i.i = icmp eq i64 %17, 0
   %18 = extractvalue { i64, i64 } %16, 1
-  %.1.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 %18
+  %19 = tail call i64 @llvm.umax.i64(i64 %.010.i, i64 %18)
+  %20 = select i1 %switch.i.i.i.i.i, i64 %.010.i, i64 %19
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i": ; preds = %.noexc5, %.lr.ph.i
-  %.0.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %.noexc5 ], [ 0, %.lr.ph.i ]
-  %.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.010.i, i64 %.0.i.i.i.i.i)
+  %.0.i.i.i.i.i = phi i64 [ %20, %.noexc5 ], [ %.010.i, %.lr.ph.i ]
   %.not.i.i = icmp eq i64 %6, %8
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd3efd4290829cf01E.llvm.14244403617401860137.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hd3efd4290829cf01E.llvm.14244403617401860137.exit: ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i", %3
-  %.0.lcssa.i = phi i64 [ %1, %3 ], [ %.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i" ]
+  %.0.lcssa.i = phi i64 [ %1, %3 ], [ %.0.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h3586f5912c1d7a4bE.exit.i" ]
   ret i64 %.0.lcssa.i
 }
 

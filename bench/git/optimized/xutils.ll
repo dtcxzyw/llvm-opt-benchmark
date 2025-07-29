@@ -936,9 +936,8 @@ define dso_local range(i32 1, 33) i32 @xdl_hashbits(i32 noundef %0) local_unname
   br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %4, %.lr.ph ]
-  %8 = tail call i32 @llvm.umax.i32(i32 %.0.lcssa, i32 1)
-  ret i32 %8
+  %.0.lcssa = phi i32 [ 1, %1 ], [ %4, %.lr.ph ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -1488,9 +1487,6 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #16

@@ -682,59 +682,57 @@ _ZN6icu_77L14getCharCatNameEi.exit:               ; preds = %_ZN6icu_77L10getCha
   %39 = add nuw nsw i32 %.04772, 1
   %40 = ashr i32 %.04871, 4
   %.not60 = icmp ult i32 %.04871, 16
-  br i1 %.not60, label %._crit_edge75, label %.lr.ph74, !llvm.loop !40
+  br i1 %.not60, label %._crit_edge75.loopexit, label %.lr.ph74, !llvm.loop !40
 
-._crit_edge75:                                    ; preds = %.lr.ph74, %38
-  %.047.lcssa = phi i32 [ 0, %38 ], [ %39, %.lr.ph74 ]
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.047.lcssa, i32 4)
-  %41 = icmp ne i32 %0, 0
-  %42 = icmp sgt i32 %spec.store.select, 0
-  %or.cond77 = select i1 %41, i1 true, i1 %42
-  %43 = icmp ne i16 %.354, 0
-  %or.cond378 = and i1 %or.cond77, %43
-  br i1 %or.cond378, label %.lr.ph83.preheader, label %.critedge
+._crit_edge75.loopexit:                           ; preds = %.lr.ph74
+  %41 = tail call i32 @llvm.umax.i32(i32 %39, i32 4)
+  br label %._crit_edge75
+
+._crit_edge75:                                    ; preds = %._crit_edge75.loopexit, %38
+  %.047.lcssa = phi i32 [ 4, %38 ], [ %41, %._crit_edge75.loopexit ]
+  %.not87 = icmp eq i16 %.354, 0
+  br i1 %.not87, label %.critedge.thread, label %.lr.ph83.preheader
 
 .lr.ph83.preheader:                               ; preds = %._crit_edge75
-  %44 = sext i32 %spec.store.select to i64
+  %42 = sext i32 %.047.lcssa to i64
   br label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
-  %indvars.iv = phi i64 [ %44, %.lr.ph83.preheader ], [ %indvars.iv.next, %.lr.ph83 ]
-  %.14980 = phi i32 [ %0, %.lr.ph83.preheader ], [ %52, %.lr.ph83 ]
-  %.479 = phi i16 [ %.354, %.lr.ph83.preheader ], [ %53, %.lr.ph83 ]
-  %45 = and i32 %.14980, 15
-  %46 = icmp samesign ult i32 %45, 10
-  %47 = or disjoint i32 %45, 48
-  %48 = add nuw nsw i32 %45, 55
-  %49 = select i1 %46, i32 %47, i32 %48
-  %50 = trunc nuw nsw i32 %49 to i8
+  %indvars.iv = phi i64 [ %42, %.lr.ph83.preheader ], [ %indvars.iv.next, %.lr.ph83 ]
+  %.14980 = phi i32 [ %0, %.lr.ph83.preheader ], [ %50, %.lr.ph83 ]
+  %.479 = phi i16 [ %.354, %.lr.ph83.preheader ], [ %51, %.lr.ph83 ]
+  %43 = and i32 %.14980, 15
+  %44 = icmp samesign ult i32 %43, 10
+  %45 = or disjoint i32 %43, 48
+  %46 = add nuw nsw i32 %43, 55
+  %47 = select i1 %44, i32 %45, i32 %46
+  %48 = trunc nuw nsw i32 %47 to i8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %51 = getelementptr inbounds i8, ptr %.3, i64 %indvars.iv.next
-  store i8 %50, ptr %51, align 1, !tbaa !26
-  %52 = ashr i32 %.14980, 4
-  %53 = add i16 %.479, -1
-  %54 = icmp ugt i32 %.14980, 15
-  %55 = icmp sgt i64 %indvars.iv, 1
-  %or.cond = or i1 %54, %55
-  %56 = icmp ne i16 %53, 0
-  %or.cond3 = select i1 %or.cond, i1 %56, i1 false
+  %49 = getelementptr inbounds i8, ptr %.3, i64 %indvars.iv.next
+  store i8 %48, ptr %49, align 1, !tbaa !26
+  %50 = ashr i32 %.14980, 4
+  %51 = add i16 %.479, -1
+  %52 = icmp ugt i32 %.14980, 15
+  %53 = icmp sgt i64 %indvars.iv, 1
+  %or.cond = or i1 %52, %53
+  %54 = icmp ne i16 %51, 0
+  %or.cond3 = select i1 %or.cond, i1 %54, i1 false
   br i1 %or.cond3, label %.lr.ph83, label %.critedge, !llvm.loop !41
 
-.critedge:                                        ; preds = %.lr.ph83, %._crit_edge75
-  %.4.lcssa = phi i16 [ %.354, %._crit_edge75 ], [ %53, %.lr.ph83 ]
-  %.not61 = icmp eq i16 %.4.lcssa, 0
-  br i1 %.not61, label %60, label %57
+.critedge:                                        ; preds = %.lr.ph83
+  %55 = icmp eq i16 %51, 0
+  br i1 %55, label %.critedge.thread, label %56
 
-57:                                               ; preds = %.critedge
-  %58 = zext nneg i32 %spec.store.select to i64
-  %59 = getelementptr inbounds nuw i8, ptr %.3, i64 %58
-  store i8 62, ptr %59, align 1, !tbaa !26
-  br label %60
+56:                                               ; preds = %.critedge
+  %57 = zext nneg i32 %.047.lcssa to i64
+  %58 = getelementptr inbounds nuw i8, ptr %.3, i64 %57
+  store i8 62, ptr %58, align 1, !tbaa !26
+  br label %.critedge.thread
 
-60:                                               ; preds = %57, %.critedge
-  %61 = trunc i32 %spec.store.select to i16
-  %62 = add i16 %.050.lcssa, %61
-  ret i16 %62
+.critedge.thread:                                 ; preds = %._crit_edge75, %56, %.critedge
+  %59 = trunc i32 %.047.lcssa to i16
+  %60 = add i16 %.050.lcssa, %59
+  ret i16 %60
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

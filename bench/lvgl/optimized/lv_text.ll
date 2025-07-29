@@ -450,14 +450,12 @@ define internal i32 @lv_text_utf8_get_byte_id(ptr noundef readonly captures(none
 15:                                               ; preds = %12
   %16 = and i32 %7, 248
   %17 = icmp eq i32 %16, 240
-  %..i = select i1 %17, i8 4, i8 0
+  %18 = select i1 %17, i32 4, i32 1
   br label %lv_text_utf8_size.exit
 
 lv_text_utf8_size.exit:                           ; preds = %6, %9, %12, %15
-  %.0.i = phi i8 [ 1, %6 ], [ 2, %9 ], [ 3, %12 ], [ %..i, %15 ]
-  %narrow = tail call i8 @llvm.umax.i8(i8 %.0.i, i8 1)
-  %18 = zext nneg i8 %narrow to i32
-  %19 = add i32 %.01012, %18
+  %.0.i = phi i32 [ 1, %6 ], [ 2, %9 ], [ 3, %12 ], [ %18, %15 ]
+  %19 = add i32 %.0.i, %.01012
   %20 = add nuw i32 %.013, 1
   %exitcond.not = icmp eq i32 %20, %1
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !11
@@ -1350,14 +1348,12 @@ define void @lv_text_ins(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
 24:                                               ; preds = %21
   %25 = and i32 %16, 248
   %26 = icmp eq i32 %25, 240
-  %..i.i = select i1 %26, i8 4, i8 0
+  %27 = select i1 %26, i32 4, i32 1
   br label %lv_text_utf8_size.exit.i
 
 lv_text_utf8_size.exit.i:                         ; preds = %24, %21, %18, %15
-  %.0.i.i = phi i8 [ 1, %15 ], [ 2, %18 ], [ 3, %21 ], [ %..i.i, %24 ]
-  %narrow.i = tail call i8 @llvm.umax.i8(i8 %.0.i.i, i8 1)
-  %27 = zext nneg i8 %narrow.i to i32
-  %28 = add i32 %.01012.i, %27
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %18 ], [ 3, %21 ], [ %27, %24 ]
+  %28 = add i32 %.0.i.i, %.01012.i
   %29 = add nuw i32 %.013.i, 1
   %exitcond.not.i = icmp eq i32 %29, %1
   br i1 %exitcond.not.i, label %lv_text_utf8_get_byte_id.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
@@ -1434,14 +1430,12 @@ define void @lv_text_cut(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
 19:                                               ; preds = %16
   %20 = and i32 %11, 248
   %21 = icmp eq i32 %20, 240
-  %..i.i = select i1 %21, i8 4, i8 0
+  %22 = select i1 %21, i32 4, i32 1
   br label %lv_text_utf8_size.exit.i
 
 lv_text_utf8_size.exit.i:                         ; preds = %19, %16, %13, %10
-  %.0.i.i = phi i8 [ 1, %10 ], [ 2, %13 ], [ 3, %16 ], [ %..i.i, %19 ]
-  %narrow.i = tail call i8 @llvm.umax.i8(i8 %.0.i.i, i8 1)
-  %22 = zext nneg i8 %narrow.i to i32
-  %23 = add i32 %.01012.i, %22
+  %.0.i.i = phi i32 [ 1, %10 ], [ 2, %13 ], [ 3, %16 ], [ %22, %19 ]
+  %23 = add i32 %.0.i.i, %.01012.i
   %24 = add nuw i32 %.013.i, 1
   %exitcond.not.i = icmp eq i32 %24, %1
   br i1 %exitcond.not.i, label %lv_text_utf8_get_byte_id.exit, label %.lr.ph.i, !llvm.loop !11
@@ -1451,69 +1445,67 @@ lv_text_utf8_get_byte_id.exit:                    ; preds = %.lr.ph.i, %lv_text_
   %25 = zext i32 %.010.lcssa.i to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
   %.not16.i18 = icmp eq i32 %2, 0
-  br i1 %.not16.i18, label %lv_text_utf8_get_byte_id.exit29, label %.lr.ph.i19
+  br i1 %.not16.i18, label %lv_text_utf8_get_byte_id.exit27, label %.lr.ph.i19
 
-.lr.ph.i19:                                       ; preds = %lv_text_utf8_get_byte_id.exit, %lv_text_utf8_size.exit.i24
-  %.013.i20 = phi i32 [ %44, %lv_text_utf8_size.exit.i24 ], [ 0, %lv_text_utf8_get_byte_id.exit ]
-  %.01012.i21 = phi i32 [ %43, %lv_text_utf8_size.exit.i24 ], [ 0, %lv_text_utf8_get_byte_id.exit ]
+.lr.ph.i19:                                       ; preds = %lv_text_utf8_get_byte_id.exit, %lv_text_utf8_size.exit.i23
+  %.013.i20 = phi i32 [ %44, %lv_text_utf8_size.exit.i23 ], [ 0, %lv_text_utf8_get_byte_id.exit ]
+  %.01012.i21 = phi i32 [ %43, %lv_text_utf8_size.exit.i23 ], [ 0, %lv_text_utf8_get_byte_id.exit ]
   %27 = zext i32 %.01012.i21 to i64
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !3
   %.not.i22 = icmp eq i8 %29, 0
-  br i1 %.not.i22, label %lv_text_utf8_get_byte_id.exit29, label %30
+  br i1 %.not.i22, label %lv_text_utf8_get_byte_id.exit27, label %30
 
 30:                                               ; preds = %.lr.ph.i19
   %31 = zext i8 %29 to i32
   %32 = icmp sgt i8 %29, -1
-  br i1 %32, label %lv_text_utf8_size.exit.i24, label %33
+  br i1 %32, label %lv_text_utf8_size.exit.i23, label %33
 
 33:                                               ; preds = %30
   %34 = and i32 %31, 224
   %35 = icmp eq i32 %34, 192
-  br i1 %35, label %lv_text_utf8_size.exit.i24, label %36
+  br i1 %35, label %lv_text_utf8_size.exit.i23, label %36
 
 36:                                               ; preds = %33
   %37 = and i32 %31, 240
   %38 = icmp eq i32 %37, 224
-  br i1 %38, label %lv_text_utf8_size.exit.i24, label %39
+  br i1 %38, label %lv_text_utf8_size.exit.i23, label %39
 
 39:                                               ; preds = %36
   %40 = and i32 %31, 248
   %41 = icmp eq i32 %40, 240
-  %..i.i23 = select i1 %41, i8 4, i8 0
-  br label %lv_text_utf8_size.exit.i24
+  %42 = select i1 %41, i32 4, i32 1
+  br label %lv_text_utf8_size.exit.i23
 
-lv_text_utf8_size.exit.i24:                       ; preds = %39, %36, %33, %30
-  %.0.i.i25 = phi i8 [ 1, %30 ], [ 2, %33 ], [ 3, %36 ], [ %..i.i23, %39 ]
-  %narrow.i26 = tail call i8 @llvm.umax.i8(i8 %.0.i.i25, i8 1)
-  %42 = zext nneg i8 %narrow.i26 to i32
-  %43 = add i32 %.01012.i21, %42
+lv_text_utf8_size.exit.i23:                       ; preds = %39, %36, %33, %30
+  %.0.i.i24 = phi i32 [ 1, %30 ], [ 2, %33 ], [ 3, %36 ], [ %42, %39 ]
+  %43 = add i32 %.0.i.i24, %.01012.i21
   %44 = add nuw i32 %.013.i20, 1
-  %exitcond.not.i27 = icmp eq i32 %44, %2
-  br i1 %exitcond.not.i27, label %lv_text_utf8_get_byte_id.exit29, label %.lr.ph.i19, !llvm.loop !11
+  %exitcond.not.i25 = icmp eq i32 %44, %2
+  br i1 %exitcond.not.i25, label %lv_text_utf8_get_byte_id.exit27, label %.lr.ph.i19, !llvm.loop !11
 
-lv_text_utf8_get_byte_id.exit29:                  ; preds = %.lr.ph.i19, %lv_text_utf8_size.exit.i24, %lv_text_utf8_get_byte_id.exit
-  %.010.lcssa.i28 = phi i32 [ 0, %lv_text_utf8_get_byte_id.exit ], [ %.01012.i21, %.lr.ph.i19 ], [ %43, %lv_text_utf8_size.exit.i24 ]
-  %45 = zext i32 %.010.lcssa.i28 to i64
+lv_text_utf8_get_byte_id.exit27:                  ; preds = %.lr.ph.i19, %lv_text_utf8_size.exit.i23, %lv_text_utf8_get_byte_id.exit
+  %.010.lcssa.i26 = phi i32 [ 0, %lv_text_utf8_get_byte_id.exit ], [ %.01012.i21, %.lr.ph.i19 ], [ %43, %lv_text_utf8_size.exit.i23 ]
+  %45 = zext i32 %.010.lcssa.i26 to i64
   %46 = sub i64 %6, %45
-  %.not30 = icmp ult i64 %46, %25
-  br i1 %.not30, label %.loopexit, label %.lr.ph
+  %.not28 = icmp ult i64 %46, %25
+  br i1 %.not28, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %lv_text_utf8_get_byte_id.exit29, %.lr.ph
-  %47 = phi i64 [ %54, %.lr.ph ], [ %25, %lv_text_utf8_get_byte_id.exit29 ]
-  %.031 = phi i32 [ %53, %.lr.ph ], [ %.010.lcssa.i, %lv_text_utf8_get_byte_id.exit29 ]
-  %48 = add i32 %.031, %.010.lcssa.i28
+.lr.ph:                                           ; preds = %lv_text_utf8_get_byte_id.exit27, %.lr.ph
+  %47 = phi i64 [ %54, %.lr.ph ], [ %25, %lv_text_utf8_get_byte_id.exit27 ]
+  %.029 = phi i32 [ %53, %.lr.ph ], [ %.010.lcssa.i, %lv_text_utf8_get_byte_id.exit27 ]
+  %48 = add i32 %.029, %.010.lcssa.i26
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   store i8 %51, ptr %52, align 1, !tbaa !3
-  %53 = add i32 %.031, 1
+  %53 = add i32 %.029, 1
   %54 = zext i32 %53 to i64
   %.not = icmp ult i64 %46, %54
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
-.loopexit:                                        ; preds = %.lr.ph, %lv_text_utf8_get_byte_id.exit29, %3
+.loopexit:                                        ; preds = %.lr.ph, %lv_text_utf8_get_byte_id.exit27, %3
   ret void
 }
 
@@ -1548,9 +1540,6 @@ declare i32 @lv_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) lo
 declare void @llvm.va_end.p0(ptr) #9
 
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
