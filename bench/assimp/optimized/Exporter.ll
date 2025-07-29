@@ -9310,7 +9310,7 @@ define linkonce_odr void @_ZN6Assimp15ProgressHandler17UpdatePostProcessEii(ptr 
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %4
 
-4:                                                ; preds = %3
+4:; preds = %3
   %5 = sitofp i32 %1 to float
   %6 = sitofp i32 %2 to float
   %7 = fdiv float %5, %6

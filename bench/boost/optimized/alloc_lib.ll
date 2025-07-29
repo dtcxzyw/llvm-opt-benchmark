@@ -3427,9 +3427,9 @@ define internal fastcc i64 @release_unused_segments(ptr noundef %0) unnamed_addr
   %.1161 = phi ptr [ %.0160234, %11 ], [ %.0160234, %21 ], [ %.0160234, %31 ], [ %.0159235, %119 ], [ %.0160234, %184 ], [ %.0160234, %148 ], [ %.0160234, %.thread ]
   %.1 = phi i64 [ %.0237, %11 ], [ %.0237, %21 ], [ %.0237, %31 ], [ %120, %119 ], [ %.0237, %184 ], [ %.0237, %148 ], [ %.0237, %.thread ]
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge.loopexit, label %11, !llvm.loop !70
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !70
 
-._crit_edge.loopexit:                             ; preds = %190
+._crit_edge:                                      ; preds = %190
   %191 = tail call i32 @llvm.umax.i32(i32 %17, i32 4095)
   %192 = zext nneg i32 %191 to i64
   br label %._crit_edge

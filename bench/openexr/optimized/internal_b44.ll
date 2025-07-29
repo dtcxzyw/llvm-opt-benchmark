@@ -682,11 +682,11 @@ define hidden i32 @internal_exr_undo_b44(ptr noundef %0, ptr noundef readonly ca
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   br label %14
 
-._crit_edge.loopexit.i:                           ; preds = %14
+13:                                               ; preds = %14
   %13 = tail call i64 @llvm.umax.i64(i64 %31, i64 %4)
   br label %compute_scratch_buffer_size.exit
 
-14:                                               ; preds = %14, %.lr.ph.i
+14: ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %.02131.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %14 ]
   %15 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %12, i64 %indvars.iv.i
@@ -704,7 +704,7 @@ define hidden i32 @internal_exr_undo_b44(ptr noundef %0, ptr noundef readonly ca
   %reass.sub29.i = add i32 %19, 4
   %23 = sub i32 %reass.sub29.i, %22
   %.023.i = select i1 %.not28.i, i32 %19, i32 %23
-  %24 = sext i32 %.023.i to i64
+  %27 = sext i32 %.023.i to i64
   %25 = sext i32 %.024.i to i64
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 25
   %27 = load i8, ptr %26, align 1, !tbaa !27
@@ -716,18 +716,18 @@ define hidden i32 @internal_exr_undo_b44(ptr noundef %0, ptr noundef readonly ca
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %14, !llvm.loop !53
 
-compute_scratch_buffer_size.exit:                 ; preds = %5, %._crit_edge.loopexit.i
+compute_scratch_buffer_size.exit:                 ; preds = %5, %13
   %.021.lcssa.i = phi i64 [ %4, %5 ], [ %13, %._crit_edge.loopexit.i ]
-  %32 = tail call i32 @internal_decode_alloc_buffer(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %.021.lcssa.i) #6
-  %.not = icmp eq i32 %32, 0
+  %spec.select.i = tail call i32 @internal_decode_alloc_buffer(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %.021.lcssa.i) #6
+  %.not = icmp eq i32 %spec.select.i, 0
   br i1 %.not, label %33, label %35
 
-33:                                               ; preds = %compute_scratch_buffer_size.exit
-  %34 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4)
-  br label %35
+32:                                               ; preds = %compute_scratch_buffer_size.exit
+  %33 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4)
+  br label %34
 
-35:                                               ; preds = %compute_scratch_buffer_size.exit, %33
-  %.0 = phi i32 [ %34, %33 ], [ %32, %compute_scratch_buffer_size.exit ]
+34:                                               ; preds = %compute_scratch_buffer_size.exit, %32
+  %.0 = phi i32 [ %33, %33 ], [ %32, %compute_scratch_buffer_size.exit ]
   ret i32 %.0
 }
 
@@ -1295,11 +1295,11 @@ define hidden i32 @internal_exr_undo_b44a(ptr noundef %0, ptr noundef readonly c
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   br label %14
 
-._crit_edge.loopexit.i:                           ; preds = %14
+13:                                               ; preds = %14
   %13 = tail call i64 @llvm.umax.i64(i64 %31, i64 %4)
   br label %compute_scratch_buffer_size.exit
 
-14:                                               ; preds = %14, %.lr.ph.i
+14: ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %.02131.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %14 ]
   %15 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %12, i64 %indvars.iv.i
@@ -1317,7 +1317,7 @@ define hidden i32 @internal_exr_undo_b44a(ptr noundef %0, ptr noundef readonly c
   %reass.sub29.i = add i32 %19, 4
   %23 = sub i32 %reass.sub29.i, %22
   %.023.i = select i1 %.not28.i, i32 %19, i32 %23
-  %24 = sext i32 %.023.i to i64
+  %27 = sext i32 %.023.i to i64
   %25 = sext i32 %.024.i to i64
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 25
   %27 = load i8, ptr %26, align 1, !tbaa !27
@@ -1329,18 +1329,18 @@ define hidden i32 @internal_exr_undo_b44a(ptr noundef %0, ptr noundef readonly c
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %14, !llvm.loop !53
 
-compute_scratch_buffer_size.exit:                 ; preds = %5, %._crit_edge.loopexit.i
+compute_scratch_buffer_size.exit:                 ; preds = %5, %13
   %.021.lcssa.i = phi i64 [ %4, %5 ], [ %13, %._crit_edge.loopexit.i ]
-  %32 = tail call i32 @internal_decode_alloc_buffer(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %.021.lcssa.i) #6
-  %.not = icmp eq i32 %32, 0
+  %spec.select.i = tail call i32 @internal_decode_alloc_buffer(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %.021.lcssa.i) #6
+  %.not = icmp eq i32 %spec.select.i, 0
   br i1 %.not, label %33, label %35
 
-33:                                               ; preds = %compute_scratch_buffer_size.exit
-  %34 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4)
-  br label %35
+32:                                               ; preds = %compute_scratch_buffer_size.exit
+  %33 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4)
+  br label %34
 
-35:                                               ; preds = %compute_scratch_buffer_size.exit, %33
-  %.0 = phi i32 [ %34, %33 ], [ %32, %compute_scratch_buffer_size.exit ]
+34:                                               ; preds = %compute_scratch_buffer_size.exit, %32
+  %.0 = phi i32 [ %33, %33 ], [ %32, %compute_scratch_buffer_size.exit ]
   ret i32 %.0
 }
 

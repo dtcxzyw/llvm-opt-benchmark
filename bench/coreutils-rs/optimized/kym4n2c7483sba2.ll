@@ -72,12 +72,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17hed8b06eeb3ae5f2cE.llvm.8540188362525860381.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17hed8b06eeb3ae5f2cE.llvm.8540188362525860381.exit": ; preds = %15, %16, %17
-  %.sroa.7.0.i = phi i64 [ %9, %16 ], [ %25, %17 ], [ %spec.select.i, %15 ]
-  store i64 %.sroa.7.0.i, ptr %0, align 8, !alias.scope !10, !noalias !13
+  %.0.sroa.speculated.i22.i = phi i64 [ %9, %16 ], [ %25, %17 ], [ %spec.select.i, %15 ]
+  store i64 %.0.sroa.speculated.i22.i, ptr %0, align 8, !alias.scope !10, !noalias !13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %26, align 8, !alias.scope !10, !noalias !13
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.7.0.i, ptr %27, align 8, !alias.scope !10, !noalias !13
+  store i64 %.0.sroa.speculated.i22.i, ptr %27, align 8, !alias.scope !10, !noalias !13
   ret void
 }
 
@@ -262,7 +262,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   br label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit7"
 
 34:                                               ; preds = %32
-  br i1 %trunc6.i.i.i, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit7", label %35
+  br i1 %trunc6.i.i.i, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit8", label %35
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -275,8 +275,8 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %43 = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 %42)
   br label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit7"
 
-"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit": ; preds = %21, %22, %23, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit7"
-  %.0 = phi i64 [ %53, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit7" ], [ %14, %22 ], [ %31, %23 ], [ %spec.select.i.i, %21 ]
+43:                                               ; preds = %21, %22, %23, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit7"
+  %.sroa.014.0.i.i5 = phi i64 [ %53, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit7" ], [ %14, %22 ], [ %31, %23 ], [ %spec.select.i.i, %21 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load i64, ptr %44, align 8, !alias.scope !87, !noalias !90, !noundef !9
   %46 = icmp ugt i64 %.0, %45
@@ -293,9 +293,9 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   tail call void @llvm.assume(i1 %51)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7b8ca99f49e6dedeE.exit"
 
-"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit7": ; preds = %35, %34, %33
-  %.sroa.7.0.i.i5 = phi i64 [ %14, %34 ], [ %43, %35 ], [ %spec.select.i.i6, %33 ]
-  %52 = add i64 %.sroa.7.0.i.i5, 1
+"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit8": ; preds = %35, %34, %33
+  %.0.sroa.speculated.i22.i.i7 = phi i64 [ %14, %34 ], [ %43, %35 ], [ %spec.select.i.i6, %33 ]
+  %52 = add i64 %.0.sroa.speculated.i22.i.i7, 1
   %53 = lshr i64 %52, 1
   br label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f46b6499bae7da9E.llvm.8540188362525860381.exit"
 
@@ -475,7 +475,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   br label %.body
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17hed8b06eeb3ae5f2cE.llvm.8540188362525860381.exit": ; preds = %18, %17, %16
-  %.sroa.7.0.i = phi i64 [ %10, %17 ], [ %26, %18 ], [ %spec.select.i, %16 ]
+  %.0.sroa.speculated.i22.i = phi i64 [ %10, %17 ], [ %26, %18 ], [ %spec.select.i, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 89
@@ -483,7 +483,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
 
 "_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h8c4a7dda930d76e7E.exit": ; preds = %59, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17hed8b06eeb3ae5f2cE.llvm.8540188362525860381.exit"
   %.sroa.01.0 = phi i64 [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17hed8b06eeb3ae5f2cE.llvm.8540188362525860381.exit" ], [ %33, %59 ]
-  %exitcond.not = icmp eq i64 %.sroa.01.0, %.sroa.7.0.i
+  %exitcond.not = icmp eq i64 %.sroa.01.0, %.0.sroa.speculated.i22.i
   br i1 %exitcond.not, label %40, label %32
 
 32:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h8c4a7dda930d76e7E.exit"

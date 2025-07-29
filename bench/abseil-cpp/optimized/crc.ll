@@ -1662,7 +1662,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr n
   %13 = tail call noundef i32 @llvm.bitreverse.i32(i32 %.1.i)
   br label %_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit
 
-14:                                               ; preds = %63, %8
+15:                                               ; preds = %63, %8
   %.03042.i = phi i64 [ %2, %8 ], [ %65, %63 ]
   %.03141.i = phi i32 [ %6, %8 ], [ %.1.i, %63 ]
   %.03240.i = phi i32 [ 0, %8 ], [ %64, %63 ]
@@ -1683,17 +1683,17 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr n
   store i64 0, ptr %4, align 16, !tbaa !29
   store i64 %22, ptr %9, align 8, !tbaa !29
   store i64 %23, ptr %10, align 16, !tbaa !29
-  %24 = xor i64 %23, %22
-  store i64 %24, ptr %11, align 8, !tbaa !29
+  %22 = xor i64 %23, %22
+  store i64 %22, ptr %11, align 8, !tbaa !29
   br label %27
 
-25:                                               ; preds = %27
-  %26 = trunc i64 %60 to i32
+23:                                               ; preds = %27
+  %24 = trunc i64 %60 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
   br label %63
 
-27:                                               ; preds = %27, %17
-  %.039.i = phi i32 [ 0, %17 ], [ %61, %27 ]
+61:                                               ; preds = %27, %17
+  %.1.i = phi i32 [ 0, %17 ], [ %61, %27 ]
   %.02938.i = phi i64 [ 0, %17 ], [ %60, %27 ]
   %.237.i = phi i32 [ %.03141.i, %17 ], [ %54, %27 ]
   %28 = and i32 %.237.i, 3
@@ -1741,7 +1741,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr n
   br i1 %.not35.i, label %12, label %14, !llvm.loop !32
 
 _ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit: ; preds = %3, %12
-  %66 = phi i32 [ %5, %3 ], [ %13, %12 ]
+  %64 = phi i32 [ %5, %3 ], [ %13, %12 ]
   store i32 %66, ptr %1, align 4, !tbaa !4
   ret void
 }

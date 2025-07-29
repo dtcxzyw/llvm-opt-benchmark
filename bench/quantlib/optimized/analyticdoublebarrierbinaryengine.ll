@@ -1257,11 +1257,11 @@ for.body.lr.ph:                                   ; preds = %_ZN8QuantLib12Inter
   %square319 = fmul double %mul140, %mul140
   br label %for.body
 
-for.cond.cleanup.loopexit:                        ; preds = %for.body
+for.cond.cleanup:                                 ; preds = %for.body
   %105 = call double @llvm.fabs.f64(double %mul187)
   br label %for.cond.cleanup
 
-for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %_ZN8QuantLib12InterestRateD2Ev.exit156
+for.cond.cleanup:; preds = %for.cond.cleanup, %_ZN8QuantLib12InterestRateD2Ev.exit156
   %tot.0.lcssa = phi double [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit156 ], [ %add188, %for.cond.cleanup.loopexit ]
   %term.0.lcssa = phi double [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit156 ], [ %105, %for.cond.cleanup.loopexit ]
   %cmp190 = fcmp olt double %term.0.lcssa, %requiredConvergence
@@ -1295,7 +1295,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add188 = fadd double %tot.0323, %mul187
   %inc = add nuw i64 %i.0324, 1
   %exitcond.not = icmp eq i64 %inc, %maxIteration
-  br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !72
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !72
 
 if.then191:                                       ; preds = %for.cond.cleanup
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream192) #26
@@ -2615,7 +2615,7 @@ _ZN8QuantLib12InterestRateD2Ev.exit144:           ; preds = %_ZNK5boost10shared_
   %cmp155249 = icmp ugt i64 %maxIteration, 1
   br i1 %cmp155249, label %for.body, label %for.cond.cleanup
 
-for.cond.cleanup.loopexit:                        ; preds = %for.body
+for.cond.cleanup:                                 ; preds = %for.body
   %105 = call double @llvm.fabs.f64(double %mul179)
   br label %for.cond.cleanup
 
@@ -2648,7 +2648,7 @@ for.body:                                         ; preds = %_ZN8QuantLib12Inter
   %add = fadd double %tot.0250, %mul179
   %inc = add nuw i64 %i.0251, 1
   %exitcond.not = icmp eq i64 %inc, %maxIteration
-  br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !76
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !76
 
 if.then189:                                       ; preds = %for.cond.cleanup
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream190) #26

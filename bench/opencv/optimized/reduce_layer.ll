@@ -18395,10 +18395,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1
   %wide.trip.count = sext i32 %5 to i64
   br label %37
 
-._crit_edge:                                      ; preds = %80, %2
+._crit_edge:                                      ; preds = %79, %2
   ret void
 
-37:                                               ; preds = %.lr.ph, %80
+37:                                               ; preds = %.lr.ph, %79
   %indvars.iv60 = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next61, %80 ]
   %.058 = phi i64 [ %26, %.lr.ph ], [ %.1, %80 ]
   %.03157 = phi i64 [ %22, %.lr.ph ], [ %.132, %80 ]
@@ -18460,10 +18460,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1
   %.not = icmp ult i64 %60, %62
   br i1 %.not, label %76, label %63
 
-63:                                               ; preds = %._crit_edge53
-  %64 = add i64 %.058, 1
-  %65 = load ptr, ptr %35, align 8, !tbaa !64
-  %66 = load ptr, ptr %15, align 8, !tbaa !65
+62:                                               ; preds = %._crit_edge53
+  %63 = add i64 %.058, 1
+  %64 = load ptr, ptr %35, align 8, !tbaa !64
+  %65 = load ptr, ptr %15, align 8, !tbaa !65
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
@@ -18471,22 +18471,22 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1
   %71 = icmp ult i64 %64, %70
   br i1 %71, label %72, label %80
 
-72:                                               ; preds = %63
-  %73 = getelementptr inbounds nuw i32, ptr %66, i64 %64
-  %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = sext i32 %74 to i64
-  br label %80
+71:                                               ; preds = %62
+  %72 = getelementptr inbounds nuw i32, ptr %65, i64 %63
+  %73 = load i32, ptr %72, align 4, !tbaa !66
+  %74 = sext i32 %73 to i64
+  br label %79
 
-76:                                               ; preds = %._crit_edge53
-  %77 = load i32, ptr %16, align 4, !tbaa !317
-  %78 = sext i32 %77 to i64
-  %79 = add i64 %.03456, %78
-  br label %80
+75:                                               ; preds = %._crit_edge53
+  %76 = load i32, ptr %16, align 4, !tbaa !317
+  %77 = sext i32 %76 to i64
+  %78 = add i64 %.03456, %77
+  br label %79
 
-80:                                               ; preds = %63, %72, %76
-  %.135 = phi i64 [ %75, %72 ], [ %.03456, %63 ], [ %79, %76 ]
+79:                                               ; preds = %62, %71, %75
+  %.135 = phi i64 [ %74, %72 ], [ %.03456, %63 ], [ %78, %76 ]
   %.132 = phi i64 [ 0, %72 ], [ 0, %63 ], [ %60, %76 ]
-  %.1 = phi i64 [ %64, %72 ], [ %64, %63 ], [ %.058, %76 ]
+  %.1 = phi i64 [ %63, %72 ], [ %63, %63 ], [ %.058, %76 ]
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !328

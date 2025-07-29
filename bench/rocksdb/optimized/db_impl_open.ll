@@ -20259,7 +20259,7 @@ _ZNSt13unordered_mapIiN7rocksdb11VersionEditESt4hashIiESt8equal_toIiESaISt4pairI
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #27
   call void @_ZN7rocksdb11VersionEditD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %6) #27
   call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %6) #27
-  br label %139
+  br label %138
 
 _ZN7rocksdb17EventLoggerStreamlsIA4_cEERS0_RKT_.exit: ; preds = %.noexc
   invoke void @_ZN7rocksdb17EventLoggerStream10MakeStreamEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -20412,7 +20412,7 @@ _ZN7rocksdb17EventLoggerStreamlsIA10_cEERS0_RKT_.exit: ; preds = %.noexc32
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 1235
   %118 = load i8, ptr %117, align 1, !tbaa !1136, !range !91, !noundef !92
   %119 = trunc nuw i8 %118 to i1
-  br i1 %119, label %138, label %120
+  br i1 %119, label %137, label %120
 
 120:                                              ; preds = %114
   %121 = load ptr, ptr %9, align 8, !tbaa !711
@@ -20449,13 +20449,13 @@ _ZN7rocksdb17EventLoggerStreamlsIA10_cEERS0_RKT_.exit: ; preds = %.noexc32
   %.sroa.010.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i.i, i64 2536
   %.sroa.010.0.i.i = load ptr, ptr %.sroa.010.0.in.i.i, align 8, !tbaa !733
   %.not.i.i = icmp eq ptr %.sroa.010.0.i.i, %125
-  br i1 %.not.i.i, label %_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit.loopexit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit, label %.lr.ph.i.i
 
-_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit.loopexit: ; preds = %135
+_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit: ; preds = %135
   %136 = call i64 @llvm.umax.i64(i64 %116, i64 %.1.i.i)
-  br label %_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit
+  br label %136
 
-_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit: ; preds = %_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit.loopexit, %120
+136:                                              ; preds = %136, %120
   %.0.lcssa.i.i = phi i64 [ -1, %120 ], [ %136, %_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit.loopexit ]
   store i64 %.0.lcssa.i.i, ptr %4, align 8, !tbaa !111
   br label %138
@@ -20464,12 +20464,12 @@ _ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit: ; preds = %_ZNK7
   %.pn = phi { ptr, i32 } [ %113, %112 ], [ %95, %94 ]
   call void @_ZN7rocksdb17EventLoggerStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #27
-  br label %139
+  br label %138
 
-138:                                              ; preds = %_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit, %114
+137:                                              ; preds = %_ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit, %114
   ret void
 
-139:                                              ; preds = %137, %59
+138:                                              ; preds = %137, %59
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %59 ], [ %.pn, %137 ]
   resume { ptr, i32 } %.pn19.pn
 }

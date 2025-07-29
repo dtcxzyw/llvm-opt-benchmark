@@ -3256,7 +3256,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17h
   %7 = icmp ugt i64 %6, 4294967295
   br i1 %7, label %.thread11, label %8
 
-8:                                                ; preds = %1
+8:; preds = %1
   %9 = trunc nuw i64 %6 to i32
   %10 = tail call i32 @llvm.usub.sat.i32(i32 %9, i32 8)
   %11 = and i32 %10, -8

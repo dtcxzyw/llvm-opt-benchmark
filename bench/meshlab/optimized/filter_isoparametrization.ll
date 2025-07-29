@@ -63822,8 +63822,8 @@ define linkonce_odr noundef float @_Z21ApproxAngleDistortionI8BaseMeshENT_10Scal
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %142 = phi float [ 0x7FF8000000000000, %1 ], [ %141, %._crit_edge.loopexit ]
-  ret float %142
+  %.060.lcssa = phi float [ 0x7FF8000000000000, %1 ], [ %141, %._crit_edge.loopexit ]
+  ret float %.060.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable

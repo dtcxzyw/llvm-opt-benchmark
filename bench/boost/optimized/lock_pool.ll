@@ -28,16 +28,16 @@ define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPK
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0912
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = icmp eq ptr %5, %0
-  br i1 %6, label %._crit_edge.loopexit, label %7
+  br i1 %6, label %._crit_edge, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = add nuw i64 %.0912, 1
   %exitcond.not = icmp eq i64 %8, %2
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %7
-  %.09.lcssa.ph = phi i64 [ %2, %7 ], [ %.0912, %.lr.ph ]
-  %9 = tail call i64 @llvm.umin.i64(i64 %.09.lcssa.ph, i64 %2)
+._crit_edge:                                      ; preds = %.lr.ph, %7
+  %.09.lcssa = phi i64 [ %2, %7 ], [ %.0912, %.lr.ph ]
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.09.lcssa, i64 %2)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3

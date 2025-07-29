@@ -1399,7 +1399,7 @@ define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64
 
 26:                                               ; preds = %18
   %27 = icmp samesign ugt i64 %24, %0
-  br i1 %27, label %.thread.loopexit, label %28
+  br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
   %29 = tail call i64 @llvm.umax.i64(i64 %24, i64 %12)
@@ -1409,11 +1409,11 @@ define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64
   %31 = phi i64 [ %29, %28 ], [ %12, %10 ], [ %12, %18 ]
   %32 = add nuw i32 %11, 1
   %33 = icmp eq i32 %32, %6
-  br i1 %33, label %.thread.loopexit, label %10, !llvm.loop !41
+  br i1 %33, label %.thread, label %10, !llvm.loop !41
 
-.thread.loopexit:                                 ; preds = %30, %26
-  %.ph = phi i64 [ %31, %30 ], [ %0, %26 ]
-  %34 = tail call i64 @llvm.umin.i64(i64 %.ph, i64 %4)
+.thread:                                          ; preds = %30, %26
+  %34 = phi i64 [ %31, %30 ], [ %0, %26 ]
+  %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 %4)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %3

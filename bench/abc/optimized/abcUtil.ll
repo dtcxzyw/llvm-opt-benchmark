@@ -904,9 +904,9 @@ define range(i32 0, 1073741825) i32 @Abc_NtkGetCubePairNum(ptr noundef readonly 
   %.val = load i32, ptr %29, align 4, !tbaa !36
   %30 = sext i32 %.val to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !61
+  br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !61
 
-.critedge.loopexit:                               ; preds = %27
+.critedge:                                        ; preds = %27
   %32 = tail call i64 @llvm.umin.i64(i64 %.1, i64 1073741824)
   %33 = trunc nuw nsw i64 %32 to i32
   br label %.critedge

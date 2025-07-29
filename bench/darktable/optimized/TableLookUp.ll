@@ -205,7 +205,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
   br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !26
 
-.preheader:                                       ; preds = %60
+.preheader:                                       ; preds = %59
   %.not105 = icmp eq i32 %11, 65536
   br i1 %.not105, label %.loopexit, label %.lr.ph104
 
@@ -221,13 +221,13 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   tail call void @llvm.assume(i1 %45)
   br label %71
 
-46:                                               ; preds = %.lr.ph, %60
+46:                                               ; preds = %.lr.ph, %59
   %indvars.iv108 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next109, %60 ]
   %47 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv108
   %48 = load i16, ptr %47, align 2, !tbaa !19
   %49 = zext i16 %48 to i32
   %.not = icmp eq i64 %indvars.iv108, 0
-  br i1 %.not, label %54, label %50
+  br i1 %.not, label %53, label %50
 
 50:                                               ; preds = %46
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv108
@@ -236,20 +236,20 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %53 = zext i16 %52 to i32
   br label %54
 
-54:                                               ; preds = %46, %50
-  %.sroa.speculated45 = phi i32 [ %53, %50 ], [ %49, %46 ]
+53:                                               ; preds = %46, %50
+  %54 = phi i32 [ %53, %50 ], [ %49, %46 ]
   %55 = icmp slt i64 %indvars.iv108, %35
-  br i1 %55, label %56, label %60
+  br i1 %55, label %56, label %59
 
-56:                                               ; preds = %54
+56:                                               ; preds = %53
   %gep97 = getelementptr inbounds nuw i16, ptr %invariant.gep96, i64 %indvars.iv108
   %57 = load i16, ptr %gep97, align 2, !tbaa !19
   %58 = tail call i16 @llvm.umax.i16(i16 %57, i16 %48)
   %59 = zext i16 %58 to i32
   br label %60
 
-60:                                               ; preds = %54, %56
-  %.sroa.speculated = phi i32 [ %59, %56 ], [ %49, %54 ]
+59:                                               ; preds = %53, %56
+  %60 = phi i32 [ %59, %56 ], [ %49, %54 ]
   %61 = sub nsw i32 %.sroa.speculated, %.sroa.speculated45
   %62 = icmp sgt i32 %61, -1
   tail call void @llvm.assume(i1 %62)

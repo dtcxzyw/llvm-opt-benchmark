@@ -152,7 +152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit22: ; preds = %_ZN
   %40 = call i8 @llvm.abs.i8(i8 %39, i1 false)
   %41 = zext i8 %40 to i32
   %42 = icmp slt i8 %39, 0
-  br i1 %42, label %43, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
+  br i1 %42, label %43, label %52
 
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit22
   %.not76 = icmp eq i64 %.sroa.043.078, %34
@@ -171,12 +171,12 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %43
   %50 = call i32 @llvm.smin.i32(i32 %41, i32 %49)
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
 
-51:                                               ; preds = %33
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %33
   %52 = landingpad { ptr, i32 }
           cleanup
   br label %73
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %43, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit22
+52:                                               ; preds = %43, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit22
   %.0 = phi i32 [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit22 ], [ 0, %43 ], [ %50, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ]
   %53 = icmp eq i32 %.0, 0
   %54 = trunc i64 %37 to i32
@@ -184,7 +184,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %4
   %or.cond69 = or i1 %53, %55
   br i1 %or.cond69, label %.critedge.critedge, label %58
 
-.critedge.critedge:                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
+.critedge.critedge:                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %56, ptr %0, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -192,7 +192,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %4
   store i8 0, ptr %56, align 8, !tbaa !12
   br label %.critedge
 
-58:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
+58:                                               ; preds = %52
   %59 = sext i32 %.0 to i64
   %.sroa.speculated.i23 = call i64 @llvm.umin.i64(i64 %37, i64 %59)
   %60 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %36, i64 noundef %.sroa.speculated.i23) #12

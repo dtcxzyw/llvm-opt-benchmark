@@ -3951,7 +3951,7 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   %.086137 = phi i64 [ 0, %.lr.ph142 ], [ %.288, %91 ]
   %44 = add nsw i64 %.084138, -1
   %.not109 = icmp eq i64 %.084138, 0
-  br i1 %.not109, label %.loopexit.loopexit147, label %.preheader123.preheader
+  br i1 %.not109, label %.loopexit, label %.preheader123.preheader
 
 .preheader123.preheader:                          ; preds = %43
   %.079 = and i64 %.pn139, %.085
@@ -4025,8 +4025,8 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   br i1 %78, label %.sink.split, label %80
 
 .sink.split:                                      ; preds = %74, %.preheader
-  %.sink152 = phi i64 [ %.490131, %.preheader ], [ %77, %74 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %.sink152
+  %.sink154 = phi i64 [ %.490131, %.preheader ], [ %77, %74 ]
+  %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %.sink154
   store ptr %.077132, ptr %79, align 8, !tbaa !31
   br label %80
 
@@ -4067,11 +4067,11 @@ dictGetNext.exit:                                 ; preds = %80
 91:                                               ; preds = %.thread
   %92 = add i64 %.382, 1
   %93 = icmp ult i64 %.288, %spec.select121
-  br i1 %93, label %43, label %.loopexit.loopexit147, !llvm.loop !83
+  br i1 %93, label %43, label %.loopexit, !llvm.loop !83
 
-.loopexit.loopexit147:                            ; preds = %91, %43
-  %.6.ph = phi i64 [ %.288, %91 ], [ %.086137, %43 ]
-  %94 = tail call i64 @llvm.umin.i64(i64 %.6.ph, i64 %spec.select121)
+.loopexit:                                        ; preds = %91, %43
+  %.6 = phi i64 [ %.288, %91 ], [ %.086137, %43 ]
+  %94 = tail call i64 @llvm.umin.i64(i64 %.6, i64 %spec.select121)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit150, %.loopexit.loopexit147, %39

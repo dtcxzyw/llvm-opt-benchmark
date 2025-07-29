@@ -4248,14 +4248,14 @@ define hidden void @opj_dwt_calc_explicit_stepsizes(ptr noundef captures(none) %
   %26 = icmp ult i32 %25, 2
   %27 = select i1 %26, i32 1, i32 2
   %28 = select i1 %or.cond, i32 0, i32 %27
-  br i1 %12, label %.thread33, label %31
+  br i1 %12, label %29, label %31
 
-.thread33:                                        ; preds = %.thread
-  %29 = add i32 %28, %1
+29:                                               ; preds = %.thread
+  %30 = add i32 %28, %1
   %30 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %14, i64 0, i64 %indvars.iv
   br label %.lr.ph.i.i.preheader
 
-31:                                               ; preds = %.thread
+31:; preds = %.thread
   %32 = add i32 %13, %.neg2628
   %33 = icmp ugt i32 %32, 9
   %or.cond.i = and i1 %33, %24
@@ -4283,39 +4283,39 @@ define hidden void @opj_dwt_calc_explicit_stepsizes(ptr noundef captures(none) %
   %.02435 = phi i32 [ 8192, %.thread33 ], [ %44, %31 ]
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %.06.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
+41:                                               ; preds = %.lr.ph.i.i.preheader, %41
+  %.024 = phi i32 [ %44, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %.045.i.i = phi i32 [ %50, %.lr.ph.i.i ], [ %.02435, %.lr.ph.i.i.preheader ]
   %50 = lshr i32 %.045.i.i, 1
-  %51 = add nuw nsw i32 %.06.i.i, 1
+  %44 = add nuw nsw i32 %.024, 1
   %52 = icmp samesign ugt i32 %.045.i.i, 3
-  br i1 %52, label %.lr.ph.i.i, label %.lr.ph.i11.i, !llvm.loop !190
+  br i1 %52, label %41, label %.lr.ph.i11.i, !llvm.loop !190
 
 .lr.ph.i11.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph.i11.i
-  %.06.i12.i = phi i32 [ %54, %.lr.ph.i11.i ], [ 0, %.lr.ph.i.i ]
-  %.045.i13.i = phi i32 [ %53, %.lr.ph.i11.i ], [ %.02435, %.lr.ph.i.i ]
-  %53 = lshr i32 %.045.i13.i, 1
-  %54 = add nuw nsw i32 %.06.i12.i, 1
-  %55 = icmp samesign ugt i32 %.045.i13.i, 3
-  br i1 %55, label %.lr.ph.i11.i, label %opj_int_floorlog2.exit14.i, !llvm.loop !190
+  %.06.i12.i = phi i32 [ %51, %.lr.ph.i11.i ], [ 0, %.lr.ph.i.i ]
+  %.045.i13.i = phi i32 [ %50, %.lr.ph.i11.i ], [ %.02435, %.lr.ph.i.i ]
+  %50 = lshr i32 %.045.i13.i, 1
+  %51 = add nuw nsw i32 %.06.i12.i, 1
+  %52 = icmp samesign ugt i32 %.045.i13.i, 3
+  br i1 %52, label %.lr.ph.i11.i, label %opj_int_floorlog2.exit14.i, !llvm.loop !190
 
 opj_int_floorlog2.exit14.i:                       ; preds = %.lr.ph.i11.i
-  %56 = icmp samesign ugt i32 %.06.i12.i, 10
+  %53 = icmp samesign ugt i32 %.06.i12.i, 10
   %.neg.i = add nsw i32 %.06.i12.i, -10
-  %57 = lshr i32 %.02435, %.neg.i
-  %58 = sub nsw i32 10, %.06.i12.i
-  %59 = shl i32 %.02435, %58
-  %spec.select.i = select i1 %56, i32 %57, i32 %59
+  %54 = lshr i32 %.02435, %.neg.i
+  %55 = sub nsw i32 10, %.06.i12.i
+  %56 = shl i32 %.02435, %55
+  %spec.select.i = select i1 %53, i32 %54, i32 %56
   %.neg30 = sub nsw i32 12, %.06.i.i
-  %60 = and i32 %spec.select.i, 2047
+  %57 = and i32 %spec.select.i, 2047
   br label %opj_dwt_encode_stepsize.exit
 
 opj_dwt_encode_stepsize.exit:                     ; preds = %31, %opj_int_floorlog2.exit14.i
-  %61 = phi ptr [ %48, %opj_int_floorlog2.exit14.i ], [ %46, %31 ]
-  %62 = phi i32 [ %49, %opj_int_floorlog2.exit14.i ], [ %45, %31 ]
+  %.0.lcssa.i1621.i.neg31 = phi ptr [ %48, %opj_int_floorlog2.exit14.i ], [ %46, %31 ]
+  %58 = phi i32 [ %49, %opj_int_floorlog2.exit14.i ], [ %45, %31 ]
   %.0.lcssa.i1621.i.neg31 = phi i32 [ %.neg30, %opj_int_floorlog2.exit14.i ], [ 13, %31 ]
-  %63 = phi i32 [ %60, %opj_int_floorlog2.exit14.i ], [ 0, %31 ]
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %63 = phi i32 [ %57, %opj_int_floorlog2.exit14.i ], [ 0, %31 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i1621.i.neg31, i64 4
   store i32 %63, ptr %64, align 4, !tbaa !191
   %65 = add i32 %62, %.0.lcssa.i1621.i.neg31
   store i32 %65, ptr %61, align 4, !tbaa !193

@@ -5394,7 +5394,7 @@ define internal fastcc i64 @diff_datum(ptr noundef %0, ptr noundef %1, i64 nound
 
 93:                                               ; preds = %91
   %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #17
-  br label %105
+  br label %104
 
 95:                                               ; preds = %80
   %96 = icmp eq i32 %84, 0
@@ -5402,27 +5402,27 @@ define internal fastcc i64 @diff_datum(ptr noundef %0, ptr noundef %1, i64 nound
 
 97:                                               ; preds = %95
   %.not773 = icmp eq ptr %0, null
-  br i1 %.not773, label %101, label %98
+  br i1 %.not773, label %100, label %98
 
 98:                                               ; preds = %97
   %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %100 = tail call i64 @llvm.umin.i64(i64 %99, i64 %82)
   br label %101
 
-101:                                              ; preds = %97, %98
+100:                                              ; preds = %97, %98
   %.1596 = phi i64 [ %100, %98 ], [ 0, %97 ]
   %.not774 = icmp eq ptr %1, null
-  br i1 %.not774, label %.thread953, label %102
+  br i1 %.not774, label %101, label %102
 
-.thread953:                                       ; preds = %101
+101:                                              ; preds = %100
   %.not777947 = icmp ne i64 %.1596, 0
   %spec.select784865960 = zext i1 %.not777947 to i64
   br label %.thread869
 
-102:                                              ; preds = %101
+103:                                              ; preds = %101
   %103 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  %104 = tail call i64 @llvm.umin.i64(i64 %103, i64 %82)
-  br label %105
+  %spec.select783 = tail call i64 @llvm.umin.i64(i64 %103, i64 %82)
+  br label %104
 
 .thread:                                          ; preds = %91, %95
   %.0599.ph = phi ptr [ %1, %95 ], [ null, %91 ]
@@ -5432,21 +5432,21 @@ define internal fastcc i64 @diff_datum(ptr noundef %0, ptr noundef %1, i64 nound
   %.not777856 = icmp eq i64 %.3598.ph, %.1594.ph
   br label %107
 
-105:                                              ; preds = %102, %93
+104:                                              ; preds = %103, %93
   %.0599 = phi ptr [ %92, %93 ], [ %1, %102 ]
   %.3598 = phi i64 [ %.0595, %93 ], [ %.1596, %102 ]
-  %.1594 = phi i64 [ %94, %93 ], [ %104, %102 ]
+  %.1594 = phi i64 [ %94, %93 ], [ %spec.select783, %102 ]
   %.0591 = phi ptr [ %88, %93 ], [ %0, %102 ]
   %.not777 = icmp eq i64 %.3598, %.1594
-  %106 = icmp ult i64 %.3598, %.1594
-  br i1 %106, label %107, label %.thread962
+  %105 = icmp ult i64 %.3598, %.1594
+  br i1 %105, label %107, label %106
 
-.thread962:                                       ; preds = %105
+106:                                              ; preds = %104
   %spec.select784865.in968 = xor i1 %.not777, true
   %spec.select784865969 = zext i1 %spec.select784865.in968 to i64
   br label %108
 
-107:                                              ; preds = %.thread, %105
+107:                                              ; preds = %.thread, %104
   %.not777863 = phi i1 [ %.not777, %105 ], [ %.not777856, %.thread ]
   %.0592 = phi i64 [ %.1594, %105 ], [ %.3598.ph, %.thread ]
   %.0590 = phi ptr [ %.0599, %105 ], [ %.0591.ph, %.thread ]
@@ -5457,7 +5457,7 @@ define internal fastcc i64 @diff_datum(ptr noundef %0, ptr noundef %1, i64 nound
   %.not778 = icmp eq ptr %.0589, null
   br i1 %.not778, label %.thread869, label %108
 
-108:                                              ; preds = %.thread962, %107
+108:                                              ; preds = %106, %107
   %spec.select784865976 = phi i64 [ %spec.select784865969, %.thread962 ], [ %spec.select784865, %107 ]
   %.0576975 = phi i64 [ %.1594, %.thread962 ], [ %.0576, %107 ]
   %.0589974 = phi ptr [ %.0599, %.thread962 ], [ %.0589, %107 ]
@@ -7473,7 +7473,7 @@ all_zero.exit851:                                 ; preds = %247
   %1158 = tail call fastcc i64 @diff_ldouble_element(x86_fp80 %.val791, x86_fp80 %.val792, i64 noundef %2, ptr noundef nonnull %3)
   br label %.thread869
 
-.thread869:                                       ; preds = %.lr.ph897, %.lr.ph901, %character_compare.exit, %character_compare.exit837, %.thread953, %.preheader876, %.preheader874, %.preheader872, %.preheader, %all_zero.exit851.thr_comm, %1148, %1140, %1144, %1132, %1123, %1127, %1115, %107, %42, %46, %34, %._crit_edge913, %201, %._crit_edge889, %._crit_edge, %1022, %1071, %1079, %1075, %1067, %1090, %1097, %1104, %1111, %1131, %1108, %1101, %1094, %1086, %1153, %1157, %1155, %1151, %251, %29
+.thread869:                                       ; preds = %.lr.ph897, %.lr.ph901, %character_compare.exit, %character_compare.exit837, %101, %.preheader876, %.preheader874, %.preheader872, %.preheader, %all_zero.exit851.thr_comm, %1148, %1140, %1144, %1132, %1123, %1127, %1115, %107, %42, %46, %34, %._crit_edge913, %201, %._crit_edge889, %._crit_edge, %1022, %1071, %1079, %1075, %1067, %1090, %1097, %1104, %1111, %1131, %1108, %1101, %1094, %1086, %1153, %1157, %1155, %1151, %251, %29
   %.0584 = phi i32 [ %30, %29 ], [ %21, %1151 ], [ %21, %1153 ], [ %21, %1155 ], [ %21, %1157 ], [ %21, %1086 ], [ %21, %1090 ], [ %21, %1094 ], [ %21, %1097 ], [ %21, %1101 ], [ %21, %1104 ], [ %21, %1108 ], [ %21, %1111 ], [ %21, %1131 ], [ %21, %1067 ], [ %21, %1071 ], [ %21, %1075 ], [ %21, %1079 ], [ %21, %._crit_edge913 ], [ %21, %201 ], [ %21, %._crit_edge889 ], [ %252, %251 ], [ %.4588, %1022 ], [ %21, %._crit_edge ], [ 2, %34 ], [ 2, %46 ], [ 2, %42 ], [ %21, %107 ], [ 2, %1115 ], [ 2, %1127 ], [ 2, %1123 ], [ 2, %1132 ], [ 2, %1144 ], [ 2, %1140 ], [ %21, %1148 ], [ %21, %all_zero.exit851.thr_comm ], [ %21, %.preheader ], [ %21, %.preheader872 ], [ %21, %.preheader874 ], [ %21, %.preheader876 ], [ %21, %.thread953 ], [ %21, %character_compare.exit837 ], [ %21, %character_compare.exit ], [ %21, %.lr.ph901 ], [ %21, %.lr.ph897 ]
   %.0577 = phi i64 [ 0, %29 ], [ %1152, %1151 ], [ %1154, %1153 ], [ %1156, %1155 ], [ %1158, %1157 ], [ %1087, %1086 ], [ %1091, %1090 ], [ %1095, %1094 ], [ %1098, %1097 ], [ %1102, %1101 ], [ %1105, %1104 ], [ %1109, %1108 ], [ %1112, %1111 ], [ 0, %1131 ], [ %1070, %1067 ], [ %1074, %1071 ], [ %1078, %1075 ], [ %1080, %1079 ], [ %.1578.lcssa, %._crit_edge913 ], [ %.7, %201 ], [ %.9.lcssa, %._crit_edge889 ], [ 1, %251 ], [ %.24, %1022 ], [ %.25.lcssa, %._crit_edge ], [ 0, %34 ], [ 0, %46 ], [ 0, %42 ], [ %spec.select784865, %107 ], [ 0, %1115 ], [ 0, %1127 ], [ 0, %1123 ], [ 0, %1132 ], [ 0, %1144 ], [ 0, %1140 ], [ 0, %1148 ], [ 0, %all_zero.exit851.thr_comm ], [ %spec.select784865976, %.preheader ], [ %spec.select784865976, %.preheader872 ], [ 0, %.preheader874 ], [ 0, %.preheader876 ], [ %spec.select784865960, %.thread953 ], [ %138, %character_compare.exit837 ], [ %spec.select784865976, %character_compare.exit ], [ %143, %.lr.ph901 ], [ %148, %.lr.ph897 ]
   %1159 = load i32, ptr %20, align 8, !tbaa !52

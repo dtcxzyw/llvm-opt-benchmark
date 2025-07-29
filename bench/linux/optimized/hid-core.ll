@@ -1113,9 +1113,9 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %91 = tail call i32 @llvm.umax.i32(i32 %84, i32 %90)
   %92 = load ptr, ptr %85, align 8
   %93 = icmp eq ptr %92, %16
-  br i1 %93, label %.loopexit30.loopexit, label %83, !llvm.loop !19
+  br i1 %93, label %.loopexit30, label %83, !llvm.loop !19
 
-.loopexit30.loopexit:                             ; preds = %83
+.loopexit30:                                      ; preds = %83
   %94 = tail call i32 @llvm.umin.i32(i32 %91, i32 16384)
   br label %.loopexit30
 

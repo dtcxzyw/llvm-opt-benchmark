@@ -19341,7 +19341,7 @@ define dso_local i32 @moduleTimerHandler(ptr readnone captures(none) %0, i64 %1,
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %17
 
-17:                                               ; preds = %.lr.ph, %55
+17:                                               ; preds = %.lr.ph, %53
   %18 = load ptr, ptr %10, align 8, !tbaa !527
   %.0.copyload = load i64, ptr %18, align 1
   %19 = call i64 @intrev64(i64 noundef %.0.copyload) #35
@@ -19398,13 +19398,13 @@ define dso_local i32 @moduleTimerHandler(ptr readnone captures(none) %0, i64 %1,
   %43 = sdiv i32 1000000, %42
   %44 = sext i32 %43 to i64
   %45 = add i64 %40, %44
-  br label %55
+  br label %53
 
 46:                                               ; preds = %.sink.split.i
   %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8024), align 8, !tbaa !115
   %48 = mul nsw i64 %47, 1000
   %49 = add i64 %48, %40
-  br label %55
+  br label %53
 
 .thread:                                          ; preds = %17
   %50 = call i64 @ustime() #35
@@ -19414,37 +19414,37 @@ define dso_local i32 @moduleTimerHandler(ptr readnone captures(none) %0, i64 %1,
   %54 = trunc i64 %53 to i32
   br label %.loopexit
 
-55:                                               ; preds = %46, %41
+53:                                               ; preds = %46, %41
   %.sink.i = phi i64 [ %49, %46 ], [ %45, %41 ]
   store i64 %.sink.i, ptr %15, align 8, !tbaa !116
   call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #35
-  %56 = load ptr, ptr %12, align 8, !tbaa !95
-  %57 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %58 = load i32, ptr %57, align 8, !tbaa !534
-  %59 = call i32 @selectDb(ptr noundef %56, i32 noundef %58) #35
-  %60 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !535
-  %62 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !536
-  call void %61(ptr noundef nonnull %5, ptr noundef %63) #35
+  %54 = load ptr, ptr %12, align 8, !tbaa !95
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %56 = load i32, ptr %55, align 8, !tbaa !534
+  %57 = call i32 @selectDb(ptr noundef %54, i32 noundef %56) #35
+  %58 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !535
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %61 = load ptr, ptr %60, align 8, !tbaa !536
+  call void %61(ptr noundef nonnull %5, ptr noundef %61) #35
   call void @moduleFreeContext(ptr noundef nonnull %5)
-  %64 = load ptr, ptr @Timers, align 8, !tbaa !526
-  %65 = load ptr, ptr %10, align 8, !tbaa !527
-  %66 = load i64, ptr %16, align 8, !tbaa !537
-  %67 = call i32 @raxRemove(ptr noundef %64, ptr noundef %65, i64 noundef %66, ptr noundef null) #35
+  %62 = load ptr, ptr @Timers, align 8, !tbaa !526
+  %63 = load ptr, ptr %10, align 8, !tbaa !527
+  %64 = load i64, ptr %16, align 8, !tbaa !537
+  %65 = call i32 @raxRemove(ptr noundef %62, ptr noundef %63, i64 noundef %64, ptr noundef null) #35
   call void @zfree(ptr noundef nonnull %21) #35
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #35
-  %68 = call i32 @raxSeek(ptr noundef nonnull %4, ptr noundef nonnull @.str.81, ptr noundef null, i64 noundef 0) #35
-  %69 = call i32 @raxNext(ptr noundef nonnull %4) #35
-  %.not = icmp eq i32 %69, 0
+  %66 = call i32 @raxSeek(ptr noundef nonnull %4, ptr noundef nonnull @.str.81, ptr noundef null, i64 noundef 0) #35
+  %67 = call i32 @raxNext(ptr noundef nonnull %4) #35
+  %.not = icmp eq i32 %67, 0
   br i1 %.not, label %.loopexit, label %17
 
-.loopexit:                                        ; preds = %55, %3, %.thread
+.loopexit:                                        ; preds = %53, %3, %.thread
   %.1 = phi i32 [ %54, %.thread ], [ 1, %3 ], [ 1, %55 ]
   call void @raxStop(ptr noundef nonnull %4) #35
-  %70 = load ptr, ptr @Timers, align 8, !tbaa !526
-  %71 = call i64 @raxSize(ptr noundef %70) #35
-  %.not16 = icmp eq i64 %71, 0
+  %68 = load ptr, ptr @Timers, align 8, !tbaa !526
+  %69 = call i64 @raxSize(ptr noundef %68) #35
+  %.not16 = icmp eq i64 %69, 0
   br i1 %.not16, label %72, label %73
 
 72:                                               ; preds = %.loopexit

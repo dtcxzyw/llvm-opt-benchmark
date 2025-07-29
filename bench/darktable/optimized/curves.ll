@@ -672,15 +672,15 @@ define void @_ZN6LibRaw12linear_tableEj(ptr noundef nonnull align 8 dereferencea
   store i16 %load_initial, ptr %11, align 2, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %12 = tail call i32 @llvm.umax.i32(i32 %1, i32 4096)
   %13 = add nsw i32 %12, -1
   %14 = zext nneg i32 %13 to i64
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread, %7
+._crit_edge:; preds = %._crit_edge, %.thread, %7
   %.01014 = phi i64 [ 65535, %.thread ], [ 65535, %7 ], [ %14, %._crit_edge.loopexit ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 5504
   %16 = getelementptr inbounds nuw [65536 x i16], ptr %15, i64 0, i64 %.01014

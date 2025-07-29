@@ -5000,9 +5000,9 @@ _ZNK6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE4sizeEv.exit: ; p
   %132 = icmp eq ptr %131, null
   br i1 %132, label %._crit_edge225, label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit60
 
-_ZNK3euf13th_euf_solver12get_num_varsEv.exit60:   ; preds = %_ZNK6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE4sizeEv.exit
-  %133 = getelementptr inbounds i8, ptr %131, i64 -4
-  %134 = load i32, ptr %133, align 4, !tbaa !280
+133:                                              ; preds = %_ZNK6vectorI10ptr_vectorIN6lp_api5boundIN3sat7literalEEEELb1EjE4sizeEv.exit
+  %134 = getelementptr inbounds i8, ptr %131, i64 -4
+  %135 = load i32, ptr %134, align 4, !tbaa !280
   %135 = call i32 @llvm.umin.i32(i32 %134, i32 %.0.i)
   %.not226 = icmp eq i32 %135, 0
   br i1 %.not226, label %._crit_edge225, label %.lr.ph224

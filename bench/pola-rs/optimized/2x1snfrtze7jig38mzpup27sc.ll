@@ -6076,7 +6076,7 @@ define noundef range(i64 0, 34) i64 @_ZN10polars_row3row29RowEncodingCategorical
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !noundef !3
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %10, label %5
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
   %6 = icmp ult i32 %3, 3
@@ -6087,7 +6087,7 @@ define noundef range(i64 0, 34) i64 @_ZN10polars_row3row29RowEncodingCategorical
   %.sroa.01.0 = zext nneg i32 %narrow to i64
   br label %10
 
-10:                                               ; preds = %1, %5
+7:                                                ; preds = %1, %5
   %.sroa.0.0 = phi i64 [ %.sroa.01.0, %5 ], [ 0, %1 ]
   ret i64 %.sroa.0.0
 }
