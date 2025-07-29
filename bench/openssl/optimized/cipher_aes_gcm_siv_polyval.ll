@@ -20,11 +20,11 @@ define void @ossl_polyval_ghash_init(ptr noundef %0, ptr noundef %1) local_unnam
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %2 ]
-  %10 = sub nuw nsw i64 15, %indvars.iv.i
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
-  store i8 %12, ptr %13, align 1, !tbaa !7
+  %12 = sub nuw nsw i64 15, %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
+  %14 = load i8, ptr %13, align 1, !tbaa !7
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
+  store i8 %14, ptr %15, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %byte_reverse16.exit.loopexit, label %.preheader.i, !llvm.loop !8

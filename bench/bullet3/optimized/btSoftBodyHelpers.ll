@@ -4959,7 +4959,7 @@ _ZZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_iE
   %.not25.i = icmp eq i32 %.01729.i, 0
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i13
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i13
+._crit_edge.i:                                    ; preds = %.lr.ph.i13
   %17 = tail call float @llvm.fmuladd.f32(float %.1.i, float 2.000000e+00, float -1.000000e+00)
   br label %._crit_edge.i
 
@@ -4999,7 +4999,7 @@ _ZZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_iE
   %33 = fmul float %.02026.i, 5.000000e-01
   %34 = lshr i32 %.01828.i, 1
   %.not.i = icmp samesign ult i32 %.01828.i, 2
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i13, !llvm.loop !243
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i13, !llvm.loop !243
 
 .lr.ph:                                           ; preds = %._crit_edge.i
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 4

@@ -232,13 +232,13 @@ define hidden double @_Py_dg_strtod(ptr noundef %0, ptr noundef writeonly captur
   %89 = load i8, ptr %88, align 1, !tbaa !4
   %90 = add i8 %89, -48
   %91 = icmp ult i8 %90, 10
-  br i1 %91, label %.lr.ph852, label %._crit_edge853.loopexit, !llvm.loop !16
+  br i1 %91, label %.lr.ph852, label %._crit_edge853, !llvm.loop !16
 
-._crit_edge853.loopexit:                          ; preds = %.lr.ph852
+._crit_edge853:                                   ; preds = %.lr.ph852
   %92 = tail call i32 @llvm.umin.i32(i32 %87, i32 1100000000)
   br label %._crit_edge853
 
-._crit_edge853:                                   ; preds = %._crit_edge853.loopexit, %._crit_edge845
+._crit_edge853:; preds = %._crit_edge853.loopexit, %._crit_edge845
   %.10.lcssa = phi ptr [ %.9.lcssa, %._crit_edge845 ], [ %88, %._crit_edge853.loopexit ]
   %.0413.lcssa = phi i32 [ 0, %._crit_edge845 ], [ %92, %._crit_edge853.loopexit ]
   %93 = ptrtoint ptr %.10.lcssa to i64

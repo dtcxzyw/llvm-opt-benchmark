@@ -148,29 +148,29 @@ define dso_local void @pg_wcssize(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %.051.lcssa = phi i32 [ 1, %6 ], [ %.051.lcssa.ph, %._crit_edge.loopexit ]
   %.0.lcssa = phi i32 [ 1, %6 ], [ %49, %._crit_edge.loopexit ]
   %.not69 = icmp eq ptr %3, null
-  br i1 %.not69, label %52, label %51
+  br i1 %.not69, label %51, label %50
 
-51:                                               ; preds = %._crit_edge
+50:                                               ; preds = %._crit_edge
   store i32 %.056.lcssa, ptr %3, align 4
   br label %52
 
-52:                                               ; preds = %51, %._crit_edge
+51:                                               ; preds = %50, %._crit_edge
   %.not70 = icmp eq ptr %4, null
-  br i1 %.not70, label %54, label %53
+  br i1 %.not70, label %53, label %52
 
-53:                                               ; preds = %52
+52:                                               ; preds = %51
   store i32 %.051.lcssa, ptr %4, align 4
-  br label %54
+  br label %53
 
-54:                                               ; preds = %53, %52
+53:                                               ; preds = %52, %51
   %.not71 = icmp eq ptr %5, null
-  br i1 %.not71, label %56, label %55
+  br i1 %.not71, label %55, label %54
 
-55:                                               ; preds = %54
+54:                                               ; preds = %53
   store i32 %.0.lcssa, ptr %5, align 4
-  br label %56
+  br label %55
 
-56:                                               ; preds = %55, %54
+55:                                               ; preds = %54, %53
   ret void
 }
 

@@ -4334,10 +4334,10 @@ define void @"_ZN104_$LT$wasmtime_runtime..gc..enabled..drc..DrcHeap$u20$as$u20$
   %8 = icmp ugt i64 %7, 4294967295
   br i1 %8, label %_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17hbcfb0e0355bc6bfcE.exit, label %9
 
-9:                                                ; preds = %1
+9:; preds = %1
   %10 = trunc nuw i64 %7 to i32
   %11 = tail call i32 @llvm.usub.sat.i32(i32 %10, i32 8)
-  %12 = and i32 %11, -8
+  %13 = and i32 %11, -8
   %13 = icmp ugt i32 %11, 23
   %spec.select.i = zext i1 %13 to i32
   br label %_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17hbcfb0e0355bc6bfcE.exit
@@ -4347,20 +4347,20 @@ _ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17hbcfb0e0355bc6bfcE.ex
   %14 = phi i32 [ %spec.select.i, %9 ], [ 1, %1 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
-  %16 = load ptr, ptr %15, align 8, !alias.scope !353, !noundef !9
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load i64, ptr %17, align 8, !alias.scope !353
+  %15 = load ptr, ptr %15, align 8, !alias.scope !353, !noundef !9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %17 = load i64, ptr %16, align 8, !alias.scope !353
   store ptr null, ptr %15, align 8, !alias.scope !353
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load i64, ptr %19, align 8, !alias.scope !353, !noundef !9
-  store i64 0, ptr %19, align 8, !alias.scope !353
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = load i64, ptr %18, align 8, !alias.scope !353, !noundef !9
+  store i64 0, ptr %18, align 8, !alias.scope !353
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !354
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !354
-  store ptr %16, ptr %2, align 8, !noalias !353
+  store ptr %15, ptr %2, align 8, !noalias !353
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %18, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !353
+  store i64 %17, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !353
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %20, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !353
+  store i64 %19, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !353
   call void @"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h825bf678b6797e80E.llvm.14031171042790067460"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2), !noalias !354
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !354
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6727c91fe9b32523E.llvm.14031171042790067460"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !354
@@ -4373,37 +4373,37 @@ _ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17hbcfb0e0355bc6bfcE.ex
   store i32 %.014.i, ptr %.sroa.56.0..sroa_idx.i, align 4, !noalias !347
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17hae9f8c2238e2c562E.llvm.16389591707760502172(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !347
-  %21 = load ptr, ptr %0, align 8, !nonnull !9, !align !59, !noundef !9
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8, !alias.scope !359, !nonnull !9, !align !59, !noundef !9
-  store ptr %23, ptr %21, align 8, !alias.scope !359
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %25 = load i64, ptr %24, align 8, !alias.scope !359, !noundef !9
-  %26 = getelementptr inbounds i64, ptr %23, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %26, ptr %27, align 8, !alias.scope !359
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %29 = load i64, ptr %28, align 8, !alias.scope !364, !noundef !9
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h0b0335b91369fab5E.exit.i", label %31
+  %20 = load ptr, ptr %0, align 8, !nonnull !9, !align !59, !noundef !9
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8, !alias.scope !359, !nonnull !9, !align !59, !noundef !9
+  store ptr %22, ptr %20, align 8, !alias.scope !359
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %24 = load i64, ptr %23, align 8, !alias.scope !359, !noundef !9
+  %25 = getelementptr inbounds i64, ptr %22, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %25, ptr %26, align 8, !alias.scope !359
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %28 = load i64, ptr %27, align 8, !alias.scope !364, !noundef !9
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h0b0335b91369fab5E.exit.i", label %30
 
-31:                                               ; preds = %_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17hbcfb0e0355bc6bfcE.exit
-  %32 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  call void @_ZN9hashbrown3raw13RawTableInner13clear_no_drop17h5b6403f348821fb3E.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(32) %32), !noalias !367
+30:                                               ; preds = %_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17hbcfb0e0355bc6bfcE.exit
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  call void @_ZN9hashbrown3raw13RawTableInner13clear_no_drop17h5b6403f348821fb3E.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(32) %31), !noalias !367
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h0b0335b91369fab5E.exit.i"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h0b0335b91369fab5E.exit.i": ; preds = %31, %_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17hbcfb0e0355bc6bfcE.exit
-  %33 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %34 = load i64, ptr %33, align 8, !alias.scope !374, !noundef !9
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %_ZN16wasmtime_runtime2gc7enabled3drc23VMGcRefActivationsTable5reset17hff0189e954efae49E.exit, label %36
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h0b0335b91369fab5E.exit.i": ; preds = %30, %_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17hbcfb0e0355bc6bfcE.exit
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 104
+  %33 = load i64, ptr %32, align 8, !alias.scope !374, !noundef !9
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %_ZN16wasmtime_runtime2gc7enabled3drc23VMGcRefActivationsTable5reset17hff0189e954efae49E.exit, label %35
 
-36:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h0b0335b91369fab5E.exit.i"
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  call void @_ZN9hashbrown3raw13RawTableInner13clear_no_drop17h5b6403f348821fb3E.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(32) %37), !noalias !377
+35:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h0b0335b91369fab5E.exit.i"
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  call void @_ZN9hashbrown3raw13RawTableInner13clear_no_drop17h5b6403f348821fb3E.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(32) %36), !noalias !377
   br label %_ZN16wasmtime_runtime2gc7enabled3drc23VMGcRefActivationsTable5reset17hff0189e954efae49E.exit
 
-_ZN16wasmtime_runtime2gc7enabled3drc23VMGcRefActivationsTable5reset17hff0189e954efae49E.exit: ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h0b0335b91369fab5E.exit.i", %36
+_ZN16wasmtime_runtime2gc7enabled3drc23VMGcRefActivationsTable5reset17hff0189e954efae49E.exit: ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h0b0335b91369fab5E.exit.i", %35
   ret void
 }
 

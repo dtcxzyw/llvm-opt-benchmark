@@ -1207,8 +1207,8 @@ sub_1:                                            ; preds = %sub_0
 
 42:                                               ; preds = %40
   %43 = and i32 %34, 12
-  %or.cond = icmp eq i32 %43, 0
-  br i1 %or.cond, label %44, label %.thread.thread
+  %.not27 = icmp eq i32 %43, 0
+  br i1 %.not27, label %44, label %.thread.thread
 
 44:                                               ; preds = %42
   call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.60, ptr noundef %.019)

@@ -2512,9 +2512,9 @@ thread-pre-split.i.i:                             ; preds = %590
   %688 = getelementptr [512 x i16], ptr %681, i64 0, i64 %indvars.iv106.i.i.i
   store i16 %686, ptr %688, align 2
   %689 = icmp samesign ult i64 %indvars.iv.next107.i.i.i, %682
-  br i1 %689, label %683, label %._crit_edge.i.i.i.loopexit, !llvm.loop !22
+  br i1 %689, label %683, label %._crit_edge.i.i.i, !llvm.loop !22
 
-._crit_edge.i.i.i.loopexit:                       ; preds = %683
+._crit_edge.i.i.i:                                ; preds = %683
   %690 = call i16 @llvm.umin.i16(i16 %.pre, i16 512)
   %691 = shl nuw nsw i16 %690, 1
   %692 = zext nneg i16 %691 to i64
@@ -2526,23 +2526,23 @@ thread-pre-split.i.i:                             ; preds = %590
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.i.loopexit, %._crit_edge88.i.i.i
   %narrow82.i.i.i = phi i64 [ 8589934592, %._crit_edge88.i.i.i ], [ %695, %._crit_edge.i.i.i.loopexit ]
   %.not77.i.i.i = icmp eq i16 %.067.lcssa.i.i.i, 0
-  br i1 %.not77.i.i.i, label %724, label %696
+  br i1 %.not77.i.i.i, label %724, label %691
 
-696:                                              ; preds = %._crit_edge.i.i.i
-  %697 = call ptr @wmem_file_scope()
-  %698 = call noalias dereferenceable_or_null(1032) ptr @wmem_alloc(ptr noundef %697, i64 noundef 1032) #18
+691:                                              ; preds = %._crit_edge.i.i.i
+  %692 = call ptr @wmem_file_scope()
+  %693 = call noalias dereferenceable_or_null(1032) ptr @wmem_alloc(ptr noundef %692, i64 noundef 1032) #18
   br i1 %.not99.i.i.i, label %._crit_edge96.i.i.i, label %.lr.ph95.i.i.i
 
-.lr.ph95.i.i.i:                                   ; preds = %696
+.lr.ph95.i.i.i:                                   ; preds = %691
   %699 = getelementptr inbounds nuw i8, ptr %698, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %699, ptr noundef nonnull align 16 dereferenceable(1) %7, i64 %narrow82.i.i.i, i1 false)
   br label %._crit_edge96.i.i.i
 
-._crit_edge96.i.i.i:                              ; preds = %.lr.ph95.i.i.i, %696
-  store i16 %.067.lcssa.i.i.i, ptr %698, align 4
+._crit_edge96.i.i.i:                              ; preds = %.lr.ph95.i.i.i, %691
+  store i16 %.067.lcssa.i.i.i, ptr %693, align 4
   %700 = getelementptr inbounds nuw i8, ptr %.069.i.i.i, i64 1028
   %701 = load i32, ptr %700, align 4
-  %702 = getelementptr inbounds nuw i8, ptr %698, i64 1028
+  %702 = getelementptr inbounds nuw i8, ptr %693, i64 1028
   store i32 %701, ptr %702, align 4
   %703 = load ptr, ptr @repeated_nack_report_hash, align 8
   %704 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -2569,8 +2569,8 @@ thread-pre-split.i.i:                             ; preds = %590
   %721 = shl nuw nsw i32 %720, 17
   %722 = or disjoint i32 %717, %721
   store i32 %722, ptr %.phi.trans.insert.i.i.i.i, align 4
-  %723 = call ptr @wmem_map_insert(ptr noundef %703, ptr noundef %707, ptr noundef %698)
-  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef %698, ptr noundef nonnull readonly %40, ptr noundef %1, ptr noundef %460, ptr noundef %0)
+  %723 = call ptr @wmem_map_insert(ptr noundef %703, ptr noundef %707, ptr noundef %693)
+  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef %693, ptr noundef nonnull readonly %40, ptr noundef %1, ptr noundef %460, ptr noundef %0)
   br label %724
 
 724:                                              ; preds = %._crit_edge.i.i.i.thread, %._crit_edge96.i.i.i, %._crit_edge.i.i.i

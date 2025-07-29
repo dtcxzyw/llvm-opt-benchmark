@@ -15040,21 +15040,21 @@ define internal fastcc noundef range(i32 -2147483648, 2) i32 @_ZL14decUnitCompar
   %41 = icmp samesign ugt i32 %.pre-phi, 71
   br i1 %41, label %42, label %47
 
-42:                                               ; preds = %40
+42:; preds = %40
   %43 = add nuw nsw i32 %.pre-phi, 2
   %44 = zext nneg i32 %43 to i64
   %45 = tail call noalias ptr @uprv_malloc_77(i64 noundef %44) #17
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.loopexit, label %47
 
-47:                                               ; preds = %42, %40
+47:   ; preds = %42, %40
   %.065 = phi ptr [ null, %40 ], [ %45, %42 ]
   %.060 = phi ptr [ %6, %40 ], [ %45, %42 ]
   %48 = call fastcc noundef i32 @_ZL13decUnitAddSubPKhiS0_iiPhi(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %.060, i32 noundef -1)
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %62, label %.preheader
 
-.preheader:                                       ; preds = %47
+.preheader:; preds = %47
   %50 = zext nneg i32 %48 to i64
   %51 = getelementptr i8, ptr %.060, i64 %50
   %52 = getelementptr i8, ptr %51, i64 -1
@@ -15064,15 +15064,15 @@ define internal fastcc noundef range(i32 -2147483648, 2) i32 @_ZL14decUnitCompar
 .lr.ph:                                           ; preds = %.preheader, %56
   %.06180 = phi ptr [ %57, %56 ], [ %.060, %.preheader ]
   %54 = load i8, ptr %.06180, align 1, !tbaa !10
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %56, label %.critedge
+  %56 = icmp eq i8 %54, 0
+  br i1 %56, label %56, label %.critedge
 
-56:                                               ; preds = %.lr.ph
+.critedge:                                        ; preds = %.lr.ph
   %57 = getelementptr inbounds nuw i8, ptr %.06180, i64 1
   %58 = icmp ult ptr %57, %52
   br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !103
 
-.critedge:                                        ; preds = %.lr.ph, %56, %.preheader
+.critedge:; preds = %.lr.ph, %56, %.preheader
   %.061.lcssa = phi ptr [ %.060, %.preheader ], [ %57, %56 ], [ %.06180, %.lr.ph ]
   %59 = load i8, ptr %.061.lcssa, align 1, !tbaa !10
   %60 = icmp ne i8 %59, 0
@@ -15082,13 +15082,13 @@ define internal fastcc noundef range(i32 -2147483648, 2) i32 @_ZL14decUnitCompar
 62:                                               ; preds = %47, %.critedge
   %.0 = phi i32 [ %61, %.critedge ], [ -1, %47 ]
   %.not = icmp eq ptr %.065, null
-  br i1 %.not, label %.loopexit, label %63
+  br i1 %.not, label %.loopexit, label %61
 
-63:                                               ; preds = %62
+61:                                               ; preds = %62
   call void @uprv_free_77(ptr noundef nonnull %.065)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %21, %17, %.thread78, %.thread, %62, %63, %42, %34, %25, %10, %8
+.loopexit:                                        ; preds = %16, %21, %17, %.thread78, %.thread, %62, %61, %42, %34, %25, %10, %8
   %.059 = phi i32 [ 1, %8 ], [ -1, %10 ], [ 1, %25 ], [ -1, %34 ], [ -2147483648, %42 ], [ %.0, %63 ], [ %.0, %62 ], [ 1, %.thread ], [ -1, %.thread78 ], [ 0, %16 ], [ -1, %21 ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(i64 73, ptr nonnull %6) #16
   ret i32 %.059

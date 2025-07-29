@@ -5032,7 +5032,7 @@ get_ref_frame_buf.exit47.i.i:                     ; preds = %1928, %get_ref_fram
 get_relative_dist.exit51.i.i:                     ; preds = %1948, %1945
   %.0.i53.i.i = phi i64 [ %1964, %1948 ], [ 3, %1945 ]
   %1965 = load ptr, ptr %273, align 16
-  %1966 = load ptr, ptr %275, align 8
+  %1961 = load ptr, ptr %275, align 8
   %.not38.i423.i = icmp eq ptr %1965, null
   br i1 %.not38.i423.i, label %1980, label %1967
 
@@ -5076,14 +5076,14 @@ get_relative_dist.exit51.i.i:                     ; preds = %1948, %1945
   %1989 = zext nneg i16 %1988 to i64
   br label %get_comp_index_context.exit.i
 
-1990:                                             ; preds = %1981
-  %1991 = getelementptr inbounds nuw i8, ptr %1966, i64 16
-  %1992 = load i8, ptr %1991, align 8
-  %1993 = icmp eq i8 %1992, 7
-  %spec.select42.i.i = zext i1 %1993 to i64
+1986:                                             ; preds = %1981
+  %1987 = getelementptr inbounds nuw i8, ptr %1966, i64 16
+  %1988 = load i8, ptr %1987, align 8
+  %1989 = icmp eq i8 %1988, 7
+  %spec.select42.i.i = zext i1 %1989 to i64
   br label %get_comp_index_context.exit.i
 
-get_comp_index_context.exit.i:                    ; preds = %1990, %1984, %1980
+get_comp_index_context.exit.i:                    ; preds = %1986, %1984, %1980
   %.030.i.i = phi i64 [ %1989, %1984 ], [ 0, %1980 ], [ %spec.select42.i.i, %1990 ]
   %1994 = add nuw nsw i64 %.031.i.i, %.0.i53.i.i
   %1995 = add nuw nsw i64 %1994, %.030.i.i

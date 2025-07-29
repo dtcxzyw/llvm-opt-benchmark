@@ -22424,9 +22424,9 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %cmp.i2 = fcmp ugt float %timeoutVariationFrac, 0.000000e+00
-  br i1 %cmp.i2, label %if.end15, label %if.then20
+  br i1 %cmp.i2, label %if.end.i, label %if.then20
 
-if.end15:                                         ; preds = %if.then7
+if.end.i:                                         ; preds = %if.then7
   %call3.i = tail call noundef i64 @_ZN5folly18getCurrentThreadIDEv()
   %call7.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #21
   %xor.i.i.i.i = xor i64 %call7.i, %call3.i

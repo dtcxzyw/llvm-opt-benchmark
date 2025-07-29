@@ -17165,8 +17165,8 @@ Cba_FonRange.exit:                                ; preds = %12, %._crit_edge.i.
   br label %Cba_NtkRangeSize.exit
 
 Cba_NtkRangeSize.exit:                            ; preds = %9, %52, %Cba_FonRange.exit, %3
-  %69 = phi i32 [ %8, %3 ], [ %68, %52 ], [ 1, %Cba_FonRange.exit ], [ 1, %9 ]
-  ret i32 %69
+  %67 = phi i32 [ %8, %3 ], [ %68, %52 ], [ 1, %Cba_FonRange.exit ], [ 1, %9 ]
+  ret i32 %67
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)

@@ -694,14 +694,14 @@ define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages_interleave(i64 noun
   br label %_mi_os_numa_node_count.exit
 
 _mi_os_numa_node_count.exit:                      ; preds = %6, %8
-  %.0.i = phi i64 [ %9, %8 ], [ %7, %6 ]
-  %10 = tail call i64 @llvm.umax.i64(i64 %.0.i, i64 1)
+  %10 = phi i64 [ %9, %8 ], [ %7, %6 ]
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %11
 
-11:                                               ; preds = %5, %_mi_os_numa_node_count.exit
+11:; preds = %5, %_mi_os_numa_node_count.exit
   %spec.store.select = phi i64 [ %10, %_mi_os_numa_node_count.exit ], [ %1, %5 ]
   %12 = udiv i64 %0, %spec.store.select
-  %13 = urem i64 %0, %spec.store.select
+  %spec.store.select.i = urem i64 %0, %spec.store.select
   %14 = icmp eq i64 %2, 0
   br i1 %14, label %18, label %15
 
@@ -714,27 +714,27 @@ _mi_os_numa_node_count.exit:                      ; preds = %6, %8
   %19 = phi i64 [ %17, %15 ], [ 0, %11 ]
   br label %20
 
-20:                                               ; preds = %18, %25
-  %.03549 = phi i64 [ 0, %18 ], [ %26, %25 ]
+19:                                               ; preds = %18, %24
+  %.03549 = phi i64 [ 0, %18 ], [ %25, %25 ]
   %.03648 = phi i64 [ %0, %18 ], [ %.238, %25 ]
-  %21 = icmp ult i64 %.03549, %13
-  %22 = zext i1 %21 to i64
-  %spec.select = add i64 %12, %22
-  %23 = trunc i64 %.03549 to i32
-  %24 = tail call i32 @mi_reserve_huge_os_pages_at(i64 noundef %spec.select, i32 noundef %23, i64 noundef %19)
-  %.not43 = icmp eq i32 %24, 0
-  br i1 %.not43, label %25, label %.loopexit
+  %20 = icmp ult i64 %.03549, %13
+  %21 = zext i1 %20 to i64
+  %spec.select = add i64 %12, %21
+  %22 = trunc i64 %.03549 to i32
+  %23 = tail call i32 @mi_reserve_huge_os_pages_at(i64 noundef %spec.select, i32 noundef %22, i64 noundef %19)
+  %.not43 = icmp eq i32 %23, 0
+  br i1 %.not43, label %24, label %.loopexit
 
-25:                                               ; preds = %20
+24:                                               ; preds = %19
   %.238 = tail call i64 @llvm.usub.sat.i64(i64 %.03648, i64 %spec.select)
-  %26 = add nuw i64 %.03549, 1
-  %27 = icmp uge i64 %26, %spec.store.select
-  %28 = icmp ule i64 %.03648, %spec.select
-  %.not46 = select i1 %27, i1 true, i1 %28
-  br i1 %.not46, label %.loopexit, label %20, !llvm.loop !37
+  %25 = add nuw i64 %.03549, 1
+  %26 = icmp uge i64 %26, %spec.store.select
+  %27 = icmp ule i64 %.03648, %spec.select
+  %.not46 = select i1 %26, i1 true, i1 %27
+  br i1 %.not46, label %.loopexit, label %19, !llvm.loop !37
 
-.loopexit:                                        ; preds = %20, %25, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %25 ], [ %24, %20 ]
+.loopexit:                                        ; preds = %19, %24, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %25 ], [ %23, %20 ]
   ret i32 %.0
 }
 
@@ -764,15 +764,15 @@ define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages(i64 noundef %0, dou
   br label %_mi_os_numa_node_count.exit.i
 
 _mi_os_numa_node_count.exit.i:                    ; preds = %11, %9
-  %.0.i.i = phi i64 [ %12, %11 ], [ %10, %9 ]
-  %13 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 1)
-  %14 = udiv i64 %0, %13
-  %15 = urem i64 %0, %13
+  %13 = phi i64 [ %12, %11 ], [ %10, %9 ]
+  %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
+  %14 = udiv i64 %0, %spec.store.select.i
+  %15 = urem i64 %0, %spec.store.select.i
   %16 = icmp eq i64 %7, 0
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %_mi_os_numa_node_count.exit.i
-  %18 = udiv i64 %7, %13
+  %18 = udiv i64 %7, %spec.store.select.i
   %19 = add i64 %18, 50
   br label %20
 
@@ -794,7 +794,7 @@ _mi_os_numa_node_count.exit.i:                    ; preds = %11, %9
 27:                                               ; preds = %22
   %.238.i = tail call i64 @llvm.usub.sat.i64(i64 %.03648.i, i64 %spec.select.i)
   %28 = add nuw i64 %.03549.i, 1
-  %29 = icmp ule i64 %.0.i.i, %28
+  %29 = icmp ule i64 %13, %28
   %30 = icmp ule i64 %.03648.i, %spec.select.i
   %.not46.i = select i1 %29, i1 true, i1 %30
   br i1 %.not46.i, label %mi_reserve_huge_os_pages_interleave.exit, label %22, !llvm.loop !37

@@ -17777,11 +17777,11 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit: ; p
   %.not65148 = icmp samesign eq i64 %.idx, 0
   br i1 %.not65148, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %114 = tail call i32 @llvm.bswap.i32(i32 %118)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %111
+._crit_edge:; preds = %._crit_edge, %111
   %.055.lcssa = phi ptr [ %38, %111 ], [ %115, %._crit_edge.loopexit ]
   %.3.lcssa = phi i32 [ 16777216, %111 ], [ %114, %._crit_edge.loopexit ]
   store i32 %.3.lcssa, ptr %.055.lcssa, align 1, !tbaa !61
@@ -17799,7 +17799,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit: ; p
   %118 = add i32 %.053.val, %.3150
   %119 = getelementptr inbounds nuw i8, ptr %.053151, i64 16
   %.not65 = icmp eq ptr %119, %113
-  br i1 %.not65, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 select.unfold:                                    ; preds = %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit, %71, %_ZL9hb_memsetPvij.exit.i.i.i.i, %_ZL9hb_memsetPvij.exit.i.i.i, %._crit_edge177, %._crit_edge168, %._crit_edge159, %._crit_edge, %73, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit, %49, %35, %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeIjLj4EEEEEEEPT_S7_.exit, %28, %6
   %.0 = phi i1 [ false, %6 ], [ false, %28 ], [ true, %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeIjLj4EEEEEEEPT_S7_.exit ], [ false, %35 ], [ false, %49 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit ], [ true, %73 ], [ true, %._crit_edge ], [ true, %._crit_edge159 ], [ true, %._crit_edge168 ], [ true, %._crit_edge177 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i.i ], [ false, %71 ], [ false, %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit ]
@@ -20361,11 +20361,11 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit: ; p
   %.not65144 = icmp samesign eq i64 %.idx, 0
   br i1 %.not65144, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %114 = tail call i32 @llvm.bswap.i32(i32 %118)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %111
+._crit_edge:; preds = %._crit_edge, %111
   %.055.lcssa = phi ptr [ %38, %111 ], [ %115, %._crit_edge.loopexit ]
   %.3.lcssa = phi i32 [ 16777216, %111 ], [ %114, %._crit_edge.loopexit ]
   store i32 %.3.lcssa, ptr %.055.lcssa, align 1, !tbaa !61
@@ -20382,7 +20382,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit: ; p
   %118 = add i32 %117, %.3146
   %119 = getelementptr inbounds nuw i8, ptr %.053147, i64 4
   %.not65 = icmp eq ptr %119, %113
-  br i1 %.not65, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 select.unfold:                                    ; preds = %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit, %71, %_ZL9hb_memsetPvij.exit.i.i.i.i, %_ZL9hb_memsetPvij.exit.i.i.i, %._crit_edge173, %._crit_edge164, %._crit_edge155, %._crit_edge, %73, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit, %49, %35, %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeIjLj4EEEEEEEPT_S7_.exit, %28, %6
   %.0 = phi i1 [ false, %6 ], [ false, %28 ], [ true, %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeIjLj4EEEEEEEPT_S7_.exit ], [ false, %35 ], [ false, %49 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit ], [ true, %73 ], [ true, %._crit_edge ], [ true, %._crit_edge155 ], [ true, %._crit_edge164 ], [ true, %._crit_edge173 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i.i ], [ false, %71 ], [ false, %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit ]

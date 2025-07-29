@@ -559,14 +559,14 @@ define range(i32 -1, 2) i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unna
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load i32, ptr %23, align 8, !tbaa !62
   %.not26 = icmp eq i32 %24, 0
-  br i1 %.not26, label %25, label %42
+  br i1 %.not26, label %25, label %41
 
 25:                                               ; preds = %.thread
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %28 = load i32, ptr %27, align 8, !tbaa !62
   %.not27 = icmp eq i32 %28, 0
-  br i1 %.not27, label %29, label %42
+  br i1 %.not27, label %29, label %41
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -587,8 +587,8 @@ define range(i32 -1, 2) i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unna
   %41 = tail call i32 @llvm.scmp.i32.i32(i32 %40, i32 0)
   br label %42
 
-42:                                               ; preds = %.thread, %25, %37, %35, %29, %2, %20
-  %.021 = phi i32 [ %21, %20 ], [ 0, %2 ], [ -1, %29 ], [ 1, %35 ], [ 0, %.thread ], [ 0, %25 ], [ %41, %37 ]
+41:                                               ; preds = %.thread, %25, %37, %35, %29, %2, %20
+  %.1 = phi i32 [ %21, %20 ], [ 0, %2 ], [ -1, %29 ], [ 1, %35 ], [ 0, %.thread ], [ 0, %25 ], [ %41, %37 ]
   ret i32 %.021
 }
 

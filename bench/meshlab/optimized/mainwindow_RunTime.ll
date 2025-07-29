@@ -28892,7 +28892,7 @@ _ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZN12MeshDocument17
   %48 = add i64 %47, %.03880
   %49 = load ptr, ptr %.sroa.066.079, align 8
   %.not71 = icmp eq ptr %49, %39
-  br i1 %.not71, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge.loopexit, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
+  br i1 %.not71, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
 .loopexit73:                                      ; preds = %60
   %lpad.loopexit75 = landingpad { ptr, i32 }
@@ -28910,11 +28910,11 @@ _ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZN12MeshDocument17
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #28
   br label %94
 
-_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge.loopexit: ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
+_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
   %52 = call i64 @llvm.umax.i64(i64 %48, i64 1)
   br label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge
 
-_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge.loopexit, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader
+_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge:; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader
   %.038.lcssa = phi i64 [ 1, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader ], [ %52, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge.loopexit ]
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 680
   %54 = load ptr, ptr %53, align 8
@@ -28924,8 +28924,8 @@ _ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12Mesh
   br i1 %.not7281, label %._crit_edge, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge
-  %57 = sext i32 %33 to i64
-  %58 = udiv i64 %57, %.038.lcssa
+  %56 = sext i32 %33 to i64
+  %58 = udiv i64 %56, %.038.lcssa
   %sext = shl i64 %58, 32
   %59 = ashr exact i64 %sext, 32
   br label %60
