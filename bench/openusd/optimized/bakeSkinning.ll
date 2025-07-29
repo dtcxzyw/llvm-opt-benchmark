@@ -8904,128 +8904,118 @@ _ZNSt6vectorIdSaIdEED2Ev.exit130:                 ; preds = %_ZNSt6vectorIdSaIdE
   %.not1.i.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not1.i.i.i.i, label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i131
 
-.lr.ph.i.i.i.i131:                                ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit130, %.noexc.i.i.i
-  %.02.i.i.i.i = phi ptr [ %.0.val.i.i.i.i, %.noexc.i.i.i ], [ %.val.i.i.i, %_ZNSt6vectorIdSaIdEED2Ev.exit130 ]
+.lr.ph.i.i.i.i131:                                ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit130, %.lr.ph.i.i.i.i131
+  %.02.i.i.i.i = phi ptr [ %.0.val.i.i.i.i, %.lr.ph.i.i.i.i131 ], [ %.val.i.i.i, %_ZNSt6vectorIdSaIdEED2Ev.exit130 ]
   %.0.val.i.i.i.i = load ptr, ptr %.02.i.i.i.i, align 8
-  invoke fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %.02.i.i.i.i)
-          to label %.noexc.i.i.i unwind label %762
-
-.noexc.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i131
+  call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %.02.i.i.i.i)
   %.not.i.i.i.i132 = icmp eq ptr %.0.val.i.i.i.i, null
   br i1 %.not.i.i.i.i132, label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i131, !llvm.loop !126
 
-762:                                              ; preds = %.lr.ph.i.i.i.i131
-  %763 = landingpad { ptr, i32 }
-          catch ptr null
-  %764 = extractvalue { ptr, i32 } %763, 0
-  call void @__clang_call_terminate(ptr %764) #25
-  unreachable
-
-_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.noexc.i.i.i, %_ZNSt6vectorIdSaIdEED2Ev.exit130
-  %765 = load ptr, ptr %25, align 8
-  %766 = load i64, ptr %54, align 8
-  %767 = shl i64 %766, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %765, i8 0, i64 %767, i1 false)
+_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i131, %_ZNSt6vectorIdSaIdEED2Ev.exit130
+  %762 = load ptr, ptr %25, align 8
+  %763 = load i64, ptr %54, align 8
+  %764 = shl i64 %763, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %762, i8 0, i64 %764, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  %768 = load ptr, ptr %25, align 8
-  %769 = icmp eq ptr %768, %53
-  br i1 %769, label %_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit, label %770
+  %765 = load ptr, ptr %25, align 8
+  %766 = icmp eq ptr %765, %53
+  br i1 %766, label %_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit, label %767
 
-770:                                              ; preds = %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
-  %771 = load i64, ptr %54, align 8
-  %772 = shl i64 %771, 3
-  call void @_ZdlPvm(ptr noundef %768, i64 noundef %772) #26
+767:                                              ; preds = %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
+  %768 = load i64, ptr %54, align 8
+  %769 = shl i64 %768, 3
+  call void @_ZdlPvm(ptr noundef %765, i64 noundef %769) #26
   br label %_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit
 
-_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %770
+_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %767
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  br i1 %35, label %773, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
+  br i1 %35, label %770, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-773:                                              ; preds = %_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit
+770:                                              ; preds = %_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit
   fence syncscope("singlethread") seq_cst
-  %774 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !36
+  %771 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !36
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ComputeTimeSamplesERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_10GfIntervalERKSt6vectorISt10shared_ptrINS0_12_SkelAdapterEESaISC_EERKS9_ISA_INS0_16_SkinningAdapterEESaISI_EEPNS_17UsdGeomXformCacheEE17TraceKeyData_1933, ptr %7, align 8
   %.sroa.724.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.724.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.sroa.724.12.insert.insert, i64 noundef %774) #24
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.sroa.724.12.insert.insert, i64 noundef %771) #24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit, %773
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit, %770
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
 .body122:                                         ; preds = %.loopexit, %.loopexit.split-lp, %627, %625, %621, %619, %737
   %.pn = phi { ptr, i32 } [ %738, %737 ], [ %620, %619 ], [ %620, %621 ], [ %626, %625 ], [ %626, %627 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %775 = load ptr, ptr %30, align 8
-  %.not.i.i.i133 = icmp eq ptr %775, null
-  br i1 %.not.i.i.i133, label %_ZNSt6vectorIdSaIdEED2Ev.exit134, label %776
+  %772 = load ptr, ptr %30, align 8
+  %.not.i.i.i133 = icmp eq ptr %772, null
+  br i1 %.not.i.i.i133, label %_ZNSt6vectorIdSaIdEED2Ev.exit134, label %773
 
-776:                                              ; preds = %.body122
-  %777 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %778 = load ptr, ptr %777, align 8
-  %779 = ptrtoint ptr %778 to i64
-  %780 = ptrtoint ptr %775 to i64
-  %781 = sub i64 %779, %780
-  call void @_ZdlPvm(ptr noundef nonnull %775, i64 noundef %781) #26
+773:                                              ; preds = %.body122
+  %774 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %775 = load ptr, ptr %774, align 8
+  %776 = ptrtoint ptr %775 to i64
+  %777 = ptrtoint ptr %772 to i64
+  %778 = sub i64 %776, %777
+  call void @_ZdlPvm(ptr noundef nonnull %772, i64 noundef %778) #26
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit134
 
-_ZNSt6vectorIdSaIdEED2Ev.exit134:                 ; preds = %.body122, %776
-  %782 = load ptr, ptr %29, align 8
-  %.not.i.i.i135 = icmp eq ptr %782, null
-  br i1 %.not.i.i.i135, label %_ZNSt6vectorIdSaIdEED2Ev.exit136, label %783
+_ZNSt6vectorIdSaIdEED2Ev.exit134:                 ; preds = %.body122, %773
+  %779 = load ptr, ptr %29, align 8
+  %.not.i.i.i135 = icmp eq ptr %779, null
+  br i1 %.not.i.i.i135, label %_ZNSt6vectorIdSaIdEED2Ev.exit136, label %780
 
-783:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit134
-  %784 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %785 = load ptr, ptr %784, align 8
-  %786 = ptrtoint ptr %785 to i64
-  %787 = ptrtoint ptr %782 to i64
-  %788 = sub i64 %786, %787
-  call void @_ZdlPvm(ptr noundef nonnull %782, i64 noundef %788) #26
+780:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit134
+  %781 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %782 = load ptr, ptr %781, align 8
+  %783 = ptrtoint ptr %782 to i64
+  %784 = ptrtoint ptr %779 to i64
+  %785 = sub i64 %783, %784
+  call void @_ZdlPvm(ptr noundef nonnull %779, i64 noundef %785) #26
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit136
 
-_ZNSt6vectorIdSaIdEED2Ev.exit136:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit134, %783
-  %789 = load ptr, ptr %28, align 8
-  %.not.i.i.i137 = icmp eq ptr %789, null
-  br i1 %.not.i.i.i137, label %.body, label %790
+_ZNSt6vectorIdSaIdEED2Ev.exit136:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit134, %780
+  %786 = load ptr, ptr %28, align 8
+  %.not.i.i.i137 = icmp eq ptr %786, null
+  br i1 %.not.i.i.i137, label %.body, label %787
 
-790:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit136
-  %791 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %792 = load ptr, ptr %791, align 8
-  %793 = ptrtoint ptr %792 to i64
-  %794 = ptrtoint ptr %789 to i64
-  %795 = sub i64 %793, %794
-  call void @_ZdlPvm(ptr noundef nonnull %789, i64 noundef %795) #26
+787:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit136
+  %788 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %789 = load ptr, ptr %788, align 8
+  %790 = ptrtoint ptr %789 to i64
+  %791 = ptrtoint ptr %786 to i64
+  %792 = sub i64 %790, %791
+  call void @_ZdlPvm(ptr noundef nonnull %786, i64 noundef %792) #26
   br label %.body
 
-.body:                                            ; preds = %.loopexit78, %.loopexit.split-lp79.loopexit.split-lp, %.loopexit.split-lp79.loopexit, %790, %_ZNSt6vectorIdSaIdEED2Ev.exit136, %462, %465, %113, %415, %.loopexit79.i, %369, %_ZNSt6vectorIdSaIdEED2Ev.exit59
-  %.pn30 = phi { ptr, i32 } [ %72, %_ZNSt6vectorIdSaIdEED2Ev.exit59 ], [ %114, %113 ], [ %.pn.i, %369 ], [ %.pn.i, %.loopexit79.i ], [ %416, %415 ], [ %lpad.phi.i, %465 ], [ %lpad.phi.i, %462 ], [ %.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit136 ], [ %.pn, %790 ], [ %lpad.loopexit80, %.loopexit78 ], [ %lpad.loopexit89, %.loopexit.split-lp79.loopexit ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp79.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit78, %.loopexit.split-lp79.loopexit.split-lp, %.loopexit.split-lp79.loopexit, %787, %_ZNSt6vectorIdSaIdEED2Ev.exit136, %462, %465, %113, %415, %.loopexit79.i, %369, %_ZNSt6vectorIdSaIdEED2Ev.exit59
+  %.pn30 = phi { ptr, i32 } [ %72, %_ZNSt6vectorIdSaIdEED2Ev.exit59 ], [ %114, %113 ], [ %.pn.i, %369 ], [ %.pn.i, %.loopexit79.i ], [ %416, %415 ], [ %lpad.phi.i, %465 ], [ %lpad.phi.i, %462 ], [ %.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit136 ], [ %.pn, %787 ], [ %lpad.loopexit80, %.loopexit78 ], [ %lpad.loopexit89, %.loopexit.split-lp79.loopexit ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp79.loopexit.split-lp ]
   call fastcc void @_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #24
-  %796 = load ptr, ptr %0, align 8
-  %.not.i.i.i139 = icmp eq ptr %796, null
-  br i1 %.not.i.i.i139, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EED2Ev.exit, label %797
+  %793 = load ptr, ptr %0, align 8
+  %.not.i.i.i139 = icmp eq ptr %793, null
+  br i1 %.not.i.i.i139, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EED2Ev.exit, label %794
 
-797:                                              ; preds = %.body
-  %798 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %799 = load ptr, ptr %798, align 8
-  %800 = ptrtoint ptr %799 to i64
-  %801 = ptrtoint ptr %796 to i64
-  %802 = sub i64 %800, %801
-  call void @_ZdlPvm(ptr noundef nonnull %796, i64 noundef %802) #26
+794:                                              ; preds = %.body
+  %795 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %796 = load ptr, ptr %795, align 8
+  %797 = ptrtoint ptr %796 to i64
+  %798 = ptrtoint ptr %793 to i64
+  %799 = sub i64 %797, %798
+  call void @_ZdlPvm(ptr noundef nonnull %793, i64 noundef %799) #26
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EED2Ev.exit: ; preds = %797, %.body, %49
-  %.pn30.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn30, %.body ], [ %.pn30, %797 ]
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EED2Ev.exit: ; preds = %794, %.body, %49
+  %.pn30.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn30, %.body ], [ %.pn30, %794 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  br i1 %35, label %803, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit140
+  br i1 %35, label %800, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit140
 
-803:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EED2Ev.exit
+800:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EED2Ev.exit
   fence syncscope("singlethread") seq_cst
-  %804 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !36
+  %801 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !36
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ComputeTimeSamplesERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_10GfIntervalERKSt6vectorISt10shared_ptrINS0_12_SkelAdapterEESaISC_EERKS9_ISA_INS0_16_SkinningAdapterEESaISI_EEPNS_17UsdGeomXformCacheEE17TraceKeyData_1933, ptr %6, align 8
   %.sroa.724.12.insert.insert28 = or disjoint i64 %.sroa.11.0, %.sroa.724.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.sroa.724.12.insert.insert28, i64 noundef %804) #24
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.sroa.724.12.insert.insert28, i64 noundef %801) #24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit140
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit140: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EED2Ev.exit, %803
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit140: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EED2Ev.exit, %800
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   resume { ptr, i32 } %.pn30.pn
 }
@@ -29523,7 +29513,7 @@ _ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
   %76 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body.i unwind label %77
+          to label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30.i unwind label %77
 
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
@@ -29590,26 +29580,16 @@ _ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 102:                                              ; preds = %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS6_EEST_IJEEEEEPNSC_16_Hashtable_allocISaINSC_10_Hash_nodeISA_Lb0EEEEEEDpOT_.exit.i
   %103 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i
+  br label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30.i
 
-.body.i:                                          ; preds = %102, %75
+_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30.i: ; preds = %102, %75
   %eh.lpad-body.i = phi { ptr, i32 } [ %103, %102 ], [ %76, %75 ]
-  invoke fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %18)
-          to label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %104
-
-104:                                              ; preds = %.body.i
-  %105 = landingpad { ptr, i32 }
-          catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  tail call void @__clang_call_terminate(ptr %106) #25
-  unreachable
-
-_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %.body.i
+  tail call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %18)
   resume { ptr, i32 } %eh.lpad-body.i
 
 _ZNSt8__detail9_Map_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS5_St6vectorIdSaIdEEESaISB_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_.exit: ; preds = %11, %7, %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i
-  %107 = phi ptr [ %18, %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i ], [ %8, %7 ], [ %13, %11 ]
-  %.0.i = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %104 = phi ptr [ %18, %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i ], [ %8, %7 ], [ %13, %11 ]
+  %.0.i = getelementptr inbounds nuw i8, ptr %104, i64 24
   ret ptr %.0.i
 }
 
@@ -29790,49 +29770,39 @@ define internal fastcc void @_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_
   %.not1.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not1.i.i.i, label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %1, %.noexc.i.i
-  %.02.i.i.i = phi ptr [ %.0.val.i.i.i, %.noexc.i.i ], [ %.val.i.i, %1 ]
+.lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
+  %.02.i.i.i = phi ptr [ %.0.val.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i, %1 ]
   %.0.val.i.i.i = load ptr, ptr %.02.i.i.i, align 8
-  invoke fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %.02.i.i.i)
-          to label %.noexc.i.i unwind label %3
-
-.noexc.i.i:                                       ; preds = %.lr.ph.i.i.i
+  tail call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %.02.i.i.i)
   %.not.i.i.i = icmp eq ptr %.0.val.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !126
 
-3:                                                ; preds = %.lr.ph.i.i.i
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
-  unreachable
-
-_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i: ; preds = %.noexc.i.i, %1
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8
-  %9 = shl i64 %8, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %9, i1 false)
+_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i, %1
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = shl i64 %5, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %6, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = icmp eq ptr %10, %11
-  br i1 %12, label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %13
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = icmp eq ptr %7, %8
+  br i1 %9, label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %10
 
-13:                                               ; preds = %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
-  %14 = load i64, ptr %7, align 8
-  %15 = shl i64 %14, 3
-  tail call void @_ZdlPvm(ptr noundef %10, i64 noundef %15) #26
+10:                                               ; preds = %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
+  %11 = load i64, ptr %4, align 8
+  %12 = shl i64 %11, 3
+  tail call void @_ZdlPvm(ptr noundef %7, i64 noundef %12) #26
   br label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit
 
-_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit: ; preds = %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, %13
+_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit: ; preds = %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, %10
   ret void
 }
 
 declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -29966,7 +29936,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -30426,7 +30396,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -31483,7 +31453,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_1EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_1EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -32241,7 +32211,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_1EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_1EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -33141,7 +33111,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_2EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_2EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -33601,7 +33571,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_2EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_119_ComputeTimeSamplesERKNS5_9TfWeakPtrINS5_8UsdStageEEERKNS5_10GfIntervalERKSt6vectorISt10shared_ptrINS7_12_SkelAdapterEESaISJ_EERKSG_ISH_INS7_16_SkinningAdapterEESaISP_EEPNS5_17UsdGeomXformCacheEE3$_2EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -34102,7 +34072,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS9_8SdfLayerEEESt6vectorISC_SaISC_EEEEZNS9_12_GLOBAL__N_111_SaveLayersERKNS9_24UsdSkelBakeSkinningParmsEE3$_0SC_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS9_8SdfLayerEEESt6vectorISC_SaISC_EEEEZNS9_12_GLOBAL__N_111_SaveLayersERKNS9_24UsdSkelBakeSkinningParmsEE3$_0SC_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -34664,7 +34634,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS9_8SdfLayerEEESt6vectorISC_SaISC_EEEEZNS9_12_GLOBAL__N_111_SaveLayersERKNS9_24UsdSkelBakeSkinningParmsEE3$_0SC_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS9_8SdfLayerEEESt6vectorISC_SaISC_EEEEZNS9_12_GLOBAL__N_111_SaveLayersERKNS9_24UsdSkelBakeSkinningParmsEE3$_0SC_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -35066,7 +35036,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_118_PostUpdateExtentsERKSt6vectorISt10shared_ptrINS7_16_SkinningAdapterEESaISB_EERKS8_INS5_11UsdTimeCodeESaISG_EEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_118_PostUpdateExtentsERKSt6vectorISt10shared_ptrINS7_16_SkinningAdapterEESaISB_EERKS8_INS5_11UsdTimeCodeESaISG_EEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -35526,7 +35496,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_118_PostUpdateExtentsERKSt6vectorISt10shared_ptrINS7_16_SkinningAdapterEESaISB_EERKS8_INS5_11UsdTimeCodeESaISG_EEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_118_PostUpdateExtentsERKSt6vectorISt10shared_ptrINS7_16_SkinningAdapterEESaISB_EERKS8_INS5_11UsdTimeCodeESaISG_EEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -36436,7 +36406,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_118_UpdateExtentHintsERKSt6vectorISt10shared_ptrINS7_16_SkinningAdapterEESaISB_EERKS8_INS5_11UsdTimeCodeESaISG_EEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_118_UpdateExtentHintsERKSt6vectorISt10shared_ptrINS7_16_SkinningAdapterEESaISB_EERKS8_INS5_11UsdTimeCodeESaISG_EEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -36896,7 +36866,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_118_UpdateExtentHintsERKSt6vectorISt10shared_ptrINS7_16_SkinningAdapterEESaISB_EERKS8_INS5_11UsdTimeCodeESaISG_EEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_118_UpdateExtentHintsERKSt6vectorISt10shared_ptrINS7_16_SkinningAdapterEESaISB_EERKS8_INS5_11UsdTimeCodeESaISG_EEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -37934,7 +37904,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorISD_SaISD_EEEEZNSA_19UsdSkelBakeSkinningERKNSA_12UsdSkelCacheERKNSA_24UsdSkelBakeSkinningParmsERKNSA_10GfIntervalEE3$_0SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorISD_SaISD_EEEEZNSA_19UsdSkelBakeSkinningERKNSA_12UsdSkelCacheERKNSA_24UsdSkelBakeSkinningParmsERKNSA_10GfIntervalEE3$_0SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -38384,7 +38354,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorISD_SaISD_EEEEZNSA_19UsdSkelBakeSkinningERKNSA_12UsdSkelCacheERKNSA_24UsdSkelBakeSkinningParmsERKNSA_10GfIntervalEE3$_0SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorISD_SaISD_EEEEZNSA_19UsdSkelBakeSkinningERKNSA_12UsdSkelCacheERKNSA_24UsdSkelBakeSkinningParmsERKNSA_10GfIntervalEE3$_0SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -40647,7 +40617,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_SkinningAdapterEESt6vectorISD_SaISD_EEEEZNSA_19UsdSkelBakeSkinningERKNSA_12UsdSkelCacheERKNSA_24UsdSkelBakeSkinningParmsERKNSA_10GfIntervalEE3$_1SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_SkinningAdapterEESt6vectorISD_SaISD_EEEEZNSA_19UsdSkelBakeSkinningERKNSA_12UsdSkelCacheERKNSA_24UsdSkelBakeSkinningParmsERKNSA_10GfIntervalEE3$_1SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -41139,7 +41109,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_SkinningAdapterEESt6vectorISD_SaISD_EEEEZNSA_19UsdSkelBakeSkinningERKNSA_12UsdSkelCacheERKNSA_24UsdSkelBakeSkinningParmsERKNSA_10GfIntervalEE3$_1SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_SkinningAdapterEESt6vectorISD_SaISD_EEEEZNSA_19UsdSkelBakeSkinningERKNSA_12UsdSkelCacheERKNSA_24UsdSkelBakeSkinningParmsERKNSA_10GfIntervalEE3$_1SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -46557,7 +46527,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEZNS7_12_GLOBAL__N_116_SkinningAdapter25_DeformPointsWithSkinningERKNS7_10GfMatrix4dEE3$_0S8_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEZNS7_12_GLOBAL__N_116_SkinningAdapter25_DeformPointsWithSkinningERKNS7_10GfMatrix4dEE3$_0S8_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -47007,7 +46977,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEZNS7_12_GLOBAL__N_116_SkinningAdapter25_DeformPointsWithSkinningERKNS7_10GfMatrix4dEE3$_0S8_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEZNS7_12_GLOBAL__N_116_SkinningAdapter25_DeformPointsWithSkinningERKNS7_10GfMatrix4dEE3$_0S8_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -47464,7 +47434,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEZNS7_12_GLOBAL__N_116_SkinningAdapter26_DeformNormalsWithSkinningERKNS7_10GfMatrix4dEE3$_0S8_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEZNS7_12_GLOBAL__N_116_SkinningAdapter26_DeformNormalsWithSkinningERKNS7_10GfMatrix4dEE3$_0S8_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -47960,7 +47930,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEZNS7_12_GLOBAL__N_116_SkinningAdapter26_DeformNormalsWithSkinningERKNS7_10GfMatrix4dEE3$_0S8_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEZNS7_12_GLOBAL__N_116_SkinningAdapter26_DeformNormalsWithSkinningERKNS7_10GfMatrix4dEE3$_0S8_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -48025,7 +47995,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_19UsdSkelBakeSkinningERKNS5_12UsdSkelCacheERKNS5_24UsdSkelBakeSkinningParmsERKNS5_10GfIntervalEE3$_2EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_19UsdSkelBakeSkinningERKNS5_12UsdSkelCacheERKNS5_24UsdSkelBakeSkinningParmsERKNS5_10GfIntervalEE3$_2EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -48485,7 +48455,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_19UsdSkelBakeSkinningERKNS5_12UsdSkelCacheERKNS5_24UsdSkelBakeSkinningParmsERKNS5_10GfIntervalEE3$_2EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_19UsdSkelBakeSkinningERKNS5_12UsdSkelCacheERKNS5_24UsdSkelBakeSkinningParmsERKNS5_10GfIntervalEE3$_2EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120

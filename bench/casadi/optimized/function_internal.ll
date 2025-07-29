@@ -127583,7 +127583,7 @@ define void @_ZNK6casadi16FunctionInternal12get_functionB5cxx11Ev(ptr dead_on_un
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi16FunctionInternal12get_functionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi16FunctionInternal12get_functionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -128164,7 +128164,7 @@ declare void @_ZNK6casadi8Function4wrapEv(ptr dead_on_unwind writable sret(%"cla
 declare void @_ZNK6casadi8Function13which_dependsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS6_SaIS6_EExb(ptr dead_on_unwind writable sret(%"class.std::vector.11") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi16FunctionInternal6oracleEv(ptr noundef nonnull align 8 dereferenceable(1312) %0) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi16FunctionInternal6oracleEv(ptr noundef nonnull align 8 dereferenceable(1312) %0) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -802,7 +802,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @dma_fence_get_stub() #1 align 16 {
+define dso_local noundef nonnull ptr @dma_fence_get_stub() #1 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @dma_fence_stub_lock) #14
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dma_fence_stub, i64 8), align 8
   %2 = icmp eq ptr %1, null

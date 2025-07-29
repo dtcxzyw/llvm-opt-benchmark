@@ -1571,7 +1571,7 @@ define internal void @_ZN12_GLOBAL__N_114CGObjCGNUstep2D0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep218ModuleInitFunctionEv(ptr noundef nonnull align 8 dereferenceable(1664) %0) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep218ModuleInitFunctionEv(ptr noundef nonnull align 8 dereferenceable(1664) %0) unnamed_addr #0 align 2 {
 _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit:
   %1 = alloca %"class.llvm::Twine", align 8
   %2 = alloca i64, align 8

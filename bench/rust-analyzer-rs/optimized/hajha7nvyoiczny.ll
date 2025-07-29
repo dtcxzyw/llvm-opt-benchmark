@@ -83609,7 +83609,7 @@ define internal { i64, ptr } @"_ZN6hir_ty5infer5unify14InferenceTable18resolve_c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty5infer11infer_query17h269c8e251be77ec4E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty5infer11infer_query17h269c8e251be77ec4E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca i32, align 4
   %6 = alloca { { { { ptr, ptr } }, {} }, {} }, align 8
   %7 = alloca { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }, align 8
@@ -107327,7 +107327,7 @@ define hidden void @_ZN6hir_ty5lower17callable_item_sig17h3e79c3af20c9ee9fE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty5lower17field_types_query17h4f1b13a1ebb32b86E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty5lower17field_types_query17h4f1b13a1ebb32b86E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, { i32, [2 x i32] }, [1 x i32] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 }, { ptr, i32, [1 x i32] } }, align 8
   %7 = alloca { { i64 }, { { { i64, ptr, {} }, i64 }, {} } }, align 8
@@ -114561,7 +114561,7 @@ _ZN6hir_ty5lower17TyLoweringContext15lower_trait_ref17h7267d407bbc44f5bE.exit: ;
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN6hir_ty5lower23return_type_impl_traits17hbb23c444951e42e2E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @_ZN6hir_ty5lower23return_type_impl_traits17hbb23c444951e42e2E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { ptr, { i32, [2 x i32] }, [1 x i32] }, align 8
   %6 = alloca { { i64 }, { { { { { i64, ptr, {} }, i64 } } }, ptr } }, align 8
@@ -114987,7 +114987,7 @@ define hidden noundef ptr @_ZN6hir_ty5lower23return_type_impl_traits17hbb23c4449
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN6hir_ty5lower22type_alias_impl_traits17h90ca38882683ec69E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @_ZN6hir_ty5lower22type_alias_impl_traits17h90ca38882683ec69E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { ptr, { i32, [2 x i32] }, [1 x i32] }, align 8
   %6 = alloca { { i64 }, { { { { { i64, ptr, {} }, i64 } } }, ptr } }, align 8

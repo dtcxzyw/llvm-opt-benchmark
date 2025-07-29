@@ -1178,7 +1178,7 @@ H5O__msg_reset_real.exit.thread:                  ; preds = %18, %28, %25, %11, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @H5O_msg_free(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5O_msg_free(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1236,7 +1236,7 @@ H5O_msg_free_real.exit:                           ; preds = %30, %28, %9, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @H5O_msg_free_real(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5O_msg_free_real(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7

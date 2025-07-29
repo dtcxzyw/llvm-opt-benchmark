@@ -1266,8 +1266,8 @@ _ZN5mmu_t10mmio_fetchEmmPh.exit.thread:           ; preds = %33, %_ZN5mmu_t10mmi
   ret { ptr, i64 } %.fca.1.insert.merged
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t(ptr dead_on_unwind noalias writable sret(%struct.mem_access_info_t) align 8 captures(none) initializes((0, 25), (28, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43168) %1, i64 noundef %2, i32 noundef %3, i8 %4) local_unnamed_addr #11 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t(ptr dead_on_unwind noalias writable sret(%struct.mem_access_info_t) align 8 captures(none) initializes((0, 25), (28, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43168) %1, i64 noundef %2, i32 noundef %3, i8 %4) local_unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !39
   %.not = icmp eq ptr %7, null
@@ -1481,8 +1481,8 @@ _ZN5mmu_t14check_triggersEN8triggers11operation_tEmbmSt8optionalImE.exit: ; pred
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZN5mmu_t10refill_tlbEmmPc11access_type(ptr noundef nonnull align 8 captures(none) dereferenceable(43168) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #11 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define { ptr, i64 } @_ZN5mmu_t10refill_tlbEmmPc11access_type(ptr noundef nonnull align 8 captures(none) dereferenceable(43168) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 align 2 {
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 255
   %8 = sub i64 0, %1
@@ -3450,8 +3450,8 @@ _ZN16memtracer_list_t4hookEP11memtracer_t.exit:   ; preds = %13, %_ZNSt6vectorIP
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 17) i64 @_ZNK5mmu_t9get_pmlenEbm13xlate_flags_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43168) %0, i1 noundef zeroext %1, i64 noundef %2, i8 %3) local_unnamed_addr #11 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef range(i64 0, 17) i64 @_ZNK5mmu_t9get_pmlenEbm13xlate_flags_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43168) %0, i1 noundef zeroext %1, i64 noundef %2, i8 %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %.not17 = icmp eq ptr %6, null

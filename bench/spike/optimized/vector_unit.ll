@@ -1628,8 +1628,8 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 ; Function Attrs: nounwind
 declare void @_ZN12vector_csr_t9write_rawEm(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN12vectorUnit_t6set_vlEiimm(ptr noundef nonnull align 8 captures(none) dereferenceable(202) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i64 @_ZN12vectorUnit_t6set_vlEiimm(ptr noundef nonnull align 8 captures(none) dereferenceable(202) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !49
   %8 = load ptr, ptr %7, align 8, !tbaa !32

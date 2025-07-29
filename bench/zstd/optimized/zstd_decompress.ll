@@ -255,7 +255,7 @@ ZSTD_createDCtx_internal.exit:                    ; preds = %1, %ZSTD_customMall
 }
 
 ; Function Attrs: nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noundef ptr @ZSTD_createDCtx() local_unnamed_addr #5 {
+define noalias noundef ptr @ZSTD_createDCtx() local_unnamed_addr #5 {
 ZSTD_customMalloc.exit.i:
   %0 = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #19
   %.not7.i = icmp eq ptr %0, null
@@ -3183,7 +3183,7 @@ define i32 @ZSTD_getDictID_fromFrame(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noundef ptr @ZSTD_createDStream() local_unnamed_addr #5 {
+define noalias noundef ptr @ZSTD_createDStream() local_unnamed_addr #5 {
 ZSTD_customMalloc.exit.i:
   %0 = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #19
   %.not7.i = icmp eq ptr %0, null

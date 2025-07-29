@@ -14769,8 +14769,8 @@ declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #15
 ; Function Attrs: noreturn
 declare void @_ZN5folly6detail39singletonWarnDoubleRegistrationAndAbortERKNS0_14TypeDescriptorE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #11
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvPN5folly21CPUThreadPoolExecutorEEZNS0_9SingletonIS1_N12_GLOBAL__N_112HazptrTPETagENS0_6detail10DefaultTagEE15getTeardownFuncESt8functionIS3_EEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #2 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZNSt17_Function_handlerIFvPN5folly21CPUThreadPoolExecutorEEZNS0_9SingletonIS1_N12_GLOBAL__N_112HazptrTPETagENS0_6detail10DefaultTagEE15getTeardownFuncESt8functionIS3_EEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #8 align 2 {
   %.val = load ptr, ptr %1, align 8, !tbaa !235
   %3 = icmp eq ptr %.val, null
   br i1 %3, label %_ZSt10__invoke_rIvRZN5folly9SingletonINS0_21CPUThreadPoolExecutorEN12_GLOBAL__N_112HazptrTPETagENS0_6detail10DefaultTagEE15getTeardownFuncESt8functionIFvPS2_EEEUlS9_E_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit, label %4

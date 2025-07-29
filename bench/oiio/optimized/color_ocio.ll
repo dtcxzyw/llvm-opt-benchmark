@@ -7764,8 +7764,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_011ColorConfig9has_errorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_011ColorConfig9has_errorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !143
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %4 = atomicrmw add ptr %3, i32 1 acquire, align 4

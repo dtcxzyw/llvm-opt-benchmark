@@ -3212,7 +3212,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
 declare noundef i32 @_ZNK6google8protobuf11MessageLite13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal14WireFormatLite18InternalWriteGroupEiRKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef %field_number, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef %target, ptr noundef %stream) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN6google8protobuf8internal14WireFormatLite18InternalWriteGroupEiRKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef %field_number, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef %target, ptr noundef %stream) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %stream, align 8
   %cmp.not.i = icmp ult ptr %target, %0

@@ -2449,17 +2449,7 @@ _ZSt8_DestroyIPN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEnt
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntryESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntryES4_EvT_S6_RSaIT0_E.exit.i, %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load ptr, ptr %41, align 8, !tbaa !134
-  invoke fastcc void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N9grpc_core13RefCountedPtrINS6_12_GLOBAL__N_111XdsResolver10ClusterRefEEEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %.val)
-          to label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrINS4_12_GLOBAL__N_111XdsResolver10ClusterRefEEESt4lessIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit unwind label %42
-
-42:                                               ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntryESaIS4_EED2Ev.exit
-  %43 = landingpad { ptr, i32 }
-          catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #44
-  unreachable
-
-_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrINS4_12_GLOBAL__N_111XdsResolver10ClusterRefEEESt4lessIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntryESaIS4_EED2Ev.exit
+  tail call fastcc void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N9grpc_core13RefCountedPtrINS6_12_GLOBAL__N_111XdsResolver10ClusterRefEEEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %.val)
   ret void
 }
 
@@ -3599,8 +3589,8 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN9grpc_core13HeaderMatcherEEEvT_S5_.exit: ;
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N9grpc_core13RefCountedPtrINS6_12_GLOBAL__N_111XdsResolver10ClusterRefEEEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N9grpc_core13RefCountedPtrINS6_12_GLOBAL__N_111XdsResolver10ClusterRefEEEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -26838,8 +26828,8 @@ _ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSe
   ret ptr %0
 }
 
-; Function Attrs: inlinehint mustprogress uwtable
-define internal void @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSelectorEvE6VTableEvENUlPvE0_8__invokeES5_(ptr noundef %0) #24 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSelectorEvE6VTableEvENUlPvE0_8__invokeES5_(ptr noundef %0) #16 align 2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSelectorEvE6VTableEvENKUlPvE0_clES5_.exit, label %2
 

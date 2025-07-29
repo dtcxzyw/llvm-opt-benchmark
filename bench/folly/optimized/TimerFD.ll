@@ -609,8 +609,8 @@ declare i32 @timerfd_settime(i32 noundef, i32 noundef, ptr noundef, ptr noundef)
 
 declare noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef initializes((48, 56)) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef initializes((48, 56)) %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %4, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208

@@ -2115,7 +2115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %8, !prof !41
@@ -37991,7 +37991,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN7testing8internalL18OpenFileForWritingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internalL18OpenFileForWritingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.testing::internal::FilePath", align 8
   %4 = alloca %"class.testing::internal::FilePath", align 8

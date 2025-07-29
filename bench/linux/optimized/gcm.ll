@@ -2093,7 +2093,7 @@ define internal i32 @crypto_rfc4106_encrypt(ptr noundef %0) #2 align 16 {
 
 6:                                                ; preds = %1
   %7 = tail call fastcc ptr @crypto_rfc4106_crypt(ptr noundef %0)
-  %8 = tail call i32 @crypto_aead_encrypt(ptr noundef %7) #13
+  %8 = tail call i32 @crypto_aead_encrypt(ptr noundef nonnull %7) #13
   br label %9
 
 9:                                                ; preds = %6, %1
@@ -2111,7 +2111,7 @@ define internal i32 @crypto_rfc4106_decrypt(ptr noundef %0) #2 align 16 {
 
 6:                                                ; preds = %1
   %7 = tail call fastcc ptr @crypto_rfc4106_crypt(ptr noundef %0)
-  %8 = tail call i32 @crypto_aead_decrypt(ptr noundef %7) #13
+  %8 = tail call i32 @crypto_aead_decrypt(ptr noundef nonnull %7) #13
   br label %9
 
 9:                                                ; preds = %6, %1
@@ -2134,7 +2134,7 @@ declare dso_local i32 @crypto_aead_setkey(ptr noundef, ptr noundef, i32 noundef)
 declare dso_local i32 @crypto_aead_setauthsize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @crypto_rfc4106_crypt(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc nonnull ptr @crypto_rfc4106_crypt(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8

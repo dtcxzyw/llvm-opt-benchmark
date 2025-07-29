@@ -5404,7 +5404,7 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %158
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK14btQuantizedBvh9serializeEPvP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(244) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) unnamed_addr #2 align 2 {
+define dso_local noundef nonnull ptr @_ZNK14btQuantizedBvh9serializeEPvP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(244) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %6

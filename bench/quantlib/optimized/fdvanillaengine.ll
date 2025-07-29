@@ -610,8 +610,8 @@ unreachable:                                      ; preds = %invoke.cont14
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15FDVanillaEngine18ensureStrikeInGridEv(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZNK8QuantLib15FDVanillaEngine18ensureStrikeInGridEv(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %payoff_, align 8, !tbaa !25, !noalias !27

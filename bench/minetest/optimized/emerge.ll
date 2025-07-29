@@ -6611,7 +6611,7 @@ _ZN11StreamProxylsIRA53_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN12EmergeThread3runEv(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_ZN12EmergeThread3runEv(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<irr::core::vector3d<short>, std::pair<const irr::core::vector3d<short>, MapBlock *>, std::_Select1st<std::pair<const irr::core::vector3d<short>, MapBlock *>>, std::less<irr::core::vector3d<short>>>::_Alloc_node", align 8
   %ref.tmp9.i = alloca %"class.std::tuple.577", align 8

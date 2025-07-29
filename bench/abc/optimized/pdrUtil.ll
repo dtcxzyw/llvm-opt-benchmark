@@ -545,7 +545,7 @@ define void @ZPdr_SetPrint(ptr noundef readonly captures(none) %0) local_unnamed
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ZPdr_SetIntersection(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #10 {
+define noalias noundef ptr @ZPdr_SetIntersection(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16

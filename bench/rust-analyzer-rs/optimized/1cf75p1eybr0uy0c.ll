@@ -56131,7 +56131,7 @@ define hidden void @"_ZN7hir_def4body5lower13ExprCollector11collect_pat28_$u7b$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 16 ptr @"_ZN7hir_def4body5lower13ExprCollector11collect_pat28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h52d4edf990b6a65dE"(ptr noalias noundef nonnull align 8 dereferenceable(664) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 17, 16) %2, ptr noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef align 16 ptr @"_ZN7hir_def4body5lower13ExprCollector11collect_pat28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h52d4edf990b6a65dE"(ptr noalias noundef nonnull align 8 dereferenceable(664) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 17, 16) %2, ptr noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [31 x i8] }, align 16
   %6 = alloca { i8, [47 x i8] }, align 16
   %7 = alloca { i8, [31 x i8] }, align 16
@@ -72975,7 +72975,7 @@ default.unreachable15:                            ; preds = %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7hir_def7nameres6DefMap19crate_def_map_query17h923cd6ceb620dafcE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7hir_def7nameres6DefMap19crate_def_map_query17h923cd6ceb620dafcE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, align 8
   %5 = alloca { { i64 }, { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, { i32, [4 x i32] }, { i32, [2 x i32] }, i32, [1 x i32] } }, align 8
   %6 = alloca { { i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { ptr, [1 x i64] }, i8, i8, i8, i8, [4 x i8] } }, align 8
@@ -73430,7 +73430,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7hir_def7nameres6DefMap19block_def_map_query17h0a3403d7940273a1E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7hir_def7nameres6DefMap19block_def_map_query17h0a3403d7940273a1E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, align 8
   %5 = alloca { { i64 }, { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, { i32, [4 x i32] }, { i32, [2 x i32] }, i32, [1 x i32] } }, align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, { i32, [4 x i32] }, { i32, [2 x i32] }, i32, [1 x i32] }, align 8

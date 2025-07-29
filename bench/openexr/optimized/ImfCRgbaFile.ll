@@ -3507,8 +3507,8 @@ declare noundef i32 @_ZN7Imf_3_417globalThreadCountEv() local_unnamed_addr #0
 
 declare void @_ZN7Imf_3_414RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef nonnull align 8 dereferenceable(49), i32 noundef, i32 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfCloseOutputFile(ptr noundef %0) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @ImfCloseOutputFile(ptr noundef %0) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -3671,8 +3671,8 @@ define noundef ptr @ImfOpenTiledOutputFile(ptr noundef %0, ptr noundef %1, i32 n
 
 declare void @_ZN7Imf_3_419TiledRgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEiiNS_9LevelModeENS_17LevelRoundingModeEi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef nonnull align 8 dereferenceable(49), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfCloseTiledOutputFile(ptr noundef %0) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @ImfCloseTiledOutputFile(ptr noundef %0) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -3894,8 +3894,8 @@ define noundef ptr @ImfOpenInputFile(ptr noundef %0) local_unnamed_addr #8 perso
 
 declare void @_ZN7Imf_3_413RgbaInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfCloseInputFile(ptr noundef %0) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @ImfCloseInputFile(ptr noundef %0) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -4058,8 +4058,8 @@ define noundef ptr @ImfOpenTiledInputFile(ptr noundef %0) local_unnamed_addr #8 
 
 declare void @_ZN7Imf_3_418TiledRgbaInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i32 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfCloseTiledInputFile(ptr noundef %0) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @ImfCloseTiledInputFile(ptr noundef %0) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

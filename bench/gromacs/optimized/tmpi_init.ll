@@ -1010,7 +1010,7 @@ declare noundef i32 @_Z30tMPI_Thread_setaffinity_singleP11tMPI_Threadj(ptr nound
 declare noundef i32 @_Z18tMPI_Thread_createPP11tMPI_ThreadPFPvS2_ES2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL17tMPI_Thread_startPv(ptr noundef %0) #0 {
+define internal noalias noundef ptr @_ZL17tMPI_Thread_startPv(ptr noundef %0) #0 {
   %2 = tail call fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %19

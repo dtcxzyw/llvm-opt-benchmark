@@ -1456,8 +1456,8 @@ define internal void @_ZN12_GLOBAL__N_143CleanupTest_FactoryProducesCorrectType_
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_143CleanupTest_FactoryProducesCorrectType_TestINS_19FunctorClassFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_143CleanupTest_FactoryProducesCorrectType_TestINS_19FunctorClassFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2152,8 +2152,8 @@ define internal void @_ZN12_GLOBAL__N_140CleanupTest_CTADProducesCorrectType_Tes
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_140CleanupTest_CTADProducesCorrectType_TestINS_19FunctorClassFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_140CleanupTest_CTADProducesCorrectType_TestINS_19FunctorClassFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2287,8 +2287,8 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameTy
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS_15IdentityFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS_15IdentityFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::Cleanup.14", align 8
   %3 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
@@ -2447,8 +2447,8 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameTy
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS_19FunctorClassFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS_19FunctorClassFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::Cleanup.14", align 8
   %3 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
@@ -2607,8 +2607,8 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameTy
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS_18StdFunctionFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS_18StdFunctionFactoryEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::Cleanup.14", align 8
   %3 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27

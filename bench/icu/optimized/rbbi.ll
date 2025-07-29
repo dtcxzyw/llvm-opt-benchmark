@@ -3880,8 +3880,8 @@ define noundef ptr @_ZN6icu_7722RuleBasedBreakIterator17createBufferCloneEPvRiR1
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef signext i8 @rbbi_cleanup_77() #1 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef signext i8 @rbbi_cleanup_77() #5 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8, !tbaa !121
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3

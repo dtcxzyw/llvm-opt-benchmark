@@ -792,7 +792,7 @@ _ZN6vectorImLb0EjED2Ev.exit:                      ; preds = %16, %19
 declare noundef zeroext i1 @_ZN7datalog16relation_manager27relation_signature_to_tableERKNS_18relation_signatureERNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog21table_relation_plugin8mk_emptyERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN7datalog21table_relation_plugin8mk_emptyERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.datalog::table_signature", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #21
   store ptr null, ptr %3, align 8, !tbaa !15
@@ -914,7 +914,7 @@ _ZN6vectorImLb0EjED2Ev.exit:                      ; preds = %47, %49
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog21table_relation_plugin16mk_full_relationERKNS_18relation_signatureEP9func_decli(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN7datalog21table_relation_plugin16mk_full_relationERKNS_18relation_signatureEP9func_decli(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.datalog::table_signature", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
   store ptr null, ptr %5, align 8, !tbaa !15
@@ -2500,7 +2500,7 @@ _ZN6vectorImLb0EjED2Ev.exit:                      ; preds = %16, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK7datalog14table_relation5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 {
+define hidden noalias noundef ptr @_ZNK7datalog14table_relation5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   %4 = load ptr, ptr %3, align 8, !tbaa !32
@@ -2515,7 +2515,7 @@ define hidden noundef ptr @_ZNK7datalog14table_relation5cloneEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK7datalog14table_relation10complementEP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define hidden noalias noundef ptr @_ZNK7datalog14table_relation10complementEP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = load ptr, ptr %4, align 8, !tbaa !32

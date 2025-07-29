@@ -6600,8 +6600,8 @@ declare void @_ZN8pystring2os4path4joinERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev24ContainsContextVariablesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_5dev7Context16setConfigIOProxyESt10shared_ptrINS_13ConfigIOProxyEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN19OpenColorIO_v2_5dev7Context16setConfigIOProxyESt10shared_ptrINS_13ConfigIOProxyEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %5 = load ptr, ptr %1, align 8, !tbaa !72

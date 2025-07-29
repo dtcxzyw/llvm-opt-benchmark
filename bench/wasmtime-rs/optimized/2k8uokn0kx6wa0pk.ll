@@ -10950,7 +10950,7 @@ define void @"_ZN99_$LT$wasmtime_cranelift..builder..Builder$u20$as$u20$wasmtime
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef ptr @"_ZN99_$LT$wasmtime_cranelift..builder..Builder$u20$as$u20$wasmtime_environ..compile..CompilerBuilder$GT$30enable_incremental_compilation17h70789dc76de4f676E"(ptr noalias noundef align 8 dereferenceable(216) %0, ptr noundef nonnull %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noalias noundef ptr @"_ZN99_$LT$wasmtime_cranelift..builder..Builder$u20$as$u20$wasmtime_environ..compile..CompilerBuilder$GT$30enable_incremental_compilation17h70789dc76de4f676E"(ptr noalias noundef align 8 dereferenceable(216) %0, ptr noundef nonnull %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, ptr } }, ptr }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1884)

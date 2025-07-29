@@ -1442,7 +1442,7 @@ use.exit106.i:                                    ; preds = %535
   %561 = load ptr, ptr %560, align 8, !tbaa !34
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 16
   %563 = load i64, ptr %562, align 8, !tbaa !81
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr readonly align 1 %558, i64 %563, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull readonly align 1 %558, i64 %563, i1 false)
   %564 = icmp ult i64 %563, 32
   br i1 %564, label %565, label %.preheader957
 
@@ -4358,7 +4358,7 @@ declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @xopen(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fill(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @fill(i32 noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr @input_len, align 4, !tbaa !9
   %.not = icmp ugt i32 %0, %2
   br i1 %.not, label %7, label %3

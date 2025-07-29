@@ -1144,7 +1144,7 @@ mi_new_nothrow.exit:                              ; preds = %mi_malloc.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_new_aligned(i64 noundef %0, i64 noundef %1) #3 {
+define hidden noalias nonnull ptr @mi_new_aligned(i64 noundef %0, i64 noundef %1) #3 {
   %3 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.lr.ph, label %.critedge
@@ -1171,7 +1171,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @_ZnwmSt11align_val_tRKSt9nothrow_t(i64 noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 {
+define noalias ptr @_ZnwmSt11align_val_tRKSt9nothrow_t(i64 noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 {
   %4 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.lr.ph.i, label %mi_new_aligned_nothrow.exit
@@ -1223,7 +1223,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @_ZnamSt11align_val_tRKSt9nothrow_t(i64 noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 {
+define noalias ptr @_ZnamSt11align_val_tRKSt9nothrow_t(i64 noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 {
   %4 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.lr.ph.i, label %mi_new_aligned_nothrow.exit
@@ -3196,7 +3196,7 @@ define internal fastcc ptr @mi_try_new(i64 noundef %0) unnamed_addr #7 {
 declare noalias ptr @mi_malloc_aligned(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden nonnull ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false) #20

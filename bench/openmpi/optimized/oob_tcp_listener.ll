@@ -531,7 +531,7 @@ declare i32 @pmix_fd_set_cloexec(i32 noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @listen_thread(ptr readnone captures(none) %0) #0 {
+define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.fd_set, align 8

@@ -668,7 +668,7 @@ declare i32 @wolfSSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @server_test(ptr noundef captures(none) initializes((16, 20)) %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @server_test(ptr noundef captures(none) initializes((16, 20)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.fd_set, align 8
   %3 = alloca %struct.fd_set, align 8
   %4 = alloca %struct.timeval, align 8

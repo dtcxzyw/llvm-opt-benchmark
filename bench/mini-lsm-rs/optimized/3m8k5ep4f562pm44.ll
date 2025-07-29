@@ -1218,8 +1218,8 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %.body.i.i.i.i
   ret { ptr, ptr } %38
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN3std9panicking3try17h7b11098a4f159d71E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden { ptr, ptr } @_ZN3std9panicking3try17h7b11098a4f159d71E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
@@ -1279,8 +1279,8 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %18
   ret { ptr, ptr } %31
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN3std9panicking3try17h8f9eeedcdc58202dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden { ptr, ptr } @_ZN3std9panicking3try17h8f9eeedcdc58202dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8

@@ -1048,8 +1048,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14TimeoutManager16clearCobTimeoutsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly14TimeoutManager16clearCobTimeoutsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   %.not = icmp eq ptr %3, null

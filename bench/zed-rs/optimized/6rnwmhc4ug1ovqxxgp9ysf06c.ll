@@ -38609,8 +38609,8 @@ define internal fastcc void @"_ZN4core3ptr221drop_in_place$LT$alloc..rc..Rc$LT$d
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr221drop_in_place$LT$core..iter..adapters..map..Map$LT$tree_sitter..util..CBufferIter$LT$tree_sitter..ffi..TSRange$GT$$C$$LT$tree_sitter..ffi..TSRange$u20$as$u20$core..convert..Into$LT$tree_sitter..Range$GT$$GT$..into$GT$$GT$17hc59b70797ee90fbfE.llvm.17800909824106940392"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr221drop_in_place$LT$core..iter..adapters..map..Map$LT$tree_sitter..util..CBufferIter$LT$tree_sitter..ffi..TSRange$GT$$C$$LT$tree_sitter..ffi..TSRange$u20$as$u20$core..convert..Into$LT$tree_sitter..Range$GT$$GT$..into$GT$$GT$17hc59b70797ee90fbfE.llvm.17800909824106940392"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13166)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13169)
   %2 = load ptr, ptr %0, align 8, !alias.scope !13172, !noundef !4
@@ -44136,8 +44136,8 @@ define hidden void @"_ZN4core3ptr348drop_in_place$LT$arrayvec..arrayvec..ScopeEx
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr348drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$tree_sitter..util..CBufferIter$LT$tree_sitter..ffi..TSRange$GT$$C$$LT$tree_sitter..ffi..TSRange$u20$as$u20$core..convert..Into$LT$tree_sitter..Range$GT$$GT$..into$GT$$C$language..syntax_map..SyntaxSnapshot..reparse_with_ranges..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9ab135a9debf62ddE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr348drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$tree_sitter..util..CBufferIter$LT$tree_sitter..ffi..TSRange$GT$$C$$LT$tree_sitter..ffi..TSRange$u20$as$u20$core..convert..Into$LT$tree_sitter..Range$GT$$GT$..into$GT$$C$language..syntax_map..SyntaxSnapshot..reparse_with_ranges..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9ab135a9debf62ddE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15372)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15375)
@@ -47072,8 +47072,8 @@ define hidden void @"_ZN4core3ptr396drop_in_place$LT$arrayvec..arrayvec..ScopeEx
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr396drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$tree_sitter..util..CBufferIter$LT$tree_sitter..ffi..TSRange$GT$$C$$LT$tree_sitter..ffi..TSRange$u20$as$u20$core..convert..Into$LT$tree_sitter..Range$GT$$GT$..into$GT$$C$language..syntax_map..SyntaxSnapshot..reparse_with_ranges..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf44e9f191e68501cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #4 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr396drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$tree_sitter..util..CBufferIter$LT$tree_sitter..ffi..TSRange$GT$$C$$LT$tree_sitter..ffi..TSRange$u20$as$u20$core..convert..Into$LT$tree_sitter..Range$GT$$GT$..into$GT$$C$language..syntax_map..SyntaxSnapshot..reparse_with_ranges..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf44e9f191e68501cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16321)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16324)
@@ -81067,8 +81067,8 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$sum_tree..SumTree$LT$languag
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr84drop_in_place$LT$tree_sitter..util..CBufferIter$LT$tree_sitter..ffi..TSRange$GT$$GT$17h1b7d6c83879613b1E.llvm.17800909824106940392"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr84drop_in_place$LT$tree_sitter..util..CBufferIter$LT$tree_sitter..ffi..TSRange$GT$$GT$17h1b7d6c83879613b1E.llvm.17800909824106940392"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30779)
   %2 = load ptr, ptr %0, align 8, !alias.scope !30779, !noundef !4
   %3 = icmp eq ptr %2, null
@@ -104979,8 +104979,8 @@ define hidden void @"_ZN81_$LT$futures_channel..lock..TryLock$LT$T$GT$$u20$as$u2
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN81_$LT$tree_sitter..util..CBufferIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8ffcf743b2e0f1fbE.llvm.17800909824106940392"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN81_$LT$tree_sitter..util..CBufferIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8ffcf743b2e0f1fbE.llvm.17800909824106940392"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4

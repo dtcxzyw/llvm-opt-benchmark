@@ -71177,7 +71177,7 @@ common.resume:                                    ; preds = %247, %252, %254, %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef ptr @_ZN13rust_analyzer8handlers12notification30handle_did_close_text_document17h850dac002d9ee49eE(ptr noalias noundef align 8 dereferenceable(1240) %0, ptr noalias noundef align 8 captures(none) dereferenceable(88) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal noalias noundef ptr @_ZN13rust_analyzer8handlers12notification30handle_did_close_text_document17h850dac002d9ee49eE(ptr noalias noundef align 8 dereferenceable(1240) %0, ptr noalias noundef align 8 captures(none) dereferenceable(88) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -72892,7 +72892,7 @@ define internal noalias noundef ptr @_ZN13rust_analyzer8handlers12notification35
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef ptr @_ZN13rust_analyzer8handlers12notification31handle_did_change_watched_files17h383fc9377abfc949E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(1240) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal noalias noundef ptr @_ZN13rust_analyzer8handlers12notification31handle_did_change_watched_files17h383fc9377abfc949E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(1240) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8

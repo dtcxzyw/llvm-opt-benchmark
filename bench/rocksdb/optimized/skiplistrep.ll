@@ -1809,7 +1809,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_111SkipListRep8AllocateEmPPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #4 align 2 {
+define internal noundef nonnull ptr @_ZN7rocksdb12_GLOBAL__N_111SkipListRep8AllocateEmPPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
   %6 = load i16, ptr %4, align 8, !tbaa !72

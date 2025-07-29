@@ -3669,7 +3669,7 @@ _ZN4llvm9SetVectorIPN5clang6ModuleENS_11SmallVectorIS3_Lj2EEENS_8DenseSetIS3_NS_
 declare ptr @_ZN5clang4Sema22ConvertDeclToDeclGroupEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4Sema30ActOnPrivateModuleFragmentDeclENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 %2) local_unnamed_addr #0 align 2 {
+define dso_local noalias noundef ptr @_ZN5clang4Sema30ActOnPrivateModuleFragmentDeclENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %5 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8

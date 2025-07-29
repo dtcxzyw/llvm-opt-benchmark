@@ -2652,7 +2652,7 @@ define void @_ZNK6open3d4core6TensorixEl(ptr dead_on_unwind noalias writable sre
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define noundef ptr @_ZNK6open3d4core6Tensor8IteratorptEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK6open3d4core6Tensor8IteratorptEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.open3d::core::Tensor", align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #36
   %3 = load ptr, ptr %0, align 8, !tbaa !75
@@ -3321,7 +3321,7 @@ define void @_ZNK6open3d4core6Tensor13ConstIteratordeEv(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define noundef ptr @_ZNK6open3d4core6Tensor13ConstIteratorptEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK6open3d4core6Tensor13ConstIteratorptEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.open3d::core::Tensor", align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #36
   %3 = load ptr, ptr %0, align 8, !tbaa !94

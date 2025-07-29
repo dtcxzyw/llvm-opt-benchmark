@@ -8114,7 +8114,7 @@ _ZL16stbi__ldr_to_hdrPhiii.exit:                  ; preds = %.loopexit.i, %_ZL17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
+define hidden noalias noundef ptr @assimp_stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__context, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #48
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -8170,7 +8170,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_loadf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden noalias noundef ptr @assimp_stbi_loadf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.3)
   %.not = icmp eq ptr %7, null
@@ -8230,7 +8230,7 @@ assimp_stbi_loadf_from_file.exit:                 ; preds = %30, %32
   store ptr %.sink.i.i.i.i, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store ptr %.sink.i.i.i.i, ptr %36, align 8
-  %37 = call fastcc noundef ptr @_ZL16stbi__loadf_mainP13stbi__contextPiS1_S1_i(ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %37 = call fastcc noalias noundef ptr @_ZL16stbi__loadf_mainP13stbi__contextPiS1_S1_i(ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #48
   %38 = call i32 @fclose(ptr noundef nonnull %7)
   br label %39
@@ -8241,7 +8241,7 @@ assimp_stbi_loadf_from_file.exit:                 ; preds = %30, %32
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_loadf_from_file(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden noalias noundef ptr @assimp_stbi_loadf_from_file(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__context, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #48
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16

@@ -214,7 +214,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_lib_view_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noalias ptr @_get_lib_view_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = icmp eq ptr %1, null
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8

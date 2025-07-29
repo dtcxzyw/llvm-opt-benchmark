@@ -604,7 +604,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader5build17h9515e1bf707d2b2eE(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @_ZN12pingora_http19insert_header_value17h0249861db66f104fE(ptr noalias noundef align 8 dereferenceable_or_null(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(96) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef align 8 ptr @_ZN12pingora_http19insert_header_value17h0249861db66f104fE(ptr noalias noundef align 8 dereferenceable_or_null(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(96) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [40 x i8], align 8
   %7 = alloca [40 x i8], align 8
@@ -865,7 +865,7 @@ define internal fastcc noundef align 8 ptr @_ZN12pingora_http19insert_header_val
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @_ZN12pingora_http19insert_header_value17hf3a88c7c32fa774fE(ptr noalias noundef align 8 dereferenceable_or_null(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef align 8 ptr @_ZN12pingora_http19insert_header_value17hf3a88c7c32fa774fE(ptr noalias noundef align 8 dereferenceable_or_null(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [40 x i8], align 8
   %7 = alloca [40 x i8], align 8
@@ -1126,7 +1126,7 @@ define internal fastcc noundef align 8 ptr @_ZN12pingora_http19insert_header_val
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error7because17ha602deab21ff7eaeE(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error7because17ha602deab21ff7eaeE(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [72 x i8], align 8
   %3 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)

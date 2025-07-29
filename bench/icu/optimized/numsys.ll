@@ -893,8 +893,8 @@ define noundef signext i8 @_ZNK6icu_7715NumberingSystem13isAlgorithmicEv(ptr nou
   ret i8 %3
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef signext i8 @numSysCleanup_77() #1 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef signext i8 @numSysCleanup_77() #8 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !34
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3

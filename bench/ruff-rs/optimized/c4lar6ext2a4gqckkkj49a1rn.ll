@@ -26571,7 +26571,7 @@ define noundef zeroext i1 @"_ZN134_$LT$ty_python_semantic..module_resolver..reso
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef ptr @"_ZN134_$LT$ty_python_semantic..module_resolver..resolver..resolve_module_query..Configuration_$u20$as$u20$salsa..function..Configuration$GT$7execute17h25843af81185ca79E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(224) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noalias noundef ptr @"_ZN134_$LT$ty_python_semantic..module_resolver..resolver..resolve_module_query..Configuration_$u20$as$u20$salsa..function..Configuration$GT$7execute17h25843af81185ca79E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(224) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [56 x i8], align 8

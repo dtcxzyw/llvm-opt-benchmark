@@ -154,7 +154,7 @@ define hidden void @_ZN13cf_rustracing3tag3Tag3new17hda00790b7a424704E(ptr dead_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.invoke, label %6
@@ -6987,7 +6987,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   %64 = extractvalue { ptr, ptr } %63, 0
   %65 = extractvalue { ptr, ptr } %63, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !581
-  %66 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noundef align 1 %64, ptr %65)
+  %66 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noundef align 1 %64, ptr %65)
           to label %135 unwind label %57
 
 67:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc4f4ff5e126989a4E.exit.i.i"
@@ -7106,7 +7106,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   %96 = extractvalue { ptr, ptr } %95, 0
   %97 = extractvalue { ptr, ptr } %95, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !597
-  %98 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %96, ptr %97)
+  %98 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %96, ptr %97)
           to label %114 unwind label %.body.thread98.i
 
 99:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc4f4ff5e126989a4E.exit.i56.i"
@@ -7717,7 +7717,7 @@ common.ret:                                       ; preds = %56, %21
   %96 = extractvalue { ptr, ptr } %95, 0
   %97 = extractvalue { ptr, ptr } %95, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !656
-  %98 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %96, ptr %97)
+  %98 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %96, ptr %97)
           to label %115 unwind label %90
 
 99:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc4f4ff5e126989a4E.exit.i.i"

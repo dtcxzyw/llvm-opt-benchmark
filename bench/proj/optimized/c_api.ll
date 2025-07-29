@@ -9753,7 +9753,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exi
 declare noundef zeroext i1 @_ZNK5osgeo4proj2io15DatabaseContext15lookForGridInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRS8_SB_SB_RbSC_SC_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @proj_query_geodetic_crs_from_datum(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @proj_query_geodetic_crs_from_datum(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -10631,7 +10631,7 @@ _ZNSt7__cxx1110_List_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11G
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @proj_create_from_name(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @proj_create_from_name(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca %"class.dropbox::oxygen::nn.191", align 8
@@ -11686,7 +11686,7 @@ define range(i32 0, 2) i32 @proj_is_deprecated(ptr noundef readonly captures(add
 declare noundef zeroext i1 @_ZNK5osgeo4proj6common16IdentifiedObject12isDeprecatedEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @proj_get_non_deprecated(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @proj_get_non_deprecated(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.138", align 8
   %4 = alloca %"class.std::__cxx11::list.249", align 8
   %5 = alloca %"class.dropbox::oxygen::nn", align 8
@@ -19486,7 +19486,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8Bou
 declare void @_ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.215") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @proj_identify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @proj_identify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.dropbox::oxygen::nn.191", align 8
   %8 = alloca %"class.dropbox::oxygen::nn", align 8
@@ -70625,7 +70625,7 @@ define range(i32 0, 2) i32 @proj_coordoperation_get_grid_used(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @proj_create_operation_factory_context(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @proj_create_operation_factory_context(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::shared_ptr", align 8
   %5 = alloca %"class.dropbox::oxygen::nn.706", align 8
@@ -79292,7 +79292,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation19CoordinateOperationEEERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @proj_insert_object_session_create(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @proj_insert_object_session_create(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.dropbox::oxygen::nn", align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6

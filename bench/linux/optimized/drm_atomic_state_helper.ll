@@ -230,7 +230,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare dso_local ptr @drm_property_blob_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr noundef readonly captures(none) %0) #1 align 16 {
+define dso_local noalias noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -675,7 +675,7 @@ define dso_local void @__drm_atomic_helper_plane_duplicate_state(ptr noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_atomic_helper_plane_duplicate_state(ptr noundef readonly captures(none) %0) #1 align 16 {
+define dso_local noalias noundef ptr @drm_atomic_helper_plane_duplicate_state(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1306,7 +1306,7 @@ define dso_local void @__drm_atomic_helper_connector_duplicate_state(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_atomic_helper_connector_duplicate_state(ptr noundef %0) #1 align 16 {
+define dso_local noalias noundef ptr @drm_atomic_helper_connector_duplicate_state(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1437,7 +1437,7 @@ define dso_local void @__drm_atomic_helper_bridge_duplicate_state(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_atomic_helper_bridge_duplicate_state(ptr noundef %0) #1 align 16 {
+define dso_local noalias noundef ptr @drm_atomic_helper_bridge_duplicate_state(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

@@ -1124,7 +1124,7 @@ declare ptr @_ZN2v810StackTrace17CurrentStackTraceEPNS_7IsolateEiNS0_17StackTrac
 declare i32 @raise(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node20SigintWatchdogHelper17RunSigintWatchdogEPv(ptr readnone captures(none) %arg) #3 align 2 {
+define dso_local noalias noundef ptr @_ZN4node20SigintWatchdogHelper17RunSigintWatchdogEPv(ptr readnone captures(none) %arg) #3 align 2 {
 entry:
   br label %do.body
 

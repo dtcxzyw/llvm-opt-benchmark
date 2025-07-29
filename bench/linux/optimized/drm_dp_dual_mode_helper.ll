@@ -651,7 +651,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_set_tmds_output
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_dp_get_dual_mode_type_name(i32 noundef %0) #0 align 16 {
+define dso_local noundef nonnull ptr @drm_dp_get_dual_mode_type_name(i32 noundef %0) #0 align 16 {
   switch i32 %0, label %7 [
     i32 0, label %9
     i32 2, label %2

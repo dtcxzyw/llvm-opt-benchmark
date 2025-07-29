@@ -2413,8 +2413,8 @@ declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 
 declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL24calendar_chinese_cleanupv() #0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL24calendar_chinese_cleanupv() #3 {
   %1 = load ptr, ptr @_ZL20gWinterSolsticeCache, align 8, !tbaa !44
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2

@@ -7178,7 +7178,7 @@ _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %14, %18
 declare void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16java_lang_Thread18thread_status_nameEP7oopDesc(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16java_lang_Thread18thread_status_nameEP7oopDesc(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @_ZN16java_lang_Thread14_holder_offsetE, align 4
   %3 = sext i32 %2 to i64
   %4 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8

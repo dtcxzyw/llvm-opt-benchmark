@@ -39391,7 +39391,7 @@ define void @_ZN6ide_db12symbol_index5Query14case_sensitive17had7f396384cd5676E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6ide_db12symbol_index15library_symbols17hcc660c0e27c4896aE.llvm.17814153394679541470(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6ide_db12symbol_index15library_symbols17hcc660c0e27c4896aE.llvm.17814153394679541470(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, { { ptr, ptr } } }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { { i64 }, { { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { i32, [1 x i32] }, i64, i64, i64, i64 } } } } }, align 8
@@ -39683,7 +39683,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %27, %.thread,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6ide_db12symbol_index14module_symbols17haee77449d708ef34E.llvm.17814153394679541470(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 4 captures(none) dereferenceable(12) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6ide_db12symbol_index14module_symbols17haee77449d708ef34E.llvm.17814153394679541470(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 4 captures(none) dereferenceable(12) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { i64 }, { { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { i32, [1 x i32] }, i64, i64, i64, i64 } } } } }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { i32, [1 x i32] }, i64, i64, i64, i64 } } } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -43669,7 +43669,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN73_$LT$ide_db..symbol
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN91_$LT$ide_db..symbol_index..ModuleSymbolsQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h93373df72d3ae5feE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 4 captures(none) dereferenceable(12) %2) unnamed_addr #2 {
+define noalias noundef nonnull ptr @"_ZN91_$LT$ide_db..symbol_index..ModuleSymbolsQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h93373df72d3ae5feE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 4 captures(none) dereferenceable(12) %2) unnamed_addr #2 {
   %4 = tail call noundef nonnull ptr @_ZN6ide_db12symbol_index14module_symbols17haee77449d708ef34E.llvm.17814153394679541470(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %2)
   ret ptr %4
 }
@@ -43723,7 +43723,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN74_$LT$ide_db..symbol
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN92_$LT$ide_db..symbol_index..LibrarySymbolsQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h4f06ab57d4f9f4e6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
+define noalias noundef nonnull ptr @"_ZN92_$LT$ide_db..symbol_index..LibrarySymbolsQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h4f06ab57d4f9f4e6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = tail call noundef nonnull ptr @_ZN6ide_db12symbol_index15library_symbols17hcc660c0e27c4896aE.llvm.17814153394679541470(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2)
   ret ptr %4
 }

@@ -165,7 +165,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a3505235b803b679443fd24dc535e643.243 = private unnamed_addr constant [11 x i8] c"CertWrapper", align 1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.invoke, label %6
@@ -11221,7 +11221,7 @@ define hidden void @_ZN12pingora_core9listeners2l43uds11set_backlog17hf7d02b4777
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hae4d2afa10727884E.exit.i": ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h522ea1f81dc7efb2E.exit.i"
   %27 = extractvalue { ptr, ptr } %26, 0
   %28 = extractvalue { ptr, ptr } %26, 1
-  %29 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %27, ptr %28)
+  %29 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %27, ptr %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !813
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12313,7 +12313,7 @@ define hidden noundef nonnull align 8 dereferenceable(184) ptr @_ZN12pingora_cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 ptr @_ZN12pingora_core9protocols2l46stream6Stream11set_nodelay17hf8463d56692f0b5fE(ptr noalias noundef align 8 dereferenceable(344) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noalias noundef align 8 ptr @_ZN12pingora_core9protocols2l46stream6Stream11set_nodelay17hf8463d56692f0b5fE(ptr noalias noundef align 8 dereferenceable(344) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [8 x i8], align 8
@@ -12397,7 +12397,7 @@ _ZN12pingora_core9protocols2l46stream6Stream10stream_mut17h9b96ba16ae0c5a73E.exi
 _ZN13pingora_error5Error7because17h7a799f22712036a3E.exit: ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h522ea1f81dc7efb2E.exit.i"
   %28 = extractvalue { ptr, ptr } %13, 0
   %29 = extractvalue { ptr, ptr } %13, 1
-  %30 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noundef align 1 %28, ptr %29)
+  %30 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noundef align 1 %28, ptr %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !883
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.sink.split
@@ -12474,7 +12474,7 @@ _ZN12pingora_core9protocols2l46stream6Stream10stream_mut17h9b96ba16ae0c5a73E.exi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 ptr @_ZN12pingora_core9protocols2l46stream6Stream16set_rx_timestamp17hafc324008b518a36E(ptr noalias noundef align 8 dereferenceable(344) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noalias noundef align 8 ptr @_ZN12pingora_core9protocols2l46stream6Stream16set_rx_timestamp17hafc324008b518a36E(ptr noalias noundef align 8 dereferenceable(344) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [4 x i8], align 4
@@ -12539,7 +12539,7 @@ _ZN12pingora_core9protocols2l46stream6Stream10stream_mut17h9b96ba16ae0c5a73E.exi
 _ZN13pingora_error5Error7because17h0cf464cb43d6ceb3E.exit: ; preds = %12
   %24 = extractvalue { ptr, ptr } %13, 0
   %25 = extractvalue { ptr, ptr } %13, 1
-  %26 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2, ptr noundef align 1 %24, ptr %25)
+  %26 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2, ptr noundef align 1 %24, ptr %25)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !902
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %.sink.split

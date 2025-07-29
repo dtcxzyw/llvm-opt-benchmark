@@ -78,7 +78,7 @@ define void @_ZN5Ipopt13CGPenaltyDataD2Ev(ptr noundef nonnull align 8 captures(n
   %10 = load ptr, ptr %3, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(280) %3) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(280) %3) #7
   store ptr null, ptr %2, align 8, !tbaa !10
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit
 
@@ -100,7 +100,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit: ; preds = %1, %4, %9
   %21 = load ptr, ptr %14, align 8, !tbaa !8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(280) %14) #8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(280) %14) #7
   store ptr null, ptr %13, align 8, !tbaa !10
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit2
 
@@ -111,8 +111,8 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit2: ; preds = %_ZN5Ipopt8SmartP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt13CGPenaltyDataD0Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZN5Ipopt13CGPenaltyDataD1Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) #8
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #9
+  tail call void @_ZN5Ipopt13CGPenaltyDataD1Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #8
   ret void
 }
 
@@ -144,8 +144,8 @@ define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData10InitializeERKNS_10Journalis
   ret i1 true
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData24InitializeDataStructuresEv(ptr noundef nonnull align 8 captures(none) dereferenceable(105) initializes((24, 25), (40, 41)) %0) unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData24InitializeDataStructuresEv(ptr noundef nonnull align 8 captures(none) dereferenceable(105) initializes((24, 25), (40, 41)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %.not.i.i.i = icmp eq ptr %3, null
@@ -163,7 +163,7 @@ define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData24InitializeDataStructuresEv(
   %10 = load ptr, ptr %3, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(280) %3) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(280) %3) #7
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit: ; preds = %1, %4, %9
@@ -185,7 +185,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit: ; preds = %1, %4, %9
   %21 = load ptr, ptr %14, align 8, !tbaa !8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(280) %14) #8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(280) %14) #7
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit2
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit2: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit, %15, %20
@@ -197,8 +197,8 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit2: ; preds = %_ZN5Ipopt8Sma
   ret i1 true
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt13CGPenaltyData16AcceptTrialPointEv(ptr noundef nonnull align 8 captures(none) dereferenceable(105) initializes((24, 25), (40, 41)) %0) unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5Ipopt13CGPenaltyData16AcceptTrialPointEv(ptr noundef nonnull align 8 captures(none) dereferenceable(105) initializes((24, 25), (40, 41)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %.not.i.i.i = icmp eq ptr %3, null
@@ -216,7 +216,7 @@ define void @_ZN5Ipopt13CGPenaltyData16AcceptTrialPointEv(ptr noundef nonnull al
   %10 = load ptr, ptr %3, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(280) %3) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(280) %3) #7
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit: ; preds = %1, %4, %9
@@ -238,7 +238,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit: ; preds = %1, %4, %9
   %21 = load ptr, ptr %14, align 8, !tbaa !8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(280) %14) #8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(280) %14) #7
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit2
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit2: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit, %15, %20
@@ -258,14 +258,14 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #9
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #8
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_IpCGPenaltyData.cpp() #7 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_IpCGPenaltyData.cpp() #6 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #8
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #7
   ret void
 }
 
@@ -275,10 +275,9 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { builtin nounwind }
+attributes #6 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -9283,8 +9283,8 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 ; Function Attrs: cold nofree noreturn
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM4GBDTC2Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 12), (16, 132), (136, 145), (152, 252)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8LightGBM4GBDTC2Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 12), (16, 132), (136, 145), (152, 252)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   store ptr getelementptr inbounds nuw inrange(-16, 432) (i8, ptr @_ZTVN8LightGBM4GBDTE, i64 16), ptr %0, align 8, !tbaa !193
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8

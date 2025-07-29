@@ -472,7 +472,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
+define internal noalias noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8

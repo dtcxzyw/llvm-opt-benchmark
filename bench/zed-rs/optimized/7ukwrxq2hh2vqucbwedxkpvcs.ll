@@ -31538,7 +31538,7 @@ define noundef zeroext i1 @"_ZN63_$LT$language..CachedLspAdapter$u20$as$u20$core
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @_ZN8language16CachedLspAdapter3new17h3a1651991864d6e2E(ptr noundef nonnull %0, ptr noalias noundef readonly align 8 dereferenceable(176) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @_ZN8language16CachedLspAdapter3new17h3a1651991864d6e2E(ptr noundef nonnull %0, ptr noalias noundef readonly align 8 dereferenceable(176) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [280 x i8], align 8
   %.sroa.0 = alloca [104 x i8], align 8
   %4 = alloca [32 x i8], align 8

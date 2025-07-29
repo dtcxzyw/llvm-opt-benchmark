@@ -921,7 +921,7 @@ define hidden void @_ZN4lean16finalize_processEv() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @lean_io_process_spawn(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_io_process_spawn(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x ptr], align 16
   %4 = alloca %"class.lean::optional", align 4
   %5 = alloca %"class.lean::optional", align 4

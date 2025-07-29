@@ -186,8 +186,8 @@ define noundef zeroext i1 @_ZNK6icu_7721FieldPositionIteratoreqERKS0_(ptr nounde
 
 declare noundef zeroext i1 @_ZNK6icu_779UVector32eqERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7721FieldPositionIterator7setDataEPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6icu_7721FieldPositionIterator7setDataEPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !14
   %5 = icmp slt i32 %4, 1
   %6 = icmp ne ptr %1, null

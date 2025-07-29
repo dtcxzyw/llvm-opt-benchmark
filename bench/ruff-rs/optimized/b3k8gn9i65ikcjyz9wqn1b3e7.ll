@@ -8775,7 +8775,7 @@ define noundef zeroext i1 @"_ZN97_$LT$ruff_db..parsed..parsed_module..Configurat
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN97_$LT$ruff_db..parsed..parsed_module..Configuration_$u20$as$u20$salsa..function..Configuration$GT$7execute17hcfd9fdc74646f023E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(176) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @"_ZN97_$LT$ruff_db..parsed..parsed_module..Configuration_$u20$as$u20$salsa..function..Configuration$GT$7execute17hcfd9fdc74646f023E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(176) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [120 x i8], align 8
   %5 = alloca [16 x i8], align 8
   %6 = alloca [16 x i8], align 8

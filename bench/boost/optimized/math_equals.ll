@@ -40429,7 +40429,7 @@ define dso_local void @_ZN5boost9unit_test25framework_init_observer_t12test_abor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z20init_unit_test_suiteiPPc(i32 noundef %0, ptr noundef %1) #3 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_Z20init_unit_test_suiteiPPc(i32 noundef %0, ptr noundef %1) #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::function.114", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8

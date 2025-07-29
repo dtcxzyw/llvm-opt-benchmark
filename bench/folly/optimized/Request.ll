@@ -4069,8 +4069,8 @@ declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull ali
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11RequestData20releaseRefDeleteOnlyEv(ptr noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly11RequestData20releaseRefDeleteOnlyEv(ptr noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
   %.not = icmp eq i32 %3, 1
@@ -19996,7 +19996,7 @@ _ZN5folly14RequestContext11copyAsChildERKS0_.exit: ; preds = %15, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5folly14RequestContext3getEv() local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5folly14RequestContext3getEv() local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %1 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN5folly12_GLOBAL__N_122getStaticContextCalledE)
   store i8 1, ptr %1, align 1, !tbaa !97
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_14RequestContext13StaticContextES1_NS_6detail11DefaultMakeIS2_EES1_E3getEvE5cache)

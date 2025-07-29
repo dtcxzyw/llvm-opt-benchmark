@@ -9264,8 +9264,8 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$hashbrown..table..HashTable$
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr61drop_in_place$LT$polars_arrow..ffi..generated..ArrowArray$GT$17h93cfbead92cf3ab7E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr61drop_in_place$LT$polars_arrow..ffi..generated..ArrowArray$GT$17h93cfbead92cf3ab7E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !alias.scope !1403, !noundef !3
   %.not.i = icmp eq ptr %3, null
@@ -9520,8 +9520,8 @@ common.resume:                                    ; preds = %2, %11, %17
   unreachable
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr62drop_in_place$LT$polars_arrow..ffi..generated..ArrowSchema$GT$17h1e56b3fcaf6ae5e1E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr62drop_in_place$LT$polars_arrow..ffi..generated..ArrowSchema$GT$17h1e56b3fcaf6ae5e1E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !alias.scope !1445, !noundef !3
   %.not.i = icmp eq ptr %3, null
@@ -18202,8 +18202,8 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$$u5b$alloc..boxed..
   unreachable
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr90drop_in_place$LT$alloc..sync..ArcInner$LT$polars_arrow..ffi..generated..ArrowArray$GT$$GT$17hdb59c8630c3553cbE"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #0 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr90drop_in_place$LT$alloc..sync..ArcInner$LT$polars_arrow..ffi..generated..ArrowArray$GT$$GT$17hdb59c8630c3553cbE"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !alias.scope !3169, !noundef !3
   %.not.i.i = icmp eq ptr %3, null
@@ -49967,8 +49967,8 @@ define void @_ZN12polars_arrow9datatypes5field5Field10with_dtype17h2a137957003c2
           to label %42 unwind label %40
 }
 
-; Function Attrs: nonlazybind uwtable
-define void @"_ZN12polars_arrow3ffi5array92_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$polars_arrow..ffi..generated..ArrowArray$GT$4drop17hf15298273e803ad2E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 {
+; Function Attrs: nounwind nonlazybind uwtable
+define void @"_ZN12polars_arrow3ffi5array92_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$polars_arrow..ffi..generated..ArrowArray$GT$4drop17hf15298273e803ad2E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !noundef !3
   %.not = icmp eq ptr %3, null
@@ -49982,8 +49982,8 @@ define void @"_ZN12polars_arrow3ffi5array92_$LT$impl$u20$core..ops..drop..Drop$u
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define void @"_ZN12polars_arrow3ffi6schema93_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$polars_arrow..ffi..generated..ArrowSchema$GT$4drop17h8e4ae456ea16d7e8E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 {
+; Function Attrs: nounwind nonlazybind uwtable
+define void @"_ZN12polars_arrow3ffi6schema93_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$polars_arrow..ffi..generated..ArrowSchema$GT$4drop17h8e4ae456ea16d7e8E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !noundef !3
   %.not = icmp eq ptr %3, null
@@ -49997,8 +49997,8 @@ define void @"_ZN12polars_arrow3ffi6schema93_$LT$impl$u20$core..ops..drop..Drop$
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define void @"_ZN12polars_arrow3ffi6stream98_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$polars_arrow..ffi..generated..ArrowArrayStream$GT$4drop17h23f680712057603eE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 {
+; Function Attrs: nounwind nonlazybind uwtable
+define void @"_ZN12polars_arrow3ffi6stream98_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$polars_arrow..ffi..generated..ArrowArrayStream$GT$4drop17h23f680712057603eE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !noundef !3
   %.not = icmp eq ptr %3, null

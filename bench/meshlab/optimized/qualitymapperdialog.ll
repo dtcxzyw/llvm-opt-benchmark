@@ -16897,7 +16897,7 @@ define void @_ZN19QualityMapperDialog25on_TfHandle_doubleClickedEP8TFHandle(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN19QualityMapperDialog14removeTfHandleEP8TFHandle(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZN19QualityMapperDialog14removeTfHandleEP8TFHandle(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %107, label %4
 

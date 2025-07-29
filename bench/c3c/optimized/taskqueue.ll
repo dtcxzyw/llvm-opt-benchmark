@@ -88,7 +88,7 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #4
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef ptr @taskqueue_thread(ptr noundef %0) #5 {
+define internal noalias noundef nonnull ptr @taskqueue_thread(ptr noundef %0) #5 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8

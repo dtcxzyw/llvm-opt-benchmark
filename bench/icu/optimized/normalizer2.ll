@@ -441,8 +441,8 @@ define void @_ZN6icu_7713Norm2AllModesD2Ev(ptr noundef nonnull align 8 dereferen
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7713Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef ptr @_ZN6icu_7713Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 4, !tbaa !3
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %11, label %5
@@ -3740,8 +3740,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_77L24uprv_normalizer2_cleanupEv() #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZN6icu_77L24uprv_normalizer2_cleanupEv() #1 {
   %1 = load ptr, ptr @_ZN6icu_77L13noopSingletonE, align 8, !tbaa !13
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3

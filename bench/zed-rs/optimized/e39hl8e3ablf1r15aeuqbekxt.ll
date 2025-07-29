@@ -143939,7 +143939,7 @@ define noundef align 8 dereferenceable_or_null(200) ptr @_ZN7project9lsp_store24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7project9lsp_store23LocalLspAdapterDelegate9for_local17h13868352a0697567E(ptr noalias noundef readonly align 16 dereferenceable(720) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7project9lsp_store23LocalLspAdapterDelegate9for_local17h13868352a0697567E(ptr noalias noundef readonly align 16 dereferenceable(720) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load i64, ptr %4, align 16, !range !1207, !alias.scope !38419, !noundef !4
   %6 = icmp eq i64 %5, -9223372036854775807
@@ -144003,7 +144003,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.877204494124398451.exi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @_ZN7project9lsp_store23LocalLspAdapterDelegate3new17h066515751a4d647fE(ptr noalias noundef readonly align 16 dereferenceable(720) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(56) %3, ptr noundef nonnull %4, ptr noalias noundef readonly align 8 dereferenceable(232) %5, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %6) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @_ZN7project9lsp_store23LocalLspAdapterDelegate3new17h066515751a4d647fE(ptr noalias noundef readonly align 16 dereferenceable(720) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(56) %3, ptr noundef nonnull %4, ptr noalias noundef readonly align 8 dereferenceable(232) %5, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %6) unnamed_addr #2 personality ptr @rust_eh_personality {
   %8 = alloca [16 x i8], align 8
   %9 = alloca [200 x i8], align 8
   %10 = alloca [32 x i8], align 8

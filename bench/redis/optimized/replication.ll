@@ -434,7 +434,7 @@ declare ptr @listNext(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @replicationGetSlaveName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @replicationGetSlaveName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [46 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %2) #21
   store i8 0, ptr %2, align 16, !tbaa !53

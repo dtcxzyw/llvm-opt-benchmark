@@ -1919,8 +1919,8 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb11BlockHandle1
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11BlockHandle22MergeMemoryReservationERSt11unique_lockISt5mutexENS_21BufferPoolReservationE(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(9) %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6duckdb11BlockHandle22MergeMemoryReservationERSt11unique_lockISt5mutexENS_21BufferPoolReservationE(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(9) %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.duckdb::BufferPoolReservation", align 8
   call void @_ZN6duckdb21BufferPoolReservationC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2) #30
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

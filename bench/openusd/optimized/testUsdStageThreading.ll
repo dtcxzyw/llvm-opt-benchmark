@@ -46988,7 +46988,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZZ4mainENK3$_0clERS4_EUlvE_EEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZZ4mainENK3$_0clERS4_EUlvE_EEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.289", align 8
   %5 = alloca %"class.std::thread::id", align 8
@@ -47352,7 +47352,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZZ4mainENK3$_0clERS4_EUlvE_EEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZZ4mainENK3$_0clERS4_EUlvE_EEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96

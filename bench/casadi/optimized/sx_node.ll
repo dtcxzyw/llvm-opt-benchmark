@@ -2686,7 +2686,7 @@ define hidden noundef zeroext i1 @_ZNK6casadi6SXNode8is_equalEPKS0_x(ptr nonnull
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6casadi6SXNode4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6casadi6SXNode4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3109,7 +3109,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi6SXNode3depEx(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi6SXNode3depEx(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3532,7 +3532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXNode3depEx(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXNode3depEx(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

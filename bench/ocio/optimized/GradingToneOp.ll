@@ -1894,8 +1894,8 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev17GradingToneOpDataELN9__gnu_cxx12_Lo
   resume { ptr, i32 } %35
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113GradingToneOp10isSameTypeERSt10shared_ptrIKNS_2OpEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113GradingToneOp10isSameTypeERSt10shared_ptrIKNS_2OpEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8, !tbaa !31
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %3, align 8
@@ -3226,8 +3226,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev17GradingToneOpDataELN9__gnu_cxx12_Loc
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113GradingToneOp23removeDynamicPropertiesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113GradingToneOp23removeDynamicPropertiesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !25, !noalias !126, !nonnull !81, !noundef !81
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

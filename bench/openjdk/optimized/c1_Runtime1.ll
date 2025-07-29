@@ -1466,7 +1466,7 @@ declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 der
 declare void @_ZN13SharedRuntime30throw_and_post_jvmti_exceptionEP10JavaThreadP6SymbolPKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8Runtime116counter_overflowEP10JavaThreadiP6Method(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noalias noundef ptr @_ZN8Runtime116counter_overflowEP10JavaThreadiP6Method(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.methodHandle, align 8
   %5 = alloca %class.RegisterMap, align 8
   %6 = alloca %class.frame, align 8

@@ -305,7 +305,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @blas_thread_server(ptr noundef %0) #0 {
+define internal noalias noundef ptr @blas_thread_server(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16

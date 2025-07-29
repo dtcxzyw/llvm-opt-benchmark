@@ -6374,8 +6374,8 @@ declare void @_Z30log_Z3_optimize_get_objectivesP11_Z3_contextP12_Z3_optimize(pt
 
 declare void @_ZN3opt7context13get_objectiveEj(ptr dead_on_unwind writable sret(%class.obj_ref.126) align 8, ptr noundef nonnull align 8 dereferenceable(808), i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define void @Z3_optimize_register_model_eh(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @Z3_optimize_register_model_eh(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 _ZNSt8functionIFvRN3opt10on_model_tER3refI5modelEEEC2ERKS8_.exit.i.i:
   %.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %5 = alloca %"class.std::function", align 8

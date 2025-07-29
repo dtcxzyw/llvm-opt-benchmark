@@ -528,7 +528,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes2vm13RuntimeModule6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEEjOSt10shared_ptrINS_3hbc20BCProviderFromBufferEENS0_18RuntimeModuleFlagsEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %domain.coerce, i32 noundef %scriptID, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %bytecode, i8 %flags.coerce, ptr noundef readonly byval(%"class.llvh::StringRef") align 8 captures(none) %sourceURL) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes2vm13RuntimeModule6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEEjOSt10shared_ptrINS_3hbc20BCProviderFromBufferEENS0_18RuntimeModuleFlagsEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %domain.coerce, i32 noundef %scriptID, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %bytecode, i8 %flags.coerce, ptr noundef readonly byval(%"class.llvh::StringRef") align 8 captures(none) %sourceURL) local_unnamed_addr #0 align 2 {
 entry:
   %weakRefMutex_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1288
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #17

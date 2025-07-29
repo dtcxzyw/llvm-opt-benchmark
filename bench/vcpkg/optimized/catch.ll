@@ -21645,7 +21645,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #18
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN5Catch12_GLOBAL__N_122platformColourInstanceEv() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN5Catch12_GLOBAL__N_122platformColourInstanceEv() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::shared_ptr", align 8
   %2 = tail call ptr @__errno_location() #66
   %3 = load i32, ptr %2, align 4, !tbaa !29
@@ -32246,8 +32246,8 @@ define dso_local void @_ZN5Catch8Matchers4Impl18MatcherUntypedBaseD0Ev(ptr nonnu
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch8Matchers9Exception23ExceptionMessageMatcher5matchERKSt9exception(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef zeroext i1 @_ZNK5Catch8Matchers9Exception23ExceptionMessageMatcher5matchERKSt9exception(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -32258,8 +32258,8 @@ define dso_local noundef zeroext i1 @_ZNK5Catch8Matchers9Exception23ExceptionMes
   ret i1 %9
 }
 
-; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn40_NK5Catch8Matchers9Exception23ExceptionMessageMatcher5matchERKSt9exception(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #34 align 2 {
+; Function Attrs: nounwind uwtable
+define dso_local noundef zeroext i1 @_ZThn40_NK5Catch8Matchers9Exception23ExceptionMessageMatcher5matchERKSt9exception(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #24 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8

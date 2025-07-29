@@ -687,7 +687,7 @@ _ZN11duckdb_zstdL28ZSTD_row_update_internalImplEPNS_17ZSTD_matchState_tEjjjjjj.e
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd25ZSTD_compressBlock_greedyEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -1299,7 +1299,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %289
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd40ZSTD_compressBlock_greedy_dictMatchStateEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -1952,7 +1952,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %315
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd45ZSTD_compressBlock_greedy_dedicatedDictSearchEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -2605,7 +2605,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %315
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd29ZSTD_compressBlock_greedy_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -3529,7 +3529,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %447
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd44ZSTD_compressBlock_greedy_dictMatchState_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -4494,7 +4494,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %473
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd49ZSTD_compressBlock_greedy_dedicatedDictSearch_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -5459,7 +5459,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %473
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_lazyEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -6272,7 +6272,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %369
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd38ZSTD_compressBlock_lazy_dictMatchStateEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -7255,7 +7255,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %461
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd43ZSTD_compressBlock_lazy_dedicatedDictSearchEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -8238,7 +8238,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %461
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd27ZSTD_compressBlock_lazy_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -9408,7 +9408,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %542
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd42ZSTD_compressBlock_lazy_dictMatchState_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -10748,7 +10748,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %634
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd47ZSTD_compressBlock_lazy_dedicatedDictSearch_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -12088,7 +12088,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %634
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd24ZSTD_compressBlock_lazy2EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -13092,7 +13092,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %448
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd39ZSTD_compressBlock_lazy2_dictMatchStateEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -14184,7 +14184,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %518
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd44ZSTD_compressBlock_lazy2_dedicatedDictSearchEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -15276,7 +15276,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %518
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd28ZSTD_compressBlock_lazy2_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -16682,7 +16682,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %636
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd43ZSTD_compressBlock_lazy2_dictMatchState_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -18176,7 +18176,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %706
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd48ZSTD_compressBlock_lazy2_dedicatedDictSearch_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -19670,7 +19670,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %706
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd26ZSTD_compressBlock_btlazy2EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -20674,7 +20674,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %448
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd41ZSTD_compressBlock_btlazy2_dictMatchStateEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -21766,7 +21766,7 @@ _ZN11duckdb_zstdL31ZSTD_compressBlock_lazy_genericEPNS_17ZSTD_matchState_tEPNS_1
   ret i64 %518
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd33ZSTD_compressBlock_greedy_extDictEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -22423,7 +22423,7 @@ _ZN11duckdb_zstdL39ZSTD_compressBlock_lazy_extDict_genericEPNS_17ZSTD_matchState
   ret i64 %322
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd37ZSTD_compressBlock_greedy_extDict_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -23392,7 +23392,7 @@ _ZN11duckdb_zstdL39ZSTD_compressBlock_lazy_extDict_genericEPNS_17ZSTD_matchState
   ret i64 %480
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd31ZSTD_compressBlock_lazy_extDictEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -24179,7 +24179,7 @@ _ZN11duckdb_zstdL39ZSTD_compressBlock_lazy_extDict_genericEPNS_17ZSTD_matchState
   ret i64 %385
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd35ZSTD_compressBlock_lazy_extDict_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -25323,7 +25323,7 @@ _ZN11duckdb_zstdL39ZSTD_compressBlock_lazy_extDict_genericEPNS_17ZSTD_matchState
   ret i64 %558
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd32ZSTD_compressBlock_lazy2_extDictEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -26230,7 +26230,7 @@ _ZN11duckdb_zstdL39ZSTD_compressBlock_lazy_extDict_genericEPNS_17ZSTD_matchState
   ret i64 %446
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd36ZSTD_compressBlock_lazy2_extDict_rowEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -27539,7 +27539,7 @@ _ZN11duckdb_zstdL39ZSTD_compressBlock_lazy_extDict_genericEPNS_17ZSTD_matchState
   ret i64 %634
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd34ZSTD_compressBlock_btlazy2_extDictEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef captures(none) initializes((300, 304)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -56108,7 +56108,7 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

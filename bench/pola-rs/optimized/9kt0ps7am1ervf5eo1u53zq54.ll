@@ -95525,7 +95525,7 @@ define void @_ZN11polars_plan5plans3lit17RangeLiteralValue25try_materialize_to_s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @_ZN11polars_plan5plans3lit12LiteralValue11output_name17h7f0f7b16b5912eb8E(ptr noalias noundef readonly align 16 dereferenceable(96) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN11polars_plan5plans3lit12LiteralValue11output_name17h7f0f7b16b5912eb8E(ptr noalias noundef readonly align 16 dereferenceable(96) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 16, !range !2632, !noundef !12
   %3 = add nsw i8 %2, -28
   %4 = icmp ne i8 %3, 1
@@ -95558,7 +95558,7 @@ _ZN11polars_plan9constants16get_literal_name17hd6f276bb9c901a0aE.exit: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @_ZN11polars_plan5plans3lit12LiteralValue18output_column_name17hb31862a220c8f134E(ptr noalias noundef readonly align 16 dereferenceable(96) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN11polars_plan5plans3lit12LiteralValue18output_column_name17hb31862a220c8f134E(ptr noalias noundef readonly align 16 dereferenceable(96) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 16, !range !2632, !noundef !12
   %3 = add nsw i8 %2, -28
   %4 = icmp ne i8 %3, 1

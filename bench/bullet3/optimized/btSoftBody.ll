@@ -39215,7 +39215,7 @@ define dso_local noundef i32 @_ZNK10btSoftBody28calculateSerializeBufferSizeEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK10btSoftBody9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(2064) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZNK10btSoftBody9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(2064) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.btHashMap, align 8
   %5 = alloca i32, align 4
   %6 = alloca %class.btHashPtr, align 8

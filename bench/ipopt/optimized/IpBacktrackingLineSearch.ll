@@ -9665,8 +9665,8 @@ define noundef zeroext i1 @_ZN5Ipopt22BacktrackingLineSearch19CurrentIsAcceptabl
   ret i1 %10
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt22BacktrackingLineSearch20StoreAcceptablePointEv(ptr noundef nonnull align 8 captures(none) dereferenceable(264) initializes((216, 220)) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5Ipopt22BacktrackingLineSearch20StoreAcceptablePointEv(ptr noundef nonnull align 8 captures(none) dereferenceable(264) initializes((216, 220)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16

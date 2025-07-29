@@ -221,8 +221,8 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18SharedCleanablePtr5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7rocksdb18SharedCleanablePtr5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !26
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %3
@@ -381,15 +381,15 @@ _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %1, %_ZN7rocksdb18Sh
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18SharedCleanablePtrC2ERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1) unnamed_addr #5 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7rocksdb18SharedCleanablePtrC2ERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !26
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleanablePtraSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleanablePtraSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleanablePtraSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %30, label %3
 

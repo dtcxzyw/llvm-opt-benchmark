@@ -93,7 +93,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_ref_dir(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_ref_dir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %0, align 8, !tbaa !17
   %4 = and i8 %3, 32

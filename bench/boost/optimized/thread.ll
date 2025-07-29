@@ -1412,7 +1412,7 @@ _ZN5boost10shared_ptrINS_6detail16thread_data_baseEE5resetEv.exit: ; preds = %48
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN5boost12_GLOBAL__N_112thread_proxyEPv(ptr noundef readonly captures(none) %0) #9 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @_ZN5boost12_GLOBAL__N_112thread_proxyEPv(ptr noundef readonly captures(none) %0) #9 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::lock_error", align 8
   %3 = alloca %"class.boost::bad_weak_ptr", align 8
   %4 = alloca %"class.boost::shared_ptr", align 8

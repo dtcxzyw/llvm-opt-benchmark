@@ -1128,7 +1128,7 @@ define dso_local noundef i32 @_ZNK20btPersistentManifold28calculateSerializeBuff
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK20btPersistentManifold9serializeEPKS_PvP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 848)) %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZNK20btPersistentManifold9serializeEPKS_PvP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 848)) %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(848) %2, i8 0, i64 848, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 840
   %6 = load ptr, ptr %5, align 8, !tbaa !38

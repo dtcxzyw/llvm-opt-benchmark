@@ -3797,7 +3797,7 @@ define dso_local noundef ptr @i915_gpu_coredump_alloc(ptr noundef %0, i32 nounde
 declare dso_local i64 @ktime_get() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noalias noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = or i32 %1, 256
   %5 = and i32 %1, 17
   %6 = icmp eq i32 %5, 0

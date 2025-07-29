@@ -3185,8 +3185,8 @@ _ZN6duckdb14ArenaAllocator9AlignNextEv.exit:      ; preds = %4, %7, %12
   ret ptr %17
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14ArenaAllocator5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6duckdb14ArenaAllocator5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %.not = icmp eq ptr %3, null
@@ -67147,8 +67147,8 @@ _ZN6duckdb19PartialBlockManager15GetPartialBlockEmRNS_10unique_ptrINS_12PartialB
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb19PartialBlockManager15GetPartialBlockEmRNS_10unique_ptrINS_12PartialBlockESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZN6duckdb19PartialBlockManager15GetPartialBlockEmRNS_10unique_ptrINS_12PartialBlockESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !706
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72

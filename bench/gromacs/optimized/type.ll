@@ -3579,7 +3579,7 @@ define noundef i32 @_Z20tMPI_Type_contiguousiP14tmpi_datatype_PS0_(i32 noundef %
   store i32 0, ptr %13, align 8, !tbaa !160
   %14 = load ptr, ptr @tmpi_global, align 8, !tbaa !161
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  tail call void asm sideeffect "1:\09cmpl $$0, $0\0A\09je 2f\0A\09pause\0A\09jmp 1b\0A2:\09movl $$1, %eax\0A\09xchgl %eax, $0\0A\09cmpl $$0, %eax\0A\09jne 1b", "=*m,*m,~{eax},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, ptr nonnull elementtype(i32) %15) #5, !srcloc !163
+  tail call void asm sideeffect "1:\09cmpl $$0, $0\0A\09je 2f\0A\09pause\0A\09jmp 1b\0A2:\09movl $$1, %eax\0A\09xchgl %eax, $0\0A\09cmpl $$0, %eax\0A\09jne 1b", "=*m,*m,~{eax},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, ptr nonnull elementtype(i32) %15) #6, !srcloc !163
   %16 = load ptr, ptr @tmpi_global, align 8, !tbaa !161
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !164
@@ -3621,7 +3621,7 @@ define noundef i32 @_Z20tMPI_Type_contiguousiP14tmpi_datatype_PS0_(i32 noundef %
   store i32 %.pre-phi, ptr %35, align 8, !tbaa !164
   store ptr %4, ptr %2, align 8, !tbaa !176
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  tail call void asm sideeffect "\0A\09movl $$0, $0\0A", "=*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %38) #5, !srcloc !177
+  tail call void asm sideeffect "\0A\09movl $$0, $0\0A", "=*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %38) #6, !srcloc !177
   ret i32 0
 }
 
@@ -3629,8 +3629,8 @@ declare noundef ptr @_Z11tMPI_Mallocm(i64 noundef) local_unnamed_addr #2
 
 declare noundef ptr @_Z12tMPI_ReallocPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !176
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !160
@@ -3640,7 +3640,7 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(
 5:                                                ; preds = %1
   %6 = load ptr, ptr @tmpi_global, align 8, !tbaa !161
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void asm sideeffect "1:\09cmpl $$0, $0\0A\09je 2f\0A\09pause\0A\09jmp 1b\0A2:\09movl $$1, %eax\0A\09xchgl %eax, $0\0A\09cmpl $$0, %eax\0A\09jne 1b", "=*m,*m,~{eax},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, ptr nonnull elementtype(i32) %7) #5, !srcloc !163
+  tail call void asm sideeffect "1:\09cmpl $$0, $0\0A\09je 2f\0A\09pause\0A\09jmp 1b\0A2:\09movl $$1, %eax\0A\09xchgl %eax, $0\0A\09cmpl $$0, %eax\0A\09jne 1b", "=*m,*m,~{eax},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, ptr nonnull elementtype(i32) %7) #6, !srcloc !163
   %8 = load ptr, ptr @tmpi_global, align 8, !tbaa !161
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !164
@@ -3753,9 +3753,9 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(
   %54 = phi ptr [ %.pre, %48 ], [ %41, %._crit_edge.thread ], [ %40, %43 ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !155
-  tail call void @free(ptr noundef %56) #5
+  tail call void @free(ptr noundef %56) #6
   %57 = load ptr, ptr %0, align 8, !tbaa !176
-  tail call void @free(ptr noundef %57) #5
+  tail call void @free(ptr noundef %57) #6
   store ptr %.036.lcssa8587, ptr %0, align 8, !tbaa !176
   %.pre81 = load ptr, ptr @tmpi_global, align 8, !tbaa !161
   br label %60
@@ -3769,7 +3769,7 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(
 60:                                               ; preds = %58, %.critedge
   %61 = phi ptr [ %8, %58 ], [ %.pre81, %.critedge ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  tail call void asm sideeffect "\0A\09movl $$0, $0\0A", "=*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %62) #5, !srcloc !177
+  tail call void asm sideeffect "\0A\09movl $$0, $0\0A", "=*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %62) #6, !srcloc !177
   br label %63
 
 63:                                               ; preds = %1, %60
@@ -3777,62 +3777,63 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #4
+declare i64 @llvm.smin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #4
+declare i64 @llvm.smax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smin.i8(i8, i8) #4
+declare i8 @llvm.smin.i8(i8, i8) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smax.i8(i8, i8) #4
+declare i8 @llvm.smax.i8(i8, i8) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
+declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #4
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #4
+declare i16 @llvm.umin.i16(i16, i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #4
+declare i16 @llvm.umax.i16(i16, i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #4
+declare i8 @llvm.umin.i8(i8, i8) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #4
+declare i8 @llvm.umax.i8(i8, i8) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #4
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #4
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #4
+declare i16 @llvm.smin.i16(i16, i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #4
+declare i16 @llvm.smax.i16(i16, i16) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

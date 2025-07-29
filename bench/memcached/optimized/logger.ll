@@ -452,7 +452,7 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @logger_thread(ptr readnone captures(none) %0) #1 {
+define internal noalias noundef ptr @logger_thread(ptr readnone captures(none) %0) #1 {
   %2 = alloca i32, align 4
   %3 = alloca [4096 x i8], align 16
   %4 = load volatile i32, ptr @do_run_logger_thread, align 4, !tbaa !9

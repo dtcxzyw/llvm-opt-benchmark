@@ -3523,7 +3523,7 @@ define dso_local noundef zeroext i1 @ProcArrayInstallRestoredXmin(i32 noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @GetRunningTransactionData() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @GetRunningTransactionData() local_unnamed_addr #0 {
   %1 = load ptr, ptr @procArray, align 8
   %2 = load ptr, ptr @ProcGlobal, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8

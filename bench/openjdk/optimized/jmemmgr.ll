@@ -230,7 +230,7 @@ define internal nonnull ptr @alloc_small(ptr noundef %0, i32 noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @alloc_large(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 {
+define internal nonnull ptr @alloc_large(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ugt i64 %2, 999999976

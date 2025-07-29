@@ -4205,7 +4205,7 @@ define internal void @"_ZN3tbb10interface98internal9start_forINS_13blocked_range
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEE7executeEv"(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEE7executeEv"(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.tbb::interface9::internal::range_vector", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8

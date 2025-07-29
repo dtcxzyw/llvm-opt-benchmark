@@ -3933,8 +3933,8 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_122XdsWrrLocalityLbConfigEED2Ev.exi
   ret ptr %.val3
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_13RefCountedPtrINS_12_GLOBAL__N_122XdsWrrLocalityLbConfigEEEE5ResetEPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_13RefCountedPtrINS_12_GLOBAL__N_122XdsWrrLocalityLbConfigEEEE5ResetEPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !109
   store ptr null, ptr %1, align 8, !tbaa !109
   %.not.i = icmp eq ptr %3, null

@@ -1534,7 +1534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN12ServerThread3runEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_ZN12ServerThread3runEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i214 = alloca %struct.timespec, align 8
   %ts.i194 = alloca %struct.timespec, align 8

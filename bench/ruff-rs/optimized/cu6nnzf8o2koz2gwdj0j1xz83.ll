@@ -8620,7 +8620,7 @@ define noundef ptr @"_ZN81_$LT$ruff_db..system..os..OsSystem$u20$as$u20$ruff_db.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN72_$LT$ruff_db..system..os..OsSystem$u20$as$u20$core..default..Default$GT$7default17hf87f2a7e0eb400ceE"() unnamed_addr #4 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @"_ZN72_$LT$ruff_db..system..os..OsSystem$u20$as$u20$core..default..Default$GT$7default17hf87f2a7e0eb400ceE"() unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = alloca [40 x i8], align 8
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8

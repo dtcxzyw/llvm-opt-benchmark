@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @rpc_tls_probe_ops = internal constant %struct.rpc_call_ops { ptr @rpc_tls_probe_call_prepare, ptr @rpc_tls_probe_call_done, ptr null, ptr null }, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @tls_create(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
+define internal noundef nonnull ptr @tls_create(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @tls_auth, i64 36), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @tls_auth, i64 36)) #8, !srcloc !5
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5, !prof !6

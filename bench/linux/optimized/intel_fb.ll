@@ -338,7 +338,7 @@ define dso_local zeroext i1 @intel_fb_is_mc_ccs_modifier(i64 noundef %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @intel_fb_plane_get_modifiers(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noalias ptr @intel_fb_plane_get_modifiers(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7168
   br label %5

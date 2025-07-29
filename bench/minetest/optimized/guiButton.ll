@@ -2044,8 +2044,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9GUIButton13setSpriteBankEPN3irr3gui14IGUISpriteBankE(ptr noundef nonnull align 8 captures(none) dereferenceable(7452) %this, ptr noundef %sprites) unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN9GUIButton13setSpriteBankEPN3irr3gui14IGUISpriteBankE(ptr noundef nonnull align 8 captures(none) dereferenceable(7452) %this, ptr noundef %sprites) unnamed_addr #7 align 2 {
 entry:
   %tobool.not = icmp eq ptr %sprites, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3580,8 +3580,8 @@ entry:
   ret i1 %tobool
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9GUIButton8setImageEN3irr3gui23EGUI_BUTTON_IMAGE_STATEEPNS0_5video8ITextureERKNS0_4core4rectIiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(7452) %this, i32 noundef %state, ptr noundef %image, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sourceRect) unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN9GUIButton8setImageEN3irr3gui23EGUI_BUTTON_IMAGE_STATEEPNS0_5video8ITextureERKNS0_4core4rectIiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(7452) %this, i32 noundef %state, ptr noundef %image, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sourceRect) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp sgt i32 %state, 8
   br i1 %cmp, label %return, label %if.end

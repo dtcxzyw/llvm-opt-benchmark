@@ -706,7 +706,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog17lazy_table_plugin8mk_emptyERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN7datalog17lazy_table_plugin8mk_emptyERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1380,7 +1380,7 @@ declare noundef ptr @_ZN7datalog16relation_manager16get_table_pluginERK6symbol(p
 declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK7datalog10lazy_table5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZNK7datalog10lazy_table5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.datalog::verbose_action", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !56
@@ -1590,7 +1590,7 @@ declare void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 der
 declare void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK7datalog10lazy_table10complementEP9func_declPKm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZNK7datalog10lazy_table10complementEP9func_declPKm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40

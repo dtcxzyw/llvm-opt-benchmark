@@ -9654,8 +9654,8 @@ define internal noundef i32 @"_ZZN6icu_7712_GLOBAL__N_113AliasReplacer7replaceER
   ret i32 %3
 }
 
-; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN6icu_7712_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeEN3$_18__invokeEPv"(ptr noundef %0) #2 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZN6icu_7712_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeEN3$_18__invokeEPv"(ptr noundef %0) #6 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZZN6icu_7712_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeENK3$_1clEPv.exit", label %3
 

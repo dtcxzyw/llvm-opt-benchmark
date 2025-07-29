@@ -50713,7 +50713,7 @@ define { i32, i32 } @_ZN7hir_def9lang_item9LangItems6target17h84ae99765059c0ecE(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN7hir_def9lang_item9LangItems22crate_lang_items_query17h31ab592bda60d66cE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @_ZN7hir_def9lang_item9LangItems22crate_lang_items_query17h31ab592bda60d66cE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

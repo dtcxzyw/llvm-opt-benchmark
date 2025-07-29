@@ -38847,7 +38847,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gn
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -39274,7 +39274,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 32, !tbaa !793
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -39634,7 +39634,7 @@ define internal void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_c
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEENS1_23quick_sort_pretest_bodyISA_ZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSE_8geometry9TensorMapEE3$_0EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEENS1_23quick_sort_pretest_bodyISA_ZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSE_8geometry9TensorMapEE3$_0EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector.313", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -40110,7 +40110,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iterat
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEENS1_23quick_sort_pretest_bodyISA_ZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSE_8geometry9TensorMapEE3$_0EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEENS1_23quick_sort_pretest_bodyISA_ZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSE_8geometry9TensorMapEE3$_0EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8, !tbaa !767
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128

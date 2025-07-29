@@ -770,7 +770,7 @@ fifo_enqueue.exit:                                ; preds = %118, %120
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @worker_thread_proc(ptr noundef %0) #0 {
+define internal noalias noundef ptr @worker_thread_proc(ptr noundef %0) #0 {
   %2 = alloca %struct.strbuf, align 8
   %3 = alloca %struct.ipc_server_reply_data, align 8
   %4 = alloca [1 x %struct.pollfd], align 4

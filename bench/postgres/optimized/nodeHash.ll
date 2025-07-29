@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [8 x i8] c"o%dof%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @MultiExecHash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @MultiExecHash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1

@@ -15756,7 +15756,7 @@ define internal void @_ZN3tbb6detail2d213function_taskIZN4moldL15new_object_file
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_object_fileINS3_6X86_64EEEPNS3_10ObjectFileIT_EERNS3_7ContextIS7_EERNS3_13ReaderContextEPNS3_10MappedFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_E7executeERNS0_2d114execution_dataE(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_object_fileINS3_6X86_64EEEPNS3_10ObjectFileIT_EERNS3_7ContextIS7_EERNS3_13ReaderContextEPNS3_10MappedFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_E7executeERNS0_2d114execution_dataE(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val = load ptr, ptr %3, align 32, !tbaa !929
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -15773,7 +15773,7 @@ define internal noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_obje
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_object_fileINS3_6X86_64EEEPNS3_10ObjectFileIT_EERNS3_7ContextIS7_EERNS3_13ReaderContextEPNS3_10MappedFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_object_fileINS3_6X86_64EEEPNS3_10ObjectFileIT_EERNS3_7ContextIS7_EERNS3_13ReaderContextEPNS3_10MappedFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8, !tbaa !792
   %5 = inttoptr i64 %4 to ptr
@@ -16366,7 +16366,7 @@ define internal void @_ZN3tbb6detail2d213function_taskIZN4moldL15new_shared_file
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_shared_fileINS3_6X86_64EEEPNS3_10SharedFileIT_EERNS3_7ContextIS7_EERNS3_13ReaderContextEPNS3_10MappedFileEEUlvE_E7executeERNS0_2d114execution_dataE(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_shared_fileINS3_6X86_64EEEPNS3_10SharedFileIT_EERNS3_7ContextIS7_EERNS3_13ReaderContextEPNS3_10MappedFileEEUlvE_E7executeERNS0_2d114execution_dataE(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val = load ptr, ptr %3, align 32, !tbaa !945
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -16383,7 +16383,7 @@ define internal noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_shar
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_shared_fileINS3_6X86_64EEEPNS3_10SharedFileIT_EERNS3_7ContextIS7_EERNS3_13ReaderContextEPNS3_10MappedFileEEUlvE_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d213function_taskIZN4moldL15new_shared_fileINS3_6X86_64EEEPNS3_10SharedFileIT_EERNS3_7ContextIS7_EERNS3_13ReaderContextEPNS3_10MappedFileEEUlvE_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8, !tbaa !792
   %5 = inttoptr i64 %4 to ptr

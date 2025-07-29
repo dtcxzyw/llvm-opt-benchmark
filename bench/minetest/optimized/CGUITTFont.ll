@@ -1498,8 +1498,8 @@ _ZN3irr4core6stringIcED2Ev.exit239:               ; preds = %if.then.i.i.i234, %
   br label %common.resume
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui11SGUITTGlyph6unloadEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 1)) %this) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN3irr3gui11SGUITTGlyph6unloadEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 1)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %surface = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %surface, align 8, !tbaa !101

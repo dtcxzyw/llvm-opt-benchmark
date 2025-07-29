@@ -5163,8 +5163,8 @@ define hidden noundef i64 @_ZNK3ue214RoseSuffixInfo4hashEv(ptr noundef nonnull r
   ret i64 %35
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214RoseSuffixInfo5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((0, 4), (8, 16), (24, 32), (40, 48), (56, 64), (72, 80), (88, 96)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN3ue214RoseSuffixInfo5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((0, 4), (8, 16), (24, 32), (40, 48), (56, 64), (72, 80), (88, 96)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -6534,8 +6534,8 @@ define hidden noundef i64 @_ZNK3ue211LeftEngInfo4hashEv(ptr noundef nonnull read
   ret i64 %41
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211LeftEngInfo5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((0, 8), (16, 24), (32, 40), (48, 56), (64, 72), (80, 96)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN3ue211LeftEngInfo5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((0, 8), (16, 24), (32, 40), (48, 56), (64, 72), (80, 96)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

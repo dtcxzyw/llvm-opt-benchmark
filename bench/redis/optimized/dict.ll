@@ -63,7 +63,7 @@ define dso_local i64 @dictGenCaseHashFunction(ptr noundef %0, i64 noundef %1) lo
 declare i64 @siphash_nocase(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @dictCreate(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local noalias noundef ptr @dictCreate(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !5
   %.not = icmp eq ptr %3, null

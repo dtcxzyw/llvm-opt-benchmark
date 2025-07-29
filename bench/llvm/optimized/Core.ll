@@ -725,7 +725,7 @@ define dso_local range(i32 0, 2) i32 @LLVMIsTypeAttribute(ptr noundef %0) local_
 declare noundef zeroext i1 @_ZNK4llvm9Attribute15isTypeAttributeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMGetDiagInfoDescription(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noalias ptr @LLVMGetDiagInfoDescription(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.llvm::raw_string_ostream", align 8
   %4 = alloca %"class.llvm::DiagnosticPrinterRawOStream", align 8
@@ -3798,7 +3798,7 @@ _ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %5, %10
 declare void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @LLVMInstructionGetAllMetadataOtherThanDebugLoc(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @LLVMInstructionGetAllMetadataOtherThanDebugLoc(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon, align 8
   store ptr %0, ptr %3, align 8, !tbaa !219
@@ -3811,7 +3811,7 @@ define dso_local noundef nonnull ptr @LLVMInstructionGetAllMetadataOtherThanDebu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZL16llvm_getMetadataPmN4llvm12function_refIFvRNS0_15SmallVectorImplISt4pairIjPNS0_6MDNodeEEEEEEE(ptr noundef writeonly captures(none) %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #0 {
+define internal fastcc noalias noundef nonnull ptr @_ZL16llvm_getMetadataPmN4llvm12function_refIFvRNS0_15SmallVectorImplISt4pairIjPNS0_6MDNodeEEEEEEE(ptr noundef writeonly captures(none) %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector.245", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8804,7 +8804,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit: ; preds = %2, %2, %
 declare void @_ZN4llvm12GlobalObject12setAlignmentENS_10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(56), i16) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @LLVMGlobalCopyAllMetadata(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @LLVMGlobalCopyAllMetadata(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.180, align 8
   store ptr %0, ptr %3, align 8, !tbaa !219

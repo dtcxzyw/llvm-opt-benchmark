@@ -322,7 +322,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.invoke, label %6
@@ -3913,7 +3913,7 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
 _ZN13pingora_error5Error7because17h1a244ae6673b34e3E.exit.i: ; preds = %.noexc43
   %321 = extractvalue { ptr, ptr } %309, 0
   %322 = extractvalue { ptr, ptr } %309, 1
-  %323 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef align 8 captures(none) dereferenceable(24) %19, ptr noundef align 1 %321, ptr %322)
+  %323 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef align 8 captures(none) dereferenceable(24) %19, ptr noundef align 1 %321, ptr %322)
           to label %.noexc44 unwind label %.loopexit.split-lp
 
 .noexc44:                                         ; preds = %_ZN13pingora_error5Error7because17h1a244ae6673b34e3E.exit.i

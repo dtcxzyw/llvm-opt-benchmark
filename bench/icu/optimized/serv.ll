@@ -1554,8 +1554,8 @@ define linkonce_odr void @_ZN6icu_779HashtableD2Ev(ptr noundef nonnull align 8 d
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN6icu_77L12cacheDeleterEPv(ptr noundef %0) #0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN6icu_77L12cacheDeleterEPv(ptr noundef %0) #3 {
   %2 = load i32, ptr %0, align 8, !tbaa !45
   %3 = add nsw i32 %2, -1
   store i32 %3, ptr %0, align 8, !tbaa !45

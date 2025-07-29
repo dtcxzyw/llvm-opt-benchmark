@@ -408,8 +408,8 @@ define noundef nonnull align 8 dereferenceable(88) ptr @_ZNK3net12HpackDecoder13
   ret ptr %2
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN3net12HpackDecoder26SetHeaderTableDebugVisitorESt10unique_ptrINS_16HpackHeaderTable21DebugVisitorInterfaceESt14default_deleteIS3_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(480) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3net12HpackDecoder26SetHeaderTableDebugVisitorESt10unique_ptrINS_16HpackHeaderTable21DebugVisitorInterfaceESt14default_deleteIS3_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(480) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8, !tbaa !75
   %4 = inttoptr i64 %3 to ptr
   store ptr null, ptr %1, align 8, !tbaa !75

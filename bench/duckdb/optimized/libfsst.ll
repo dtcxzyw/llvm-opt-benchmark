@@ -2183,7 +2183,7 @@ _ZNKSt14default_deleteISt6vectorImSaImEEEclEPS2_.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @duckdb_fsst_create(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @duckdb_fsst_create(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::vector", align 8
@@ -2449,7 +2449,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @duckdb_fsst_duplicate(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @duckdb_fsst_duplicate(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1572880) ptr @_Znwm(i64 noundef 1572880) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1572872) %3, i8 0, i64 1572872, i1 false)

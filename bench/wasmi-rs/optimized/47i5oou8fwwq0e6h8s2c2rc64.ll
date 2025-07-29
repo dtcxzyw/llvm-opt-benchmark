@@ -1866,8 +1866,8 @@ define hidden void @"_ZN4core3ptr277drop_in_place$LT$alloc..sync..ArcInner$LT$wa
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr286drop_in_place$LT$alloc..sync..ArcInner$LT$wasmi..func..HostFuncTrampolineEntity$LT$$LP$$RP$$GT$..new$LT$wasmi_c_api..func..create_function$LT$wasmi_c_api..func..wasm_func_new_with_env..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3d262689d45b9013E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr286drop_in_place$LT$alloc..sync..ArcInner$LT$wasmi..func..HostFuncTrampolineEntity$LT$$LP$$RP$$GT$..new$LT$wasmi_c_api..func..create_function$LT$wasmi_c_api..func..wasm_func_new_with_env..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3d262689d45b9013E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val1.i = load i64, ptr %2, align 8, !alias.scope !292, !noundef !3
@@ -3424,8 +3424,8 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$wasmi..store..inner..StoreIn
   resume { ptr, i32 } %.pn14
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr52drop_in_place$LT$wasmi_c_api..utils..ForeignData$GT$17h4d13a5bc3c7889a3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr52drop_in_place$LT$wasmi_c_api..utils..ForeignData$GT$17h4d13a5bc3c7889a3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !702)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !702, !noundef !3
@@ -3969,8 +3969,8 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$wasmi_c_api..module..wasm_mo
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr55drop_in_place$LT$wasmi_c_api..store..WasmiStoreData$GT$17hd1ab7ba785e20060E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr55drop_in_place$LT$wasmi_c_api..store..WasmiStoreData$GT$17hd1ab7ba785e20060E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !884)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !887)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5733,8 +5733,8 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..option..Optio
   resume { ptr, i32 } %15
 }
 
-; Function Attrs: nonlazybind uwtable
-define void @"_ZN73_$LT$wasmi_c_api..utils..ForeignData$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc88dc26549ac440dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 {
+; Function Attrs: nounwind nonlazybind uwtable
+define void @"_ZN73_$LT$wasmi_c_api..utils..ForeignData$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc88dc26549ac440dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !3
   %.not = icmp eq ptr %3, null

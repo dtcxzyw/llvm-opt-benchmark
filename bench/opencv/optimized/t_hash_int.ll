@@ -677,7 +677,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %28, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN2cv12ppf_match_3d13hashtableReadEP8_IO_FILE(ptr noundef captures(none) %0) local_unnamed_addr #10 {
+define hidden noalias noundef ptr @_ZN2cv12ppf_match_3d13hashtableReadEP8_IO_FILE(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8

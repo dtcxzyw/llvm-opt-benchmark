@@ -919,7 +919,7 @@ declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 nounde
 declare void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN3con20ConnectionSendThread3runEv(ptr noundef nonnull align 8 dereferenceable(284) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_ZN3con20ConnectionSendThread3runEv(ptr noundef nonnull align 8 dereferenceable(284) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i123 = alloca %struct.timespec, align 8
   %ts.i = alloca %struct.timespec, align 8
@@ -13876,7 +13876,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN3con23ConnectionReceiveThread3runEv(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_ZN3con23ConnectionReceiveThread3runEv(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %packetdata = alloca %class.SharedBuffer, align 8

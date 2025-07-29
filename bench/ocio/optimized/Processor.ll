@@ -1284,15 +1284,15 @@ define noundef i32 @_ZNK19OpenColorIO_v2_5dev9Processor4Impl16getNumTransformsEv
   ret i32 %10
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_5dev9Processor26getTransformFormatMetadataEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_5dev9Processor26getTransformFormatMetadataEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !82
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_5dev9Processor4Impl26getTransformFormatMetadataEi(ptr noundef nonnull align 8 dereferenceable(552) %3, i32 noundef %1)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_5dev9Processor4Impl26getTransformFormatMetadataEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_5dev9Processor4Impl26getTransformFormatMetadataEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !94

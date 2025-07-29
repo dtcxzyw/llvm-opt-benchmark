@@ -3156,7 +3156,7 @@ _ZNK14core_hashtableI17default_map_entryI6symboliEN9table2mapIS2_16symbol_hash_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN14paccessor_decl16instantiate_declER13pdecl_managerjPKP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noalias noundef ptr @_ZN14paccessor_decl16instantiate_declER13pdecl_managerjPKP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !130
   switch i32 %6, label %38 [

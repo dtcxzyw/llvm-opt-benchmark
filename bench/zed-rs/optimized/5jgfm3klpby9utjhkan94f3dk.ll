@@ -14421,8 +14421,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..
   ret ptr %.sroa.0.0
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN94_$LT$event_listener..notify..Notify$u20$as$u20$event_listener..notify..NotificationPrivate$GT$5fence17hf348d97a8f49109eE.llvm.18440006897943885896"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN94_$LT$event_listener..notify..Notify$u20$as$u20$event_listener..notify..NotificationPrivate$GT$5fence17hf348d97a8f49109eE.llvm.18440006897943885896"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #20 {
   %2 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8

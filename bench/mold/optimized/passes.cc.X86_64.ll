@@ -38035,7 +38035,7 @@ define internal void @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__norma
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L17mark_live_objectsIS7_EEvRNS5_7ContextIT_EEEUlS9_E_S9_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L17mark_live_objectsIS7_EEvRNS5_7ContextIT_EEEUlS9_E_S9_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"struct.tbb::detail::d1::wait_node", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -38111,7 +38111,7 @@ _ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeImEENS0_2d225parallel_for_bod
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L17mark_live_objectsIS7_EEvRNS5_7ContextIT_EEEUlS9_E_S9_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L17mark_live_objectsIS7_EEvRNS5_7ContextIT_EEEUlS9_E_S9_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 16, !tbaa !1658
   %5 = load ptr, ptr %4, align 8, !tbaa !49
@@ -38128,7 +38128,7 @@ define internal void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d2
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L17mark_live_objectsISB_EEvRNS9_7ContextIT_EEEUlSD_E_SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L17mark_live_objectsISB_EEvRNS9_7ContextIT_EEEUlSD_E_SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -38717,7 +38717,7 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wr
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L17mark_live_objectsISB_EEvRNS9_7ContextIT_EEEUlSD_E_SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L17mark_live_objectsISB_EEvRNS9_7ContextIT_EEEUlSD_E_SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 16, !tbaa !1654
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -38780,7 +38780,7 @@ define internal void @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__norma
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L17mark_live_objectsIS7_EEvRNS5_7ContextIT_EEEUlS9_RNS0_2d16feederIS9_EEE_S9_St26random_access_iterator_tagE7executeERNSK_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(136) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L17mark_live_objectsIS7_EEvRNS5_7ContextIT_EEEUlS9_RNS0_2d16feederIS9_EEE_S9_St26random_access_iterator_tagE7executeERNSK_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(136) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"struct.tbb::detail::d1::wait_node", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -38858,7 +38858,7 @@ _ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeImEENS0_2d225parallel_for_bod
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L17mark_live_objectsIS7_EEvRNS5_7ContextIT_EEEUlS9_RNS0_2d16feederIS9_EEE_S9_E6cancelERNSK_14execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(136) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L17mark_live_objectsIS7_EEvRNS5_7ContextIT_EEEUlS9_RNS0_2d16feederIS9_EEE_S9_E6cancelERNSK_14execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(136) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 16, !tbaa !1679
   %5 = load ptr, ptr %4, align 8, !tbaa !49
@@ -38952,7 +38952,7 @@ define internal void @_ZN3tbb6detail2d216feeder_item_taskIZN4moldL17mark_live_ob
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d216feeder_item_taskIZN4moldL17mark_live_objectsINS3_6X86_64EEEvRNS3_7ContextIT_EEEUlPNS3_9InputFileIS5_EERNS0_2d16feederISC_EEE_SC_E7executeERNSD_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d216feeder_item_taskIZN4moldL17mark_live_objectsINS3_6X86_64EEEvRNS3_7ContextIT_EEEUlPNS3_9InputFileIS5_EERNS0_2d16feederISC_EEE_SC_E7executeERNSD_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !1686
@@ -39001,7 +39001,7 @@ _ZN3tbb6detail2d216feeder_item_taskIZN4moldL17mark_live_objectsINS3_6X86_64EEEvR
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d216feeder_item_taskIZN4moldL17mark_live_objectsINS3_6X86_64EEEvRNS3_7ContextIT_EEEUlPNS3_9InputFileIS5_EERNS0_2d16feederISC_EEE_SC_E6cancelERNSD_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d216feeder_item_taskIZN4moldL17mark_live_objectsINS3_6X86_64EEEvRNS3_7ContextIT_EEEUlPNS3_9InputFileIS5_EERNS0_2d16feederISC_EEE_SC_E6cancelERNSD_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8, !tbaa !1684
   %5 = load ptr, ptr %4, align 8, !tbaa !49
@@ -39065,7 +39065,7 @@ define internal void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d2
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L17mark_live_objectsISB_EEvRNS9_7ContextIT_EEEUlSD_RNS1_6feederISD_EEE_SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L17mark_live_objectsISB_EEvRNS9_7ContextIT_EEEUlSD_RNS1_6feederISD_EEE_SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %5 = alloca %"class.std::function", align 8
@@ -39608,7 +39608,7 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wr
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L17mark_live_objectsISB_EEvRNS9_7ContextIT_EEEUlSD_RNS1_6feederISD_EEE_SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L17mark_live_objectsISB_EEvRNS9_7ContextIT_EEEUlSD_RNS1_6feederISD_EEE_SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 16, !tbaa !1676
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -39664,7 +39664,7 @@ define internal void @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__norma
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L13clear_symbolsIS7_EEvRNS5_7ContextIT_EEEUlS9_E_S9_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L13clear_symbolsIS7_EEvRNS5_7ContextIT_EEEUlS9_E_S9_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"struct.tbb::detail::d1::wait_node", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -39740,7 +39740,7 @@ _ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeImEENS0_2d225parallel_for_bod
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L13clear_symbolsIS7_EEvRNS5_7ContextIT_EEEUlS9_E_S9_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS5_6X86_64EEESt6vectorIS9_SaIS9_EEEEZNS5_L13clear_symbolsIS7_EEvRNS5_7ContextIT_EEEUlS9_E_S9_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 16, !tbaa !1714
   %5 = load ptr, ptr %4, align 8, !tbaa !49
@@ -39757,7 +39757,7 @@ define internal void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d2
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L13clear_symbolsISB_EEvRNS9_7ContextIT_EEEUlSD_E_SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L13clear_symbolsISB_EEvRNS9_7ContextIT_EEEUlSD_E_SD_EEKNS1_16auto_partitionerEE7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %4 = alloca %"class.tbb::detail::d1::range_vector", align 8
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -40325,7 +40325,7 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wr
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L13clear_symbolsISB_EEvRNS9_7ContextIT_EEEUlSD_E_SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold9InputFileINS9_6X86_64EEESt6vectorISD_SaISD_EEEEZNS9_L13clear_symbolsISB_EEvRNS9_7ContextIT_EEEUlSD_E_SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 16, !tbaa !1710
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136

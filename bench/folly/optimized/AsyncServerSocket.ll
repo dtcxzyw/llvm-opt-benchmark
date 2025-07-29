@@ -3096,8 +3096,8 @@ define void @_ZN5folly17AsyncServerSocket14AcceptCallbackD2Ev(ptr nonnull readno
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #6
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket14RemoteAcceptor5startEPNS_9EventBaseEj(ptr noundef nonnull align 64 dereferenceable(576) initializes((472, 476)) %0, ptr noundef nonnull %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly17AsyncServerSocket14RemoteAcceptor5startEPNS_9EventBaseEj(ptr noundef nonnull align 64 dereferenceable(576) initializes((472, 476)) %0, ptr noundef nonnull %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.folly::Function", align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 %2, ptr %5, align 8, !tbaa !220
@@ -5587,8 +5587,8 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %3, %8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function5call_IZNS_17AsyncServerSocket14RemoteAcceptor4stopEPNS_9EventBaseEPNS3_14AcceptCallbackEE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function5call_IZNS_17AsyncServerSocket14RemoteAcceptor4stopEPNS_9EventBaseEPNS3_14AcceptCallbackEE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #1 {
   %.val = load ptr, ptr %0, align 16, !tbaa !299
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %2, align 8, !tbaa !301

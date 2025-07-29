@@ -19489,8 +19489,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %_ZStl
   ret ptr null
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32DeathNoAllocNewHook_logging_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN32DeathNoAllocNewHook_logging_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr @_ZL14NoAllocNewHookv, ptr @_ZN6google10g_new_hookE, align 8, !tbaa !52
   store i1 false, ptr @_ZN6googleL14g_called_abortE, align 1
   %2 = load ptr, ptr @_ZN6google19g_logging_fail_funcE, align 8, !tbaa !52

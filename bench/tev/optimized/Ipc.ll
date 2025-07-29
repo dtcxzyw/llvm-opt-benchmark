@@ -51811,8 +51811,8 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvED2Ev.exit:     ; preds = %87, %90, %94
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_.destroy"(ptr noundef nonnull align 8 dereferenceable(112) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_.destroy"(ptr noundef nonnull align 8 dereferenceable(112) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -52309,8 +52309,8 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvED2Ev.exit:     ; preds = %171, %174, %178
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_i.destroy"(ptr noundef nonnull align 8 dereferenceable(184) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_i.destroy"(ptr noundef nonnull align 8 dereferenceable(184) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %4 = load i2, ptr %3, align 4

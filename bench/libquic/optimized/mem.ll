@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @OPENSSL_realloc_clean(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @OPENSSL_realloc_clean(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 

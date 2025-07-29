@@ -4680,7 +4680,7 @@ _ZN17AsyncWorkerThreadD0Ev.exit:                  ; preds = %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN17AsyncWorkerThread3runEv(ptr noundef nonnull align 8 dereferenceable(161) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_ZN17AsyncWorkerThread3runEv(ptr noundef nonnull align 8 dereferenceable(161) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %j = alloca %struct.LuaJobInfo, align 8
   %length = alloca i64, align 8

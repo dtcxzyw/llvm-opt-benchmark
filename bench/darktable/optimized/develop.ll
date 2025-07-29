@@ -9897,7 +9897,7 @@ dt_dev_undo_end_record.exit:                      ; preds = %52, %65
 declare ptr @g_list_remove_link(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_history_item_get_name(ptr noundef %0) local_unnamed_addr #0 {
+define noalias ptr @dt_history_item_get_name(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 956
   %3 = load i8, ptr %2, align 4, !tbaa !232
   switch i8 %3, label %.tail.thread [

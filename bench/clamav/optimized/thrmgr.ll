@@ -1384,7 +1384,7 @@ declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @thrmgr_worker(ptr noundef %0) #0 {
+define internal noalias noundef ptr @thrmgr_worker(ptr noundef %0) #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #13

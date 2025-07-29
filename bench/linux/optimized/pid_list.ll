@@ -413,7 +413,7 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_pid_list_first(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @trace_pid_list_alloc() local_unnamed_addr #0 align 16 {
+define dso_local noalias noundef ptr @trace_pid_list_alloc() local_unnamed_addr #0 align 16 {
   %1 = load i32, ptr @pid_max, align 4
   %2 = icmp sgt i32 %1, 1073741824
   br i1 %2, label %3, label %4, !prof !5

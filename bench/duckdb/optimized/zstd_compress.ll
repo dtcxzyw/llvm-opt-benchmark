@@ -86,7 +86,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11duckdb_zstd15ZSTD_createCCtxEv() local_unnamed_addr #2 {
+define noalias noundef ptr @_ZN11duckdb_zstd15ZSTD_createCCtxEv() local_unnamed_addr #2 {
 _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i:
   %calloc = tail call dereferenceable_or_null(5248) ptr @calloc(i64 1, i64 5248)
   %.not6.i = icmp eq ptr %calloc, null
@@ -205,7 +205,7 @@ _ZN11duckdb_zstdL13ZSTD_initCCtxEPNS_11ZSTD_CCtx_sENS_14ZSTD_customMemE.exit: ; 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress memory(argmem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(argmem: write) uwtable
 define noundef ptr @_ZN11duckdb_zstd19ZSTD_initStaticCCtxEPvm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp ugt i64 %1, 5248
   %4 = ptrtoint ptr %0 to i64
@@ -8343,7 +8343,7 @@ _ZN11duckdb_zstdL33ZSTD_compress_usingCDict_internalEPNS_11ZSTD_CCtx_sEPvmPKvmPK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11duckdb_zstd18ZSTD_createCStreamEv() local_unnamed_addr #2 {
+define noalias noundef ptr @_ZN11duckdb_zstd18ZSTD_createCStreamEv() local_unnamed_addr #2 {
 _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i:
   %calloc = tail call dereferenceable_or_null(5248) ptr @calloc(i64 1, i64 5248)
   %.not6.i.i = icmp eq ptr %calloc, null
@@ -8463,7 +8463,7 @@ _ZN11duckdb_zstd24ZSTD_createCCtx_advancedENS_14ZSTD_customMemE.exit: ; preds = 
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress memory(argmem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(argmem: write) uwtable
 define noundef ptr @_ZN11duckdb_zstd22ZSTD_initStaticCStreamEPvm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp ugt i64 %1, 5248
   %4 = ptrtoint ptr %0 to i64
@@ -16459,7 +16459,7 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

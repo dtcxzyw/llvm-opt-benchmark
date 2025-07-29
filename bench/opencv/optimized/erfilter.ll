@@ -6844,8 +6844,8 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EED2Ev.exit: ; preds 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4text10ERFilterNM11setCallbackERKNS_3PtrINS0_8ERFilter8CallbackEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((32, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN2cv4text10ERFilterNM11setCallbackERKNS_3PtrINS0_8ERFilter8CallbackEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((32, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %1, align 8, !tbaa !171
   store ptr %4, ptr %3, align 8, !tbaa !171

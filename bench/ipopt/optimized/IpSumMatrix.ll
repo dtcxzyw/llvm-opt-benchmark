@@ -445,8 +445,8 @@ define void @_ZThn16_N5Ipopt9SumMatrixD0Ev(ptr noundef %0) unnamed_addr #3 align
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt9SumMatrix7SetTermEidRKNS_6MatrixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(69) %3) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5Ipopt9SumMatrix7SetTermEidRKNS_6MatrixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(69) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !33
@@ -483,8 +483,8 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEEaSEPS2_.exit:     ; preds = %4, %16, %21
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZNK5Ipopt9SumMatrix7GetTermEiRdRNS_8SmartPtrIKNS_6MatrixEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZNK5Ipopt9SumMatrix7GetTermEiRdRNS_8SmartPtrIKNS_6MatrixEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !33

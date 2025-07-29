@@ -1974,7 +1974,7 @@ define hidden void @"_ZN12pingora_pool10connection23ConnectionPool$LT$S$GT$9idle
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error7because17h7a799f22712036a3E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 12, 24) %2, ptr noundef nonnull %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error7because17h7a799f22712036a3E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 12, 24) %2, ptr noundef nonnull %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [8 x i8], align 8

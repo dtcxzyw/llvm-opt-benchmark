@@ -790,8 +790,8 @@ declare void @_ZN6icu_7720DecimalFormatSymbolsC1ERKS0_(ptr noundef nonnull align
 ; Function Attrs: nounwind
 declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_776number4impl14SymbolsWrapper5setToEPKNS_15NumberingSystemE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6icu_776number4impl14SymbolsWrapper5setToEPKNS_15NumberingSystemE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 8, !tbaa !15
   switch i32 %3, label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit [
     i32 2, label %8

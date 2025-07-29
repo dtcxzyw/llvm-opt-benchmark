@@ -17959,8 +17959,8 @@ define hidden void @_ZN3std9panicking3try17hf64e34195c8dccf9E(ptr noalias nounde
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3std9panicking3try17hfbc8933ea9ae6cb7E(ptr noalias noundef writeonly sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @_ZN3std9panicking3try17hfbc8933ea9ae6cb7E(ptr noalias noundef writeonly sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !15, !noundef !15
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8

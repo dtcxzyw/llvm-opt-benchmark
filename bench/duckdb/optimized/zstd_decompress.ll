@@ -52,7 +52,7 @@ define noundef i64 @_ZN11duckdb_zstd21ZSTD_estimateDCtxSizeEv() local_unnamed_ad
   ret i64 95976
 }
 
-; Function Attrs: mustprogress memory(argmem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(argmem: write) uwtable
 define noundef ptr @_ZN11duckdb_zstd19ZSTD_initStaticDCtxEPvm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 7
@@ -245,8 +245,8 @@ _ZN11duckdb_zstdL24ZSTD_createDCtx_internalENS_14ZSTD_customMemE.exit: ; preds =
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-; Function Attrs: mustprogress memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noundef ptr @_ZN11duckdb_zstd15ZSTD_createDCtxEv() local_unnamed_addr #6 {
+; Function Attrs: mustprogress nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+define noalias noundef ptr @_ZN11duckdb_zstd15ZSTD_createDCtxEv() local_unnamed_addr #6 {
 _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i:
   %0 = tail call noalias dereferenceable_or_null(95976) ptr @malloc(i64 noundef 95976) #16
   %.not7.i = icmp eq ptr %0, null
@@ -2902,8 +2902,8 @@ define noundef i32 @_ZN11duckdb_zstd24ZSTD_getDictID_fromFrameEPKvm(ptr noundef 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noundef ptr @_ZN11duckdb_zstd18ZSTD_createDStreamEv() local_unnamed_addr #6 {
+; Function Attrs: mustprogress nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+define noalias noundef ptr @_ZN11duckdb_zstd18ZSTD_createDStreamEv() local_unnamed_addr #6 {
 _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i:
   %0 = tail call noalias dereferenceable_or_null(95976) ptr @malloc(i64 noundef 95976) #16
   %.not7.i = icmp eq ptr %0, null
@@ -2979,7 +2979,7 @@ _ZN11duckdb_zstdL24ZSTD_createDCtx_internalENS_14ZSTD_customMemE.exit: ; preds =
   ret ptr %0
 }
 
-; Function Attrs: mustprogress memory(argmem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(argmem: write) uwtable
 define noundef ptr @_ZN11duckdb_zstd22ZSTD_initStaticDStreamEPvm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 7
@@ -5098,10 +5098,10 @@ declare i32 @llvm.umin.i32(i32, i32) #14
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

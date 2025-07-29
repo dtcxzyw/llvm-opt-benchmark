@@ -2107,7 +2107,7 @@ define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL21_processRFC3066LocaleP12CollatorSpecjPKcP10UErrorCode(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef %3) #1 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZL21_processRFC3066LocaleP12CollatorSpecjPKcP10UErrorCode(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef %3) #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::CharString", align 8
   %6 = load i8, ptr %2, align 1, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1

@@ -2094,7 +2094,7 @@ declare i32 @pthread_attr_setscope(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pythread_wrapper(ptr noundef %0) #0 {
+define internal noalias noundef ptr @pythread_wrapper(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !181
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !183

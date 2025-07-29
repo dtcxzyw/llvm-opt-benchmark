@@ -189,7 +189,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @slab_rebalance_thread(ptr noundef initializes((120, 128)) %0) #0 {
+define internal noalias noundef ptr @slab_rebalance_thread(ptr noundef initializes((120, 128)) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %struct._locked_st, align 8

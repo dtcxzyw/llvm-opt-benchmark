@@ -3301,8 +3301,8 @@ _ZN2c43yml6detail13RoNodeMethodsINS0_7NodeRefENS0_12ConstNodeRefEEixIS3_EENSt9en
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZNK2c43yml4TreeixENS_15basic_substringIKcEE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define { ptr, i64 } @_ZNK2c43yml4TreeixENS_15basic_substringIKcEE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr %1, i64 %2) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.c4::basic_substring.0", align 8
   %5 = alloca [27 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
@@ -3402,8 +3402,8 @@ define void @_ZN2c43yml4TreeixEm(ptr dead_on_unwind noalias writable writeonly s
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZNK2c43yml4TreeixEm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define { ptr, i64 } @_ZNK2c43yml4TreeixEm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [27 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)

@@ -1740,7 +1740,7 @@ define dso_local void @_ZN15btCompoundShape26createAabbTreeFromChildrenEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK15btCompoundShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %6 = load float, ptr %5, align 4, !tbaa !29

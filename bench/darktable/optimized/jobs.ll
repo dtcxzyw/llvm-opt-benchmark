@@ -1520,7 +1520,7 @@ define internal noalias noundef ptr @_control_worker_kicker(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_control_work_res(ptr noundef captures(none) %0) #0 {
+define internal noalias noundef ptr @_control_work_res(ptr noundef captures(none) %0) #0 {
   %2 = alloca [16 x i8], align 16
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4

@@ -2423,7 +2423,7 @@ define range(i32 0, 2) i32 @ossl_ackm_is_rx_pn_processable(ptr noundef %0, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_ackm_get_ack_frame(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @ossl_ackm_get_ack_frame(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [3 x %struct.ossl_quic_frame_ack_st], ptr %3, i64 0, i64 %4

@@ -74443,8 +74443,8 @@ lpad56:                                           ; preds = %catch
   resume { ptr, i32 } %53
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7coro_io9coro_file10async_openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_9read_typeE.destroy(ptr noundef nonnull align 8 dereferenceable(160) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7coro_io9coro_file10async_openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_9read_typeE.destroy(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %filepath2.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
   %ref.tmp19.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -75288,8 +75288,8 @@ lpad98:                                           ; preds = %catch
   resume { ptr, i32 } %75
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra20coro_http_connection5replyEb.destroy(ptr noundef nonnull align 8 dereferenceable(104) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra20coro_http_connection5replyEb.destroy(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp11.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -75584,8 +75584,8 @@ lpad41:                                           ; preds = %catch
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra20coro_http_connection13begin_chunkedEv.destroy(ptr noundef nonnull align 8 dereferenceable(80) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra20coro_http_connection13begin_chunkedEv.destroy(ptr noundef nonnull align 8 dereferenceable(80) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp10.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
   %ref.tmp11.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -76192,8 +76192,8 @@ lpad45:                                           ; preds = %catch
   resume { ptr, i32 } %39
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7coro_io9coro_file10async_readEPcm.destroy(ptr noundef nonnull align 8 dereferenceable(168) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7coro_io9coro_file10async_readEPcm.destroy(ptr noundef nonnull align 8 dereferenceable(168) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp10.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 136
   %ref.tmp11.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -76515,8 +76515,8 @@ lpad48:                                           ; preds = %catch
   resume { ptr, i32 } %38
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra20coro_http_connection13write_chunkedESt17basic_string_viewIcSt11char_traitsIcEEb.destroy(ptr noundef nonnull align 8 dereferenceable(96) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra20coro_http_connection13write_chunkedESt17basic_string_viewIcSt11char_traitsIcEEb.destroy(ptr noundef nonnull align 8 dereferenceable(96) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp16.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %ref.tmp17.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76814,8 +76814,8 @@ lpad39:                                           ; preds = %catch
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra20coro_http_connection11end_chunkedEv.destroy(ptr noundef nonnull align 8 dereferenceable(96) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra20coro_http_connection11end_chunkedEv.destroy(ptr noundef nonnull align 8 dereferenceable(96) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp9.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %ref.tmp10.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -77540,8 +77540,8 @@ lpad98:                                           ; preds = %_ZNSt6vectorIN4asio
   resume { ptr, i32 } %76
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra20coro_http_connection10write_dataESt17basic_string_viewIcSt11char_traitsIcEE.destroy(ptr noundef nonnull align 8 dereferenceable(144) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra20coro_http_connection10write_dataESt17basic_string_viewIcSt11char_traitsIcEE.destroy(ptr noundef nonnull align 8 dereferenceable(144) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %buffers.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
   %ref.tmp13.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -79766,8 +79766,8 @@ unreachable828:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN7cinatra16coro_http_server22set_static_res_handlerESt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS3_SaIcEEEENKUlRNS_17coro_http_requestERNS_18coro_http_responseEE_clESA_SC_.destroy(ptr noundef nonnull align 8 dereferenceable(760) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZZN7cinatra16coro_http_server22set_static_res_handlerESt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS3_SaIcEEEENKUlRNS_17coro_http_requestERNS_18coro_http_responseEE_clESA_SC_.destroy(ptr noundef nonnull align 8 dereferenceable(760) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %range_header.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 128
   %ref.tmp49.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -81017,8 +81017,8 @@ lpad64:                                           ; preds = %_ZNSt6vectorIN4asio
   resume { ptr, i32 } %42
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra20coro_http_connection15write_websocketESt17basic_string_viewIcSt11char_traitsIcEENS_6opcodeE.destroy(ptr noundef nonnull align 8 dereferenceable(184) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra20coro_http_connection15write_websocketESt17basic_string_viewIcSt11char_traitsIcEENS_6opcodeE.destroy(ptr noundef nonnull align 8 dereferenceable(184) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %header.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 56
   %buffers.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -82885,8 +82885,8 @@ unreachable657:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra20coro_http_connection14read_websocketEv.destroy(ptr noundef nonnull align 8 dereferenceable(752) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra20coro_http_connection14read_websocketEv.destroy(ptr noundef nonnull align 8 dereferenceable(752) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp8.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 536
   %ref.tmp9.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -83608,8 +83608,8 @@ lpad83:                                           ; preds = %catch
   resume { ptr, i32 } %48
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_Z9broadcastISt13unordered_mapIlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIlESt8equal_toIlESaISt4pairIKlS6_EEEEN12async_simple4coro4LazyIvEERT_RS6_.destroy(ptr noundef nonnull align 8 dereferenceable(192) %0) #3 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_Z9broadcastISt13unordered_mapIlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIlESt8equal_toIlESaISt4pairIKlS6_EEEEN12async_simple4coro4LazyIvEERT_RS6_.destroy(ptr noundef nonnull align 8 dereferenceable(192) %0) #4 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp19.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 160
   %ref.tmp20.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -88116,8 +88116,8 @@ unreachable1731:                                  ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZ4mainENK3$_0clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE.destroy"(ptr noundef nonnull align 8 dereferenceable(928) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @"_ZZ4mainENK3$_0clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE.destroy"(ptr noundef nonnull align 8 dereferenceable(928) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %map.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
   %resp_str.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -88964,8 +88964,8 @@ terminate.lpad:                                   ; preds = %ehcleanup114, %ehcl
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra16coro_http_router10route_coroIPSt8functionIFN12async_simple4coro4LazyIvEERNS_17coro_http_requestERNS_18coro_http_responseEEES7_S9_EES6_T_RT0_RT1_.destroy(ptr noundef nonnull align 8 dereferenceable(88) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra16coro_http_router10route_coroIPSt8functionIFN12async_simple4coro4LazyIvEERNS_17coro_http_requestERNS_18coro_http_responseEEES7_S9_EES6_T_RT0_RT1_.destroy(ptr noundef nonnull align 8 dereferenceable(88) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp11.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -91221,8 +91221,8 @@ unreachable682:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra20coro_http_connection5startEv.destroy(ptr noundef nonnull align 8 dereferenceable(880) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra20coro_http_connection5startEv.destroy(ptr noundef nonnull align 8 dereferenceable(880) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp8.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 536
   %ref.tmp9.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -92013,8 +92013,8 @@ terminate.lpad:                                   ; preds = %lpad34
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIvLb1EE5startIZNS0_14RescheduleLazyIvE6detachEvEUlOT_E_EEvS8_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS7_EEEENKUlS3_S9_E_clES3_S9_.destroy(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIvLb1EE5startIZNS0_14RescheduleLazyIvE6detachEvEUlOT_E_EEvS8_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS7_EEEENKUlS3_S9_E_clES3_S9_.destroy(ptr noundef nonnull align 8 dereferenceable(56) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %lazy2.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -93605,8 +93605,8 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4errcED2Ev.exit: ; preds = %cleanup
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7cinatra16coro_http_server6acceptEv.destroy(ptr noundef nonnull align 8 dereferenceable(688) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7cinatra16coro_http_server6acceptEv.destroy(ptr noundef nonnull align 8 dereferenceable(688) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %socket.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
   %ref.tmp23.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -93894,8 +93894,8 @@ terminate.lpad:                                   ; preds = %lpad37
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseISt4errcLb0EE5startIZN7cinatra16coro_http_server11async_startEvEUlOT_E_EEvS9_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS8_EEEENKUlS4_SA_E_clES4_SA_.destroy(ptr noundef nonnull align 8 dereferenceable(80) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseISt4errcLb0EE5startIZN7cinatra16coro_http_server11async_startEvEUlOT_E_EEvS9_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS8_EEEENKUlS4_SA_E_clES4_SA_.destroy(ptr noundef nonnull align 8 dereferenceable(80) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %lazy2.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 56
   %cb3.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 24

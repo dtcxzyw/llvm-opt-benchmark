@@ -1474,7 +1474,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$zstd..st
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN3std2io5Write9write_all17hc7ce91998c38c9deE(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17hc7ce91998c38c9deE(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph

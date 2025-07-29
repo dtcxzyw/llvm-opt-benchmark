@@ -11681,7 +11681,7 @@ _ZN4core4iter6traits8iterator8Iterator10min_by_key17h4dde25dc9b4be37fE.exit.thre
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN10hir_expand2db10ast_id_map17hdecb62beded3e7d8E.llvm.4743249442795103037(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN10hir_expand2db10ast_id_map17hdecb62beded3e7d8E.llvm.4743249442795103037(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64 }, { { { { i64, ptr, {} }, i64 } }, { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 } }, { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, align 8
@@ -21556,7 +21556,7 @@ define void @_ZN10hir_expand8span_map10SpanMapRef14span_for_range17h94cfd0f593fb
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN10hir_expand8span_map13real_span_map17h1cc07226405e7df7E.llvm.4743249442795103037(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN10hir_expand8span_map13real_span_map17h1cc07226405e7df7E.llvm.4743249442795103037(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { { ptr, ptr }, ptr }, align 8
   %6 = alloca { { ptr, ptr }, ptr }, align 8
@@ -29612,7 +29612,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN62_$LT$hir_expand..db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN80_$LT$hir_expand..db..AstIdMapQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h12b7217924ac23edE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 {
+define noalias noundef nonnull ptr @"_ZN80_$LT$hir_expand..db..AstIdMapQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h12b7217924ac23edE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef nonnull ptr @_ZN10hir_expand2db10ast_id_map17hdecb62beded3e7d8E.llvm.4743249442795103037(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2)
   ret ptr %4
 }
@@ -29720,7 +29720,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN65_$LT$hir_expand..db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN83_$LT$hir_expand..db..RealSpanMapQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h3adfc82bf1a2681dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 {
+define noalias noundef nonnull ptr @"_ZN83_$LT$hir_expand..db..RealSpanMapQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h3adfc82bf1a2681dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef nonnull ptr @_ZN10hir_expand8span_map13real_span_map17h1cc07226405e7df7E.llvm.4743249442795103037(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2)
   ret ptr %4
 }

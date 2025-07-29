@@ -851,8 +851,8 @@ _ZN12_GLOBAL__N_120HQTransportByteEvent11onByteEventEN4quic10QuicSocket9ByteEven
   ret void
 }
 
-; Function Attrs: uwtable
-define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEvent19onByteEventCanceledEN4quic10QuicSocket9ByteEventE(ptr noundef %this, ptr noundef readonly byval(%"struct.quic::QuicSocket::ByteEvent") align 8 captures(none) %0) unnamed_addr #12 align 2 {
+; Function Attrs: nounwind uwtable
+define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEvent19onByteEventCanceledEN4quic10QuicSocket9ByteEventE(ptr noundef %this, ptr noundef readonly byval(%"struct.quic::QuicSocket::ByteEvent") align 8 captures(none) %0) unnamed_addr #11 align 2 {
 entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 -72
   %vtable.i = load ptr, ptr %1, align 8

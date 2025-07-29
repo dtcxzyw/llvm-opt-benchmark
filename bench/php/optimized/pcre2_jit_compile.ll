@@ -152337,7 +152337,7 @@ define internal fastcc i32 @char_get_othercase_bit(ptr noundef nonnull readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @byte_sequence_compare(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly captures(address, ret: address, provenance) %2, ptr noundef nonnull captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
+define internal fastcc nonnull ptr @byte_sequence_compare(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly captures(address, ret: address, provenance) %2, ptr noundef nonnull captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !109
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %15, label %7

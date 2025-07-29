@@ -765,7 +765,7 @@ define weak_odr noundef zeroext i1 @_ZNK5arrow18TypedChunkLocationImEeqES1_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5arrow7compute20default_exec_contextEv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5arrow7compute20default_exec_contextEv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN5arrow7compute20default_exec_contextEvE11default_ctx acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %9, !prof !32
@@ -811,7 +811,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5arrow7compute21threaded_exec_contextEv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5arrow7compute21threaded_exec_contextEv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN5arrow7compute21threaded_exec_contextEvE12threaded_ctx acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %11, !prof !32

@@ -2668,7 +2668,7 @@ define noundef zeroext range(i8 0, 2) i8 @lean_compacted_region_is_memory_mapped
 }
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @lean_compacted_region_free(i64 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_compacted_region_free(i64 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %6, label %4
 

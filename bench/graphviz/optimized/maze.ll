@@ -205,7 +205,7 @@ declare double @llvm.minnum.f64(double, double) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mkMaze(ptr noundef %0) local_unnamed_addr #3 {
+define noalias noundef ptr @mkMaze(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca %struct.pointf_s, align 8
   %3 = alloca %struct.pointf_s, align 8
   %4 = alloca %struct.pointf_s, align 8

@@ -3317,7 +3317,7 @@ define internal fastcc void @InitTcpReady(ptr noundef nonnull initializes((0, 4)
 declare void @start_thread(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_server_nofail(ptr noundef captures(address_is_null) initializes((16, 20)) %0) #0 {
+define internal noalias noundef ptr @test_server_nofail(ptr noundef captures(address_is_null) initializes((16, 20)) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [23 x i8], align 16
@@ -35696,7 +35696,7 @@ declare zeroext i8 @wolfSSL_SNI_Status(ptr noundef, i8 noundef zeroext) local_un
 declare zeroext i16 @wolfSSL_SNI_GetRequest(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @run_wolfssl_server(ptr noundef captures(address_is_null) initializes((16, 20)) %0) #0 {
+define internal noalias noundef ptr @run_wolfssl_server(ptr noundef captures(address_is_null) initializes((16, 20)) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [23 x i8], align 16

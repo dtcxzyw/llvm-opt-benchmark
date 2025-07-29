@@ -8604,8 +8604,8 @@ define dso_local void @_ZN7AstNode10deleteNodeEv(ptr noundef nonnull align 8 der
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7AstNode14deleteTreeIterEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #5 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN7AstNode14deleteTreeIterEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #4 align 2 {
   br label %3
 
 2:                                                ; preds = %_ZN7AstNode10deleteNodeEv.exit

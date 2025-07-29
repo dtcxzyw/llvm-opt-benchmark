@@ -12488,8 +12488,8 @@ define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_tr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNSB_8mapMaybeIS8_ZZNS_10shrinkable6filterIS7_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS1_IT_EEEESQ_OT0_ENKUlOS9_E_clESU_EUlOS8_E_EENS0_INSt13invoke_resultISS_JSP_EE4type9ValueTypeEEENS0_ISP_EEST_EUlONSO_IS8_EEE_S14_EEE4nextEv"(ptr dead_on_unwind noalias writable writeonly sret(%"class.rc::Maybe.119") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNSB_8mapMaybeIS8_ZZNS_10shrinkable6filterIS7_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS1_IT_EEEESQ_OT0_ENKUlOS9_E_clESU_EUlOS8_E_EENS0_INSt13invoke_resultISS_JSP_EE4type9ValueTypeEEENS0_ISP_EEST_EUlONSO_IS8_EEE_S14_EEE4nextEv"(ptr dead_on_unwind noalias writable writeonly sret(%"class.rc::Maybe.119") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.rc::Maybe.170", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !455)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -12679,8 +12679,8 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_5MaybeINS0_10ShrinkableINSt7__cxx1112basic_s
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail9FilterSeqIZNSD_8mapMaybeIS9_ZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESR_OT0_ENKUlONS0_IS9_EEE_clESW_EUlOS9_E_EENS0_INSt13invoke_resultIST_JSQ_EE4type9ValueTypeEEENS0_ISQ_EESU_EUlRKSA_E_SA_EEE4nextEv"(ptr dead_on_unwind noalias writable writeonly sret(%"class.rc::Maybe.170") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail9FilterSeqIZNSD_8mapMaybeIS9_ZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESR_OT0_ENKUlONS0_IS9_EEE_clESW_EUlOS9_E_EENS0_INSt13invoke_resultIST_JSQ_EE4type9ValueTypeEEENS0_ISQ_EESU_EUlRKSA_E_SA_EEE4nextEv"(ptr dead_on_unwind noalias writable writeonly sret(%"class.rc::Maybe.170") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.rc::Maybe.170", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16

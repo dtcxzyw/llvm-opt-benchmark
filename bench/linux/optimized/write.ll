@@ -5553,7 +5553,7 @@ declare dso_local ptr @mempool_alloc_slab(i32 noundef, ptr noundef) #2
 declare dso_local void @mempool_free_slab(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @nfs_writehdr_alloc() #0 align 16 {
+define internal noalias ptr @nfs_writehdr_alloc() #0 align 16 {
   %1 = load ptr, ptr @nfs_wdata_cachep, align 8
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !6
   %3 = inttoptr i64 %2 to ptr

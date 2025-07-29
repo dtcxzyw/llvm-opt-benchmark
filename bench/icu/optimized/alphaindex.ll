@@ -657,8 +657,8 @@ _ZN6icu_7715AlphabeticIndex12clearBucketsEv.exit: ; preds = %12, %6, %3
 
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #4
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7715AlphabeticIndex12clearBucketsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(400) %0) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6icu_7715AlphabeticIndex12clearBucketsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(400) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !49
   %.not = icmp eq ptr %3, null
@@ -3716,8 +3716,8 @@ define noundef i32 @_ZNK6icu_7715AlphabeticIndex16getMaxLabelCountEv(ptr noundef
   ret i32 %3
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(400) ptr @_ZN6icu_7715AlphabeticIndex16setMaxLabelCountEiR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(400) %0, i32 noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef nonnull align 8 dereferenceable(400) ptr @_ZN6icu_7715AlphabeticIndex16setMaxLabelCountEiR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(400) %0, i32 noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) unnamed_addr #0 align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !40
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZN6icu_7715AlphabeticIndex12clearBucketsEv.exit

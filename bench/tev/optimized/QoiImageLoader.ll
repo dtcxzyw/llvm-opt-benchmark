@@ -44728,8 +44728,8 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvED2Ev.exit:     ; preds = %79, %82, %86
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_14QoiImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_iENKUlmmSK_iPS0_E_clEmmSK_iSP_.destroy"(ptr noundef nonnull align 8 dereferenceable(120) %0) #8 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_14QoiImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_iENKUlmmSK_iPS0_E_clEmmSK_iSP_.destroy"(ptr noundef nonnull align 8 dereferenceable(120) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -45225,8 +45225,8 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvED2Ev.exit:     ; preds = %172, %175, %179
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNKS_14QoiImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_i.destroy"(ptr noundef nonnull align 8 dereferenceable(216) %0) #8 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNKS_14QoiImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_i.destroy"(ptr noundef nonnull align 8 dereferenceable(216) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %4 = load i2, ptr %3, align 4
@@ -45525,8 +45525,8 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvED2Ev.exit:     ; preds = %96, %99, %103
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_14QoiImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_2EENS_4TaskIvEET_SN_T0_iENKUlmmSK_iPS0_E_clEmmSK_iSP_.destroy"(ptr noundef nonnull align 8 dereferenceable(120) %0) #8 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_14QoiImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_2EENS_4TaskIvEET_SN_T0_iENKUlmmSK_iPS0_E_clEmmSK_iSP_.destroy"(ptr noundef nonnull align 8 dereferenceable(120) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -46022,8 +46022,8 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvED2Ev.exit:     ; preds = %172, %175, %179
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNKS_14QoiImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_2EENS_4TaskIvEET_SN_T0_i.destroy"(ptr noundef nonnull align 8 dereferenceable(216) %0) #8 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNKS_14QoiImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_2EENS_4TaskIvEET_SN_T0_i.destroy"(ptr noundef nonnull align 8 dereferenceable(216) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %4 = load i2, ptr %3, align 4
@@ -47024,8 +47024,8 @@ _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS_9ImageDataENS2_9allocatorIS4_EEE
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK3tev14QoiImageLoader4loadERNSt3__113basic_istreamIcNS1_11char_traitsIcEEEERKNS1_4__fs10filesystem4pathERKNS1_12basic_stringIcS4_NS1_9allocatorIcEEEEi.destroy(ptr noundef nonnull align 8 dereferenceable(336) %0) #8 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZNK3tev14QoiImageLoader4loadERNSt3__113basic_istreamIcNS1_11char_traitsIcEEEERKNS1_4__fs10filesystem4pathERKNS1_12basic_stringIcS4_NS1_9allocatorIcEEEEi.destroy(ptr noundef nonnull align 8 dereferenceable(336) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152

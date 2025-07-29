@@ -3193,7 +3193,7 @@ define void @dtgtk_range_select_reset_markers(ptr noundef captures(none) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dtgtk_range_select_get_raw_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define noalias ptr @dtgtk_range_select_get_raw_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %3 = load i32, ptr %2, align 4, !tbaa !54
   %4 = and i32 %3, 2

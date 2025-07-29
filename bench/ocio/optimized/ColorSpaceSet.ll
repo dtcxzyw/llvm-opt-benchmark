@@ -2121,8 +2121,8 @@ _ZN19OpenColorIO_v2_5dev13ColorSpaceSet4Impl6removeERKS1_.exit: ; preds = %.lr.p
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_5dev13ColorSpaceSet16clearColorSpacesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN19OpenColorIO_v2_5dev13ColorSpaceSet16clearColorSpacesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8

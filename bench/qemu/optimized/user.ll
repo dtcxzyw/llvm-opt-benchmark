@@ -827,7 +827,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @gdbserver_accept_thread(ptr readnone captures(none) %0) #0 {
+define internal noalias noundef ptr @gdbserver_accept_thread(ptr readnone captures(none) %0) #0 {
   %2 = load i32, ptr @gdbserver_args, align 8
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_args, i64 4), align 4
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_args, i64 8), align 8

@@ -96,7 +96,7 @@ define hidden void @_ZN5zxing14DetectorResultC2ENS_3RefINS_9BitMatrixEEENS_8Arra
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5zxing14DetectorResult7SetGrayENS_3RefINS_10ByteMatrixEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %1, align 8, !tbaa !14
@@ -128,7 +128,7 @@ define hidden void @_ZN5zxing14DetectorResult7SetGrayENS_3RefINS_10ByteMatrixEEE
   %17 = load ptr, ptr %10, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(12) %10) #5
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(12) %10) #4
   br label %_ZN5zxing3RefINS_10ByteMatrixEEaSERKS2_.exit
 
 _ZN5zxing3RefINS_10ByteMatrixEEaSERKS2_.exit:     ; preds = %9, %11, %16
@@ -220,7 +220,7 @@ define linkonce_odr hidden void @_ZN5zxing14DetectorResultD2Ev(ptr noundef nonnu
   %11 = load ptr, ptr %4, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %4) #5
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %4) #4
   br label %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit
 
 _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit: ; preds = %1, %5, %10
@@ -243,7 +243,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit: ; preds = %1, %5, %10
   %22 = load ptr, ptr %15, align 8, !tbaa !8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %15) #5
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %15) #4
   br label %_ZN5zxing3RefINS_10ByteMatrixEED2Ev.exit
 
 _ZN5zxing3RefINS_10ByteMatrixEED2Ev.exit:         ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit, %16, %21
@@ -265,7 +265,7 @@ _ZN5zxing3RefINS_10ByteMatrixEED2Ev.exit:         ; preds = %_ZN5zxing8ArrayRefI
   %33 = load ptr, ptr %26, align 8, !tbaa !8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(12) %26) #5
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(12) %26) #4
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_10ByteMatrixEED2Ev.exit, %27, %32
@@ -295,7 +295,7 @@ define linkonce_odr hidden void @_ZN5zxing14DetectorResultD0Ev(ptr noundef nonnu
   %11 = load ptr, ptr %4, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %4) #5
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %4) #4
   br label %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit.i
 
 _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit.i: ; preds = %10, %5, %1
@@ -318,7 +318,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit.i: ; preds = %10, %5, %
   %22 = load ptr, ptr %15, align 8, !tbaa !8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %15) #5
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %15) #4
   br label %_ZN5zxing3RefINS_10ByteMatrixEED2Ev.exit.i
 
 _ZN5zxing3RefINS_10ByteMatrixEED2Ev.exit.i:       ; preds = %21, %16, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit.i
@@ -340,11 +340,11 @@ _ZN5zxing3RefINS_10ByteMatrixEED2Ev.exit.i:       ; preds = %21, %16, %_ZN5zxing
   %33 = load ptr, ptr %26, align 8, !tbaa !8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(12) %26) #5
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(12) %26) #4
   br label %_ZN5zxing14DetectorResultD2Ev.exit
 
 _ZN5zxing14DetectorResultD2Ev.exit:               ; preds = %_ZN5zxing3RefINS_10ByteMatrixEED2Ev.exit.i, %27, %32
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #6
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #5
   ret void
 }
 
@@ -352,7 +352,7 @@ _ZN5zxing14DetectorResultD2Ev.exit:               ; preds = %_ZN5zxing3RefINS_10
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEEE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
@@ -372,7 +372,7 @@ define linkonce_odr hidden void @_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEE
   %10 = load ptr, ptr %3, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %3) #5
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %3) #4
   br label %_ZN5zxing7Counted7releaseEv.exit
 
 _ZN5zxing7Counted7releaseEv.exit:                 ; preds = %9, %4, %1
@@ -381,7 +381,7 @@ _ZN5zxing7Counted7releaseEv.exit:                 ; preds = %9, %4, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEEE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
@@ -401,21 +401,20 @@ define linkonce_odr hidden void @_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEE
   %10 = load ptr, ptr %3, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %3) #5
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %3) #4
   br label %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit
 
 _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit: ; preds = %1, %4, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #6
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #5
   ret void
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { builtin nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

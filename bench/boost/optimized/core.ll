@@ -1053,8 +1053,8 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_3log11v2_mt_posix5sinks4sinkEEESaIS6_EE5era
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix4core16remove_all_sinksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5boost3log11v2_mt_posix4core16remove_all_sinksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !33
   %3 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %2) #21
   %4 = load ptr, ptr %0, align 8, !tbaa !33

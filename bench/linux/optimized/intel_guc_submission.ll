@@ -9230,7 +9230,7 @@ define internal void @guc_context_destroy(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @guc_create_virtual(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2) #0 align 16 {
+define internal noundef nonnull ptr @guc_create_virtual(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2) #0 align 16 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(6256) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 6256) #23
   %6 = icmp eq ptr %5, null

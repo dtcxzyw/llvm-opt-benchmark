@@ -1100,7 +1100,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_watch_node(ptr readnone captures(none) %0) #0 {
+define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0) #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
   %3 = load i32, ptr @acct_gather_profile_timer, align 16

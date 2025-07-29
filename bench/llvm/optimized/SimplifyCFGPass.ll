@@ -3478,7 +3478,7 @@ define internal noundef nonnull ptr @_ZL33initializeCFGSimplifyPassPassOnceRN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm27createCFGSimplificationPassENS_18SimplifyCFGOptionsESt8functionIFbRKNS_8FunctionEEE(ptr noundef readonly byval(%"struct.llvm::SimplifyCFGOptions") align 8 captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+define dso_local noalias noundef nonnull ptr @_ZN4llvm27createCFGSimplificationPassENS_18SimplifyCFGOptionsESt8functionIFbRKNS_8FunctionEEE(ptr noundef readonly byval(%"struct.llvm::SimplifyCFGOptions") align 8 captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.std::function.64", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5284,7 +5284,7 @@ declare void @_ZN4llvm36initializeAssumptionCacheTrackerPassERNS_12PassRegistryE
 declare void @_ZN4llvm38initializeDominatorTreeWrapperPassPassERNS_12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_115CFGSimplifyPassETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv() #1 {
+define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_115CFGSimplifyPassETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv() #1 {
   %1 = alloca %"struct.llvm::SimplifyCFGOptions", align 8
   %2 = alloca %"class.std::function.64", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25

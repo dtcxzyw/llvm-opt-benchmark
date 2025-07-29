@@ -10105,8 +10105,8 @@ define { ptr, i64 } @_ZN3net10QuicFramer36GetAssociatedDataFromEncryptedPacketB5
 
 declare noundef i64 @_ZN3net23GetStartOfEncryptedDataENS_11QuicVersionENS_22QuicConnectionIdLengthEbbbNS_22QuicPacketNumberLengthE(i32 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i8 noundef signext) local_unnamed_addr #2
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN3net10QuicFramer12SetDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterE(ptr noundef nonnull align 8 captures(none) dereferenceable(408) initializes((312, 313)) %0, i8 noundef signext %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3net10QuicFramer12SetDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterE(ptr noundef nonnull align 8 captures(none) dereferenceable(408) initializes((312, 313)) %0, i8 noundef signext %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8, !tbaa !68
   store ptr %2, ptr %4, align 8, !tbaa !68
@@ -10164,8 +10164,8 @@ define noundef ptr @_ZNK3net10QuicFramer21alternative_decrypterEv(ptr noundef no
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN3net10QuicFramer12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 captures(none) dereferenceable(408) %0, i8 noundef signext %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3net10QuicFramer12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 captures(none) dereferenceable(408) %0, i8 noundef signext %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = sext i8 %1 to i64
   %6 = getelementptr inbounds [3 x %"class.std::unique_ptr.23"], ptr %4, i64 0, i64 %5

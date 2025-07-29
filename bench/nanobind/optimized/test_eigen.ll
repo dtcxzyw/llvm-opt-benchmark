@@ -22181,7 +22181,7 @@ _ZN8nanobind7ndarrayIJKdNS_5numpyENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPN
 }
 
 ; Function Attrs: inlinehint mustprogress optsize uwtable
-define internal noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defIZL28nanobind_init_test_eigen_extRNS_7module_EE4BasevS5_JN5Eigen3RefINS6_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS6_11InnerStrideILi1EEEEEEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_FT0_DpT2_EDpRKT3_EUlPS5_SC_E_vJSQ_SC_EJLm0ELm1EEJSD_SE_SF_EEEP7_objectOSG_PFT2_DpSM_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPST_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES15_S16_S17_S18_S1A_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defIZL28nanobind_init_test_eigen_extRNS_7module_EE4BasevS5_JN5Eigen3RefINS6_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS6_11InnerStrideILi1EEEEEEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_FT0_DpT2_EDpRKT3_EUlPS5_SC_E_vJSQ_SC_EJLm0ELm1EEJSD_SE_SF_EEEP7_objectOSG_PFT2_DpSM_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPST_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES15_S16_S17_S18_S1A_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #18 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Ref.1638", align 8
   %7 = alloca %"struct.nanobind::detail::tuple.1695", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #32
@@ -22328,7 +22328,7 @@ _ZN8nanobind7ndarrayIJdNS_5numpyENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS
 }
 
 ; Function Attrs: inlinehint mustprogress optsize uwtable
-define internal noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defIZL28nanobind_init_test_eigen_extRNS_7module_EE4BasevS5_JN5Eigen3RefIKNS6_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS6_11InnerStrideILi1EEEEEEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_FT0_DpT2_EDpRKT3_EUlPS5_SD_E_vJSR_SD_EJLm0ELm1EEJSE_SF_SG_EEEP7_objectOSH_PFT2_DpSN_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSU_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES16_S17_S18_S19_S1B_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defIZL28nanobind_init_test_eigen_extRNS_7module_EE4BasevS5_JN5Eigen3RefIKNS6_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS6_11InnerStrideILi1EEEEEEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_FT0_DpT2_EDpRKT3_EUlPS5_SD_E_vJSR_SD_EJLm0ELm1EEJSE_SF_SG_EEEP7_objectOSH_PFT2_DpSN_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSU_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES16_S17_S18_S19_S1B_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #18 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Ref.1652", align 8
   %7 = alloca %"struct.nanobind::detail::tuple.1719", align 8
   %8 = alloca %"class.Eigen::Ref.1652", align 8

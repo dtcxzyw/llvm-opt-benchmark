@@ -6123,8 +6123,8 @@ define noundef zeroext i1 @_ZNK3net11QuicSession14HasDataToWriteEv(ptr noundef n
 
 declare noundef zeroext i1 @_ZNK3net14QuicConnection13HasQueuedDataEv(ptr noundef nonnull align 8 dereferenceable(3372)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN3net11QuicSession20PostProcessAfterDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2044) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3net11QuicSession20PostProcessAfterDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2044) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !237
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72

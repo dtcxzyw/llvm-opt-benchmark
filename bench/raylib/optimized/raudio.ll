@@ -5731,7 +5731,7 @@ ma_free.exit:                                     ; preds = %12, %95, %93, %90, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ma_device_job_thread_entry(ptr noundef %0) #7 {
+define internal noalias noundef ptr @ma_device_job_thread_entry(ptr noundef %0) #7 {
   %2 = alloca %struct.ma_job, align 8
   %3 = icmp eq ptr %0, null
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2) #71
@@ -10629,7 +10629,7 @@ ma_zero_memory_64.exit:                           ; preds = %ma_zero_memory_defa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ma_worker_thread(ptr noundef %0) #7 {
+define internal noalias noundef ptr @ma_worker_thread(ptr noundef %0) #7 {
   %2 = alloca %struct.ma_device_notification, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4

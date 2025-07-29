@@ -16694,8 +16694,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit47: ; preds = %211, %217
   resume { ptr, i32 } %149
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdRetainedSmallVectorDataSourceC2EmPKSt10shared_ptrINS_16HdDataSourceBaseEE(ptr noundef nonnull align 8 captures(none) dereferenceable(528) initializes((0, 8), (524, 528)) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdRetainedSmallVectorDataSourceC2EmPKSt10shared_ptrINS_16HdDataSourceBaseEE(ptr noundef nonnull align 8 captures(none) dereferenceable(528) initializes((0, 8), (524, 528)) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__31HdRetainedSmallVectorDataSourceE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 524

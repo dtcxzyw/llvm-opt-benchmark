@@ -603,7 +603,7 @@ declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #6
 declare dso_local void @emergency_restart() local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @print_tainted() local_unnamed_addr #2 align 16 {
+define dso_local noundef nonnull ptr @print_tainted() local_unnamed_addr #2 align 16 {
   %1 = load i64, ptr @tainted_mask, align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %18, label %3

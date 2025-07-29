@@ -10924,8 +10924,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.split.loop.exit, %
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv21CascadeClassifierImpl16setMaskGeneratorERKNS_3PtrINS_21BaseCascadeClassifier13MaskGeneratorEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) initializes((216, 224)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN2cv21CascadeClassifierImpl16setMaskGeneratorERKNS_3PtrINS_21BaseCascadeClassifier13MaskGeneratorEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) initializes((216, 224)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %1, align 8, !tbaa !420
   store ptr %4, ptr %3, align 8, !tbaa !420

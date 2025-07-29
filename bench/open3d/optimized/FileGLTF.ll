@@ -12546,7 +12546,7 @@ _ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit20: ; preds = %_ZL10stbi__get8P1
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define internal fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc noalias noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #4 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca ptr, align 8
   %8 = alloca [4 x i8], align 4

@@ -731,8 +731,8 @@ _ZN6icu_7713LocaleBuilder9setRegionENS_11StringPieceE.exit: ; preds = %_ZN6icu_7
   ret ptr %0
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder5clearEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) initializes((8, 13), (21, 22), (26, 27)) %0) local_unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder5clearEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) initializes((8, 13), (21, 22), (26, 27)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12

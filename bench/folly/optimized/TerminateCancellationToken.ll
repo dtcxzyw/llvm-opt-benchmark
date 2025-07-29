@@ -2934,8 +2934,8 @@ define internal noundef zeroext i1 @_ZN5folly6detail15SingletonHolderINS_12_GLOB
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEE18preDestroyInstanceERNS_24ReadMostlyMainPtrDeleterINS_10TLRefCountEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(2304) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEE18preDestroyInstanceERNS_24ReadMostlyMainPtrDeleterINS_10TLRefCountEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(2304) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.folly::Function", align 16
   %4 = alloca %"class.folly::ReadMostlyMainPtr", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -8254,8 +8254,8 @@ _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; pr
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly19ReadMostlySharedPtrINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS3_EEPS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN5folly19ReadMostlySharedPtrINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS3_EEPS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = icmp eq ptr %5, %1
@@ -12783,8 +12783,8 @@ _ZNSt12_Vector_baseIN5folly8FunctionIFvvEEESaIS3_EE13_M_deallocateEPS3_m.exit: ;
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly6detail8function5call_IZNS_24ReadMostlyMainPtrDeleterINS_10TLRefCountEE3addINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEvNS_17ReadMostlyMainPtrIT_S4_EEEUlvE_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN5folly6detail8function5call_IZNS_24ReadMostlyMainPtrDeleterINS_10TLRefCountEE3addINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEvNS_17ReadMostlyMainPtrIT_S4_EEEUlvE_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #11 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 16, !tbaa !536
   %2 = tail call noundef i64 @_ZN5folly10TLRefCountmmEv(ptr noundef nonnull align 8 dereferenceable(240) %.val) #23
   %3 = icmp eq i64 %2, 0
@@ -13075,8 +13075,8 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: noreturn
 declare void @_ZN5folly6detail39singletonWarnDoubleRegistrationAndAbortERKNS0_14TypeDescriptorE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #25
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvPN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerEEZNS0_9SingletonIS2_NS0_6detail10DefaultTagES7_E15getTeardownFuncESt8functionIS4_EEUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #2 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZNSt17_Function_handlerIFvPN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerEEZNS0_9SingletonIS2_NS0_6detail10DefaultTagES7_E15getTeardownFuncESt8functionIS4_EEUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #11 align 2 {
   %.val = load ptr, ptr %1, align 8, !tbaa !20
   %3 = icmp eq ptr %.val, null
   br i1 %3, label %_ZSt10__invoke_rIvRZN5folly9SingletonINS0_12_GLOBAL__N_128ScopedTerminateSignalHandlerENS0_6detail10DefaultTagES5_E15getTeardownFuncESt8functionIFvPS3_EEEUlS8_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit, label %4

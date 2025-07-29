@@ -2263,7 +2263,7 @@ define noundef i32 @ucal_getFieldDifference_77(ptr noundef %0, double noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef nonnull %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef nonnull %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::CharString", align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #14

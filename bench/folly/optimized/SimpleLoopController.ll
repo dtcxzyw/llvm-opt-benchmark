@@ -1036,8 +1036,8 @@ _ZNSt10unique_ptrIN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerESt1
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers20SimpleLoopController11runTimeoutsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly6fibers20SimpleLoopController11runTimeoutsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !125
   %4 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #24

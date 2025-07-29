@@ -18005,7 +18005,7 @@ define dso_local range(i32 0, 2) i32 @RM_BlockedClientDisconnected(ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @RM_GetThreadSafeContext(ptr noundef %0) #0 {
+define dso_local noalias noundef ptr @RM_GetThreadSafeContext(ptr noundef %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(120) ptr @zmalloc(i64 noundef 120) #36
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.split, label %.split19
@@ -18106,7 +18106,7 @@ define dso_local noundef ptr @RM_GetThreadSafeContext(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @RM_GetDetachedThreadSafeContext(ptr noundef readonly captures(none) %0) #0 {
+define dso_local noalias noundef ptr @RM_GetDetachedThreadSafeContext(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(120) ptr @zmalloc(i64 noundef 120) #36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !91

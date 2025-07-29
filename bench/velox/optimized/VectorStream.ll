@@ -363,8 +363,8 @@ if.end:                                           ; preds = %_ZN8facebook5velox1
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #2
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19registerVectorSerdeESt10unique_ptrINS0_11VectorSerdeESt14default_deleteIS2_EE(ptr noundef captures(none) %serdeToRegister) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8facebook5velox19registerVectorSerdeESt10unique_ptrINS0_11VectorSerdeESt14default_deleteIS2_EE(ptr noundef captures(none) %serdeToRegister) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox12_GLOBAL__N_118getVectorSerdeImplEvE5serde acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -408,8 +408,8 @@ _ZNSt10unique_ptrIN8facebook5velox11VectorSerdeESt14default_deleteIS2_EEaSEOS5_.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox21deregisterVectorSerdeEv() local_unnamed_addr #0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8facebook5velox21deregisterVectorSerdeEv() local_unnamed_addr #1 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox12_GLOBAL__N_118getVectorSerdeImplEvE5serde acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0

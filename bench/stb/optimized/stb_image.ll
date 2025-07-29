@@ -4524,7 +4524,7 @@ stbi__hdr_test_core.exit20:                       ; preds = %stbi__get8.exit.i13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__hdr_load(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5) local_unnamed_addr #2 {
+define noalias noundef ptr @stbi__hdr_load(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5) local_unnamed_addr #2 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca ptr, align 8
   %9 = alloca [4 x i8], align 4
@@ -8540,7 +8540,7 @@ stbi__load_gif_main_outofmem.exit109:             ; preds = %78, %86
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__loadf_main(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
+define noalias noundef ptr @stbi__loadf_main(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [2048 x i8], align 16
   %7 = tail call i32 @stbi__hdr_test(ptr noundef %0)
   %.not = icmp eq i32 %7, 0
@@ -8794,7 +8794,7 @@ stbi__malloc_mad4.exit.thread:                    ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_loadf_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
+define noalias noundef ptr @stbi_loadf_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__context, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #37
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -8819,7 +8819,7 @@ define noundef ptr @stbi_loadf_from_memory(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
+define noalias noundef ptr @stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__context, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #37
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -8875,7 +8875,7 @@ stbi__start_callbacks.exit:                       ; preds = %27, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_loadf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
+define noalias noundef ptr @stbi_loadf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.2)
   %.not = icmp eq ptr %7, null
@@ -8935,7 +8935,7 @@ stbi_loadf_from_file.exit:                        ; preds = %30, %32
   store ptr %.sink.i.i.i.i, ptr %35, align 8, !tbaa !16
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store ptr %.sink.i.i.i.i, ptr %36, align 8, !tbaa !15
-  %37 = call noundef ptr @stbi__loadf_main(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %37 = call noalias noundef ptr @stbi__loadf_main(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #37
   %38 = call i32 @fclose(ptr noundef nonnull %7)
   br label %39
@@ -8946,7 +8946,7 @@ stbi_loadf_from_file.exit:                        ; preds = %30, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
+define noalias noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__context, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16

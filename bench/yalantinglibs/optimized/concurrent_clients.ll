@@ -51218,8 +51218,8 @@ lpad62:                                           ; preds = %catch
   resume { ptr, i32 } %60
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc15coro_rpc_client7timeoutIN7coro_io12period_timerENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEN12async_simple7PromiseINS9_4UnitEEEEENS9_4coro4LazyIbEERT_T0_RT1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.destroy(ptr noundef nonnull align 8 dereferenceable(152) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc15coro_rpc_client7timeoutIN7coro_io12period_timerENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEN12async_simple7PromiseINS9_4UnitEEEEENS9_4coro4LazyIbEERT_T0_RT1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.destroy(ptr noundef nonnull align 8 dereferenceable(152) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %err_msg5.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
   %ref.tmp16.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -51554,8 +51554,8 @@ terminate.lpad:                                   ; preds = %lpad34
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIbLb1EE5startIZNS0_14RescheduleLazyIbE6detachEvEUlOT_E_EEvS8_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS7_EEEENKUlS3_S9_E_clES3_S9_.destroy(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIbLb1EE5startIZNS0_14RescheduleLazyIbE6detachEvEUlOT_E_EEvS8_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS7_EEEENKUlS3_S9_E_clES3_S9_.destroy(ptr noundef nonnull align 8 dereferenceable(64) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %lazy2.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -52046,8 +52046,8 @@ _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeED2Ev.exit: ; preds = %
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (48, 56)) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (48, 56)) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 CoroSave28:
   %agg.tmp.i = alloca %"class.std::function.121", align 8
   %ref.tmp8.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -53367,8 +53367,8 @@ unreachable317:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc15coro_rpc_client7connectENS0_14is_reconnect_tE.destroy(ptr noundef nonnull align 8 dereferenceable(360) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc15coro_rpc_client7connectENS0_14is_reconnect_tE.destroy(ptr noundef nonnull align 8 dereferenceable(360) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %promise.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 280
   %timer.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -53883,8 +53883,8 @@ lpad49:                                           ; preds = %catch
   resume { ptr, i32 } %35
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7coro_io9sleep_forINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS_15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEEEEN12async_simple4coro4LazyIvEERKT_PT0_.destroy(ptr noundef nonnull align 8 dereferenceable(200) %0) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7coro_io9sleep_forINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS_15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEEEEN12async_simple4coro4LazyIvEERKT_PT0_.destroy(ptr noundef nonnull align 8 dereferenceable(200) %0) #6 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %timer.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
   %ref.tmp16.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -54328,8 +54328,8 @@ unreachable172:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7coro_io9sleep_forINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEN12async_simple4coro4LazyIvEET_.destroy(ptr noundef nonnull align 8 dereferenceable(104) %0) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7coro_io9sleep_forINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEN12async_simple4coro4LazyIvEET_.destroy(ptr noundef nonnull align 8 dereferenceable(104) %0) #6 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp27.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %ref.tmp28.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -54863,8 +54863,8 @@ lpad62:                                           ; preds = %catch
   resume { ptr, i32 } %60
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc15coro_rpc_client7timeoutIN7coro_io12period_timerENSt6chrono8durationIlSt5ratioILl1ELl1EEEEN12async_simple7PromiseINS9_4UnitEEEEENS9_4coro4LazyIbEERT_T0_RT1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.destroy(ptr noundef nonnull align 8 dereferenceable(152) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc15coro_rpc_client7timeoutIN7coro_io12period_timerENSt6chrono8durationIlSt5ratioILl1ELl1EEEEN12async_simple7PromiseINS9_4UnitEEEEENS9_4coro4LazyIbEERT_T0_RT1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.destroy(ptr noundef nonnull align 8 dereferenceable(152) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %err_msg5.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
   %ref.tmp16.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -57006,8 +57006,8 @@ unreachable473:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc15coro_rpc_client9call_implITnDaXadL_Z4echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEEEN4asio19basic_stream_socketINS6_2ip3tcpENS6_15any_io_executorEEEJPKcEEEN12async_simple4coro4LazyIN2tl8expectedIDTcl15get_return_typeIXT_EEEENS_8protocol17coro_rpc_protocol9rpc_errorEEEEERT0_DpT1_.destroy(ptr noundef nonnull align 8 dereferenceable(544) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc15coro_rpc_client9call_implITnDaXadL_Z4echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEEEN4asio19basic_stream_socketINS6_2ip3tcpENS6_15any_io_executorEEEJPKcEEEN12async_simple4coro4LazyIN2tl8expectedIDTcl15get_return_typeIXT_EEEENS_8protocol17coro_rpc_protocol9rpc_errorEEEEERT0_DpT1_.destroy(ptr noundef nonnull align 8 dereferenceable(544) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %buffer.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 200
   %r.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -58589,8 +58589,8 @@ unreachable259:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc15coro_rpc_client8call_forITnDaXadL_Z4echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEEEJPKcENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEN12async_simple4coro4LazyIN2tl8expectedIDTcl15get_return_typeIXT_EEEENS_8protocol17coro_rpc_protocol9rpc_errorEEEEET1_DpT0_.destroy(ptr noundef nonnull align 8 dereferenceable(496) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc15coro_rpc_client8call_forITnDaXadL_Z4echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEEEJPKcENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEN12async_simple4coro4LazyIN2tl8expectedIDTcl15get_return_typeIXT_EEEENS_8protocol17coro_rpc_protocol9rpc_errorEEEEET1_DpT0_.destroy(ptr noundef nonnull align 8 dereferenceable(496) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ret52.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 208
   %promise.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -59703,8 +59703,8 @@ unreachable351:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_Z9call_echoi.destroy(ptr noundef nonnull align 8 dereferenceable(544) %0) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_Z9call_echoi.destroy(ptr noundef nonnull align 8 dereferenceable(544) %0) #6 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %client.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
   %ref.tmp14.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -60307,8 +60307,8 @@ lpad49:                                           ; preds = %catch
   resume { ptr, i32 } %35
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7coro_io9sleep_forINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS_15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEEEEN12async_simple4coro4LazyIvEERKT_PT0_.destroy(ptr noundef nonnull align 8 dereferenceable(200) %0) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7coro_io9sleep_forINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS_15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEEEEN12async_simple4coro4LazyIvEERKT_PT0_.destroy(ptr noundef nonnull align 8 dereferenceable(200) %0) #6 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %timer.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
   %ref.tmp16.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -60752,8 +60752,8 @@ unreachable172:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7coro_io9sleep_forINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEN12async_simple4coro4LazyIvEET_.destroy(ptr noundef nonnull align 8 dereferenceable(104) %0) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN7coro_io9sleep_forINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEN12async_simple4coro4LazyIvEET_.destroy(ptr noundef nonnull align 8 dereferenceable(104) %0) #6 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp27.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %ref.tmp28.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -61087,8 +61087,8 @@ lpad55:                                           ; preds = %catch
   resume { ptr, i32 } %32
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_Z11qps_watcherv.destroy(ptr noundef nonnull align 8 dereferenceable(72) %0) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_Z11qps_watcherv.destroy(ptr noundef nonnull align 8 dereferenceable(72) %0) #6 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp8.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
   %ref.tmp9.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -61284,8 +61284,8 @@ CoroEnd:                                          ; preds = %invoke.cont.i, %fin
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12async_simple4coro6detail8LazyBaseIvLb0EE5startIZ4mainE3$_0EEvOT_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS6_EEEENKUlS3_S5_E_clES3_S5_.destroy"(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @"_ZZN12async_simple4coro6detail8LazyBaseIvLb0EE5startIZ4mainE3$_0EEvOT_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS6_EEEENKUlS3_S5_E_clES3_S5_.destroy"(ptr noundef nonnull align 8 dereferenceable(56) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %lazy2.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -61526,8 +61526,8 @@ CoroEnd:                                          ; preds = %invoke.cont.i, %fin
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIvLb0EE5startIZNS0_9syncAwaitINS0_4LazyIvEEEEDaOT_EUlNS_3TryIvEEE_EEvS9_Qsr3stdE14is_invocable_vIOTL0__NSA_IS8_EEEENKUlS3_SC_E_clES3_SC_.destroy(ptr noundef nonnull align 8 dereferenceable(72) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIvLb0EE5startIZNS0_9syncAwaitINS0_4LazyIvEEEEDaOT_EUlNS_3TryIvEEE_EEvS9_Qsr3stdE14is_invocable_vIOTL0__NSA_IS8_EEEENKUlS3_SC_E_clES3_SC_.destroy(ptr noundef nonnull align 8 dereferenceable(72) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %lazy2.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 56

@@ -1887,8 +1887,8 @@ define void @_ZTv0_n32_N5folly27TimekeeperScheduledExecutor3addENS_8FunctionIFvv
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function5call_IZNS_27TimekeeperScheduledExecutor3addENS_8FunctionIFvvEEEE3$_0Lb0ELb0EvJEEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #3 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function5call_IZNS_27TimekeeperScheduledExecutor3addENS_8FunctionIFvvEEEE3$_0Lb0ELb0EvJEEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.folly::Function", align 16
   %3 = load ptr, ptr %0, align 16, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)

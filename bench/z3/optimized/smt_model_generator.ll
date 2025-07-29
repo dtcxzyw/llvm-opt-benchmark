@@ -1569,7 +1569,7 @@ _ZN6vectorIPN3smt17extra_fresh_valueELb0EjE9push_backERKS2_.exit: ; preds = %12,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt15model_generator14mk_model_valueEPNS_5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
+define hidden noalias noundef ptr @_ZN3smt15model_generator14mk_model_valueEPNS_5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4

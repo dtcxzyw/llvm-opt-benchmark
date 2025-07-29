@@ -336,7 +336,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #7
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @thread_loop(ptr noundef captures(none) %0) #4 {
+define internal noalias noundef ptr @thread_loop(ptr noundef captures(none) %0) #4 {
   %2 = alloca [16 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

@@ -77,7 +77,7 @@ declare void @free(ptr allocptr noundef captures(none)) #1
 declare i32 @dtclose(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mkRouter(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @mkRouter(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.item, align 8
   %4 = alloca %struct.item, align 8
   %5 = alloca %struct.item, align 8

@@ -2225,8 +2225,8 @@ declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #11
 
 declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_7712_GLOBAL__N_17cleanupEv() #1 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZN6icu_7712_GLOBAL__N_17cleanupEv() #0 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_114gLikelySubtagsE, align 8, !tbaa !28
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3

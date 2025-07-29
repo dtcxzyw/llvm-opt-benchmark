@@ -94,8 +94,8 @@ return:                                           ; preds = %entry, %if.then
   ret i1 %cmp.not
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS_16ByteEventTrackerEPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, i64 noundef %bodyLen, ptr noundef %byteEventTracker, ptr noundef %txn) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS_16ByteEventTrackerEPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, i64 noundef %bodyLen, ptr noundef %byteEventTracker, ptr noundef %txn) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %tobool = icmp ne ptr %byteEventTracker, null

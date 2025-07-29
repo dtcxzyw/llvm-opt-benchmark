@@ -827,8 +827,8 @@ _ZN3tbb6detail2r117tbb_exception_ptr7destroyEv.exit: ; preds = %_ZN3tbb6detail2r
   ret void
 }
 
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl19capture_fp_settingsERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #8 align 2 {
+; Function Attrs: mustprogress nounwind sspstrong uwtable
+define void @_ZN3tbb6detail2r123task_group_context_impl19capture_fp_settingsERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -1034,8 +1034,8 @@ define noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_
   ret i1 %4
 }
 
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r119capture_fp_settingsERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #8 {
+; Function Attrs: mustprogress nounwind sspstrong uwtable
+define void @_ZN3tbb6detail2r119capture_fp_settingsERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1

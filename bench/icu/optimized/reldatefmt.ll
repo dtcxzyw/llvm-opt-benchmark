@@ -3920,8 +3920,8 @@ _ZN6icu_7713IcuCApiHelperI26UFormattedRelativeDateTimeNS_30UFormattedRelativeDat
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress uwtable
-define void @ureldatefmt_closeResult_77(ptr noundef %0) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @ureldatefmt_closeResult_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN6icu_7713IcuCApiHelperI26UFormattedRelativeDateTimeNS_30UFormattedRelativeDateTimeImplELi1179796564EE8validateEPS1_R10UErrorCode.exit.thread, label %3
 

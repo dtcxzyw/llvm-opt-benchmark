@@ -2100,8 +2100,8 @@ _ZN6icu_7723ICUBreakIteratorFactoryC2Ev.exit:     ; preds = %10
 
 declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL21breakiterator_cleanupv() #1 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL21breakiterator_cleanupv() #0 {
   %1 = load ptr, ptr @_ZL8gService, align 8, !tbaa !26
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2

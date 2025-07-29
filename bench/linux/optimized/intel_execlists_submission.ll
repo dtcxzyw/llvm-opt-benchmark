@@ -5012,7 +5012,7 @@ declare dso_local void @lrc_reset(ptr noundef) #2
 declare dso_local void @lrc_destroy(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @execlists_create_virtual(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2) #0 align 16 {
+define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64

@@ -1051,7 +1051,7 @@ define hidden noundef range(i32 -2147483640, -2147483648) i32 @_ZNK8FrameMap28sp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK8FrameMap7regnameE7LIR_Opr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK8FrameMap7regnameE7LIR_Opr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.LIR_Opr, align 8
   store i64 %1, ptr %3, align 8
   %4 = and i64 %1, 391

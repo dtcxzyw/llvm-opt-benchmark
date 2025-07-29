@@ -6572,8 +6572,8 @@ if.end26:                                         ; preds = %if.then6.i.i, %if.t
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction21processIngressUpgradeENS_15UpgradeProtocolE(ptr noundef nonnull align 8 dereferenceable(912) %this, i32 noundef %protocol) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction21processIngressUpgradeENS_15UpgradeProtocolE(ptr noundef nonnull align 8 dereferenceable(912) %this, i32 noundef %protocol) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -9830,8 +9830,8 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction23onEgressHeaderFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction23onEgressHeaderFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -9875,8 +9875,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction21onEgressBodyFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction21onEgressBodyFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -9921,8 +9921,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction20onEgressBodyLastByteEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction20onEgressBodyLastByteEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -9967,8 +9967,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction19onEgressTrackedByteEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction19onEgressTrackedByteEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10013,8 +10013,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction19onEgressLastByteAckENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 %latency.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction19onEgressLastByteAckENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 %latency.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10059,8 +10059,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction27onLastEgressHeaderByteAckedEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction27onLastEgressHeaderByteAckedEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %egressHeadersDelivered_ = getelementptr inbounds nuw i8, ptr %this, i64 728
   %bf.load = load i32, ptr %egressHeadersDelivered_, align 8
@@ -10109,8 +10109,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction22onEgressBodyBytesAckedEm(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %bodyOffset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction22onEgressBodyBytesAckedEm(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %bodyOffset) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10155,8 +10155,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction19onEgressBodyBytesTxEm(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %bodyOffset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction19onEgressBodyBytesTxEm(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %bodyOffset) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10201,8 +10201,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction28onEgressBodyDeliveryCanceledEm(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %bodyOffset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction28onEgressBodyDeliveryCanceledEm(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %bodyOffset) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10247,8 +10247,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction26onEgressTrackedByteEventTXERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(64) %event) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction26onEgressTrackedByteEventTXERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(64) %event) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10293,8 +10293,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction27onEgressTrackedByteEventAckERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(64) %event) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction27onEgressTrackedByteEventAckERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(64) %event) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10339,8 +10339,8 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction31onEgressTransportAppRateLimitedEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction31onEgressTransportAppRateLimitedEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -17756,8 +17756,8 @@ if.end14:                                         ; preds = %if.then13, %if.end,
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction21updateAndSendPriorityENS_12HTTPPriorityE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef readonly captures(none) %pri) unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPTransaction21updateAndSendPriorityENS_12HTTPPriorityE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef readonly captures(none) %pri) unnamed_addr #5 align 2 {
 entry:
   %agg.tmp = alloca %"struct.proxygen::HTTPPriority", align 8
   %urgency = getelementptr inbounds nuw i8, ptr %pri, i64 8

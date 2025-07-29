@@ -4271,7 +4271,7 @@ define void @_ZN15MainApplication23reloadLuaPluginsDelayedEv(ptr noundef align 8
 declare void @_ZN15MainApplication16reloadLuaPluginsEv(ptr noundef align 8 dereferenceable_or_null(216)) #3
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef align 8 dereferenceable(8) ptr @_ZN15MainApplication10normalIconEv(ptr noundef align 8 dereferenceable_or_null(216) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN15MainApplication10normalIconEv(ptr noundef align 8 dereferenceable_or_null(216) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = tail call noundef zeroext i1 @_ZNK5QIcon6isNullEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) %2)
   br i1 %3, label %4, label %8
@@ -4291,7 +4291,7 @@ define noundef align 8 dereferenceable(8) ptr @_ZN15MainApplication10normalIconE
 declare noundef zeroext i1 @_ZNK5QIcon6isNullEv(ptr noundef align 8 dereferenceable_or_null(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef align 8 dereferenceable(8) ptr @_ZN15MainApplication11captureIconEv(ptr noundef align 8 dereferenceable_or_null(216) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN15MainApplication11captureIconEv(ptr noundef align 8 dereferenceable_or_null(216) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = tail call noundef zeroext i1 @_ZNK5QIcon6isNullEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) %2)
   br i1 %3, label %4, label %8

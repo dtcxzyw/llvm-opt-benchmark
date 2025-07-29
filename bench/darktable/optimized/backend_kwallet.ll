@@ -473,7 +473,7 @@ declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local
 declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @char2qstring(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @char2qstring(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -821,7 +821,7 @@ declare void @g_variant_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @g_variant_get_data(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @array2string(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1) unnamed_addr #0 {
+define internal fastcc noalias ptr @array2string(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8

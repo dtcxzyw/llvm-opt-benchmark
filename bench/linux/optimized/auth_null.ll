@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [10 x i8] c"AUTH_NULL\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @nul_create(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
+define internal noundef nonnull ptr @nul_create(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @null_auth, i64 36), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @null_auth, i64 36)) #5, !srcloc !5
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5, !prof !6

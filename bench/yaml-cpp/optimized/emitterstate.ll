@@ -731,8 +731,8 @@ define void @_ZN4YAML12EmitterState8EndedDocEv(ptr noundef nonnull writeonly ali
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML12EmitterState13StartedScalarEv(ptr noundef nonnull align 8 captures(none) dereferenceable(224) initializes((208, 212)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN4YAML12EmitterState13StartedScalarEv(ptr noundef nonnull align 8 captures(none) dereferenceable(224) initializes((208, 212)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184

@@ -4108,7 +4108,7 @@ declare noundef zeroext i1 @_ZNK6Method26is_method_handle_intrinsicEv(ptr nounde
 declare noundef ptr @_ZN9CodeCache12find_nmethodEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @throw_unsatisfied_link_error(ptr noundef %0, ...) #0 {
+define hidden noundef nonnull ptr @throw_unsatisfied_link_error(ptr noundef %0, ...) #0 {
   %2 = alloca %class.WeakPreserveExceptionMark, align 8
   %3 = ptrtoint ptr %0 to i64
   %4 = add nsw i64 %3, -960

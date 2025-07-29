@@ -5751,7 +5751,7 @@ cleanup:                                          ; preds = %lor.lhs.false.i.i.i
 declare void @_ZN5sound12PlayingSound12updatePosVelERKN3irr4core8vector3dIfEES6_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5sound18OpenALSoundManager3runEv(ptr noundef nonnull align 8 dereferenceable(848) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_ZN5sound18OpenALSoundManager3runEv(ptr noundef nonnull align 8 dereferenceable(848) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %msg.i = alloca %"class.std::variant.202", align 8
   %ts.i59 = alloca %struct.timespec, align 8

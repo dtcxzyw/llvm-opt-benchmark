@@ -4827,7 +4827,7 @@ define void @_ZN5tokio7runtime9scheduler12multi_thread6worker3run17h395eefb01f78
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context3run17he5802a3f81b0bf75E(ptr noundef nonnull align 8 captures(none) %0, ptr noalias noundef nonnull align 8 initializes((72, 73)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context3run17he5802a3f81b0bf75E(ptr noundef nonnull align 8 captures(none) %0, ptr noalias noundef nonnull align 8 initializes((72, 73)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

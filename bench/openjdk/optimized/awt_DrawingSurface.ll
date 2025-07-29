@@ -686,7 +686,7 @@ define void @awt_DrawingSurface_Unlock(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @awt_GetDrawingSurface(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @awt_GetDrawingSurface(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8

@@ -982,7 +982,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.942 = private unnamed_addr constant [10 x i8] c"cur_table\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @rb_str_to_parser_string(ptr readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @rb_str_to_parser_string(ptr readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8, !tbaa !7

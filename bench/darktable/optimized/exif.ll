@@ -34749,7 +34749,7 @@ declare i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef) local_unnamed_addr 
 declare void @g_date_time_unref(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define ptr @dt_exif_xmp_read_string(i32 noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias ptr @dt_exif_xmp_read_string(i32 noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca [4096 x i8], align 16

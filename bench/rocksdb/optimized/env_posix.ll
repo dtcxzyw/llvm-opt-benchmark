@@ -9850,7 +9850,7 @@ declare noundef i32 @_ZN7rocksdb14ThreadPoolImpl10UnScheduleEPv(ptr noundef nonn
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_118StartThreadWrapperEPv(ptr noundef %0) #4 {
+define internal noalias noundef ptr @_ZN7rocksdb12_GLOBAL__N_118StartThreadWrapperEPv(ptr noundef %0) #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !165
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !167

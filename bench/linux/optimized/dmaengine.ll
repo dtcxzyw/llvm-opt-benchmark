@@ -651,7 +651,7 @@ define dso_local ptr @dma_get_any_slave_channel(ptr noundef %0) #1 align 16 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @find_candidate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc nonnull ptr @find_candidate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %14, label %6
 
@@ -1039,15 +1039,15 @@ declare dso_local i32 @sysfs_create_link(ptr noundef, ptr noundef, ptr noundef) 
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dma_request_chan_by_mask(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define dso_local nonnull ptr @dma_request_chan_by_mask(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %19, label %3
+  br i1 %2, label %16, label %3
 
 3:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @dma_list_mutex) #12
   %4 = load ptr, ptr @dma_device_list, align 8
   %5 = icmp eq ptr %4, @dma_device_list
-  br i1 %5, label %.thread, label %.preheader
+  br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %11
   %6 = phi ptr [ %8, %11 ], [ %4, %3 ]
@@ -1055,32 +1055,28 @@ define dso_local ptr @dma_request_chan_by_mask(ptr noundef readonly captures(add
   %8 = load ptr, ptr %6, align 8
   %9 = tail call fastcc ptr @find_candidate(ptr noundef %7, ptr noundef nonnull %0, ptr noundef null, ptr noundef null)
   %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %.sink.split
 
 11:                                               ; preds = %.preheader
   %12 = icmp eq ptr %8, @dma_device_list
-  br i1 %12, label %.thread, label %.preheader, !llvm.loop !34
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !34
 
-.thread:                                          ; preds = %11, %3
+.loopexit:                                        ; preds = %11, %3
   tail call void @mutex_unlock(ptr noundef nonnull @dma_list_mutex) #12
-  br label %15
-
-13:                                               ; preds = %.preheader
-  tail call void @mutex_unlock(ptr noundef nonnull @dma_list_mutex) #12
-  %14 = icmp eq ptr %9, null
-  br i1 %14, label %15, label %19
-
-15:                                               ; preds = %.thread, %13
   tail call void @mutex_lock(ptr noundef nonnull @dma_list_mutex) #12
-  %16 = load volatile ptr, ptr @dma_device_list, align 8
-  %17 = icmp eq ptr %16, @dma_device_list
-  %18 = select i1 %17, ptr inttoptr (i64 -517 to ptr), ptr inttoptr (i64 -19 to ptr)
-  tail call void @mutex_unlock(ptr noundef nonnull @dma_list_mutex) #12
-  br label %19
+  %13 = load volatile ptr, ptr @dma_device_list, align 8
+  %14 = icmp eq ptr %13, @dma_device_list
+  %15 = select i1 %14, ptr inttoptr (i64 -517 to ptr), ptr inttoptr (i64 -19 to ptr)
+  br label %.sink.split
 
-19:                                               ; preds = %15, %13, %1
-  %20 = phi ptr [ %9, %13 ], [ %18, %15 ], [ inttoptr (i64 -19 to ptr), %1 ]
-  ret ptr %20
+.sink.split:                                      ; preds = %.preheader, %.loopexit
+  %.ph = phi ptr [ %15, %.loopexit ], [ %9, %.preheader ]
+  tail call void @mutex_unlock(ptr noundef nonnull @dma_list_mutex) #12
+  br label %16
+
+16:                                               ; preds = %.sink.split, %1
+  %17 = phi ptr [ inttoptr (i64 -19 to ptr), %1 ], [ %.ph, %.sink.split ]
+  ret ptr %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

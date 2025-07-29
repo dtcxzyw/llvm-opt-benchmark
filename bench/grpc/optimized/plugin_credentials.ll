@@ -7038,8 +7038,8 @@ _ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZN23grpc_plugin_credentials18GetRequestMetadataES9_PKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0E7DestroyEPNS0_7ArgTypeE"(ptr noundef readonly captures(none) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZN23grpc_plugin_credentials18GetRequestMetadataES9_PKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0E7DestroyEPNS0_7ArgTypeE"(ptr noundef readonly captures(none) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8, !tbaa !144
   %.not.i.i = icmp eq ptr %.val, null
   br i1 %.not.i.i, label %"_ZZN23grpc_plugin_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEEN3$_0D2Ev.exit", label %2

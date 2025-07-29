@@ -6097,7 +6097,7 @@ declare dso_local void @intel_pmu_lbr_save(ptr noundef) #0
 declare dso_local void @intel_pmu_lbr_restore(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @core_guest_get_msrs(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
+define internal nonnull ptr @core_guest_get_msrs(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #24, !srcloc !99
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3552
@@ -8265,7 +8265,7 @@ define internal void @intel_pmu_swap_task_ctx(ptr noundef %0, ptr noundef %1) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @intel_guest_get_msrs(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
+define internal nonnull ptr @intel_guest_get_msrs(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #24, !srcloc !128
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3552

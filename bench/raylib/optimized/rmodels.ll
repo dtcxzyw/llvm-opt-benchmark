@@ -24686,7 +24686,7 @@ par_shapes_create_parametric.exit:                ; preds = %._crit_edge120.us.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @par_shapes_create_parametric(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @par_shapes_create_parametric(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x float], align 4
   %6 = alloca [3 x float], align 4
   %7 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 48, i64 noundef 1) #61
@@ -25835,11 +25835,11 @@ par_shapes_create_parametric.exit:                ; preds = %._crit_edge120.us.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @par_shapes_create_klein_bottle(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @par_shapes_create_klein_bottle(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 3
   %4 = icmp slt i32 %1, 3
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %23, label %.split.us
+  br i1 %or.cond, label %24, label %.split.us
 
 .split.us:                                        ; preds = %2
   %5 = tail call ptr @par_shapes_create_parametric(ptr noundef nonnull @par_shapes__klein, i32 noundef %0, i32 noundef %1, ptr noundef null)
@@ -25850,61 +25850,61 @@ define hidden noundef ptr @par_shapes_create_klein_bottle(i32 noundef %0, i32 no
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.split.us
-  %.01826.us = phi i32 [ 0, %.split.us ], [ %14, %._crit_edge.us ]
+  %.01826.us = phi i32 [ 0, %.split.us ], [ %13, %._crit_edge.us ]
   %.01925.us = phi i32 [ 0, %.split.us ], [ %.us-phi.us, %._crit_edge.us ]
   %10 = icmp samesign ult i32 %.01826.us, %7
-  br i1 %10, label %.lr.ph.split.us.us.preheader, label %par_shapes_invert.exit.us.preheader
+  br i1 %10, label %.lr.ph.split.us.us, label %par_shapes_invert.exit.us.preheader
 
 par_shapes_invert.exit.us.preheader:              ; preds = %.preheader.us
   %11 = add i32 %9, %.01925.us
   br label %._crit_edge.us
 
-.lr.ph.split.us.us.preheader:                     ; preds = %.preheader.us
-  %12 = sext i32 %.01925.us to i64
-  br label %.lr.ph.split.us.us
-
 ._crit_edge.us.loopexit:                          ; preds = %par_shapes_invert.exit.loopexit.us.us
-  %13 = trunc nsw i64 %indvars.iv.next to i32
+  %12 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %par_shapes_invert.exit.us.preheader, %._crit_edge.us.loopexit
-  %.us-phi.us = phi i32 [ %13, %._crit_edge.us.loopexit ], [ %11, %par_shapes_invert.exit.us.preheader ]
-  %14 = add nuw nsw i32 %.01826.us, 1
-  %exitcond37.not = icmp eq i32 %14, %1
+  %.us-phi.us = phi i32 [ %12, %._crit_edge.us.loopexit ], [ %11, %par_shapes_invert.exit.us.preheader ]
+  %13 = add nuw nsw i32 %.01826.us, 1
+  %exitcond37.not = icmp eq i32 %13, %1
   br i1 %exitcond37.not, label %.split33.us, label %.preheader.us, !llvm.loop !27
 
-.lr.ph.split.us.us:                               ; preds = %.lr.ph.split.us.us.preheader, %par_shapes_invert.exit.loopexit.us.us
-  %indvars.iv = phi i64 [ %12, %.lr.ph.split.us.us.preheader ], [ %indvars.iv.next, %par_shapes_invert.exit.loopexit.us.us ]
-  %.024.us.us = phi i32 [ 0, %.lr.ph.split.us.us.preheader ], [ %22, %par_shapes_invert.exit.loopexit.us.us ]
-  %15 = load ptr, ptr %8, align 8
+.lr.ph.split.us.us:                               ; preds = %.preheader.us
+  %14 = load ptr, ptr %8, align 8
+  %15 = sext i32 %.01925.us to i64
+  br label %16
+
+16:                                               ; preds = %par_shapes_invert.exit.loopexit.us.us, %.lr.ph.split.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %par_shapes_invert.exit.loopexit.us.us ], [ %15, %.lr.ph.split.us.us ]
+  %.024.us.us = phi i32 [ %23, %par_shapes_invert.exit.loopexit.us.us ], [ 0, %.lr.ph.split.us.us ]
   %.idx = mul nsw i64 %indvars.iv, 6
-  %16 = getelementptr inbounds i8, ptr %15, i64 %.idx
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx
   br label %.lr.ph.i.us.us
 
-.lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us, %.lr.ph.split.us.us
-  %.016.i.us.us = phi i32 [ %21, %.lr.ph.i.us.us ], [ 0, %.lr.ph.split.us.us ]
-  %.01315.i.us.us = phi ptr [ %20, %.lr.ph.i.us.us ], [ %16, %.lr.ph.split.us.us ]
-  %17 = getelementptr inbounds nuw i8, ptr %.01315.i.us.us, i64 4
-  %18 = load i16, ptr %17, align 2
-  %19 = load i16, ptr %.01315.i.us.us, align 2
-  store i16 %19, ptr %17, align 2
-  store i16 %18, ptr %.01315.i.us.us, align 2
-  %20 = getelementptr inbounds nuw i8, ptr %.01315.i.us.us, i64 6
-  %21 = add nuw nsw i32 %.016.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i32 %21, 2
+.lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us, %16
+  %.016.i.us.us = phi i32 [ %22, %.lr.ph.i.us.us ], [ 0, %16 ]
+  %.01315.i.us.us = phi ptr [ %21, %.lr.ph.i.us.us ], [ %17, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.01315.i.us.us, i64 4
+  %19 = load i16, ptr %18, align 2
+  %20 = load i16, ptr %.01315.i.us.us, align 2
+  store i16 %20, ptr %18, align 2
+  store i16 %19, ptr %.01315.i.us.us, align 2
+  %21 = getelementptr inbounds nuw i8, ptr %.01315.i.us.us, i64 6
+  %22 = add nuw nsw i32 %.016.i.us.us, 1
+  %exitcond.not.i.us.us = icmp eq i32 %22, 2
   br i1 %exitcond.not.i.us.us, label %par_shapes_invert.exit.loopexit.us.us, label %.lr.ph.i.us.us
 
 par_shapes_invert.exit.loopexit.us.us:            ; preds = %.lr.ph.i.us.us
-  %22 = add nuw nsw i32 %.024.us.us, 1
+  %23 = add nuw nsw i32 %.024.us.us, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
-  %exitcond.not = icmp eq i32 %22, %0
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.lr.ph.split.us.us, !llvm.loop !28
+  %exitcond.not = icmp eq i32 %23, %0
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %16, !llvm.loop !28
 
 .split33.us:                                      ; preds = %._crit_edge.us
   tail call void @par_shapes__compute_welded_normals(ptr noundef %5)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %2, %.split33.us
+24:                                               ; preds = %2, %.split33.us
   %.020 = phi ptr [ %5, %.split33.us ], [ null, %2 ]
   ret ptr %.020
 }
@@ -26021,7 +26021,7 @@ define hidden void @par_shapes_invert(ptr noundef readonly captures(none) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @par_shapes_create_trefoil_knot(i32 noundef %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @par_shapes_create_trefoil_knot(i32 noundef %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 {
   %4 = alloca float, align 4
   store float %2, ptr %4, align 4
   %5 = icmp slt i32 %0, 3
@@ -46126,7 +46126,7 @@ define void @GenMeshKnot(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
   %7 = icmp sgt i32 %4, 2
   %8 = icmp sgt i32 %3, 2
   %or.cond = and i1 %8, %7
-  br i1 %or.cond, label %9, label %81
+  br i1 %or.cond, label %9, label %80
 
 9:                                                ; preds = %5
   %10 = fcmp ogt float %1, 3.000000e+00
@@ -46168,112 +46168,115 @@ par_shapes_create_trefoil_knot.exit:              ; preds = %9, %11, %13
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %16, ptr %30, align 4
   %31 = icmp sgt i32 %16, 0
-  %.pre67 = load ptr, ptr %14, align 8
-  br i1 %31, label %.lr.ph, label %._crit_edge
+  %.pre = load ptr, ptr %14, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %33 = load ptr, ptr %32, align 8
+  br i1 %31, label %.lr.ph, label %par_shapes_create_trefoil_knot.exit.._crit_edge_crit_edge
+
+par_shapes_create_trefoil_knot.exit.._crit_edge_crit_edge: ; preds = %par_shapes_create_trefoil_knot.exit
+  %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.pre74 = load ptr, ptr %.phi.trans.insert73, align 8
+  %.phi.trans.insert75 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %.pre76 = load ptr, ptr %.phi.trans.insert75, align 8
+  br label %._crit_edge
 
 .lr.ph:                                           ; preds = %par_shapes_create_trefoil_knot.exit
-  %32 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %33 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %34 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %.pre, i64 4
+  %invariant.gep63 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %35 = load ptr, ptr %34, align 8
+  %invariant.gep65 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %invariant.gep67 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %invariant.gep69 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %smax = call i32 @llvm.smax.i32(i32 %29, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  %.pre64 = load ptr, ptr %32, align 8
-  %.pre65 = load ptr, ptr %33, align 8
-  %.pre66 = load ptr, ptr %34, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.pre67, i64 4
-  %invariant.gep69 = getelementptr inbounds nuw i8, ptr %.pre67, i64 8
-  %invariant.gep71 = getelementptr inbounds nuw i8, ptr %.pre65, i64 4
-  %invariant.gep73 = getelementptr inbounds nuw i8, ptr %.pre65, i64 8
-  %invariant.gep75 = getelementptr inbounds nuw i8, ptr %.pre66, i64 4
-  br label %41
+  br label %40
 
-._crit_edge:                                      ; preds = %41, %par_shapes_create_trefoil_knot.exit
-  call void @free(ptr noundef %.pre67) #58
-  %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %36 = load ptr, ptr %35, align 8
-  call void @free(ptr noundef %36) #58
-  %37 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %38 = load ptr, ptr %37, align 8
+._crit_edge:                                      ; preds = %40, %par_shapes_create_trefoil_knot.exit.._crit_edge_crit_edge
+  %38 = phi ptr [ %.pre76, %par_shapes_create_trefoil_knot.exit.._crit_edge_crit_edge ], [ %37, %40 ]
+  %39 = phi ptr [ %.pre74, %par_shapes_create_trefoil_knot.exit.._crit_edge_crit_edge ], [ %35, %40 ]
+  call void @free(ptr noundef %.pre) #58
+  call void @free(ptr noundef %33) #58
+  call void @free(ptr noundef %39) #58
   call void @free(ptr noundef %38) #58
-  %39 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %40 = load ptr, ptr %39, align 8
-  call void @free(ptr noundef %40) #58
   call void @free(ptr noundef nonnull %14) #58
   call void @UploadMesh(ptr noundef nonnull %0, i1 noundef zeroext false)
-  br label %82
+  br label %81
 
-41:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw i16, ptr %.pre64, i64 %indvars.iv
-  %43 = load i16, ptr %42, align 2
-  %44 = zext i16 %43 to i64
-  %.idx = mul nuw nsw i64 %44, 12
-  %45 = getelementptr inbounds nuw i8, ptr %.pre67, i64 %.idx
-  %46 = load float, ptr %45, align 4
-  %47 = mul nuw nsw i64 %indvars.iv, 3
-  %48 = getelementptr inbounds nuw float, ptr %20, i64 %47
-  store float %46, ptr %48, align 4
-  %49 = load i16, ptr %42, align 2
-  %50 = zext i16 %49 to i64
-  %.idx55 = mul nuw nsw i64 %50, 12
+40:                                               ; preds = %.lr.ph, %40
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
+  %41 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv
+  %42 = load i16, ptr %41, align 2
+  %43 = zext i16 %42 to i64
+  %.idx = mul nuw nsw i64 %43, 12
+  %44 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
+  %45 = load float, ptr %44, align 4
+  %46 = mul nuw nsw i64 %indvars.iv, 3
+  %47 = getelementptr inbounds nuw float, ptr %20, i64 %46
+  store float %45, ptr %47, align 4
+  %48 = load i16, ptr %41, align 2
+  %49 = zext i16 %48 to i64
+  %.idx55 = mul nuw nsw i64 %49, 12
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx55
-  %51 = load float, ptr %gep, align 4
-  %52 = add nuw nsw i64 %47, 1
-  %53 = getelementptr inbounds nuw float, ptr %20, i64 %52
-  store float %51, ptr %53, align 4
-  %54 = load i16, ptr %42, align 2
-  %55 = zext i16 %54 to i64
-  %.idx56 = mul nuw nsw i64 %55, 12
-  %gep70 = getelementptr inbounds nuw i8, ptr %invariant.gep69, i64 %.idx56
-  %56 = load float, ptr %gep70, align 4
-  %57 = add nuw nsw i64 %47, 2
-  %58 = getelementptr inbounds nuw float, ptr %20, i64 %57
-  store float %56, ptr %58, align 4
-  %59 = load i16, ptr %42, align 2
-  %60 = zext i16 %59 to i64
-  %.idx57 = mul nuw nsw i64 %60, 12
-  %61 = getelementptr inbounds nuw i8, ptr %.pre65, i64 %.idx57
-  %62 = load float, ptr %61, align 4
-  %63 = getelementptr inbounds nuw float, ptr %27, i64 %47
-  store float %62, ptr %63, align 4
-  %64 = load i16, ptr %42, align 2
-  %65 = zext i16 %64 to i64
-  %.idx58 = mul nuw nsw i64 %65, 12
-  %gep72 = getelementptr inbounds nuw i8, ptr %invariant.gep71, i64 %.idx58
-  %66 = load float, ptr %gep72, align 4
-  %67 = getelementptr inbounds nuw float, ptr %27, i64 %52
-  store float %66, ptr %67, align 4
-  %68 = load i16, ptr %42, align 2
-  %69 = zext i16 %68 to i64
-  %.idx59 = mul nuw nsw i64 %69, 12
-  %gep74 = getelementptr inbounds nuw i8, ptr %invariant.gep73, i64 %.idx59
-  %70 = load float, ptr %gep74, align 4
-  %71 = getelementptr inbounds nuw float, ptr %27, i64 %57
-  store float %70, ptr %71, align 4
-  %72 = load i16, ptr %42, align 2
-  %73 = zext i16 %72 to i64
-  %.idx60 = shl nuw nsw i64 %73, 3
-  %74 = getelementptr inbounds nuw i8, ptr %.pre66, i64 %.idx60
-  %75 = load float, ptr %74, align 4
-  %.idx68 = shl nuw nsw i64 %indvars.iv, 3
-  %76 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx68
-  store float %75, ptr %76, align 4
-  %77 = load i16, ptr %42, align 2
-  %78 = zext i16 %77 to i64
-  %.idx61 = shl nuw nsw i64 %78, 3
-  %gep76 = getelementptr inbounds nuw i8, ptr %invariant.gep75, i64 %.idx61
-  %79 = load float, ptr %gep76, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  store float %79, ptr %80, align 4
+  %50 = load float, ptr %gep, align 4
+  %51 = add nuw nsw i64 %46, 1
+  %52 = getelementptr inbounds nuw float, ptr %20, i64 %51
+  store float %50, ptr %52, align 4
+  %53 = load i16, ptr %41, align 2
+  %54 = zext i16 %53 to i64
+  %.idx56 = mul nuw nsw i64 %54, 12
+  %gep64 = getelementptr inbounds nuw i8, ptr %invariant.gep63, i64 %.idx56
+  %55 = load float, ptr %gep64, align 4
+  %56 = add nuw nsw i64 %46, 2
+  %57 = getelementptr inbounds nuw float, ptr %20, i64 %56
+  store float %55, ptr %57, align 4
+  %58 = load i16, ptr %41, align 2
+  %59 = zext i16 %58 to i64
+  %.idx57 = mul nuw nsw i64 %59, 12
+  %60 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx57
+  %61 = load float, ptr %60, align 4
+  %62 = getelementptr inbounds nuw float, ptr %27, i64 %46
+  store float %61, ptr %62, align 4
+  %63 = load i16, ptr %41, align 2
+  %64 = zext i16 %63 to i64
+  %.idx58 = mul nuw nsw i64 %64, 12
+  %gep66 = getelementptr inbounds nuw i8, ptr %invariant.gep65, i64 %.idx58
+  %65 = load float, ptr %gep66, align 4
+  %66 = getelementptr inbounds nuw float, ptr %27, i64 %51
+  store float %65, ptr %66, align 4
+  %67 = load i16, ptr %41, align 2
+  %68 = zext i16 %67 to i64
+  %.idx59 = mul nuw nsw i64 %68, 12
+  %gep68 = getelementptr inbounds nuw i8, ptr %invariant.gep67, i64 %.idx59
+  %69 = load float, ptr %gep68, align 4
+  %70 = getelementptr inbounds nuw float, ptr %27, i64 %56
+  store float %69, ptr %70, align 4
+  %71 = load i16, ptr %41, align 2
+  %72 = zext i16 %71 to i64
+  %.idx60 = shl nuw nsw i64 %72, 3
+  %73 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx60
+  %74 = load float, ptr %73, align 4
+  %.idx77 = shl nuw nsw i64 %indvars.iv, 3
+  %75 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx77
+  store float %74, ptr %75, align 4
+  %76 = load i16, ptr %41, align 2
+  %77 = zext i16 %76 to i64
+  %.idx61 = shl nuw nsw i64 %77, 3
+  %gep70 = getelementptr inbounds nuw i8, ptr %invariant.gep69, i64 %.idx61
+  %78 = load float, ptr %gep70, align 4
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  store float %78, ptr %79, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41
+  br i1 %exitcond.not, label %._crit_edge, label %40
 
-81:                                               ; preds = %5
+80:                                               ; preds = %5
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.100) #58
-  br label %82
+  br label %81
 
-82:                                               ; preds = %81, %._crit_edge
+81:                                               ; preds = %80, %._crit_edge
   ret void
 }
 

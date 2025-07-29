@@ -2357,7 +2357,7 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit27:            ; preds = %22, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @bmcg_sat_solver_sop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @bmcg_sat_solver_sop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x ptr], align 16
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
@@ -2794,15 +2794,14 @@ define void @_Z25bmcg_sat_solver_print_sopP10Gia_Man_t_(ptr noundef %0) local_un
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !148
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %.val)
-  %5 = load ptr, ptr %3, align 8, !tbaa !148
-  %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZL11Vec_StrFreeP10Vec_Str_t_.exit, label %6
+  %.not.i = icmp eq ptr %.val, null
+  br i1 %.not.i, label %_ZL11Vec_StrFreeP10Vec_Str_t_.exit, label %5
 
-6:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %5) #29
+5:                                                ; preds = %1
+  tail call void @free(ptr noundef nonnull %.val) #29
   br label %_ZL11Vec_StrFreeP10Vec_Str_t_.exit
 
-_ZL11Vec_StrFreeP10Vec_Str_t_.exit:               ; preds = %1, %6
+_ZL11Vec_StrFreeP10Vec_Str_t_.exit:               ; preds = %1, %5
   tail call void @free(ptr noundef nonnull %2) #29
   ret void
 }
@@ -2888,15 +2887,14 @@ _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %_ZL12Vec_IntPrintP1
   %33 = getelementptr i8, ptr %32, i64 8
   %.val.i24 = load ptr, ptr %33, align 8, !tbaa !148
   %34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %.val.i24)
-  %35 = load ptr, ptr %33, align 8, !tbaa !148
-  %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %_Z25bmcg_sat_solver_print_sopP10Gia_Man_t_.exit, label %36
+  %.not.i.i = icmp eq ptr %.val.i24, null
+  br i1 %.not.i.i, label %_Z25bmcg_sat_solver_print_sopP10Gia_Man_t_.exit, label %35
 
-36:                                               ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
-  call void @free(ptr noundef nonnull %35) #29
+35:                                               ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
+  call void @free(ptr noundef nonnull %.val.i24) #29
   br label %_Z25bmcg_sat_solver_print_sopP10Gia_Man_t_.exit
 
-_Z25bmcg_sat_solver_print_sopP10Gia_Man_t_.exit:  ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, %36
+_Z25bmcg_sat_solver_print_sopP10Gia_Man_t_.exit:  ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, %35
   call void @free(ptr noundef nonnull %32) #29
   call void @Gia_ManStop(ptr noundef %29) #29
   %putchar = call i32 @putchar(i32 10)

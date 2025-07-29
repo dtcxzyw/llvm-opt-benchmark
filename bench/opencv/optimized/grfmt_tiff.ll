@@ -393,8 +393,8 @@ define hidden void @_ZN2cv11TiffDecoderC2Ev(ptr noundef nonnull align 8 derefere
 
 declare void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11TiffDecoder5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(400) initializes((368, 376)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN2cv11TiffDecoder5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(400) initializes((368, 376)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr null, ptr %2, align 8, !tbaa !58
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376

@@ -4861,7 +4861,7 @@ _ZN5boost4json5array7emplaceINS0_5valueEEEPS3_PKS3_OT_.exit: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5boost4json5array6insertEPKNS0_5valueEmRS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5boost4json5array6insertEPKNS0_5valueEmRS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::json::array::revert_insert", align 8
   %6 = alloca %"class.boost::json::storage_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #48
@@ -4970,7 +4970,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit9:            ; preds = %34, %38, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5boost4json5array6insertEPKNS0_5valueESt16initializer_listINS0_9value_refEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5boost4json5array6insertEPKNS0_5valueESt16initializer_listINS0_9value_refEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::json::storage_ptr", align 8
   %6 = alloca %"class.boost::json::array::revert_insert", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #48
@@ -10347,7 +10347,7 @@ _ZN5boost4json6object5table10deallocateEPS2_RKNS0_11storage_ptrE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost4json6object5eraseEPKNS0_14key_value_pairE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5boost4json6object5eraseEPKNS0_14key_value_pairE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !102
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10651,7 +10651,7 @@ _ZN5boost4json6object4findENS_4core17basic_string_viewIcEE.exit: ; preds = %10, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost4json6object12stable_eraseEPKNS0_14key_value_pairE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5boost4json6object12stable_eraseEPKNS0_14key_value_pairE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !102
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -21991,7 +21991,7 @@ define void @_ZN5boost4json6stringC2EmcNS0_11storage_ptrE(ptr noundef nonnull al
   br i1 %8, label %_ZN5boost4json6string6assignEmc.exit, label %9
 
 9:                                                ; preds = %.noexc
-  tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 %2, i64 %1, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %7, i8 %2, i64 %1, i1 false)
   br label %_ZN5boost4json6string6assignEmc.exit
 
 _ZN5boost4json6string6assignEmc.exit:             ; preds = %9, %.noexc
@@ -22034,7 +22034,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6string6as
   br i1 %6, label %_ZNSt11char_traitsIcE6assignEPcmc.exit, label %7
 
 7:                                                ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr align 1 %5, i8 %2, i64 %1, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %5, i8 %2, i64 %1, i1 false)
   br label %_ZNSt11char_traitsIcE6assignEPcmc.exit
 
 _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %3, %7
@@ -22057,7 +22057,7 @@ define void @_ZN5boost4json6stringC2EPKcNS0_11storage_ptrE(ptr noundef nonnull a
   br i1 %8, label %_ZN5boost4json6string6assignEPKc.exit, label %9
 
 9:                                                ; preds = %.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull readonly align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %6, i1 false)
   br label %_ZN5boost4json6string6assignEPKc.exit
 
 _ZN5boost4json6string6assignEPKc.exit:            ; preds = %9, %.noexc
@@ -22101,7 +22101,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6string6as
   br i1 %6, label %_ZN5boost4json6string6assignEPKcm.exit, label %7
 
 7:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr nonnull readonly align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %3, i1 false)
   br label %_ZN5boost4json6string6assignEPKcm.exit
 
 _ZN5boost4json6string6assignEPKcm.exit:           ; preds = %2, %7
@@ -22123,7 +22123,7 @@ define void @_ZN5boost4json6stringC2EPKcmNS0_11storage_ptrE(ptr noundef nonnull 
   br i1 %8, label %_ZN5boost4json6string6assignEPKcm.exit, label %9
 
 9:                                                ; preds = %.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %_ZN5boost4json6string6assignEPKcm.exit
 
 _ZN5boost4json6string6assignEPKcm.exit:           ; preds = %9, %.noexc
@@ -22166,7 +22166,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6string6as
   br i1 %6, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %7
 
 7:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %1, i64 %2, i1 false)
   br label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit
 
 _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %3, %7
@@ -22227,7 +22227,7 @@ _ZNK5boost4json6string4sizeEv.exit.i:             ; preds = %24, %21
   br i1 %30, label %_ZN5boost4json6string6assignERKS1_.exit, label %31
 
 31:                                               ; preds = %.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull readonly align 1 %.0.i.i.i, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %.0.i.i.i, i64 %28, i1 false)
   br label %_ZN5boost4json6string6assignERKS1_.exit
 
 _ZN5boost4json6string6assignERKS1_.exit:          ; preds = %31, %.noexc, %_ZN5boost4json11storage_ptrC2ERKS1_.exit
@@ -22298,7 +22298,7 @@ _ZNK5boost4json6string4sizeEv.exit:               ; preds = %13, %16
   br i1 %23, label %_ZN5boost4json6string6assignEPKcm.exit, label %24
 
 24:                                               ; preds = %_ZNK5boost4json6string4sizeEv.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull readonly align 1 %.0.i.i, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %.0.i.i, i64 %20, i1 false)
   br label %_ZN5boost4json6string6assignEPKcm.exit
 
 _ZN5boost4json6string6assignEPKcm.exit:           ; preds = %24, %_ZNK5boost4json6string4sizeEv.exit, %2
@@ -22348,7 +22348,7 @@ _ZNK5boost4json6string4sizeEv.exit.i:             ; preds = %19, %16
   br i1 %25, label %_ZN5boost4json6string6assignERKS1_.exit, label %26
 
 26:                                               ; preds = %.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull readonly align 1 %.0.i.i.i, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %.0.i.i.i, i64 %23, i1 false)
   br label %_ZN5boost4json6string6assignERKS1_.exit
 
 _ZN5boost4json6string6assignERKS1_.exit:          ; preds = %26, %.noexc, %3
@@ -22542,7 +22542,7 @@ _ZNK5boost4json6string4sizeEv.exit.i:             ; preds = %60, %57
   br i1 %67, label %_ZN5boost4json6string6assignERKS1_.exit, label %68
 
 68:                                               ; preds = %_ZNK5boost4json6string4sizeEv.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %66, ptr nonnull readonly align 1 %.0.i.i.i11, i64 %64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull readonly align 1 %.0.i.i.i11, i64 %64, i1 false)
   br label %_ZN5boost4json6string6assignERKS1_.exit
 
 _ZN5boost4json6string6assignERKS1_.exit:          ; preds = %68, %_ZNK5boost4json6string4sizeEv.exit.i, %2, %_ZN5boost4json6detail11string_impl7destroyERKNS0_11storage_ptrE.exit
@@ -22564,7 +22564,7 @@ define void @_ZN5boost4json6stringC2ENS_4core17basic_string_viewIcEENS0_11storag
   br i1 %8, label %_ZN5boost4json6string6assignENS_4core17basic_string_viewIcEE.exit, label %9
 
 9:                                                ; preds = %.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %_ZN5boost4json6string6assignENS_4core17basic_string_viewIcEE.exit
 
 _ZN5boost4json6string6assignENS_4core17basic_string_viewIcEE.exit: ; preds = %9, %.noexc
@@ -22635,7 +22635,7 @@ _ZNK5boost4json6string4sizeEv.exit.i:             ; preds = %16, %13
   br i1 %23, label %_ZN5boost4json6string6assignERKS1_.exit, label %24
 
 24:                                               ; preds = %_ZNK5boost4json6string4sizeEv.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull readonly align 1 %.0.i.i.i, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %.0.i.i.i, i64 %20, i1 false)
   br label %_ZN5boost4json6string6assignERKS1_.exit
 
 _ZN5boost4json6string6assignERKS1_.exit:          ; preds = %2, %_ZNK5boost4json6string4sizeEv.exit.i, %24
@@ -22657,7 +22657,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6stringaSE
   br i1 %6, label %_ZN5boost4json6string6assignEPKc.exit, label %7
 
 7:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr nonnull readonly align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %3, i1 false)
   br label %_ZN5boost4json6string6assignEPKc.exit
 
 _ZN5boost4json6string6assignEPKc.exit:            ; preds = %2, %7
@@ -22672,7 +22672,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6stringaSE
   br i1 %6, label %_ZN5boost4json6string6assignENS_4core17basic_string_viewIcEE.exit, label %7
 
 7:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %_ZN5boost4json6string6assignENS_4core17basic_string_viewIcEE.exit
 
 _ZN5boost4json6string6assignENS_4core17basic_string_viewIcEE.exit: ; preds = %3, %7
@@ -22680,7 +22680,7 @@ _ZN5boost4json6string6assignENS_4core17basic_string_viewIcEE.exit: ; preds = %3,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5boost4json6detail11string_impl6assignEmRKNS0_11storage_ptrE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5boost4json6detail11string_impl6assignEmRKNS0_11storage_ptrE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::json::detail::string_impl", align 8
   %5 = load i8, ptr %0, align 8, !tbaa !15
   %6 = icmp eq i8 %5, 5
@@ -23246,7 +23246,7 @@ define void @_ZN5boost4json6string9push_backEc(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5boost4json6detail11string_impl6appendEmRKNS0_11storage_ptrE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5boost4json6detail11string_impl6appendEmRKNS0_11storage_ptrE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::json::detail::string_impl", align 8
   %5 = load i8, ptr %0, align 8, !tbaa !15
   %6 = icmp eq i8 %5, 5
@@ -23603,7 +23603,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6string6ap
   br i1 %6, label %_ZNSt11char_traitsIcE6assignEPcmc.exit, label %7
 
 7:                                                ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr align 1 %5, i8 %2, i64 %1, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %5, i8 %2, i64 %1, i1 false)
   br label %_ZNSt11char_traitsIcE6assignEPcmc.exit
 
 _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %3, %7
@@ -23618,7 +23618,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6string6ap
   br i1 %6, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %7
 
 7:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %1, i64 %2, i1 false)
   br label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit
 
 _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %3, %7
@@ -23900,7 +23900,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6string6in
   br i1 %7, label %_ZNSt11char_traitsIcE6assignEPcmc.exit, label %8
 
 8:                                                ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr align 1 %6, i8 %3, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %6, i8 %3, i64 %2, i1 false)
   br label %_ZNSt11char_traitsIcE6assignEPcmc.exit
 
 _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %4, %8
@@ -23908,7 +23908,7 @@ _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %4, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5boost4json6detail11string_impl16insert_uncheckedEmmRKNS0_11storage_ptrE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5boost4json6detail11string_impl16insert_uncheckedEmmRKNS0_11storage_ptrE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::json::detail::string_impl", align 8
   %6 = load i8, ptr %0, align 8, !tbaa !15
   %7 = icmp eq i8 %6, 5
@@ -24433,7 +24433,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6string7re
   br i1 %8, label %_ZNSt11char_traitsIcE6assignEPcmc.exit, label %9
 
 9:                                                ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 %4, i64 %3, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %7, i8 %4, i64 %3, i1 false)
   br label %_ZNSt11char_traitsIcE6assignEPcmc.exit
 
 _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %5, %9
@@ -24441,7 +24441,7 @@ _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5boost4json6detail11string_impl17replace_uncheckedEmmmRKNS0_11storage_ptrE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5boost4json6detail11string_impl17replace_uncheckedEmmmRKNS0_11storage_ptrE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.boost::json::detail::string_impl", align 8
   %7 = load i8, ptr %0, align 8, !tbaa !15
   %8 = icmp eq i8 %7, 5

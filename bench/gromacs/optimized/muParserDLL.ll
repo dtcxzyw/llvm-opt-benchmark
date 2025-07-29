@@ -348,7 +348,7 @@ _ZN9ParserTagD2Ev.exit:                           ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.mu::ParserError", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !4
@@ -16360,7 +16360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZN
 declare void @_ZN2mu10ParserBase14DefineStrConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(596), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.mu::ParserError", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !4
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2mu10ParserBase7GetExprB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(596) %3)

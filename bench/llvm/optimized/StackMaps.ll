@@ -1097,7 +1097,7 @@ define dso_local void @_ZN4llvm9StackMapsC2ERNS_10AsmPrinterE(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr readnone captures(none) %2, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr readnone captures(none) %2, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"struct.std::pair.434", align 8
   %7 = alloca %"struct.std::pair.422", align 8
   %8 = alloca %"class.std::tuple.440", align 8
@@ -3551,8 +3551,8 @@ define dso_local void @_ZN4llvm9StackMaps20parseStatepointOpersERKNS_12MachineIn
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %16, ptr %17, align 8, !tbaa !86
   %18 = tail call noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %2, ptr poison, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
-  %19 = tail call noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %18, ptr poison, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
-  %20 = tail call noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %19, ptr poison, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %19 = tail call noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %18, ptr poison, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %20 = tail call noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %19, ptr poison, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
   %21 = load ptr, ptr %4, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !26
@@ -3567,7 +3567,7 @@ define dso_local void @_ZN4llvm9StackMaps20parseStatepointOpersERKNS_12MachineIn
   %.05672 = phi ptr [ %29, %.lr.ph ], [ %20, %6 ]
   %.05771 = phi i32 [ %28, %.lr.ph ], [ %27, %6 ]
   %28 = add i32 %.05771, -1
-  %29 = tail call noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %.05672, ptr poison, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %29 = tail call noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %.05672, ptr poison, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !438
 
@@ -3858,7 +3858,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %_ZN4llvm11SmallVect
   %.081 = phi i32 [ %168, %.lr.ph83 ], [ %166, %.lr.ph83.preheader ]
   %.280 = phi ptr [ %169, %.lr.ph83 ], [ %167, %.lr.ph83.preheader ]
   %168 = add i32 %.081, -1
-  %169 = call noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %.280, ptr poison, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %169 = call noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %.280, ptr poison, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
   %.not65 = icmp eq i32 %168, 0
   br i1 %.not65, label %._crit_edge84, label %.lr.ph83, !llvm.loop !443
 

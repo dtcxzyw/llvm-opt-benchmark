@@ -697,7 +697,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef ptr @extstore_io_thread(ptr noundef %0) #9 {
+define internal noalias noundef nonnull ptr @extstore_io_thread(ptr noundef %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !110
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88

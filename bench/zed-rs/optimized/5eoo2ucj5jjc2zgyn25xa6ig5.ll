@@ -41141,7 +41141,7 @@ _ZN12aho_corasick9automaton28try_find_overlapping_fwd_imp17hc547a3e73932e9f8E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlapping_fwd17h71e807b4cf55601bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(64) initializes((0, 8)) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlapping_fwd17h71e807b4cf55601bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(64) initializes((0, 8)) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [8 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -42906,7 +42906,7 @@ _ZN12aho_corasick9automaton28try_find_overlapping_fwd_imp17h7aebe7eb61c1bc50E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlapping_fwd17hbb5cfe21ca6f1243E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(64) initializes((0, 8)) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlapping_fwd17hbb5cfe21ca6f1243E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(64) initializes((0, 8)) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8
   %6 = alloca [48 x i8], align 8

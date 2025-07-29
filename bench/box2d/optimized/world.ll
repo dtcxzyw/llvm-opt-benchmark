@@ -1072,7 +1072,7 @@ define internal noundef float @b2DefaultRestitutionCallback(float noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @b2DefaultAddTaskFcn(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
+define internal noalias noundef ptr @b2DefaultAddTaskFcn(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   tail call void %0(i32 noundef 0, i32 noundef %1, i32 noundef 0, ptr noundef %3) #22
   ret ptr null
 }

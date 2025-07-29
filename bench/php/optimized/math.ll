@@ -3645,7 +3645,7 @@ declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #0 {
   %.075 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
   %.lobit = lshr i64 %0, 63
   %.073 = trunc nuw nsw i64 %.lobit to i32

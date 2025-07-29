@@ -6604,8 +6604,8 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 declare noundef ptr @_ZN6hermes2vm11NativeState6createERNS0_7RuntimeEPvPFvRNS0_7HadesGCEPS1_E(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook6hermesL12deleteSharedERN6hermes2vm7HadesGCEPNS2_11NativeStateE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN8facebook6hermesL12deleteSharedERN6hermes2vm7HadesGCEPNS2_11NativeStateE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %context_.i = getelementptr inbounds nuw i8, ptr %ns, i64 8
   %1 = load ptr, ptr %context_.i, align 8
@@ -13525,8 +13525,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEEN3$_08__invokeERN6hermes2vm7HadesGCEPNS8_11NativeStateE"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEEN3$_08__invokeERN6hermes2vm7HadesGCEPNS8_11NativeStateE"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = getelementptr i8, ptr %ns, i64 8
   %ns.val = load ptr, ptr %1, align 8

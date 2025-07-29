@@ -3680,7 +3680,7 @@ llama_sampler_reset.exit:                         ; preds = %.lr.ph, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZL25llama_sampler_chain_clonePK13llama_sampler(ptr noundef readonly captures(none) %0) #0 {
+define internal noalias noundef nonnull ptr @_ZL25llama_sampler_chain_clonePK13llama_sampler(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %.sroa.0.0.copyload = load i8, ptr %3, align 8, !tbaa !33

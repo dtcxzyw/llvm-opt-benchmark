@@ -15834,8 +15834,8 @@ _ZN12_GLOBAL__N_112defmodelDataD2Ev.exit:         ; preds = %_ZN12_GLOBAL__N_114
 
 declare void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr noundef, ptr noundef) local_unnamed_addr #21
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL16reassign_contextP8PJconstsP6pj_ctx(ptr noundef readonly captures(none) %0, ptr noundef %1) #5 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL16reassign_contextP8PJconstsP6pj_ctx(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8, !tbaa !227
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

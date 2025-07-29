@@ -5889,8 +5889,8 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceL
   ret i1 %12
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet10IntersectsERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(456) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(456) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet10IntersectsERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(456) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(456) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8
@@ -6344,8 +6344,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_.ex
   ret i1 %.032
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet8ContainsERKNS_19HdDataSourceLocatorE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(456) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet8ContainsERKNS_19HdDataSourceLocatorE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(456) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8

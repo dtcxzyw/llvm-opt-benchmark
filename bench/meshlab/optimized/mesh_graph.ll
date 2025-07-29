@@ -4273,8 +4273,8 @@ _ZNSt12__shared_ptrI9FaceGroupLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds =
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN9FaceGroup5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) initializes((8, 12)) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN9FaceGroup5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) initializes((8, 12)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -2679,8 +2679,8 @@ define noundef ptr @ufmt_open_77(ptr noundef readonly captures(none) %0) local_u
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define void @ufmt_close_77(ptr noundef %0) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @ufmt_close_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

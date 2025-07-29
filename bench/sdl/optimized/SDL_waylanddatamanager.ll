@@ -209,7 +209,7 @@ define hidden void @Wayland_primary_selection_source_set_callback(ptr noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Wayland_data_source_get_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define hidden noalias ptr @Wayland_data_source_get_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   store i64 0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
@@ -255,7 +255,7 @@ Wayland_clone_data_buffer.exit:                   ; preds = %19, %16, %9, %6, %4
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Wayland_primary_selection_source_get_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define hidden noalias ptr @Wayland_primary_selection_source_get_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   store i64 0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6

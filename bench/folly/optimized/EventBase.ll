@@ -14516,67 +14516,58 @@ _ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10Fu
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %19 = load ptr, ptr %18, align 16, !tbaa !309
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  invoke void @_ZN5folly9EventBase9runInLoopEPNS0_12LoopCallbackEbSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 16 dereferenceable(632) %19, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %2)
-          to label %20 unwind label %44
+  call void @_ZN5folly9EventBase9runInLoopEPNS0_12LoopCallbackEbSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 16 dereferenceable(632) %19, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %2)
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !175
+  %.not.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %22
 
-20:                                               ; preds = %_ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEE5driveIRS5_EEbOT_.exit
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !175
-  %.not.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %23
+22:                                               ; preds = %_ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEE5driveIRS5_EEbOT_.exit
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %24 = load atomic i64, ptr %23 acquire, align 8
+  %25 = icmp eq i64 %24, 4294967297
+  %26 = trunc i64 %24 to i32
+  br i1 %25, label %27, label %35
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load atomic i64, ptr %24 acquire, align 8
-  %26 = icmp eq i64 %25, 4294967297
-  %27 = trunc i64 %25 to i32
-  br i1 %26, label %28, label %36
-
-28:                                               ; preds = %23
-  store i32 0, ptr %24, align 8, !tbaa !184
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i32 0, ptr %29, align 4, !tbaa !186
-  %30 = load ptr, ptr %22, align 8, !tbaa !28
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #33
-  %33 = load ptr, ptr %22, align 8, !tbaa !28
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #33
+27:                                               ; preds = %22
+  store i32 0, ptr %23, align 8, !tbaa !184
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  store i32 0, ptr %28, align 4, !tbaa !186
+  %29 = load ptr, ptr %21, align 8, !tbaa !28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %21) #33
+  %32 = load ptr, ptr %21, align 8, !tbaa !28
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %21) #33
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-36:                                               ; preds = %23
-  %37 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
-  %.not.i.i.i = icmp eq i8 %37, 0
-  br i1 %.not.i.i.i, label %40, label %38
+35:                                               ; preds = %22
+  %36 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
+  %.not.i.i.i = icmp eq i8 %36, 0
+  br i1 %.not.i.i.i, label %39, label %37
 
-38:                                               ; preds = %36
-  %39 = add nsw i32 %27, -1
-  store i32 %39, ptr %24, align 4, !tbaa !18
+37:                                               ; preds = %35
+  %38 = add nsw i32 %26, -1
+  store i32 %38, ptr %23, align 4, !tbaa !18
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-40:                                               ; preds = %36
-  %41 = atomicrmw volatile add ptr %24, i32 -1 acq_rel, align 4
+39:                                               ; preds = %35
+  %40 = atomicrmw volatile add ptr %23, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %40, %38
-  %.0.i.i.i.i = phi i32 [ %27, %38 ], [ %41, %40 ]
-  %42 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %42, label %43, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !187
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %39, %37
+  %.0.i.i.i.i = phi i32 [ %26, %37 ], [ %40, %39 ]
+  %41 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %41, label %42, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !187
 
-43:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #33
+42:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #33
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %43
+_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEE5driveIRS5_EEbOT_.exit, %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %42
   ret void
-
-44:                                               ; preds = %_ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEE5driveIRS5_EEbOT_.exit
-  %45 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #33
-  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
@@ -14844,8 +14835,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %_ZNSo
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly9EventBase9runInLoopEPNS0_12LoopCallbackEbSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 16 dereferenceable(632) %0, ptr noundef initializes((24, 32)) %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly9EventBase9runInLoopEPNS0_12LoopCallbackEbSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 16 dereferenceable(632) %0, ptr noundef initializes((24, 32)) %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %5, align 8, !tbaa !375
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -16891,8 +16882,8 @@ _ZN5folly9EventBase21runOnDestructionStartERNS0_21OnDestructionCallbackE.exit: ;
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly9EventBase13runBeforeLoopEPNS0_12LoopCallbackE(ptr noundef nonnull align 16 dereferenceable(632) %0, ptr noundef initializes((24, 32)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly9EventBase13runBeforeLoopEPNS0_12LoopCallbackE(ptr noundef nonnull align 16 dereferenceable(632) %0, ptr noundef initializes((24, 32)) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %3, align 8, !tbaa !375
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -16972,8 +16963,8 @@ _ZN5folly9EventBase12LoopCallback18cancelLoopCallbackEv.exit: ; preds = %_ZNSt12
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly9EventBase12runAfterLoopEPNS0_12LoopCallbackE(ptr noundef nonnull align 16 dereferenceable(632) %0, ptr noundef initializes((24, 32)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly9EventBase12runAfterLoopEPNS0_12LoopCallbackE(ptr noundef nonnull align 16 dereferenceable(632) %0, ptr noundef initializes((24, 32)) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %3, align 8, !tbaa !375
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32

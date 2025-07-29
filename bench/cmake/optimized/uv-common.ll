@@ -864,7 +864,7 @@ declare i64 @uv__strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @uv_err_name(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @uv_err_name(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %83 [
     i32 -7, label %85
     i32 -13, label %2
@@ -1203,7 +1203,7 @@ define dso_local ptr @uv_err_name(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uv__unknown_err_code(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @uv__unknown_err_code(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
   %3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.82, i32 noundef %0) #26
@@ -1654,7 +1654,7 @@ define dso_local noundef ptr @uv_strerror_r(i32 noundef %0, ptr noundef returned
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @uv_strerror(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @uv_strerror(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %81 [
     i32 -7, label %83
     i32 -13, label %2

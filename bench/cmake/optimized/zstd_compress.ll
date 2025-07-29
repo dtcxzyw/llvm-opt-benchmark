@@ -87,7 +87,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ZSTD_createCCtx() local_unnamed_addr #2 {
+define dso_local noalias noundef ptr @ZSTD_createCCtx() local_unnamed_addr #2 {
 ZSTD_customMalloc.exit.i:
   %calloc = tail call dereferenceable_or_null(5240) ptr @calloc(i64 1, i64 5240)
   %.not6.i = icmp eq ptr %calloc, null
@@ -8358,7 +8358,7 @@ ZSTD_compress_usingCDict_internal.exit:           ; preds = %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ZSTD_createCStream() local_unnamed_addr #2 {
+define dso_local noalias noundef ptr @ZSTD_createCStream() local_unnamed_addr #2 {
 ZSTD_customMalloc.exit.i.i:
   %calloc = tail call dereferenceable_or_null(5240) ptr @calloc(i64 1, i64 5240)
   %.not6.i.i = icmp eq ptr %calloc, null

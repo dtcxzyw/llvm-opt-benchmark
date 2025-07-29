@@ -6356,8 +6356,8 @@ define dso_local void @_ZN3igl8copyleft4cgal13assign_scalarERKfRd(ptr noundef no
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3igl8copyleft4cgal13assign_scalarERKN4CORE4ExprERS3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN3igl8copyleft4cgal13assign_scalarERKN4CORE4ExprERS3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1) local_unnamed_addr #3 {
   %.not.i = icmp eq ptr %1, %0
   br i1 %.not.i, label %_ZN4CORE4ExpraSERKS0_.exit, label %3
 

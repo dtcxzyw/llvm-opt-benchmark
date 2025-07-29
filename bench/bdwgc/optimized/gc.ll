@@ -43950,7 +43950,7 @@ declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed
 declare i32 @sigfillset(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @GC_mark_thread(ptr noundef %0) #2 {
+define internal noalias noundef ptr @GC_mark_thread(ptr noundef %0) #2 {
   %.sroa.2.i = alloca i64, align 8
   %2 = alloca [4096 x %struct.GC_ms_entry], align 16
   %3 = alloca [16 x i8], align 16

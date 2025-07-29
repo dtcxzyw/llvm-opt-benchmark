@@ -279,8 +279,8 @@ _ZN13duckdb_snappy12_GLOBAL__N_118CalculateTableSizeEj.exit: ; preds = %3, %6, %
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_snappy8internal16CompressFragmentEPKcmPcPti(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address, ret: address, provenance) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef ptr @_ZN13duckdb_snappy8internal16CompressFragmentEPKcmPcPti(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address, ret: address, provenance) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = shl i32 %4, 1
   %7 = add i32 %6, -2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %1
@@ -2173,15 +2173,15 @@ _ZN13duckdb_snappy6Varint8Encode32EPcj.exit:      ; preds = %13, %18, %27, %53, 
 
 123:                                              ; preds = %122
   %124 = load i64, ptr %6, align 8, !tbaa !6
-  %125 = invoke noundef ptr @_ZN13duckdb_snappy8internal16CompressFragmentEPKcmPcPti(ptr noundef %.058, i64 noundef %124, ptr noundef %121, ptr noundef %113, i32 noundef %.0.i.i)
-          to label %136 unwind label %128
+  %125 = call noundef ptr @_ZN13duckdb_snappy8internal16CompressFragmentEPKcmPcPti(ptr noundef %.058, i64 noundef %124, ptr noundef %121, ptr noundef %113, i32 noundef %.0.i.i)
+  br label %136
 
 126:                                              ; preds = %109
   %127 = landingpad { ptr, i32 }
           cleanup
   br label %150
 
-128:                                              ; preds = %143, %136, %123
+128:                                              ; preds = %143, %136
   %129 = landingpad { ptr, i32 }
           cleanup
   br label %150
@@ -2194,7 +2194,7 @@ _ZN13duckdb_snappy6Varint8Encode32EPcj.exit:      ; preds = %13, %18, %27, %53, 
   %135 = call noundef ptr @_ZN13duckdb_snappy8internal26CompressFragmentDoubleHashEPKcmPcPtiS4_i(ptr noundef %.058, i64 noundef %131, ptr noundef %121, ptr noundef %113, i32 noundef %132, ptr noundef nonnull %134, i32 poison)
   br label %136
 
-136:                                              ; preds = %130, %122, %123
+136:                                              ; preds = %123, %130, %122
   %.0 = phi ptr [ %125, %123 ], [ null, %122 ], [ %135, %130 ]
   %137 = ptrtoint ptr %.0 to i64
   %138 = ptrtoint ptr %121 to i64

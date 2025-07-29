@@ -1814,8 +1814,8 @@ declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonn
 
 declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL20unifiedcache_cleanupv() #0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL20unifiedcache_cleanupv() #2 {
   store atomic i32 0, ptr @_ZL14gCacheInitOnce seq_cst, align 4
   %1 = load ptr, ptr @_ZL6gCache, align 8, !tbaa !14
   %2 = icmp eq ptr %1, null

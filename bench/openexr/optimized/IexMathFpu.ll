@@ -31,7 +31,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Iex_3_410FpuControl15clearExceptionsEv() local_unnamed_addr #3 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
@@ -54,7 +54,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @catchSigFpe(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
+define hidden void @catchSigFpe(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 {
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 224
@@ -151,7 +151,7 @@ define hidden void @catchSigFpe(i32 noundef %0, ptr noundef readonly captures(no
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Iex_3_415setFpExceptionsEi(i32 noundef %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
@@ -212,7 +212,7 @@ define hidden void @_ZN7Iex_3_415setFpExceptionsEi(i32 noundef %0) local_unnamed
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 32) i32 @_ZN7Iex_3_412fpExceptionsEv() local_unnamed_addr #3 {
   %1 = alloca i16, align 2
   %2 = alloca i32, align 4
@@ -244,7 +244,7 @@ define hidden noundef range(i32 0, 32) i32 @_ZN7Iex_3_412fpExceptionsEv() local_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Iex_3_430handleExceptionsSetInRegistersEv() local_unnamed_addr #3 {
+define hidden void @_ZN7Iex_3_430handleExceptionsSetInRegistersEv() local_unnamed_addr #5 {
   %1 = alloca i16, align 2
   %2 = alloca i32, align 4
   %3 = alloca i16, align 2
@@ -344,7 +344,7 @@ define hidden void @_ZN7Iex_3_430handleExceptionsSetInRegistersEv() local_unname
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Iex_3_421setFpExceptionHandlerEPFviPKcE(ptr noundef %0) local_unnamed_addr #5 {
+define hidden void @_ZN7Iex_3_421setFpExceptionHandlerEPFviPKcE(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca %struct.sigaction, align 8
   %3 = load volatile ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerE, align 8, !tbaa !25
   %4 = icmp eq ptr %3, null
@@ -384,9 +384,9 @@ define internal void @_GLOBAL__sub_I_IexMathFpu.cpp() #6 section ".text.startup"
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
 

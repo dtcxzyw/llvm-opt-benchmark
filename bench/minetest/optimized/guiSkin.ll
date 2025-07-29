@@ -1208,8 +1208,8 @@ return:                                           ; preds = %if.else, %land.lhs.
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin7setFontEPNS0_8IGUIFontENS0_17EGUI_DEFAULT_FONTE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %this, ptr noundef %font, i32 noundef %which) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN3irr3gui7GUISkin7setFontEPNS0_8IGUIFontENS0_17EGUI_DEFAULT_FONTE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %this, ptr noundef %font, i32 noundef %which) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp ult i32 %which, 5
   %tobool = icmp ne ptr %font, null
@@ -1267,8 +1267,8 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin13setSpriteBankEPNS0_14IGUISpriteBankE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %this, ptr noundef %bank) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN3irr3gui7GUISkin13setSpriteBankEPNS0_14IGUISpriteBankE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %this, ptr noundef %bank) unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %bank, null
   br i1 %tobool.not, label %if.end, label %if.then

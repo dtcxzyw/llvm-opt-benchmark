@@ -4393,7 +4393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_E7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(12) %ed) unnamed_addr #5 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_E7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(12) %ed) unnamed_addr #5 align 2 {
 entry:
   %m_func = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZNK7openvdb5v11_02io12_GLOBAL__N_110OutputTask7executeEv(ptr noundef nonnull align 8 dereferenceable(144) %m_func)

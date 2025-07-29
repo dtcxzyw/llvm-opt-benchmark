@@ -75711,7 +75711,7 @@ _ZNSt3__116__deque_iteratorIN3tev13ImageAdditionEPS2_RS2_PS3_lLl85EEppB8ne190000
 declare void @_ZNSt3__115__thread_structC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN3tev8mainFuncERKNS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENSC_ISE_EEEEE3$_0EEEEEPvSL_"(ptr noundef %0) #3 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN3tev8mainFuncERKNS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENSC_ISE_EEEEE3$_0EEEEEPvSL_"(ptr noundef %0) #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::chrono::duration", align 8
   %3 = alloca %"class.std::__1::allocator.12", align 1
   %4 = alloca %"class.std::__1::locale", align 8
@@ -76191,7 +76191,7 @@ declare void @_ZNSt3__111this_thread9sleep_forERKNS_6chrono8durationIxNS_5ratioI
 declare void @_ZNSt3__115__thread_structD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN3tev8mainFuncERKNS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENSC_ISE_EEEEE3$_1EEEEEPvSL_"(ptr noundef %0) #3 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN3tev8mainFuncERKNS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENSC_ISE_EEEEE3$_1EEEEEPvSL_"(ptr noundef %0) #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::chrono::duration", align 8
   %3 = alloca %"class.std::__1::chrono::duration", align 8
   %4 = alloca %"class.std::__1::function.897", align 16

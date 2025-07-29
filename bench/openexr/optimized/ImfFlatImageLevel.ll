@@ -557,8 +557,8 @@ declare hidden void @_ZN7Imf_3_421TypedFlatImageChannelIfEC1ERNS_14FlatImageLeve
 
 declare hidden void @_ZN7Imf_3_421TypedFlatImageChannelIjEC1ERNS_14FlatImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_414FlatImageLevel12eraseChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN7Imf_3_414FlatImageLevel12eraseChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48

@@ -2541,8 +2541,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 
 declare void @_ZN19OpenColorIO_v2_5dev6OpData5setIDERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev16CDLTransformImpl22getFirstSOPDescriptionEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev16CDLTransformImpl22getFirstSOPDescriptionEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88

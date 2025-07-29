@@ -1465,8 +1465,8 @@ if.end:                                           ; preds = %_ZN5eastl9allocator
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2EA8UnitTest14TestCollection10RemoveTestEPNS0_4TestEb(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef readnone captures(address) %pTest, i1 noundef zeroext %bDeleteIfOwned) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef zeroext i1 @_ZN2EA8UnitTest14TestCollection10RemoveTestEPNS0_4TestEb(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef readnone captures(address) %pTest, i1 noundef zeroext %bDeleteIfOwned) unnamed_addr #6 align 2 {
 entry:
   %mTests = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTests, align 8

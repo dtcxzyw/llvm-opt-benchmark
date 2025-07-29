@@ -4026,8 +4026,8 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind
 declare i32 @setsid() local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115nonLockingExecvEPKcPKPc(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115nonLockingExecvEPKcPKPc(ptr noundef %0, ptr noundef %1) unnamed_addr #6 {
   %3 = load ptr, ptr @__environ, align 8
   %4 = tail call i64 asm sideeffect "mov    $0, %rdi    \0A\09mov    %rcx, %rsi \0A\09mov    %rdx, %rdx \0A\09mov    $$0x3b, %rax \0A\09syscall             \0A\09", "={ax},0,{cx},{dx},~{memory},~{cc},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1, ptr %3) #31, !srcloc !40
   %5 = icmp ugt i64 %4, -4097

@@ -4001,7 +4001,7 @@ define internal range(i32 0, 2) i32 @fragment_key_equal(ptr noundef readonly cap
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @fragment_key_temporary(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
+define internal noalias noundef ptr @fragment_key_temporary(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #15
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @addresses_ports_reassembly_table_functions, i64 16), align 8
   %6 = tail call ptr %5(ptr noundef %0, i32 noundef %1, ptr noundef null)
@@ -4013,7 +4013,7 @@ define internal noundef ptr @fragment_key_temporary(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @fragment_key_persistent(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
+define internal noalias noundef ptr @fragment_key_persistent(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #15
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @addresses_ports_reassembly_table_functions, i64 24), align 8
   %6 = tail call ptr %5(ptr noundef %0, i32 noundef %1, ptr noundef null)

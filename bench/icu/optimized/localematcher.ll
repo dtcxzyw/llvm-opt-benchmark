@@ -844,8 +844,8 @@ _ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit:   ; preds = %_ZN6icu_7712LocalPo
   ret ptr %0
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder18setNoDefaultLocaleEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder18setNoDefaultLocaleEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !23
   %3 = icmp slt i32 %2, 1
   br i1 %3, label %4, label %14

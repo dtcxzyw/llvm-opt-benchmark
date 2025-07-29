@@ -34298,7 +34298,7 @@ _ZN3std4path4Path4join17h384165d95763ab1fE.exit:  ; preds = %37
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @_ZN6client6Client10production17h83ad64d1c4c9cf53E(ptr noalias noundef align 8 dereferenceable(1176) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @_ZN6client6Client10production17h83ad64d1c4c9cf53E(ptr noalias noundef align 8 dereferenceable(1176) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %.sroa.5.i = alloca [27 x i8], align 1
   %3 = alloca [104 x i8], align 8

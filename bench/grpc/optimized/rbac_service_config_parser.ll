@@ -16812,8 +16812,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exper
 
 declare noundef ptr @_ZN4absl12lts_2024072216numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEE7EmplaceEPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef returned %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEE7EmplaceEPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef returned %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load i8, ptr %3, align 8, !tbaa !29, !range !32, !noundef !33
   %5 = trunc nuw i8 %4 to i1

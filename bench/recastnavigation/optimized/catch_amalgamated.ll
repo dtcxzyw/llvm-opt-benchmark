@@ -53375,8 +53375,8 @@ define dso_local void @_ZN5Catch8Matchers6SizeIsEm(ptr dead_on_unwind noalias wr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch8Matchers23ExceptionMessageMatcher5matchERKSt9exception(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef zeroext i1 @_ZNK5Catch8Matchers23ExceptionMessageMatcher5matchERKSt9exception(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -86616,7 +86616,7 @@ declare noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 
 
 declare noundef nonnull align 8 dereferenceable(264) ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE7copyfmtERKS2_(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #18
 
-; Function Attrs: uwtable
+; Function Attrs: nounwind uwtable
 define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTracker12setGeneratorEONS_6Detail10unique_ptrINS0_20GeneratorUntypedBaseEEE(ptr noundef captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #45 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
@@ -90220,14 +90220,14 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch12_GLOB
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED1Ev(ptr noundef initializes((-8, 8), (264, 272)) %0) unnamed_addr #46 align 2 {
+define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED1Ev(ptr noundef initializes((-8, 8), (264, 272)) %0) unnamed_addr #45 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN5Catch12_GLOBAL__N_111RegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #56
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED0Ev(ptr noundef initializes((-8, 8), (264, 272)) %0) unnamed_addr #46 align 2 {
+define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED0Ev(ptr noundef initializes((-8, 8), (264, 272)) %0) unnamed_addr #45 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN5Catch12_GLOBAL__N_111RegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #56
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(312) %2) #58
@@ -90235,7 +90235,7 @@ define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Detail10unique_ptrINS_16IReporterFactoryEEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef captures(none) %2) unnamed_addr #45 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Detail10unique_ptrINS_16IReporterFactoryEEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef captures(none) %2) unnamed_addr #46 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Catch::Detail::unique_ptr.264", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -90280,35 +90280,35 @@ _ZN5Catch12_GLOBAL__N_111RegistryHub16registerReporterERKNSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerListenerENS_6Detail10unique_ptrINS_20EventListenerFactoryEEE(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #45 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerListenerENS_6Detail10unique_ptrINS_20EventListenerFactoryEEE(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #46 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN5Catch12_GLOBAL__N_111RegistryHub16registerListenerENS_6Detail10unique_ptrINS_20EventListenerFactoryEEE(ptr noundef nonnull align 8 dereferenceable(304) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub12registerTestEONS_6Detail10unique_ptrINS_12TestCaseInfoEEEONS3_INS_12ITestInvokerEEE(ptr noundef captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #45 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub12registerTestEONS_6Detail10unique_ptrINS_12TestCaseInfoEEEONS3_INS_12ITestInvokerEEE(ptr noundef captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #46 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN5Catch12_GLOBAL__N_111RegistryHub12registerTestEONS_6Detail10unique_ptrINS_12TestCaseInfoEEEONS3_INS_12ITestInvokerEEE(ptr noundef nonnull align 8 dereferenceable(304) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub18registerTranslatorEONS_6Detail10unique_ptrINS_20IExceptionTranslatorEEE(ptr noundef captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #45 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub18registerTranslatorEONS_6Detail10unique_ptrINS_20IExceptionTranslatorEEE(ptr noundef captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #46 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZN5Catch27ExceptionTranslatorRegistry18registerTranslatorEONS_6Detail10unique_ptrINS_20IExceptionTranslatorEEE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerTagAliasERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKNS_14SourceLineInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #45 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerTagAliasERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKNS_14SourceLineInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #46 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @_ZN5Catch16TagAliasRegistry3addERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS_14SourceLineInfoE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub24registerStartupExceptionEv(ptr noundef %0) unnamed_addr #46 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub24registerStartupExceptionEv(ptr noundef %0) unnamed_addr #45 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN5Catch12_GLOBAL__N_111RegistryHub24registerStartupExceptionEv(ptr noundef nonnull align 8 dereferenceable(304) %2) #56
   ret void
@@ -90321,14 +90321,14 @@ define internal noundef nonnull ptr @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn304_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED1Ev(ptr noundef initializes((-304, -288), (-32, -24)) %0) unnamed_addr #46 align 2 {
+define internal void @_ZThn304_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED1Ev(ptr noundef initializes((-304, -288), (-32, -24)) %0) unnamed_addr #45 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -304
   tail call void @_ZN5Catch12_GLOBAL__N_111RegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #56
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn304_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED0Ev(ptr noundef initializes((-304, -288), (-32, -24)) %0) unnamed_addr #46 align 2 {
+define internal void @_ZThn304_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED0Ev(ptr noundef initializes((-304, -288), (-32, -24)) %0) unnamed_addr #45 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -304
   tail call void @_ZN5Catch12_GLOBAL__N_111RegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #56
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(312) %2) #58
@@ -90556,14 +90556,14 @@ define internal void @_ZN5Catch12_GLOBAL__N_111RegistryHubD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHubD1Ev(ptr noundef initializes((-8, 8), (264, 272)) %0) unnamed_addr #46 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHubD1Ev(ptr noundef initializes((-8, 8), (264, 272)) %0) unnamed_addr #45 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN5Catch12_GLOBAL__N_111RegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %2) #56
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHubD0Ev(ptr noundef initializes((-8, 8), (264, 272)) %0) unnamed_addr #46 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHubD0Ev(ptr noundef initializes((-8, 8), (264, 272)) %0) unnamed_addr #45 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN5Catch12_GLOBAL__N_111RegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %2) #56
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(304) %2) #58
@@ -103165,7 +103165,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch10Gene
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD1Ev(ptr noundef initializes((-104, -96)) %0) unnamed_addr #46 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD1Ev(ptr noundef initializes((-104, -96)) %0) unnamed_addr #45 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -104
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -103226,7 +103226,7 @@ _ZN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD2Ev.exit: ; preds = %_ZSt8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD0Ev(ptr noundef initializes((-104, -96)) %0) unnamed_addr #46 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD0Ev(ptr noundef initializes((-104, -96)) %0) unnamed_addr #45 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -104
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -133931,7 +133931,7 @@ _ZNSt8_Rb_treeIN5Catch9StringRefESt4pairIKS1_St6vectorIPKNS0_22CumulativeReporte
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_catch_amalgamated.cpp() #45 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_catch_amalgamated.cpp() #46 section ".text.startup" {
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5Catch12LeakDetectorD2Ev, ptr nonnull @_ZN5CatchL12leakDetectorE, ptr nonnull @__dso_handle) #56
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #56
@@ -134031,8 +134031,8 @@ attributes #41 = { mustprogress nofree nounwind willreturn memory(read) "frame-p
 attributes #42 = { cold noreturn }
 attributes #43 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #44 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #45 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #46 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #45 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #46 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #47 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #48 = { nofree nosync nounwind memory(none) }
 attributes #49 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

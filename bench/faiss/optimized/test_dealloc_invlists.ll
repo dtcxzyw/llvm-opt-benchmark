@@ -1423,7 +1423,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_124EncapsulateInvertedLists9list_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZNK12_GLOBAL__N_124EncapsulateInvertedLists9get_codesEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 align 2 {
+define internal noalias noundef ptr @_ZNK12_GLOBAL__N_124EncapsulateInvertedLists9get_codesEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !79
   %5 = load ptr, ptr %4, align 8, !tbaa !5
@@ -1451,7 +1451,7 @@ _ZN12_GLOBAL__N_124EncapsulateInvertedLists6memdupEPKvm.exit: ; preds = %2, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZNK12_GLOBAL__N_124EncapsulateInvertedLists7get_idsEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 align 2 {
+define internal noalias noundef ptr @_ZNK12_GLOBAL__N_124EncapsulateInvertedLists7get_idsEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !79
   %5 = load ptr, ptr %4, align 8, !tbaa !5
@@ -1491,7 +1491,7 @@ define internal void @_ZNK12_GLOBAL__N_124EncapsulateInvertedLists11release_idsE
 declare noundef i64 @_ZNK5faiss13InvertedLists13get_single_idEmm(ptr noundef nonnull align 8 dereferenceable(25), i64 noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZNK12_GLOBAL__N_124EncapsulateInvertedLists15get_single_codeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
+define internal noalias noundef ptr @_ZNK12_GLOBAL__N_124EncapsulateInvertedLists15get_single_codeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !79
   %6 = load ptr, ptr %5, align 8, !tbaa !5

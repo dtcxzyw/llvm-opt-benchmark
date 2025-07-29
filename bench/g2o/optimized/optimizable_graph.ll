@@ -1106,8 +1106,8 @@ _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread: ; preds = %_ZN3g2o16Optimiza
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o16OptimizableGraph4Edge15setRobustKernelEPNS_12RobustKernelE(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o16OptimizableGraph4Edge15setRobustKernelEPNS_12RobustKernelE(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %.not = icmp eq ptr %4, null

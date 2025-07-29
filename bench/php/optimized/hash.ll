@@ -4879,7 +4879,7 @@ php_hashcontext_dtor.exit:                        ; preds = %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @php_hashcontext_clone(ptr noundef %0) #0 {
+define internal noundef nonnull ptr @php_hashcontext_clone(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !133
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32

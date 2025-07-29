@@ -20517,7 +20517,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN73_$LT$hir_def..attr.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7hir_def4attr5Attrs18fields_attrs_query17h455a6c861649f226E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7hir_def4attr5Attrs18fields_attrs_query17h455a6c861649f226E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %6 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %7 = alloca { { i64 }, { { { i64, ptr, {} }, i64 }, {} } }, align 8
@@ -39231,7 +39231,7 @@ define noundef zeroext i1 @"_ZN72_$LT$hir_def..item_tree..RawVisibilityId$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7hir_def9item_tree8ItemTree20file_item_tree_query17h4bdbb8849111e639E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7hir_def9item_tree8ItemTree20file_item_tree_query17h4bdbb8849111e639E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { [2 x i64] }, i64 }, ptr } }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -40487,7 +40487,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit181
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7hir_def9item_tree8ItemTree21block_item_tree_query17hcb9b7b717115dd4eE.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7hir_def9item_tree8ItemTree21block_item_tree_query17hcb9b7b717115dd4eE.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { { { { i64, [1 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] } } }, ptr }, align 8
@@ -45527,7 +45527,7 @@ switch.lookup:                                    ; preds = %161
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7hir_def4data3adt8EnumData15enum_data_query17hd8db6e868316d376E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7hir_def4data3adt8EnumData15enum_data_query17hd8db6e868316d376E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { [3 x i64] } }, align 8
   %5 = alloca { { ptr, ptr, {} }, { ptr, { ptr, ptr } } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -52249,7 +52249,7 @@ define noundef zeroext i1 @_ZN7hir_def10visibility22VisibilityExplicitness11is_e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7hir_def10visibility24field_visibilities_query17h8c480b5dd2c76b55E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7hir_def10visibility24field_visibilities_query17h8c480b5dd2c76b55E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr, {} } }, align 8
   %6 = alloca { { ptr, ptr, {} } }, align 8
   %7 = alloca { i8, [15 x i8] }, align 4
@@ -60228,7 +60228,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN63_$LT$hir_def..db..F
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN81_$LT$hir_def..db..FileItemTreeQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h671004696997edb6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
+define noalias noundef nonnull ptr @"_ZN81_$LT$hir_def..db..FileItemTreeQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h671004696997edb6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = tail call noundef nonnull ptr @_ZN7hir_def9item_tree8ItemTree20file_item_tree_query17h4bdbb8849111e639E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2)
   ret ptr %4
 }
@@ -60282,7 +60282,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN64_$LT$hir_def..db..B
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN82_$LT$hir_def..db..BlockItemTreeQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h1aab55166fdc9767E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
+define noalias noundef nonnull ptr @"_ZN82_$LT$hir_def..db..BlockItemTreeQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h1aab55166fdc9767E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = tail call noundef nonnull ptr @_ZN7hir_def9item_tree8ItemTree21block_item_tree_query17hcb9b7b717115dd4eE.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2)
   ret ptr %4
 }
@@ -60606,7 +60606,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN59_$LT$hir_def..db..E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN77_$LT$hir_def..db..EnumDataQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h75d8c9b982fb5097E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
+define noalias noundef nonnull ptr @"_ZN77_$LT$hir_def..db..EnumDataQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h75d8c9b982fb5097E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = tail call noundef nonnull ptr @_ZN7hir_def4data3adt8EnumData15enum_data_query17hd8db6e868316d376E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2)
   ret ptr %4
 }
@@ -61548,7 +61548,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN62_$LT$hir_def..db..F
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN80_$LT$hir_def..db..FieldsAttrsQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h868d2e1d1a168a23E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define noalias noundef nonnull ptr @"_ZN80_$LT$hir_def..db..FieldsAttrsQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17h868d2e1d1a168a23E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = tail call noundef nonnull ptr @_ZN7hir_def4attr5Attrs18fields_attrs_query17h455a6c861649f226E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3)
   ret ptr %5
 }
@@ -61818,7 +61818,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$hir_def..db..F
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN86_$LT$hir_def..db..FieldVisibilitiesQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17hed8597102283b8d7E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define noalias noundef nonnull ptr @"_ZN86_$LT$hir_def..db..FieldVisibilitiesQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17hed8597102283b8d7E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = tail call noundef nonnull ptr @_ZN7hir_def10visibility24field_visibilities_query17h8c480b5dd2c76b55E.llvm.2681043041644741927(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3)
   ret ptr %5
 }

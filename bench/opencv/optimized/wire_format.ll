@@ -12227,7 +12227,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6google8protobuf8internal10WireFormat31InternalSerializeMessageSetItemEPKNS0_15FieldDescriptorERKNS0_7MessageEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN6google8protobuf8internal10WireFormat31InternalSerializeMessageSetItemEPKNS0_15FieldDescriptorERKNS0_7MessageEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = load ptr, ptr %1, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load ptr, ptr %6, align 8

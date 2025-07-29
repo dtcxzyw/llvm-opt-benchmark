@@ -264,8 +264,8 @@ declare void @_ZN7testing4Test5SetUpEv(ptr noundef nonnull align 8 dereferenceab
 
 declare void @_ZN7testing4Test8TearDownEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_145PrefetchTest_PrefetchToLocalCache_StackA_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_145PrefetchTest_PrefetchToLocalCache_StackA_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %2, i8 0, i64 100, i1 false)

@@ -9774,8 +9774,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18BaseResultRenderer12SetValueTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6duckdb18BaseResultRenderer12SetValueTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %_ZN6duckdb11LogicalTypeaSERKS0_.exit, label %5

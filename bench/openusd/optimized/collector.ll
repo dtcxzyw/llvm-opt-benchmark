@@ -4507,8 +4507,8 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8Allocat
 
 declare noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__25Arch_MeasureExecutionTimeEmPbPKvPFmS2_iE(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_14TraceCollector21_MeasureScopeOverheadEvE3$_0EEmRKT_mPbENUlPKviE_8__invokeES8_i"(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_14TraceCollector21_MeasureScopeOverheadEvE3$_0EEmRKT_mPbENUlPKviE_8__invokeES8_i"(ptr noundef readonly captures(none) %0, i32 noundef %1) #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   fence syncscope("singlethread") seq_cst
   %4 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36

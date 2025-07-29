@@ -227,8 +227,8 @@ if.end:                                           ; preds = %delete.end8, %entry
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN3re29Prefilter8SimplifyEv(ptr noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef nonnull ptr @_ZN3re29Prefilter8SimplifyEv(ptr noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 8
   %.off5 = add i32 %0, -3

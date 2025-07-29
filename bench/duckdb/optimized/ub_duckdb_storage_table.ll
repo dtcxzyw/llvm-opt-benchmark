@@ -5990,8 +5990,8 @@ _ZN6duckdb25PartialBlockForCheckpoint16AddSegmentToTailERNS_10ColumnDataERNS_13C
 ; Function Attrs: nounwind
 declare void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb25PartialBlockForCheckpoint5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((64, 72)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6duckdb25PartialBlockForCheckpoint5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((64, 72)) %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !144
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -66640,8 +66640,8 @@ _ZN6duckdb10unique_ptrINS_8RowGroupESt14default_deleteIS1_ELb1EE13AssertNotNullE
   ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb8RowGroup14SetVersionInfoENS_10shared_ptrINS_17RowVersionManagerELb1EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((48, 56)) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6duckdb8RowGroup14SetVersionInfoENS_10shared_ptrINS_17RowVersionManagerELb1EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((48, 56)) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %1, align 8, !tbaa !2095
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

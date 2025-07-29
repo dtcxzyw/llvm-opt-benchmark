@@ -3418,8 +3418,8 @@ _ZN6icu_776number4impl22DecimalFormatWarehouseD2Ev.exit.i: ; preds = %36, %32
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_776number24LocalizedNumberFormatter13lnfMoveHelperEOS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(496) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(496) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6icu_776number24LocalizedNumberFormatter13lnfMoveHelperEOS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(496) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(496) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = load ptr, ptr %3, align 8, !tbaa !81
   %5 = icmp eq ptr %4, null

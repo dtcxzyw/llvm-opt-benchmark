@@ -9666,8 +9666,8 @@ declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonn
 
 declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_77L13tzfmt_cleanupEv() #1 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZN6icu_77L13tzfmt_cleanupEv() #0 {
   %1 = load ptr, ptr @_ZN6icu_77L11gZoneIdTrieE, align 8, !tbaa !77
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3

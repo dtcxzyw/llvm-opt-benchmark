@@ -2204,7 +2204,7 @@ declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #4
 declare ptr @dt_image_cache_get(ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_filename(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noalias ptr @_get_filename(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %4, i8 0, i64 4096, i1 false)

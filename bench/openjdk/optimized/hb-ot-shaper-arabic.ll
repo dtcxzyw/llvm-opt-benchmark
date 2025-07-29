@@ -17614,8 +17614,8 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItL
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, -1
@@ -17772,8 +17772,8 @@ _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %9, %_ZNK2OT8ClassDe
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = load i32, ptr %0, align 4
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
@@ -20950,8 +20950,8 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntT
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 15
@@ -21116,8 +21116,8 @@ _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %_ZNK2OT8ClassDef9ge
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %6 = lshr i8 %5, 4

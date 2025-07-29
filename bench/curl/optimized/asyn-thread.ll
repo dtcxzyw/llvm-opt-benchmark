@@ -405,7 +405,7 @@ define hidden range(i32 0, 2) i32 @Curl_resolver_getsock(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Curl_resolver_getaddrinfo(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @Curl_resolver_getaddrinfo(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3472
   %6 = load ptr, ptr %5, align 8, !tbaa !103
   store i32 0, ptr %3, align 4, !tbaa !13

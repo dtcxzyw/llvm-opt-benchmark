@@ -99566,8 +99566,8 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i.i20: ; pred
   ret { ptr, ptr } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %.0.val.2840.val, ptr %.0.val.2848.val, ptr readonly captures(none) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %.0.val.2840.val, ptr %.0.val.2848.val, ptr readonly captures(none) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.val1 = load i64, ptr %0, align 8, !tbaa !1521
   %2 = ptrtoint ptr %.0.val.2848.val to i64
   %3 = ptrtoint ptr %.0.val.2840.val to i64

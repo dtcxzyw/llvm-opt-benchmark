@@ -74,7 +74,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL14thread_routinePv(ptr noundef %0) #1 {
+define internal noalias noundef ptr @_ZL14thread_routinePv(ptr noundef %0) #1 {
   %2 = alloca %struct.__sigset_t, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #16
   %3 = call i32 @sigfillset(ptr noundef nonnull %2) #16

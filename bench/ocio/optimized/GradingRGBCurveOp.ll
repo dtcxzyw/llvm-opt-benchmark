@@ -1905,8 +1905,8 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev21GradingRGBCurveOpDataELN9__gnu_cxx1
   resume { ptr, i32 } %35
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_117GradingRGBCurveOp10isSameTypeERSt10shared_ptrIKNS_2OpEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_117GradingRGBCurveOp10isSameTypeERSt10shared_ptrIKNS_2OpEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8, !tbaa !31
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %3, align 8
@@ -3356,8 +3356,8 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev2Op22replaceDynamicProp
   resume { ptr, i32 } %7
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117GradingRGBCurveOp23removeDynamicPropertiesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117GradingRGBCurveOp23removeDynamicPropertiesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !25, !noalias !132, !nonnull !82, !noundef !82
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

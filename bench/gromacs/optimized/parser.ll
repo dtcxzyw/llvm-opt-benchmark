@@ -8996,8 +8996,8 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit40: ; preds = %213, %216
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef %0, i32 noundef range(i32 -2, 256) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef %0, i32 noundef range(i32 -2, 256) %1, ptr noundef readonly captures(none) %2) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr @_gmx_sel_yydebug, align 4, !tbaa !24
   %.not52 = icmp eq i32 %4, 0
   br i1 %.not52, label %16, label %5

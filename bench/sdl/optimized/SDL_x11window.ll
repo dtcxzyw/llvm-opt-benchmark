@@ -4457,7 +4457,7 @@ X11_SetWindowFullscreenViaWM.exit:                ; preds = %8, %14, %18, %24, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X11_GetWindowICCProfile(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define hidden noalias ptr @X11_GetWindowICCProfile(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4

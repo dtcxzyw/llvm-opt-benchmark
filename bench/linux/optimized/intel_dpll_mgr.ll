@@ -5232,7 +5232,7 @@ define internal fastcc ptr @intel_find_shared_dpll(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef captures(ret: address, provenance) %0) unnamed_addr #0 align 16 {
+define internal fastcc nonnull ptr @intel_atomic_get_shared_dpll_state(ptr noundef captures(ret: address, provenance) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 400

@@ -1405,7 +1405,7 @@ declare noundef i32 @_ZNK6icu_777UVector10elementAtiEi(ptr noundef nonnull align
 
 declare noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
-; Function Attrs: inlinehint mustprogress uwtable
+; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @"_ZZN6icu_7713SPUStringPoolC1ER10UErrorCodeEN3$_08__invokeEPv"(ptr noundef %0) #10 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZZN6icu_7713SPUStringPoolC1ER10UErrorCodeENK3$_0clEPv.exit", label %3
@@ -1442,7 +1442,7 @@ attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "
 attributes #7 = { cold nofree noreturn }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }

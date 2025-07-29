@@ -4422,8 +4422,8 @@ define void @_ZN8QCPLayer10setVisibleEb(ptr noundef writeonly align 8 captures(n
   ret void
 }
 
-; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN8QCPLayer7setModeENS_9LayerModeE(ptr noundef align 8 captures(none) dereferenceable_or_null(104) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define void @_ZN8QCPLayer7setModeENS_9LayerModeE(ptr noundef align 8 captures(none) dereferenceable_or_null(104) %0, i32 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, %1
@@ -5817,8 +5817,8 @@ _ZN14QSharedPointerI22QCPAbstractPaintBufferED2Ev.exit: ; preds = %110, %_ZN15Qt
   ret void
 }
 
-; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @_ZN11QCustomPlot26hasInvalidatedPaintBuffersEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(513) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define noundef zeroext i1 @_ZN11QCustomPlot26hasInvalidatedPaintBuffersEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(513) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !noalias !23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352

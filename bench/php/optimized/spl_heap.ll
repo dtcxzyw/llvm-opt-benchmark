@@ -2170,7 +2170,7 @@ register_class_SplPriorityQueue.exit:             ; preds = %zend_string_release
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @spl_heap_object_new(ptr noundef %0) #0 {
+define internal noundef nonnull ptr @spl_heap_object_new(ptr noundef %0) #0 {
   %2 = tail call fastcc ptr @spl_heap_object_new_ex(ptr noundef %0, ptr noundef null, i32 noundef 0)
   ret ptr %2
 }
@@ -2212,11 +2212,11 @@ define internal noundef ptr @spl_heap_get_iterator(ptr noundef %0, ptr noundef r
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @spl_heap_object_clone(ptr noundef %0) #0 {
+define internal noundef nonnull ptr @spl_heap_object_clone(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = tail call fastcc ptr @spl_heap_object_new_ex(ptr noundef %3, ptr noundef %0, i32 noundef 1)
-  tail call void @zend_objects_clone_members(ptr noundef %4, ptr noundef %0) #15
+  tail call void @zend_objects_clone_members(ptr noundef nonnull %4, ptr noundef %0) #15
   ret ptr %4
 }
 
@@ -2427,7 +2427,7 @@ declare ptr @zend_register_internal_class_with_flags(ptr noundef, ptr noundef, i
 declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @spl_heap_object_new_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !101
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28

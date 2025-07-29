@@ -2318,7 +2318,7 @@ define dso_local noundef ptr @_ZNK4llvm15X86RegisterInfo25getLargestLegalSuperCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm15X86RegisterInfo18getPointerRegClassERKNS_15MachineFunctionEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(1065) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4llvm15X86RegisterInfo18getPointerRegClassERKNS_15MachineFunctionEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(1065) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   switch i32 %2, label %6 [

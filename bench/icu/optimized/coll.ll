@@ -2607,8 +2607,8 @@ declare void @ures_close_77(ptr noundef) local_unnamed_addr #6
 
 declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL16collator_cleanupv() #5 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL16collator_cleanupv() #1 {
   %1 = load ptr, ptr @_ZL8gService, align 8, !tbaa !15
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2

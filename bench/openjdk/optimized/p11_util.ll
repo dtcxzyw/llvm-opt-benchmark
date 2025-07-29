@@ -1767,7 +1767,7 @@ define hidden ptr @ckULongPtrToJLongObject(ptr noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jBooleanObjectToCKBBoolPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jBooleanObjectToCKBBoolPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1822,7 +1822,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %26, %21, %8, %2, %3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jByteObjectToCKBytePtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jByteObjectToCKBytePtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1872,7 +1872,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %26, %21, %8, %2, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jIntegerObjectToCKULongPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jIntegerObjectToCKULongPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1923,7 +1923,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %26, %21, %8, %2, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jLongObjectToCKULongPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jLongObjectToCKULongPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1973,7 +1973,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %26, %21, %8, %2, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jCharObjectToCKCharPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jCharObjectToCKCharPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8

@@ -346,7 +346,7 @@ define void @stnode_mutate(ptr noundef writeonly captures(none) initializes((0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @stnode_new(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, i64 %4) local_unnamed_addr #0 {
+define noalias noundef ptr @stnode_new(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, i64 %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #14
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -394,7 +394,7 @@ stnode_init.exit:                                 ; preds = %12, %19, %22
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @stnode_new_empty(i32 noundef %0) local_unnamed_addr #0 {
+define noalias noundef ptr @stnode_new_empty(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -437,7 +437,7 @@ stnode_new.exit:                                  ; preds = %7, %14, %17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @stnode_dup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @stnode_dup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -768,7 +768,7 @@ declare i32 @pipe(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL10run_serverPv(ptr noundef %0) #6 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @_ZL10run_serverPv(ptr noundef %0) #6 personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %2, %1

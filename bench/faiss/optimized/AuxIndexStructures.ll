@@ -748,8 +748,8 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE9push_backERKS1_.exit: ; preds = 
   ret ptr %30
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56

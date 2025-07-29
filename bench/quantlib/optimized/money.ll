@@ -4421,8 +4421,8 @@ entry:
   ret ptr %baseCurrency_
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8QuantLib5Money17BaseCurrencyProxyaSERKNS_8CurrencyE(ptr noundef nonnull readnone returned align 1 captures(ret: address, provenance) dereferenceable(1) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8QuantLib5Money17BaseCurrencyProxyaSERKNS_8CurrencyE(ptr noundef nonnull readnone returned align 1 captures(ret: address, provenance) dereferenceable(1) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8QuantLib9SingletonINS_5Money8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0

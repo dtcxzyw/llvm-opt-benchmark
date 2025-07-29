@@ -28614,7 +28614,7 @@ define void @_ZN7xgboost7DMatrixD0Ev(ptr nonnull readnone align 8 captures(none)
 declare void @llvm.trap() #18
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7xgboost7DMatrix4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_13DataSplitModeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7xgboost7DMatrix4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_13DataSplitModeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1

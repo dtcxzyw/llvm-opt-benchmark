@@ -2737,7 +2737,7 @@ define internal ptr @svc_udp_create(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define internal noundef ptr @svc_udp_accept(ptr readnone captures(none) %0) #14 align 16 {
+define internal noalias noundef nonnull ptr @svc_udp_accept(ptr readnone captures(none) %0) #14 align 16 {
   tail call void asm sideeffect "2926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2926) #16, !srcloc !89
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 759, i32 0, i64 12) #16, !srcloc !90
   unreachable

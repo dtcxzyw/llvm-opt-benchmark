@@ -26052,8 +26052,8 @@ define noundef i32 @_ZTv0_n152_N15colvarbias_meta4initERKNSt7__cxx1112basic_stri
   ret i32 %7
 }
 
-; Function Attrs: uwtable
-define noundef i32 @_ZTv0_n184_N15colvarbias_meta16clear_state_dataEv(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: nounwind uwtable
+define noundef i32 @_ZTv0_n184_N15colvarbias_meta16clear_state_dataEv(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %2, i64 -184
   %4 = load i64, ptr %3, align 8

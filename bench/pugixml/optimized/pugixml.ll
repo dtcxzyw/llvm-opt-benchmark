@@ -18035,7 +18035,7 @@ _ZN4pugi4impl12_GLOBAL__N_112auto_deleterI8_IO_FILEED2Ev.exit9: ; preds = %44, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_114open_file_wideEPKwS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
+define internal fastcc noalias noundef ptr @_ZN4pugi4impl12_GLOBAL__N_114open_file_wideEPKwS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
   %3 = alloca [4 x i8], align 4
   %wcslen.i.i = tail call i64 @wcslen(ptr readonly %0)
   %4 = shl i64 %wcslen.i.i, 2
@@ -44443,7 +44443,7 @@ declare double @llvm.floor.f64(double) #39
 declare double @llvm.ceil.f64(double) #39
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_113namespace_uriERKNS_10xpath_nodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 {
+define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_113namespace_uriERKNS_10xpath_nodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 {
   %2 = alloca %"class.pugi::xml_node", align 8
   %3 = alloca %"class.pugi::xml_node", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

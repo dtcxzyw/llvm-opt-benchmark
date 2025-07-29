@@ -256,7 +256,7 @@ _ZNK17btCollisionObject18setActivationStateEi.exit: ; preds = %7, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK17btCollisionObject9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZNK17btCollisionObject9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %6

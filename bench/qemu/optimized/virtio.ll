@@ -8924,7 +8924,7 @@ define dso_local zeroext i1 @virtio_device_ioeventfd_enabled(ptr noundef %0) loc
 declare zeroext i1 @virtio_bus_ioeventfd_enabled(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qmp_x_query_virtio_queue_status(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_x_query_virtio_queue_status(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.vhost_vring_state, align 4
   %5 = tail call ptr @qmp_find_virtio_device(ptr noundef %0) #24
   %6 = icmp eq ptr %5, null
@@ -9073,7 +9073,7 @@ declare ptr @qmp_find_virtio_device(ptr noundef) local_unnamed_addr #5
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qmp_x_query_virtio_queue_element(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_x_query_virtio_queue_element(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.MemoryRegionCache, align 16
   %7 = alloca %struct.VRingDesc, align 8
   %8 = tail call ptr @qmp_find_virtio_device(ptr noundef %0) #24

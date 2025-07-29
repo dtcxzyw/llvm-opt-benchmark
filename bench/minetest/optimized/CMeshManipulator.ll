@@ -1233,7 +1233,7 @@ return:                                           ; preds = %if.then22, %for.con
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK3irr5scene16CMeshManipulator14createMeshCopyEPNS0_5IMeshE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
+define noalias noundef ptr @_ZNK3irr5scene16CMeshManipulator14createMeshCopyEPNS0_5IMeshE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
 entry:
   %tobool.not = icmp eq ptr %mesh, null
   br i1 %tobool.not, label %return, label %if.end

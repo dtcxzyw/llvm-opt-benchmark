@@ -9551,7 +9551,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit130:      ; preds = %_ZN7obj_refI4expr11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog21check_relation_plugin11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN7datalog21check_relation_plugin11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %5
 
@@ -9615,7 +9615,7 @@ _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit11: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog21check_relation_plugin11mk_widen_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN7datalog21check_relation_plugin11mk_widen_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %5
 
@@ -9759,7 +9759,7 @@ _ZN7datalog21check_relation_plugin19filter_identical_fnC2EPNS_17tr_infrastructur
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog21check_relation_plugin24mk_filter_interpreted_fnERKNS_13relation_baseEP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN7datalog21check_relation_plugin24mk_filter_interpreted_fnERKNS_13relation_baseEP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.obj_ref.44, align 8
   %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #24
   %6 = icmp eq ptr %5, null
@@ -10028,7 +10028,7 @@ _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog21check_relation_plugin18mk_filter_equal_fnERKNS_13relation_baseERKP3appj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN7datalog21check_relation_plugin18mk_filter_equal_fnERKNS_13relation_baseERKP3appj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #24
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit

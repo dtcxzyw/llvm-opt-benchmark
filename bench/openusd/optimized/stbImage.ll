@@ -10910,8 +10910,8 @@ define internal noundef float @_ZL25stbir__support_zeropoint5fPv(float %0, ptr r
   ret float 5.000000e-01
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL29stbir__fancy_alpha_weight_4chPfi(ptr noundef %0, i32 noundef %1) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL29stbir__fancy_alpha_weight_4chPfi(ptr noundef %0, i32 noundef %1) #20 {
   %3 = sdiv i32 %1, 4
   %4 = mul nsw i32 %3, 7
   %5 = sext i32 %4 to i64
@@ -10969,8 +10969,8 @@ define internal void @_ZL29stbir__fancy_alpha_weight_4chPfi(ptr noundef %0, i32 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL29stbir__fancy_alpha_weight_2chPfi(ptr noundef %0, i32 noundef %1) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL29stbir__fancy_alpha_weight_2chPfi(ptr noundef %0, i32 noundef %1) #20 {
   %3 = sdiv i32 %1, 2
   %4 = mul nsw i32 %3, 3
   %5 = sext i32 %4 to i64
@@ -11049,8 +11049,8 @@ define internal void @_ZL29stbir__fancy_alpha_weight_2chPfi(ptr noundef %0, i32 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL31stbir__fancy_alpha_unweight_4chPfi(ptr noundef %0, i32 noundef %1) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL31stbir__fancy_alpha_unweight_4chPfi(ptr noundef %0, i32 noundef %1) #20 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds float, ptr %0, i64 %3
   br label %5
@@ -11126,8 +11126,8 @@ define internal void @_ZL31stbir__fancy_alpha_unweight_2chPfi(ptr noundef captur
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL30stbir__simple_alpha_weight_4chPfi(ptr noundef %0, i32 noundef %1) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL30stbir__simple_alpha_weight_4chPfi(ptr noundef %0, i32 noundef %1) #20 {
   %3 = sext i32 %1 to i64
   %.idx = shl nsw i64 %3, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -11171,8 +11171,8 @@ define internal void @_ZL30stbir__simple_alpha_weight_4chPfi(ptr noundef %0, i32
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL30stbir__simple_alpha_weight_2chPfi(ptr noundef %0, i32 noundef %1) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL30stbir__simple_alpha_weight_2chPfi(ptr noundef %0, i32 noundef %1) #20 {
   %3 = sext i32 %1 to i64
   %.idx = shl nsw i64 %3, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -11229,8 +11229,8 @@ define internal void @_ZL30stbir__simple_alpha_weight_2chPfi(ptr noundef %0, i32
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL32stbir__simple_alpha_unweight_4chPfi(ptr noundef %0, i32 noundef %1) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL32stbir__simple_alpha_unweight_4chPfi(ptr noundef %0, i32 noundef %1) #20 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds float, ptr %0, i64 %3
   br label %5
@@ -12653,8 +12653,8 @@ define internal noundef i32 @_ZL21stbir__edge_zero_fullii(i32 %0, i32 %1) #9 {
   ret i32 0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL54stbir__horizontal_gather_1_channels_with_n_coeffs_mod0PfjPKfPK19stbir__contributorsS1_i(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL54stbir__horizontal_gather_1_channels_with_n_coeffs_mod0PfjPKfPK19stbir__contributorsS1_i(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #20 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -12710,8 +12710,8 @@ define internal void @_ZL54stbir__horizontal_gather_1_channels_with_n_coeffs_mod
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL54stbir__horizontal_gather_1_channels_with_n_coeffs_mod1PfjPKfPK19stbir__contributorsS1_i(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL54stbir__horizontal_gather_1_channels_with_n_coeffs_mod1PfjPKfPK19stbir__contributorsS1_i(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #20 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -12775,8 +12775,8 @@ define internal void @_ZL54stbir__horizontal_gather_1_channels_with_n_coeffs_mod
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL54stbir__horizontal_gather_1_channels_with_n_coeffs_mod2PfjPKfPK19stbir__contributorsS1_i(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL54stbir__horizontal_gather_1_channels_with_n_coeffs_mod2PfjPKfPK19stbir__contributorsS1_i(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #20 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14591,8 +14591,8 @@ define internal void @_ZL54stbir__horizontal_gather_7_channels_with_n_coeffs_mod
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL48stbir__horizontal_gather_1_channels_with_1_coeffPfjPKfPK19stbir__contributorsS1_i(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL48stbir__horizontal_gather_1_channels_with_1_coeffPfjPKfPK19stbir__contributorsS1_i(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #20 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -18573,8 +18573,8 @@ _ZL17stbir_simd_memcpyPvPKvm.exit:                ; preds = %52, %28, %.preheade
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL31stbir__decode_half_float_linearPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL31stbir__decode_half_float_linearPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -18979,8 +18979,8 @@ define internal void @_ZL31stbir__decode_float_linear_BGRAPfiPKv(ptr noundef %0,
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__decode_half_float_linear_BGRAPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__decode_half_float_linear_BGRAPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -19317,8 +19317,8 @@ define internal void @_ZL31stbir__decode_float_linear_ARGBPfiPKv(ptr noundef %0,
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__decode_half_float_linear_ARGBPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__decode_half_float_linear_ARGBPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -19655,8 +19655,8 @@ define internal void @_ZL31stbir__decode_float_linear_ABGRPfiPKv(ptr noundef %0,
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__decode_half_float_linear_ABGRPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__decode_half_float_linear_ABGRPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -20127,8 +20127,8 @@ define internal void @_ZL29stbir__decode_float_linear_ARPfiPKv(ptr noundef %0, i
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL34stbir__decode_half_float_linear_ARPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL34stbir__decode_half_float_linear_ARPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -20330,8 +20330,8 @@ define internal void @_ZL34stbir__decode_half_float_linear_ARPfiPKv(ptr noundef 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL33stbir__decode_uint8_linear_scaledPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL33stbir__decode_uint8_linear_scaledPfiPKv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -22398,8 +22398,8 @@ define internal void @_ZL30stbir__decode_uint16_linear_ARPfiPKv(ptr noundef %0, 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL24stbir__encode_uint8_srgbPviPKf(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL24stbir__encode_uint8_srgbPviPKf(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #20 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -22879,8 +22879,8 @@ _ZL17stbir_simd_memcpyPvPKvm.exit:                ; preds = %52, %28, %.preheade
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL31stbir__encode_half_float_linearPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL31stbir__encode_half_float_linearPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -23197,8 +23197,8 @@ _ZL20stbir__float_to_halff.exit58:                ; preds = %177, %182, %185
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL37stbir__encode_uint8_srgb4_linearalphaPviPKf(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL37stbir__encode_uint8_srgb4_linearalphaPviPKf(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #20 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -24112,8 +24112,8 @@ define internal void @_ZL31stbir__encode_float_linear_BGRAPviPKf(ptr noundef wri
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__encode_half_float_linear_BGRAPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__encode_half_float_linear_BGRAPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -25031,8 +25031,8 @@ define internal void @_ZL31stbir__encode_float_linear_ARGBPviPKf(ptr noundef wri
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__encode_half_float_linear_ARGBPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__encode_half_float_linear_ARGBPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -25950,8 +25950,8 @@ define internal void @_ZL31stbir__encode_float_linear_ABGRPviPKf(ptr noundef wri
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__encode_half_float_linear_ABGRPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__encode_half_float_linear_ABGRPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -27054,8 +27054,8 @@ define internal void @_ZL29stbir__encode_float_linear_ARPviPKf(ptr noundef write
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL34stbir__encode_half_float_linear_ARPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL34stbir__encode_half_float_linear_ARPviPKf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -27412,8 +27412,8 @@ _ZL20stbir__float_to_halff.exit70:                ; preds = %205, %210, %213
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL33stbir__encode_uint8_linear_scaledPviPKf(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL33stbir__encode_uint8_linear_scaledPviPKf(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #20 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -27621,8 +27621,8 @@ define internal void @_ZL26stbir__encode_uint8_linearPviPKf(ptr noundef writeonl
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL34stbir__encode_uint16_linear_scaledPviPKf(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL34stbir__encode_uint16_linear_scaledPviPKf(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #20 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -29811,8 +29811,8 @@ _ZL17stbir_simd_memcpyPvPKvm.exit:                ; preds = %71, %47, %.preheade
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__vertical_gather_with_1_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__vertical_gather_with_1_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = fcmp oge float %6, 0x3FEFFFFDE0000000
@@ -30011,8 +30011,8 @@ _ZL17stbir_simd_memcpyPvPKvm.exit:                ; preds = %.lr.ph104, %57, %33
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__vertical_gather_with_2_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__vertical_gather_with_2_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -30134,8 +30134,8 @@ define internal void @_ZL36stbir__vertical_gather_with_2_coeffsPfPKfPS1_S1_(ptr 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__vertical_gather_with_3_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__vertical_gather_with_3_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -30294,8 +30294,8 @@ define internal void @_ZL36stbir__vertical_gather_with_3_coeffsPfPKfPS1_S1_(ptr 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__vertical_gather_with_4_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__vertical_gather_with_4_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -30491,8 +30491,8 @@ define internal void @_ZL36stbir__vertical_gather_with_4_coeffsPfPKfPS1_S1_(ptr 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__vertical_gather_with_5_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__vertical_gather_with_5_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -30725,8 +30725,8 @@ define internal void @_ZL36stbir__vertical_gather_with_5_coeffsPfPKfPS1_S1_(ptr 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__vertical_gather_with_6_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__vertical_gather_with_6_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -30996,8 +30996,8 @@ define internal void @_ZL36stbir__vertical_gather_with_6_coeffsPfPKfPS1_S1_(ptr 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__vertical_gather_with_7_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__vertical_gather_with_7_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31304,8 +31304,8 @@ define internal void @_ZL36stbir__vertical_gather_with_7_coeffsPfPKfPS1_S1_(ptr 
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL36stbir__vertical_gather_with_8_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL36stbir__vertical_gather_with_8_coeffsPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31652,8 +31652,8 @@ define internal void @_ZL36stbir__vertical_gather_with_8_coeffsPfPKfPS1_S1_(ptr 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #21
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL41stbir__vertical_gather_with_1_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL41stbir__vertical_gather_with_1_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = insertelement <4 x float> poison, float %6, i64 0
@@ -31750,8 +31750,8 @@ define internal void @_ZL41stbir__vertical_gather_with_1_coeffs_contPfPKfPS1_S1_
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL41stbir__vertical_gather_with_2_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL41stbir__vertical_gather_with_2_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31885,8 +31885,8 @@ define internal void @_ZL41stbir__vertical_gather_with_2_coeffs_contPfPKfPS1_S1_
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL41stbir__vertical_gather_with_3_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL41stbir__vertical_gather_with_3_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -32057,8 +32057,8 @@ define internal void @_ZL41stbir__vertical_gather_with_3_coeffs_contPfPKfPS1_S1_
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL41stbir__vertical_gather_with_4_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL41stbir__vertical_gather_with_4_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -32266,8 +32266,8 @@ define internal void @_ZL41stbir__vertical_gather_with_4_coeffs_contPfPKfPS1_S1_
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL41stbir__vertical_gather_with_5_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL41stbir__vertical_gather_with_5_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -32512,8 +32512,8 @@ define internal void @_ZL41stbir__vertical_gather_with_5_coeffs_contPfPKfPS1_S1_
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL41stbir__vertical_gather_with_6_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL41stbir__vertical_gather_with_6_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -32795,8 +32795,8 @@ define internal void @_ZL41stbir__vertical_gather_with_6_coeffs_contPfPKfPS1_S1_
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL41stbir__vertical_gather_with_7_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL41stbir__vertical_gather_with_7_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -33115,8 +33115,8 @@ define internal void @_ZL41stbir__vertical_gather_with_7_coeffs_contPfPKfPS1_S1_
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL41stbir__vertical_gather_with_8_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL41stbir__vertical_gather_with_8_coeffs_contPfPKfPS1_S1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -33614,8 +33614,8 @@ _ZL22stbir__encode_scanlinePK11stbir__infoPvPfi.exit: ; preds = %28, %34
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL37stbir__vertical_scatter_with_1_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL37stbir__vertical_scatter_with_1_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = insertelement <4 x float> poison, float %6, i64 0
@@ -33698,8 +33698,8 @@ define internal void @_ZL37stbir__vertical_scatter_with_1_coeffsPPfPKfS2_S2_(ptr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL37stbir__vertical_scatter_with_2_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL37stbir__vertical_scatter_with_2_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -33811,8 +33811,8 @@ define internal void @_ZL37stbir__vertical_scatter_with_2_coeffsPPfPKfS2_S2_(ptr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL37stbir__vertical_scatter_with_3_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL37stbir__vertical_scatter_with_3_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -33953,8 +33953,8 @@ define internal void @_ZL37stbir__vertical_scatter_with_3_coeffsPPfPKfS2_S2_(ptr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL37stbir__vertical_scatter_with_4_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL37stbir__vertical_scatter_with_4_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34124,8 +34124,8 @@ define internal void @_ZL37stbir__vertical_scatter_with_4_coeffsPPfPKfS2_S2_(ptr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL37stbir__vertical_scatter_with_5_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL37stbir__vertical_scatter_with_5_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34324,8 +34324,8 @@ define internal void @_ZL37stbir__vertical_scatter_with_5_coeffsPPfPKfS2_S2_(ptr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL37stbir__vertical_scatter_with_6_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL37stbir__vertical_scatter_with_6_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34553,8 +34553,8 @@ define internal void @_ZL37stbir__vertical_scatter_with_6_coeffsPPfPKfS2_S2_(ptr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL37stbir__vertical_scatter_with_7_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL37stbir__vertical_scatter_with_7_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34811,8 +34811,8 @@ define internal void @_ZL37stbir__vertical_scatter_with_7_coeffsPPfPKfS2_S2_(ptr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL37stbir__vertical_scatter_with_8_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL37stbir__vertical_scatter_with_8_coeffsPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35098,8 +35098,8 @@ define internal void @_ZL37stbir__vertical_scatter_with_8_coeffsPPfPKfS2_S2_(ptr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL42stbir__vertical_scatter_with_1_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL42stbir__vertical_scatter_with_1_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = insertelement <4 x float> poison, float %6, i64 0
@@ -35194,8 +35194,8 @@ define internal void @_ZL42stbir__vertical_scatter_with_1_coeffs_contPPfPKfS2_S2
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL42stbir__vertical_scatter_with_2_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL42stbir__vertical_scatter_with_2_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35331,8 +35331,8 @@ define internal void @_ZL42stbir__vertical_scatter_with_2_coeffs_contPPfPKfS2_S2
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL42stbir__vertical_scatter_with_3_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL42stbir__vertical_scatter_with_3_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35509,8 +35509,8 @@ define internal void @_ZL42stbir__vertical_scatter_with_3_coeffs_contPPfPKfS2_S2
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL42stbir__vertical_scatter_with_4_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL42stbir__vertical_scatter_with_4_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35728,8 +35728,8 @@ define internal void @_ZL42stbir__vertical_scatter_with_4_coeffs_contPPfPKfS2_S2
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL42stbir__vertical_scatter_with_5_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL42stbir__vertical_scatter_with_5_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35988,8 +35988,8 @@ define internal void @_ZL42stbir__vertical_scatter_with_5_coeffs_contPPfPKfS2_S2
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL42stbir__vertical_scatter_with_6_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL42stbir__vertical_scatter_with_6_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36289,8 +36289,8 @@ define internal void @_ZL42stbir__vertical_scatter_with_6_coeffs_contPPfPKfS2_S2
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL42stbir__vertical_scatter_with_7_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL42stbir__vertical_scatter_with_7_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36631,8 +36631,8 @@ define internal void @_ZL42stbir__vertical_scatter_with_7_coeffs_contPPfPKfS2_S2
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL42stbir__vertical_scatter_with_8_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #15 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL42stbir__vertical_scatter_with_8_coeffs_contPPfPKfS2_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #20 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -47571,7 +47571,7 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i30: ; preds = %129, %128
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca [4 x i8], align 4

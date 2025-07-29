@@ -310,7 +310,7 @@ _ZN5alloc11collections5btree3mem7replace17h2f28b33caa9cae4cE.exit: ; preds = %.n
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.invoke, label %6
@@ -12073,7 +12073,7 @@ common.resume:                                    ; preds = %.body73, %.thread99
   %128 = extractvalue { ptr, ptr } %127, 0
   %129 = extractvalue { ptr, ptr } %127, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !802
-  %130 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %128, ptr %129)
+  %130 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %128, ptr %129)
           to label %170 unwind label %117
 
 131:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h522ea1f81dc7efb2E.exit.i"
@@ -12350,7 +12350,7 @@ _ZN13pingora_error5Error7because17h09726c26ae2dc1edE.exit: ; preds = %"_ZN50_$LT
   %36 = extractvalue { ptr, ptr } %20, 0
   %37 = extractvalue { ptr, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !823
-  %38 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %36, ptr %37)
+  %38 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %36, ptr %37)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !823
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -12510,7 +12510,7 @@ define void @_ZN12pingora_core9protocols4http2v26client12Http2Session27check_res
   %37 = extractvalue { ptr, ptr } %36, 0
   %38 = extractvalue { ptr, ptr } %36, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !841
-  %39 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %37, ptr %38)
+  %39 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %37, ptr %38)
           to label %81 unwind label %29
 
 40:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h522ea1f81dc7efb2E.exit.i"
@@ -12985,7 +12985,7 @@ define noundef nonnull align 8 ptr @_ZN12pingora_core9protocols4http2v26client24
   %45 = extractvalue { ptr, ptr } %44, 0
   %46 = extractvalue { ptr, ptr } %44, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23), !noalias !886
-  %47 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %35, ptr noalias noundef align 8 captures(none) dereferenceable(24) %25, ptr noundef align 1 %45, ptr %46)
+  %47 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %35, ptr noalias noundef align 8 captures(none) dereferenceable(24) %25, ptr noundef align 1 %45, ptr %46)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !886
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
@@ -13073,7 +13073,7 @@ define noundef nonnull align 8 ptr @_ZN12pingora_core9protocols4http2v26client24
   %75 = extractvalue { ptr, ptr } %74, 0
   %76 = extractvalue { ptr, ptr } %74, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20), !noalias !896
-  %77 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef align 8 captures(none) dereferenceable(24) %22, ptr noundef align 1 %75, ptr %76)
+  %77 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef align 8 captures(none) dereferenceable(24) %22, ptr noundef align 1 %75, ptr %76)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !896
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
@@ -13162,7 +13162,7 @@ define noundef nonnull align 8 ptr @_ZN12pingora_core9protocols4http2v26client24
   %104 = extractvalue { ptr, ptr } %103, 0
   %105 = extractvalue { ptr, ptr } %103, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !906
-  %106 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef align 8 captures(none) dereferenceable(24) %19, ptr noundef align 1 %104, ptr %105)
+  %106 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef align 8 captures(none) dereferenceable(24) %19, ptr noundef align 1 %104, ptr %105)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !906
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
@@ -13229,7 +13229,7 @@ define noundef nonnull align 8 ptr @_ZN12pingora_core9protocols4http2v26client24
   %125 = extractvalue { ptr, ptr } %124, 0
   %126 = extractvalue { ptr, ptr } %124, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14), !noalias !916
-  %127 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef align 8 captures(none) dereferenceable(24) %16, ptr noundef align 1 %125, ptr %126)
+  %127 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef align 8 captures(none) dereferenceable(24) %16, ptr noundef align 1 %125, ptr %126)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !916
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
@@ -13299,7 +13299,7 @@ default.unreachable:                              ; preds = %140
   %147 = extractvalue { ptr, ptr } %146, 0
   %148 = extractvalue { ptr, ptr } %146, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !926
-  %149 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noundef align 1 %147, ptr %148)
+  %149 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noundef align 1 %147, ptr %148)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !926
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
@@ -13352,7 +13352,7 @@ default.unreachable:                              ; preds = %140
   %165 = extractvalue { ptr, ptr } %164, 0
   %166 = extractvalue { ptr, ptr } %164, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !937
-  %167 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noundef align 1 %165, ptr %166)
+  %167 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noundef align 1 %165, ptr %166)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !937
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
@@ -13403,7 +13403,7 @@ default.unreachable:                              ; preds = %140
   %182 = extractvalue { ptr, ptr } %181, 0
   %183 = extractvalue { ptr, ptr } %181, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !948
-  %184 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %182, ptr %183)
+  %184 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %182, ptr %183)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !948
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
@@ -13454,7 +13454,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h833df02b1761f8d1E.exit: ; preds 
   %198 = extractvalue { ptr, ptr } %197, 0
   %199 = extractvalue { ptr, ptr } %197, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !959
-  %200 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %198, ptr %199)
+  %200 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %198, ptr %199)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !959
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)

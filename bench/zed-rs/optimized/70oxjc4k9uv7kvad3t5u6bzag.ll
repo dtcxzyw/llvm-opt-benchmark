@@ -3286,7 +3286,7 @@ common.resume:                                    ; preds = %192, %.body61, %.bo
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @"_ZN4gpui6window13WindowContext18with_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h7593e0dcb13ffbe9E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull ptr @"_ZN4gpui6window13WindowContext18with_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h7593e0dcb13ffbe9E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8

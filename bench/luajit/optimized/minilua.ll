@@ -3097,7 +3097,7 @@ getluaproto.exit:                                 ; preds = %currentpc.exit.i, %
   %41 = load ptr, ptr %40, align 8, !tbaa !151
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   call fastcc void @luaO_chunkid(ptr noundef %3, ptr noundef nonnull %42, i64 noundef 60)
-  %43 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, i32 noundef %.0.i.ph, ptr noundef %5)
+  %43 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, i32 noundef %.0.i.ph, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %3) #35
   br label %addinfo.exit
 
@@ -3111,7 +3111,7 @@ addinfo.exit:                                     ; preds = %2, %13, %getluaprot
 declare void @llvm.va_start.p0(ptr) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca [2 x i8], align 1
   %5 = alloca [40 x i8], align 16
   %6 = alloca [3 x i8], align 1
@@ -3877,7 +3877,7 @@ define internal fastcc void @luaO_chunkid(ptr noundef nonnull %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @luaO_pushfstring(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal nonnull ptr @luaO_pushfstring(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #35
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -8279,7 +8279,7 @@ luaD_poscall.exit:                                ; preds = %243, %.lr.ph35.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @growCI(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @growCI(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4, !tbaa !116
   %4 = icmp sgt i32 %3, 20000
@@ -17812,7 +17812,7 @@ luaC_step.exit.i:                                 ; preds = %37, %34, %31
   br label %lua_pushvfstring.exit
 
 lua_pushvfstring.exit:                            ; preds = %2, %luaC_step.exit.i
-  %45 = call fastcc ptr @luaO_pushvfstring(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
+  %45 = call fastcc nonnull ptr @luaO_pushvfstring(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   %46 = load ptr, ptr %4, align 8, !tbaa !29
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
@@ -18754,7 +18754,7 @@ luaC_step.exit:                                   ; preds = %32, %35, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lua_pushfstring(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal nonnull ptr @lua_pushfstring(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #35
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -18928,7 +18928,7 @@ lua_type.exit:                                    ; preds = %index2adr.exit.i
 lua_typename.exit:                                ; preds = %37, %5, %index2adr.exit.i, %lua_type.exit, %55
   %59 = phi ptr [ %58, %55 ], [ @.str.133, %lua_type.exit ], [ @.str.133, %index2adr.exit.i ], [ @.str.133, %5 ], [ @.str.133, %37 ]
   %60 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.132, ptr noundef %2, ptr noundef %59)
-  tail call fastcc void @luaL_argerror(ptr noundef %0, i32 noundef %1, ptr noundef %60)
+  tail call fastcc void @luaL_argerror(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %60)
   unreachable
 }
 
@@ -19630,7 +19630,7 @@ luaX_next.exit.i:                                 ; preds = %125, %124
   %130 = load ptr, ptr %56, align 8, !tbaa !290
   %131 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %130, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.92)
   %132 = load i32, ptr %123, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %4, ptr noundef %131, i32 noundef %132)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %4, ptr noundef nonnull %131, i32 noundef %132)
   unreachable
 
 luaY_parser.exit:                                 ; preds = %luaX_next.exit.i
@@ -20163,7 +20163,7 @@ cond.exit151:                                     ; preds = %luaX_next.exit153, 
   %106 = load ptr, ptr %26, align 8, !tbaa !290
   %107 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %106, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.80)
   %108 = load i32, ptr %32, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %107, i32 noundef %108)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %107, i32 noundef %108)
   unreachable
 
 check.exit.i147:                                  ; preds = %cond.exit151
@@ -20422,7 +20422,7 @@ cond.exit:                                        ; preds = %luaX_next.exit144, 
   %223 = load ptr, ptr %26, align 8, !tbaa !290
   %224 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %223, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.80)
   %225 = load i32, ptr %32, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %224, i32 noundef %225)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %224, i32 noundef %225)
   unreachable
 
 check.exit.i139:                                  ; preds = %cond.exit
@@ -20839,7 +20839,7 @@ cond.exit.i54:                                    ; preds = %400, %luaX_next.exi
   %409 = load ptr, ptr %26, align 8, !tbaa !290
   %410 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %409, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.67)
   %411 = load i32, ptr %32, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %410, i32 noundef %411)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %410, i32 noundef %411)
   unreachable
 
 check.exit.i.i56:                                 ; preds = %cond.exit.i54
@@ -21140,7 +21140,7 @@ luaX_next.exit.i44:                               ; preds = %537, %536
   %541 = load ptr, ptr %26, align 8, !tbaa !290
   %542 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %541, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.90)
   %543 = load i32, ptr %32, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %542, i32 noundef %543)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %542, i32 noundef %543)
   unreachable
 
 check.exit.i.i46:                                 ; preds = %luaX_next.exit.i44
@@ -21304,7 +21304,7 @@ fornum.exit.i:                                    ; preds = %luaK_reserveregs.ex
   %610 = load ptr, ptr %26, align 8, !tbaa !290
   %611 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %610, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.90)
   %612 = load i32, ptr %32, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %611, i32 noundef %612)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %611, i32 noundef %612)
   unreachable
 
 check.exit.i127:                                  ; preds = %607
@@ -21346,7 +21346,7 @@ forlist.exit.i:                                   ; preds = %forlist.exit.i.loop
   %625 = load ptr, ptr %26, align 8, !tbaa !290
   %626 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %625, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.74)
   %627 = load i32, ptr %32, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %626, i32 noundef %627)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %626, i32 noundef %627)
   unreachable
 
 check.exit.i:                                     ; preds = %forlist.exit.i
@@ -21988,7 +21988,7 @@ luaX_next.exit32:                                 ; preds = %898, %899
   %913 = load ptr, ptr %26, align 8, !tbaa !290
   %914 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %913, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.90)
   %915 = load i32, ptr %32, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %914, i32 noundef %915)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %914, i32 noundef %915)
   unreachable
 
 check.exit.i.i20:                                 ; preds = %909
@@ -22109,7 +22109,7 @@ testnext.exit30._crit_edge:                       ; preds = %testnext.exit30, %t
   %973 = load ptr, ptr %26, align 8, !tbaa !290
   %974 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %973, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.90)
   %975 = load i32, ptr %32, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %974, i32 noundef %975)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %974, i32 noundef %975)
   unreachable
 
 check.exit.i.i:                                   ; preds = %testnext.exit30, %testnext.exit.i
@@ -25469,7 +25469,7 @@ define internal fastcc void @luaX_lexerror(ptr noundef readonly captures(none) %
 
 txtToken.exit:                                    ; preds = %32, %30, %28, %15
   %.0.i = phi ptr [ %18, %15 ], [ %36, %32 ], [ %29, %28 ], [ %31, %30 ]
-  %37 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %14, ptr noundef nonnull @.str.139, ptr noundef %12, ptr noundef %.0.i)
+  %37 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %14, ptr noundef nonnull @.str.139, ptr noundef nonnull %12, ptr noundef %.0.i)
   br label %38
 
 38:                                               ; preds = %txtToken.exit, %3
@@ -26227,7 +26227,7 @@ luaX_token2str.exit.i:                            ; preds = %34, %32, %30
   %.0.i.i = phi ptr [ %38, %34 ], [ %31, %30 ], [ %33, %32 ]
   %39 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %20, ptr noundef nonnull @.str.166, ptr noundef %.0.i.i)
   %40 = load i32, ptr %5, align 8, !tbaa !305
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %39, i32 noundef %40)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %39, i32 noundef %40)
   unreachable
 
 41:                                               ; preds = %testnext.exit
@@ -26293,7 +26293,7 @@ luaX_token2str.exit16:                            ; preds = %67, %69, %71
   %.0.i14 = phi ptr [ %75, %71 ], [ %68, %67 ], [ %70, %69 ]
   %76 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %20, ptr noundef nonnull @.str.165, ptr noundef %.0.i13, ptr noundef %.0.i14, i32 noundef %3)
   %77 = load i32, ptr %5, align 8, !tbaa !305
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %76, i32 noundef %77)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %76, i32 noundef %77)
   unreachable
 
 testnext.exit.thread:                             ; preds = %15, %14
@@ -26511,7 +26511,7 @@ luaX_token2str.exit.i.i:                          ; preds = %20, %18, %16
   %.0.i.i.i = phi ptr [ %24, %20 ], [ %17, %16 ], [ %19, %18 ]
   %25 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %7, ptr noundef nonnull @.str.166, ptr noundef %.0.i.i.i)
   %26 = load i32, ptr %3, align 8, !tbaa !305
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %25, i32 noundef %26)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %25, i32 noundef %26)
   unreachable
 
 check.exit:                                       ; preds = %2
@@ -30025,7 +30025,7 @@ closelistfield.exit:                              ; preds = %closelistfield.exit
   %138 = phi ptr [ %134, %133 ], [ %136, %135 ]
   %139 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %140 = load ptr, ptr %139, align 8, !tbaa !308
-  call fastcc void @luaX_lexerror(ptr noundef %140, ptr noundef %138, i32 noundef 0)
+  call fastcc void @luaX_lexerror(ptr noundef %140, ptr noundef nonnull %138, i32 noundef 0)
   unreachable
 
 listfield.exit:                                   ; preds = %121
@@ -30072,7 +30072,7 @@ listfield.exit:                                   ; preds = %121
   %163 = phi ptr [ %159, %158 ], [ %161, %160 ]
   %164 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %165 = load ptr, ptr %164, align 8, !tbaa !308
-  call fastcc void @luaX_lexerror(ptr noundef %165, ptr noundef %163, i32 noundef 0)
+  call fastcc void @luaX_lexerror(ptr noundef %165, ptr noundef nonnull %163, i32 noundef 0)
   unreachable
 
 listfield.exit32:                                 ; preds = %146
@@ -30567,7 +30567,7 @@ luaX_next.exit:                                   ; preds = %60, %61
   %66 = load ptr, ptr %65, align 8, !tbaa !290
   %67 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %66, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.90)
   %68 = load i32, ptr %8, align 8, !tbaa !305
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %67, i32 noundef %68)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %67, i32 noundef %68)
   unreachable
 
 check.exit.i.i:                                   ; preds = %luaX_next.exit
@@ -30911,7 +30911,7 @@ define internal fastcc void @recfield(ptr noundef nonnull %0, ptr noundef nonnul
   %29 = phi ptr [ %25, %24 ], [ %27, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !308
-  tail call fastcc void @luaX_lexerror(ptr noundef %31, ptr noundef %29, i32 noundef 0)
+  tail call fastcc void @luaX_lexerror(ptr noundef %31, ptr noundef nonnull %29, i32 noundef 0)
   unreachable
 
 check.exit.i.i:                                   ; preds = %13
@@ -31059,7 +31059,7 @@ define internal fastcc void @new_localvar(ptr noundef nonnull readonly captures(
   %23 = phi ptr [ %19, %18 ], [ %21, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !308
-  tail call fastcc void @luaX_lexerror(ptr noundef %25, ptr noundef %23, i32 noundef 0)
+  tail call fastcc void @luaX_lexerror(ptr noundef %25, ptr noundef nonnull %23, i32 noundef 0)
   unreachable
 
 26:                                               ; preds = %3
@@ -31526,7 +31526,7 @@ luaX_next.exit:                                   ; preds = %14, %15
   %21 = load ptr, ptr %20, align 8, !tbaa !290
   %22 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %21, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.90)
   %23 = load i32, ptr %13, align 8, !tbaa !305
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %22, i32 noundef %23)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %22, i32 noundef %23)
   unreachable
 
 check.exit.i.i:                                   ; preds = %luaX_next.exit
@@ -31957,7 +31957,7 @@ define internal fastcc void @singlevar(ptr noundef nonnull captures(address_is_n
   %8 = load ptr, ptr %7, align 8, !tbaa !290
   %9 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %8, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.90)
   %10 = load i32, ptr %4, align 8, !tbaa !305
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %9, i32 noundef %10)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %9, i32 noundef %10)
   unreachable
 
 check.exit.i:                                     ; preds = %2
@@ -32147,7 +32147,7 @@ searchvar.exit.thread:                            ; preds = %15
   %78 = phi ptr [ %74, %73 ], [ %76, %75 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !308
-  tail call fastcc void @luaX_lexerror(ptr noundef %80, ptr noundef %78, i32 noundef 0)
+  tail call fastcc void @luaX_lexerror(ptr noundef %80, ptr noundef nonnull %78, i32 noundef 0)
   unreachable
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %44
@@ -32677,7 +32677,7 @@ adjustlocalvars.exit:                             ; preds = %20
   %30 = load ptr, ptr %29, align 8, !tbaa !290
   %31 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %30, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.67)
   %32 = load i32, ptr %26, align 8, !tbaa !305
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef %31, i32 noundef %32)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %0, ptr noundef nonnull %31, i32 noundef %32)
   unreachable
 
 check.exit.i:                                     ; preds = %adjustlocalvars.exit
@@ -33672,7 +33672,7 @@ check_conflict.exit:                              ; preds = %luaK_reserveregs.ex
   %96 = phi ptr [ %92, %91 ], [ %94, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !308
-  call fastcc void @luaX_lexerror(ptr noundef %98, ptr noundef %96, i32 noundef 0)
+  call fastcc void @luaX_lexerror(ptr noundef %98, ptr noundef nonnull %96, i32 noundef 0)
   unreachable
 
 99:                                               ; preds = %check_conflict.exit
@@ -34143,7 +34143,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lua_newuserdata(ptr noundef %0, i64 noundef range(i64 0, 9) %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @lua_newuserdata(ptr noundef %0, i64 noundef range(i64 0, 9) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -38467,7 +38467,7 @@ lua_type.exit.i:                                  ; preds = %lua_touserdata.exit
 lua_typename.exit.i:                              ; preds = %64, %lua_type.exit.i, %lua_touserdata.exit.thread
   %68 = phi ptr [ %67, %64 ], [ @.str.133, %lua_type.exit.i ], [ @.str.133, %lua_touserdata.exit.thread ]
   %69 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.201, ptr noundef %68)
-  tail call fastcc void @luaL_argerror(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %69)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %69)
   unreachable
 }
 

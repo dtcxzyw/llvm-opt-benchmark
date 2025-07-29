@@ -986,7 +986,7 @@ define void @dt_camctl_unregister_listener(ptr noundef %0, ptr noundef %1) local
 declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @dt_update_cameras_thread(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.CameraAbilities, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -3030,7 +3030,7 @@ _camctl_lock.exit:                                ; preds = %41, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_camera_event_thread(ptr noundef %0) #0 {
+define internal noalias noundef ptr @_camera_event_thread(ptr noundef %0) #0 {
   %2 = alloca %struct.CameraFilePath, align 1
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8

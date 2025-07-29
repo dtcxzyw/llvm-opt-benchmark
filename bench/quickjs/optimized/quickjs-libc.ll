@@ -5960,7 +5960,7 @@ declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @worker_func(ptr noundef captures(none) %0) #0 {
+define internal noalias noundef ptr @worker_func(ptr noundef captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @JS_NewRuntime() #30
   %4 = icmp eq ptr %3, null

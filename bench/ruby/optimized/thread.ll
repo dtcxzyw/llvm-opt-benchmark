@@ -19624,7 +19624,7 @@ declare i32 @ppoll(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @timer_thread_func(ptr noundef %0) #0 {
+define internal noalias noundef ptr @timer_thread_func(ptr noundef %0) #0 {
   %2 = alloca %struct.rb_internal_thread_event_data, align 8
   %3 = alloca %struct.rb_internal_thread_event_data, align 8
   %4 = alloca [1 x i64], align 8

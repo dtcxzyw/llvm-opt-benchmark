@@ -3143,7 +3143,7 @@ mi_malloc_aligned.exit.thread7:                   ; preds = %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = tail call noundef ptr @_Z21_mi_heap_realloc_zeroP9mi_heap_sPvmb(ptr noundef %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false) #55

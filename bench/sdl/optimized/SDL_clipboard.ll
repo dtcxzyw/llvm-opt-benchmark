@@ -596,7 +596,7 @@ define hidden ptr @SDL_CopyClipboardMimeTypes(ptr noundef readonly captures(none
 declare void @SDL_SendClipboardUpdate(i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SDL_GetInternalClipboardData(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noalias ptr @SDL_GetInternalClipboardData(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

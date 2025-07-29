@@ -10524,7 +10524,7 @@ define hidden noundef ptr @"_ZN13wasmtime_wasi10filesystem4File15_spawn_blocking
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @"_ZN13wasmtime_wasi10filesystem4File15_spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h34378b85f09e099cE.llvm.7826144646137628382"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @"_ZN13wasmtime_wasi10filesystem4File15_spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h34378b85f09e099cE.llvm.7826144646137628382"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -26705,7 +26705,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @"_ZN13wasmtime_wasi4host10filesystem142_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he09341966a16da85E.llvm.7826144646137628382"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @"_ZN13wasmtime_wasi4host10filesystem142_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he09341966a16da85E.llvm.7826144646137628382"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -99643,7 +99643,7 @@ define hidden { i64, ptr } @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..FileIoExt$GT$6advise17h4760c382bcf4de2aE.llvm.7826144646137628382"(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..FileIoExt$GT$6advise17h4760c382bcf4de2aE.llvm.7826144646137628382"(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = tail call noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h937dc38f5675d461E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0), !range !1801
   %6 = zext i32 %5 to i64
   %7 = inttoptr i64 %6 to ptr

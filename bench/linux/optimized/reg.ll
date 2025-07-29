@@ -1433,7 +1433,7 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #2 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @reg_initiator_name(i32 noundef %0) #2 align 16 {
+define dso_local noundef nonnull ptr @reg_initiator_name(i32 noundef %0) #2 align 16 {
   switch i32 %0, label %5 [
     i32 0, label %6
     i32 1, label %2

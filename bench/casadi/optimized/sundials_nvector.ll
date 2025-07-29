@@ -260,7 +260,7 @@ define double @N_VMinQuotient(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %.loopexit, label %4
 
@@ -374,7 +374,7 @@ N_VDestroy.exit:                                  ; preds = %.lr.ph, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %.loopexit, label %4
 

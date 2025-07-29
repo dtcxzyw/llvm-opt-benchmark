@@ -1061,8 +1061,8 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   resume { ptr, i32 } %7
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..sys..unix..signals..lazy_per_thread_init..Stack$GT$$GT$17hbed7b5e7fc359311E.llvm.14031171042790067460"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..sys..unix..signals..lazy_per_thread_init..Stack$GT$$GT$17hbed7b5e7fc359311E.llvm.14031171042790067460"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !359, !noundef !4
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %5
@@ -3598,8 +3598,8 @@ define hidden void @"_ZN4core3ptr144drop_in_place$LT$alloc..vec..Vec$LT$$LP$wasm
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr144drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$wasmtime_runtime..sys..unix..signals..lazy_per_thread_init..Stack$GT$$GT$$GT$17hd68ea0a8a661f901E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr144drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$wasmtime_runtime..sys..unix..signals..lazy_per_thread_init..Stack$GT$$GT$$GT$17hd68ea0a8a661f901E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1271)
   %2 = load i64, ptr %0, align 8, !range !359, !alias.scope !1271, !noundef !4
   %3 = icmp eq i64 %2, 0
@@ -9546,8 +9546,8 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$cranelift_entity..set..Entit
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr86drop_in_place$LT$wasmtime_runtime..sys..unix..signals..lazy_per_thread_init..Stack$GT$17hb55771810696e4f4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #5 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr86drop_in_place$LT$wasmtime_runtime..sys..unix..signals..lazy_per_thread_init..Stack$GT$17hb55771810696e4f4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3727)
   %2 = load ptr, ptr %0, align 8, !alias.scope !3727, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11654,8 +11654,8 @@ define hidden void @"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops.
   ret void
 }
 
-; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i16, i16 } @_ZN6rustix7backend2mm8syscalls6munmap17hae53e7f25626795dE.llvm.14031171042790067460(ptr noundef %0, i64 noundef %1) unnamed_addr #1 {
+; Function Attrs: inlinehint nounwind nonlazybind uwtable
+define hidden { i16, i16 } @_ZN6rustix7backend2mm8syscalls6munmap17hae53e7f25626795dE.llvm.14031171042790067460(ptr noundef %0, i64 noundef %1) unnamed_addr #11 {
   %3 = inttoptr i64 %1 to ptr
   %4 = tail call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},~{memory}"(ptr nonnull inttoptr (i64 11 to ptr), ptr %0, ptr %3) #25, !srcloc !367
   %5 = extractvalue { ptr, i32, i32 } %4, 0
@@ -13752,8 +13752,8 @@ define void @"_ZN97_$LT$wasmtime_runtime..sys..unix..unwind..UnwindRegistration$
   br i1 %10, label %._crit_edge, label %.lr.ph
 }
 
-; Function Attrs: nonlazybind uwtable
-define void @"_ZN107_$LT$wasmtime_runtime..sys..unix..signals..lazy_per_thread_init..Stack$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3aae943ed9195ddbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #5 {
+; Function Attrs: nounwind nonlazybind uwtable
+define void @"_ZN107_$LT$wasmtime_runtime..sys..unix..signals..lazy_per_thread_init..Stack$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3aae943ed9195ddbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4

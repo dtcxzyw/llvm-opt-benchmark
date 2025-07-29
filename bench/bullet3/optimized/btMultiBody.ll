@@ -16023,7 +16023,7 @@ define dso_local noundef i32 @_ZNK11btMultiBody28calculateSerializeBufferSizeEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK11btMultiBody9serializeEPvP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #6 align 2 {
+define dso_local noundef nonnull ptr @_ZNK11btMultiBody9serializeEPvP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %5
 

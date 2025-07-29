@@ -715,8 +715,8 @@ define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail11voi
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt3setIPKNS0_16void_cast_detail11void_casterENS4_19void_caster_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !31, !range !32, !noundef !33
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %.loopexit, label %4
@@ -906,34 +906,14 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13serialization16void_cast_det
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail20void_caster_shortcutD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %0, align 8, !tbaa !20
-  invoke void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %2 unwind label %3
-
-2:                                                ; preds = %1
+  tail call void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   ret void
-
-3:                                                ; preds = %1
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
-  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail20void_caster_shortcutD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %0, align 8, !tbaa !20
-  invoke void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull align 8 dereferenceable(41) %0)
-          to label %_ZN5boost13serialization16void_cast_detail20void_caster_shortcutD2Ev.exit unwind label %2
-
-2:                                                ; preds = %1
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
-  unreachable
-
-_ZN5boost13serialization16void_cast_detail20void_caster_shortcutD2Ev.exit: ; preds = %1
+  tail call void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull align 8 dereferenceable(41) %0)
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #16
   ret void
 }

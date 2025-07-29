@@ -3985,8 +3985,8 @@ return:                                           ; preds = %cleanup.done, %_ZN8
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl(ptr noundef nonnull align 8 captures(none) dereferenceable(1582) %this, i64 noundef %delta) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl(ptr noundef nonnull align 8 captures(none) dereferenceable(1582) %this, i64 noundef %delta) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pendingWriteSizeDelta_ = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %0 = load i64, ptr %pendingWriteSizeDelta_, align 8
@@ -4014,8 +4014,8 @@ if.end:                                           ; preds = %if.then, %entry
 
 declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPSessionBase19updatePendingWritesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1582) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8proxygen15HTTPSessionBase19updatePendingWritesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1582) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pendingWriteSizeDelta_ = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %0 = load i64, ptr %pendingWriteSizeDelta_, align 8

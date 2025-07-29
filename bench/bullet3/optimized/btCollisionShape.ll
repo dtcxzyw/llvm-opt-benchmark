@@ -215,7 +215,7 @@ define dso_local void @_ZNK16btCollisionShape21calculateTemporalAabbERK11btTrans
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %2, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8

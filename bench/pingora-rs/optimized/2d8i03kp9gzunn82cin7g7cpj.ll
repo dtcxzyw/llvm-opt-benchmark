@@ -374,7 +374,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN12pingora_core9protocols4http2v26server11HttpSession28pseudo_raw_h1_request_header17h540abe3acc6f4263E.87 = private unnamed_addr constant [81 x i64] [i64 6, i64 14, i64 15, i64 15, i64 13, i64 32, i64 28, i64 28, i64 27, i64 29, i64 22, i64 30, i64 29, i64 3, i64 5, i64 7, i64 13, i64 13, i64 12, i64 17, i64 10, i64 19, i64 16, i64 16, i64 14, i64 16, i64 13, i64 23, i64 35, i64 12, i64 6, i64 3, i64 4, i64 4, i64 6, i64 7, i64 9, i64 4, i64 4, i64 8, i64 17, i64 13, i64 8, i64 19, i64 13, i64 4, i64 8, i64 12, i64 6, i64 6, i64 18, i64 19, i64 15, i64 27, i64 5, i64 7, i64 15, i64 7, i64 11, i64 20, i64 24, i64 17, i64 22, i64 21, i64 6, i64 10, i64 25, i64 2, i64 7, i64 17, i64 10, i64 7, i64 25, i64 4, i64 3, i64 7, i64 16, i64 22, i64 22, i64 15, i64 16], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.invoke, label %6
@@ -468,7 +468,7 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6cre
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error7because17h09726c26ae2dc1edE(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 29, 49) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error7because17h09726c26ae2dc1edE(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 29, 49) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [40 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -9104,7 +9104,7 @@ _ZN13pingora_error5Error7because17h09726c26ae2dc1edE.exit: ; preds = %"_ZN50_$LT
   %36 = extractvalue { ptr, ptr } %20, 0
   %37 = extractvalue { ptr, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !1100
-  %38 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %36, ptr %37)
+  %38 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %36, ptr %37)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   store i32 1, ptr %0, align 8
@@ -9832,7 +9832,7 @@ define void @_ZN12pingora_core9protocols4http2v26server11HttpSession10write_body
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26server11HttpSession14write_trailers17h9d7e210852715860E(ptr noalias noundef align 8 dereferenceable(520) %0, ptr noalias noundef align 8 captures(none) dereferenceable(96) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noalias noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26server11HttpSession14write_trailers17h9d7e210852715860E(ptr noalias noundef align 8 dereferenceable(520) %0, ptr noalias noundef align 8 captures(none) dereferenceable(96) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -9968,7 +9968,7 @@ define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26server11HttpSess
   %48 = extractvalue { ptr, ptr } %47, 0
   %49 = extractvalue { ptr, ptr } %47, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !1198
-  %50 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %48, ptr %49)
+  %50 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %48, ptr %49)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1198
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -10120,7 +10120,7 @@ define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26server11HttpSess
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26server11HttpSession6finish17h67aa2e972e6c2649E(ptr noalias noundef align 8 dereferenceable(520) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noalias noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26server11HttpSession6finish17h67aa2e972e6c2649E(ptr noalias noundef align 8 dereferenceable(520) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [40 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -10215,7 +10215,7 @@ _ZN13pingora_error5Error7because17h09726c26ae2dc1edE.exit: ; preds = %"_ZN50_$LT
   %35 = extractvalue { ptr, ptr } %19, 0
   %36 = extractvalue { ptr, ptr } %19, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !1217
-  %37 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %35, ptr %36)
+  %37 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %35, ptr %36)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1217
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)

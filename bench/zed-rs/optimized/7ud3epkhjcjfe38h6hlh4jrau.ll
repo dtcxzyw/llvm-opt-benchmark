@@ -111693,8 +111693,8 @@ define hidden noundef nonnull ptr @_ZN6anyhow9__private8must_use17hd7e8e467a5510
   ret ptr %0
 }
 
-; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN6rustix2io10read_write4read17hd47b734a87eeafabE.llvm.4362809659209244062(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i32 noundef %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
+; Function Attrs: inlinehint nounwind nonlazybind uwtable
+define hidden void @_ZN6rustix2io10read_write4read17hd47b734a87eeafabE.llvm.4362809659209244062(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i32 noundef %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24822)
   %5 = zext i32 %1 to i64
   %6 = inttoptr i64 %5 to ptr
@@ -111724,8 +111724,8 @@ _ZN6rustix7backend2io8syscalls4read17h519cfe50278ebc3dE.llvm.4362809659209244062
   ret void
 }
 
-; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN6rustix7backend2io8syscalls4read17h519cfe50278ebc3dE.llvm.4362809659209244062(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #5 {
+; Function Attrs: inlinehint nounwind nonlazybind uwtable
+define hidden void @_ZN6rustix7backend2io8syscalls4read17h519cfe50278ebc3dE.llvm.4362809659209244062(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #17 {
   %5 = zext i32 %1 to i64
   %6 = inttoptr i64 %5 to ptr
   %7 = inttoptr i64 %3 to ptr
@@ -132518,7 +132518,7 @@ define hidden void @"_ZN4gpui8platform8app_menu14init_app_menus28_$u7b$$u7b$clos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN4gpui8platform5linux8headless6client14HeadlessClient3new17h2e8ace5a3872f924E() unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN4gpui8platform5linux8headless6client14HeadlessClient3new17h2e8ace5a3872f924E() unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca [48 x i8], align 8
   %2 = alloca [8 x i8], align 4
   %3 = alloca [24 x i8], align 8

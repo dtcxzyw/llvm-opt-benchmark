@@ -2032,7 +2032,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z16mk_solver2tacticP6solver(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_Z16mk_solver2tacticP6solver(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8, !tbaa !172

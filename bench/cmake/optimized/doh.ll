@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [10 x i8] c"CNAME: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @Curl_doh(ptr noundef initializes((440, 448)) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @Curl_doh(ptr noundef initializes((440, 448)) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   store i32 0, ptr %3, align 4, !tbaa !77

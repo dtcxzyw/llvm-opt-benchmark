@@ -247,8 +247,8 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN3std9panicking3try17h37324d76ce4366a8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden { ptr, ptr } @_ZN3std9panicking3try17h37324d76ce4366a8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !36, !nonnull !5, !align !39, !noundef !5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1.i = load ptr, ptr %3, align 8, !alias.scope !36, !nonnull !5, !align !40, !noundef !5
@@ -288,8 +288,8 @@ __rust_try.llvm.17432428852515034553.exit:        ; preds = %6
   ret { ptr, ptr } %19
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN3std9panicking3try17h3b54ab928018d0ecE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden { ptr, ptr } @_ZN3std9panicking3try17h3b54ab928018d0ecE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, i64 }, { i64, [2 x i64] }, { ptr, i8 }, { ptr, { ptr, i64 }, i8, {}, [7 x i8] }, ptr, i64 }, align 8
   %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -427,8 +427,8 @@ __rust_try.llvm.17432428852515034553.exit:        ; preds = %.body.i.i.i.i
   ret { ptr, ptr } %40
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN3std9panicking3try17hf193fa28b097a129E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden { ptr, ptr } @_ZN3std9panicking3try17hf193fa28b097a129E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !68, !nonnull !5, !align !39, !noundef !5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1.i = load ptr, ptr %3, align 8, !alias.scope !68, !nonnull !5, !align !40, !noundef !5

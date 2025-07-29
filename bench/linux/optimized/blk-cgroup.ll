@@ -1714,7 +1714,7 @@ define dso_local void @blkcg_exit_disk(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @blkcg_css_alloc(ptr noundef readnone captures(address_is_null) %0) #1 align 16 {
+define internal noundef nonnull ptr @blkcg_css_alloc(ptr noundef readnone captures(address_is_null) %0) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @blkcg_pol_mutex) #16
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3

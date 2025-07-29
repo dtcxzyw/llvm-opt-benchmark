@@ -1836,8 +1836,8 @@ define i32 @_ZN5folly11IPAddressV48fromLongEj(i32 noundef %0) local_unnamed_addr
   ret i32 %3
 }
 
-; Function Attrs: mustprogress uwtable
-define i32 @_ZN5folly11IPAddressV411fromLongHBOEj(i32 noundef %0) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define i32 @_ZN5folly11IPAddressV411fromLongHBOEj(i32 noundef %0) local_unnamed_addr #12 align 2 {
   %2 = alloca %"class.folly::IPAddressV4", align 4
   %3 = tail call noundef i32 @llvm.bswap.i32(i32 %0)
   call void @_ZN5folly11IPAddressV4C1E7in_addr(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 %3) #35

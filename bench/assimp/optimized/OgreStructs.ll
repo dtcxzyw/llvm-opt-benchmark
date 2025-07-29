@@ -2967,7 +2967,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 declare void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144)) unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN6Assimp4Ogre7SubMesh19ConvertToAssimpMeshEPNS0_4MeshE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZN6Assimp4Ogre7SubMesh19ConvertToAssimpMeshEPNS0_4MeshE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple.167", align 8
   %4 = alloca %"class.std::tuple.153", align 1
   %5 = alloca %"class.std::tuple.167", align 8

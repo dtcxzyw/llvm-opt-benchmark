@@ -632,7 +632,7 @@ define noundef nonnull ptr @_ZNK6icu_7718UStringEnumeration17getDynamicClassIDEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uenum_openFromStringEnumeration_77(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #9 {
+define noalias noundef ptr @uenum_openFromStringEnumeration_77(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #9 {
   %3 = load i32, ptr %1, align 4, !tbaa !17
   %4 = icmp slt i32 %3, 1
   %5 = icmp ne ptr %0, null

@@ -1342,7 +1342,7 @@ declare i32 @lzma_outq_prealloc_buf(ptr noundef, ptr noundef, i64 noundef) local
 declare ptr @lzma_outq_get_buf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @worker_start(ptr noundef %0) #0 {
+define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440

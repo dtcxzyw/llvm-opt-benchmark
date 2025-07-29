@@ -1287,8 +1287,8 @@ define hidden void @_ZN2cv2ml10DTreesImplD0Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv2ml10DTreesImpl5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(448) initializes((424, 425), (432, 440)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN2cv2ml10DTreesImpl5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(448) initializes((424, 425), (432, 440)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2589,8 +2589,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv2ml10DTreesImpl11endTrainingEv(ptr noundef nonnull align 8 captures(none) dereferenceable(448) initializes((432, 440)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN2cv2ml10DTreesImpl11endTrainingEv(ptr noundef nonnull align 8 captures(none) dereferenceable(448) initializes((432, 440)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr null, ptr %2, align 8, !tbaa !112
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440

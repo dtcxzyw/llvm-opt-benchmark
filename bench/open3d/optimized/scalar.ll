@@ -40676,7 +40676,7 @@ _ZL18PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %5, %12, %
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZN6open3d4core30pybind_core_scalar_definitionsERNS_7module_EE4$_10PFNS2_9void_typeEvEFNS6_6ScalarEbESB_E7executeINS_6class_ISD_JEEEJEEEvRT_DpRKT0_EUlRNS2_16value_and_holderEbE_vJSQ_bEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSJ_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES17_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZN6open3d4core30pybind_core_scalar_definitionsERNS_7module_EE4$_10PFNS2_9void_typeEvEFNS6_6ScalarEbESB_E7executeINS_6class_ISD_JEEEJEEEvRT_DpRKT0_EUlRNS2_16value_and_holderEbE_vJSQ_bEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSJ_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES17_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !627
   %.sroa.01.0.copyload.i.i = load ptr, ptr %3, align 8

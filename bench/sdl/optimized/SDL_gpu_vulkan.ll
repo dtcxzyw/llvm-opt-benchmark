@@ -19782,7 +19782,7 @@ VkErrorMessages.exit232:                          ; preds = %95, %96, %97, %98, 
   call void %118(ptr noundef %119, ptr noundef %115, ptr noundef nonnull %5) #13
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %121 = load i32, ptr %120, align 8
-  %122 = call fastcc ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noundef nonnull readonly %0, i32 noundef %121, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4)
+  %122 = call fastcc noalias ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noundef nonnull readonly %0, i32 noundef %121, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4)
   %123 = load i32, ptr %4, align 4
   %.not29.i = icmp eq i32 %123, 0
   br i1 %.not29.i, label %VULKAN_INTERNAL_BindMemoryForImage.exit.thread245, label %.lr.ph.preheader.i
@@ -22890,7 +22890,7 @@ VkErrorMessages.exit63:                           ; preds = %60, %61, %62, %63, 
   call void %90(ptr noundef %91, ptr noundef %80, ptr noundef nonnull %8) #13
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %93 = load i32, ptr %92, align 8
-  %94 = call fastcc ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noundef nonnull readonly %0, i32 noundef %93, i32 noundef range(i32 0, 7) %.045.i, i32 noundef range(i32 1, 9) %.044.i, i32 noundef range(i32 0, 2) %.0.i64, ptr noundef nonnull %7)
+  %94 = call fastcc noalias ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noundef nonnull readonly %0, i32 noundef %93, i32 noundef range(i32 0, 7) %.045.i, i32 noundef range(i32 1, 9) %.044.i, i32 noundef range(i32 0, 2) %.0.i64, ptr noundef nonnull %7)
   %95 = load i32, ptr %7, align 4
   %.not61.i = icmp eq i32 %95, 0
   br i1 %.not61.i, label %._crit_edge.i, label %.lr.ph.preheader.i

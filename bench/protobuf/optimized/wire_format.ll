@@ -10471,7 +10471,7 @@ if.end:                                           ; preds = %_ZNK6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal10WireFormat31InternalSerializeMessageSetItemEPKNS0_15FieldDescriptorERKNS0_7MessageEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef %field, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %target, ptr noundef %stream) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN6google8protobuf8internal10WireFormat31InternalSerializeMessageSetItemEPKNS0_15FieldDescriptorERKNS0_7MessageEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef %field, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %target, ptr noundef %stream) local_unnamed_addr #3 align 2 {
 entry:
   %vtable.i = load ptr, ptr %message, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 80

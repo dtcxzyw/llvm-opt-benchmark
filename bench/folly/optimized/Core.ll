@@ -5723,8 +5723,8 @@ define void @_ZN5folly15observer_detail4Core15setForceRefreshEv(ptr noundef nonn
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15observer_detail4CoreC2ENS_8FunctionIFSt10shared_ptrIKvEvEEENS1_14CreatorContextE(ptr noundef nonnull align 16 dereferenceable(285) initializes((0, 52)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly15observer_detail4CoreC2ENS_8FunctionIFSt10shared_ptrIKvEvEEENS1_14CreatorContextE(ptr noundef nonnull align 16 dereferenceable(285) initializes((0, 52)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(52) %0, i8 0, i64 52, i1 false)

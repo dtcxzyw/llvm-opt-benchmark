@@ -40823,7 +40823,7 @@ define noundef i32 @_ZN7hir_def4body5scope10ScopeEntry7binding17hfb881952c43d058
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7hir_def4body5scope10ExprScopes17expr_scopes_query17h0eee36efb0e0a3c0E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7hir_def4body5scope10ExprScopes17expr_scopes_query17h0eee36efb0e0a3c0E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64 }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, {} } } }, align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, {} } }, align 8
   %7 = alloca ptr, align 8

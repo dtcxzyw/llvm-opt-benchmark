@@ -77827,7 +77827,7 @@ _ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEE7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEE7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfErrorMark", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -77928,7 +77928,7 @@ _ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEE6cancelERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEE6cancelERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -83325,7 +83325,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_18UsdImagingDelegate19ApplyPendingUpdatesEvE3$_1EEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_18UsdImagingDelegate19ApplyPendingUpdatesEvE3$_1EEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfErrorMark", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -83395,7 +83395,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_18UsdImagingDelegate19ApplyPendingUpdatesEvE3$_1EEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_18UsdImagingDelegate19ApplyPendingUpdatesEvE3$_1EEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -83431,7 +83431,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_18UsdImagingDelegate19ApplyPendingUpdatesEvE3$_2EEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_18UsdImagingDelegate19ApplyPendingUpdatesEvE3$_2EEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfErrorMark", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -83501,7 +83501,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_18UsdImagingDelegate19ApplyPendingUpdatesEvE3$_2EEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_18UsdImagingDelegate19ApplyPendingUpdatesEvE3$_2EEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104

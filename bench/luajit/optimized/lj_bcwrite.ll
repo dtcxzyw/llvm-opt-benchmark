@@ -98,7 +98,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @cpwriter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
+define internal noalias noundef ptr @cpwriter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !29

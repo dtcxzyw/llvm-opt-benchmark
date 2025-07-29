@@ -8479,8 +8479,8 @@ _ZNR5folly8OptionalINS_20AsyncSocketExceptionEEdeEv.exit: ; preds = %87
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly11AsyncSocket23removeLifecycleObserverEPNS0_23LegacyLifecycleObserverE(ptr noundef nonnull align 8 dereferenceable(1145) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZN5folly11AsyncSocket23removeLifecycleObserverEPNS0_23LegacyLifecycleObserverE(ptr noundef nonnull align 8 dereferenceable(1145) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %4 = load i64, ptr %3, align 8, !tbaa !203
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 888
@@ -13422,8 +13422,8 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11AsyncSocket12releaseIOBufESt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEPNS_11AsyncWriter20ReleaseIOBufCallbackE(ptr noundef nonnull align 8 captures(none) dereferenceable(1145) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly11AsyncSocket12releaseIOBufESt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEPNS_11AsyncWriter20ReleaseIOBufCallbackE(ptr noundef nonnull align 8 captures(none) dereferenceable(1145) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = load ptr, ptr %1, align 8, !tbaa !198
   %.not3 = icmp eq ptr %5, null
@@ -17824,8 +17824,8 @@ declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 derefere
 ; Function Attrs: nounwind
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #10
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11AsyncSocket4initEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1145) initializes((234, 236), (304, 310), (768, 832), (840, 848), (864, 872)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly11AsyncSocket4initEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1145) initializes((234, 236), (304, 310), (768, 832), (840, 848), (864, 872)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 234
   store i16 0, ptr %2, align 2, !tbaa !176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -27431,8 +27431,8 @@ define linkonce_odr void @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28Asyn
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket19detachNetworkSocketEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket19detachNetworkSocketEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8
@@ -44910,8 +44910,8 @@ define linkonce_odr void @_ZNK5folly9FormatArg5errorIJRA52_KcEEEvDpOT_(ptr nound
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket27handleNetworkSocketAttachedEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket27handleNetworkSocketAttachedEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8
@@ -46393,8 +46393,8 @@ _ZN5folly11AsyncSocket15invokeAllErrorsERKNS_20AsyncSocketExceptionE.exit: ; pre
 ; Function Attrs: nounwind
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt13runtime_erroraSERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 16 dereferenceable(48) %2) #2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 16 dereferenceable(48) %2) #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -46426,8 +46426,8 @@ define internal noundef i64 @"_ZN5folly6detail8function13DispatchSmall4execIZNS_
   ret i64 0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 16 dereferenceable(48) %2) #2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 16 dereferenceable(48) %2) #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -46459,8 +46459,8 @@ define internal noundef i64 @"_ZN5folly6detail8function13DispatchSmall4execIZNS_
   ret i64 0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invokeConnectSuccessEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invokeConnectSuccessEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -46468,8 +46468,8 @@ define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invoke
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invokeConnectAttemptEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invokeConnectAttemptEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -46479,8 +46479,8 @@ define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invoke
 
 declare noundef i32 @_ZN5folly17ShutdownSocketSet5closeENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(24), i32) local_unnamed_addr #11
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket7doCloseEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket7doCloseEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE"(ptr noundef %0, ptr noundef %1, ptr nonnull readnone align 16 captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8

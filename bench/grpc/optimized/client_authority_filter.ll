@@ -542,8 +542,8 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %4,
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core21ClientAuthorityFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(600) %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN9grpc_core21ClientAuthorityFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(600) %1, ptr noundef readonly captures(none) %2) #7 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.4 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %.sroa.412.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %.sroa.6.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8

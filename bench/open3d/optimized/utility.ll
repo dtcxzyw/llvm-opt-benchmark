@@ -56171,7 +56171,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail18process_attributesIJNS_4na
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZN6open3d13visualization40pybind_visualization_utility_definitionsERNS_7module_EE3$_4vJRKSt6vectorISt10shared_ptrIKNS2_8geometry8GeometryEESaISC_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiibbbNS2_7utility8optionalIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESU_SU_NSQ_IdEEEJNS_4nameENS_5scopeENS_7siblingEA54_cNS_3argENS_5arg_vES11_S11_S11_S11_S11_S11_S11_S11_S11_S11_S11_EEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES1F_"(ptr noundef nonnull align 8 dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZN6open3d13visualization40pybind_visualization_utility_definitionsERNS_7module_EE3$_4vJRKSt6vectorISt10shared_ptrIKNS2_8geometry8GeometryEESaISC_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiibbbNS2_7utility8optionalIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESU_SU_NSQ_IdEEEJNS_4nameENS_5scopeENS_7siblingEA54_cNS_3argENS_5arg_vES11_S11_S11_S11_S11_S11_S11_S11_S11_S11_S11_EEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES1F_"(ptr noundef nonnull align 8 dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::detail::argument_loader.675", align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 115, i1 false)
@@ -66019,7 +66019,7 @@ _ZNSt11_Tuple_implILm1EJN8pybind116detail11type_casterISt3mapIiSt8functionIFbPN6
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZN6open3d13visualization40pybind_visualization_utility_definitionsERNS_7module_EE3$_8vJRKSt6vectorISt10shared_ptrIKNS2_8geometry8GeometryEESaISC_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiiEJNS_4nameENS_5scopeENS_7siblingEA73_cNS_3argENS_5arg_vESU_SU_SU_SU_EEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES18_"(ptr noundef nonnull align 8 dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZN6open3d13visualization40pybind_visualization_utility_definitionsERNS_7module_EE3$_8vJRKSt6vectorISt10shared_ptrIKNS2_8geometry8GeometryEESaISC_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiiEJNS_4nameENS_5scopeENS_7siblingEA73_cNS_3argENS_5arg_vESU_SU_SU_SU_EEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES18_"(ptr noundef nonnull align 8 dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::detail::argument_loader.902", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 16, i1 false)
@@ -66390,7 +66390,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail15argument_loa
 declare noundef zeroext i1 @_ZN6open3d13visualization25DrawGeometriesWithEditingERKSt6vectorISt10shared_ptrIKNS_8geometry8GeometryEESaIS6_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiii(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZN6open3d13visualization40pybind_visualization_utility_definitionsERNS_7module_EE3$_9vJRKSt6vectorISt10shared_ptrIKNS2_8geometry8GeometryEESaISC_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiiEJNS_4nameENS_5scopeENS_7siblingEA90_cNS_3argENS_5arg_vESU_SU_SU_SU_EEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES18_"(ptr noundef nonnull align 8 dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZN6open3d13visualization40pybind_visualization_utility_definitionsERNS_7module_EE3$_9vJRKSt6vectorISt10shared_ptrIKNS2_8geometry8GeometryEESaISC_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiiEJNS_4nameENS_5scopeENS_7siblingEA90_cNS_3argENS_5arg_vESU_SU_SU_SU_EEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES18_"(ptr noundef nonnull align 8 dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::detail::argument_loader.902", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 16, i1 false)

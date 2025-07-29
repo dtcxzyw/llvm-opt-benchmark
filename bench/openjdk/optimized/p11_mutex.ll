@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [15 x i8] c"CK_UNLOCKMUTEX\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %104, label %5

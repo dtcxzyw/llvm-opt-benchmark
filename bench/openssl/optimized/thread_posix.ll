@@ -66,7 +66,7 @@ declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @thread_start_thunk(ptr noundef captures(none) %0) #0 {
+define internal noalias noundef ptr @thread_start_thunk(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

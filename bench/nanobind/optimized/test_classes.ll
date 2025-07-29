@@ -10135,7 +10135,7 @@ _ZN8nanobind6detail16type_caster_baseIZL30nanobind_init_test_classes_extRNS_7mod
 }
 
 ; Function Attrs: inlinehint mustprogress optsize uwtable
-define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_classes_extRNS_7module_EE4$_10vJP6AnimalEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSA_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESO_SP_SQ_SR_ST_"(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #16 align 2 {
+define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_classes_extRNS_7module_EE4$_10vJP6AnimalEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSA_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESO_SP_SQ_SR_ST_"(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #16 align 2 {
   %6 = alloca %"struct.nanobind::detail::tuple.339", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #38
   %7 = load ptr, ptr %1, align 8, !tbaa !23
@@ -15599,7 +15599,7 @@ _ZZN8nanobind6detail11func_createILb1ELb1EZNS_12cpp_functionIZL30nanobind_init_t
 }
 
 ; Function Attrs: inlinehint mustprogress optsize uwtable
-define internal noundef ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_12cpp_functionIZL30nanobind_init_test_classes_extRNS_7module_EE12BoundDerivedvZL30nanobind_init_test_classes_extS4_E10HiddenBaseJiEJNS_9is_methodEEEENS_6objectEMT1_FT0_DpT2_EDpRKT3_EUlPS5_iE_vJSJ_iEJLm0ELm1EEJS7_EEEP7_objectOS9_PFT2_DpSF_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSM_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESY_SZ_S10_S11_S13_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #16 align 2 {
+define internal noundef nonnull ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_12cpp_functionIZL30nanobind_init_test_classes_extRNS_7module_EE12BoundDerivedvZL30nanobind_init_test_classes_extS4_E10HiddenBaseJiEJNS_9is_methodEEEENS_6objectEMT1_FT0_DpT2_EDpRKT3_EUlPS5_iE_vJSJ_iEJLm0ELm1EEJS7_EEEP7_objectOS9_PFT2_DpSF_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSM_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESY_SZ_S10_S11_S13_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #16 align 2 {
   %6 = alloca %"struct.nanobind::detail::tuple.890", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #38
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8

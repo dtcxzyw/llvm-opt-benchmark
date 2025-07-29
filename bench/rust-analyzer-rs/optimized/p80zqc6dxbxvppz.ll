@@ -1513,7 +1513,7 @@ define hidden void @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$11trait_datum17h42eadcf27bee9ac9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$11trait_datum17h42eadcf27bee9ac9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { { { i64, ptr, {} }, i64 } }, ptr }, align 8
@@ -1797,7 +1797,7 @@ define hidden noundef i8 @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$12fn_def_datum17h7ba0a0565158031fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$12fn_def_datum17h7ba0a0565158031fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { { { { { i64, ptr, {} }, i64 }, ptr }, ptr }, { { i64, ptr, {} }, i64 } }, ptr }, align 8
@@ -2640,7 +2640,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$chalk_solve..display..stub..StubWr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$18associated_ty_data17ha8c0d90b80186a86E.llvm.2869318172927361419"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$18associated_ty_data17ha8c0d90b80186a86E.llvm.2869318172927361419"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
@@ -3161,7 +3161,7 @@ define hidden void @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$9adt_datum17ha3e0eb92b2726830E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN106_$LT$chalk_solve..display..stub..StubWrapper$LT$DB$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$9adt_datum17ha3e0eb92b2726830E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
@@ -54326,7 +54326,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$chalk_solve..logging_db..Logging
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef nonnull ptr @"_ZN121_$LT$chalk_solve..logging_db..LoggingRustIrDatabase$LT$I$C$DB$C$P$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$14opaque_ty_data17h26e035fae85ced66E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #2 {
+define internal noalias noundef nonnull ptr @"_ZN121_$LT$chalk_solve..logging_db..LoggingRustIrDatabase$LT$I$C$DB$C$P$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$14opaque_ty_data17h26e035fae85ced66E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #2 {
   tail call fastcc void @"_ZN11chalk_solve10logging_db39LoggingRustIrDatabase$LT$I$C$DB$C$P$GT$6record17h1a55f00d4c49fbf5E"(ptr noundef nonnull align 8 %0, i32 noundef %1)
   %3 = tail call noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$14opaque_ty_data17h2c46a7a82bd0fcebE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   ret ptr %3
@@ -54339,7 +54339,7 @@ define internal void @"_ZN121_$LT$chalk_solve..logging_db..LoggingRustIrDatabase
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef nonnull ptr @"_ZN121_$LT$chalk_solve..logging_db..LoggingRustIrDatabase$LT$I$C$DB$C$P$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$15coroutine_datum17hbb690f2a9235dc50E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #2 {
+define internal noalias noundef nonnull ptr @"_ZN121_$LT$chalk_solve..logging_db..LoggingRustIrDatabase$LT$I$C$DB$C$P$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$15coroutine_datum17hbb690f2a9235dc50E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #2 {
   tail call fastcc void @"_ZN11chalk_solve10logging_db39LoggingRustIrDatabase$LT$I$C$DB$C$P$GT$6record17hdeba915196344f57E"(ptr noundef nonnull align 8 %0, i32 noundef %1)
   %3 = tail call noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$15coroutine_datum17h572ecf817751cff1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   ret ptr %3
@@ -54782,7 +54782,7 @@ define internal noundef nonnull ptr @"_ZN121_$LT$chalk_solve..logging_db..Loggin
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef nonnull ptr @"_ZN121_$LT$chalk_solve..logging_db..LoggingRustIrDatabase$LT$I$C$DB$C$P$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$23coroutine_witness_datum17hf334fbe97607b93aE"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #2 {
+define internal noalias noundef nonnull ptr @"_ZN121_$LT$chalk_solve..logging_db..LoggingRustIrDatabase$LT$I$C$DB$C$P$GT$$u20$as$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$23coroutine_witness_datum17hf334fbe97607b93aE"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #2 {
   tail call fastcc void @"_ZN11chalk_solve10logging_db39LoggingRustIrDatabase$LT$I$C$DB$C$P$GT$6record17hdeba915196344f57E"(ptr noundef nonnull align 8 %0, i32 noundef %1)
   %3 = tail call noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$23coroutine_witness_datum17h591bbe0d81335a7cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   ret ptr %3
@@ -78248,7 +78248,7 @@ define noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..Ru
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$14opaque_ty_data17h2c46a7a82bd0fcebE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$14opaque_ty_data17h2c46a7a82bd0fcebE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { { { { { i8, [15 x i8] } } } }, ptr }, {}, {} }, align 8
   %5 = alloca { { { { { { i8, [15 x i8] } } } }, ptr }, {}, {} }, align 8
@@ -80919,7 +80919,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$15coroutine_datum17h572ecf817751cff1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$15coroutine_datum17h572ecf817751cff1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 8
   %4 = alloca { { { { { ptr, ptr, {} }, {} }, {} }, ptr }, {}, {} }, align 8
   %5 = alloca { { { i8, [31 x i8] }, i16, [3 x i16] } }, align 8
@@ -81362,7 +81362,7 @@ define hidden noundef ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..Rus
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$23coroutine_witness_datum17h591bbe0d81335a7cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$23coroutine_witness_datum17h591bbe0d81335a7cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { { { { ptr, ptr, {} }, {} }, {} }, ptr }, {}, {} }, align 8
   %5 = alloca { { { { { i8, [15 x i8] } } }, ptr }, {}, {} }, align 8
@@ -81831,7 +81831,7 @@ common.resume:                                    ; preds = %12, %18
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty8chalk_db24associated_ty_data_query17h41cfc340745e29f5E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty8chalk_db24associated_ty_data_query17h41cfc340745e29f5E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca { { { i8, [31 x i8] }, i16, [3 x i16] } }, align 8
@@ -82612,7 +82612,7 @@ define hidden void @"_ZN6hir_ty8chalk_db24associated_ty_data_query28_$u7b$$u7b$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty8chalk_db17trait_datum_query17h77d82209431885ccE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty8chalk_db17trait_datum_query17h77d82209431885ccE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { { ptr, i64 } }, {} }, align 8
   %6 = alloca { { { ptr, ptr, {} } }, ptr }, align 8
   %7 = alloca { { i64 }, { i64 }, { { { { { i64, ptr, {} }, i64 } }, ptr }, { { i64, ptr, {} }, i64 }, i32, { i8, i8, i8, i8, i8, i8 }, i8, [5 x i8] } }, align 8
@@ -83269,7 +83269,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2a4ceb1cedc5b5e4E.exit: ; preds = %176,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty8chalk_db15adt_datum_query17h92a15b3447fdfebeE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty8chalk_db15adt_datum_query17h92a15b3447fdfebeE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { { { ptr, i64 } }, {} }, align 8
   %8 = alloca { { { ptr, ptr, {} } }, ptr }, align 8
@@ -83821,7 +83821,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.2869318172927361419.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty8chalk_db16impl_datum_query17h2da19081ed6bec11E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty8chalk_db16impl_datum_query17h2da19081ed6bec11E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { { ptr, i64 } }, {} }, align 8
   %6 = alloca { { { ptr, ptr, {} } }, ptr }, align 8
   %7 = alloca { { i64 }, { i64 }, { { { { { i64, ptr, {} }, i64 }, { ptr, i32, [1 x i32] } }, ptr }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] } }, align 8
@@ -84867,14 +84867,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN6hir_ty8chalk_db14impl_def_datum2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty8chalk_db25associated_ty_value_query17h6b847cb11c9df4fdE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty8chalk_db25associated_ty_value_query17h6b847cb11c9df4fdE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = tail call noundef i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17hdfa16b3a323ed45fE"(i32 noundef %3), !range !75
   %6 = tail call noundef nonnull ptr @_ZN6hir_ty8chalk_db30type_alias_associated_ty_value17hc4490eb4865e5a38E.llvm.2869318172927361419(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 poison, i32 noundef %5)
   ret ptr %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty8chalk_db30type_alias_associated_ty_value17hc4490eb4865e5a38E.llvm.2869318172927361419(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty8chalk_db30type_alias_associated_ty_value17hc4490eb4865e5a38E.llvm.2869318172927361419(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca { { i64 }, { i64 }, { { ptr, ptr }, i32, i32 } }, align 8
@@ -85247,7 +85247,7 @@ define hidden noundef nonnull ptr @_ZN6hir_ty8chalk_db30type_alias_associated_ty
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty8chalk_db18fn_def_datum_query17haed91e239dd8936dE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty8chalk_db18fn_def_datum_query17haed91e239dd8936dE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { { { { { i8, [15 x i8] } } }, ptr }, {}, {} }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
@@ -109706,7 +109706,7 @@ default.unreachable61:                            ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty17method_resolution10TraitImpls26trait_impls_in_crate_query17h7ba20fec5faf1e1cE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty17method_resolution10TraitImpls26trait_impls_in_crate_query17h7ba20fec5faf1e1cE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } }, {} }, align 8
   %5 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, align 8
   %6 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
@@ -109998,7 +109998,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %38, %.thread,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN6hir_ty17method_resolution10TraitImpls26trait_impls_in_block_query17hc31a376e7736c244E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @_ZN6hir_ty17method_resolution10TraitImpls26trait_impls_in_block_query17hc31a376e7736c244E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } }, {} }, align 8
   %5 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, align 8
   %6 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
@@ -111788,7 +111788,7 @@ define void @_ZN6hir_ty17method_resolution10TraitImpls9all_impls17h0dad076d5cd15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6hir_ty17method_resolution13InherentImpls29inherent_impls_in_crate_query17h217c2125fffebc63E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6hir_ty17method_resolution13InherentImpls29inherent_impls_in_crate_query17h217c2125fffebc63E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { ptr, ptr, ptr, i16, [3 x i16] }, align 8
   %6 = alloca ptr, align 8
@@ -112075,7 +112075,7 @@ _ZN6hir_ty17method_resolution13InherentImpls13shrink_to_fit17hcf5e8dd5b2ee0c9eE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN6hir_ty17method_resolution13InherentImpls29inherent_impls_in_block_query17h5fcc043a7989fa0aE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @_ZN6hir_ty17method_resolution13InherentImpls29inherent_impls_in_block_query17h5fcc043a7989fa0aE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { ptr, ptr, ptr, i16, [3 x i16] }, align 8
   %6 = alloca ptr, align 8

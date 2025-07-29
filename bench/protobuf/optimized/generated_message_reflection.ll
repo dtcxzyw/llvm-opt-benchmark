@@ -41981,8 +41981,8 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 
 declare void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_ENUlPKvE_8__invokeES8_(ptr noundef %pp) #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_ENUlPKvE_8__invokeES8_(ptr noundef %pp) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isnull.i = icmp eq ptr %pp, null
   br i1 %isnull.i, label %_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_ENKUlPKvE_clES8_.exit, label %delete.notnull.i

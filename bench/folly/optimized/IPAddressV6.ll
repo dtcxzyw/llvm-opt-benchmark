@@ -2669,8 +2669,8 @@ _ZNK5folly11IPAddressV622getMacAddressFromEUI64Ev.exit: ; preds = %30, %28, %19
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly11IPAddressV611isLinkLocalEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(18) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZNK5folly11IPAddressV611isLinkLocalEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(18) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array", align 8
   %3 = alloca %"struct.std::array", align 8
   %4 = alloca %"struct.std::array", align 8
@@ -6741,8 +6741,8 @@ _ZNK5folly11IPAddressV610createIPv4Ev.exit:       ; preds = %13
 
 declare noundef zeroext i1 @_ZNK5folly11IPAddressV410isLoopbackEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly11IPAddressV610isRoutableEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(18) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZNK5folly11IPAddressV610isRoutableEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(18) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array", align 8
   %3 = alloca %"struct.std::array", align 8
   %4 = alloca %"struct.std::array", align 8

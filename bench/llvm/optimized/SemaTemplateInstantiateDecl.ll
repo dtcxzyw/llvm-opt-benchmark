@@ -32831,7 +32831,7 @@ define dso_local noalias noundef nonnull ptr @_ZN5clang24TemplateDeclInstantiato
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang24TemplateDeclInstantiator23VisitFriendTemplateDeclEPNS_18FriendTemplateDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noalias noundef ptr @_ZN5clang24TemplateDeclInstantiator23VisitFriendTemplateDeclEPNS_18FriendTemplateDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i8, align 1

@@ -14593,8 +14593,8 @@ define void @_ZN2cv11FileStorage4Impl13Base64DecoderC2Ev(ptr noundef nonnull wri
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11FileStorage4Impl13Base64Decoder4initERKNS_3PtrINS_17FileStorageParserEEEPci(ptr noundef nonnull align 8 captures(none) dereferenceable(97) initializes((0, 8), (16, 28), (80, 97)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN2cv11FileStorage4Impl13Base64Decoder4initERKNS_3PtrINS_17FileStorageParserEEEPci(ptr noundef nonnull align 8 captures(none) dereferenceable(97) initializes((0, 8), (16, 28), (80, 97)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %1, align 8, !tbaa !249
   store ptr %5, ptr %0, align 8, !tbaa !249
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

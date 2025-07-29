@@ -1915,7 +1915,7 @@ _ZNSt10unique_ptrIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5folly6fibers18GuardPageAllocator8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5folly6fibers18GuardPageAllocator8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !92
   %.not = icmp eq i64 %4, 0

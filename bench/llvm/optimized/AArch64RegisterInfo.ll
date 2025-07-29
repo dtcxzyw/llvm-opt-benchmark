@@ -2899,7 +2899,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit17.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo18getCalleeSavedRegsEPKNS_15MachineFunctionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(320) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo18getCalleeSavedRegsEPKNS_15MachineFunctionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(320) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::AttributeList", align 8
   %4 = alloca %"class.llvm::AttributeList", align 8
   %5 = load ptr, ptr %1, align 8, !tbaa !200
@@ -3067,7 +3067,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo24getDarwinCalleeSavedRegsEPKNS_15MachineFunctionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo24getDarwinCalleeSavedRegsEPKNS_15MachineFunctionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::AttributeList", align 8
   %4 = load ptr, ptr %1, align 8, !tbaa !200
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -3387,7 +3387,7 @@ _ZNK4llvm22AArch64GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(320) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1065) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(320) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1065) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.llvm::AttributeList", align 8
   switch i32 %2, label %11 [
     i32 17, label %26
@@ -3459,7 +3459,7 @@ switch.lookup:                                    ; preds = %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo20getCallPreservedMaskERKNS_15MachineFunctionEj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1065) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo20getCallPreservedMaskERKNS_15MachineFunctionEj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1065) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.llvm::AttributeList", align 8
   %5 = alloca %"class.llvm::AttributeList", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !200

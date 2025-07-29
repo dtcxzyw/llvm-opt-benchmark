@@ -7107,7 +7107,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnEEvPT
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog16relation_manager40try_mk_default_filter_by_intersection_fnERKNS_13relation_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN7datalog16relation_manager40try_mk_default_filter_by_intersection_fnERKNS_13relation_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.svector.42, align 8
   %8 = alloca %"class.datalog::scoped_rel", align 8
   %9 = alloca %"class.datalog::scoped_rel.187", align 8

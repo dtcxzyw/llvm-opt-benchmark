@@ -3257,7 +3257,7 @@ _ZN6vectorIPN8datatype10param_size4sizeELb0EjE7destroyEv.exit: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN8datatype10param_size4plus5substER7obj_mapI4sortPNS0_4sizeEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN8datatype10param_size4plus5substER7obj_mapI4sortPNS0_4sizeEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !106
   %5 = load ptr, ptr %4, align 8, !tbaa !68
@@ -3687,7 +3687,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN8datatype10param_size5times5substER7obj_mapI4sortPNS0_4sizeEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 {
+define hidden noalias noundef ptr @_ZN8datatype10param_size5times5substER7obj_mapI4sortPNS0_4sizeEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !109
   %5 = load ptr, ptr %4, align 8, !tbaa !68
@@ -3850,7 +3850,7 @@ _ZNK8rational4exptEi.exit:                        ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN8datatype10param_size5power5substER7obj_mapI4sortPNS0_4sizeEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 {
+define hidden noalias noundef ptr @_ZN8datatype10param_size5power5substER7obj_mapI4sortPNS0_4sizeEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !118
   %5 = load ptr, ptr %4, align 8, !tbaa !68

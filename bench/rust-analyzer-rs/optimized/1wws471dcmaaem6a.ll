@@ -46473,7 +46473,7 @@ define void @"_ZN64_$LT$ide_db..RootDatabase$u20$as$u20$salsa..ParallelDatabase$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6ide_db10line_index17hb89435fa8fd782d4E.llvm.2856947585988979465(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN6ide_db10line_index17hb89435fa8fd782d4E.llvm.2856947585988979465(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64 }, { { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i32, [1 x i32] } }, align 8
   %5 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i32, [1 x i32] }, align 8
   %6 = alloca { { { ptr, i64 } }, {} }, align 8
@@ -48369,7 +48369,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN55_$LT$ide_db..LineIn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN73_$LT$ide_db..LineIndexQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17hb269e132301807b9E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 {
+define noalias noundef nonnull ptr @"_ZN73_$LT$ide_db..LineIndexQuery$u20$as$u20$salsa..plumbing..QueryFunction$GT$7execute17hb269e132301807b9E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef nonnull ptr @_ZN6ide_db10line_index17hb89435fa8fd782d4E.llvm.2856947585988979465(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2)
   ret ptr %4
 }

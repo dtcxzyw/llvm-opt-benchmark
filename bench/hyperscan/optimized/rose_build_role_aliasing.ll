@@ -12430,7 +12430,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %8, %10
-  br i1 %.not, label %11, label %127
+  br i1 %.not, label %11, label %115
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #27
@@ -12491,7 +12491,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
-  br label %120
+  br label %114
 
 ._crit_edge:                                      ; preds = %31, %11
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -12565,17 +12565,17 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
   %56 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
-  br label %120
+  br label %114
 
 .loopexit42:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %120
+  br label %114
 
 .loopexit.split-lp:                               ; preds = %_ZStneIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit.thread31, %60, %64, %66, %75, %85
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %120
+  br label %114
 
 _ZStneIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit.thread31: ; preds = %45, %38
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -12709,65 +12709,25 @@ _ZN3ue2L17hasEqualLeftfixesENS_12graph_detail17vertex_descriptorINS_9ue2_graphIN
 _ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit: ; preds = %.noexc, %.critedge, %.loopexit, %.critedge24.i.i, %.critedge.i.i, %81, %83, %.noexc115, %.noexc116, %._crit_edge54, %63, %_ZN3ue2L17hasEqualLeftfixesENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RKS3_.exit
   %.1 = phi i1 [ false, %_ZN3ue2L17hasEqualLeftfixesENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RKS3_.exit ], [ true, %63 ], [ false, %._crit_edge54 ], [ false, %.noexc116 ], [ false, %.noexc115 ], [ false, %83 ], [ false, %81 ], [ false, %.critedge.i.i ], [ false, %.critedge24.i.i ], [ %.not39, %.loopexit ], [ %.not39, %.critedge ], [ false, %.noexc ]
   %.val107 = load ptr, ptr %18, align 8
-  invoke fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val107)
-          to label %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit unwind label %114
-
-114:                                              ; preds = %_ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
-  %115 = landingpad { ptr, i32 }
-          catch ptr null
-  %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #32
-  unreachable
-
-_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val107)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
   %.val108 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val108)
-          to label %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit122 unwind label %117
-
-117:                                              ; preds = %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit
-  %118 = landingpad { ptr, i32 }
-          catch ptr null
-  %119 = extractvalue { ptr, i32 } %118, 0
-  call void @__clang_call_terminate(ptr %119) #32
-  unreachable
-
-_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit122: ; preds = %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val108)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
-  br label %127
+  br label %115
 
-120:                                              ; preds = %.loopexit42, %.loopexit.split-lp, %55, %32
+114:                                              ; preds = %.loopexit42, %.loopexit.split-lp, %55, %32
   %.pn95.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %56, %55 ], [ %lpad.loopexit, %.loopexit42 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val109 = load ptr, ptr %18, align 8
-  invoke fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val109)
-          to label %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit123 unwind label %121
-
-121:                                              ; preds = %120
-  %122 = landingpad { ptr, i32 }
-          catch ptr null
-  %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #32
-  unreachable
-
-_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit123: ; preds = %120
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val109)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
   %.val110 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val110)
-          to label %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit124 unwind label %124
-
-124:                                              ; preds = %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit123
-  %125 = landingpad { ptr, i32 }
-          catch ptr null
-  %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #32
-  unreachable
-
-_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit124: ; preds = %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit123
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val110)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
   resume { ptr, i32 } %.pn95.pn.pn.pn
 
-127:                                              ; preds = %2, %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit122
-  %.0 = phi i1 [ %.1, %_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EED2Ev.exit122 ], [ false, %2 ]
+115:                                              ; preds = %2, %_ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
+  %.0 = phi i1 [ %.1, %_ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -12993,8 +12953,8 @@ declare noundef zeroext i1 @_ZN3ue28is_equalERKNS_11CastleProtoEjS2_j(ptr nounde
 
 declare noundef zeroext i1 @_ZN3ue28is_equalERKNS_8NGHolderEjS2_j(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -29906,7 +29866,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %8, %10
-  br i1 %.not, label %11, label %73
+  br i1 %.not, label %11, label %61
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #27
@@ -29967,7 +29927,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
-  br label %66
+  br label %60
 
 ._crit_edge:                                      ; preds = %31, %11
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 352
@@ -30005,7 +29965,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
-          to label %.noexc unwind label %64
+          to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %44, label %45, label %_ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit
@@ -30041,75 +30001,35 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
   %56 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
-  br label %66
+  br label %60
 
 _ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit: ; preds = %45, %.noexc, %38, %._crit_edge27
   %57 = phi i1 [ false, %._crit_edge27 ], [ true, %38 ], [ %44, %.noexc ], [ %44, %45 ]
   %.val50 = load ptr, ptr %18, align 8
-  invoke fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val50)
-          to label %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit unwind label %58
-
-58:                                               ; preds = %_ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit
-  %59 = landingpad { ptr, i32 }
-          catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #32
-  unreachable
-
-_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val50)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
   %.val51 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val51)
-          to label %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit58 unwind label %61
-
-61:                                               ; preds = %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit
-  %62 = landingpad { ptr, i32 }
-          catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #32
-  unreachable
-
-_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit58: ; preds = %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val51)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
-  br label %73
+  br label %61
 
-64:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %65 = landingpad { ptr, i32 }
+58:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %60
 
-66:                                               ; preds = %55, %32, %64
-  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %33, %32 ], [ %56, %55 ]
+60:                                               ; preds = %55, %32, %58
+  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %33, %32 ], [ %56, %55 ]
   %.val52 = load ptr, ptr %18, align 8
-  invoke fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val52)
-          to label %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit59 unwind label %67
-
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
-          catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #32
-  unreachable
-
-_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit59: ; preds = %66
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val52)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
   %.val53 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val53)
-          to label %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit60 unwind label %70
-
-70:                                               ; preds = %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit59
-  %71 = landingpad { ptr, i32 }
-          catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #32
-  unreachable
-
-_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit60: ; preds = %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit59
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val53)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
   resume { ptr, i32 } %.pn40.pn.pn.pn
 
-73:                                               ; preds = %2, %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit58
-  %.0 = phi i1 [ %57, %_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EED2Ev.exit58 ], [ false, %2 ]
+61:                                               ; preds = %2, %_ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit
+  %.0 = phi i1 [ %57, %_ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -30279,8 +30199,8 @@ define internal void @_ZN3ue212_GLOBAL__N_112AliasOutEdgeD0Ev(ptr noundef nonnul
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 

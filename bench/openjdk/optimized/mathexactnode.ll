@@ -209,7 +209,7 @@ _ZN9MulHelperI16OverflowMulLNodeE12can_overflowEPK4TypeS4_.exit: ; preds = %3, %
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noundef ptr @_ZNK12OverflowNode3subEPK4TypeS2_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 {
+define hidden noalias noundef nonnull ptr @_ZNK12OverflowNode3subEPK4TypeS2_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   %5 = load ptr, ptr %0, align 8

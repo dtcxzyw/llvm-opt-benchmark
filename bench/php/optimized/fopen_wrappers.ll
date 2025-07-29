@@ -1021,7 +1021,7 @@ declare void @zend_stream_init_filename_ex(ptr noundef, ptr noundef) local_unnam
 declare i32 @zend_stream_open(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca %struct._php_stream_statbuf, align 8

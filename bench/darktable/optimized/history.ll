@@ -2794,7 +2794,7 @@ declare ptr @g_markup_printf_escaped(ptr noundef, ...) local_unnamed_addr #5
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_lib_history_change_text(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8, !tbaa !124
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6

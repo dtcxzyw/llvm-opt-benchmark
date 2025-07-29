@@ -2435,7 +2435,7 @@ define dso_local i32 @drm_connector_update_edid_property(ptr noundef initializes
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_edid_read_custom(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 16 {
+define dso_local noalias noundef ptr @drm_edid_read_custom(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   store i64 0, ptr %4, align 8
@@ -2508,7 +2508,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_edid_read_ddc(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local noalias noundef ptr @drm_edid_read_ddc(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca [3 x %struct.i2c_msg], align 16
@@ -2590,7 +2590,7 @@ drm_probe_ddc.exit:                               ; preds = %25, %28, %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_edid_read(ptr noundef %0) #3 align 16 {
+define dso_local noalias noundef ptr @drm_edid_read(ptr noundef %0) #3 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca [3 x %struct.i2c_msg], align 16
@@ -3096,7 +3096,7 @@ drm_probe_ddc.exit:                               ; preds = %46, %49, %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_edid_read_switcheroo(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local noalias noundef ptr @drm_edid_read_switcheroo(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca [3 x %struct.i2c_msg], align 16

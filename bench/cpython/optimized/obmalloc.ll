@@ -4413,7 +4413,7 @@ mi_try_new_handler.exit:                          ; preds = %.split, %mi_try_new
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden nonnull ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false)

@@ -331,7 +331,7 @@ define noundef i32 @_ZN14VrmlTranslator6Buffer4PeekEv(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define noalias noundef nonnull ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = sub nsw i32 %2, %1
   %5 = zext i32 %4 to i64
   %6 = icmp slt i32 %4, 0

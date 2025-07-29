@@ -1997,8 +1997,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN5folly6detail12TimeIterDataEjEZNS1_17BenchmarkingStateINSt6chrono3_V212system_clockEE12addBenchmarkIZNS8_12addBenchmarkIRNS0_3$_1EEENSt9enable_ifIXsr5follyE14is_invocable_vIT_EEvE4typeEPKcNS0_5RangeISI_EEOSE_EUljE_EENSD_IXsr5follyE14is_invocable_vISE_jEEvE4typeESI_SK_SL_EUljE_E9_M_invokeERKSt9_Any_dataOj"(ptr dead_on_unwind noalias writable sret(%"struct.folly::detail::TimeIterData") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #1 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt17_Function_handlerIFN5folly6detail12TimeIterDataEjEZNS1_17BenchmarkingStateINSt6chrono3_V212system_clockEE12addBenchmarkIZNS8_12addBenchmarkIRNS0_3$_1EEENSt9enable_ifIXsr5follyE14is_invocable_vIT_EEvE4typeEPKcNS0_5RangeISI_EEOSE_EUljE_EENSD_IXsr5follyE14is_invocable_vISE_jEEvE4typeESI_SK_SL_EUljE_E9_M_invokeERKSt9_Any_dataOj"(ptr dead_on_unwind noalias writable sret(%"struct.folly::detail::TimeIterData") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #0 align 2 {
   %.val = load i32, ptr %2, align 4, !tbaa !47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)

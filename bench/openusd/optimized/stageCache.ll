@@ -6669,10 +6669,10 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4
           catch ptr null
   %94 = extractvalue { ptr, i32 } %lpad.thr_comm.i.i, 0
   %95 = tail call ptr @__cxa_begin_catch(ptr %94) #19
-  invoke fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %42, ptr noundef nonnull %42)
-          to label %98 unwind label %96
+  tail call fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %42, ptr noundef nonnull %42)
+  br label %98
 
-96:                                               ; preds = %98, %93
+96:                                               ; preds = %98
   %97 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -10710,8 +10710,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryESaIS
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4_RSaIT0_E(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4_RSaIT0_E(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.not4.i.i = icmp eq ptr %0, %1
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryEEvT_S4_.exit, label %.lr.ph.i.i
 
@@ -10778,8 +10778,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryEEvT_S4_.e
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryEEvT_S4_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryEEvT_S4_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryEEEvT_S6_.exit, label %.lr.ph.i
 
@@ -12708,30 +12708,27 @@ define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
   %27 = tail call ptr @__cxa_begin_catch(ptr %26) #19
-  invoke fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryEEvT_S4_(ptr noundef %2, ptr noundef nonnull %.016.i.i.i.i)
-          to label %28 unwind label %29
+  tail call fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryEEvT_S4_(ptr noundef %2, ptr noundef nonnull %.016.i.i.i.i)
+  invoke void @__cxa_rethrow() #20
+          to label %34 unwind label %28
 
 28:                                               ; preds = %24
-  invoke void @__cxa_rethrow() #20
-          to label %35 unwind label %29
-
-29:                                               ; preds = %28, %24
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %31 unwind label %32
+          to label %30 unwind label %31
 
-31:                                               ; preds = %29
-  resume { ptr, i32 } %30
+30:                                               ; preds = %28
+  resume { ptr, i32 } %29
 
-32:                                               ; preds = %29
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #21
+  %33 = extractvalue { ptr, i32 } %32, 0
+  tail call void @__clang_call_terminate(ptr %33) #21
   unreachable
 
-35:                                               ; preds = %28
+34:                                               ; preds = %24
   unreachable
 
 _ZSt22__uninitialized_copy_aIPKN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %18, %3
@@ -13865,10 +13862,10 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4
           catch ptr null
   %92 = extractvalue { ptr, i32 } %lpad.thr_comm.i, 0
   %93 = tail call ptr @__cxa_begin_catch(ptr %92) #19
-  invoke fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %38, ptr noundef nonnull %.0.ph.i)
-          to label %96 unwind label %94
+  tail call fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %38, ptr noundef nonnull %.0.ph.i)
+  br label %96
 
-94:                                               ; preds = %96, %91
+94:                                               ; preds = %96
   %95 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()

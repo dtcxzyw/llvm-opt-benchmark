@@ -2747,8 +2747,8 @@ _ZNK6duckdb6vectorIN14duckdb_parquet11ColumnChunkELb1EE3getILb1EEERKS2_m.exit: ;
   ret ptr %28
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb12ColumnReader17PageIsFilteredOutERN14duckdb_parquet10PageHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(544) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(457) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZN6duckdb12ColumnReader17PageIsFilteredOutERN14duckdb_parquet10PageHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(544) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(457) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8, !tbaa !97
   %5 = icmp ne ptr %4, null
@@ -2974,107 +2974,104 @@ _ZN6duckdb10shared_ptrINS_16ResizeableBufferELb1EE5resetEv.exit: ; preds = %_ZN6
 
 50:                                               ; preds = %48
   invoke void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
-          to label %89 unwind label %51
+          to label %88 unwind label %51
 
-51:                                               ; preds = %.invoke, %83, %63, %62, %61, %55, %50, %_ZN6duckdb10shared_ptrINS_16ResizeableBufferELb1EE5resetEv.exit
+51:                                               ; preds = %.invoke, %82, %62, %61, %60, %50, %_ZN6duckdb10shared_ptrINS_16ResizeableBufferELb1EE5resetEv.exit
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
 53:                                               ; preds = %48
   %54 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %49) #28
-  br label %88
+  br label %87
 
 55:                                               ; preds = %41
-  %56 = invoke noundef zeroext i1 @_ZN6duckdb12ColumnReader17PageIsFilteredOutERN14duckdb_parquet10PageHeaderE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(457) %3)
-          to label %57 unwind label %51
+  %56 = call noundef zeroext i1 @_ZN6duckdb12ColumnReader17PageIsFilteredOutERN14duckdb_parquet10PageHeaderE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(457) %3)
+  br i1 %56, label %86, label %57
 
 57:                                               ; preds = %55
-  br i1 %56, label %87, label %58
-
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %60 = load i32, ptr %59, align 8, !tbaa !266
-  switch i32 %60, label %83 [
-    i32 3, label %61
-    i32 0, label %62
-    i32 2, label %63
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %59 = load i32, ptr %58, align 8, !tbaa !266
+  switch i32 %59, label %82 [
+    i32 3, label %60
+    i32 0, label %61
+    i32 2, label %62
   ]
 
-61:                                               ; preds = %58
+60:                                               ; preds = %57
   invoke void @_ZN6duckdb12ColumnReader13PreparePageV2ERN14duckdb_parquet10PageHeaderE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(457) %3)
           to label %.invoke unwind label %51
 
-62:                                               ; preds = %58
+61:                                               ; preds = %57
   invoke void @_ZN6duckdb12ColumnReader11PreparePageERN14duckdb_parquet10PageHeaderE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(457) %3)
           to label %.invoke unwind label %51
 
-.invoke:                                          ; preds = %62, %61
+.invoke:                                          ; preds = %61, %60
   invoke void @_ZN6duckdb12ColumnReader15PrepareDataPageERN14duckdb_parquet10PageHeaderE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(457) %3)
-          to label %83 unwind label %51
+          to label %82 unwind label %51
 
-63:                                               ; preds = %58
+62:                                               ; preds = %57
   invoke void @_ZN6duckdb12ColumnReader11PreparePageERN14duckdb_parquet10PageHeaderE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(457) %3)
-          to label %64 unwind label %51
+          to label %63 unwind label %51
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %66 = load i32, ptr %65, align 8, !tbaa !308
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %68, label %75
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 232
+  %65 = load i32, ptr %64, align 8, !tbaa !308
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %74
 
-68:                                               ; preds = %64
-  %69 = call ptr @__cxa_allocate_exception(i64 16) #28
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull @.str.6)
-          to label %70 unwind label %71
+67:                                               ; preds = %63
+  %68 = call ptr @__cxa_allocate_exception(i64 16) #28
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull @.str.6)
+          to label %69 unwind label %70
 
-70:                                               ; preds = %68
-  invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
-          to label %89 unwind label %73
+69:                                               ; preds = %67
+  invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+          to label %88 unwind label %72
 
-71:                                               ; preds = %68
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %67
+  %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %69) #28
-  br label %88
+  call void @__cxa_free_exception(ptr nonnull %68) #28
+  br label %87
 
-73:                                               ; preds = %75, %70
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %74, %69
+  %73 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
-75:                                               ; preds = %64
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !235
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %79 = load i64, ptr %78, align 8, !tbaa !309
-  %80 = icmp ne i64 %79, 0
-  %81 = zext nneg i32 %66 to i64
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  invoke void @_ZN6duckdb17DictionaryDecoder20InitializeDictionaryEmNS_12optional_ptrIKNS_11TableFilterELb1EEEb(ptr noundef nonnull align 8 dereferenceable(144) %82, i64 noundef %81, ptr %1, i1 noundef zeroext %80)
-          to label %83 unwind label %73
+74:                                               ; preds = %63
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !235
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
+  %78 = load i64, ptr %77, align 8, !tbaa !309
+  %79 = icmp ne i64 %78, 0
+  %80 = zext nneg i32 %65 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  invoke void @_ZN6duckdb17DictionaryDecoder20InitializeDictionaryEmNS_12optional_ptrIKNS_11TableFilterELb1EEEb(ptr noundef nonnull align 8 dereferenceable(144) %81, i64 noundef %80, ptr %1, i1 noundef zeroext %79)
+          to label %82 unwind label %72
 
-83:                                               ; preds = %.invoke, %75, %58
-  %84 = load ptr, ptr %0, align 8, !tbaa !3
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 144
-  %86 = load ptr, ptr %85, align 8
-  invoke void %86(ptr noundef nonnull align 8 dereferenceable(544) %0)
-          to label %87 unwind label %51
+82:                                               ; preds = %.invoke, %74, %57
+  %83 = load ptr, ptr %0, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 144
+  %85 = load ptr, ptr %84, align 8
+  invoke void %85(ptr noundef nonnull align 8 dereferenceable(544) %0)
+          to label %86 unwind label %51
 
-87:                                               ; preds = %83, %57
+86:                                               ; preds = %82, %55
   call void @_ZN14duckdb_parquet10PageHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(457) %3) #28
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %3) #28
   ret void
 
-88:                                               ; preds = %71, %73, %53, %51
-  %.pn11 = phi { ptr, i32 } [ %52, %51 ], [ %54, %53 ], [ %74, %73 ], [ %72, %71 ]
+87:                                               ; preds = %70, %72, %53, %51
+  %.pn11 = phi { ptr, i32 } [ %52, %51 ], [ %54, %53 ], [ %73, %72 ], [ %71, %70 ]
   call void @_ZN14duckdb_parquet10PageHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(457) %3) #28
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %3) #28
   resume { ptr, i32 } %.pn11
 
-89:                                               ; preds = %70, %50
+88:                                               ; preds = %69, %50
   unreachable
 }
 
@@ -5726,8 +5723,8 @@ declare void @_ZN6duckdb21DeltaByteArrayDecoder4ReadEPhmRNS_6VectorEm(ptr nounde
 
 declare void @_ZN6duckdb22ByteStreamSplitDecoder4ReadEPhmRNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12ColumnReader10FinishReadEm(ptr noundef nonnull align 8 captures(none) dereferenceable(544) initializes((72, 80)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6duckdb12ColumnReader10FinishReadEm(ptr noundef nonnull align 8 captures(none) dereferenceable(544) initializes((72, 80)) %0, i64 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !259
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

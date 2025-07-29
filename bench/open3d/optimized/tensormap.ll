@@ -78398,7 +78398,7 @@ define linkonce_odr hidden void @_ZNK8pybind119key_error9set_errorEv(ptr noundef
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal noundef ptr @_ZZN8pybind1112cpp_function10initializeIZN6open3d1t8geometryL15bind_tensor_mapINS4_9TensorMapESt10unique_ptrIS6_St14default_deleteIS6_EEJRA44_KcEEENS_6class_IT_JT0_EEENS_6handleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT1_EUlRS6_SQ_RKNS2_4core6TensorEE_vJSU_SQ_SY_EJNS_4nameENS_9is_methodENS_7siblingEEEEvOSF_PFSG_DpSR_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES1D_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZN6open3d1t8geometryL15bind_tensor_mapINS4_9TensorMapESt10unique_ptrIS6_St14default_deleteIS6_EEJRA44_KcEEENS_6class_IT_JT0_EEENS_6handleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT1_EUlRS6_SQ_RKNS2_4core6TensorEE_vJSU_SQ_SY_EJNS_4nameENS_9is_methodENS_7siblingEEEEvOSF_PFSG_DpSR_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES1D_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::detail::argument_loader.717", align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 32, i1 false)
@@ -88149,7 +88149,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZN6open3d1t8geometry28pybind_tensormap_definitionsERNS_7module_EE3$_4vJRNS4_9TensorMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_4core6TensorEEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES12_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZN6open3d1t8geometry28pybind_tensormap_definitionsERNS_7module_EE3$_4vJRNS4_9TensorMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_4core6TensorEEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES12_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::detail::argument_loader.717", align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 32, i1 false)

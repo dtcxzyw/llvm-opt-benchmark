@@ -26409,7 +26409,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter16builtinMakeArrayERKNS0_13LocationRangeERKSt6vectorINS1_5ValueESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter16builtinMakeArrayERKNS0_13LocationRangeERKSt6vectorINS1_5ValueESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::vector.162", align 8
@@ -32699,7 +32699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter12builtinTraceERKNS0_13LocationRangeERKSt6vectorINS1_5ValueESaIS7_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter12builtinTraceERKNS0_13LocationRangeERKSt6vectorINS1_5ValueESaIS7_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35445,7 +35445,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE5clearEv.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter16builtinParseJsonERKNS0_13LocationRangeERKSt6vectorINS1_5ValueESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter16builtinParseJsonERKNS0_13LocationRangeERKSt6vectorINS1_5ValueESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::vector.162", align 8

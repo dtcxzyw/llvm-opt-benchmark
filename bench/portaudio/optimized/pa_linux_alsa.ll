@@ -5441,7 +5441,7 @@ declare void @PaUtil_ResetBufferProcessor(ptr noundef) local_unnamed_addr #4
 declare i32 @PaUnixThread_New(ptr noundef, ptr noundef, ptr noundef, double noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef ptr @CallbackThreadFunc(ptr noundef %0) #18 {
+define internal noalias noundef nonnull ptr @CallbackThreadFunc(ptr noundef %0) #18 {
   %2 = alloca %struct.PaStreamCallbackTimeInfo, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.__pthread_unwind_buf_t, align 16

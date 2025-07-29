@@ -735,7 +735,7 @@ define dso_local range(i32 -1, 1) i32 @start_item_crawler_thread() local_unnamed
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @item_crawler_thread(ptr readnone captures(none) %0) #0 {
+define internal noalias noundef ptr @item_crawler_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 232), align 8, !tbaa !53
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_crawler_lock) #18

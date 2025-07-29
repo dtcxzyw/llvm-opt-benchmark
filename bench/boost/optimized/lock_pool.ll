@@ -48,7 +48,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64 noundef %0) local_unnamed_addr #2 {
+define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 255
   %3 = getelementptr inbounds nuw [256 x %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state"], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 0, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
@@ -116,7 +116,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state10short_lockEv.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost7atomics6detail9lock_pool9long_lockEm(i64 noundef %0) local_unnamed_addr #2 {
+define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool9long_lockEm(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 255
   %3 = getelementptr inbounds nuw [256 x %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state"], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 0, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i

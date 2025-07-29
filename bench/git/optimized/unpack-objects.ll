@@ -824,7 +824,7 @@ stream_blob.exit.i.i:                             ; preds = %327, %321
   %347 = load ptr, ptr %346, align 8, !tbaa !19
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 16
   %349 = load i64, ptr %348, align 8, !tbaa !60
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr readonly align 1 %344, i64 %349, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr nonnull readonly align 1 %344, i64 %349, i1 false)
   %350 = load i64, ptr %348, align 8, !tbaa !60
   %351 = icmp ult i64 %350, 32
   br i1 %351, label %352, label %.preheader161
@@ -1524,7 +1524,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @fsck_finish(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fill(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @fill(i32 noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr @len, align 4, !tbaa !9
   %.not = icmp ugt i32 %0, %2
   br i1 %.not, label %7, label %3

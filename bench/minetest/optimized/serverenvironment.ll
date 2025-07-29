@@ -8989,8 +8989,8 @@ _ZNSt6vectorIP12RemotePlayerSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vect
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17ServerEnvironment12removePlayerEP12RemotePlayer(ptr noundef nonnull align 8 captures(none) dereferenceable(952) %this, ptr noundef readnone %player) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN17ServerEnvironment12removePlayerEP12RemotePlayer(ptr noundef nonnull align 8 captures(none) dereferenceable(952) %this, ptr noundef readnone %player) local_unnamed_addr #6 align 2 {
 entry:
   %m_players = getelementptr inbounds nuw i8, ptr %this, i64 736
   %0 = load ptr, ptr %m_players, align 8, !tbaa !21

@@ -3334,7 +3334,7 @@ declare i32 @jpeg_finish_decompress(ptr noundef) local_unnamed_addr #8
 declare void @jpeg_abort_decompress(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tj3LoadImage8(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define noalias noundef ptr @tj3LoadImage8(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %10
 
@@ -4858,7 +4858,7 @@ declare i32 @jpeg12_skip_scanlines(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @jpeg12_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tj3LoadImage12(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define noalias noundef ptr @tj3LoadImage12(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %10
 
@@ -6175,7 +6175,7 @@ setDecompParameters.exit:                         ; preds = %59, %switch.lookup
 declare i32 @jpeg16_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tj3LoadImage16(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define noalias noundef ptr @tj3LoadImage16(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %10
 
@@ -14693,7 +14693,7 @@ processFlags.exit:                                ; preds = %48, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tjLoadImage(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define noalias noundef ptr @tjLoadImage(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %calloc.i = tail call dereferenceable_or_null(1904) ptr @calloc(i64 1, i64 1904)
   %7 = icmp eq ptr %calloc.i, null
   br i1 %7, label %tj3Init.exit.thread, label %tj3Init.exit

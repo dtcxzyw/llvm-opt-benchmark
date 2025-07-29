@@ -2888,7 +2888,7 @@ define internal void @e1000_get_ethtool_stats(ptr noundef %0, ptr readnone captu
   %22 = phi ptr [ @.str.14, %14 ], [ %20, %17 ]
   %23 = tail call fastcc ptr @netdev_reg_state(ptr noundef %0)
   %24 = trunc i64 %7 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.12, ptr noundef %22, ptr noundef %23, i32 noundef %10, i32 noundef %24) #18
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.12, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %10, i32 noundef %24) #18
   tail call void asm sideeffect "790: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 790b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 790) #18, !srcloc !41
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.13, i32 1827, i32 2313, i64 12) #18, !srcloc !42
   tail call void asm sideeffect "791: nop\0A\09.pushsection .discard.instr_end\0A\09.long 791b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 791) #18, !srcloc !43
@@ -3834,7 +3834,7 @@ declare dso_local i32 @e1000_cleanup_led(ptr noundef) local_unnamed_addr #7
 declare dso_local void @e1000_update_stats(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @netdev_reg_state(ptr noundef %0) unnamed_addr #16 align 16 {
+define internal fastcc noundef nonnull ptr @netdev_reg_state(ptr noundef %0) unnamed_addr #16 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %9 [

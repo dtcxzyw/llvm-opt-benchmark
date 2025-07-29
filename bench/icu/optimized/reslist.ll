@@ -5942,8 +5942,8 @@ declare i32 @uhash_count_77(ptr noundef) local_unnamed_addr #0
 
 declare ptr @uhash_nextElement_77(ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL21compareStringSuffixesPKvS0_S0_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i32 @_ZL21compareStringSuffixesPKvS0_S0_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %1, align 8, !tbaa !147
   %5 = load ptr, ptr %2, align 8, !tbaa !147
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64

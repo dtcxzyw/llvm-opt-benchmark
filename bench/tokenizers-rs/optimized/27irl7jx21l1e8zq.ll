@@ -13292,7 +13292,7 @@ define hidden void @"_ZN12aho_corasick9automaton17FindIter$LT$A$GT$3new17h6abf98
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlapping_fwd17h7047e6edc66c17f8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(64) initializes((0, 8)) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlapping_fwd17h7047e6edc66c17f8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(64) initializes((0, 8)) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i32, [1 x i32] } }, align 8
   %5 = alloca { { ptr, i32, [1 x i32] } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -15507,7 +15507,7 @@ _ZN12aho_corasick9automaton28try_find_overlapping_fwd_imp17h146b802d1cd69f33E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlapping_fwd17hdc290c5f18ac2fd0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(64) initializes((0, 8)) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlapping_fwd17hdc290c5f18ac2fd0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(64) initializes((0, 8)) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { ptr, [5 x i64] }, align 8

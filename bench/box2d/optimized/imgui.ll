@@ -68522,7 +68522,7 @@ _ZN5ImGui19FindSettingsHandlerEPKc.exit:          ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5ImGui23SaveIniSettingsToMemoryEPm(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @_ZN5ImGui23SaveIniSettingsToMemoryEPm(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 9540
   store float 0.000000e+00, ptr %3, align 4, !tbaa !642

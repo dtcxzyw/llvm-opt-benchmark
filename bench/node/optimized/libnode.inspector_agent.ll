@@ -5288,7 +5288,7 @@ declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal noundef ptr @_ZN4node9inspector12_GLOBAL__N_117StartIoThreadMainEPv(ptr readnone captures(none) %unused) #11 {
+define internal noalias noundef nonnull ptr @_ZN4node9inspector12_GLOBAL__N_117StartIoThreadMainEPv(ptr readnone captures(none) %unused) #11 {
 entry:
   tail call void @uv_sem_wait(ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_125start_io_thread_semaphoreE) #22
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_127start_io_thread_async_mutexE) #22

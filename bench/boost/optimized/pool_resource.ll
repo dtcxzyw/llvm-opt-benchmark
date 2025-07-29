@@ -444,8 +444,8 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit: ; preds = %42, %
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource7releaseEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN5boost9container3pmr13pool_resource7releaseEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
@@ -718,8 +718,8 @@ _ZN5boost9container3pmr11pool_data_t14allocate_blockEv.exit20: ; preds = %86, %_
   ret ptr %.011
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !7
   %7 = icmp ugt i64 %2, %6

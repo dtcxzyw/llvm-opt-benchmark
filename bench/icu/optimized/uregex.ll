@@ -431,8 +431,8 @@ declare i64 @utext_nativeLength_77(ptr noundef) local_unnamed_addr #5
 
 declare i32 @utext_extract_77(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress uwtable
-define void @uregex_close_77(ptr noundef %0) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @uregex_close_77(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread, label %3
 

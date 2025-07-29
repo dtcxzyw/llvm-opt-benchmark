@@ -3827,8 +3827,8 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK15rv32_high_csr_t13written_valu
   ret i64 %8
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN13sstatus_csr_tC2EP11processor_tSt10shared_ptrI19sstatus_proxy_csr_tES2_I14vsstatus_csr_tE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((0, 37), (40, 104)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN13sstatus_csr_tC2EP11processor_tSt10shared_ptrI19sstatus_proxy_csr_tES2_I14vsstatus_csr_tE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((0, 37), (40, 104)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !200
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !179
@@ -4142,8 +4142,8 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7115,8 +7115,8 @@ define void @_ZNK10satp_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN22virtualized_satp_csr_tC2EP11processor_tSt10shared_ptrI10satp_csr_tES2_I5csr_tE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 37), (40, 88)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN22virtualized_satp_csr_tC2EP11processor_tSt10shared_ptrI10satp_csr_tES2_I5csr_tE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 37), (40, 88)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !232
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !179
@@ -8018,8 +8018,8 @@ define noundef zeroext i1 @_ZN11const_csr_t14unlogged_writeEm(ptr nonnull readno
   ret i1 false
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN19counter_proxy_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 37), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN19counter_proxy_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 37), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %3, align 8, !tbaa !178
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !179
@@ -9757,8 +9757,8 @@ define noundef zeroext i1 @_ZN11float_csr_t14unlogged_writeEm(ptr noundef nonnul
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1928
   %10 = load ptr, ptr %9, align 8, !tbaa !266
-  invoke void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %10, i64 noundef 24576)
-          to label %11 unwind label %23
+  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %10, i64 noundef 24576)
+  br label %11
 
 11:                                               ; preds = %6, %2
   %12 = load ptr, ptr %0, align 8, !tbaa !3
@@ -9774,13 +9774,6 @@ define noundef zeroext i1 @_ZN11float_csr_t14unlogged_writeEm(ptr noundef nonnul
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %21, ptr %22, align 8, !tbaa !159
   ret i1 true
-
-23:                                               ; preds = %6
-  %24 = landingpad { ptr, i32 }
-          catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #32
-  unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
@@ -10322,32 +10315,22 @@ define noundef zeroext i1 @_ZN12vector_csr_t14unlogged_writeEm(ptr noundef nonnu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !269
   %5 = icmp ne i64 %4, 0
-  br i1 %5, label %6, label %15
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1928
   %10 = load ptr, ptr %9, align 8, !tbaa !266
-  invoke void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %10, i64 noundef 1536)
-          to label %11 unwind label %16
+  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %10, i64 noundef 1536)
+  %11 = load i64, ptr %3, align 8, !tbaa !269
+  %12 = and i64 %11, %1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %12, ptr %13, align 8, !tbaa !159
+  br label %14
 
-11:                                               ; preds = %6
-  %12 = load i64, ptr %3, align 8, !tbaa !269
-  %13 = and i64 %12, %1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %13, ptr %14, align 8, !tbaa !159
-  br label %15
-
-15:                                               ; preds = %2, %11
+14:                                               ; preds = %2, %6
   ret i1 %5
-
-16:                                               ; preds = %6
-  %17 = landingpad { ptr, i32 }
-          catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #32
-  unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -10463,30 +10446,20 @@ define noundef zeroext i1 @_ZN11vxsat_csr_t14unlogged_writeEm(ptr noundef nonnul
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1928
   %6 = load ptr, ptr %5, align 8, !tbaa !266
-  invoke void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %6, i64 noundef 1536)
-          to label %7 unwind label %19
-
-7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #30
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load i64, ptr %12, align 8, !tbaa !230
-  %14 = xor i64 %13, -1
-  %15 = and i64 %11, %14
-  %16 = and i64 %13, %1
-  %17 = or i64 %15, %16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %17, ptr %18, align 8, !tbaa !159
+  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %6, i64 noundef 1536)
+  %7 = load ptr, ptr %0, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(56) %0) #30
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = load i64, ptr %11, align 8, !tbaa !230
+  %13 = xor i64 %12, -1
+  %14 = and i64 %10, %13
+  %15 = and i64 %12, %1
+  %16 = or i64 %14, %15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %16, ptr %17, align 8, !tbaa !159
   ret i1 true
-
-19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
-          catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #32
-  unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -11204,8 +11177,8 @@ define noundef zeroext i1 @_ZN14stimecmp_csr_t14unlogged_writeEm(ptr noundef non
   ret i1 true
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN26virtualized_stimecmp_csr_tC2EP11processor_tSt10shared_ptrI5csr_tES4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 37), (40, 72)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN26virtualized_stimecmp_csr_tC2EP11processor_tSt10shared_ptrI5csr_tES4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 37), (40, 72)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !178
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !179
@@ -11782,8 +11755,8 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN26virtualized_indirect_csr_tC2EP11processor_tSt10shared_ptrI5csr_tES4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 37), (40, 72)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN26virtualized_indirect_csr_tC2EP11processor_tSt10shared_ptrI5csr_tES4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 37), (40, 72)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !178
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !179
