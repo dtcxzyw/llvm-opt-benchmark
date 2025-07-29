@@ -211,52 +211,49 @@ define range(i32 0, 2) i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef capture
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !21
-  br label %23
+  br label %21
 
 8:                                                ; preds = %2
   %9 = icmp eq i64 %5, 0
-  br i1 %9, label %13, label %10
+  br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %8
   %11 = shl i64 %5, 3
   %12 = udiv i64 %11, 5
-  br label %13
+  %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 512)
+  %14 = icmp eq i64 %5, %13
+  br i1 %14, label %29, label %.thread
 
-13:                                               ; preds = %8, %10
-  %14 = phi i64 [ %12, %10 ], [ 4, %8 ]
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %14, i64 512)
-  %15 = icmp eq i64 %5, %spec.store.select
-  br i1 %15, label %31, label %16
+.thread:                                          ; preds = %8, %10
+  %spec.store.select24 = phi i64 [ %13, %10 ], [ 4, %8 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
+  %17 = shl nuw nsw i64 %spec.store.select24, 5
+  %18 = tail call ptr @CRYPTO_realloc(ptr noundef %16, i64 noundef %17, ptr noundef nonnull @.str, i32 noundef 173) #11
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %29, label %20
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %18 = load ptr, ptr %17, align 8, !tbaa !21
-  %19 = shl nuw nsw i64 %spec.store.select, 5
-  %20 = tail call ptr @CRYPTO_realloc(ptr noundef %18, i64 noundef %19, ptr noundef nonnull @.str, i32 noundef 173) #11
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %31, label %22
-
-22:                                               ; preds = %16
-  store ptr %20, ptr %17, align 8, !tbaa !21
-  store i64 %spec.store.select, ptr %3, align 8, !tbaa !34
+20:                                               ; preds = %.thread
+  store ptr %18, ptr %15, align 8, !tbaa !21
+  store i64 %spec.store.select24, ptr %3, align 8, !tbaa !34
   %.pre22 = load i64, ptr %4, align 8, !tbaa !28
-  br label %23
+  br label %21
 
-23:                                               ; preds = %._crit_edge, %22
-  %24 = phi i64 [ %5, %._crit_edge ], [ %.pre22, %22 ]
-  %25 = phi ptr [ %.pre, %._crit_edge ], [ %20, %22 ]
-  %26 = add i64 %24, 1
-  store i64 %26, ptr %4, align 8, !tbaa !28
-  %27 = getelementptr inbounds nuw %struct.quic_txpim_chunk_st, ptr %25, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !35
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %29 = load i8, ptr %28, align 8
-  %30 = or i8 %29, 1
-  store i8 %30, ptr %28, align 8
-  br label %31
+21:                                               ; preds = %._crit_edge, %20
+  %22 = phi i64 [ %5, %._crit_edge ], [ %.pre22, %20 ]
+  %23 = phi ptr [ %.pre, %._crit_edge ], [ %18, %20 ]
+  %24 = add i64 %22, 1
+  store i64 %24, ptr %4, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw %struct.quic_txpim_chunk_st, ptr %23, i64 %22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !35
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %27 = load i8, ptr %26, align 8
+  %28 = or i8 %27, 1
+  store i8 %28, ptr %26, align 8
+  br label %29
 
-31:                                               ; preds = %16, %13, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %13 ], [ 0, %16 ]
+29:                                               ; preds = %.thread, %10, %21
+  %.0 = phi i32 [ 1, %21 ], [ 0, %10 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

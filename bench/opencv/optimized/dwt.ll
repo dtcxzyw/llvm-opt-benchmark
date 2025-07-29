@@ -4248,68 +4248,77 @@ define hidden void @opj_dwt_calc_explicit_stepsizes(ptr noundef captures(none) %
   %26 = icmp ult i32 %25, 2
   %27 = select i1 %26, i32 1, i32 2
   %28 = select i1 %or.cond, i32 0, i32 %27
-  br i1 %12, label %41, label %29
+  br i1 %12, label %.thread33, label %31
 
-29:                                               ; preds = %.thread
-  %30 = add i32 %13, %.neg2628
-  %31 = icmp ugt i32 %30, 9
-  %or.cond.i = and i1 %31, %24
-  %32 = tail call i32 @llvm.umin.i32(i32 %30, i32 8)
-  %spec.store.select.i = select i1 %24, i32 %30, i32 %32
-  %33 = zext i32 %spec.store.select.i to i64
-  %.0.i = select i1 %or.cond.i, i64 9, i64 %33
-  %34 = zext nneg i32 %23 to i64
-  %35 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms_real, i64 0, i64 %34, i64 %.0.i
-  %36 = load double, ptr %35, align 8, !tbaa !160
-  %37 = shl nuw nsw i32 1, %28
-  %38 = uitofp nneg i32 %37 to double
-  %39 = fdiv double %38, %36
-  %40 = fmul double %39, 8.192000e+03
-  br label %41
+.thread33:                                        ; preds = %.thread
+  %29 = add i32 %28, %1
+  %30 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %14, i64 0, i64 %indvars.iv
+  br label %.lr.ph.i.i.preheader
 
-41:                                               ; preds = %.thread, %29
-  %.024 = phi double [ %40, %29 ], [ 8.192000e+03, %.thread ]
-  %42 = tail call double @llvm.floor.f64(double %.024)
-  %43 = fptosi double %42 to i32
-  %44 = add i32 %28, %1
-  %45 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %14, i64 0, i64 %indvars.iv
-  %46 = icmp sgt i32 %43, 1
-  br i1 %46, label %.lr.ph.i.i, label %opj_dwt_encode_stepsize.exit
+31:                                               ; preds = %.thread
+  %32 = add i32 %13, %.neg2628
+  %33 = icmp ugt i32 %32, 9
+  %or.cond.i = and i1 %33, %24
+  %34 = tail call i32 @llvm.umin.i32(i32 %32, i32 8)
+  %spec.store.select.i = select i1 %24, i32 %32, i32 %34
+  %35 = zext i32 %spec.store.select.i to i64
+  %.0.i = select i1 %or.cond.i, i64 9, i64 %35
+  %36 = zext nneg i32 %23 to i64
+  %37 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms_real, i64 0, i64 %36, i64 %.0.i
+  %38 = load double, ptr %37, align 8, !tbaa !160
+  %39 = shl nuw nsw i32 1, %28
+  %40 = uitofp nneg i32 %39 to double
+  %41 = fdiv double %40, %38
+  %42 = fmul double %41, 8.192000e+03
+  %43 = tail call double @llvm.floor.f64(double %42)
+  %44 = fptosi double %43 to i32
+  %45 = add i32 %28, %1
+  %46 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %14, i64 0, i64 %indvars.iv
+  %47 = icmp sgt i32 %44, 1
+  br i1 %47, label %.lr.ph.i.i.preheader, label %opj_dwt_encode_stepsize.exit
 
-.lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
-  %.06.i.i = phi i32 [ %48, %.lr.ph.i.i ], [ 0, %41 ]
-  %.045.i.i = phi i32 [ %47, %.lr.ph.i.i ], [ %43, %41 ]
-  %47 = lshr i32 %.045.i.i, 1
-  %48 = add nuw nsw i32 %.06.i.i, 1
-  %49 = icmp samesign ugt i32 %.045.i.i, 3
-  br i1 %49, label %.lr.ph.i.i, label %.lr.ph.i11.i, !llvm.loop !190
+.lr.ph.i.i.preheader:                             ; preds = %.thread33, %31
+  %48 = phi ptr [ %30, %.thread33 ], [ %46, %31 ]
+  %49 = phi i32 [ %29, %.thread33 ], [ %45, %31 ]
+  %.02435 = phi i32 [ 8192, %.thread33 ], [ %44, %31 ]
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.06.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
+  %.045.i.i = phi i32 [ %50, %.lr.ph.i.i ], [ %.02435, %.lr.ph.i.i.preheader ]
+  %50 = lshr i32 %.045.i.i, 1
+  %51 = add nuw nsw i32 %.06.i.i, 1
+  %52 = icmp samesign ugt i32 %.045.i.i, 3
+  br i1 %52, label %.lr.ph.i.i, label %.lr.ph.i11.i, !llvm.loop !190
 
 .lr.ph.i11.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph.i11.i
-  %.06.i12.i = phi i32 [ %51, %.lr.ph.i11.i ], [ 0, %.lr.ph.i.i ]
-  %.045.i13.i = phi i32 [ %50, %.lr.ph.i11.i ], [ %43, %.lr.ph.i.i ]
-  %50 = lshr i32 %.045.i13.i, 1
-  %51 = add nuw nsw i32 %.06.i12.i, 1
-  %52 = icmp samesign ugt i32 %.045.i13.i, 3
-  br i1 %52, label %.lr.ph.i11.i, label %opj_int_floorlog2.exit14.i, !llvm.loop !190
+  %.06.i12.i = phi i32 [ %54, %.lr.ph.i11.i ], [ 0, %.lr.ph.i.i ]
+  %.045.i13.i = phi i32 [ %53, %.lr.ph.i11.i ], [ %.02435, %.lr.ph.i.i ]
+  %53 = lshr i32 %.045.i13.i, 1
+  %54 = add nuw nsw i32 %.06.i12.i, 1
+  %55 = icmp samesign ugt i32 %.045.i13.i, 3
+  br i1 %55, label %.lr.ph.i11.i, label %opj_int_floorlog2.exit14.i, !llvm.loop !190
 
 opj_int_floorlog2.exit14.i:                       ; preds = %.lr.ph.i11.i
-  %53 = icmp samesign ugt i32 %.06.i12.i, 10
+  %56 = icmp samesign ugt i32 %.06.i12.i, 10
   %.neg.i = add nsw i32 %.06.i12.i, -10
-  %54 = lshr i32 %43, %.neg.i
-  %55 = sub nsw i32 10, %.06.i12.i
-  %56 = shl i32 %43, %55
-  %spec.select.i = select i1 %53, i32 %54, i32 %56
+  %57 = lshr i32 %.02435, %.neg.i
+  %58 = sub nsw i32 10, %.06.i12.i
+  %59 = shl i32 %.02435, %58
+  %spec.select.i = select i1 %56, i32 %57, i32 %59
   %.neg30 = sub nsw i32 12, %.06.i.i
-  %57 = and i32 %spec.select.i, 2047
+  %60 = and i32 %spec.select.i, 2047
   br label %opj_dwt_encode_stepsize.exit
 
-opj_dwt_encode_stepsize.exit:                     ; preds = %41, %opj_int_floorlog2.exit14.i
-  %.0.lcssa.i1621.i.neg31 = phi i32 [ %.neg30, %opj_int_floorlog2.exit14.i ], [ 13, %41 ]
-  %58 = phi i32 [ %57, %opj_int_floorlog2.exit14.i ], [ 0, %41 ]
-  %59 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i32 %58, ptr %59, align 4, !tbaa !191
-  %60 = add i32 %44, %.0.lcssa.i1621.i.neg31
-  store i32 %60, ptr %45, align 4, !tbaa !193
+opj_dwt_encode_stepsize.exit:                     ; preds = %31, %opj_int_floorlog2.exit14.i
+  %61 = phi ptr [ %48, %opj_int_floorlog2.exit14.i ], [ %46, %31 ]
+  %62 = phi i32 [ %49, %opj_int_floorlog2.exit14.i ], [ %45, %31 ]
+  %.0.lcssa.i1621.i.neg31 = phi i32 [ %.neg30, %opj_int_floorlog2.exit14.i ], [ 13, %31 ]
+  %63 = phi i32 [ %60, %opj_int_floorlog2.exit14.i ], [ 0, %31 ]
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  store i32 %63, ptr %64, align 4, !tbaa !191
+  %65 = add i32 %62, %.0.lcssa.i1621.i.neg31
+  store i32 %65, ptr %61, align 4, !tbaa !193
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !194

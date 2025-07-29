@@ -8426,7 +8426,7 @@ define internal i32 @cnf_dissect_sec_desc_buf_(ptr noundef %0, i32 noundef %1, p
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %34, label %12
+  br i1 %11, label %31, label %12
 
 12:                                               ; preds = %6
   %13 = load i32, ptr @hf_lsarpc_sec_desc_buf_len, align 4
@@ -8434,44 +8434,40 @@ define internal i32 @cnf_dissect_sec_desc_buf_(ptr noundef %0, i32 noundef %1, p
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.thread, label %17
+  br i1 %.not, label %.thread.thread, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %19 = load ptr, ptr %18, align 8
   %.not25 = icmp eq ptr %19, null
-  br i1 %.not25, label %.thread, label %20
+  br i1 %.not25, label %.thread.thread, label %.thread
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %22 = load i32, ptr %21, align 4
-  %23 = call zeroext i1 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %19, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef %22)
+.thread:                                          ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %21 = load i32, ptr %20, align 4
+  %22 = call zeroext i1 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %19, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef %21)
   %.pre = load i32, ptr %8, align 4
-  %24 = add i32 %.pre, -393216
-  br label %.thread
-
-.thread:                                          ; preds = %12, %20, %17
-  %25 = phi i32 [ -393216, %12 ], [ %24, %20 ], [ -393216, %17 ]
-  %26 = call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 16)
-  %27 = icmp ult i32 %26, 4
-  br i1 %27, label %switch.lookup, label %29
+  %23 = add i32 %.pre, -393216
+  %24 = call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 16)
+  %25 = icmp ult i32 %24, 4
+  br i1 %25, label %switch.lookup, label %.thread.thread
 
 switch.lookup:                                    ; preds = %.thread
-  %28 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 0, i64 %28
+  %26 = zext nneg i32 %24 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %29
+  br label %.thread.thread
 
-29:                                               ; preds = %switch.lookup, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ %switch.load, %switch.lookup ]
-  %30 = load i32, ptr %7, align 4
-  %31 = call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %5, i1 noundef zeroext true, i32 noundef %30, ptr noundef %.0)
-  %32 = load i32, ptr %7, align 4
-  %33 = add i32 %32, %14
-  br label %34
+.thread.thread:                                   ; preds = %switch.lookup, %.thread, %17, %12
+  %.0 = phi ptr [ null, %.thread ], [ null, %12 ], [ null, %17 ], [ %switch.load, %switch.lookup ]
+  %27 = load i32, ptr %7, align 4
+  %28 = call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %5, i1 noundef zeroext true, i32 noundef %27, ptr noundef %.0)
+  %29 = load i32, ptr %7, align 4
+  %30 = add i32 %29, %14
+  br label %31
 
-34:                                               ; preds = %6, %29
-  %.023 = phi i32 [ %33, %29 ], [ %1, %6 ]
+31:                                               ; preds = %6, %.thread.thread
+  %.023 = phi i32 [ %30, %.thread.thread ], [ %1, %6 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   ret i32 %.023

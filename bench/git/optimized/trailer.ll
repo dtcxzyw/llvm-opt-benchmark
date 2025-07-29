@@ -150,17 +150,21 @@ token_len_without_separator.exit.i.i:             ; preds = %27, %.lr.ph.i.i.i, 
   %34 = load i8, ptr %33, align 1, !tbaa !19
   %35 = and i8 %34, 6
   %.not4.i19.i.i = icmp eq i8 %35, 0
-  br i1 %.not4.i19.i.i, label %36, label %same_token.exit.i
+  br i1 %.not4.i19.i.i, label %36, label %token_len_without_separator.exit22.loopexit.i.i
 
 36:                                               ; preds = %.lr.ph.i16.i.i
   %37 = add i64 %.06.i17.i.i, -1
   %.not.i21.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i21.i.i, label %same_token.exit.i, label %.lr.ph.i16.i.i, !llvm.loop !20
+  br i1 %.not.i21.i.i, label %token_len_without_separator.exit22.loopexit.i.i, label %.lr.ph.i16.i.i, !llvm.loop !20
 
-same_token.exit.i:                                ; preds = %36, %.lr.ph.i16.i.i, %token_len_without_separator.exit.i.i
-  %.0.lcssa.i20.i.i = phi i64 [ 0, %token_len_without_separator.exit.i.i ], [ %.06.i17.i.i, %.lr.ph.i16.i.i ], [ 0, %36 ]
-  %38 = tail call i64 @llvm.umin.i64(i64 %.0.lcssa.i.i.i, i64 %.0.lcssa.i20.i.i)
-  %39 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.026.val.i, ptr noundef nonnull %29, i64 noundef %38) #15
+token_len_without_separator.exit22.loopexit.i.i:  ; preds = %36, %.lr.ph.i16.i.i
+  %.0.lcssa.i20.ph.i.i = phi i64 [ 0, %36 ], [ %.06.i17.i.i, %.lr.ph.i16.i.i ]
+  %38 = tail call i64 @llvm.umin.i64(i64 %.0.lcssa.i.i.i, i64 %.0.lcssa.i20.ph.i.i)
+  br label %same_token.exit.i
+
+same_token.exit.i:                                ; preds = %token_len_without_separator.exit22.loopexit.i.i, %token_len_without_separator.exit.i.i
+  %.0.lcssa.i20.i.i = phi i64 [ 0, %token_len_without_separator.exit.i.i ], [ %38, %token_len_without_separator.exit22.loopexit.i.i ]
+  %39 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.026.val.i, ptr noundef nonnull %29, i64 noundef %.0.lcssa.i20.i.i) #15
   %.not13.i.not.i = icmp eq i32 %39, 0
   br i1 %.not13.i.not.i, label %40, label %same_token.exit.thread.i
 
@@ -3392,17 +3396,21 @@ token_len_without_separator.exit.i.i:             ; preds = %20, %.lr.ph.i.i.i, 
   %27 = load i8, ptr %26, align 1, !tbaa !19
   %28 = and i8 %27, 6
   %.not4.i19.i.i = icmp eq i8 %28, 0
-  br i1 %.not4.i19.i.i, label %29, label %same_token.exit.i
+  br i1 %.not4.i19.i.i, label %29, label %token_len_without_separator.exit22.loopexit.i.i
 
 29:                                               ; preds = %.lr.ph.i16.i.i
   %30 = add i64 %.06.i17.i.i, -1
   %.not.i21.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i21.i.i, label %same_token.exit.i, label %.lr.ph.i16.i.i, !llvm.loop !20
+  br i1 %.not.i21.i.i, label %token_len_without_separator.exit22.loopexit.i.i, label %.lr.ph.i16.i.i, !llvm.loop !20
 
-same_token.exit.i:                                ; preds = %29, %.lr.ph.i16.i.i, %token_len_without_separator.exit.i.i
-  %.0.lcssa.i20.i.i = phi i64 [ 0, %token_len_without_separator.exit.i.i ], [ %.06.i17.i.i, %.lr.ph.i16.i.i ], [ 0, %29 ]
-  %31 = tail call i64 @llvm.umin.i64(i64 %.0.lcssa.i.i.i, i64 %.0.lcssa.i20.i.i)
-  %32 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.val.i, ptr noundef nonnull %22, i64 noundef %31) #15
+token_len_without_separator.exit22.loopexit.i.i:  ; preds = %29, %.lr.ph.i16.i.i
+  %.0.lcssa.i20.ph.i.i = phi i64 [ 0, %29 ], [ %.06.i17.i.i, %.lr.ph.i16.i.i ]
+  %31 = tail call i64 @llvm.umin.i64(i64 %.0.lcssa.i.i.i, i64 %.0.lcssa.i20.ph.i.i)
+  br label %same_token.exit.i
+
+same_token.exit.i:                                ; preds = %token_len_without_separator.exit22.loopexit.i.i, %token_len_without_separator.exit.i.i
+  %.0.lcssa.i20.i.i = phi i64 [ 0, %token_len_without_separator.exit.i.i ], [ %31, %token_len_without_separator.exit22.loopexit.i.i ]
+  %32 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.val.i, ptr noundef nonnull %22, i64 noundef %.0.lcssa.i20.i.i) #15
   %.not13.i.not.i = icmp eq i32 %32, 0
   br i1 %.not13.i.not.i, label %same_trailer.exit, label %same_trailer.exit.thread
 

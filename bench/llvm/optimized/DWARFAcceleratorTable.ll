@@ -11889,13 +11889,15 @@ _ZNK4llvm9StringRef9ends_withES0_.exit14.thread32: ; preds = %11, %_ZNK4llvm9Str
   %spec.select.i20 = add i64 %.068.i19, %28
   %29 = add nuw i64 %.09.i18, 1
   %.not.i21 = icmp eq i64 %29, %19
-  br i1 %.not.i21, label %_ZNK4llvm9StringRef5countEc.exit23, label %.lr.ph.i17, !llvm.loop !980
+  br i1 %.not.i21, label %_ZNK4llvm9StringRef5countEc.exit23.loopexit, label %.lr.ph.i17, !llvm.loop !980
 
-_ZNK4llvm9StringRef5countEc.exit23:               ; preds = %.lr.ph.i17, %_ZNK4llvm9StringRef9ends_withES0_.exit14.thread32
-  %.06.lcssa.i34 = phi i64 [ 0, %_ZNK4llvm9StringRef9ends_withES0_.exit14.thread32 ], [ %spec.select.i, %.lr.ph.i17 ]
-  %.06.lcssa.i22 = phi i64 [ 0, %_ZNK4llvm9StringRef9ends_withES0_.exit14.thread32 ], [ %spec.select.i20, %.lr.ph.i17 ]
-  %30 = call i64 @llvm.usub.sat.i64(i64 %.06.lcssa.i22, i64 %.06.lcssa.i34)
-  %.09 = add i64 %18, %30
+_ZNK4llvm9StringRef5countEc.exit23.loopexit:      ; preds = %.lr.ph.i17
+  %30 = call i64 @llvm.usub.sat.i64(i64 %spec.select.i20, i64 %spec.select.i)
+  br label %_ZNK4llvm9StringRef5countEc.exit23
+
+_ZNK4llvm9StringRef5countEc.exit23:               ; preds = %_ZNK4llvm9StringRef5countEc.exit23.loopexit, %_ZNK4llvm9StringRef9ends_withES0_.exit14.thread32
+  %.06.lcssa.i22 = phi i64 [ 0, %_ZNK4llvm9StringRef9ends_withES0_.exit14.thread32 ], [ %30, %_ZNK4llvm9StringRef5countEc.exit23.loopexit ]
+  %.09 = add i64 %18, %.06.lcssa.i22
   %.not35 = icmp eq i64 %.09, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -11928,20 +11930,20 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %32, %_ZNSt11char_tr
 
 ._crit_edge.loopexit:                             ; preds = %_ZNK4llvm9StringRef4findEcm.exit
   %41 = add i64 %.0.i.i, -1
+  %42 = call i64 @llvm.umin.i64(i64 %19, i64 %41)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK4llvm9StringRef5countEc.exit23
-  %.0.lcssa = phi i64 [ -1, %_ZNK4llvm9StringRef5countEc.exit23 ], [ %41, %._crit_edge.loopexit ]
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %19, i64 %.0.lcssa)
+  %.0.lcssa = phi i64 [ %19, %_ZNK4llvm9StringRef5countEc.exit23 ], [ %42, %._crit_edge.loopexit ]
   store ptr %.pre.pre, ptr %0, align 8, !tbaa !150
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.speculated.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !3
+  store i64 %.0.lcssa, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !3
   br label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread31
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread31:  ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, %_ZNK4llvm9StringRef9ends_withES0_.exit14, %3, %._crit_edge
   %.sink = phi i8 [ 1, %._crit_edge ], [ 0, %3 ], [ 0, %_ZNK4llvm9StringRef9ends_withES0_.exit14 ], [ 0, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ 0, %_ZNK4llvm9StringRef9ends_withES0_.exit ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %42, align 8, !tbaa !412
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %43, align 8, !tbaa !412
   ret void
 }
 

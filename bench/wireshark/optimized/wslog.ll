@@ -1206,26 +1206,20 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not26, label %42, label %.thread.thread
 
 42:                                               ; preds = %40
-  %43 = and i32 %34, 8
-  %.not27 = icmp eq i32 %43, 0
-  br i1 %.not27, label %44, label %.thread.thread
+  %43 = and i32 %34, 12
+  %or.cond = icmp eq i32 %43, 0
+  br i1 %or.cond, label %44, label %.thread.thread
 
 44:                                               ; preds = %42
-  %45 = and i32 %34, 4
-  %.not28 = icmp eq i32 %45, 0
-  br i1 %.not28, label %46, label %.thread.thread
-
-46:                                               ; preds = %44
   call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.60, ptr noundef %.019)
   br label %ws_log_set_level.exit
 
-.thread.thread:                                   ; preds = %44, %33, %36, %38, %40, %42
-  %.03134 = phi i32 [ 2, %33 ], [ 3, %36 ], [ 4, %38 ], [ 5, %40 ], [ 6, %42 ], [ 7, %44 ]
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %.03134, i32 6)
-  store i32 %spec.store.select.i, ptr @current_log_level, align 4
+.thread.thread:                                   ; preds = %33, %36, %38, %40, %42
+  %.03134 = phi i32 [ 2, %33 ], [ 3, %36 ], [ 4, %38 ], [ 5, %40 ], [ 6, %42 ]
+  store i32 %.03134, ptr @current_log_level, align 4
   br label %ws_log_set_level.exit
 
-ws_log_set_level.exit:                            ; preds = %.thread.thread, %.tail.thread, %13, %17, %3, %46, %32, %29
+ws_log_set_level.exit:                            ; preds = %.thread.thread, %.tail.thread, %13, %17, %3, %44, %32, %29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #23
   ret void
 }

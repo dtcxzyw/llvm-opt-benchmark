@@ -363,7 +363,7 @@ pac_ns_until_purge.exit:                          ; preds = %11, %17
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 60504
   %33 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %32) #9
   %.not.i16 = icmp eq i32 %33, 0
-  br i1 %.not.i16, label %34, label %pac_ns_until_purge.exit19
+  br i1 %.not.i16, label %34, label %pac_ns_until_purge.exit.thread
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 60488
@@ -388,15 +388,11 @@ pac_ns_until_purge.exit:                          ; preds = %11, %17
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 60496
   store atomic i8 0, ptr %46 monotonic, align 1
   %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #9
-  br label %pac_ns_until_purge.exit19
-
-pac_ns_until_purge.exit19:                        ; preds = %25, %44
-  %.0.i17 = phi i64 [ %45, %44 ], [ 0, %25 ]
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.0.i17, i64 %21)
+  %48 = tail call i64 @llvm.umin.i64(i64 %45, i64 %21)
   br label %pac_ns_until_purge.exit.thread
 
-pac_ns_until_purge.exit.thread:                   ; preds = %2, %pac_ns_until_purge.exit, %pac_ns_until_purge.exit19
-  %.0 = phi i64 [ %spec.select, %pac_ns_until_purge.exit19 ], [ 0, %pac_ns_until_purge.exit ], [ 0, %2 ]
+pac_ns_until_purge.exit.thread:                   ; preds = %44, %25, %2, %pac_ns_until_purge.exit
+  %.0 = phi i64 [ 0, %pac_ns_until_purge.exit ], [ 0, %2 ], [ %48, %44 ], [ 0, %25 ]
   ret i64 %.0
 }
 

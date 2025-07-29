@@ -586,21 +586,17 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %2, %5
 define hidden noundef zeroext i1 @_ZNK9used_vars10uses_a_varEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !50
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, label %5
+  br i1 %4, label %._crit_edge, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 -4
-  %7 = load i32, ptr %6, align 4, !tbaa !33
-  br label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-
-_ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %2, %5
-  %.0.i = phi i32 [ %7, %5 ], [ 0, %2 ]
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.0.i, i32 %1)
-  %.not1112.not = icmp eq i32 %.sroa.speculated, 0
+_ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 -4
+  %6 = load i32, ptr %5, align 4, !tbaa !33
+  %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 %1)
+  %.not1112.not = icmp eq i32 %7, 0
   br i1 %.not1112.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %wide.trip.count = zext i32 %.sroa.speculated to i64
+  %wide.trip.count = zext i32 %7 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -613,8 +609,8 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %2, %5
   %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %.not11.lcssa = phi i1 [ false, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %.not.not, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %2, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
+  %.not11.lcssa = phi i1 [ false, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ false, %2 ], [ %.not.not, %.lr.ph ]
   ret i1 %.not11.lcssa
 }
 

@@ -4959,15 +4959,18 @@ _ZZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_iE
   %.not25.i = icmp eq i32 %.01729.i, 0
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i13
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i13, %.preheader.i
-  %.019.lcssa.i = phi float [ 0.000000e+00, %.preheader.i ], [ %.1.i, %.lr.ph.i13 ]
-  %17 = tail call float @llvm.fmuladd.f32(float %.019.lcssa.i, float 2.000000e+00, float -1.000000e+00)
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i13
+  %17 = tail call float @llvm.fmuladd.f32(float %.1.i, float 2.000000e+00, float -1.000000e+00)
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
+  %.019.lcssa.i = phi float [ -1.000000e+00, %.preheader.i ], [ %17, %._crit_edge.loopexit.i ]
   %18 = shl nuw nsw i32 %.01729.i, 1
   %19 = uitofp nneg i32 %18 to float
   %20 = tail call float @llvm.fmuladd.f32(float %19, float 0x400921FB60000000, float 0x400921FB60000000)
   %21 = fdiv float %20, %16
-  %22 = fneg float %17
-  %23 = tail call float @llvm.fmuladd.f32(float %22, float %17, float 1.000000e+00)
+  %22 = fneg float %.019.lcssa.i
+  %23 = tail call float @llvm.fmuladd.f32(float %22, float %.019.lcssa.i, float 1.000000e+00)
   %24 = tail call noundef float @sqrtf(float noundef %23) #27, !tbaa !61
   %25 = tail call noundef float @cosf(float noundef %21) #27, !tbaa !61
   %26 = fmul float %24, %25
@@ -4978,7 +4981,7 @@ _ZZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_iE
   %.sroa.4.0..0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.030.i, i64 4
   store float %28, ptr %.sroa.4.0..0.sroa_idx.i, align 4
   %.sroa.5.0..0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.030.i, i64 8
-  store float %17, ptr %.sroa.5.0..0.sroa_idx.i, align 4
+  store float %.019.lcssa.i, ptr %.sroa.5.0..0.sroa_idx.i, align 4
   %.sroa.6.0..0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.030.i, i64 12
   store float 0.000000e+00, ptr %.sroa.6.0..0.sroa_idx.i, align 4, !tbaa !35
   %30 = add nuw nsw i32 %.01729.i, 1
@@ -4996,7 +4999,7 @@ _ZZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_iE
   %33 = fmul float %.02026.i, 5.000000e-01
   %34 = lshr i32 %.01828.i, 1
   %.not.i = icmp samesign ult i32 %.01828.i, 2
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i13, !llvm.loop !243
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i13, !llvm.loop !243
 
 .lr.ph:                                           ; preds = %._crit_edge.i
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 4

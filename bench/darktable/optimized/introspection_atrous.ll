@@ -958,10 +958,13 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %32, label %33
 
-._crit_edge:                                      ; preds = %.lr.ph, %19
-  %.034.lcssa = phi i32 [ 0, %19 ], [ %55, %.lr.ph ]
-  %54 = tail call i32 @llvm.umin.i32(i32 %.034.lcssa, i32 6)
-  store i32 %54, ptr %6, align 8, !tbaa !125
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %54 = tail call i32 @llvm.umin.i32(i32 %55, i32 6)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
+  %.034.lcssa = phi i32 [ 0, %19 ], [ %54, %._crit_edge.loopexit ]
+  store i32 %.034.lcssa, ptr %6, align 8, !tbaa !125
   ret void
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
@@ -970,7 +973,7 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   %55 = add nuw nsw i32 %.03443, 1
   %56 = ashr i32 %.044, 1
   %.not = icmp ult i32 %.044, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -1052,10 +1055,13 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %37, label %38
 
-._crit_edge:                                      ; preds = %.lr.ph, %11
-  %.030.lcssa = phi i32 [ 0, %11 ], [ %48, %.lr.ph ]
-  %47 = tail call i32 @llvm.umin.i32(i32 %.030.lcssa, i32 6)
-  store i32 %47, ptr %4, align 8, !tbaa !125
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %47 = tail call i32 @llvm.umin.i32(i32 %48, i32 6)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
+  %.030.lcssa = phi i32 [ 0, %11 ], [ %47, %._crit_edge.loopexit ]
+  store i32 %.030.lcssa, ptr %4, align 8, !tbaa !125
   ret void
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
@@ -1064,7 +1070,7 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %48 = add nuw nsw i32 %.03038, 1
   %49 = ashr i32 %.039, 1
   %.not = icmp ult i32 %.039, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable

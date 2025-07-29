@@ -1769,55 +1769,51 @@ _ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32EL
   %29 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
   %30 = add i64 %29, %28
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, label %32
+  br i1 %31, label %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
 
-32:                                               ; preds = %.split.i.i
-  %33 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
-  %34 = shl i64 %30, %33
-  %35 = lshr i64 %34, 11
-  %36 = and i64 %35, 4503599627370495
-  %37 = shl nuw nsw i64 %33, 52
-  %reass.sub = sub nsw i64 %36, %37
-  %38 = add nsw i64 %reass.sub, 4602678819172646912
-  %39 = bitcast i64 %38 to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i: ; preds = %.split.i.i
+  %32 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
+  %33 = shl i64 %30, %32
+  %34 = lshr i64 %33, 11
+  %35 = and i64 %34, 4503599627370495
+  %36 = shl nuw nsw i64 %32, 52
+  %reass.sub = sub nsw i64 %35, %36
+  %37 = add nsw i64 %reass.sub, 4602678819172646912
+  %38 = bitcast i64 %37 to double
+  %39 = call double @llvm.fmuladd.f64(double %38, double 0x3FC9999999999998, double 5.000000e-01)
+  %40 = fcmp uge double %39, 0x3FE6666666666666
+  br i1 %40, label %.split.i.i, label %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i: ; preds = %32, %.split.i.i
-  %.0.i.i.i.i.i = phi double [ %39, %32 ], [ 0.000000e+00, %.split.i.i ]
-  %40 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i, double 0x3FC9999999999998, double 5.000000e-01)
-  %41 = fcmp uge double %40, 0x3FE6666666666666
-  br i1 %41, label %.split.i.i, label %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit
-
-_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #20
   store double 1.000000e+00, ptr %2, align 8, !tbaa !74
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 1, ptr %42, align 8, !tbaa !77
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double 0x3FD78B56362CEF38, ptr %43, align 8, !tbaa !78
-  %44 = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(5000) %4, ptr noundef nonnull align 8 dereferenceable(49) %2)
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 1, ptr %41, align 8, !tbaa !77
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double 0x3FD78B56362CEF38, ptr %42, align 8, !tbaa !78
+  %43 = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(5000) %4, ptr noundef nonnull align 8 dereferenceable(49) %2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #20
-  %45 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-  %46 = shl i64 %45, 32
-  %47 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-  %48 = add i64 %47, %46
-  %49 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %48, i1 false)
-  %50 = trunc nuw nsw i64 %49 to i32
-  %51 = and i64 %49, 63
-  %52 = shl i64 %48, %51
-  %53 = lshr i64 %52, 40
-  %54 = trunc nuw nsw i64 %53 to i32
-  %55 = and i32 %54, 8388607
-  %56 = shl nuw nsw i32 %50, 23
-  %reass.sub3 = sub nsw i32 %55, %56
-  %57 = add nsw i32 %reass.sub3, 1056964608
-  %58 = or i32 %57, -2147483648
-  %59 = bitcast i32 %58 to float
-  %60 = fcmp ugt float %59, -1.000000e+00
-  br i1 %60, label %cdce.end, label %cdce.call, !prof !79
+  %44 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
+  %45 = shl i64 %44, 32
+  %46 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
+  %47 = add i64 %46, %45
+  %48 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %47, i1 false)
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = and i64 %48, 63
+  %51 = shl i64 %47, %50
+  %52 = lshr i64 %51, 40
+  %53 = trunc nuw nsw i64 %52 to i32
+  %54 = and i32 %53, 8388607
+  %55 = shl nuw nsw i32 %49, 23
+  %reass.sub3 = sub nsw i32 %54, %55
+  %56 = add nsw i32 %reass.sub3, 1056964608
+  %57 = or i32 %56, -2147483648
+  %58 = bitcast i32 %57 to float
+  %59 = fcmp ugt float %58, -1.000000e+00
+  br i1 %59, label %cdce.end, label %cdce.call, !prof !79
 
 cdce.call:                                        ; preds = %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit
-  %61 = call noundef float @log1pf(float noundef %59) #20, !tbaa !23
+  %60 = call noundef float @log1pf(float noundef %58) #20, !tbaa !23
   br label %cdce.end
 
 cdce.end:                                         ; preds = %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit, %cdce.call

@@ -357,22 +357,25 @@ define void @_ZN6Assimp11SpatialSort8FinalizeEv(ptr noundef nonnull align 8 capt
   %39 = icmp ugt i64 %9, %38
   br i1 %39, label %20, label %.lr.ph19, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %45, %1
-  %.lcssa14 = phi ptr [ %4, %1 ], [ %70, %45 ]
-  %.lcssa13 = phi ptr [ %5, %1 ], [ %71, %45 ]
-  %.lcssa = phi i64 [ 0, %1 ], [ %75, %45 ]
-  %.not.i.i = icmp eq ptr %.lcssa13, %.lcssa14
-  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit, label %40
+._crit_edge.loopexit:                             ; preds = %45
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %75, i1 true)
+  %41 = shl nuw nsw i64 %40, 1
+  %42 = xor i64 %41, 126
+  br label %._crit_edge
 
-40:                                               ; preds = %._crit_edge
-  %41 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.lcssa, i1 true)
-  %42 = shl nuw nsw i64 %41, 1
-  %43 = xor i64 %42, 126
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %.lcssa13, ptr %.lcssa14, i64 noundef %43)
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %.lcssa14 = phi ptr [ %4, %1 ], [ %70, %._crit_edge.loopexit ]
+  %.lcssa13 = phi ptr [ %5, %1 ], [ %71, %._crit_edge.loopexit ]
+  %.lcssa = phi i64 [ poison, %1 ], [ %42, %._crit_edge.loopexit ]
+  %.not.i.i = icmp eq ptr %.lcssa13, %.lcssa14
+  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit, label %43
+
+43:                                               ; preds = %._crit_edge
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %.lcssa13, ptr %.lcssa14, i64 noundef %.lcssa)
   tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %.lcssa13, ptr %.lcssa14)
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit: ; preds = %._crit_edge, %40
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit: ; preds = %._crit_edge, %43
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %44, align 8
   ret void
@@ -411,7 +414,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorI
   %74 = sub i64 %72, %73
   %75 = sdiv exact i64 %74, 20
   %76 = icmp ugt i64 %75, %69
-  br i1 %76, label %45, label %._crit_edge, !llvm.loop !15
+  br i1 %76, label %45, label %._crit_edge.loopexit, !llvm.loop !15
 }
 
 ; Function Attrs: mustprogress uwtable
