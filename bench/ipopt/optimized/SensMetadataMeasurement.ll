@@ -1752,7 +1752,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %98
 .noexc34.thread:                                  ; preds = %90, %102, %.noexc34
   %104 = phi ptr [ %100, %102 ], [ %100, %.noexc34 ], [ null, %90 ]
   %.not.i.i.i.i.i.i.i.i.i97 = phi i1 [ false, %102 ], [ true, %.noexc34 ], [ true, %90 ]
-  %.pre-phi9396 = phi i64 [ %103, %102 ], [ 0, %.noexc34 ], [ 0, %90 ]
+  %.pre-phi9396 = phi i64 [ %103, %102 ], [ 1, %.noexc34 ], [ 1, %90 ]
   %105 = load ptr, ptr %4, align 8, !tbaa !134
   %106 = icmp eq ptr %105, %60
   br i1 %106, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1777,7 +1777,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi9396, i64 1)
   br label %123
 
 113:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit30
@@ -1913,7 +1912,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %132, %_ZNSt6vectorI
   %156 = phi ptr [ %133, %132 ], [ %150, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %125, %123 ]
   %157 = phi ptr [ %126, %132 ], [ %146, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %126, %123 ]
   %158 = add nuw i64 %.078, 1
-  %exitcond.not = icmp eq i64 %158, %umax
+  %exitcond.not = icmp eq i64 %158, %.pre-phi9396
   br i1 %exitcond.not, label %._crit_edge.thread, label %123, !llvm.loop !182
 
 ._crit_edge.thread:                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
@@ -2381,7 +2380,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %138
 .noexc85.thread:                                  ; preds = %130, %142, %.noexc85
   %144 = phi ptr [ %140, %142 ], [ %140, %.noexc85 ], [ null, %130 ]
   %.not.i.i.i.i.i.i.i.i.i82180 = phi i1 [ false, %142 ], [ true, %.noexc85 ], [ true, %130 ]
-  %.pre-phi176179 = phi i64 [ %143, %142 ], [ 0, %.noexc85 ], [ 0, %130 ]
+  %.pre-phi176179 = phi i64 [ %143, %142 ], [ 1, %.noexc85 ], [ 1, %130 ]
   %145 = load ptr, ptr %9, align 8, !tbaa !134
   %146 = icmp eq ptr %145, %89
   br i1 %146, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i87, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86
@@ -2598,11 +2597,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %234, %226
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, %242
   %invariant.gep = getelementptr i8, ptr %207, i64 -8
-  br i1 %.not.i.i.i.i.i.i.i.i.i82180, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit
-  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi176179, i64 1)
-  br label %.lr.ph
+  br i1 %.not.i.i.i.i.i.i.i.i.i82180, label %._crit_edge, label %.lr.ph
 
 246:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %3, %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit42
   %247 = landingpad { ptr, i32 }
@@ -2697,8 +2692,8 @@ _ZN5Ipopt8SmartPtrIKNS_16DenseVectorSpaceEED2Ev.exit104: ; preds = %268, %273
   invoke void @_ZN5Ipopt11DenseVector9SetValuesEPKd(ptr noundef nonnull align 8 dereferenceable(248) %278, ptr noundef %207)
           to label %303 unwind label %291
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %289
-  %.0166 = phi i64 [ %290, %289 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit, %289
+  %.0166 = phi i64 [ %290, %289 ], [ 0, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit ]
   %279 = getelementptr inbounds nuw i32, ptr %76, i64 %.0166
   %280 = load i32, ptr %279, align 4, !tbaa !180
   %281 = icmp sgt i32 %280, 0
@@ -2717,7 +2712,7 @@ _ZN5Ipopt8SmartPtrIKNS_16DenseVectorSpaceEED2Ev.exit104: ; preds = %268, %273
 
 289:                                              ; preds = %.lr.ph, %282
   %290 = add nuw i64 %.0166, 1
-  %exitcond.not = icmp eq i64 %290, %umax
+  %exitcond.not = icmp eq i64 %290, %.pre-phi176179
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !228
 
 291:                                              ; preds = %._crit_edge

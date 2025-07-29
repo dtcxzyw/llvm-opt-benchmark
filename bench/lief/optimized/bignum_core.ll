@@ -1491,10 +1491,9 @@ define internal fastcc void @mbedtls_mpi_core_exp_mod_optionally_safe(ptr nounde
   br label %mbedtls_mpi_core_bitlen.exit.i
 
 mbedtls_mpi_core_bitlen.exit.i:                   ; preds = %13, %20
-  %.0.i.i = phi i64 [ %23, %20 ], [ 0, %13 ]
-  %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 1)
-  %24 = lshr i64 %spec.store.select.i, 6
-  %25 = and i64 %spec.store.select.i, 63
+  %.0.i.i = phi i64 [ %23, %20 ], [ 1, %13 ]
+  %24 = lshr i64 %.0.i.i, 6
+  %25 = and i64 %.0.i.i, 63
   br label %exp_mod_calc_first_bit_optionally_safe.exit
 
 exp_mod_calc_first_bit_optionally_safe.exit:      ; preds = %9, %mbedtls_mpi_core_bitlen.exit.i
@@ -1706,9 +1705,6 @@ define hidden void @mbedtls_mpi_core_from_mont_rep(ptr noundef %0, ptr noundef r
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

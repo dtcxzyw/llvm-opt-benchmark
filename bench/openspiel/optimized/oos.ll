@@ -373,7 +373,7 @@ define noundef zeroext i1 @_ZN10open_spiel10algorithms23IsValidProbDistributionE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %2, %4
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %9
   %.01119 = phi double [ %10, %9 ], [ 0.000000e+00, %1 ]
@@ -393,16 +393,12 @@ define noundef zeroext i1 @_ZN10open_spiel10algorithms23IsValidProbDistributionE
 
 ._crit_edge.loopexit:                             ; preds = %9
   %12 = fadd double %10, -1.000000e+00
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.011.lcssa = phi double [ -1.000000e+00, %1 ], [ %12, %._crit_edge.loopexit ]
-  %13 = tail call noundef double @llvm.fabs.f64(double %.011.lcssa)
+  %13 = tail call noundef double @llvm.fabs.f64(double %12)
   %14 = fcmp olt double %13, 1.000000e-10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %.0 = phi i1 [ %14, %._crit_edge ], [ false, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %1, %._crit_edge.loopexit
+  %.0 = phi i1 [ false, %1 ], [ %14, %._crit_edge.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -412,7 +408,7 @@ define noundef zeroext i1 @_ZN10open_spiel10algorithms26IsPositiveProbDistributi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %2, %4
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %9
   %.01119 = phi double [ %10, %9 ], [ 0.000000e+00, %1 ]
@@ -432,16 +428,12 @@ define noundef zeroext i1 @_ZN10open_spiel10algorithms26IsPositiveProbDistributi
 
 ._crit_edge.loopexit:                             ; preds = %9
   %12 = fadd double %10, -1.000000e+00
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.011.lcssa = phi double [ -1.000000e+00, %1 ], [ %12, %._crit_edge.loopexit ]
-  %13 = tail call noundef double @llvm.fabs.f64(double %.011.lcssa)
+  %13 = tail call noundef double @llvm.fabs.f64(double %12)
   %14 = fcmp olt double %13, 1.000000e-10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %.0 = phi i1 [ %14, %._crit_edge ], [ false, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %1, %._crit_edge.loopexit
+  %.0 = phi i1 [ false, %1 ], [ %14, %._crit_edge.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

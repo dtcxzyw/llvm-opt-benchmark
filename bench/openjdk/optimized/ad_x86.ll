@@ -99012,54 +99012,50 @@ define hidden void @_ZNK19rearrangeL_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   %10 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %0) #23
-  switch i32 %10, label %13 [
+  switch i32 %10, label %12 [
     i32 4, label %_ZL22vector_length_encodingPK4Node.exit
     i32 8, label %_ZL22vector_length_encodingPK4Node.exit
     i32 16, label %_ZL22vector_length_encodingPK4Node.exit
-    i32 32, label %11
-    i32 64, label %12
+    i32 32, label %_ZL22vector_length_encodingPK4Node.exit
+    i32 64, label %11
   ]
 
 11:                                               ; preds = %3
   br label %_ZL22vector_length_encodingPK4Node.exit
 
 12:                                               ; preds = %3
-  br label %_ZL22vector_length_encodingPK4Node.exit
-
-13:                                               ; preds = %3
-  %14 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %14, align 1
+  %13 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %13, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 1228) #24
   unreachable
 
-_ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
-  %15 = add i32 %9, 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.0.i.i, i32 1)
+_ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %3, %11
+  %.0.i.i = phi i32 [ 2, %11 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  %14 = add i32 %9, 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i = icmp ult i32 %21, 32
-  %spec.select.i.i = select i1 %or.cond.i.i, i32 %21, i32 -1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %2, ptr noundef nonnull %0) #23
+  %or.cond.i.i = icmp ult i32 %20, 32
+  %spec.select.i.i = select i1 %or.cond.i.i, i32 %20, i32 -1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %15) #23
-  %or.cond.i.i11 = icmp ult i32 %27, 32
-  %spec.select.i.i12 = select i1 %or.cond.i.i11, i32 %27, i32 -1
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %2, ptr noundef nonnull %0, i32 noundef 1) #23
-  %or.cond.i.i13 = icmp ult i32 %32, 32
-  %spec.select.i.i14 = select i1 %or.cond.i.i13, i32 %32, i32 -1
-  tail call void @_ZN9Assembler6vpermqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i12, i32 %spec.select.i.i14, i32 noundef %spec.store.select) #23
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %14) #23
+  %or.cond.i.i11 = icmp ult i32 %26, 32
+  %spec.select.i.i12 = select i1 %or.cond.i.i11, i32 %26, i32 -1
+  %27 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %2, ptr noundef nonnull %0, i32 noundef 1) #23
+  %or.cond.i.i13 = icmp ult i32 %31, 32
+  %spec.select.i.i14 = select i1 %or.cond.i.i13, i32 %31, i32 -1
+  tail call void @_ZN9Assembler6vpermqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i12, i32 %spec.select.i.i14, i32 noundef %.0.i.i) #23
   ret void
 }
 
@@ -123011,9 +123007,6 @@ declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #20

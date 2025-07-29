@@ -17042,7 +17042,7 @@ define internal fastcc i32 @Cba_FonRangeSize(ptr noundef captures(none) %0, i32 
   %6 = tail call ptr @Abc_NamStr(ptr noundef %.val.val, i32 noundef range(i32 -2147483648, 2147483647) %5) #25
   %7 = tail call i64 @strtol(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 10) #25
   %8 = trunc i64 %7 to i32
-  br label %70
+  br label %Cba_NtkRangeSize.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %0, i64 284
@@ -17160,17 +17160,13 @@ Cba_FonRange.exit:                                ; preds = %12, %._crit_edge.i.
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !57
   %66 = sub nsw i32 %63, %65
+  %67 = tail call i32 @llvm.abs.i32(i32 %66, i1 true)
+  %68 = add nuw nsw i32 %67, 1
   br label %Cba_NtkRangeSize.exit
 
-Cba_NtkRangeSize.exit:                            ; preds = %9, %Cba_FonRange.exit, %52
-  %67 = phi i32 [ %66, %52 ], [ 0, %Cba_FonRange.exit ], [ 0, %9 ]
-  %68 = tail call i32 @llvm.abs.i32(i32 %67, i1 true)
-  %69 = add nuw nsw i32 %68, 1
-  br label %70
-
-70:                                               ; preds = %Cba_NtkRangeSize.exit, %3
-  %71 = phi i32 [ %8, %3 ], [ %69, %Cba_NtkRangeSize.exit ]
-  ret i32 %71
+Cba_NtkRangeSize.exit:                            ; preds = %9, %52, %Cba_FonRange.exit, %3
+  %69 = phi i32 [ %8, %3 ], [ %68, %52 ], [ 1, %Cba_FonRange.exit ], [ 1, %9 ]
+  ret i32 %69
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)

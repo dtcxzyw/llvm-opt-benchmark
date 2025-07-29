@@ -651,24 +651,27 @@ define hidden noundef range(i32 -1, -2147483648) i32 @_ZN2cv7barcode13UPCEANDeco
   %.not23 = icmp eq ptr %5, %7
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.020.lcssa = phi i32 [ -1, %4 ], [ %spec.select, %.lr.ph ]
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.020.lcssa, i32 -1)
-  ret i32 %.sroa.speculated
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %8 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 -1)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
+  %.020.lcssa = phi i32 [ -1, %4 ], [ %8, %._crit_edge.loopexit ]
+  ret i32 %.020.lcssa
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.027 = phi i32 [ %spec.select22, %.lr.ph ], [ 122, %4 ]
-  %.01226 = phi i32 [ %10, %.lr.ph ], [ 0, %4 ]
+  %.01226 = phi i32 [ %11, %.lr.ph ], [ 0, %4 ]
   %.02025 = phi i32 [ %spec.select, %.lr.ph ], [ -1, %4 ]
-  %.sroa.015.024 = phi ptr [ %11, %.lr.ph ], [ %5, %4 ]
-  %8 = tail call noundef i32 @_ZN2cv7barcode12patternMatchERKNS0_7CounterERKSt6vectorIiSaIiEEj(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.015.024, i32 noundef 179)
-  %9 = icmp ult i32 %8, %.027
-  %spec.select = select i1 %9, i32 %.01226, i32 %.02025
-  %spec.select22 = tail call i32 @llvm.umin.i32(i32 %8, i32 %.027)
-  %10 = add nuw nsw i32 %.01226, 1
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 24
-  %.not = icmp eq ptr %11, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.sroa.015.024 = phi ptr [ %12, %.lr.ph ], [ %5, %4 ]
+  %9 = tail call noundef i32 @_ZN2cv7barcode12patternMatchERKNS0_7CounterERKSt6vectorIiSaIiEEj(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.015.024, i32 noundef 179)
+  %10 = icmp ult i32 %9, %.027
+  %spec.select = select i1 %10, i32 %.01226, i32 %.02025
+  %spec.select22 = tail call i32 @llvm.umin.i32(i32 %9, i32 %.027)
+  %11 = add nuw nsw i32 %.01226, 1
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 24
+  %.not = icmp eq ptr %12, %7
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 declare void @_ZN2cv7barcode11fillCounterERKSt6vectorIhSaIhEEjRNS0_7CounterE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #2

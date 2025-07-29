@@ -348,17 +348,15 @@ define internal void @ff_tx_init_tab_8_float() #6 {
   br label %2
 
 1:                                                ; preds = %2
-  store float 0.000000e+00, ptr %6, align 4, !tbaa !27
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !27
   ret void
 
 2:                                                ; preds = %0, %2
   %3 = phi i1 [ true, %0 ], [ false, %2 ]
-  %.07 = phi double [ 0.000000e+00, %0 ], [ 0x3FE921FB54442D18, %2 ]
-  %.056 = phi ptr [ @ff_tx_tab_8_float, %0 ], [ %6, %2 ]
-  %4 = tail call nsz double @llvm.cos.f64(double %.07)
-  %5 = fptrunc nsz double %4 to float
-  %6 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store float %5, ptr %.056, align 4, !tbaa !27
+  %.07 = phi float [ 1.000000e+00, %0 ], [ 0x3FE6A09E60000000, %2 ]
+  %.056 = phi ptr [ @ff_tx_tab_8_float, %0 ], [ %4, %2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.056, i64 4
+  store float %.07, ptr %.056, align 4, !tbaa !27
   br i1 %3, label %2, label %1, !llvm.loop !30
 }
 

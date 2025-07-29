@@ -802,14 +802,12 @@ _ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.e
 _ZNK4llvm9StringRef11starts_withES0_.exit.i17:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i11, %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit14
   %bcmp.i.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.77, i64 3)
   %6 = icmp eq i32 %bcmp.i.i18, 0
-  %spec.select = select i1 %6, i64 4294967297, i64 0
+  %7 = zext i1 %6 to i32
   br label %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit20
 
 _ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit20: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i17, %_ZNK4llvm9StringRef11starts_withES0_.exit.i11, %_ZNK4llvm9StringRef11starts_withES0_.exit.i5, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit14
-  %.sroa.12.3 = phi i64 [ 0, %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit14 ], [ 4294967299, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 4294967299, %_ZNK4llvm9StringRef11starts_withES0_.exit.i5 ], [ 4294967298, %_ZNK4llvm9StringRef11starts_withES0_.exit.i11 ], [ %spec.select, %_ZNK4llvm9StringRef11starts_withES0_.exit.i17 ]
-  %spec.select.i62 = tail call i64 @llvm.umax.i64(i64 %.sroa.12.3, i64 4294967296)
-  %spec.select.i = trunc i64 %spec.select.i62 to i32
-  ret i32 %spec.select.i
+  %.sroa.12.3 = phi i32 [ 0, %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit14 ], [ 3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i5 ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i11 ], [ %7, %_ZNK4llvm9StringRef11starts_withES0_.exit.i17 ]
+  ret i32 %.sroa.12.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
@@ -1249,9 +1247,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #7

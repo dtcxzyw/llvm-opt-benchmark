@@ -1269,7 +1269,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %366
 .noexc135.thread:                                 ; preds = %358, %370, %.noexc135
   %372 = phi ptr [ %368, %370 ], [ %368, %.noexc135 ], [ null, %358 ]
   %.not.i.i.i.i.i.i.i.i.i229 = phi i1 [ false, %370 ], [ true, %.noexc135 ], [ true, %358 ]
-  %.pre-phi225228 = phi i64 [ %371, %370 ], [ 0, %.noexc135 ], [ 0, %358 ]
+  %.pre-phi225228 = phi i64 [ %371, %370 ], [ 1, %.noexc135 ], [ 1, %358 ]
   %373 = load ptr, ptr %7, align 8, !tbaa !160
   %374 = icmp eq ptr %373, %317
   br i1 %374, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1290,11 +1290,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %379, align 4, !tbaa !174
-  br i1 %.not.i.i.i.i.i.i.i.i.i229, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi225228, i64 1)
-  br label %.lr.ph
+  br i1 %.not.i.i.i.i.i.i.i.i.i229, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %404, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %380 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %405, %404 ]
@@ -1336,9 +1332,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %404
-  %.0213 = phi i64 [ %406, %404 ], [ 0, %.lr.ph.preheader ]
-  %398 = phi i32 [ %405, %404 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %404
+  %.0213 = phi i64 [ %406, %404 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %398 = phi i32 [ %405, %404 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %399 = getelementptr inbounds nuw i32, ptr %372, i64 %.0213
   %400 = load i32, ptr %399, align 4, !tbaa !175
   %401 = icmp sgt i32 %400, 0
@@ -1352,7 +1348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %_Z
 404:                                              ; preds = %.lr.ph, %402
   %405 = phi i32 [ %398, %.lr.ph ], [ %403, %402 ]
   %406 = add nuw i64 %.0213, 1
-  %exitcond.not = icmp eq i64 %406, %umax
+  %exitcond.not = icmp eq i64 %406, %.pre-phi225228
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !176
 
 407:                                              ; preds = %._crit_edge
@@ -5264,7 +5260,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %221
 .noexc97.thread:                                  ; preds = %213, %225, %.noexc97
   %227 = phi ptr [ %223, %225 ], [ %223, %.noexc97 ], [ null, %213 ]
   %.not.i.i.i.i.i.i.i.i.i297 = phi i1 [ false, %225 ], [ true, %.noexc97 ], [ true, %213 ]
-  %.pre-phi293296 = phi i64 [ %226, %225 ], [ 0, %.noexc97 ], [ 0, %213 ]
+  %.pre-phi293296 = phi i64 [ %226, %225 ], [ 1, %.noexc97 ], [ 1, %213 ]
   %228 = load ptr, ptr %7, align 8, !tbaa !160
   %229 = icmp eq ptr %228, %172
   br i1 %229, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -5299,7 +5295,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %242 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %243 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %244 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi293296, i64 1)
   %245 = getelementptr inbounds nuw i8, ptr %11, i64 23
   br label %303
 
@@ -5474,7 +5469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %_Z
 
 314:                                              ; preds = %.preheader, %312
   %315 = add nuw i64 %.0280, 1
-  %exitcond.not = icmp eq i64 %315, %umax
+  %exitcond.not = icmp eq i64 %315, %.pre-phi293296
   br i1 %exitcond.not, label %307, label %.preheader, !llvm.loop !397
 
 316:                                              ; preds = %307
@@ -5867,7 +5862,7 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit170: ; preds = %456, %451, %449
 460:                                              ; preds = %303, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit154
   %.1 = phi i32 [ %390, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit154 ], [ %.019283, %303 ]
   %461 = add nuw i64 %.018284, 1
-  %exitcond286.not = icmp eq i64 %461, %umax
+  %exitcond286.not = icmp eq i64 %461, %.pre-phi293296
   br i1 %exitcond286.not, label %._crit_edge.thread, label %303, !llvm.loop !398
 
 ._crit_edge.thread:                               ; preds = %460
@@ -6951,9 +6946,6 @@ declare i64 @llvm.smin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

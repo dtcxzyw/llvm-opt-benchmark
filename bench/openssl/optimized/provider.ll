@@ -612,7 +612,7 @@ read_double.exit.thread:                          ; preds = %102, %101
   br label %.lr.ph174
 
 116:                                              ; preds = %26
-  br i1 %.not93, label %130, label %117
+  br i1 %.not93, label %read_utf8_string.exit, label %117
 
 117:                                              ; preds = %116
   %118 = load ptr, ptr %1, align 8, !tbaa !32
@@ -630,18 +630,13 @@ read_double.exit.thread:                          ; preds = %102, %101
   store i64 %127, ptr %2, align 8, !tbaa !30
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 %124
   store ptr %128, ptr %1, align 8, !tbaa !32
+  %129 = tail call i32 @llvm.smax.i32(i32 %125, i32 0)
+  %130 = zext nneg i32 %129 to i64
   br label %read_utf8_string.exit
 
-read_utf8_string.exit:                            ; preds = %117, %123
-  %.1124 = phi ptr [ @.str.5, %117 ], [ %126, %123 ]
-  %.0.i99 = phi i32 [ -1, %117 ], [ %125, %123 ]
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %.0.i99, i32 0)
-  %129 = zext nneg i32 %spec.store.select to i64
-  br label %130
-
-130:                                              ; preds = %read_utf8_string.exit, %116
-  %.0123 = phi ptr [ @.str.5, %116 ], [ %.1124, %read_utf8_string.exit ]
-  %.0 = phi i64 [ 0, %116 ], [ %129, %read_utf8_string.exit ]
+read_utf8_string.exit:                            ; preds = %123, %117, %116
+  %.0123 = phi ptr [ @.str.5, %116 ], [ @.str.5, %117 ], [ %126, %123 ]
+  %.0 = phi i64 [ 0, %116 ], [ 0, %117 ], [ %130, %123 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
   %131 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
   store ptr %.0123, ptr %131, align 8, !tbaa !41
@@ -651,7 +646,7 @@ read_utf8_string.exit:                            ; preds = %117, %123
   br label %.lr.ph174
 
 134:                                              ; preds = %26
-  br i1 %.not93, label %157, label %135
+  br i1 %.not93, label %read_octet_string.exit, label %135
 
 135:                                              ; preds = %134
   %136 = load ptr, ptr %1, align 8, !tbaa !32
@@ -691,18 +686,13 @@ read_utf8_string.exit:                            ; preds = %117, %123
   %155 = sub i64 %137, %154
   store i64 %155, ptr %2, align 8, !tbaa !30
   store ptr %149, ptr %1, align 8, !tbaa !32
+  %156 = tail call i32 @llvm.smax.i32(i32 %153, i32 0)
+  %157 = zext nneg i32 %156 to i64
   br label %read_octet_string.exit
 
-read_octet_string.exit:                           ; preds = %146, %135, %148
-  %.1122 = phi ptr [ @.str.5, %135 ], [ %136, %148 ], [ @.str.5, %146 ]
-  %.021.i = phi i32 [ -1, %135 ], [ %153, %148 ], [ -1, %146 ]
-  %spec.store.select3 = tail call i32 @llvm.smax.i32(i32 %.021.i, i32 0)
-  %156 = zext nneg i32 %spec.store.select3 to i64
-  br label %157
-
-157:                                              ; preds = %read_octet_string.exit, %134
-  %.0121 = phi ptr [ @.str.5, %134 ], [ %.1122, %read_octet_string.exit ]
-  %.1 = phi i64 [ 0, %134 ], [ %156, %read_octet_string.exit ]
+read_octet_string.exit:                           ; preds = %146, %148, %135, %134
+  %.0121 = phi ptr [ @.str.5, %134 ], [ @.str.5, %135 ], [ %136, %148 ], [ @.str.5, %146 ]
+  %.1 = phi i64 [ 0, %134 ], [ 0, %135 ], [ %157, %148 ], [ 0, %146 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
   %158 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
   store ptr %.0121, ptr %158, align 8, !tbaa !41
@@ -712,7 +702,7 @@ read_octet_string.exit:                           ; preds = %146, %135, %148
   br label %.lr.ph174
 
 161:                                              ; preds = %26
-  br i1 %.not93, label %181, label %162
+  br i1 %.not93, label %read_utf8_ptr.exit, label %162
 
 162:                                              ; preds = %161
   %163 = load i64, ptr %2, align 8, !tbaa !30
@@ -746,18 +736,13 @@ read_octet_string.exit:                           ; preds = %146, %135, %148
   store i64 %178, ptr %2, align 8, !tbaa !30
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 %175
   store ptr %179, ptr %1, align 8, !tbaa !32
+  %180 = tail call i32 @llvm.smax.i32(i32 %176, i32 0)
+  %181 = zext nneg i32 %180 to i64
   br label %read_utf8_ptr.exit
 
-read_utf8_ptr.exit:                               ; preds = %167, %170, %174
-  %.1120 = phi ptr [ null, %170 ], [ %177, %174 ], [ null, %167 ]
-  %.0.i100 = phi i32 [ -1, %170 ], [ %176, %174 ], [ 0, %167 ]
-  %spec.store.select4 = tail call i32 @llvm.smax.i32(i32 %.0.i100, i32 0)
-  %180 = zext nneg i32 %spec.store.select4 to i64
-  br label %181
-
-181:                                              ; preds = %read_utf8_ptr.exit, %161
-  %.0119 = phi ptr [ null, %161 ], [ %.1120, %read_utf8_ptr.exit ]
-  %.2 = phi i64 [ 0, %161 ], [ %180, %read_utf8_ptr.exit ]
+read_utf8_ptr.exit:                               ; preds = %174, %170, %167, %161
+  %.0119 = phi ptr [ null, %161 ], [ null, %170 ], [ %177, %174 ], [ null, %167 ]
+  %.2 = phi i64 [ 0, %161 ], [ 0, %170 ], [ %181, %174 ], [ 0, %167 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
   %182 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
   store ptr %.0119, ptr %182, align 8, !tbaa !41
@@ -767,7 +752,7 @@ read_utf8_ptr.exit:                               ; preds = %167, %170, %174
   br label %.lr.ph174
 
 185:                                              ; preds = %26
-  br i1 %.not93, label %219, label %186
+  br i1 %.not93, label %read_octet_ptr.exit, label %186
 
 186:                                              ; preds = %185
   %187 = load i64, ptr %2, align 8, !tbaa !30
@@ -832,18 +817,13 @@ read_utf8_ptr.exit:                               ; preds = %167, %170, %174
   %217 = sub i64 %187, %216
   store i64 %217, ptr %2, align 8, !tbaa !30
   store ptr %211, ptr %1, align 8, !tbaa !32
+  %218 = tail call i32 @llvm.smax.i32(i32 %215, i32 0)
+  %219 = zext nneg i32 %218 to i64
   br label %read_octet_ptr.exit
 
-read_octet_ptr.exit:                              ; preds = %208, %196, %199, %210
-  %.1118 = phi ptr [ null, %196 ], [ %.pre.i101, %210 ], [ null, %199 ], [ null, %208 ]
-  %.0.i102 = phi i32 [ 0, %196 ], [ %215, %210 ], [ -1, %199 ], [ -1, %208 ]
-  %spec.store.select5 = tail call i32 @llvm.smax.i32(i32 %.0.i102, i32 0)
-  %218 = zext nneg i32 %spec.store.select5 to i64
-  br label %219
-
-219:                                              ; preds = %read_octet_ptr.exit, %185
-  %.0117 = phi ptr [ null, %185 ], [ %.1118, %read_octet_ptr.exit ]
-  %.3 = phi i64 [ 0, %185 ], [ %218, %read_octet_ptr.exit ]
+read_octet_ptr.exit:                              ; preds = %208, %210, %199, %196, %185
+  %.0117 = phi ptr [ null, %185 ], [ null, %196 ], [ %.pre.i101, %210 ], [ null, %199 ], [ null, %208 ]
+  %.3 = phi i64 [ 0, %185 ], [ 0, %196 ], [ %219, %210 ], [ 0, %199 ], [ 0, %208 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
   %220 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
   store ptr %.0117, ptr %220, align 8, !tbaa !41
@@ -852,8 +832,8 @@ read_octet_ptr.exit:                              ; preds = %208, %196, %199, %2
   %222 = getelementptr inbounds nuw i8, ptr %.179172201, i64 40
   br label %.lr.ph174
 
-.lr.ph174:                                        ; preds = %26, %219, %181, %157, %130, %113, %98, %62
-  %.280 = phi ptr [ %.179172201, %26 ], [ %64, %62 ], [ %100, %98 ], [ %115, %113 ], [ %133, %130 ], [ %160, %157 ], [ %184, %181 ], [ %222, %219 ]
+.lr.ph174:                                        ; preds = %26, %read_octet_ptr.exit, %read_utf8_ptr.exit, %read_octet_string.exit, %read_utf8_string.exit, %113, %98, %62
+  %.280 = phi ptr [ %.179172201, %26 ], [ %64, %62 ], [ %100, %98 ], [ %115, %113 ], [ %133, %read_utf8_string.exit ], [ %160, %read_octet_string.exit ], [ %184, %read_utf8_ptr.exit ], [ %222, %read_octet_ptr.exit ]
   tail call void @CRYPTO_free(ptr noundef nonnull %.0131, ptr noundef nonnull @.str, i32 noundef 384) #6
   %223 = getelementptr inbounds nuw i8, ptr %.077173200, i64 40
   %224 = load ptr, ptr %223, align 8, !tbaa !34

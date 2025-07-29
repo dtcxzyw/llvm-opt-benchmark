@@ -140,38 +140,37 @@ define dso_local void @pg_wcssize(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %.051.lcssa.ph = phi i32 [ %.152, %.loopexit ], [ %.05178, %.lr.ph ]
   %.0.lcssa.ph = phi i32 [ %.2, %.loopexit ], [ %.079, %.lr.ph ]
   %49 = add i32 %.0.lcssa.ph, 1
+  %50 = tail call i32 @llvm.smax.i32(i32 %.056.lcssa.ph, i32 %.053.lcssa.ph)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %.056.lcssa = phi i32 [ 0, %6 ], [ %.056.lcssa.ph, %._crit_edge.loopexit ]
-  %.053.lcssa = phi i32 [ 0, %6 ], [ %.053.lcssa.ph, %._crit_edge.loopexit ]
+  %.056.lcssa = phi i32 [ 0, %6 ], [ %50, %._crit_edge.loopexit ]
   %.051.lcssa = phi i32 [ 1, %6 ], [ %.051.lcssa.ph, %._crit_edge.loopexit ]
   %.0.lcssa = phi i32 [ 1, %6 ], [ %49, %._crit_edge.loopexit ]
   %.not69 = icmp eq ptr %3, null
-  br i1 %.not69, label %51, label %50
+  br i1 %.not69, label %52, label %51
 
-50:                                               ; preds = %._crit_edge
-  %spec.select72 = tail call i32 @llvm.smax.i32(i32 %.056.lcssa, i32 %.053.lcssa)
-  store i32 %spec.select72, ptr %3, align 4
-  br label %51
+51:                                               ; preds = %._crit_edge
+  store i32 %.056.lcssa, ptr %3, align 4
+  br label %52
 
-51:                                               ; preds = %50, %._crit_edge
+52:                                               ; preds = %51, %._crit_edge
   %.not70 = icmp eq ptr %4, null
-  br i1 %.not70, label %53, label %52
+  br i1 %.not70, label %54, label %53
 
-52:                                               ; preds = %51
+53:                                               ; preds = %52
   store i32 %.051.lcssa, ptr %4, align 4
-  br label %53
+  br label %54
 
-53:                                               ; preds = %52, %51
+54:                                               ; preds = %53, %52
   %.not71 = icmp eq ptr %5, null
-  br i1 %.not71, label %55, label %54
+  br i1 %.not71, label %56, label %55
 
-54:                                               ; preds = %53
+55:                                               ; preds = %54
   store i32 %.0.lcssa, ptr %5, align 4
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %53
+56:                                               ; preds = %55, %54
   ret void
 }
 

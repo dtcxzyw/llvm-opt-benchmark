@@ -3427,15 +3427,18 @@ define internal fastcc i64 @release_unused_segments(ptr noundef %0) unnamed_addr
   %.1161 = phi ptr [ %.0160234, %11 ], [ %.0160234, %21 ], [ %.0160234, %31 ], [ %.0159235, %119 ], [ %.0160234, %184 ], [ %.0160234, %148 ], [ %.0160234, %.thread ]
   %.1 = phi i64 [ %.0237, %11 ], [ %.0237, %21 ], [ %.0237, %31 ], [ %120, %119 ], [ %.0237, %184 ], [ %.0237, %148 ], [ %.0237, %.thread ]
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !70
+  br i1 %.not, label %._crit_edge.loopexit, label %11, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %190, %1
-  %.0155.lcssa = phi i32 [ 0, %1 ], [ %17, %190 ]
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %.1, %190 ]
-  %191 = tail call i32 @llvm.umax.i32(i32 %.0155.lcssa, i32 4095)
+._crit_edge.loopexit:                             ; preds = %190
+  %191 = tail call i32 @llvm.umax.i32(i32 %17, i32 4095)
   %192 = zext nneg i32 %191 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %.0155.lcssa = phi i64 [ 4095, %1 ], [ %192, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %1 ], [ %.1, %._crit_edge.loopexit ]
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %192, ptr %193, align 8, !tbaa !55
+  store i64 %.0155.lcssa, ptr %193, align 8, !tbaa !55
   ret i64 %.0.lcssa
 }
 
