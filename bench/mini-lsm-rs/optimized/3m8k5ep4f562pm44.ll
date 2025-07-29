@@ -1577,12 +1577,22 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  br label %.critedge.i.i.i
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.4.0..sroa_idx.i.i.i.i.c = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sroa.5.0..sroa_idx.i.i.i.i.c = getelementptr inbounds nuw i8, ptr %13, i64 48
+  br label %.critedge
 
-.critedge.i.i.i:                                  ; preds = %71, %21
+.critedge:                                        ; preds = %71, %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !256
   store i64 5, ptr %14, align 8, !noalias !256
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13), !noalias !256
+  store ptr %14, ptr %13, align 8, !noalias !256
+  store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.48, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !256
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i, i8 0, i64 16, i1 false), !noalias !256
+  store ptr %14, ptr %.sroa.gep1.i.i.i, align 8, !noalias !256
+  store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.48, ptr %.sroa.4.0..sroa_idx.i.i.i.i.c, align 8, !noalias !256
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.c, i8 0, i64 16, i1 false), !noalias !256
   store ptr %15, ptr %13, align 8, !noalias !256
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.49, ptr %22, align 8, !noalias !256
   store i64 0, ptr %23, align 8, !noalias !256
@@ -1596,7 +1606,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
   invoke void @_ZN17crossbeam_channel6select10run_select17h214ae237b806da6aE(ptr noalias noundef nonnull sret({ [16 x i32], i32, [5 x i32] }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 %13, i64 noundef 2, i64 undef, i32 noundef 1000000001)
           to label %.noexc.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !244
 
-.noexc.i.i.i.i:                                   ; preds = %.critedge.i.i.i
+.noexc.i.i.i.i:                                   ; preds = %.critedge
   %39 = load i32, ptr %28, align 8, !range !261, !noalias !257, !noundef !21
   %40 = icmp eq i32 %39, 1000000001
   br i1 %40, label %41, label %42
@@ -1613,7 +1623,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h4652c88ef20f0d3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #39
           to label %70 unwind label %68, !noalias !244
 
-.loopexit.i.i.i.i:                                ; preds = %.critedge.i.i.i
+.loopexit.i.i.i.i:                                ; preds = %.critedge
   %lpad.loopexit.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i.i.i.i
@@ -1761,7 +1771,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
 
 71:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !256
-  br label %.critedge.i.i.i
+  br label %.critedge
 
 72:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7), !noalias !256
@@ -1973,12 +1983,22 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  br label %.critedge.i.i.i
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.4.0..sroa_idx.i.i.i.i.c = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sroa.5.0..sroa_idx.i.i.i.i.c = getelementptr inbounds nuw i8, ptr %13, i64 48
+  br label %.critedge
 
-.critedge.i.i.i:                                  ; preds = %71, %21
+.critedge:                                        ; preds = %71, %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !332
   store i64 5, ptr %14, align 8, !noalias !332
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13), !noalias !332
+  store ptr %14, ptr %13, align 8, !noalias !332
+  store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.48, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !332
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i, i8 0, i64 16, i1 false), !noalias !332
+  store ptr %14, ptr %.sroa.gep1.i.i.i, align 8, !noalias !332
+  store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.48, ptr %.sroa.4.0..sroa_idx.i.i.i.i.c, align 8, !noalias !332
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.c, i8 0, i64 16, i1 false), !noalias !332
   store ptr %15, ptr %13, align 8, !noalias !332
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.49, ptr %22, align 8, !noalias !332
   store i64 0, ptr %23, align 8, !noalias !332
@@ -1992,7 +2012,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
   invoke void @_ZN17crossbeam_channel6select10run_select17h214ae237b806da6aE(ptr noalias noundef nonnull sret({ [16 x i32], i32, [5 x i32] }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 %13, i64 noundef 2, i64 undef, i32 noundef 1000000001)
           to label %.noexc.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !320
 
-.noexc.i.i.i.i:                                   ; preds = %.critedge.i.i.i
+.noexc.i.i.i.i:                                   ; preds = %.critedge
   %39 = load i32, ptr %28, align 8, !range !261, !noalias !333, !noundef !21
   %40 = icmp eq i32 %39, 1000000001
   br i1 %40, label %41, label %42
@@ -2009,7 +2029,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h4652c88ef20f0d3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #39
           to label %70 unwind label %68, !noalias !320
 
-.loopexit.i.i.i.i:                                ; preds = %.critedge.i.i.i
+.loopexit.i.i.i.i:                                ; preds = %.critedge
   %lpad.loopexit.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i.i.i.i
@@ -2157,7 +2177,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
 
 71:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !332
-  br label %.critedge.i.i.i
+  br label %.critedge
 
 72:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7), !noalias !332

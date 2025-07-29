@@ -1404,18 +1404,23 @@ _ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.thread.i10.i: ; 
   call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %6), !noalias !116
   br label %350
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %380, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i8.i", %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i.i", %389
-  %.pn316 = phi { ptr, i32 } [ %.pn314, %389 ], [ %359, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i.i" ], [ %379, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i8.i" ], [ %381, %380 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %380, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i8.i", %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i.i", %389
+  %.pn316 = phi { ptr, i32 } [ %.pn314, %389 ], [ %359, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i.i" ], [ %379, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i8.i" ], [ %381, %380 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit377, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp378, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr680drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$tracing_subscriber..registry..Scope$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$C$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..registry..Scope$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$..from_root$GT$$GT$17h12233e69e165b7e4E"(ptr noalias noundef nonnull align 8 dereferenceable(1376) %29) #23
           to label %common.resume unwind label %257
 
-.loopexit:                                        ; preds = %415, %363
+.loopexit:                                        ; preds = %363
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %413
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %415
+  %lpad.loopexit377 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %413
+  %lpad.loopexit.split-lp378 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -1569,7 +1574,7 @@ _ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.thread.i10.i: ; 
 413:                                              ; preds = %412
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   invoke void @"_ZN4core3ptr209drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17h456bf809003d40aaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %28)
-          to label %414 unwind label %.loopexit.split-lp
+          to label %414 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 414:                                              ; preds = %413
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
@@ -1581,7 +1586,7 @@ _ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.thread.i10.i: ; 
 415:                                              ; preds = %401
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   invoke void @"_ZN4core3ptr209drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17h456bf809003d40aaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %28)
-          to label %416 unwind label %.loopexit
+          to label %416 unwind label %.loopexit.split-lp.loopexit
 
 416:                                              ; preds = %415
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
@@ -6489,21 +6494,16 @@ common.resume:                                    ; preds = %.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
   call void @llvm.experimental.noalias.scope.decl(metadata !634)
   %68 = trunc nuw i64 %.pre.i to i1
-  br i1 %68, label %._crit_edge, label %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i60"
+  br i1 %68, label %69, label %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i60"
 
-._crit_edge:                                      ; preds = %67
-  %.pre223 = load i64, ptr %56, align 8, !alias.scope !637, !noalias !646
-  %.pre224 = load i64, ptr %57, align 8, !alias.scope !637, !noalias !646
-  br label %69
-
-69:                                               ; preds = %._crit_edge, %"_ZN4core3ptr243drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h14d715f61d6da176E.exit.i"
-  %70 = phi i64 [ %.pre224, %._crit_edge ], [ %.sink10.i.i.i.i.i.i, %"_ZN4core3ptr243drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h14d715f61d6da176E.exit.i" ]
-  %71 = phi i64 [ %.pre223, %._crit_edge ], [ 0, %"_ZN4core3ptr243drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h14d715f61d6da176E.exit.i" ]
-  %72 = icmp eq i64 %71, %70
+69:                                               ; preds = %"_ZN4core3ptr243drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h14d715f61d6da176E.exit.i", %67
+  %70 = load i64, ptr %56, align 8, !alias.scope !637, !noalias !646, !noundef !12
+  %71 = load i64, ptr %57, align 8, !alias.scope !637, !noalias !646, !noundef !12
+  %72 = icmp eq i64 %70, %71
   br i1 %72, label %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.thread.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i.i: ; preds = %69
-  %73 = add i64 %70, -1
+  %73 = add i64 %71, -1
   store i64 %73, ptr %57, align 8, !alias.scope !637, !noalias !646
   %74 = load i64, ptr %58, align 8, !alias.scope !652, !noalias !655, !noundef !12
   %75 = icmp ugt i64 %74, 16
@@ -6651,12 +6651,12 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he4d0170d3d74ebffE.exit.threa
   %.sroa.68.0.copyload.i.i.i.i.pre = phi i64 [ %.sroa.68.0.copyload.i.i.i.i.pre.pre, %._crit_edge24.i.loopexit ], [ 16, %.noexc68 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !694
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !694
-  br label %.loopexit243
+  br label %.loopexit267
 
 106:                                              ; preds = %.lr.ph.i
   %107 = load ptr, ptr %6, align 8, !noalias !694, !noundef !12
   %.not2.i67 = icmp eq ptr %107, null
-  br i1 %.not2.i67, label %.loopexit243, label %108
+  br i1 %.not2.i67, label %.loopexit267, label %108
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %9, i64 %.sroa.7.020.i
@@ -6698,7 +6698,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he4d0170d3d74ebffE.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !681
   unreachable
 
-.loopexit243:                                     ; preds = %106, %._crit_edge24.i
+.loopexit267:                                     ; preds = %106, %._crit_edge24.i
   %.sroa.68.0.copyload.i.i.i.i = phi i64 [ %.sroa.68.0.copyload.i.i.i.i.pre, %._crit_edge24.i ], [ %.sroa.7.020.i, %106 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !694
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -6715,7 +6715,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he4d0170d3d74ebffE.exit.threa
   invoke void @"_ZN4core3ptr209drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17h456bf809003d40aaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10)
           to label %.noexc unwind label %.loopexit93
 
-.noexc:                                           ; preds = %.loopexit243
+.noexc:                                           ; preds = %.loopexit267
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !677
   %118 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !range !120, !alias.scope !718, !noalias !721, !noundef !12
   %119 = icmp eq i64 %118, 0
@@ -6785,18 +6785,23 @@ _ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.thread.i10.i: ; 
   call void @llvm.lifetime.end.p0(i64 624, ptr nonnull %.sroa.5.sroa.6.i)
   br label %69
 
-.body:                                            ; preds = %.loopexit93, %.loopexit.split-lp94, %134, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i8.i", %.body.i.i.i.i, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i.i", %139
-  %.pn52 = phi { ptr, i32 } [ %.pn, %139 ], [ %78, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i.i" ], [ %133, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i8.i" ], [ %135, %134 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit.split-lp96, %.loopexit.split-lp94 ]
+.body:                                            ; preds = %.loopexit93, %.loopexit.split-lp94.loopexit.split-lp, %.loopexit.split-lp94.loopexit, %134, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i8.i", %.body.i.i.i.i, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i.i", %139
+  %.pn52 = phi { ptr, i32 } [ %.pn, %139 ], [ %78, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i.i" ], [ %133, %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h1d6a246fc498614aE.exit.i8.i" ], [ %135, %134 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit103, %.loopexit.split-lp94.loopexit ], [ %lpad.loopexit.split-lp104, %.loopexit.split-lp94.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr796drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$C$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$$LT$tracing_subscriber..fmt..format..FmtCtx$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$tracing_subscriber..fmt..format..DefaultFields$GT$$u20$as$u20$core..fmt..Display$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h61e85971f490f9d7E"(ptr noalias noundef nonnull align 8 dereferenceable(1392) %20) #23
           to label %common.resume unwind label %154
 
-.loopexit93:                                      ; preds = %150, %.loopexit243
+.loopexit93:                                      ; preds = %.loopexit267
   %lpad.loopexit95 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp94:                             ; preds = %152
-  %lpad.loopexit.split-lp96 = landingpad { ptr, i32 }
+.loopexit.split-lp94.loopexit:                    ; preds = %150
+  %lpad.loopexit103 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.loopexit.split-lp94.loopexit.split-lp:           ; preds = %152
+  %lpad.loopexit.split-lp104 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -6830,9 +6835,9 @@ _ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.thread.i10.i: ; 
   br label %139
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb98dd9a4b3147a46E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i.i, %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i4.i
-  %.pn242 = phi ptr [ %132, %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i4.i ], [ %77, %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i.i ]
+  %.pn266 = phi ptr [ %132, %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i4.i ], [ %77, %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i.i ]
   %.sroa.072.186 = phi ptr [ %.sroa.030.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i4.i ], [ %.sroa.026.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.i.i ]
-  %.sroa.628.0..sroa_idx.le.i.sink = getelementptr inbounds nuw i8, ptr %.pn242, i64 8
+  %.sroa.628.0..sroa_idx.le.i.sink = getelementptr inbounds nuw i8, ptr %.pn266, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.628.0..sroa_idx.le.i.sink, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
   store ptr %.sroa.072.186, ptr %19, align 8
@@ -6887,7 +6892,7 @@ _ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.thread.i10.i: ; 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   invoke void @"_ZN4core3ptr209drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17h456bf809003d40aaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19)
-          to label %151 unwind label %.loopexit93
+          to label %151 unwind label %.loopexit.split-lp94.loopexit
 
 151:                                              ; preds = %150
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
@@ -6899,7 +6904,7 @@ _ZN4core3ops8function6FnOnce9call_once17h400d1d29fd1cd4b7E.exit.thread.i10.i: ; 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   invoke void @"_ZN4core3ptr209drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17h456bf809003d40aaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19)
-          to label %153 unwind label %.loopexit.split-lp94
+          to label %153 unwind label %.loopexit.split-lp94.loopexit.split-lp
 
 153:                                              ; preds = %152
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)

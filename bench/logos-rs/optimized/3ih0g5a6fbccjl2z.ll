@@ -4736,7 +4736,6 @@ define void @"_ZN4core3ptr647drop_in_place$LT$core..iter..adapters..map..map_fol
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr64drop_in_place$LT$$u5b$proc_macro2..TokenTree$u3b$$u20$1$u5d$$GT$17h9f094c8db46cd73cE"(ptr align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-.critedge:
   tail call void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h0af91a94639c7349E"(ptr align 8 %0)
   ret void
 }

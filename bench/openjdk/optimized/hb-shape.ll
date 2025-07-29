@@ -17,14 +17,16 @@ define hidden ptr @hb_shape_list_shapers() local_unnamed_addr #0 {
 .lr.ph.i.i:                                       ; preds = %0, %_ZN16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E10do_destroyEPS1_.exit.i.i
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 3, i64 noundef 8) #4
   %.not.i.i.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i.i.i, label %.thread.i.i, label %3
+  br i1 %.not.i.i.i.i, label %.thread.i.i, label %.critedge
 
-3:                                                ; preds = %.lr.ph.i.i
-  %4 = tail call noundef ptr @_Z15_hb_shapers_getv()
-  store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %5, ptr %6, align 8
+.critedge:                                        ; preds = %.lr.ph.i.i
+  %3 = tail call noundef ptr @_Z15_hb_shapers_getv()
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %4, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr null, ptr %6, align 8
   %7 = ptrtoint ptr %2 to i64
   %8 = cmpxchg weak ptr @_ZL18static_shaper_list, i64 0, i64 %7 acq_rel monotonic, align 8
   %9 = extractvalue { i64, i1 } %8, 1
@@ -35,7 +37,7 @@ define hidden ptr @hb_shape_list_shapers() local_unnamed_addr #0 {
   %11 = extractvalue { i64, i1 } %10, 1
   br i1 %11, label %_ZNK16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E11get_unconstEv.exit, label %_ZN16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E10do_destroyEPS1_.exit.i.i
 
-12:                                               ; preds = %3
+12:                                               ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %2) #5
   br label %_ZN16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E10do_destroyEPS1_.exit.i.i
 
@@ -49,8 +51,8 @@ _ZN16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E10do_destroyEPS1
   %14 = inttoptr i64 %.lcssa.i.i to ptr
   br label %_ZNK16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E11get_unconstEv.exit
 
-_ZNK16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E11get_unconstEv.exit: ; preds = %3, %.thread.i.i, %.split.loop.exit16.i.i
-  %.07.i.i = phi ptr [ %14, %.split.loop.exit16.i.i ], [ @_ZL15nil_shaper_list, %.thread.i.i ], [ %2, %3 ]
+_ZNK16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E11get_unconstEv.exit: ; preds = %.critedge, %.thread.i.i, %.split.loop.exit16.i.i
+  %.07.i.i = phi ptr [ %14, %.split.loop.exit16.i.i ], [ @_ZL15nil_shaper_list, %.thread.i.i ], [ %2, %.critedge ]
   ret ptr %.07.i.i
 }
 

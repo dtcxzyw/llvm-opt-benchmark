@@ -304,12 +304,22 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.4.0..sroa_idx.i.c = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sroa.5.0..sroa_idx.i.c = getelementptr inbounds nuw i8, ptr %13, i64 48
   br label %.critedge
 
 .critedge:                                        ; preds = %70, %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !16
   store i64 5, ptr %14, align 8, !noalias !16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13), !noalias !16
+  store ptr %14, ptr %13, align 8, !noalias !16
+  store ptr @anon.4ca6424c5970fe56c18b90431a323fbf.71, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !16
+  store ptr %14, ptr %.sroa.gep1, align 8, !noalias !16
+  store ptr @anon.4ca6424c5970fe56c18b90431a323fbf.71, ptr %.sroa.4.0..sroa_idx.i.c, align 8, !noalias !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.c, i8 0, i64 16, i1 false), !noalias !16
   store ptr %15, ptr %13, align 8, !noalias !16
   store ptr @anon.4ca6424c5970fe56c18b90431a323fbf.72, ptr %21, align 8, !noalias !16
   store i64 0, ptr %22, align 8, !noalias !16
@@ -675,12 +685,22 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.4.0..sroa_idx.i.c = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sroa.5.0..sroa_idx.i.c = getelementptr inbounds nuw i8, ptr %13, i64 48
   br label %.critedge
 
 .critedge:                                        ; preds = %70, %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !69
   store i64 5, ptr %14, align 8, !noalias !69
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13), !noalias !69
+  store ptr %14, ptr %13, align 8, !noalias !69
+  store ptr @anon.4ca6424c5970fe56c18b90431a323fbf.71, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !69
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !69
+  store ptr %14, ptr %.sroa.gep1, align 8, !noalias !69
+  store ptr @anon.4ca6424c5970fe56c18b90431a323fbf.71, ptr %.sroa.4.0..sroa_idx.i.c, align 8, !noalias !69
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.c, i8 0, i64 16, i1 false), !noalias !69
   store ptr %15, ptr %13, align 8, !noalias !69
   store ptr @anon.4ca6424c5970fe56c18b90431a323fbf.72, ptr %21, align 8, !noalias !69
   store i64 0, ptr %22, align 8, !noalias !69

@@ -20,33 +20,33 @@ define noundef double @_ZN5Gluco7memUsedEv() local_unnamed_addr #0 {
   %4 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3) #8
   %5 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.1)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZL11memReadStati.exit, label %.critedge.i
+  br i1 %6, label %_ZL11memReadStati.exit, label %.preheader.i
 
-.critedge.i:                                      ; preds = %0
+.preheader.i:                                     ; preds = %0
   %7 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #8
   %.not.i = icmp eq i32 %7, 1
-  br i1 %.not.i, label %9, label %8
+  br i1 %.not.i, label %.critedge, label %8, !llvm.loop !3
 
-8:                                                ; preds = %.critedge.i
+8:                                                ; preds = %.preheader.i
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @exit(i32 noundef 1) #9
   unreachable
 
-9:                                                ; preds = %.critedge.i
-  %10 = call i32 @fclose(ptr noundef nonnull %5)
-  %11 = load i32, ptr %2, align 4, !tbaa !3
-  %12 = sitofp i32 %11 to double
+.critedge:                                        ; preds = %.preheader.i
+  %9 = call i32 @fclose(ptr noundef nonnull %5)
+  %10 = load i32, ptr %2, align 4, !tbaa !5
+  %11 = sitofp i32 %10 to double
   br label %_ZL11memReadStati.exit
 
-_ZL11memReadStati.exit:                           ; preds = %0, %9
-  %.0.i = phi double [ %12, %9 ], [ 0.000000e+00, %0 ]
+_ZL11memReadStati.exit:                           ; preds = %0, %.critedge
+  %.0.i = phi double [ %11, %.critedge ], [ 0.000000e+00, %0 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #8
-  %13 = tail call i32 @getpagesize() #10
-  %14 = sitofp i32 %13 to double
-  %15 = fmul double %.0.i, %14
-  %16 = fmul double %15, 0x3EB0000000000000
-  ret double %16
+  %12 = tail call i32 @getpagesize() #10
+  %13 = sitofp i32 %12 to double
+  %14 = fmul double %.0.i, %13
+  %15 = fmul double %14, 0x3EB0000000000000
+  ret double %15
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -69,7 +69,7 @@ _ZL11memReadPeakv.exit.thread:                    ; preds = %0
 
 7:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
-  store i32 0, ptr %2, align 4, !tbaa !3
+  store i32 0, ptr %2, align 4, !tbaa !5
   %8 = tail call i32 @feof(ptr noundef nonnull %5) #8
   %.not13.i = icmp eq i32 %8, 0
   br i1 %.not13.i, label %.lr.ph.i, label %_ZL11memReadPeakv.exit
@@ -87,16 +87,16 @@ _ZL11memReadPeakv.exit.thread:                    ; preds = %0
 11:                                               ; preds = %.preheader.i
   %12 = call i32 @fgetc(ptr noundef nonnull %5)
   %.not12.i = icmp eq i32 %12, 10
-  br i1 %.not12.i, label %.critedge2.i, label %.preheader.i, !llvm.loop !7
+  br i1 %.not12.i, label %.critedge2.i, label %.preheader.i, !llvm.loop !9
 
 .critedge2.i:                                     ; preds = %11, %.preheader.i
   %13 = call i32 @feof(ptr noundef nonnull %5) #8
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %.lr.ph.i, label %_ZL11memReadPeakv.exit, !llvm.loop !9
+  br i1 %.not.i, label %.lr.ph.i, label %_ZL11memReadPeakv.exit, !llvm.loop !10
 
 _ZL11memReadPeakv.exit:                           ; preds = %.lr.ph.i, %.critedge2.i, %7
   %14 = call i32 @fclose(ptr noundef nonnull %5)
-  %15 = load i32, ptr %2, align 4, !tbaa !3
+  %15 = load i32, ptr %2, align 4, !tbaa !5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #8
   %.off = add i32 %15, 1023
@@ -166,10 +166,11 @@ attributes #10 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !4, i64 0}
-!4 = !{!"int", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}

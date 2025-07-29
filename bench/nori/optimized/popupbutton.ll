@@ -160,7 +160,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %.sroa.26.0.extract.shift = and i64 %2, -4294967296
   %3 = add i64 %2, 15
   %.sroa.010.0.insert.ext = and i64 %3, 4294967295
-  %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.010.0.insert.ext, %.sroa.26.0.extract.shift
+  %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.26.0.extract.shift, %.sroa.010.0.insert.ext
   ret i64 %.sroa.010.0.insert.insert
 }
 
@@ -348,68 +348,67 @@ define hidden void @_ZN7nanogui11PopupButton14perform_layoutEP10NVGcontext(ptr n
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 212
   %7 = load i32, ptr %6, align 4
-  %8 = sub i32 0, %7
   %.not = icmp eq ptr %3, null
-  %9 = tail call i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %11 = load i32, ptr %10, align 4
-  %12 = sdiv i32 %11, 2
-  br i1 %.not, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge, label %13
+  %8 = tail call i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
+  %.sroa.214.0.extract.shift = lshr i64 %8, 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %10 = load i32, ptr %9, align 4
+  %11 = sdiv i32 %10, 2
+  br i1 %.not, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge, label %12
 
-13:                                               ; preds = %2
-  %.sroa.1.0.extract.shift = lshr i64 %9, 32
-  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %15 = load i32, ptr %14, align 4
-  %16 = sub nsw i32 %.sroa.1.0.extract.trunc, %15
-  %17 = add nsw i32 %16, %12
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 216
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, 1
-  br i1 %21, label %22, label %27
+12:                                               ; preds = %2
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.214.0.extract.shift to i32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %14 = load i32, ptr %13, align 4
+  %15 = sub nsw i32 %.sroa.1.0.extract.trunc, %14
+  %16 = add nsw i32 %15, %11
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 216
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %21, label %26
 
-22:                                               ; preds = %13
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %24 = load i32, ptr %23, align 4
-  %25 = add nsw i32 %24, %7
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 200
-  %.sroa.221.0.insert.ext = zext i32 %17 to i64
+21:                                               ; preds = %12
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %23 = load i32, ptr %22, align 4
+  %24 = add nsw i32 %23, %7
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 200
+  %.sroa.221.0.insert.ext = zext i32 %16 to i64
   %.sroa.221.0.insert.shift = shl nuw i64 %.sroa.221.0.insert.ext, 32
-  %.sroa.020.0.insert.ext = zext i32 %25 to i64
+  %.sroa.020.0.insert.ext = zext i32 %24 to i64
   %.sroa.020.0.insert.insert = or disjoint i64 %.sroa.221.0.insert.shift, %.sroa.020.0.insert.ext
-  store i64 %.sroa.020.0.insert.insert, ptr %26, align 8
+  store i64 %.sroa.020.0.insert.insert, ptr %25, align 8
   br label %37
 
-27:                                               ; preds = %13
-  %28 = getelementptr inbounds nuw i8, ptr %18, i64 200
-  %.sroa.219.0.insert.ext = zext i32 %17 to i64
+26:                                               ; preds = %12
+  %27 = sub nsw i32 0, %7
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 200
+  %.sroa.219.0.insert.ext = zext i32 %16 to i64
   %.sroa.219.0.insert.shift = shl nuw i64 %.sroa.219.0.insert.ext, 32
-  %.sroa.018.0.insert.ext = zext i32 %8 to i64
+  %.sroa.018.0.insert.ext = zext i32 %27 to i64
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.219.0.insert.shift, %.sroa.018.0.insert.ext
   store i64 %.sroa.018.0.insert.insert, ptr %28, align 8
   br label %37
 
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %2
-  %.sroa.013.0.extract.trunc = trunc i64 %9 to i32
-  %.sroa.214.0.extract.shift = lshr i64 %9, 32
-  %.sroa.214.0.extract.trunc = trunc nuw i64 %.sroa.214.0.extract.shift to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
   %31 = add i32 %7, 1
   %32 = add i32 %31, %30
-  %33 = add nsw i32 %32, %.sroa.013.0.extract.trunc
-  %34 = sub i32 %.sroa.214.0.extract.trunc, %7
-  %35 = add i32 %34, %12
+  %33 = sub nsw i32 %11, %7
+  %.06.i.sroa.phi.sroa.speculated15 = trunc i64 %8 to i32
+  %34 = add nsw i32 %32, %.06.i.sroa.phi.sroa.speculated15
+  %.06.i.sroa.phi.sroa.speculated15.c = trunc nuw i64 %.sroa.214.0.extract.shift to i32
+  %35 = add nsw i32 %33, %.06.i.sroa.phi.sroa.speculated15.c
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sroa.017.sroa.2.0.insert.ext = zext i32 %35 to i64
   %.sroa.017.sroa.2.0.insert.shift = shl nuw i64 %.sroa.017.sroa.2.0.insert.ext, 32
-  %.sroa.017.sroa.0.0.insert.ext = zext i32 %33 to i64
+  %.sroa.017.sroa.0.0.insert.ext = zext i32 %34 to i64
   %.sroa.017.sroa.0.0.insert.insert = or disjoint i64 %.sroa.017.sroa.2.0.insert.shift, %.sroa.017.sroa.0.0.insert.ext
   store i64 %.sroa.017.sroa.0.0.insert.insert, ptr %36, align 8
   br label %37
 
-37:                                               ; preds = %22, %27, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
+37:                                               ; preds = %21, %26, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
   ret void
 }
 
@@ -420,33 +419,33 @@ define linkonce_odr hidden i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr nou
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %common.ret, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  br i1 %.not, label %11, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
 
-common.ret5:                                      ; preds = %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge, %common.ret
-  %common.ret5.op = phi i64 [ %.sroa.0.0.copyload, %common.ret ], [ %.sroa.04.0.insert.insert, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
-  ret i64 %common.ret5.op
+common.ret:                                       ; preds = %11, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %common.ret.op = phi i64 [ %.sroa.04.0.insert.insert, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %.sroa.0.0.copyload, %11 ]
+  ret i64 %common.ret.op
 
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %1
   %4 = tail call i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %3)
-  %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.2.0.extract.shift = lshr i64 %4, 32
-  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.06.i.sroa.phi.sroa.speculated = trunc i64 %4 to i32
   %6 = load i32, ptr %5, align 8
-  %7 = add nsw i32 %6, %.sroa.0.0.extract.trunc
+  %7 = add nsw i32 %6, %.06.i.sroa.phi.sroa.speculated
+  %.06.i.sroa.phi.sroa.speculated.c = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
-  %10 = add nsw i32 %9, %.sroa.2.0.extract.trunc
+  %10 = add nsw i32 %9, %.06.i.sroa.phi.sroa.speculated.c
   %.sroa.4.0.insert.ext = zext i32 %10 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.04.0.insert.ext = zext i32 %7 to i64
   %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.04.0.insert.ext
-  br label %common.ret5
+  br label %common.ret
 
-common.ret:                                       ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.0.0.copyload = load i64, ptr %11, align 8
-  br label %common.ret5
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.0.0.copyload = load i64, ptr %12, align 8
+  br label %common.ret
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

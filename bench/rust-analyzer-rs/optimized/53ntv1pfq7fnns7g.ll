@@ -4845,14 +4845,10 @@ define internal fastcc noundef ptr @"_ZN114_$LT$core..iter..adapters..flatten..F
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre.i = load i64, ptr %0, align 8, !range !27, !alias.scope !1872
   %11 = trunc nuw i64 %.pre.i to i1
-  br i1 %11, label %thread-pre-split, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hbbabb8d3e63cf4d7E.exit.i"
+  br i1 %11, label %12, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hbbabb8d3e63cf4d7E.exit.i"
 
-thread-pre-split:                                 ; preds = %1
-  %.pr = load ptr, ptr %3, align 8, !alias.scope !1875
-  br label %12
-
-12:                                               ; preds = %thread-pre-split, %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hc1682510713ffeaaE.exit.i"
-  %13 = phi ptr [ %.pr, %thread-pre-split ], [ %.sroa.3.0.i.ph.i, %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hc1682510713ffeaaE.exit.i" ]
+12:                                               ; preds = %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hc1682510713ffeaaE.exit.i", %1
+  %13 = load ptr, ptr %3, align 8, !alias.scope !1875, !noundef !7
   store ptr null, ptr %3, align 8, !alias.scope !1875
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hc1682510713ffeaaE.exit.i.i", label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6de5c49018454341E.exit"

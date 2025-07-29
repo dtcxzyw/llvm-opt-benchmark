@@ -32,44 +32,43 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: noreturn nounwind uwtable
 define void @nx_start() #0 {
-.critedge:
-  %0 = alloca ptr, align 8
-  %1 = alloca i64, align 8
+  %1 = alloca ptr, align 8
+  %2 = alloca i64, align 8
+  %g_readytorun.promoted = load ptr, ptr @g_readytorun, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 976), ptr @g_idleargv, align 16
+  store ptr @g_idletcb, ptr @g_running_tasks, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(992) getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 16), i8 0, i64 992, i1 false)
   store i8 3, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 48), align 16
   store ptr @nx_start, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 32), align 16
   store ptr @nx_start, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 40), align 8
   store i16 2, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 64), align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 976), ptr noundef nonnull align 1 dereferenceable(10) @g_idlename, i64 noundef 10, i1 false) #5
-  store ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 976), ptr @g_idleargv, align 16
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 8), align 8
-  %2 = load ptr, ptr @g_readytorun, align 8
-  store ptr %2, ptr @g_idletcb, align 16
-  %.not = icmp eq ptr %2, null
+  store ptr %g_readytorun.promoted, ptr @g_idletcb, align 16
+  %.not = icmp eq ptr %g_readytorun.promoted, null
   br i1 %.not, label %3, label %4
 
-3:                                                ; preds = %.critedge
+3:                                                ; preds = %0
   store ptr @g_idletcb, ptr getelementptr inbounds nuw (i8, ptr @g_readytorun, i64 8), align 8
   br label %6
 
-4:                                                ; preds = %.critedge
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %g_readytorun.promoted, i64 8
   store ptr @g_idletcb, ptr %5, align 8
   br label %6
 
-6:                                                ; preds = %3, %4
+6:                                                ; preds = %4, %3
   store ptr @g_idletcb, ptr @g_readytorun, align 8
-  store ptr @g_idletcb, ptr @g_running_tasks, align 8
   store i8 2, ptr @g_nx_initstate, align 1
   tail call void @nxsem_initialize() #5
-  call void @up_allocate_heap(ptr noundef nonnull %0, ptr noundef nonnull %1) #5
-  %7 = load ptr, ptr %0, align 8
-  %8 = load i64, ptr %1, align 8
+  call void @up_allocate_heap(ptr noundef nonnull %1, ptr noundef nonnull %2) #5
+  %7 = load ptr, ptr %1, align 8
+  %8 = load i64, ptr %2, align 8
   call void @umm_initialize(ptr noundef %7, i64 noundef %8) #5
   store volatile i32 4, ptr @g_npidhash, align 4
   %9 = load volatile i32, ptr @g_npidhash, align 4
   %10 = icmp slt i32 %9, 2
-  br i1 %10, label %.lr.ph, label %.critedge49
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %11 = load volatile i32, ptr @g_npidhash, align 4
@@ -77,9 +76,9 @@ define void @nx_start() #0 {
   store volatile i32 %12, ptr @g_npidhash, align 4
   %13 = load volatile i32, ptr @g_npidhash, align 4
   %14 = icmp slt i32 %13, 2
-  br i1 %14, label %.lr.ph, label %.critedge49, !llvm.loop !6
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-.critedge49:                                      ; preds = %.lr.ph, %6
+._crit_edge:                                      ; preds = %.lr.ph, %6
   %15 = load volatile i32, ptr @g_npidhash, align 4
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 3
@@ -124,7 +123,7 @@ define void @nx_start() #0 {
   %33 = call i32 @sched_unlock() #5
   br label %34
 
-34:                                               ; preds = %34, %.critedge49
+34:                                               ; preds = %34, %._crit_edge
   call void @up_idle() #5
   br label %34
 }

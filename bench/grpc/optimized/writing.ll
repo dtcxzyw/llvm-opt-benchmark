@@ -6012,10 +6012,11 @@ define linkonce_odr void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_26G
   %8 = alloca %"class.grpc_core::Slice", align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !596
-  %11 = load i8, ptr %0, align 4, !tbaa !53
-  %12 = load i8, ptr %1, align 1, !tbaa !53
+  %11 = load i8, ptr %0, align 4
+  %12 = load i8, ptr %1, align 1
   %.not.i.i = icmp eq i8 %11, %12
-  br i1 %.not.i.i, label %13, label %24
+  %.not.fr.i.i = freeze i1 %.not.i.i
+  br i1 %.not.fr.i.i, label %13, label %24
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8

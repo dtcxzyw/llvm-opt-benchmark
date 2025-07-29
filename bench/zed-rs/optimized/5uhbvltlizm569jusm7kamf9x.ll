@@ -12254,14 +12254,12 @@ default.unreachable1.i:                           ; preds = %.noexc
 "_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h215bb5fa87bec656E.exit.thread37": ; preds = %.noexc, %"_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h215bb5fa87bec656E.exit.thread37.loopexit"
   %.sroa.0.1.i.ph = phi i1 [ false, %"_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h215bb5fa87bec656E.exit.thread37.loopexit" ], [ true, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.val19.pre = load ptr, ptr %4, align 8
-  %.val20.pre = load ptr, ptr %13, align 8
   br label %"_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h215bb5fa87bec656E.exit.thread"
 
 "_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h215bb5fa87bec656E.exit.thread": ; preds = %12, %"_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h215bb5fa87bec656E.exit.thread37"
-  %.val20 = phi ptr [ %.val20.pre, %"_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h215bb5fa87bec656E.exit.thread37" ], [ %.sroa.531.0..sroa_idx, %12 ]
-  %.val19 = phi ptr [ %.val19.pre, %"_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h215bb5fa87bec656E.exit.thread37" ], [ @anon.4c92262d58d8f1a437fbdfc64905f60f.83, %12 ]
   %.sroa.0.0.i36 = phi i1 [ %.sroa.0.1.i.ph, %"_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h215bb5fa87bec656E.exit.thread37" ], [ false, %12 ]
+  %.val19 = load ptr, ptr %4, align 8, !nonnull !4, !align !74, !noundef !4
+  %.val20 = load ptr, ptr %13, align 8, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %.val19, i64 24
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
   invoke void %21(ptr noundef %.val20)

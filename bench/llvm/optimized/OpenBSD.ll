@@ -2226,12 +2226,13 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit9:
   %.off = add i32 %2, -37
   %switch = icmp ult i32 %.off, 2
   %5 = icmp eq i32 %2, 38
-  %spec.select.v = select i1 %5, i64 17592186056712, i64 17592186056704
-  %spec.select = select i1 %switch, i64 %spec.select.v, i64 0
-  %.sroa.0.0 = or i64 %4, %spec.select
-  %6 = extractvalue { i64, i64 } %3, 1
+  %6 = or i64 %4, 17592186056704
+  %7 = or i64 %4, 17592186056712
+  %spec.select = select i1 %5, i64 %7, i64 %6
+  %.sroa.0.0 = select i1 %switch, i64 %spec.select, i64 %4
+  %8 = extractvalue { i64, i64 } %3, 1
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %6, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %8, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

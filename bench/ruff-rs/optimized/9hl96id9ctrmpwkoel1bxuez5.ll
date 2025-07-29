@@ -917,21 +917,16 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
   %15 = trunc nuw i64 %.pre.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6), !noalias !134
-  br i1 %15, label %._crit_edge, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..CallableSignature$GT$$GT$17h95bb5c415f2d3638E.exit.i"
+  br i1 %15, label %16, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..CallableSignature$GT$$GT$17h95bb5c415f2d3638E.exit.i"
 
-._crit_edge:                                      ; preds = %2
-  %.pre = load i64, ptr %8, align 8, !alias.scope !135, !noalias !140
-  %.pre1 = load i64, ptr %9, align 8, !alias.scope !135, !noalias !140
-  br label %16
-
-16:                                               ; preds = %._crit_edge, %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$smallvec..IntoIter$LT$$u5b$ty_python_semantic..types..signatures..CallableSignature$u3b$$u20$1$u5d$$GT$$GT$$GT$17hc96287469d97768fE.exit.i"
-  %17 = phi i64 [ %.pre1, %._crit_edge ], [ %.sink10.i.i.i.i.i.i, %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$smallvec..IntoIter$LT$$u5b$ty_python_semantic..types..signatures..CallableSignature$u3b$$u20$1$u5d$$GT$$GT$$GT$17hc96287469d97768fE.exit.i" ]
-  %18 = phi i64 [ %.pre, %._crit_edge ], [ 0, %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$smallvec..IntoIter$LT$$u5b$ty_python_semantic..types..signatures..CallableSignature$u3b$$u20$1$u5d$$GT$$GT$$GT$17hc96287469d97768fE.exit.i" ]
+16:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$smallvec..IntoIter$LT$$u5b$ty_python_semantic..types..signatures..CallableSignature$u3b$$u20$1$u5d$$GT$$GT$$GT$17hc96287469d97768fE.exit.i", %2
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  %19 = icmp eq i64 %18, %17
+  %17 = load i64, ptr %8, align 8, !alias.scope !145, !noalias !146, !noundef !8
+  %18 = load i64, ptr %9, align 8, !alias.scope !145, !noalias !146, !noundef !8
+  %19 = icmp eq i64 %17, %18
   br i1 %19, label %_ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E.exit.thread.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E.exit.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E.exit.thread.i.i: ; preds = %16
@@ -939,13 +934,13 @@ _ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E.exit.thread.i.i: ; pr
   br label %26
 
 _ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E.exit.i.i: ; preds = %16
-  %20 = add i64 %18, 1
-  store i64 %20, ptr %8, align 8, !alias.scope !135, !noalias !140
+  %20 = add i64 %17, 1
+  store i64 %20, ptr %8, align 8, !alias.scope !145, !noalias !146
   %21 = load i64, ptr %7, align 8, !alias.scope !149, !noalias !152, !noundef !8
   %22 = icmp ugt i64 %21, 1
   %23 = load ptr, ptr %10, align 8, !alias.scope !149, !noalias !152, !nonnull !8
   %.sink11.i.i.i.i.i = select i1 %22, ptr %23, ptr %10
-  %24 = getelementptr inbounds nuw { { i8, [15 x i8] }, { i8, [15 x i8] }, { i8, [15 x i8] }, { i64, { [7 x i64] } }, i8, [7 x i8] }, ptr %.sink11.i.i.i.i.i, i64 %18
+  %24 = getelementptr inbounds nuw { { i8, [15 x i8] }, { i8, [15 x i8] }, { i8, [15 x i8] }, { i64, { [7 x i64] } }, i8, [7 x i8] }, ptr %.sink11.i.i.i.i.i, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) %24, i64 120, i1 false), !noalias !131
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 8, !noalias !134
   %25 = icmp eq i8 %.pre.i.i, 2
@@ -1037,7 +1032,7 @@ common.resume.i:                                  ; preds = %69, %65, %27
   invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$smallvec..IntoIter$LT$$u5b$ty_python_semantic..types..signatures..CallableSignature$u3b$$u20$1$u5d$$GT$$GT$17h486d002c9e4dd720E"(ptr noalias noundef align 8 dereferenceable(144) %7)
           to label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$smallvec..IntoIter$LT$$u5b$ty_python_semantic..types..signatures..CallableSignature$u3b$$u20$1$u5d$$GT$$GT$$GT$17hc96287469d97768fE.exit.i" unwind label %69, !noalias !122
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb7f75c0c12e66826E.exit.thread.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb7f75c0c12e66826E.exit.thread30.i", %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..CallableSignature$GT$$GT$17h95bb5c415f2d3638E.exit.i"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb7f75c0c12e66826E.exit.thread.i": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..CallableSignature$GT$$GT$17h95bb5c415f2d3638E.exit.i", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb7f75c0c12e66826E.exit.thread30.i"
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
@@ -58680,24 +58675,24 @@ attributes #32 = { cold "function-inline-cost-multiplier"="2" }
 !132 = distinct !{!132, !130, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h2c9ad976f7a6d1bfE: argument 0"}
 !133 = !{!129}
 !134 = !{!132, !129, !123, !126}
-!135 = !{!136, !138, !129, !126}
-!136 = distinct !{!136, !137, !"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcec75a5cbe1e0282E: argument 1"}
-!137 = distinct !{!137, !"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcec75a5cbe1e0282E"}
-!138 = distinct !{!138, !139, !"_ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E: argument 1"}
-!139 = distinct !{!139, !"_ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E"}
-!140 = !{!141, !142, !132, !123}
-!141 = distinct !{!141, !137, !"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcec75a5cbe1e0282E: argument 0"}
-!142 = distinct !{!142, !139, !"_ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E: argument 0"}
-!143 = !{!142}
-!144 = !{!138}
-!145 = !{!141}
-!146 = !{!136}
-!147 = !{!141, !142}
-!148 = !{!136, !138, !132, !129, !123, !126}
-!149 = !{!150, !136, !138, !129, !126}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E: argument 0"}
+!137 = distinct !{!137, !"_ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E"}
+!138 = !{!139}
+!139 = distinct !{!139, !137, !"_ZN4core3ops8function6FnOnce9call_once17h6853f26f3c3b6a96E: argument 1"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcec75a5cbe1e0282E: argument 0"}
+!142 = distinct !{!142, !"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcec75a5cbe1e0282E"}
+!143 = !{!144}
+!144 = distinct !{!144, !142, !"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcec75a5cbe1e0282E: argument 1"}
+!145 = !{!144, !139, !129, !126}
+!146 = !{!141, !136, !132, !123}
+!147 = !{!141, !136}
+!148 = !{!144, !139, !132, !129, !123, !126}
+!149 = !{!150, !144, !139, !129, !126}
 !150 = distinct !{!150, !151, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h9e84d156a08d79e5E: argument 1"}
 !151 = distinct !{!151, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h9e84d156a08d79e5E"}
-!152 = !{!153, !141, !142, !132, !123}
+!152 = !{!153, !141, !136, !132, !123}
 !153 = distinct !{!153, !151, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h9e84d156a08d79e5E: argument 0"}
 !154 = !{!155}
 !155 = distinct !{!155, !156, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb7f75c0c12e66826E: argument 1"}

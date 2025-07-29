@@ -2195,7 +2195,7 @@ telrcv.exit.thread:                               ; preds = %198, %211, %825, %1
   br i1 %.not84, label %.outer, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %867, %.outer, %169
-  %.2 = phi i32 [ %.1.ph, %.outer ], [ %.1.ph, %169 ], [ 42, %867 ]
+  %.2 = phi i32 [ %.1.ph, %169 ], [ %.1.ph, %.outer ], [ 42, %867 ]
   call void @Curl_xfer_setup_nop(ptr noundef %0) #9
   br label %init_telnet.exit
 

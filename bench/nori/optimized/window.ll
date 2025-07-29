@@ -589,7 +589,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Window17mouse_enter_eventERKNS_5Ar
 
 declare noundef zeroext i1 @_ZN7nanogui6Widget17mouse_enter_eventERKNS_5ArrayIiLm2EEEb(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN7nanogui6Window16mouse_drag_eventERKNS_5ArrayIiLm2EEES4_ii(ptr noundef nonnull align 8 captures(none) dereferenceable(186) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, i32 %4) unnamed_addr #7 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 185
   %7 = load i8, ptr %6, align 1
@@ -597,9 +597,9 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Window16mouse_drag_eventERKNS_5Arr
   %9 = and i32 %3, 1
   %.not = icmp ne i32 %9, 0
   %or.cond.not = and i1 %.not, %8
-  br i1 %or.cond.not, label %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge, label %35
+  br i1 %or.cond.not, label %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.preheader.critedge, label %39
 
-_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge:   ; preds = %5
+_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.preheader.critedge: ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %2, align 4
   %12 = load i32, ptr %10, align 8
@@ -610,29 +610,35 @@ _ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge:   ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, %15
-  %19 = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
-  %20 = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
-  store i32 %19, ptr %10, align 8
-  store i32 %20, ptr %16, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load i32, ptr %23, align 4
-  %26 = load i32, ptr %24, align 8
-  %27 = sub nsw i32 %25, %26
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 52
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %29, %31
-  %33 = tail call i32 @llvm.smin.i32(i32 %27, i32 %19)
-  %34 = tail call i32 @llvm.smin.i32(i32 %32, i32 %20)
-  store i32 %33, ptr %10, align 8
-  store i32 %34, ptr %16, align 4
-  br label %35
+  store i32 %18, ptr %16, align 4
+  %19 = load i32, ptr %10, align 8
+  %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 0)
+  %21 = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
+  store i32 %20, ptr %10, align 8
+  %.sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %21, ptr %.sroa_idx15, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = load i32, ptr %24, align 4
+  %27 = load i32, ptr %25, align 8
+  %28 = sub nsw i32 %26, %27
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 52
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %32 = load i32, ptr %31, align 4
+  %33 = sub nsw i32 %30, %32
+  %34 = load i32, ptr %10, align 8
+  %35 = tail call i32 @llvm.smin.i32(i32 %28, i32 %34)
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %37 = load i32, ptr %36, align 4
+  %38 = tail call i32 @llvm.smin.i32(i32 %33, i32 %37)
+  store i32 %35, ptr %10, align 8
+  store i32 %38, ptr %.sroa_idx15, align 4
+  br label %39
 
-35:                                               ; preds = %5, %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge
+39:                                               ; preds = %5, %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.preheader.critedge
   ret i1 %or.cond.not
 }
 
@@ -752,7 +758,7 @@ attributes #3 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

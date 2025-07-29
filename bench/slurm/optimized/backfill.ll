@@ -5832,25 +5832,31 @@ define dso_local noalias noundef ptr @backfill_agent(ptr noundef readnone captur
   tail call fastcc void @_init_planned_bitmap()
   %8 = tail call ptr @list_create(ptr noundef nonnull @_het_job_map_del) #15
   store ptr %8, ptr @het_job_list, align 8
-  %.b2628.pr74 = load i1, ptr @stop_backfill, align 1
-  br i1 %.b2628.pr74, label %.loopexit, label %.critedge.preheader
+  br label %thread-pre-split
 
-.critedge.preheader:                              ; preds = %6, %thread-pre-split.backedge
-  %.016.ph76 = phi i1 [ %.016.ph.be, %thread-pre-split.backedge ], [ false, %6 ]
-  %.017.ph75 = phi i32 [ %.017.ph.be, %thread-pre-split.backedge ], [ 0, %6 ]
-  br i1 %.016.ph76, label %.critedge.us, label %.critedge
+thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %6
+  %.017.ph = phi i32 [ 0, %6 ], [ %.017.ph.be, %thread-pre-split.backedge ]
+  %.016.ph = phi i1 [ false, %6 ], [ %.016.ph.be, %thread-pre-split.backedge ]
+  %.b2628.pr = load i1, ptr @stop_backfill, align 1
+  br i1 %.016.ph, label %thread-pre-split.split.us, label %thread-pre-split.split
 
-.critedge.us:                                     ; preds = %.critedge.preheader, %10
+thread-pre-split.split.us:                        ; preds = %thread-pre-split
+  br i1 %.b2628.pr, label %.split.us, label %.critedge
+
+.critedge:                                        ; preds = %thread-pre-split.split.us, %10
   %9 = tail call fastcc i32 @_my_sleep(i64 noundef 1000000)
   %.b29.us = load i1, ptr @stop_backfill, align 1
-  br i1 %.b29.us, label %.loopexitthread-pre-split, label %10
+  br i1 %.b29.us, label %.split.us, label %10
 
-10:                                               ; preds = %.critedge.us
+10:                                               ; preds = %.critedge
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 321), align 1, !range !12, !noundef !13
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %.critedge.us, label %.split.us, !llvm.loop !21
+  br i1 %12, label %.critedge, label %.split74.us, !llvm.loop !21
 
-.critedge:                                        ; preds = %.critedge.preheader, %18
+thread-pre-split.split:                           ; preds = %thread-pre-split
+  br i1 %.b2628.pr, label %.split.us, label %.critedge165
+
+.critedge165:                                     ; preds = %thread-pre-split.split, %18
   %13 = load i32, ptr @backfill_interval, align 4
   %14 = icmp eq i32 %13, -1
   %15 = sext i32 %13 to i64
@@ -5858,27 +5864,27 @@ define dso_local noalias noundef ptr @backfill_agent(ptr noundef readnone captur
   %.sink = select i1 %14, i64 30000000, i64 %16
   %17 = tail call fastcc i32 @_my_sleep(i64 noundef %.sink)
   %.b29 = load i1, ptr @stop_backfill, align 1
-  br i1 %.b29, label %.loopexitthread-pre-split, label %18
+  br i1 %.b29, label %.split.us, label %18
 
-18:                                               ; preds = %.critedge
+18:                                               ; preds = %.critedge165
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 321), align 1, !range !12, !noundef !13
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %.critedge, label %.split.us, !llvm.loop !23
+  br i1 %20, label %.critedge165, label %.split74.us, !llvm.loop !23
 
-.split.us:                                        ; preds = %18, %10
+.split74.us:                                      ; preds = %18, %10
   %21 = load ptr, ptr @het_job_list, align 8
   %22 = tail call i32 @list_flush(ptr noundef %21) #15
   %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @config_lock) #15
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %26, label %24
 
-24:                                               ; preds = %.split.us
+24:                                               ; preds = %.split74.us
   %25 = tail call ptr @__errno_location() #16
   store i32 %23, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.backfill_agent) #17
   unreachable
 
-26:                                               ; preds = %.split.us
+26:                                               ; preds = %.split74.us
   %.b2730 = load i1, ptr @config_flag, align 1
   br i1 %.b2730, label %27, label %.thread
 
@@ -6012,8 +6018,8 @@ _many_pending_rpcs.exit:                          ; preds = %56
 79:                                               ; preds = %75
   tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._yield_locks.all_locks) #15
   tail call void @validate_all_reservations(i1 noundef zeroext true, i1 noundef zeroext false) #15
-  %80 = add nsw i32 %.017.ph75, 1
-  %81 = and i32 %.017.ph75, 1
+  %80 = add nsw i32 %.017.ph, 1
+  %81 = and i32 %.017.ph, 1
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %99
 
@@ -6074,10 +6080,9 @@ _het_job_start_clear.exit:                        ; preds = %97, %83
   br i1 %.not35, label %thread-pre-split.backedge, label %107
 
 thread-pre-split.backedge:                        ; preds = %105, %39, %42, %36, %65, %63, %_many_pending_rpcs.exit, %50, %43
-  %.017.ph.be = phi i32 [ %80, %105 ], [ %.017.ph75, %39 ], [ %.017.ph75, %42 ], [ %.017.ph75, %36 ], [ %.017.ph75, %65 ], [ %.017.ph75, %63 ], [ %.017.ph75, %_many_pending_rpcs.exit ], [ %.017.ph75, %50 ], [ %.017.ph75, %43 ]
-  %.016.ph.be = phi i1 [ false, %105 ], [ %.016.ph76, %39 ], [ %.016.ph76, %42 ], [ %.016.ph76, %36 ], [ true, %65 ], [ true, %63 ], [ true, %_many_pending_rpcs.exit ], [ true, %50 ], [ true, %43 ]
-  %.b2628.pr = load i1, ptr @stop_backfill, align 1
-  br i1 %.b2628.pr, label %.loopexitthread-pre-split, label %.critedge.preheader, !llvm.loop !23
+  %.017.ph.be = phi i32 [ %80, %105 ], [ %.017.ph, %39 ], [ %.017.ph, %42 ], [ %.017.ph, %36 ], [ %.017.ph, %65 ], [ %.017.ph, %63 ], [ %.017.ph, %_many_pending_rpcs.exit ], [ %.017.ph, %50 ], [ %.017.ph, %43 ]
+  %.016.ph.be = phi i1 [ false, %105 ], [ %.016.ph, %39 ], [ %.016.ph, %42 ], [ %.016.ph, %36 ], [ true, %65 ], [ true, %63 ], [ true, %_many_pending_rpcs.exit ], [ true, %50 ], [ true, %43 ]
+  br label %thread-pre-split, !llvm.loop !23
 
 107:                                              ; preds = %105
   %108 = tail call ptr @__errno_location() #16
@@ -6085,20 +6090,16 @@ thread-pre-split.backedge:                        ; preds = %105, %39, %42, %36,
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.backfill_agent) #17
   unreachable
 
-.loopexitthread-pre-split:                        ; preds = %thread-pre-split.backedge, %.critedge, %.critedge.us
-  %.pr = load ptr, ptr @het_job_list, align 8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexitthread-pre-split, %6
-  %109 = phi ptr [ %.pr, %.loopexitthread-pre-split ], [ %8, %6 ]
+.split.us:                                        ; preds = %thread-pre-split.split, %thread-pre-split.split.us, %.critedge165, %.critedge
+  %109 = load ptr, ptr @het_job_list, align 8
   %.not37 = icmp eq ptr %109, null
   br i1 %.not37, label %111, label %110
 
-110:                                              ; preds = %.loopexit
+110:                                              ; preds = %.split.us
   tail call void @list_destroy(ptr noundef nonnull %109) #15
   br label %111
 
-111:                                              ; preds = %110, %.loopexit
+111:                                              ; preds = %110, %.split.us
   store ptr null, ptr @het_job_list, align 8
   tail call void @xhash_free_ptr(ptr noundef nonnull @user_usage_map) #15
   %112 = load ptr, ptr @planned_bitmap, align 8

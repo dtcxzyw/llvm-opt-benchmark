@@ -488,7 +488,7 @@ ff_dcaadpcm_predict.exit:                         ; preds = %34
   %63 = ashr i32 %62, %.sroa.2.0.extract.trunc.i
   %64 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %63, ptr %64, align 4, !tbaa !9
-  br i1 %24, label %65, label %ff_dca_core_dequantize.exit
+  br i1 %24, label %65, label %.split.us.i
 
 65:                                               ; preds = %ff_dcaadpcm_predict.exit
   %66 = load i8, ptr %31, align 1, !tbaa !13
@@ -499,34 +499,42 @@ ff_dcaadpcm_predict.exit:                         ; preds = %34
   %70 = zext nneg i32 %69 to i64
   %71 = lshr i64 %23, %70
   %72 = sub i32 21, %.fr.i
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %.split.us.i, label %.split.i
+
+.split.us.i:                                      ; preds = %65, %ff_dcaadpcm_predict.exit
+  %.033.i = phi i32 [ %72, %65 ], [ 22, %ff_dcaadpcm_predict.exit ]
+  %.02532.i = phi i64 [ %71, %65 ], [ %23, %ff_dcaadpcm_predict.exit ]
+  %74 = zext nneg i32 %.033.i to i64
+  %75 = add nsw i32 %.033.i, -1
+  %76 = zext nneg i32 %75 to i64
+  %77 = shl nuw i64 1, %76
+  %78 = sext i32 %63 to i64
+  %79 = mul nsw i64 %.02532.i, %78
+  %80 = add nsw i64 %77, %79
+  %81 = ashr i64 %80, %74
+  %.0.i.us.i = trunc i64 %81 to i32
   br label %ff_dca_core_dequantize.exit
 
-ff_dca_core_dequantize.exit:                      ; preds = %ff_dcaadpcm_predict.exit, %65
-  %.025.i = phi i64 [ %71, %65 ], [ %23, %ff_dcaadpcm_predict.exit ]
-  %.0.i22 = phi i32 [ %72, %65 ], [ 22, %ff_dcaadpcm_predict.exit ]
-  %73 = sext i32 %63 to i64
-  %74 = mul nsw i64 %.025.i, %73
-  %75 = icmp sgt i32 %.0.i22, 0
-  %76 = add nsw i32 %.0.i22, -1
-  %77 = zext nneg i32 %76 to i64
-  %78 = shl nuw i64 1, %77
-  %79 = add nsw i64 %78, %74
-  %80 = zext nneg i32 %.0.i22 to i64
-  %81 = ashr i64 %79, %80
-  %spec.select = select i1 %75, i64 %81, i64 %74
-  %.0.i.i = trunc i64 %spec.select to i32
-  %82 = tail call i32 @llvm.smax.i32(i32 %.0.i.i, i32 -8388608)
-  %.0.i.i.i23 = tail call range(i32 -8388608, 8388608) i32 @llvm.smin.i32(i32 %82, i32 8388607)
-  %83 = add nsw i32 %.0.i.i.i23, %.0.i.i9.i
-  store i32 %83, ptr %49, align 4, !tbaa !9
+.split.i:                                         ; preds = %65
+  %82 = trunc i64 %71 to i32
+  %.0.i.i = mul i32 %63, %82
+  br label %ff_dca_core_dequantize.exit
+
+ff_dca_core_dequantize.exit:                      ; preds = %.split.us.i, %.split.i
+  %.0.i.us.sink.i = phi i32 [ %.0.i.us.i, %.split.us.i ], [ %.0.i.i, %.split.i ]
+  %83 = tail call i32 @llvm.smax.i32(i32 %.0.i.us.sink.i, i32 -8388608)
+  %.0.i.i.us.i = tail call range(i32 -8388608, 8388608) i32 @llvm.smin.i32(i32 %83, i32 8388607)
+  %84 = add nsw i32 %.0.i.i.us.i, %.0.i.i9.i
+  store i32 %84, ptr %49, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %ff_dca_core_dequantize.exit, %10
-  %84 = sext i32 %8 to i64
-  %85 = getelementptr inbounds [20 x i32], ptr %11, i64 0, i64 %84
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %85, i64 16, i1 false)
+  %85 = sext i32 %8 to i64
+  %86 = getelementptr inbounds [20 x i32], ptr %11, i64 0, i64 %85
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %86, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #9
   ret i32 0
 }

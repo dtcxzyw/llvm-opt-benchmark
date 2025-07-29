@@ -16106,23 +16106,22 @@ define internal void @"_ZN4core3ptr104drop_in_place$LT$$RF$typst..foundations..a
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$u3b$$u20$1$u5d$$GT$17hd332d173c0893c1cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
-.critedge:
+  %2 = load ptr, ptr %0, align 8, !alias.scope !2604, !noundef !4
+  %3 = icmp eq ptr %2, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2604)
-  %1 = load ptr, ptr %0, align 8, !alias.scope !2604, !noundef !4
-  %2 = icmp eq ptr %1, null
-  br i1 %2, label %"_ZN4core3ptr83drop_in_place$LT$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$GT$17h8d8d7f1948ca4466E.exit", label %3
+  br i1 %3, label %.split7, label %4
 
-3:                                                ; preds = %.critedge
-  %4 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !2607
-  %5 = icmp eq i64 %4, 1
-  br i1 %5, label %6, label %"_ZN4core3ptr83drop_in_place$LT$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$GT$17h8d8d7f1948ca4466E.exit"
+4:                                                ; preds = %1
+  %5 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !2607
+  %6 = icmp eq i64 %5, 1
+  br i1 %6, label %7, label %.split7
 
-6:                                                ; preds = %3
+7:                                                ; preds = %4
   tail call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.16845035774076767816(i8 noundef 2), !noalias !2607
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h770d7b3d46ee205cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %"_ZN4core3ptr83drop_in_place$LT$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$GT$17h8d8d7f1948ca4466E.exit"
+  br label %.split7
 
-"_ZN4core3ptr83drop_in_place$LT$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$GT$17h8d8d7f1948ca4466E.exit": ; preds = %.critedge, %3, %6
+.split7:                                          ; preds = %1, %4, %7
   ret void
 }
 
@@ -20174,21 +20173,20 @@ define internal void @"_ZN4core3ptr78drop_in_place$LT$$RF$alloc..vec..Vec$LT$typ
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$$u5b$typst..foundations..content..Content$u3b$$u20$1$u5d$$GT$17h63b5ed8b34b5e16cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
-.critedge:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3585)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3588)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3591)
-  %1 = load ptr, ptr %0, align 8, !alias.scope !3594, !nonnull !4, !noundef !4
-  %2 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !3594
-  %3 = icmp eq i64 %2, 1
-  br i1 %3, label %4, label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit"
+  %2 = load ptr, ptr %0, align 8, !alias.scope !3594, !nonnull !4, !noundef !4
+  %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !3594
+  %4 = icmp eq i64 %3, 1
+  br i1 %4, label %5, label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit"
 
-4:                                                ; preds = %.critedge
+5:                                                ; preds = %1
   tail call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.16845035774076767816(i8 noundef 2), !noalias !3594
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h770d7b3d46ee205cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit"
 
-"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit": ; preds = %.critedge, %4
+"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit": ; preds = %5, %1
   ret void
 }
 
@@ -112052,9 +112050,9 @@ define hidden void @_ZN5typst5model9reference10Supplement7resolve17he0763edba8a0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20724)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20727)
-  %53 = load ptr, ptr %4, align 8, !alias.scope !20730, !noundef !4
+  %53 = load ptr, ptr %4, align 8, !alias.scope !20727, !noundef !4
   %54 = icmp eq ptr %53, null
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20730)
   br i1 %54, label %"_ZN4core3ptr104drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$u3b$$u20$1$u5d$$GT$17hd332d173c0893c1cE.exit", label %55
 
 55:                                               ; preds = %46
@@ -185849,10 +185847,10 @@ attributes #60 = { "function-inline-cost-multiplier"="2" }
 !20724 = !{!20725}
 !20725 = distinct !{!20725, !20726, !"_ZN4core3ptr104drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$u3b$$u20$1$u5d$$GT$17hd332d173c0893c1cE: argument 0"}
 !20726 = distinct !{!20726, !"_ZN4core3ptr104drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$u3b$$u20$1$u5d$$GT$17hd332d173c0893c1cE"}
-!20727 = !{!20728}
+!20727 = !{!20728, !20725}
 !20728 = distinct !{!20728, !20729, !"_ZN4core3ptr83drop_in_place$LT$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$GT$17h8d8d7f1948ca4466E: argument 0"}
 !20729 = distinct !{!20729, !"_ZN4core3ptr83drop_in_place$LT$alloc..borrow..Cow$LT$typst..foundations..content..Content$GT$$GT$17h8d8d7f1948ca4466E"}
-!20730 = !{!20728, !20725}
+!20730 = !{!20728}
 !20731 = !{!20732, !20734, !20736, !20728, !20725}
 !20732 = distinct !{!20732, !20733, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54c008adf384313cE.llvm.16845035774076767816: argument 0"}
 !20733 = distinct !{!20733, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54c008adf384313cE.llvm.16845035774076767816"}

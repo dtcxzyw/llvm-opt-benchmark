@@ -248,44 +248,43 @@ define hidden void @_mi_arena_segment_mark_abandoned(ptr noundef %0) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mi_arena_segment_os_mark_abandoned(ptr noundef %0) unnamed_addr #0 {
-.critedge:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2 = load ptr, ptr %1, align 8, !tbaa !18
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #20
-  %.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i, label %mi_lock_acquire.exit, label %5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #20
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %mi_lock_acquire.exit, label %6
 
-5:                                                ; preds = %.critedge
-  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef %4, ptr noundef nonnull @.str.17) #20
+6:                                                ; preds = %1
+  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef %5, ptr noundef nonnull @.str.17) #20
   br label %mi_lock_acquire.exit
 
-mi_lock_acquire.exit:                             ; preds = %.critedge, %5
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %10, label %8
+mi_lock_acquire.exit:                             ; preds = %1, %6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %11, label %9
 
-8:                                                ; preds = %mi_lock_acquire.exit
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store ptr %0, ptr %9, align 8, !tbaa !19
-  br label %12
+9:                                                ; preds = %mi_lock_acquire.exit
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  store ptr %0, ptr %10, align 8, !tbaa !19
+  br label %13
 
-10:                                               ; preds = %mi_lock_acquire.exit
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr %0, ptr %11, align 8, !tbaa !21
-  br label %12
+11:                                               ; preds = %mi_lock_acquire.exit
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store ptr %0, ptr %12, align 8, !tbaa !21
+  br label %13
 
-12:                                               ; preds = %10, %8
-  store ptr %0, ptr %6, align 8, !tbaa !23
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %7, ptr %13, align 8, !tbaa !20
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr null, ptr %14, align 8, !tbaa !19
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = atomicrmw add ptr %15, i64 1 monotonic, align 8
-  %17 = atomicrmw add ptr %2, i64 1 monotonic, align 8
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #20
+13:                                               ; preds = %11, %9
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr %0, ptr %7, align 8, !tbaa !23
+  store ptr %8, ptr %16, align 8, !tbaa !20
+  store ptr null, ptr %15, align 8, !tbaa !19
+  %17 = atomicrmw add ptr %14, i64 1 monotonic, align 8
+  %18 = atomicrmw add ptr %3, i64 1 monotonic, align 8
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #20
   ret void
 }
 

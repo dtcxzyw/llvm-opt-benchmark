@@ -2249,36 +2249,35 @@ declare i32 @Wlc_BlastReduction(ptr noundef, ptr noundef, i32 noundef, i32 nound
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_IntFill(ptr noundef captures(none) initializes((4, 8)) %0, i32 noundef %1) unnamed_addr #4 {
-.critedge:
-  %2 = load i32, ptr %0, align 8, !tbaa !12
-  %.not.i = icmp slt i32 %2, 1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !10
-  br i1 %.not.i, label %5, label %Vec_IntGrow.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !12
+  %.not.i = icmp slt i32 %3, 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
+  br i1 %.not.i, label %6, label %Vec_IntGrow.exit
 
-5:                                                ; preds = %.critedge
-  %.not9.i = icmp eq ptr %4, null
-  br i1 %.not9.i, label %8, label %6
+6:                                                ; preds = %2
+  %.not9.i = icmp eq ptr %5, null
+  br i1 %.not9.i, label %9, label %7
 
-6:                                                ; preds = %5
-  %7 = tail call dereferenceable_or_null(4) ptr @realloc(ptr noundef nonnull %4, i64 noundef 4) #9
-  br label %10
+7:                                                ; preds = %6
+  %8 = tail call dereferenceable_or_null(4) ptr @realloc(ptr noundef nonnull %5, i64 noundef 4) #9
+  br label %11
 
-8:                                                ; preds = %5
-  %9 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #10
-  br label %10
+9:                                                ; preds = %6
+  %10 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #10
+  br label %11
 
-10:                                               ; preds = %8, %6
-  %11 = phi ptr [ %7, %6 ], [ %9, %8 ]
-  store ptr %11, ptr %3, align 8, !tbaa !10
+11:                                               ; preds = %9, %7
+  %12 = phi ptr [ %8, %7 ], [ %10, %9 ]
+  store ptr %12, ptr %4, align 8, !tbaa !10
   store i32 1, ptr %0, align 8, !tbaa !12
   br label %Vec_IntGrow.exit
 
-Vec_IntGrow.exit:                                 ; preds = %.critedge, %10
-  %12 = phi ptr [ %11, %10 ], [ %4, %.critedge ]
-  store i32 %1, ptr %12, align 4, !tbaa !11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 1, ptr %13, align 4, !tbaa !3
+Vec_IntGrow.exit:                                 ; preds = %2, %11
+  %13 = phi ptr [ %12, %11 ], [ %5, %2 ]
+  store i32 %1, ptr %13, align 4, !tbaa !11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 1, ptr %14, align 4, !tbaa !3
   ret void
 }
 

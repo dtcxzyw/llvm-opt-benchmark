@@ -1944,66 +1944,64 @@ define hidden void @_ZN3ue27getUcpZEv(ptr dead_on_unwind noalias writable sret(%
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue28getUcpZlEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-.critedge:
-  %1 = alloca %"class.boost::icl::closed_interval", align 4
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #14
-  store i32 8232, ptr %1, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 8232, ptr %7, align 4
-  %8 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
-          to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %9
+  %2 = alloca %"class.boost::icl::closed_interval", align 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %3, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %3, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 0, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  store i32 8232, ptr %2, align 4
+  store i32 8232, ptr %8, align 4
+  %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
-_ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
+_ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   ret void
 
-9:                                                ; preds = %.critedge
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue28getUcpZpEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-.critedge:
-  %1 = alloca %"class.boost::icl::closed_interval", align 4
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #14
-  store i32 8233, ptr %1, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 8233, ptr %7, align 4
-  %8 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
-          to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %9
+  %2 = alloca %"class.boost::icl::closed_interval", align 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %3, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %3, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 0, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  store i32 8233, ptr %2, align 4
+  store i32 8233, ptr %8, align 4
+  %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
-_ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
+_ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   ret void
 
-9:                                                ; preds = %.critedge
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable

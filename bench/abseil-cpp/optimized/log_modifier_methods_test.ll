@@ -12699,45 +12699,44 @@ define internal void @_ZZN12_GLOBAL__N_143TailCallsModifiesTest_WithMetadataFrom
 
 ; Function Attrs: cold mustprogress uwtable
 define internal void @_ZZN12_GLOBAL__N_143TailCallsModifiesTest_WithMetadataFrom_Test8TestBodyEvEN17ForwardingLogSink4SendERKN4absl8LogEntryE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
-.critedge:
-  %2 = alloca %"class.absl::log_internal::LogMessage", align 8
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load i32, ptr %3, align 8, !tbaa !441
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
-  %5 = icmp sgt i32 %4, 3
-  %spec.store.select1.i = select i1 %5, i32 2, i32 %spec.store.select.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #31
-  call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.3, i32 noundef 144, i32 noundef %spec.store.select1.i) #35
-  %6 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage16WithMetadataFromERKNS_8LogEntryE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
-          to label %7 unwind label %18
+  %3 = alloca %"class.absl::log_internal::LogMessage", align 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %8 = load i32, ptr %4, align 8, !tbaa !441
+  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
+  %9 = icmp sgt i32 %8, 3
+  %spec.store.select1.i = select i1 %9, i32 2, i32 %spec.store.select.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #31
+  call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.3, i32 noundef 144, i32 noundef %spec.store.select1.i) #35
+  %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage16WithMetadataFromERKNS_8LogEntryE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(136) %1)
+          to label %11 unwind label %18
 
-7:                                                ; preds = %.critedge
-  invoke void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 11, ptr nonnull @.str.77)
+11:                                               ; preds = %2
+  invoke void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 11, ptr nonnull @.str.77)
           to label %_ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit unwind label %18
 
-_ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit: ; preds = %7
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !448
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %11 = load i64, ptr %10, align 8, !tbaa !449
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %14 = load i64, ptr %13, align 8, !tbaa !450
-  %reass.sub = sub i64 %14, %11
-  %15 = add i64 %reass.sub, -2
-  %16 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 %15, ptr %12)
-          to label %17 unwind label %18
+_ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit: ; preds = %11
+  %12 = load ptr, ptr %5, align 8, !tbaa !448
+  %13 = load i64, ptr %6, align 8, !tbaa !449
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
+  %15 = load i64, ptr %7, align 8, !tbaa !450
+  %reass.sub = sub i64 %15, %13
+  %16 = add i64 %reass.sub, -2
+  %17 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 %16, ptr %14)
+          to label %.loopexit unwind label %18
 
-17:                                               ; preds = %_ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit
-  call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #31
+.loopexit:                                        ; preds = %_ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit
+  call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #36
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #31
   ret void
 
-18:                                               ; preds = %7, %_ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit, %.critedge
+18:                                               ; preds = %11, %_ZN4absl12log_internal10LogMessagelsILi12EEERS1_RAT__Kc.exit, %2
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #31
+  call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #36
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #31
   resume { ptr, i32 } %19
 }
 
