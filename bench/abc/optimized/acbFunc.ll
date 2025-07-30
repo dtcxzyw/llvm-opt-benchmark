@@ -17063,7 +17063,8 @@ define ptr @Gia_ManInterOneInt(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %13 = add i32 %.val3.i, 1
   %.neg = add i32 %13, %.val.i
   %14 = icmp eq i32 %6, %.neg
-  %indvars.iv159.sroa.gep188 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %indvars.iv156.sroa.gep187 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv159.sroa.gep189 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %14, label %26, label %15
 
 15:                                               ; preds = %3
@@ -17236,146 +17237,146 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %.crite
   %83 = sub nsw i32 8, %2
   br label %.preheader128
 
-.preheader128:                                    ; preds = %Vec_IntFree.exit, %105
-  %84 = phi i1 [ true, %Vec_IntFree.exit ], [ false, %105 ]
-  %indvars.iv156.sroa.phi.sroa.speculated = phi ptr [ %1, %Vec_IntFree.exit ], [ %0, %105 ]
-  %indvars.iv156 = phi i64 [ 0, %Vec_IntFree.exit ], [ 1, %105 ]
-  %85 = trunc nuw nsw i64 %indvars.iv156 to i32
-  br label %89
+.preheader128:                                    ; preds = %Vec_IntFree.exit, %104
+  %84 = phi i1 [ true, %Vec_IntFree.exit ], [ false, %104 ]
+  %indvars.iv156.sroa.phi = phi ptr [ %4, %Vec_IntFree.exit ], [ %indvars.iv156.sroa.gep187, %104 ]
+  %indvars.iv156.sroa.phi191.sroa.speculated = phi ptr [ %1, %Vec_IntFree.exit ], [ %0, %104 ]
+  %indvars.iv156 = phi i32 [ 0, %Vec_IntFree.exit ], [ 1, %104 ]
+  br label %88
 
-.preheader127:                                    ; preds = %105
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %87 = icmp eq i32 %2, 1
-  %88 = add nsw i32 %2, -1
-  br label %106
+.preheader127:                                    ; preds = %104
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %86 = icmp eq i32 %2, 1
+  %87 = add nsw i32 %2, -1
+  br label %105
 
-89:                                               ; preds = %.preheader128, %Acb_NtkEcoSynthesize.exit
-  %90 = phi i1 [ true, %.preheader128 ], [ false, %Acb_NtkEcoSynthesize.exit ]
+88:                                               ; preds = %.preheader128, %Acb_NtkEcoSynthesize.exit
+  %89 = phi i1 [ true, %.preheader128 ], [ false, %Acb_NtkEcoSynthesize.exit ]
   %indvars.iv153 = phi i64 [ 0, %.preheader128 ], [ 1, %Acb_NtkEcoSynthesize.exit ]
-  %91 = trunc nuw nsw i64 %indvars.iv153 to i32
-  %92 = tail call ptr @Gia_ManDupCofactorVar(ptr noundef %indvars.iv156.sroa.phi.sroa.speculated, i32 noundef %.085.lcssa179, i32 noundef %91) #32
-  %93 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %4, i64 0, i64 %indvars.iv156, i64 %indvars.iv153
-  %94 = tail call ptr @Gia_ManDup(ptr noundef %92) #32
-  %95 = tail call ptr @Gia_ManAreaBalance(ptr noundef %94, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #32
-  tail call void @Gia_ManStop(ptr noundef %94) #32
-  br label %96
+  %90 = trunc nuw nsw i64 %indvars.iv153 to i32
+  %91 = tail call ptr @Gia_ManDupCofactorVar(ptr noundef %indvars.iv156.sroa.phi191.sroa.speculated, i32 noundef %.085.lcssa179, i32 noundef %90) #32
+  %92 = getelementptr inbounds nuw [2 x ptr], ptr %indvars.iv156.sroa.phi, i64 0, i64 %indvars.iv153
+  %93 = tail call ptr @Gia_ManDup(ptr noundef %91) #32
+  %94 = tail call ptr @Gia_ManAreaBalance(ptr noundef %93, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #32
+  tail call void @Gia_ManStop(ptr noundef %93) #32
+  br label %95
 
-96:                                               ; preds = %96, %89
-  %.031.i = phi ptr [ %95, %89 ], [ %98, %96 ]
-  %97 = phi i1 [ true, %89 ], [ false, %96 ]
-  %98 = tail call ptr @Gia_ManCompress2(ptr noundef %.031.i, i32 noundef 1, i32 noundef 0) #32
+95:                                               ; preds = %95, %88
+  %.031.i = phi ptr [ %94, %88 ], [ %97, %95 ]
+  %96 = phi i1 [ true, %88 ], [ false, %95 ]
+  %97 = tail call ptr @Gia_ManCompress2(ptr noundef %.031.i, i32 noundef 1, i32 noundef 0) #32
   tail call void @Gia_ManStop(ptr noundef %.031.i) #32
-  br i1 %97, label %96, label %99, !llvm.loop !298
+  br i1 %96, label %95, label %98, !llvm.loop !298
 
-99:                                               ; preds = %96
-  %100 = tail call ptr @Gia_ManAigSyn2(ptr noundef %98, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 100, i32 noundef 0, i32 noundef 0, i32 noundef 0) #32
-  tail call void @Gia_ManStop(ptr noundef %98) #32
-  br label %101
+98:                                               ; preds = %95
+  %99 = tail call ptr @Gia_ManAigSyn2(ptr noundef %97, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 100, i32 noundef 0, i32 noundef 0, i32 noundef 0) #32
+  tail call void @Gia_ManStop(ptr noundef %97) #32
+  br label %100
 
-101:                                              ; preds = %101, %99
-  %.133.i = phi ptr [ %100, %99 ], [ %103, %101 ]
-  %102 = phi i1 [ true, %99 ], [ false, %101 ]
-  %103 = tail call ptr @Gia_ManCompress2(ptr noundef %.133.i, i32 noundef 1, i32 noundef 0) #32
+100:                                              ; preds = %100, %98
+  %.133.i = phi ptr [ %99, %98 ], [ %102, %100 ]
+  %101 = phi i1 [ true, %98 ], [ false, %100 ]
+  %102 = tail call ptr @Gia_ManCompress2(ptr noundef %.133.i, i32 noundef 1, i32 noundef 0) #32
   tail call void @Gia_ManStop(ptr noundef %.133.i) #32
-  br i1 %102, label %101, label %Acb_NtkEcoSynthesize.exit, !llvm.loop !299
+  br i1 %101, label %100, label %Acb_NtkEcoSynthesize.exit, !llvm.loop !299
 
-Acb_NtkEcoSynthesize.exit:                        ; preds = %101
-  store ptr %103, ptr %93, align 8, !tbaa !304
-  tail call void @Gia_ManStop(ptr noundef %92) #32
-  %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.117, i32 noundef %83, ptr noundef nonnull @.str.23, i32 noundef %85, i32 noundef %91)
-  tail call void @Gia_ManPrintStats(ptr noundef %103, ptr noundef null) #32
-  br i1 %90, label %89, label %105, !llvm.loop !305
+Acb_NtkEcoSynthesize.exit:                        ; preds = %100
+  store ptr %102, ptr %92, align 8, !tbaa !304
+  tail call void @Gia_ManStop(ptr noundef %91) #32
+  %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.117, i32 noundef %83, ptr noundef nonnull @.str.23, i32 noundef %indvars.iv156, i32 noundef %90)
+  tail call void @Gia_ManPrintStats(ptr noundef %102, ptr noundef null) #32
+  br i1 %89, label %88, label %104, !llvm.loop !305
 
-105:                                              ; preds = %Acb_NtkEcoSynthesize.exit
+104:                                              ; preds = %Acb_NtkEcoSynthesize.exit
   br i1 %84, label %.preheader128, label %.preheader127, !llvm.loop !306
 
-106:                                              ; preds = %.preheader127, %139
-  %107 = phi i1 [ true, %.preheader127 ], [ false, %139 ]
-  %indvars.iv159.sroa.phi = phi ptr [ %.sroa.0, %.preheader127 ], [ %.sroa.4, %139 ]
-  %indvars.iv159.sroa.phi187 = phi ptr [ %4, %.preheader127 ], [ %indvars.iv159.sroa.gep188, %139 ]
-  %indvars.iv159 = phi i64 [ 0, %.preheader127 ], [ 1, %139 ]
-  %108 = getelementptr inbounds nuw [2 x ptr], ptr %86, i64 0, i64 %indvars.iv159
-  %109 = load ptr, ptr %108, align 8, !tbaa !304
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %111 = load i32, ptr %110, align 8, !tbaa !78
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 64
-  %113 = load ptr, ptr %112, align 8, !tbaa !74
-  %114 = getelementptr i8, ptr %113, i64 4
-  %.val3.i118 = load i32, ptr %114, align 4, !tbaa !19
-  %115 = getelementptr inbounds nuw i8, ptr %109, i64 72
-  %116 = load ptr, ptr %115, align 8, !tbaa !97
-  %117 = getelementptr i8, ptr %116, i64 4
-  %.val.i119 = load i32, ptr %117, align 4, !tbaa !19
-  %118 = add i32 %.val3.i118, 1
-  %.neg123 = add i32 %118, %.val.i119
-  %119 = icmp eq i32 %111, %.neg123
-  br i1 %119, label %132, label %120
+105:                                              ; preds = %.preheader127, %138
+  %106 = phi i1 [ true, %.preheader127 ], [ false, %138 ]
+  %indvars.iv159.sroa.phi = phi ptr [ %.sroa.0, %.preheader127 ], [ %.sroa.4, %138 ]
+  %indvars.iv159.sroa.phi188 = phi ptr [ %4, %.preheader127 ], [ %indvars.iv159.sroa.gep189, %138 ]
+  %indvars.iv159 = phi i64 [ 0, %.preheader127 ], [ 1, %138 ]
+  %107 = getelementptr inbounds nuw [2 x ptr], ptr %85, i64 0, i64 %indvars.iv159
+  %108 = load ptr, ptr %107, align 8, !tbaa !304
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %110 = load i32, ptr %109, align 8, !tbaa !78
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 64
+  %112 = load ptr, ptr %111, align 8, !tbaa !74
+  %113 = getelementptr i8, ptr %112, i64 4
+  %.val3.i118 = load i32, ptr %113, align 4, !tbaa !19
+  %114 = getelementptr inbounds nuw i8, ptr %108, i64 72
+  %115 = load ptr, ptr %114, align 8, !tbaa !97
+  %116 = getelementptr i8, ptr %115, i64 4
+  %.val.i119 = load i32, ptr %116, align 4, !tbaa !19
+  %117 = add i32 %.val3.i118, 1
+  %.neg123 = add i32 %117, %.val.i119
+  %118 = icmp eq i32 %110, %.neg123
+  br i1 %118, label %131, label %119
 
-120:                                              ; preds = %106
-  %121 = load ptr, ptr %indvars.iv159.sroa.phi187, align 8, !tbaa !304
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  %123 = load i32, ptr %122, align 8, !tbaa !78
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 64
-  %125 = load ptr, ptr %124, align 8, !tbaa !74
-  %126 = getelementptr i8, ptr %125, i64 4
-  %.val3.i120 = load i32, ptr %126, align 4, !tbaa !19
-  %127 = getelementptr inbounds nuw i8, ptr %121, i64 72
-  %128 = load ptr, ptr %127, align 8, !tbaa !97
-  %129 = getelementptr i8, ptr %128, i64 4
-  %.val.i121 = load i32, ptr %129, align 4, !tbaa !19
-  %130 = add i32 %.val3.i120, 1
-  %.neg124 = add i32 %130, %.val.i121
-  %131 = icmp eq i32 %123, %.neg124
-  br i1 %131, label %132, label %134
+119:                                              ; preds = %105
+  %120 = load ptr, ptr %indvars.iv159.sroa.phi188, align 8, !tbaa !304
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %122 = load i32, ptr %121, align 8, !tbaa !78
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 64
+  %124 = load ptr, ptr %123, align 8, !tbaa !74
+  %125 = getelementptr i8, ptr %124, i64 4
+  %.val3.i120 = load i32, ptr %125, align 4, !tbaa !19
+  %126 = getelementptr inbounds nuw i8, ptr %120, i64 72
+  %127 = load ptr, ptr %126, align 8, !tbaa !97
+  %128 = getelementptr i8, ptr %127, i64 4
+  %.val.i121 = load i32, ptr %128, align 4, !tbaa !19
+  %129 = add i32 %.val3.i120, 1
+  %.neg124 = add i32 %129, %.val.i121
+  %130 = icmp eq i32 %122, %.neg124
+  br i1 %130, label %131, label %133
 
-132:                                              ; preds = %120, %106
-  %133 = tail call ptr @Gia_ManDup(ptr noundef nonnull %109) #32
-  br label %139
+131:                                              ; preds = %119, %105
+  %132 = tail call ptr @Gia_ManDup(ptr noundef nonnull %108) #32
+  br label %138
 
-134:                                              ; preds = %120
-  br i1 %87, label %135, label %137
+133:                                              ; preds = %119
+  br i1 %86, label %134, label %136
 
-135:                                              ; preds = %134
-  %136 = tail call ptr @Gia_ManInterOne(ptr noundef nonnull %109, ptr noundef nonnull %121, i32 noundef 1) #32
-  br label %139
+134:                                              ; preds = %133
+  %135 = tail call ptr @Gia_ManInterOne(ptr noundef nonnull %108, ptr noundef nonnull %120, i32 noundef 1) #32
+  br label %138
 
-137:                                              ; preds = %134
-  %138 = tail call ptr @Gia_ManInterOneInt(ptr noundef nonnull %109, ptr noundef nonnull %121, i32 noundef %88)
-  br label %139
+136:                                              ; preds = %133
+  %137 = tail call ptr @Gia_ManInterOneInt(ptr noundef nonnull %108, ptr noundef nonnull %120, i32 noundef %87)
+  br label %138
 
-139:                                              ; preds = %135, %137, %132
-  %140 = phi ptr [ %136, %135 ], [ %138, %137 ], [ %133, %132 ]
-  %141 = trunc nuw nsw i64 %indvars.iv159 to i32
-  %142 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.118, i32 noundef %83, ptr noundef nonnull @.str.23, i32 noundef %141)
-  tail call void @Gia_ManPrintStats(ptr noundef %140, ptr noundef null) #32
-  %143 = tail call ptr @Abc_GiaSynthesizeInter(ptr noundef %140) #32
-  store ptr %143, ptr %indvars.iv159.sroa.phi, align 8, !tbaa !304
-  tail call void @Gia_ManStop(ptr noundef %140) #32
-  %144 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.118, i32 noundef %83, ptr noundef nonnull @.str.23, i32 noundef %141)
-  tail call void @Gia_ManPrintStats(ptr noundef %143, ptr noundef null) #32
-  br i1 %107, label %106, label %.preheader, !llvm.loop !307
+138:                                              ; preds = %134, %136, %131
+  %139 = phi ptr [ %135, %134 ], [ %137, %136 ], [ %132, %131 ]
+  %140 = trunc nuw nsw i64 %indvars.iv159 to i32
+  %141 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.118, i32 noundef %83, ptr noundef nonnull @.str.23, i32 noundef %140)
+  tail call void @Gia_ManPrintStats(ptr noundef %139, ptr noundef null) #32
+  %142 = tail call ptr @Abc_GiaSynthesizeInter(ptr noundef %139) #32
+  store ptr %142, ptr %indvars.iv159.sroa.phi, align 8, !tbaa !304
+  tail call void @Gia_ManStop(ptr noundef %139) #32
+  %143 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.118, i32 noundef %83, ptr noundef nonnull @.str.23, i32 noundef %140)
+  tail call void @Gia_ManPrintStats(ptr noundef %142, ptr noundef null) #32
+  br i1 %106, label %105, label %.preheader, !llvm.loop !307
 
-.preheader:                                       ; preds = %139
-  %145 = load ptr, ptr %4, align 16, !tbaa !304
-  tail call void @Gia_ManStop(ptr noundef %145) #32
-  %146 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %147 = load ptr, ptr %146, align 8, !tbaa !304
-  tail call void @Gia_ManStop(ptr noundef %147) #32
-  %148 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %149 = load ptr, ptr %148, align 16, !tbaa !304
-  tail call void @Gia_ManStop(ptr noundef %149) #32
-  %150 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %151 = load ptr, ptr %150, align 8, !tbaa !304
-  tail call void @Gia_ManStop(ptr noundef %151) #32
+.preheader:                                       ; preds = %138
+  %144 = load ptr, ptr %4, align 16, !tbaa !304
+  tail call void @Gia_ManStop(ptr noundef %144) #32
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !304
+  tail call void @Gia_ManStop(ptr noundef %146) #32
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %148 = load ptr, ptr %147, align 16, !tbaa !304
+  tail call void @Gia_ManStop(ptr noundef %148) #32
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %150 = load ptr, ptr %149, align 8, !tbaa !304
+  tail call void @Gia_ManStop(ptr noundef %150) #32
   %.sroa.4.0..sroa.4.8. = load ptr, ptr %.sroa.4, align 8, !tbaa !304
   %.sroa.0.0..sroa.0.0. = load ptr, ptr %.sroa.0, align 16, !tbaa !304
-  %152 = tail call ptr @Gia_ManDupMux(i32 noundef %.085.lcssa179, ptr noundef %.sroa.4.0..sroa.4.8., ptr noundef %.sroa.0.0..sroa.0.0.) #32
+  %151 = tail call ptr @Gia_ManDupMux(i32 noundef %.085.lcssa179, ptr noundef %.sroa.4.0..sroa.4.8., ptr noundef %.sroa.0.0..sroa.0.0.) #32
   tail call void @Gia_ManStop(ptr noundef %.sroa.0.0..sroa.0.0.) #32
   tail call void @Gia_ManStop(ptr noundef %.sroa.4.0..sroa.4.8.) #32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %26
-  %.0 = phi ptr [ %27, %26 ], [ %152, %.preheader ]
+  %.0 = phi ptr [ %27, %26 ], [ %151, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #32

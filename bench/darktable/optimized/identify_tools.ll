@@ -45,7 +45,7 @@ define noundef signext range(i16 18761, 19790) i16 @_ZN6LibRaw16guess_byte_order
   %23 = phi i1 [ true, %.lr.ph ], [ false, %22 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %.lr.ph ], [ %.sroa.5, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %22 ]
-  %24 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 0, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !73
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
@@ -54,7 +54,7 @@ define noundef signext range(i16 18761, 19790) i16 @_ZN6LibRaw16guess_byte_order
   %28 = load i8, ptr %.sroa.sel, align 1, !tbaa !73
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %27, %29
-  %31 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %13, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 0, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1, !tbaa !73
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 8
@@ -112,6 +112,8 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %9 = load i16, ptr %8, align 2, !tbaa !78
   %10 = icmp ugt i16 %9, 2064
+  %indvars.iv81.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 4128
+  %indvars.iv87.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 4128
   br i1 %10, label %._crit_edge.thread, label %.preheader54
 
 .preheader54:                                     ; preds = %5
@@ -124,7 +126,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
 
 .preheader54.split.us:                            ; preds = %.preheader54, %._crit_edge.split.us.us
   %.not.us = phi i1 [ false, %._crit_edge.split.us.us ], [ true, %.preheader54 ]
-  %indvars.iv87 = phi i64 [ 1, %._crit_edge.split.us.us ], [ 0, %.preheader54 ]
+  %indvars.iv87.sroa.phi = phi ptr [ %indvars.iv87.sroa.gep, %._crit_edge.split.us.us ], [ %6, %.preheader54 ]
   %.04870.us = phi i64 [ %.149.lcssa.us, %._crit_edge.split.us.us ], [ 0, %.preheader54 ]
   %16 = load ptr, ptr %11, align 8, !tbaa !6
   %17 = select i1 %.not.us, i32 %3, i32 %4
@@ -164,7 +166,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %31 = shl i64 %.2.lcssa.us.us, %30
   %32 = lshr i64 %31, %15
   %33 = trunc i64 %32 to i16
-  %34 = getelementptr inbounds nuw [2 x [2064 x i16]], ptr %6, i64 0, i64 %indvars.iv87, i64 %indvars.iv84
+  %34 = getelementptr inbounds nuw [2064 x i16], ptr %indvars.iv87.sroa.phi, i64 0, i64 %indvars.iv84
   store i16 %33, ptr %34, align 2, !tbaa !81
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %35 = zext i16 %28 to i64
@@ -252,7 +254,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
 
 .preheader54.split:                               ; preds = %.preheader54, %._crit_edge.split
   %.not = phi i1 [ false, %._crit_edge.split ], [ true, %.preheader54 ]
-  %indvars.iv81 = phi i64 [ 1, %._crit_edge.split ], [ 0, %.preheader54 ]
+  %indvars.iv81.sroa.phi = phi ptr [ %indvars.iv81.sroa.gep, %._crit_edge.split ], [ %6, %.preheader54 ]
   %.04870 = phi i64 [ %.149.lcssa, %._crit_edge.split ], [ 0, %.preheader54 ]
   %81 = load ptr, ptr %11, align 8, !tbaa !6
   %82 = select i1 %.not, i32 %3, i32 %4
@@ -293,7 +295,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %97 = shl i64 %.2.lcssa, %96
   %98 = lshr i64 %97, %15
   %99 = trunc i64 %98 to i16
-  %100 = getelementptr inbounds nuw [2 x [2064 x i16]], ptr %6, i64 0, i64 %indvars.iv81, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [2064 x i16], ptr %indvars.iv81.sroa.phi, i64 0, i64 %indvars.iv
   store i16 %99, ptr %100, align 2, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

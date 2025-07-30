@@ -449,72 +449,73 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %235 = icmp eq i32 %2, 41008
   %236 = icmp eq i32 %4, 9
   %or.cond11 = and i1 %235, %236
-  br i1 %or.cond11, label %.preheader119, label %252
+  br i1 %or.cond11, label %.preheader119, label %253
 
 .preheader119:                                    ; preds = %234
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 4600
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 153256
   br label %.preheader118
 
-.preheader118:                                    ; preds = %.preheader119, %251
-  %indvars.iv173 = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next174, %251 ]
+.preheader118:                                    ; preds = %.preheader119, %252
+  %indvars.iv173 = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next174, %252 ]
   %239 = mul nuw nsw i64 %indvars.iv173, 3
-  br label %240
+  %240 = getelementptr inbounds nuw [3 x [4 x float]], ptr %238, i64 0, i64 %indvars.iv173
+  br label %241
 
-240:                                              ; preds = %.preheader118, %240
-  %indvars.iv169 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next170, %240 ]
-  %241 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %242 = add nuw nsw i64 %indvars.iv169, %239
-  %243 = getelementptr inbounds nuw [11 x i32], ptr %237, i64 0, i64 %242
-  %244 = load i32, ptr %243, align 4, !tbaa !79
-  %245 = add i32 %244, %241
-  %246 = trunc i32 %245 to i16
-  %247 = sitofp i16 %246 to double
-  %248 = fmul reassoc nsz arcp contract afn double %247, 3.906250e-03
-  %249 = fptrunc reassoc nsz arcp contract afn double %248 to float
-  %250 = getelementptr inbounds nuw [3 x [4 x float]], ptr %238, i64 0, i64 %indvars.iv173, i64 %indvars.iv169
-  store float %249, ptr %250, align 4, !tbaa !87
+241:                                              ; preds = %.preheader118, %241
+  %indvars.iv169 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next170, %241 ]
+  %242 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %243 = add nuw nsw i64 %indvars.iv169, %239
+  %244 = getelementptr inbounds nuw [11 x i32], ptr %237, i64 0, i64 %243
+  %245 = load i32, ptr %244, align 4, !tbaa !79
+  %246 = add i32 %245, %242
+  %247 = trunc i32 %246 to i16
+  %248 = sitofp i16 %247 to double
+  %249 = fmul reassoc nsz arcp contract afn double %248, 3.906250e-03
+  %250 = fptrunc reassoc nsz arcp contract afn double %249 to float
+  %251 = getelementptr inbounds nuw [4 x float], ptr %240, i64 0, i64 %indvars.iv169
+  store float %250, ptr %251, align 4, !tbaa !87
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 3
-  br i1 %exitcond172.not, label %251, label %240, !llvm.loop !95
+  br i1 %exitcond172.not, label %252, label %241, !llvm.loop !95
 
-251:                                              ; preds = %240
+252:                                              ; preds = %241
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 3
   br i1 %exitcond176.not, label %.loopexit, label %.preheader118, !llvm.loop !96
 
-252:                                              ; preds = %234
-  %253 = icmp eq i32 %2, 41010
-  %or.cond13 = and i1 %253, %236
+253:                                              ; preds = %234
+  %254 = icmp eq i32 %2, 41010
+  %or.cond13 = and i1 %254, %236
   %or.cond15 = and i1 %or.cond13, %134
-  br i1 %or.cond15, label %254, label %.loopexit
+  br i1 %or.cond15, label %255, label %.loopexit
 
-254:                                              ; preds = %252
+255:                                              ; preds = %253
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #5
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 4600
-  br label %256
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 4600
+  br label %257
 
-256:                                              ; preds = %254, %256
-  %indvars.iv165 = phi i64 [ 0, %254 ], [ %indvars.iv.next166, %256 ]
-  %257 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %258 = getelementptr inbounds nuw [11 x i32], ptr %255, i64 0, i64 %indvars.iv165
-  %259 = load i32, ptr %258, align 4, !tbaa !79
-  %260 = add i32 %259, %257
-  %261 = trunc i32 %260 to i16
-  %262 = sitofp i16 %261 to double
-  %263 = fmul reassoc nsz arcp contract afn double %262, 3.906250e-03
-  %264 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv165
-  store double %263, ptr %264, align 8, !tbaa !97
+257:                                              ; preds = %255, %257
+  %indvars.iv165 = phi i64 [ 0, %255 ], [ %indvars.iv.next166, %257 ]
+  %258 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %259 = getelementptr inbounds nuw [11 x i32], ptr %256, i64 0, i64 %indvars.iv165
+  %260 = load i32, ptr %259, align 4, !tbaa !79
+  %261 = add i32 %260, %258
+  %262 = trunc i32 %261 to i16
+  %263 = sitofp i16 %262 to double
+  %264 = fmul reassoc nsz arcp contract afn double %263, 3.906250e-03
+  %265 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv165
+  store double %264, ptr %265, align 8, !tbaa !97
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, 9
-  br i1 %exitcond168.not, label %265, label %256, !llvm.loop !98
+  br i1 %exitcond168.not, label %266, label %257, !llvm.loop !98
 
-265:                                              ; preds = %256
+266:                                              ; preds = %257
   call void @_ZN6LibRaw10aRGB_coeffEPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %113, %74, %251, %224, %122, %214, %216, %176, %182, %22, %40, %56, %90, %158, %152, %203, %197, %252, %265, %99, %111, %80, %86, %63, %50, %54, %27, %34, %29, %12, %20, %18
+.loopexit:                                        ; preds = %113, %74, %252, %224, %122, %214, %216, %176, %182, %22, %40, %56, %90, %158, %152, %203, %197, %253, %266, %99, %111, %80, %86, %63, %50, %54, %27, %34, %29, %12, %20, %18
   ret void
 }
 

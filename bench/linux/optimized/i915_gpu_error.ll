@@ -269,13 +269,13 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
 17:                                               ; preds = %15
   %18 = ptrtoint ptr %0 to i64
   %19 = trunc i64 %18 to i32
-  br label %.loopexit72
+  br label %.loopexit74
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %.thread47
+  br i1 %23, label %24, label %.thread49
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -331,10 +331,10 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 616
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread, label %.preheader83
+  br i1 %62, label %.thread, label %.preheader85
 
-.preheader83:                                     ; preds = %59, %.preheader83
-  %63 = phi ptr [ %70, %.preheader83 ], [ %61, %59 ]
+.preheader85:                                     ; preds = %59, %.preheader85
+  %63 = phi ptr [ %70, %.preheader85 ], [ %61, %59 ]
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 1712
@@ -344,9 +344,9 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 1888
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.thread, label %.preheader83, !llvm.loop !6
+  br i1 %71, label %.thread, label %.preheader85, !llvm.loop !6
 
-.thread:                                          ; preds = %.preheader83, %32, %59
+.thread:                                          ; preds = %.preheader85, %32, %59
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %73 = load i32, ptr %72, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.22, i32 noundef %73)
@@ -424,7 +424,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 352
   %129 = load i32, ptr %128, align 8
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %.loopexit82, label %131
+  br i1 %130, label %.loopexit84, label %131
 
 131:                                              ; preds = %118
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 360
@@ -439,10 +439,10 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %138 = add nuw i32 %134, 1
   %139 = load i32, ptr %128, align 8
   %140 = icmp ult i32 %138, %139
-  br i1 %140, label %133, label %.loopexit82, !llvm.loop !11
+  br i1 %140, label %133, label %.loopexit84, !llvm.loop !11
 
-.loopexit82:                                      ; preds = %133, %118
-  br i1 %121, label %.loopexit81, label %233
+.loopexit84:                                      ; preds = %133, %118
+  br i1 %121, label %.loopexit83, label %233
 
 141:                                              ; preds = %114
   %142 = getelementptr inbounds nuw i8, ptr %112, i64 240
@@ -457,7 +457,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 352
   %149 = load i32, ptr %148, align 8
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %.loopexit81, label %151
+  br i1 %150, label %.loopexit83, label %151
 
 151:                                              ; preds = %141
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 360
@@ -472,9 +472,9 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %158 = add nuw i32 %154, 1
   %159 = load i32, ptr %148, align 8
   %160 = icmp ult i32 %158, %159
-  br i1 %160, label %153, label %.loopexit81, !llvm.loop !11
+  br i1 %160, label %153, label %.loopexit83, !llvm.loop !11
 
-.loopexit81:                                      ; preds = %153, %141, %.loopexit82
+.loopexit83:                                      ; preds = %153, %141, %.loopexit84
   %161 = load ptr, ptr %56, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 272
   %163 = load i32, ptr %162, align 8
@@ -486,7 +486,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %168 = icmp ult i8 %167, 6
   br i1 %168, label %169, label %174
 
-169:                                              ; preds = %.loopexit81
+169:                                              ; preds = %.loopexit83
   %170 = getelementptr inbounds nuw i8, ptr %161, i64 276
   %171 = load i32, ptr %170, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.43, i32 noundef %171)
@@ -495,11 +495,11 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.44, i32 noundef %173)
   %.pre = load ptr, ptr %11, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 7176
-  %.pre94 = load i8, ptr %.phi.trans.insert, align 8
+  %.pre96 = load i8, ptr %.phi.trans.insert, align 8
   br label %174
 
-174:                                              ; preds = %169, %.loopexit81
-  %175 = phi i8 [ %.pre94, %169 ], [ %166, %.loopexit81 ]
+174:                                              ; preds = %169, %.loopexit83
+  %175 = phi i8 [ %.pre96, %169 ], [ %166, %.loopexit83 ]
   %176 = icmp ugt i8 %175, 7
   br i1 %176, label %177, label %182
 
@@ -509,13 +509,13 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %180 = getelementptr inbounds nuw i8, ptr %161, i64 284
   %181 = load i32, ptr %180, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.45, i32 noundef %179, i32 noundef %181)
-  %.pre95 = load ptr, ptr %11, align 8
-  %.phi.trans.insert96 = getelementptr inbounds nuw i8, ptr %.pre95, i64 7176
-  %.pre97 = load i8, ptr %.phi.trans.insert96, align 8
+  %.pre97 = load ptr, ptr %11, align 8
+  %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %.pre97, i64 7176
+  %.pre99 = load i8, ptr %.phi.trans.insert98, align 8
   br label %182
 
 182:                                              ; preds = %177, %174
-  %183 = phi i8 [ %.pre97, %177 ], [ %175, %174 ]
+  %183 = phi i8 [ %.pre99, %177 ], [ %175, %174 ]
   %184 = icmp eq i8 %183, 7
   br i1 %184, label %185, label %188
 
@@ -523,13 +523,13 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %186 = getelementptr inbounds nuw i8, ptr %161, i64 280
   %187 = load i32, ptr %186, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.46, i32 noundef %187)
-  %.pre98 = load ptr, ptr %11, align 8
-  %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %.pre98, i64 7176
-  %.pre100 = load i8, ptr %.phi.trans.insert99, align 8
+  %.pre100 = load ptr, ptr %11, align 8
+  %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %.pre100, i64 7176
+  %.pre102 = load i8, ptr %.phi.trans.insert101, align 8
   br label %188
 
 188:                                              ; preds = %185, %182
-  %189 = phi i8 [ %.pre100, %185 ], [ %183, %182 ]
+  %189 = phi i8 [ %.pre102, %185 ], [ %183, %182 ]
   %190 = and i8 %189, -4
   %191 = icmp eq i8 %190, 8
   br i1 %191, label %192, label %195
@@ -538,13 +538,13 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %193 = getelementptr inbounds nuw i8, ptr %161, i64 312
   %194 = load i32, ptr %193, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.47, i32 noundef %194)
-  %.pre101 = load ptr, ptr %11, align 8
-  %.phi.trans.insert102 = getelementptr inbounds nuw i8, ptr %.pre101, i64 7176
-  %.pre103 = load i8, ptr %.phi.trans.insert102, align 8
+  %.pre103 = load ptr, ptr %11, align 8
+  %.phi.trans.insert104 = getelementptr inbounds nuw i8, ptr %.pre103, i64 7176
+  %.pre105 = load i8, ptr %.phi.trans.insert104, align 8
   br label %195
 
 195:                                              ; preds = %192, %188
-  %196 = phi i8 [ %.pre103, %192 ], [ %189, %188 ]
+  %196 = phi i8 [ %.pre105, %192 ], [ %189, %188 ]
   %197 = icmp eq i8 %196, 12
   br i1 %197, label %198, label %201
 
@@ -552,13 +552,13 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %199 = getelementptr inbounds nuw i8, ptr %161, i64 316
   %200 = load i32, ptr %199, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.48, i32 noundef %200)
-  %.pre104 = load ptr, ptr %11, align 8
-  %.phi.trans.insert105 = getelementptr inbounds nuw i8, ptr %.pre104, i64 7176
-  %.pre106 = load i8, ptr %.phi.trans.insert105, align 8
+  %.pre106 = load ptr, ptr %11, align 8
+  %.phi.trans.insert107 = getelementptr inbounds nuw i8, ptr %.pre106, i64 7176
+  %.pre108 = load i8, ptr %.phi.trans.insert107, align 8
   br label %201
 
 201:                                              ; preds = %198, %195
-  %202 = phi i8 [ %.pre106, %198 ], [ %196, %195 ]
+  %202 = phi i8 [ %.pre108, %198 ], [ %196, %195 ]
   %203 = icmp ugt i8 %202, 11
   br i1 %203, label %204, label %233
 
@@ -605,19 +605,19 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.50, i32 noundef %232)
   br label %233
 
-233:                                              ; preds = %230, %201, %.loopexit82
+233:                                              ; preds = %230, %201, %.loopexit84
   %234 = load ptr, ptr %56, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 616
   %236 = load ptr, ptr %235, align 8
   %237 = icmp eq ptr %236, null
-  br i1 %237, label %.loopexit80, label %238
+  br i1 %237, label %.loopexit82, label %238
 
 238:                                              ; preds = %233
   %239 = getelementptr inbounds nuw i8, ptr %234, i64 624
   br label %240
 
-240:                                              ; preds = %.loopexit74, %238
-  %241 = phi ptr [ %236, %238 ], [ %740, %.loopexit74 ]
+240:                                              ; preds = %.loopexit76, %238
+  %241 = phi ptr [ %236, %238 ], [ %740, %.loopexit76 ]
   %242 = load ptr, ptr %239, align 8
   %243 = icmp eq ptr %242, null
   br i1 %243, label %257, label %244
@@ -636,13 +636,13 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
 
 252:                                              ; preds = %248
   %253 = call i32 @intel_guc_capture_print_engine_node(ptr noundef nonnull %11, ptr noundef nonnull %241) #15
-  br label %.loopexit75
+  br label %.loopexit77
 
 254:                                              ; preds = %248
   %255 = load ptr, ptr %241, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 24
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.51, ptr noundef nonnull %256)
-  br label %.loopexit75
+  br label %.loopexit77
 
 257:                                              ; preds = %244, %240
   %258 = load ptr, ptr %241, align 8
@@ -771,15 +771,15 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %346 = zext i8 %345 to i64
   %347 = shl nuw i64 1, %315
   %348 = and i64 %347, %346
-  %.not56 = icmp eq i64 %348, 0
-  br i1 %.not56, label %389, label %382
+  %.not58 = icmp eq i64 %348, 0
+  br i1 %.not58, label %389, label %382
 
 349:                                              ; preds = %338
   %350 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %343, i64 %315) #15, !srcloc !13
   %351 = icmp ult i8 %350, 2
   call void @llvm.assume(i1 %351)
-  %.not55 = icmp eq i8 %350, 0
-  br i1 %.not55, label %389, label %382
+  %.not57 = icmp eq i8 %350, 0
+  br i1 %.not57, label %389, label %382
 
 352:                                              ; preds = %314
   %353 = load i32, ptr %9, align 4
@@ -813,8 +813,8 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %375 = zext nneg i32 %354 to i64
   %376 = shl nuw i64 1, %375
   %377 = and i64 %376, %374
-  %.not54 = icmp eq i64 %377, 0
-  br i1 %.not54, label %389, label %382
+  %.not56 = icmp eq i64 %377, 0
+  br i1 %.not56, label %389, label %382
 
 378:                                              ; preds = %364
   %379 = sext i32 %354 to i64
@@ -829,7 +829,8 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %384 = load i32, ptr %10, align 4
   %385 = sext i32 %383 to i64
   %386 = sext i32 %384 to i64
-  %387 = getelementptr [16 x [8 x i32]], ptr %313, i64 0, i64 %385, i64 %386
+  %.split = getelementptr [16 x [8 x i32]], ptr %313, i64 0, i64 %385
+  %387 = getelementptr [8 x i32], ptr %.split, i64 0, i64 %386
   %388 = load i32, ptr %387, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.89, i32 noundef %383, i32 noundef %384, i32 noundef %388)
   br label %389
@@ -895,15 +896,15 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %433 = zext i8 %432 to i64
   %434 = shl nuw i64 1, %402
   %435 = and i64 %434, %433
-  %.not60 = icmp eq i64 %435, 0
-  br i1 %.not60, label %476, label %469
+  %.not62 = icmp eq i64 %435, 0
+  br i1 %.not62, label %476, label %469
 
 436:                                              ; preds = %425
   %437 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %430, i64 %402) #15, !srcloc !13
   %438 = icmp ult i8 %437, 2
   call void @llvm.assume(i1 %438)
-  %.not59 = icmp eq i8 %437, 0
-  br i1 %.not59, label %476, label %469
+  %.not61 = icmp eq i8 %437, 0
+  br i1 %.not61, label %476, label %469
 
 439:                                              ; preds = %401
   %440 = load i32, ptr %9, align 4
@@ -937,23 +938,24 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %462 = zext nneg i32 %441 to i64
   %463 = shl nuw i64 1, %462
   %464 = and i64 %463, %461
-  %.not58 = icmp eq i64 %464, 0
-  br i1 %.not58, label %476, label %469
+  %.not60 = icmp eq i64 %464, 0
+  br i1 %.not60, label %476, label %469
 
 465:                                              ; preds = %451
   %466 = sext i32 %441 to i64
   %467 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %456, i64 %466) #15, !srcloc !13
   %468 = icmp ult i8 %467, 2
   call void @llvm.assume(i1 %468)
-  %.not57 = icmp eq i8 %467, 0
-  br i1 %.not57, label %476, label %469
+  %.not59 = icmp eq i8 %467, 0
+  br i1 %.not59, label %476, label %469
 
 469:                                              ; preds = %457, %431, %465, %436
   %470 = load i32, ptr %9, align 4
   %471 = load i32, ptr %10, align 4
   %472 = sext i32 %470 to i64
   %473 = sext i32 %471 to i64
-  %474 = getelementptr [16 x [8 x i32]], ptr %400, i64 0, i64 %472, i64 %473
+  %.split45 = getelementptr [16 x [8 x i32]], ptr %400, i64 0, i64 %472
+  %474 = getelementptr [8 x i32], ptr %.split45, i64 0, i64 %473
   %475 = load i32, ptr %474, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.90, i32 noundef %470, i32 noundef %471, i32 noundef %475)
   br label %476
@@ -983,7 +985,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %493 = zext i8 %492 to i32
   %494 = or disjoint i32 %490, %493
   %495 = icmp samesign ugt i32 %494, 3126
-  br i1 %495, label %496, label %.loopexit79
+  br i1 %495, label %496, label %.loopexit81
 
 496:                                              ; preds = %488
   %497 = load ptr, ptr %241, align 8
@@ -1036,15 +1038,15 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %533 = zext i8 %532 to i64
   %534 = shl nuw i64 1, %502
   %535 = and i64 %534, %533
-  %.not64 = icmp eq i64 %535, 0
-  br i1 %.not64, label %576, label %569
+  %.not66 = icmp eq i64 %535, 0
+  br i1 %.not66, label %576, label %569
 
 536:                                              ; preds = %525
   %537 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %530, i64 %502) #15, !srcloc !13
   %538 = icmp ult i8 %537, 2
   call void @llvm.assume(i1 %538)
-  %.not63 = icmp eq i8 %537, 0
-  br i1 %.not63, label %576, label %569
+  %.not65 = icmp eq i8 %537, 0
+  br i1 %.not65, label %576, label %569
 
 539:                                              ; preds = %501
   %540 = load i32, ptr %9, align 4
@@ -1078,23 +1080,24 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %562 = zext nneg i32 %541 to i64
   %563 = shl nuw i64 1, %562
   %564 = and i64 %563, %561
-  %.not62 = icmp eq i64 %564, 0
-  br i1 %.not62, label %576, label %569
+  %.not64 = icmp eq i64 %564, 0
+  br i1 %.not64, label %576, label %569
 
 565:                                              ; preds = %551
   %566 = sext i32 %541 to i64
   %567 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %556, i64 %566) #15, !srcloc !13
   %568 = icmp ult i8 %567, 2
   call void @llvm.assume(i1 %568)
-  %.not61 = icmp eq i8 %567, 0
-  br i1 %.not61, label %576, label %569
+  %.not63 = icmp eq i8 %567, 0
+  br i1 %.not63, label %576, label %569
 
 569:                                              ; preds = %557, %531, %565, %536
   %570 = load i32, ptr %9, align 4
   %571 = load i32, ptr %10, align 4
   %572 = sext i32 %570 to i64
   %573 = sext i32 %571 to i64
-  %574 = getelementptr [16 x [8 x i32]], ptr %500, i64 0, i64 %572, i64 %573
+  %.split46 = getelementptr [16 x [8 x i32]], ptr %500, i64 0, i64 %572
+  %574 = getelementptr [8 x i32], ptr %.split46, i64 0, i64 %573
   %575 = load i32, ptr %574, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.91, i32 noundef %570, i32 noundef %571, i32 noundef %575)
   br label %576
@@ -1107,9 +1110,9 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %581 = trunc i64 %577 to i32
   call void @intel_gt_mcr_get_ss_steering(ptr noundef %580, i32 noundef %581, ptr noundef nonnull %9, ptr noundef nonnull %10) #15
   %582 = icmp eq i64 %577, 64
-  br i1 %582, label %.loopexit79, label %501, !llvm.loop !16
+  br i1 %582, label %.loopexit81, label %501, !llvm.loop !16
 
-.loopexit79:                                      ; preds = %576, %488
+.loopexit81:                                      ; preds = %576, %488
   %583 = getelementptr inbounds nuw i8, ptr %241, i64 152
   %584 = load i32, ptr %583, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.92, i32 noundef %584)
@@ -1118,27 +1121,27 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.93, i32 noundef %586)
   br label %587
 
-587:                                              ; preds = %.loopexit79, %483, %302, %297, %257
+587:                                              ; preds = %.loopexit81, %483, %302, %297, %257
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
   %588 = getelementptr inbounds nuw i8, ptr %241, i64 1768
   %589 = load ptr, ptr %588, align 8
   %590 = icmp eq ptr %589, null
-  br i1 %590, label %.thread45, label %.preheader78
+  br i1 %590, label %.thread47, label %.preheader80
 
-.preheader78:                                     ; preds = %587, %595
+.preheader80:                                     ; preds = %587, %595
   %591 = phi ptr [ %596, %595 ], [ %589, %587 ]
   %592 = getelementptr inbounds nuw i8, ptr %591, i64 8
   %593 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %592, ptr noundef nonnull dereferenceable(6) @.str) #15
   %594 = icmp eq i32 %593, 0
   br i1 %594, label %598, label %595
 
-595:                                              ; preds = %.preheader78
+595:                                              ; preds = %.preheader80
   %596 = load ptr, ptr %591, align 8
   %597 = icmp eq ptr %596, null
-  br i1 %597, label %.thread45, label %.preheader78, !llvm.loop !17
+  br i1 %597, label %.thread47, label %.preheader80, !llvm.loop !17
 
-598:                                              ; preds = %.preheader78
+598:                                              ; preds = %.preheader80
   %599 = getelementptr inbounds nuw i8, ptr %591, i64 32
   %600 = load i64, ptr %599, align 8
   %601 = getelementptr inbounds nuw i8, ptr %591, i64 40
@@ -1151,16 +1154,16 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %608 = trunc nuw i64 %607 to i32
   %609 = trunc i64 %603 to i32
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.67, i32 noundef %605, i32 noundef %606, i32 noundef %608, i32 noundef %609)
-  br label %.thread45
+  br label %.thread47
 
-.thread45:                                        ; preds = %595, %587, %598
+.thread47:                                        ; preds = %595, %587, %598
   %610 = load ptr, ptr %11, align 8
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 7176
   %612 = load i8, ptr %611, align 8
   %613 = icmp ugt i8 %612, 3
   br i1 %613, label %614, label %624
 
-614:                                              ; preds = %.thread45
+614:                                              ; preds = %.thread47
   %615 = getelementptr inbounds nuw i8, ptr %241, i64 80
   %616 = load i64, ptr %615, align 8
   %617 = lshr i64 %616, 32
@@ -1175,7 +1178,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.70, i32 noundef %623)
   br label %624
 
-624:                                              ; preds = %614, %.thread45
+624:                                              ; preds = %614, %.thread47
   %625 = getelementptr inbounds nuw i8, ptr %241, i64 72
   %626 = load i32, ptr %625, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.71, i32 noundef %626)
@@ -1189,7 +1192,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %633 = getelementptr inbounds nuw i8, ptr %632, i64 7176
   %634 = load i8, ptr %633, align 8
   %635 = icmp ugt i8 %634, 5
-  br i1 %635, label %636, label %.thread116
+  br i1 %635, label %636, label %.thread118
 
 636:                                              ; preds = %624
   %637 = getelementptr inbounds nuw i8, ptr %241, i64 112
@@ -1198,11 +1201,11 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %639 = getelementptr inbounds nuw i8, ptr %241, i64 96
   %640 = load i32, ptr %639, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.74, i32 noundef %640)
-  %.pre107 = load ptr, ptr %11, align 8
-  %.phi.trans.insert108 = getelementptr inbounds nuw i8, ptr %.pre107, i64 7176
-  %.pre109 = load i8, ptr %.phi.trans.insert108, align 8
-  %641 = icmp ugt i8 %.pre109, 10
-  br i1 %641, label %642, label %.thread116
+  %.pre109 = load ptr, ptr %11, align 8
+  %.phi.trans.insert110 = getelementptr inbounds nuw i8, ptr %.pre109, i64 7176
+  %.pre111 = load i8, ptr %.phi.trans.insert110, align 8
+  %641 = icmp ugt i8 %.pre111, 10
+  br i1 %641, label %642, label %.thread118
 
 642:                                              ; preds = %636
   %643 = getelementptr inbounds nuw i8, ptr %241, i64 116
@@ -1226,17 +1229,17 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %655 = getelementptr inbounds nuw i8, ptr %241, i64 140
   %656 = load i32, ptr %655, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.81, i32 noundef %656)
-  %.pre110 = load ptr, ptr %11, align 8
-  br label %.thread116
+  %.pre112 = load ptr, ptr %11, align 8
+  br label %.thread118
 
-.thread116:                                       ; preds = %624, %642, %636
-  %657 = phi ptr [ %.pre110, %642 ], [ %.pre107, %636 ], [ %632, %624 ]
+.thread118:                                       ; preds = %624, %642, %636
+  %657 = phi ptr [ %.pre112, %642 ], [ %.pre109, %636 ], [ %632, %624 ]
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 7208
   %659 = load i32, ptr %658, align 8
   %660 = icmp eq i32 %659, 0
-  br i1 %660, label %.loopexit77, label %661
+  br i1 %660, label %.loopexit79, label %661
 
-661:                                              ; preds = %.thread116
+661:                                              ; preds = %.thread118
   %662 = getelementptr inbounds nuw i8, ptr %241, i64 1848
   %663 = load i32, ptr %662, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.82, i32 noundef %663)
@@ -1245,30 +1248,30 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %666 = load i8, ptr %665, align 8
   %667 = icmp ugt i8 %666, 7
   %668 = getelementptr inbounds nuw i8, ptr %241, i64 1856
-  br i1 %667, label %.preheader76, label %675
+  br i1 %667, label %.preheader78, label %675
 
-.preheader76:                                     ; preds = %661, %.preheader76
-  %669 = phi i64 [ %673, %.preheader76 ], [ 0, %661 ]
+.preheader78:                                     ; preds = %661, %.preheader78
+  %669 = phi i64 [ %673, %.preheader78 ], [ 0, %661 ]
   %670 = getelementptr [4 x i64], ptr %668, i64 0, i64 %669
   %671 = load i64, ptr %670, align 8
   %672 = trunc i64 %669 to i32
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.83, i32 noundef %672, i64 noundef %671)
   %673 = add nuw nsw i64 %669, 1
   %674 = icmp eq i64 %673, 4
-  br i1 %674, label %.loopexit77, label %.preheader76, !llvm.loop !18
+  br i1 %674, label %.loopexit79, label %.preheader78, !llvm.loop !18
 
 675:                                              ; preds = %661
   %676 = load i32, ptr %668, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.84, i32 noundef %676)
-  br label %.loopexit77
+  br label %.loopexit79
 
-.loopexit77:                                      ; preds = %.preheader76, %675, %.thread116
+.loopexit79:                                      ; preds = %.preheader78, %675, %.thread118
   %677 = getelementptr inbounds nuw i8, ptr %241, i64 1840
   %678 = load i32, ptr %677, align 8
   %679 = icmp eq i32 %678, 0
-  br i1 %679, label %.loopexit75, label %680
+  br i1 %679, label %.loopexit77, label %680
 
-680:                                              ; preds = %.loopexit77
+680:                                              ; preds = %.loopexit79
   %681 = getelementptr inbounds nuw i8, ptr %241, i64 1776
   br label %682
 
@@ -1308,9 +1311,9 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %709 = add nuw i32 %683, 1
   %710 = load i32, ptr %677, align 8
   %711 = icmp ult i32 %709, %710
-  br i1 %711, label %682, label %.loopexit75, !llvm.loop !19
+  br i1 %711, label %682, label %.loopexit77, !llvm.loop !19
 
-.loopexit75:                                      ; preds = %708, %.loopexit77, %254, %252
+.loopexit77:                                      ; preds = %708, %.loopexit79, %254, %252
   %712 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %713 = load i8, ptr %712, align 8, !range !9, !noundef !10
   %714 = zext nneg i8 %713 to i32
@@ -1338,34 +1341,34 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %732 = getelementptr inbounds nuw i8, ptr %241, i64 1768
   %733 = load ptr, ptr %732, align 8
   %734 = icmp eq ptr %733, null
-  br i1 %734, label %.loopexit74, label %.preheader73
+  br i1 %734, label %.loopexit76, label %.preheader75
 
-.preheader73:                                     ; preds = %.loopexit75, %.preheader73
-  %735 = phi ptr [ %737, %.preheader73 ], [ %733, %.loopexit75 ]
+.preheader75:                                     ; preds = %.loopexit77, %.preheader75
+  %735 = phi ptr [ %737, %.preheader75 ], [ %733, %.loopexit77 ]
   %736 = load ptr, ptr %241, align 8
   call fastcc void @intel_gpu_error_print_vma(ptr noundef nonnull %11, ptr noundef %736, ptr noundef nonnull %735)
   %737 = load ptr, ptr %735, align 8
   %738 = icmp eq ptr %737, null
-  br i1 %738, label %.loopexit74, label %.preheader73, !llvm.loop !20
+  br i1 %738, label %.loopexit76, label %.preheader75, !llvm.loop !20
 
-.loopexit74:                                      ; preds = %.preheader73, %.loopexit75
+.loopexit76:                                      ; preds = %.preheader75, %.loopexit77
   %739 = getelementptr inbounds nuw i8, ptr %241, i64 1888
   %740 = load ptr, ptr %739, align 8
   %741 = icmp eq ptr %740, null
-  br i1 %741, label %.loopexit80.loopexit, label %240, !llvm.loop !21
+  br i1 %741, label %.loopexit82.loopexit, label %240, !llvm.loop !21
 
-.loopexit80.loopexit:                             ; preds = %.loopexit74
-  %.pre111 = load ptr, ptr %56, align 8
-  br label %.loopexit80
+.loopexit82.loopexit:                             ; preds = %.loopexit76
+  %.pre113 = load ptr, ptr %56, align 8
+  br label %.loopexit82
 
-.loopexit80:                                      ; preds = %.loopexit80.loopexit, %233
-  %742 = phi ptr [ %.pre111, %.loopexit80.loopexit ], [ %234, %233 ]
+.loopexit82:                                      ; preds = %.loopexit82.loopexit, %233
+  %742 = phi ptr [ %.pre113, %.loopexit82.loopexit ], [ %234, %233 ]
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 624
   %744 = load ptr, ptr %743, align 8
   %745 = icmp eq ptr %744, null
   br i1 %745, label %798, label %746
 
-746:                                              ; preds = %.loopexit80
+746:                                              ; preds = %.loopexit82
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15
   store ptr @__i915_printfn_error, ptr %8, align 8, !alias.scope !22
   %747 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1439,11 +1442,11 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %797 = load ptr, ptr %796, align 8
   call fastcc void @intel_gpu_error_print_vma(ptr noundef nonnull %11, ptr noundef null, ptr noundef %797)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
-  %.pre112 = load ptr, ptr %56, align 8
+  %.pre114 = load ptr, ptr %56, align 8
   br label %798
 
-798:                                              ; preds = %795, %.loopexit80
-  %799 = phi ptr [ %.pre112, %795 ], [ %742, %.loopexit80 ]
+798:                                              ; preds = %795, %.loopexit82
+  %799 = phi ptr [ %.pre114, %795 ], [ %742, %.loopexit82 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
   store ptr @__i915_printfn_error, ptr %7, align 8, !alias.scope !25
   %800 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1564,22 +1567,22 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
 
 868:                                              ; preds = %862
   %869 = icmp eq ptr %867, null
-  br i1 %869, label %.loopexit72.thread, label %.preheader71
+  br i1 %869, label %.loopexit74.thread, label %.preheader73
 
-.loopexit72.thread:                               ; preds = %868
+.loopexit74.thread:                               ; preds = %868
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #15
   br label %944
 
-.preheader71:                                     ; preds = %868, %.loopexit69
-  %870 = phi ptr [ %899, %.loopexit69 ], [ %867, %868 ]
+.preheader73:                                     ; preds = %868, %.loopexit71
+  %870 = phi ptr [ %899, %.loopexit71 ], [ %867, %868 ]
   %871 = load i64, ptr %870, align 8
   %872 = and i64 %871, 1
   %873 = icmp eq i64 %872, 0
-  br i1 %873, label %.preheader68, label %.loopexit69
+  br i1 %873, label %.preheader70, label %.loopexit71
 
-.preheader68:                                     ; preds = %.preheader71, %890
-  %874 = phi i64 [ %892, %890 ], [ %871, %.preheader71 ]
-  %875 = phi ptr [ %891, %890 ], [ %870, %.preheader71 ]
+.preheader70:                                     ; preds = %.preheader73, %890
+  %874 = phi i64 [ %892, %890 ], [ %871, %.preheader73 ]
+  %875 = phi ptr [ %891, %890 ], [ %870, %.preheader73 ]
   %876 = and i64 %874, 288230376151711740
   %877 = load i64, ptr @vmemmap_base, align 8
   %878 = sub i64 %876, %877
@@ -1595,17 +1598,17 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %887 = load i64, ptr %875, align 8
   %888 = and i64 %887, 2
   %889 = icmp eq i64 %888, 0
-  br i1 %889, label %890, label %.loopexit69
+  br i1 %889, label %890, label %.loopexit71
 
-890:                                              ; preds = %.preheader68
+890:                                              ; preds = %.preheader70
   %891 = getelementptr i8, ptr %875, i64 32
   %892 = load i64, ptr %891, align 8
   %893 = and i64 %892, 1
   %894 = icmp eq i64 %893, 0
-  br i1 %894, label %.preheader68, label %.loopexit69, !llvm.loop !34
+  br i1 %894, label %.preheader70, label %.loopexit71, !llvm.loop !34
 
-.loopexit69:                                      ; preds = %890, %.preheader68, %.preheader71
-  %895 = phi i64 [ %871, %.preheader71 ], [ %887, %.preheader68 ], [ %892, %890 ]
+.loopexit71:                                      ; preds = %890, %.preheader70, %.preheader73
+  %895 = phi i64 [ %871, %.preheader73 ], [ %887, %.preheader70 ], [ %892, %890 ]
   %896 = and i64 %895, 2
   %897 = icmp ne i64 %896, 0
   %898 = and i64 %895, -4
@@ -1614,11 +1617,11 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   call void @free_pages(i64 noundef %900, i32 noundef 0) #15
   %901 = icmp eq i64 %898, 0
   %902 = or i1 %897, %901
-  br i1 %902, label %.loopexit72.loopexit, label %.preheader71, !llvm.loop !35
+  br i1 %902, label %.loopexit74.loopexit, label %.preheader73, !llvm.loop !35
 
-.loopexit72.loopexit:                             ; preds = %.loopexit69
-  %.pre113 = load i32, ptr %863, align 8
-  br label %.loopexit72
+.loopexit74.loopexit:                             ; preds = %.loopexit71
+  %.pre115 = load i32, ptr %863, align 8
+  br label %.loopexit74
 
 903:                                              ; preds = %862
   %904 = call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %21, ptr %867, ptr null, ptr nonnull elementtype(i64) %21) #15, !srcloc !36
@@ -1626,18 +1629,18 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %906 = load ptr, ptr %866, align 8
   %907 = icmp eq ptr %906, null
   %908 = select i1 %905, i1 true, i1 %907
-  br i1 %908, label %.thread47, label %.preheader67
+  br i1 %908, label %.thread49, label %.preheader69
 
-.preheader67:                                     ; preds = %903, %.loopexit65
-  %909 = phi ptr [ %938, %.loopexit65 ], [ %906, %903 ]
+.preheader69:                                     ; preds = %903, %.loopexit67
+  %909 = phi ptr [ %938, %.loopexit67 ], [ %906, %903 ]
   %910 = load i64, ptr %909, align 8
   %911 = and i64 %910, 1
   %912 = icmp eq i64 %911, 0
-  br i1 %912, label %.preheader, label %.loopexit65
+  br i1 %912, label %.preheader, label %.loopexit67
 
-.preheader:                                       ; preds = %.preheader67, %929
-  %913 = phi i64 [ %931, %929 ], [ %910, %.preheader67 ]
-  %914 = phi ptr [ %930, %929 ], [ %909, %.preheader67 ]
+.preheader:                                       ; preds = %.preheader69, %929
+  %913 = phi i64 [ %931, %929 ], [ %910, %.preheader69 ]
+  %914 = phi ptr [ %930, %929 ], [ %909, %.preheader69 ]
   %915 = and i64 %913, 288230376151711740
   %916 = load i64, ptr @vmemmap_base, align 8
   %917 = sub i64 %915, %916
@@ -1653,17 +1656,17 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %926 = load i64, ptr %914, align 8
   %927 = and i64 %926, 2
   %928 = icmp eq i64 %927, 0
-  br i1 %928, label %929, label %.loopexit65
+  br i1 %928, label %929, label %.loopexit67
 
 929:                                              ; preds = %.preheader
   %930 = getelementptr i8, ptr %914, i64 32
   %931 = load i64, ptr %930, align 8
   %932 = and i64 %931, 1
   %933 = icmp eq i64 %932, 0
-  br i1 %933, label %.preheader, label %.loopexit65, !llvm.loop !34
+  br i1 %933, label %.preheader, label %.loopexit67, !llvm.loop !34
 
-.loopexit65:                                      ; preds = %929, %.preheader, %.preheader67
-  %934 = phi i64 [ %910, %.preheader67 ], [ %926, %.preheader ], [ %931, %929 ]
+.loopexit67:                                      ; preds = %929, %.preheader, %.preheader69
+  %934 = phi i64 [ %910, %.preheader69 ], [ %926, %.preheader ], [ %931, %929 ]
   %935 = and i64 %934, 2
   %936 = icmp ne i64 %935, 0
   %937 = and i64 %934, -4
@@ -1672,24 +1675,24 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   call void @free_pages(i64 noundef %939, i32 noundef 0) #15
   %940 = icmp eq i64 %937, 0
   %941 = or i1 %936, %940
-  br i1 %941, label %.thread47, label %.preheader67, !llvm.loop !35
+  br i1 %941, label %.thread49, label %.preheader69, !llvm.loop !35
 
-.thread47:                                        ; preds = %.loopexit65, %20, %903
+.thread49:                                        ; preds = %.loopexit67, %20, %903
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #15
   br label %947
 
-.loopexit72:                                      ; preds = %.loopexit72.loopexit, %17
-  %942 = phi i32 [ %19, %17 ], [ %.pre113, %.loopexit72.loopexit ]
+.loopexit74:                                      ; preds = %.loopexit74.loopexit, %17
+  %942 = phi i32 [ %19, %17 ], [ %.pre115, %.loopexit74.loopexit ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #15
   %943 = icmp eq i32 %942, 0
   br i1 %943, label %947, label %944
 
-944:                                              ; preds = %.loopexit72.thread, %.loopexit72
-  %945 = phi i32 [ %864, %.loopexit72.thread ], [ %942, %.loopexit72 ]
+944:                                              ; preds = %.loopexit74.thread, %.loopexit74
+  %945 = phi i32 [ %864, %.loopexit74.thread ], [ %942, %.loopexit74 ]
   %946 = sext i32 %945 to i64
   br label %.loopexit
 
-947:                                              ; preds = %.thread47, %.loopexit72
+947:                                              ; preds = %.thread49, %.loopexit74
   %948 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %949 = load volatile ptr, ptr %948, align 8
   %950 = icmp eq ptr %949, null
@@ -1699,30 +1702,30 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %952 = getelementptr inbounds nuw i8, ptr %949, i64 16
   %953 = load i64, ptr %952, align 8
   %954 = icmp ugt i64 %953, %2
-  br i1 %954, label %955, label %.thread48.preheader
+  br i1 %954, label %955, label %.thread50.preheader
 
 955:                                              ; preds = %947, %951
   %956 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %957 = load ptr, ptr %956, align 8
   %958 = icmp eq ptr %957, null
-  br i1 %958, label %.loopexit, label %..thread48_crit_edge
+  br i1 %958, label %.loopexit, label %..thread50_crit_edge
 
-..thread48_crit_edge:                             ; preds = %955
-  %.phi.trans.insert114 = getelementptr inbounds nuw i8, ptr %957, i64 16
-  %.pre115 = load i64, ptr %.phi.trans.insert114, align 8
-  br label %.thread48.preheader
+..thread50_crit_edge:                             ; preds = %955
+  %.phi.trans.insert116 = getelementptr inbounds nuw i8, ptr %957, i64 16
+  %.pre117 = load i64, ptr %.phi.trans.insert116, align 8
+  br label %.thread50.preheader
 
-.thread48.preheader:                              ; preds = %..thread48_crit_edge, %951
-  %.ph129 = phi i64 [ %953, %951 ], [ %.pre115, %..thread48_crit_edge ]
-  %.ph130 = phi ptr [ %949, %951 ], [ %957, %..thread48_crit_edge ]
-  br label %.thread48
+.thread50.preheader:                              ; preds = %..thread50_crit_edge, %951
+  %.ph131 = phi i64 [ %953, %951 ], [ %.pre117, %..thread50_crit_edge ]
+  %.ph132 = phi ptr [ %949, %951 ], [ %957, %..thread50_crit_edge ]
+  br label %.thread50
 
-.thread48:                                        ; preds = %.thread48.preheader, %1001
-  %959 = phi i64 [ %.ph, %1001 ], [ 0, %.thread48.preheader ]
-  %960 = phi i64 [ %.ph50, %1001 ], [ %.ph129, %.thread48.preheader ]
-  %961 = phi ptr [ %1002, %1001 ], [ %.ph130, %.thread48.preheader ]
-  %962 = phi i64 [ %.ph51, %1001 ], [ %3, %.thread48.preheader ]
-  %963 = phi ptr [ %.ph52, %1001 ], [ %1, %.thread48.preheader ]
+.thread50:                                        ; preds = %.thread50.preheader, %1001
+  %959 = phi i64 [ %.ph, %1001 ], [ 0, %.thread50.preheader ]
+  %960 = phi i64 [ %.ph52, %1001 ], [ %.ph131, %.thread50.preheader ]
+  %961 = phi ptr [ %1002, %1001 ], [ %.ph132, %.thread50.preheader ]
+  %962 = phi i64 [ %.ph53, %1001 ], [ %3, %.thread50.preheader ]
+  %963 = phi ptr [ %.ph54, %1001 ], [ %1, %.thread50.preheader ]
   %964 = load i64, ptr %961, align 8
   %965 = and i64 %964, 1
   %966 = icmp eq i64 %965, 0
@@ -1736,7 +1739,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %974 = icmp ugt i64 %973, %2
   br i1 %974, label %975, label %1001
 
-975:                                              ; preds = %.thread48
+975:                                              ; preds = %.thread50
   %976 = getelementptr inbounds nuw i8, ptr %969, i64 8
   %977 = load i32, ptr %976, align 8
   %978 = zext i32 %977 to i64
@@ -1768,16 +1771,16 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   store volatile ptr %969, ptr %948, align 8
   br label %.loopexit
 
-1001:                                             ; preds = %.thread48, %975
-  %.ph = phi i64 [ %995, %975 ], [ %959, %.thread48 ]
-  %.ph50 = phi i64 [ %996, %975 ], [ %973, %.thread48 ]
-  %.ph51 = phi i64 [ %998, %975 ], [ %962, %.thread48 ]
-  %.ph52 = phi ptr [ %997, %975 ], [ %963, %.thread48 ]
+1001:                                             ; preds = %.thread50, %975
+  %.ph = phi i64 [ %995, %975 ], [ %959, %.thread50 ]
+  %.ph52 = phi i64 [ %996, %975 ], [ %973, %.thread50 ]
+  %.ph53 = phi i64 [ %998, %975 ], [ %962, %.thread50 ]
+  %.ph54 = phi ptr [ %997, %975 ], [ %963, %.thread50 ]
   %1002 = getelementptr i8, ptr %969, i64 32
   %1003 = load i64, ptr %969, align 8
   %1004 = and i64 %1003, 2
   %1005 = icmp eq i64 %1004, 0
-  br i1 %1005, label %.thread48, label %.loopexit, !llvm.loop !37
+  br i1 %1005, label %.thread50, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %1001, %1000, %955, %944, %4
   %1006 = phi i64 [ %946, %944 ], [ 0, %4 ], [ 0, %955 ], [ %995, %1000 ], [ %.ph, %1001 ]

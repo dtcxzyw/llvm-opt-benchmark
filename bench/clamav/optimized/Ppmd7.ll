@@ -289,31 +289,32 @@ define internal fastcc void @RestartModel(ptr noundef captures(none) initializes
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 128
   br i1 %exitcond87.not, label %.preheader67, label %.preheader68
 
-.preheader:                                       ; preds = %.preheader67, %70
-  %indvars.iv92 = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next93, %70 ]
-  %63 = trunc i64 %indvars.iv92 to i16
-  %64 = mul nuw nsw i16 %63, 40
-  %65 = add nuw nsw i16 %64, 80
-  br label %66
+.preheader:                                       ; preds = %.preheader67, %71
+  %indvars.iv92 = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next93, %71 ]
+  %63 = getelementptr inbounds nuw [25 x [16 x %struct.CPpmd_See]], ptr %49, i64 0, i64 %indvars.iv92
+  %64 = trunc i64 %indvars.iv92 to i16
+  %65 = mul nuw nsw i16 %64, 40
+  %66 = add nuw nsw i16 %65, 80
+  br label %67
 
-66:                                               ; preds = %.preheader, %66
-  %indvars.iv88 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next89, %66 ]
-  %67 = getelementptr inbounds nuw [25 x [16 x %struct.CPpmd_See]], ptr %49, i64 0, i64 %indvars.iv92, i64 %indvars.iv88
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  store i8 3, ptr %68, align 2, !tbaa !44
-  store i16 %65, ptr %67, align 2, !tbaa !45
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 3
-  store i8 4, ptr %69, align 1, !tbaa !46
+67:                                               ; preds = %.preheader, %67
+  %indvars.iv88 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next89, %67 ]
+  %68 = getelementptr inbounds nuw [16 x %struct.CPpmd_See], ptr %63, i64 0, i64 %indvars.iv88
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
+  store i8 3, ptr %69, align 2, !tbaa !44
+  store i16 %66, ptr %68, align 2, !tbaa !45
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 3
+  store i8 4, ptr %70, align 1, !tbaa !46
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 16
-  br i1 %exitcond91.not, label %70, label %66
+  br i1 %exitcond91.not, label %71, label %67
 
-70:                                               ; preds = %66
+71:                                               ; preds = %67
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 25
-  br i1 %exitcond95.not, label %71, label %.preheader
+  br i1 %exitcond95.not, label %72, label %.preheader
 
-71:                                               ; preds = %70
+72:                                               ; preds = %71
   ret void
 }
 

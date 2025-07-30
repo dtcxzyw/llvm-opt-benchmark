@@ -2387,32 +2387,36 @@ check_marker.exit559:                             ; preds = %163, %175
   br label %580
 
 580:                                              ; preds = %576, %580
-  %.5586 = phi i32 [ 0, %576 ], [ %593, %580 ]
+  %.5586 = phi i32 [ 0, %576 ], [ %597, %580 ]
   %581 = and i32 %.5586, 1
   %582 = zext nneg i32 %581 to i64
-  %583 = lshr i32 %.5586, 1
-  %584 = zext nneg i32 %583 to i64
-  %585 = getelementptr inbounds nuw [2 x [2 x i64]], ptr %3, i64 0, i64 %582, i64 %584
-  %586 = load i64, ptr %585, align 8, !tbaa !119
-  %587 = trunc i64 %586 to i32
-  %588 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %578, i64 0, i64 %582, i64 %584
-  store i32 %587, ptr %588, align 4, !tbaa !39
-  %589 = getelementptr inbounds nuw [2 x [2 x i64]], ptr %4, i64 0, i64 %582, i64 %584
-  %590 = load i64, ptr %589, align 8, !tbaa !119
-  %591 = trunc i64 %590 to i32
-  %592 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %579, i64 0, i64 %582, i64 %584
-  store i32 %591, ptr %592, align 4, !tbaa !39
-  %593 = add nuw nsw i32 %.5586, 1
-  %exitcond.not = icmp eq i32 %593, 4
+  %583 = getelementptr inbounds nuw [2 x [2 x i64]], ptr %3, i64 0, i64 %582
+  %584 = lshr i32 %.5586, 1
+  %585 = zext nneg i32 %584 to i64
+  %586 = getelementptr inbounds nuw [2 x i64], ptr %583, i64 0, i64 %585
+  %587 = load i64, ptr %586, align 8, !tbaa !119
+  %588 = trunc i64 %587 to i32
+  %589 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %578, i64 0, i64 %582
+  %590 = getelementptr inbounds nuw [2 x i32], ptr %589, i64 0, i64 %585
+  store i32 %588, ptr %590, align 4, !tbaa !39
+  %591 = getelementptr inbounds nuw [2 x [2 x i64]], ptr %4, i64 0, i64 %582
+  %592 = getelementptr inbounds nuw [2 x i64], ptr %591, i64 0, i64 %585
+  %593 = load i64, ptr %592, align 8, !tbaa !119
+  %594 = trunc i64 %593 to i32
+  %595 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %579, i64 0, i64 %582
+  %596 = getelementptr inbounds nuw [2 x i32], ptr %595, i64 0, i64 %585
+  store i32 %594, ptr %596, align 4, !tbaa !39
+  %597 = add nuw nsw i32 %.5586, 1
+  %exitcond.not = icmp eq i32 %597, 4
   br i1 %exitcond.not, label %.loopexit, label %580, !llvm.loop !123
 
 .split583:                                        ; preds = %509, %506, %502, %.split, %570, %565, %560, %548, %543, %531, %484
   %.str.63.sink = phi ptr [ @.str.63, %484 ], [ @.str.64, %531 ], [ @.str.64, %543 ], [ @.str.64, %548 ], [ @.str.64, %560 ], [ @.str.64, %565 ], [ @.str.64, %570 ], [ @.str.63, %.split ], [ @.str.63, %502 ], [ @.str.63, %506 ], [ @.str.63, %509 ]
-  %594 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %595 = load ptr, ptr %594, align 8, !tbaa !61
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %595, ptr noundef nonnull %.str.63.sink) #16
-  %596 = getelementptr inbounds nuw i8, ptr %0, i64 4844
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %596, i8 0, i64 32, i1 false)
+  %598 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %599 = load ptr, ptr %598, align 8, !tbaa !61
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %599, ptr noundef nonnull %.str.63.sink) #16
+  %600 = getelementptr inbounds nuw i8, ptr %0, i64 4844
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %600, i8 0, i64 32, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %580, %2, %.split583

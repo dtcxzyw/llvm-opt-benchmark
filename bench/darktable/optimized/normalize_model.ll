@@ -2065,7 +2065,7 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 .preheader33:                                     ; preds = %16, %.preheader33
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.preheader33 ], [ 0, %16 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %18 = getelementptr inbounds nuw [64 x [5 x float]], ptr %11, i64 0, i64 %indvars.iv49, i64 %indvars.iv.next46
+  %18 = getelementptr inbounds nuw [5 x float], ptr %13, i64 0, i64 %indvars.iv.next46
   %19 = load float, ptr %18, align 4, !tbaa !113
   %20 = fptosi float %19 to i32
   %21 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv45
@@ -2080,7 +2080,7 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 .preheader35:                                     ; preds = %22, %.preheader35
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader35 ], [ 0, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw [64 x [5 x float]], ptr %11, i64 0, i64 %indvars.iv49, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [5 x float], ptr %13, i64 0, i64 %indvars.iv.next
   %25 = load float, ptr %24, align 4, !tbaa !113
   %26 = fptosi float %25 to i32
   %27 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv

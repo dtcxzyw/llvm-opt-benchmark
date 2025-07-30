@@ -2373,57 +2373,59 @@ define internal fastcc i32 @transtime(i32 noundef %0, ptr noundef nonnull readon
 
 .lr.ph:                                           ; preds = %24
   %54 = zext i1 %12 to i64
-  %55 = add i32 %26, -1
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [2 x [12 x i32]], ptr @mon_lengths, i64 0, i64 %54, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = mul i32 %52, 7
-  %60 = add i32 %.045, %59
-  %61 = add i32 %60, -7
-  br label %64
+  %55 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @mon_lengths, i64 0, i64 %54
+  %56 = add i32 %26, -1
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds [12 x i32], ptr %55, i64 0, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = mul i32 %52, 7
+  %61 = add i32 %.045, %60
+  %62 = add i32 %61, -7
+  br label %65
 
-62:                                               ; preds = %64
-  %63 = add nuw nsw i32 %.04358, 1
-  %exitcond.not = icmp eq i32 %63, %52
-  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !36
+63:                                               ; preds = %65
+  %64 = add nuw nsw i32 %.04358, 1
+  %exitcond.not = icmp eq i32 %64, %52
+  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !36
 
-64:                                               ; preds = %.lr.ph, %62
-  %.04358 = phi i32 [ 1, %.lr.ph ], [ %63, %62 ]
-  %.14657 = phi i32 [ %.045, %.lr.ph ], [ %65, %62 ]
-  %65 = add i32 %.14657, 7
-  %.not53 = icmp slt i32 %65, %58
-  br i1 %.not53, label %62, label %._crit_edge
+65:                                               ; preds = %.lr.ph, %63
+  %.04358 = phi i32 [ 1, %.lr.ph ], [ %64, %63 ]
+  %.14657 = phi i32 [ %.045, %.lr.ph ], [ %66, %63 ]
+  %66 = add i32 %.14657, 7
+  %.not53 = icmp slt i32 %66, %59
+  br i1 %.not53, label %63, label %._crit_edge
 
-._crit_edge:                                      ; preds = %62, %64, %.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %55, %64 ], [ %55, %62 ]
-  %.146.lcssa = phi i32 [ %.045, %.._crit_edge_crit_edge ], [ %61, %62 ], [ %.14657, %64 ]
-  %66 = mul i32 %.146.lcssa, 86400
-  %67 = icmp sgt i32 %.pre-phi, 0
-  br i1 %67, label %.lr.ph64, label %.loopexit
+._crit_edge:                                      ; preds = %63, %65, %.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %56, %65 ], [ %56, %63 ]
+  %.146.lcssa = phi i32 [ %.045, %.._crit_edge_crit_edge ], [ %62, %63 ], [ %.14657, %65 ]
+  %67 = mul i32 %.146.lcssa, 86400
+  %68 = icmp sgt i32 %.pre-phi, 0
+  br i1 %68, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %._crit_edge
-  %68 = zext i1 %12 to i64
+  %69 = zext i1 %12 to i64
+  %70 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @mon_lengths, i64 0, i64 %69
   %wide.trip.count = zext nneg i32 %.pre-phi to i64
-  br label %69
+  br label %71
 
-69:                                               ; preds = %.lr.ph64, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %69 ]
-  %.162 = phi i32 [ %66, %.lr.ph64 ], [ %73, %69 ]
-  %70 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @mon_lengths, i64 0, i64 %68, i64 %indvars.iv
-  %71 = load i32, ptr %70, align 4
-  %72 = mul i32 %71, 86400
-  %73 = add i32 %72, %.162
+71:                                               ; preds = %.lr.ph64, %71
+  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %71 ]
+  %.162 = phi i32 [ %67, %.lr.ph64 ], [ %75, %71 ]
+  %72 = getelementptr inbounds nuw [12 x i32], ptr %70, i64 0, i64 %indvars.iv
+  %73 = load i32, ptr %72, align 4
+  %74 = mul i32 %73, 86400
+  %75 = add i32 %74, %.162
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond67.not, label %.loopexit, label %69, !llvm.loop !37
+  br i1 %exitcond67.not, label %.loopexit, label %71, !llvm.loop !37
 
-.loopexit:                                        ; preds = %69, %._crit_edge, %14, %20, %11
-  %.042 = phi i32 [ 0, %11 ], [ %23, %20 ], [ %spec.select54, %14 ], [ %66, %._crit_edge ], [ %73, %69 ]
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %75 = load i32, ptr %74, align 4
-  %76 = add i32 %.042, %2
-  %77 = add i32 %76, %75
-  ret i32 %77
+.loopexit:                                        ; preds = %71, %._crit_edge, %14, %20, %11
+  %.042 = phi i32 [ 0, %11 ], [ %23, %20 ], [ %spec.select54, %14 ], [ %67, %._crit_edge ], [ %75, %71 ]
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %77 = load i32, ptr %76, align 4
+  %78 = add i32 %.042, %2
+  %79 = add i32 %78, %77
+  ret i32 %79
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

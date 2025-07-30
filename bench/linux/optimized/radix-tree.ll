@@ -1497,10 +1497,10 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
 .lr.ph:                                           ; preds = %20
   br i1 %6, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.split.us.us
-  %29 = phi i64 [ %89, %.split.us.us ], [ %26, %.lr.ph ]
-  %30 = phi ptr [ %88, %.split.us.us ], [ %25, %.lr.ph ]
-  %31 = phi i64 [ %87, %.split.us.us ], [ %15, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.split32.us.us
+  %29 = phi i64 [ %89, %.split32.us.us ], [ %26, %.lr.ph ]
+  %30 = phi ptr [ %88, %.split32.us.us ], [ %25, %.lr.ph ]
+  %31 = phi i64 [ %87, %.split32.us.us ], [ %15, %.lr.ph ]
   %32 = and i64 %29, -4
   %33 = inttoptr i64 %32 to ptr
   %34 = load i8, ptr %33, align 8
@@ -1545,7 +1545,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
 
 62:                                               ; preds = %.thread11.loopexit.us.us
   %63 = icmp eq i64 %58, 64
-  br i1 %63, label %.split.us.us, label %64
+  br i1 %63, label %.split32.us.us, label %64
 
 64:                                               ; preds = %62
   %65 = getelementptr [64 x ptr], ptr %49, i64 0, i64 %58
@@ -1558,8 +1558,8 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %70 = phi i64 [ %80, %64 ], [ %42, %.preheader12.us ]
   %71 = ptrtoint ptr %68 to i64
   switch i64 %71, label %72 [
-    i64 0, label %.split.us.us
-    i64 1026, label %.split32.us
+    i64 0, label %.split32.us.us
+    i64 1026, label %.split34.us
   ]
 
 72:                                               ; preds = %67
@@ -1567,7 +1567,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %74 = and i64 %71, 3
   %75 = icmp eq i64 %74, 2
   %76 = and i1 %75, %73
-  br i1 %76, label %.preheader12.us, label %.split32.us, !llvm.loop !70
+  br i1 %76, label %.preheader12.us, label %.split34.us, !llvm.loop !70
 
 .thread11.loopexit.us.us:                         ; preds = %57
   %77 = shl i64 -64, %47
@@ -1583,9 +1583,9 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %84 = shl i64 64, %47
   %85 = add i64 %83, %84
   %86 = icmp eq i64 %85, 0
-  br i1 %86, label %.loopexit, label %.split.us.us
+  br i1 %86, label %.loopexit, label %.split32.us.us
 
-.split.us.us:                                     ; preds = %67, %62, %.thread11.loopexit.us.us.thread
+.split32.us.us:                                   ; preds = %67, %62, %.thread11.loopexit.us.us.thread
   %87 = phi i64 [ %85, %.thread11.loopexit.us.us.thread ], [ %80, %62 ], [ %70, %67 ]
   %88 = load volatile ptr, ptr %21, align 8
   %89 = ptrtoint ptr %88 to i64
@@ -1596,10 +1596,10 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %24, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.split.split.us.us
-  %92 = phi i64 [ %156, %.split.split.us.us ], [ %26, %.lr.ph.split ]
-  %93 = phi ptr [ %155, %.split.split.us.us ], [ %25, %.lr.ph.split ]
-  %94 = phi i64 [ %154, %.split.split.us.us ], [ %15, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.split32.split.us.us
+  %92 = phi i64 [ %156, %.split32.split.us.us ], [ %26, %.lr.ph.split ]
+  %93 = phi ptr [ %155, %.split32.split.us.us ], [ %25, %.lr.ph.split ]
+  %94 = phi i64 [ %154, %.split32.split.us.us ], [ %15, %.lr.ph.split ]
   %95 = and i64 %92, -4
   %96 = inttoptr i64 %95 to ptr
   %97 = load i8, ptr %96, align 8
@@ -1609,9 +1609,9 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %101 = icmp ugt i64 %94, %100
   %102 = icmp eq ptr %93, null
   %103 = or i1 %102, %101
-  br i1 %103, label %.loopexit, label %.preheader12.us61
+  br i1 %103, label %.loopexit, label %.preheader12.us63
 
-.preheader12.us61:                                ; preds = %.lr.ph.split.split.us, %148
+.preheader12.us63:                                ; preds = %.lr.ph.split.split.us, %148
   %104 = phi ptr [ %144, %148 ], [ %93, %.lr.ph.split.split.us ]
   %105 = phi i64 [ %146, %148 ], [ %94, %.lr.ph.split.split.us ]
   %106 = ptrtoint ptr %104 to i64
@@ -1632,23 +1632,23 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %120 = icmp eq i8 %118, 0
   br i1 %120, label %.thread9.us.us, label %143
 
-.thread9.us.us:                                   ; preds = %.preheader12.us61
+.thread9.us.us:                                   ; preds = %.preheader12.us63
   %121 = add nuw nsw i64 %113, 1
   %122 = icmp eq i64 %113, 63
-  br i1 %122, label %.thread11.us38.us, label %123
+  br i1 %122, label %.thread11.us40.us, label %123
 
 123:                                              ; preds = %.thread9.us.us
   %124 = load i64, ptr %117, align 8
   %125 = lshr i64 %124, %121
   %126 = icmp eq i64 %125, 0
-  br i1 %126, label %.thread11.us38.us, label %127
+  br i1 %126, label %.thread11.us40.us, label %127
 
 127:                                              ; preds = %123
   %128 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %125) #14, !srcloc !72
   %129 = add i64 %128, %121
-  br label %.thread11.us38.us
+  br label %.thread11.us40.us
 
-.thread11.us38.us:                                ; preds = %127, %123, %.thread9.us.us
+.thread11.us40.us:                                ; preds = %127, %123, %.thread9.us.us
   %130 = phi i64 [ %129, %127 ], [ 64, %.thread9.us.us ], [ 64, %123 ]
   %131 = load i8, ptr %108, align 8
   %132 = zext nneg i8 %131 to i64
@@ -1659,23 +1659,23 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %137 = icmp eq i64 %136, 0
   br i1 %137, label %.loopexit, label %138
 
-138:                                              ; preds = %.thread11.us38.us
+138:                                              ; preds = %.thread11.us40.us
   %139 = icmp eq i64 %130, 64
-  br i1 %139, label %.split.split.us.us, label %140
+  br i1 %139, label %.split32.split.us.us, label %140
 
 140:                                              ; preds = %138
   %141 = getelementptr [64 x ptr], ptr %112, i64 0, i64 %130
   %142 = load volatile ptr, ptr %141, align 8
   br label %143
 
-143:                                              ; preds = %140, %.preheader12.us61
-  %144 = phi ptr [ %142, %140 ], [ %115, %.preheader12.us61 ]
-  %145 = phi i64 [ %130, %140 ], [ %113, %.preheader12.us61 ]
-  %146 = phi i64 [ %136, %140 ], [ %105, %.preheader12.us61 ]
+143:                                              ; preds = %140, %.preheader12.us63
+  %144 = phi ptr [ %142, %140 ], [ %115, %.preheader12.us63 ]
+  %145 = phi i64 [ %130, %140 ], [ %113, %.preheader12.us63 ]
+  %146 = phi i64 [ %136, %140 ], [ %105, %.preheader12.us63 ]
   %147 = ptrtoint ptr %144 to i64
   switch i64 %147, label %148 [
-    i64 0, label %.split.split.us.us
-    i64 1026, label %.split32.us
+    i64 0, label %.split32.split.us.us
+    i64 1026, label %.split34.us
   ]
 
 148:                                              ; preds = %143
@@ -1684,9 +1684,9 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %151 = and i64 %147, 3
   %152 = icmp eq i64 %151, 2
   %153 = and i1 %152, %150
-  br i1 %153, label %.preheader12.us61, label %.split32.us, !llvm.loop !73
+  br i1 %153, label %.preheader12.us63, label %.split34.us, !llvm.loop !73
 
-.split.split.us.us:                               ; preds = %143, %138
+.split32.split.us.us:                             ; preds = %143, %138
   %154 = phi i64 [ %146, %143 ], [ %136, %138 ]
   %155 = load volatile ptr, ptr %21, align 8
   %156 = ptrtoint ptr %155 to i64
@@ -1694,16 +1694,16 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %158 = icmp eq i64 %157, 2
   br i1 %158, label %.lr.ph.split.split.us, label %.thread, !prof !47, !llvm.loop !74
 
-.split.split:                                     ; preds = %195
+.split32.split:                                   ; preds = %195
   %159 = load volatile ptr, ptr %21, align 8
   %160 = ptrtoint ptr %159 to i64
   %161 = and i64 %160, 3
   %162 = icmp eq i64 %161, 2
   br i1 %162, label %.lr.ph.split.split, label %.thread, !prof !47
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.split.split
-  %163 = phi i64 [ %160, %.split.split ], [ %26, %.lr.ph.split ]
-  %164 = phi ptr [ %159, %.split.split ], [ %25, %.lr.ph.split ]
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.split32.split
+  %163 = phi i64 [ %160, %.split32.split ], [ %26, %.lr.ph.split ]
+  %164 = phi ptr [ %159, %.split32.split ], [ %25, %.lr.ph.split ]
   %165 = and i64 %163, -4
   %166 = inttoptr i64 %165 to ptr
   %167 = load i8, ptr %166, align 8
@@ -1715,9 +1715,9 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %173 = or i1 %172, %171
   br i1 %173, label %.loopexit, label %.preheader12
 
-.thread:                                          ; preds = %.split.split, %.split.split.us.us, %.split.us.us, %20
-  %.lcssa27 = phi i64 [ %15, %20 ], [ %87, %.split.us.us ], [ %154, %.split.split.us.us ], [ %15, %.split.split ]
-  %.lcssa = phi ptr [ %25, %20 ], [ %88, %.split.us.us ], [ %155, %.split.split.us.us ], [ %159, %.split.split ]
+.thread:                                          ; preds = %.split32.split, %.split32.split.us.us, %.split32.us.us, %20
+  %.lcssa27 = phi i64 [ %15, %20 ], [ %87, %.split32.us.us ], [ %154, %.split32.split.us.us ], [ %15, %.split32.split ]
+  %.lcssa = phi ptr [ %25, %20 ], [ %88, %.split32.us.us ], [ %155, %.split32.split.us.us ], [ %159, %.split32.split ]
   %174 = icmp ne i64 %.lcssa27, 0
   %175 = icmp eq ptr %.lcssa, null
   %176 = or i1 %174, %175
@@ -1755,8 +1755,8 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
 195:                                              ; preds = %.preheader12
   %196 = ptrtoint ptr %189 to i64
   switch i64 %196, label %197 [
-    i64 0, label %.split.split
-    i64 1026, label %.split32.us
+    i64 0, label %.split32.split
+    i64 1026, label %.split34.us
   ]
 
 197:                                              ; preds = %195
@@ -1765,41 +1765,42 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   %200 = and i64 %196, 3
   %201 = icmp eq i64 %200, 2
   %202 = and i1 %201, %199
-  br i1 %202, label %.preheader12, label %.split32.us, !llvm.loop !75
+  br i1 %202, label %.preheader12, label %.split34.us, !llvm.loop !75
 
-.split32.us:                                      ; preds = %197, %195, %143, %148, %72, %67
-  %.us-phi33 = phi i64 [ %69, %67 ], [ %69, %72 ], [ %145, %148 ], [ %145, %143 ], [ %187, %195 ], [ %187, %197 ]
-  %.us-phi34 = phi i64 [ %70, %67 ], [ %70, %72 ], [ %146, %148 ], [ %146, %143 ], [ %15, %195 ], [ %15, %197 ]
-  %.us-phi35 = phi i64 [ %44, %67 ], [ %44, %72 ], [ %107, %148 ], [ %107, %143 ], [ %181, %195 ], [ %181, %197 ]
-  %.us-phi36 = phi ptr [ %45, %67 ], [ %45, %72 ], [ %108, %148 ], [ %108, %143 ], [ %182, %195 ], [ %182, %197 ]
-  %.us-phi37 = phi ptr [ %49, %67 ], [ %49, %72 ], [ %112, %148 ], [ %112, %143 ], [ %186, %195 ], [ %186, %197 ]
-  %203 = load i8, ptr %.us-phi36, align 8
+.split34.us:                                      ; preds = %197, %195, %143, %148, %72, %67
+  %.us-phi35 = phi i64 [ %69, %67 ], [ %69, %72 ], [ %145, %148 ], [ %145, %143 ], [ %187, %195 ], [ %187, %197 ]
+  %.us-phi36 = phi i64 [ %70, %67 ], [ %70, %72 ], [ %146, %148 ], [ %146, %143 ], [ %15, %195 ], [ %15, %197 ]
+  %.us-phi37 = phi i64 [ %44, %67 ], [ %44, %72 ], [ %107, %148 ], [ %107, %143 ], [ %181, %195 ], [ %181, %197 ]
+  %.us-phi38 = phi ptr [ %45, %67 ], [ %45, %72 ], [ %108, %148 ], [ %108, %143 ], [ %182, %195 ], [ %182, %197 ]
+  %.us-phi39 = phi ptr [ %49, %67 ], [ %49, %72 ], [ %112, %148 ], [ %112, %143 ], [ %186, %195 ], [ %186, %197 ]
+  %203 = load i8, ptr %.us-phi38, align 8
   %204 = zext nneg i8 %203 to i64
   %205 = shl i64 -64, %204
-  %206 = and i64 %205, %.us-phi34
-  %207 = or i64 %206, %.us-phi33
+  %206 = and i64 %205, %.us-phi36
+  %207 = or i64 %206, %.us-phi35
   store i64 %207, ptr %1, align 8
-  %208 = load i8, ptr %.us-phi36, align 8
+  %208 = load i8, ptr %.us-phi38, align 8
   %209 = zext nneg i8 %208 to i64
   %210 = shl i64 64, %209
   %211 = add i64 %210, -1
-  %212 = or i64 %211, %.us-phi34
+  %212 = or i64 %211, %.us-phi36
   %213 = add i64 %212, 1
   store i64 %213, ptr %14, align 8
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %.us-phi36, ptr %214, align 8
+  store ptr %.us-phi38, ptr %214, align 8
   br i1 %6, label %228, label %215
 
-215:                                              ; preds = %.split32.us
-  %216 = icmp eq i64 %.us-phi35, 0
+215:                                              ; preds = %.split34.us
+  %216 = icmp eq i64 %.us-phi37, 0
   br i1 %216, label %225, label %217
 
 217:                                              ; preds = %215
-  %218 = and i64 %.us-phi33, 63
-  %219 = lshr i64 %.us-phi33, 6
-  %220 = getelementptr inbounds nuw i8, ptr %.us-phi36, i64 552
+  %218 = and i64 %.us-phi35, 63
+  %219 = lshr i64 %.us-phi35, 6
+  %220 = getelementptr inbounds nuw i8, ptr %.us-phi38, i64 552
   %221 = and i64 %219, 67108863
-  %222 = getelementptr [3 x [1 x i64]], ptr %220, i64 0, i64 %22, i64 %221
+  %.split = getelementptr [3 x [1 x i64]], ptr %220, i64 0, i64 %22
+  %222 = getelementptr [1 x i64], ptr %.split, i64 0, i64 %221
   %223 = load i64, ptr %222, align 8
   %224 = lshr i64 %223, %218
   br label %225
@@ -1810,12 +1811,12 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   store i64 %226, ptr %227, align 8
   br label %228
 
-228:                                              ; preds = %225, %.split32.us
-  %229 = getelementptr ptr, ptr %.us-phi37, i64 %.us-phi33
+228:                                              ; preds = %225, %.split34.us
+  %229 = getelementptr ptr, ptr %.us-phi39, i64 %.us-phi35
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split.split, %.preheader12, %.lr.ph.split.split.us, %.thread11.us38.us, %.lr.ph.split.us, %.thread11.loopexit.us.us.thread, %54, %.thread11.loopexit.us.us, %.thread, %228, %.thread8, %17, %7
-  %230 = phi ptr [ %229, %228 ], [ %21, %.thread8 ], [ null, %7 ], [ null, %17 ], [ null, %.thread ], [ null, %.thread11.loopexit.us.us ], [ null, %54 ], [ null, %.thread11.loopexit.us.us.thread ], [ null, %.lr.ph.split.us ], [ null, %.thread11.us38.us ], [ null, %.lr.ph.split.split.us ], [ null, %.preheader12 ], [ null, %.lr.ph.split.split ]
+.loopexit:                                        ; preds = %.lr.ph.split.split, %.preheader12, %.lr.ph.split.split.us, %.thread11.us40.us, %.lr.ph.split.us, %.thread11.loopexit.us.us.thread, %54, %.thread11.loopexit.us.us, %.thread, %228, %.thread8, %17, %7
+  %230 = phi ptr [ %229, %228 ], [ %21, %.thread8 ], [ null, %7 ], [ null, %17 ], [ null, %.thread ], [ null, %.thread11.loopexit.us.us ], [ null, %54 ], [ null, %.thread11.loopexit.us.us.thread ], [ null, %.lr.ph.split.us ], [ null, %.thread11.us40.us ], [ null, %.lr.ph.split.split.us ], [ null, %.preheader12 ], [ null, %.lr.ph.split.split ]
   ret ptr %230
 }
 

@@ -1156,22 +1156,23 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %9, %14
   %21 = phi ptr [ %5, %9 ], [ %.pre, %14 ]
   store i32 0, ptr %10, align 8
   %22 = sext i32 %2 to i64
-  %23 = load i32, ptr %21, align 8
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %22, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %.loopexit, label %.lr.ph
+  %23 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %22
+  %24 = load i32, ptr %21, align 8
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds [87 x i8], ptr %23, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %.lr.ph
   tail call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  %28 = load ptr, ptr %4, align 8
-  %29 = load i32, ptr %28, align 8
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %22, i64 %30
-  %32 = load i8, ptr %31, align 1
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  %29 = load ptr, ptr %4, align 8
+  %30 = load i32, ptr %29, align 8
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds [87 x i8], ptr %23, i64 0, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %8
   ret void
@@ -1180,14 +1181,15 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %9, %14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN14VrmlTranslator6Parser7StartOfEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 8
-  %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %3, i64 %7
-  %9 = load i8, ptr %8, align 1
-  %10 = trunc i8 %9 to i1
-  ret i1 %10
+  %4 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %6, align 8
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds [87 x i8], ptr %4, i64 0, i64 %8
+  %10 = load i8, ptr %9, align 1
+  %11 = trunc i8 %10 to i1
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1204,67 +1206,69 @@ define noundef zeroext i1 @_ZN14VrmlTranslator6Parser13WeakSeparatorEiii(ptr nou
 
 10:                                               ; preds = %4
   %11 = sext i32 %3 to i64
-  %12 = sext i32 %7 to i64
-  %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %11, i64 %12
-  %14 = load i8, ptr %13, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %.critedge, label %16
+  %12 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %11
+  %13 = sext i32 %7 to i64
+  %14 = getelementptr inbounds [87 x i8], ptr %12, i64 0, i64 %13
+  %15 = load i8, ptr %14, align 1
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %.critedge, label %17
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load i32, ptr %19, align 4
-  %.not.i = icmp slt i32 %18, %20
-  br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %21
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %21 = load i32, ptr %20, align 4
+  %.not.i = icmp slt i32 %19, %21
+  br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %22
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %27 = load i32, ptr %26, align 8
-  tail call void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef %25, i32 noundef %27, i32 noundef %1)
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %28 = load i32, ptr %27, align 8
+  tail call void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef %26, i32 noundef %28, i32 noundef %1)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
-_ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %16, %21
-  %28 = phi ptr [ %6, %16 ], [ %.pre, %21 ]
-  store i32 0, ptr %17, align 8
-  %29 = sext i32 %2 to i64
-  %30 = load i32, ptr %28, align 8
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %29, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %.critedge, label %.lr.ph
+_ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %17, %22
+  %29 = phi ptr [ %6, %17 ], [ %.pre, %22 ]
+  store i32 0, ptr %18, align 8
+  %30 = sext i32 %2 to i64
+  %31 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %30
+  %32 = load i32, ptr %29, align 8
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [87 x i8], ptr %31, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %43
-  %35 = phi i64 [ %46, %43 ], [ %31, %_ZN14VrmlTranslator6Parser6SynErrEi.exit ]
-  %36 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %11, i64 %35
-  %37 = load i8, ptr %36, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %.critedge, label %39
+.lr.ph:                                           ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %45
+  %37 = phi i64 [ %48, %45 ], [ %33, %_ZN14VrmlTranslator6Parser6SynErrEi.exit ]
+  %38 = getelementptr inbounds [87 x i8], ptr %12, i64 0, i64 %37
+  %39 = load i8, ptr %38, align 1
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %.critedge, label %41
 
-39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 0, i64 %35
-  %41 = load i8, ptr %40, align 1
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %.critedge, label %43
+41:                                               ; preds = %.lr.ph
+  %42 = getelementptr inbounds [87 x i8], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %37
+  %43 = load i8, ptr %42, align 1
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %.critedge, label %45
 
-43:                                               ; preds = %39
+45:                                               ; preds = %41
   tail call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  %44 = load ptr, ptr %5, align 8
-  %45 = load i32, ptr %44, align 8
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %29, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %.critedge, label %.lr.ph, !llvm.loop !8
+  %46 = load ptr, ptr %5, align 8
+  %47 = load i32, ptr %46, align 8
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds [87 x i8], ptr %31, i64 0, i64 %48
+  %50 = load i8, ptr %49, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %.critedge, label %.lr.ph, !llvm.loop !8
 
-.critedge:                                        ; preds = %.lr.ph, %43, %39, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %10, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %10 ], [ true, %_ZN14VrmlTranslator6Parser6SynErrEi.exit ], [ false, %.lr.ph ], [ true, %43 ], [ false, %39 ]
+.critedge:                                        ; preds = %.lr.ph, %45, %41, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %10, %9
+  %.0 = phi i1 [ true, %9 ], [ false, %10 ], [ true, %_ZN14VrmlTranslator6Parser6SynErrEi.exit ], [ false, %.lr.ph ], [ true, %45 ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -1451,7 +1455,7 @@ _ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit: ; preds = %.noexc, %41
 _ZN14VrmlTranslator6Parser14MetaStatementsEv.exit: ; preds = %.noexc13, %_ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit
   %52 = phi i32 [ %47, %_ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit ], [ %50, %.noexc13 ]
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %53
+  %54 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = trunc i8 %55 to i1
   br i1 %56, label %.lr.ph.i14, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit
@@ -1464,7 +1468,7 @@ _ZN14VrmlTranslator6Parser14MetaStatementsEv.exit: ; preds = %.noexc13, %_ZN14Vr
   %57 = load ptr, ptr %26, align 8
   %58 = load i32, ptr %57, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %59
+  %60 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = trunc i8 %61 to i1
   br i1 %62, label %.lr.ph.i14, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, !llvm.loop !11
@@ -7393,7 +7397,7 @@ define void @_ZN14VrmlTranslator6Parser10StatementsER11QDomElement(ptr noundef n
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %6
+  %7 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -7403,7 +7407,7 @@ define void @_ZN14VrmlTranslator6Parser10StatementsER11QDomElement(ptr noundef n
   %10 = load ptr, ptr %3, align 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %12
+  %13 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !11
@@ -7743,7 +7747,7 @@ define void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef non
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 2, i64 %8
+  %9 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 174), i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %13
@@ -9616,7 +9620,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc34, %110
   %129 = load ptr, ptr %26, align 8
   %130 = load i32, ptr %129, align 8
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 6, i64 %131
+  %132 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 522), i64 0, i64 %131
   %133 = load i8, ptr %132, align 1
   %134 = trunc i8 %133 to i1
   br i1 %134, label %135, label %_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb.exit
@@ -9744,7 +9748,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i42:     ; preds = %.noexc44, %163
   %182 = load ptr, ptr %26, align 8
   %183 = load i32, ptr %182, align 8
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 7, i64 %184
+  %185 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 609), i64 0, i64 %184
   %186 = load i8, ptr %185, align 1
   %187 = trunc i8 %186 to i1
   br i1 %187, label %188, label %_ZN14VrmlTranslator6Parser10ScriptBodyEv.exit
@@ -10178,7 +10182,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i30:  ; preds = %_ZN9QtPrivate8RefCo
   %103 = load ptr, ptr %26, align 8
   %104 = load i32, ptr %103, align 8
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %105
+  %106 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = trunc i8 %107 to i1
   br i1 %108, label %109, label %_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit
@@ -10364,7 +10368,7 @@ _ZN7QStringD2Ev.exit54.backedge:                  ; preds = %168, %167
   %169 = load ptr, ptr %26, align 8
   %170 = load i32, ptr %169, align 8
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %171
+  %172 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %171
   %173 = load i8, ptr %172, align 1
   %174 = trunc i8 %173 to i1
   br i1 %174, label %175, label %_ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement.exit
@@ -10724,7 +10728,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit12:       ; preds = %_ZN14VrmlTranslator
   %73 = load ptr, ptr %25, align 8
   %74 = load i32, ptr %73, align 8
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %75
+  %76 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = trunc i8 %77 to i1
   br i1 %78, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit
@@ -10737,7 +10741,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit12:       ; preds = %_ZN14VrmlTranslator
   %79 = load ptr, ptr %25, align 8
   %80 = load i32, ptr %79, align 8
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %81
+  %82 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = trunc i8 %83 to i1
   br i1 %84, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit, !llvm.loop !19
@@ -11271,7 +11275,7 @@ define void @_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb(ptr noundef non
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 6, i64 %7
+  %8 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 522), i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %.lr.ph, label %._crit_edge
@@ -11281,7 +11285,7 @@ define void @_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb(ptr noundef non
   %11 = load ptr, ptr %4, align 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 6, i64 %13
+  %14 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 522), i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !15
@@ -11296,7 +11300,7 @@ define void @_ZN14VrmlTranslator6Parser10ScriptBodyEv(ptr noundef nonnull align 
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 7, i64 %5
+  %6 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 609), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -11306,7 +11310,7 @@ define void @_ZN14VrmlTranslator6Parser10ScriptBodyEv(ptr noundef nonnull align 
   %9 = load ptr, ptr %2, align 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 7, i64 %11
+  %12 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 609), i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !16
@@ -11909,7 +11913,7 @@ define void @_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement(pt
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %6
+  %7 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -11919,7 +11923,7 @@ define void @_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement(pt
   %10 = load ptr, ptr %3, align 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %12
+  %13 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !17
@@ -11957,7 +11961,7 @@ _ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement.exit: ; preds = %_ZN1
   %8 = load ptr, ptr %3, align 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %10
+  %11 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit
@@ -11967,7 +11971,7 @@ _ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement.exit: ; preds = %_ZN1
   %14 = load ptr, ptr %3, align 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %16
+  %17 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, !llvm.loop !11
@@ -12062,7 +12066,7 @@ define void @_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElem
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %6
+  %7 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -12072,7 +12076,7 @@ define void @_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElem
   %10 = load ptr, ptr %3, align 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %12
+  %13 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !19
@@ -12382,7 +12386,7 @@ define void @_ZN14VrmlTranslator6Parser20InterfaceDeclarationER11QDomElement(ptr
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 4, i64 %21
+  %22 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 348), i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %30
@@ -13753,7 +13757,7 @@ define void @_ZN14VrmlTranslator6Parser10FieldValueER11QDomElement7QStringb(ptr 
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 5, i64 %12
+  %13 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 435), i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %29
@@ -14049,7 +14053,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %36, %_ZN9QtPrivate8
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 9, i64 %44
+  %45 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 783), i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %195
@@ -14594,7 +14598,7 @@ _ZN7QStringD2Ev.exit104:                          ; preds = %179, %_ZN9QtPrivate
           to label %_ZN7QStringD2Ev.exit132 unwind label %.loopexit.split-lp
 
 195:                                              ; preds = %_ZN7QStringD2Ev.exit
-  %196 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 2, i64 %44
+  %196 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 174), i64 0, i64 %44
   %197 = load i8, ptr %196, align 1
   %198 = trunc i8 %197 to i1
   br i1 %198, label %199, label %248
@@ -15001,7 +15005,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %64 = load ptr, ptr %40, align 8
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 10, i64 %66
+  %67 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 870), i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %113
@@ -15185,13 +15189,13 @@ _ZN7QStringD2Ev.exit55:                           ; preds = %97, %_ZN9QtPrivate8
           to label %207 unwind label %.loopexit.split-lp99
 
 113:                                              ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit
-  %114 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 11, i64 %66
+  %114 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 957), i64 0, i64 %66
   %115 = load i8, ptr %114, align 1
   %116 = trunc i8 %115 to i1
   br i1 %116, label %.preheader, label %188
 
 .preheader:                                       ; preds = %113
-  %117 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 2, i64 %66
+  %117 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 174), i64 0, i64 %66
   %118 = load i8, ptr %117, align 1
   %119 = trunc i8 %118 to i1
   br i1 %119, label %.lr.ph, label %._crit_edge
@@ -15218,7 +15222,7 @@ _ZN7QStringD2Ev.exit55:                           ; preds = %97, %_ZN9QtPrivate8
 125:                                              ; preds = %._crit_edge113, %120
   %126 = phi i32 [ %.pre114, %._crit_edge113 ], [ %122, %120 ]
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 2, i64 %127
+  %128 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 174), i64 0, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = trunc i8 %129 to i1
   br i1 %130, label %.lr.ph, label %._crit_edge, !llvm.loop !35
@@ -16317,7 +16321,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringC2EPKc.e
   %41 = load ptr, ptr %21, align 8
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 8, i64 %43
+  %44 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 696), i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %64
@@ -16825,7 +16829,7 @@ define void @_ZN14VrmlTranslator6Parser17ScriptBodyElementEv(ptr noundef nonnull
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 6, i64 %13
+  %14 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 522), i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %22
@@ -16924,7 +16928,7 @@ define void @_ZN14VrmlTranslator6Parser17ScriptBodyElementEv(ptr noundef nonnull
   %45 = load ptr, ptr %10, align 8
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 8, i64 %47
+  %48 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 696), i64 0, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %60

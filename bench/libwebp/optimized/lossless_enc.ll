@@ -1243,18 +1243,18 @@ define internal void @GetEntropyUnrefined_C(ptr noundef readonly captures(none) 
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph, %56
-  %14 = phi i32 [ 0, %.lr.ph ], [ %57, %56 ]
-  %15 = phi i64 [ 0, %.lr.ph ], [ %58, %56 ]
-  %16 = phi i32 [ 0, %.lr.ph ], [ %59, %56 ]
-  %17 = phi i32 [ 0, %.lr.ph ], [ %60, %56 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %.02630 = phi i32 [ %5, %.lr.ph ], [ %.1, %56 ]
-  %.02729 = phi i32 [ 0, %.lr.ph ], [ %.128, %56 ]
+13:                                               ; preds = %.lr.ph, %57
+  %14 = phi i32 [ 0, %.lr.ph ], [ %58, %57 ]
+  %15 = phi i64 [ 0, %.lr.ph ], [ %59, %57 ]
+  %16 = phi i32 [ 0, %.lr.ph ], [ %60, %57 ]
+  %17 = phi i32 [ 0, %.lr.ph ], [ %61, %57 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %57 ]
+  %.02630 = phi i32 [ %5, %.lr.ph ], [ %.1, %57 ]
+  %.02729 = phi i32 [ 0, %.lr.ph ], [ %.128, %57 ]
   %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %.not = icmp eq i32 %19, %.02630
-  br i1 %.not, label %56, label %20
+  br i1 %.not, label %57, label %20
 
 20:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
@@ -1311,109 +1311,111 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.
   %50 = load i32, ptr %49, align 4, !tbaa !9, !alias.scope !46, !noalias !52
   %51 = add nsw i32 %50, %46
   store i32 %51, ptr %49, align 4, !tbaa !9, !alias.scope !46, !noalias !52
-  %52 = zext i1 %45 to i64
-  %53 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %12, i64 0, i64 %48, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !9, !alias.scope !46, !noalias !52
-  %55 = add nsw i32 %54, %22
-  store i32 %55, ptr %53, align 4, !tbaa !9, !alias.scope !46, !noalias !52
-  br label %56
+  %52 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %12, i64 0, i64 %48
+  %53 = zext i1 %45 to i64
+  %54 = getelementptr inbounds nuw [2 x i32], ptr %52, i64 0, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !9, !alias.scope !46, !noalias !52
+  %56 = add nsw i32 %55, %22
+  store i32 %56, ptr %54, align 4, !tbaa !9, !alias.scope !46, !noalias !52
+  br label %57
 
-56:                                               ; preds = %GetEntropyUnrefinedHelper.exit, %13
-  %57 = phi i32 [ %14, %13 ], [ %41, %GetEntropyUnrefinedHelper.exit ]
-  %58 = phi i64 [ %15, %13 ], [ %42, %GetEntropyUnrefinedHelper.exit ]
-  %59 = phi i32 [ %16, %13 ], [ %43, %GetEntropyUnrefinedHelper.exit ]
-  %60 = phi i32 [ %17, %13 ], [ %44, %GetEntropyUnrefinedHelper.exit ]
+57:                                               ; preds = %GetEntropyUnrefinedHelper.exit, %13
+  %58 = phi i32 [ %14, %13 ], [ %41, %GetEntropyUnrefinedHelper.exit ]
+  %59 = phi i64 [ %15, %13 ], [ %42, %GetEntropyUnrefinedHelper.exit ]
+  %60 = phi i32 [ %16, %13 ], [ %43, %GetEntropyUnrefinedHelper.exit ]
+  %61 = phi i32 [ %17, %13 ], [ %44, %GetEntropyUnrefinedHelper.exit ]
   %.128 = phi i32 [ %.02729, %13 ], [ %21, %GetEntropyUnrefinedHelper.exit ]
   %.1 = phi i32 [ %.02630, %13 ], [ %19, %GetEntropyUnrefinedHelper.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !53
 
-._crit_edge:                                      ; preds = %56, %4
-  %61 = phi i32 [ 0, %4 ], [ %57, %56 ]
-  %62 = phi i64 [ 0, %4 ], [ %58, %56 ]
-  %63 = phi i32 [ 0, %4 ], [ %59, %56 ]
-  %64 = phi i32 [ 0, %4 ], [ %60, %56 ]
-  %.027.lcssa = phi i32 [ 0, %4 ], [ %.128, %56 ]
-  %.026.lcssa = phi i32 [ %5, %4 ], [ %.1, %56 ]
-  %.0.lcssa = phi i32 [ 1, %4 ], [ %1, %56 ]
+._crit_edge:                                      ; preds = %57, %4
+  %62 = phi i32 [ 0, %4 ], [ %58, %57 ]
+  %63 = phi i64 [ 0, %4 ], [ %59, %57 ]
+  %64 = phi i32 [ 0, %4 ], [ %60, %57 ]
+  %65 = phi i32 [ 0, %4 ], [ %61, %57 ]
+  %.027.lcssa = phi i32 [ 0, %4 ], [ %.128, %57 ]
+  %.026.lcssa = phi i32 [ %5, %4 ], [ %.1, %57 ]
+  %.0.lcssa = phi i32 [ 1, %4 ], [ %1, %57 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  %65 = sub nsw i32 %.0.lcssa, %.027.lcssa
+  %66 = sub nsw i32 %.0.lcssa, %.027.lcssa
   %.not.i19 = icmp eq i32 %.026.lcssa, 0
-  br i1 %.not.i19, label %GetEntropyUnrefinedHelper.exit21, label %66
+  br i1 %.not.i19, label %GetEntropyUnrefinedHelper.exit21, label %67
 
-66:                                               ; preds = %._crit_edge
-  %67 = mul i32 %65, %.026.lcssa
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %69 = add i32 %64, %67
-  store i32 %69, ptr %68, align 8, !tbaa !10, !alias.scope !54, !noalias !59
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %71 = add nsw i32 %63, %65
-  store i32 %71, ptr %70, align 4, !tbaa !11, !alias.scope !54, !noalias !59
+67:                                               ; preds = %._crit_edge
+  %68 = mul i32 %66, %.026.lcssa
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %70 = add i32 %65, %68
+  store i32 %70, ptr %69, align 8, !tbaa !10, !alias.scope !54, !noalias !59
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %72 = add nsw i32 %64, %66
+  store i32 %72, ptr %71, align 4, !tbaa !11, !alias.scope !54, !noalias !59
   store i32 %.027.lcssa, ptr %6, align 4, !tbaa !3, !alias.scope !54, !noalias !59
-  %72 = icmp ult i32 %.026.lcssa, 256
-  br i1 %72, label %73, label %77
+  %73 = icmp ult i32 %.026.lcssa, 256
+  br i1 %73, label %74, label %78
 
-73:                                               ; preds = %66
-  %74 = zext nneg i32 %.026.lcssa to i64
-  %75 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %74
-  %76 = load i64, ptr %75, align 8, !tbaa !12, !noalias !62
+74:                                               ; preds = %67
+  %75 = zext nneg i32 %.026.lcssa to i64
+  %76 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %75
+  %77 = load i64, ptr %76, align 8, !tbaa !12, !noalias !62
   br label %VP8LFastSLog2.exit.i20
 
-77:                                               ; preds = %66
-  %78 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !62
-  %79 = tail call i64 %78(i32 noundef %.026.lcssa) #12, !noalias !62
+78:                                               ; preds = %67
+  %79 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !62
+  %80 = tail call i64 %79(i32 noundef %.026.lcssa) #12, !noalias !62
   br label %VP8LFastSLog2.exit.i20
 
-VP8LFastSLog2.exit.i20:                           ; preds = %77, %73
-  %80 = phi i64 [ %76, %73 ], [ %79, %77 ]
-  %81 = sext i32 %65 to i64
-  %82 = mul i64 %80, %81
-  %83 = add i64 %62, %82
-  %84 = icmp ult i32 %61, %.026.lcssa
-  br i1 %84, label %85, label %GetEntropyUnrefinedHelper.exit21
+VP8LFastSLog2.exit.i20:                           ; preds = %78, %74
+  %81 = phi i64 [ %77, %74 ], [ %80, %78 ]
+  %82 = sext i32 %66 to i64
+  %83 = mul i64 %81, %82
+  %84 = add i64 %63, %83
+  %85 = icmp ult i32 %62, %.026.lcssa
+  br i1 %85, label %86, label %GetEntropyUnrefinedHelper.exit21
 
-85:                                               ; preds = %VP8LFastSLog2.exit.i20
-  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.026.lcssa, ptr %86, align 8, !tbaa !15, !alias.scope !54, !noalias !59
+86:                                               ; preds = %VP8LFastSLog2.exit.i20
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %.026.lcssa, ptr %87, align 8, !tbaa !15, !alias.scope !54, !noalias !59
   br label %GetEntropyUnrefinedHelper.exit21
 
-GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i20, %85
-  %87 = phi i64 [ %62, %._crit_edge ], [ %83, %VP8LFastSLog2.exit.i20 ], [ %83, %85 ]
-  %88 = phi i32 [ %64, %._crit_edge ], [ %69, %VP8LFastSLog2.exit.i20 ], [ %69, %85 ]
-  %89 = icmp sgt i32 %65, 3
-  %90 = zext i1 %89 to i32
-  %91 = icmp ne i32 %.026.lcssa, 0
-  %92 = zext i1 %91 to i64
-  %93 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %92
-  %94 = load i32, ptr %93, align 4, !tbaa !9, !alias.scope !57, !noalias !63
-  %95 = add nsw i32 %94, %90
-  store i32 %95, ptr %93, align 4, !tbaa !9, !alias.scope !57, !noalias !63
-  %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %97 = zext i1 %89 to i64
-  %98 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %96, i64 0, i64 %92, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !9, !alias.scope !57, !noalias !63
-  %100 = add nsw i32 %99, %65
-  store i32 %100, ptr %98, align 4, !tbaa !9, !alias.scope !57, !noalias !63
-  %101 = icmp ult i32 %88, 256
-  br i1 %101, label %102, label %106
+GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i20, %86
+  %88 = phi i64 [ %63, %._crit_edge ], [ %84, %VP8LFastSLog2.exit.i20 ], [ %84, %86 ]
+  %89 = phi i32 [ %65, %._crit_edge ], [ %70, %VP8LFastSLog2.exit.i20 ], [ %70, %86 ]
+  %90 = icmp sgt i32 %66, 3
+  %91 = zext i1 %90 to i32
+  %92 = icmp ne i32 %.026.lcssa, 0
+  %93 = zext i1 %92 to i64
+  %94 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %93
+  %95 = load i32, ptr %94, align 4, !tbaa !9, !alias.scope !57, !noalias !63
+  %96 = add nsw i32 %95, %91
+  store i32 %96, ptr %94, align 4, !tbaa !9, !alias.scope !57, !noalias !63
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %98 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %97, i64 0, i64 %93
+  %99 = zext i1 %90 to i64
+  %100 = getelementptr inbounds nuw [2 x i32], ptr %98, i64 0, i64 %99
+  %101 = load i32, ptr %100, align 4, !tbaa !9, !alias.scope !57, !noalias !63
+  %102 = add nsw i32 %101, %66
+  store i32 %102, ptr %100, align 4, !tbaa !9, !alias.scope !57, !noalias !63
+  %103 = icmp ult i32 %89, 256
+  br i1 %103, label %104, label %108
 
-102:                                              ; preds = %GetEntropyUnrefinedHelper.exit21
-  %103 = zext nneg i32 %88 to i64
-  %104 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %103
-  %105 = load i64, ptr %104, align 8, !tbaa !12
+104:                                              ; preds = %GetEntropyUnrefinedHelper.exit21
+  %105 = zext nneg i32 %89 to i64
+  %106 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %105
+  %107 = load i64, ptr %106, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
-106:                                              ; preds = %GetEntropyUnrefinedHelper.exit21
-  %107 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %108 = tail call i64 %107(i32 noundef %88) #12
+108:                                              ; preds = %GetEntropyUnrefinedHelper.exit21
+  %109 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %110 = tail call i64 %109(i32 noundef %89) #12
   br label %VP8LFastSLog2.exit
 
-VP8LFastSLog2.exit:                               ; preds = %102, %106
-  %109 = phi i64 [ %105, %102 ], [ %108, %106 ]
-  %110 = sub i64 %109, %87
-  store i64 %110, ptr %2, align 8, !tbaa !18
+VP8LFastSLog2.exit:                               ; preds = %104, %108
+  %111 = phi i64 [ %107, %104 ], [ %110, %108 ]
+  %112 = sub i64 %111, %88
+  store i64 %112, ptr %2, align 8, !tbaa !18
   ret void
 }
 
@@ -1438,21 +1440,21 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr noundef readonly capture
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %16
 
-16:                                               ; preds = %.lr.ph, %62
-  %17 = phi i32 [ 0, %.lr.ph ], [ %63, %62 ]
-  %18 = phi i64 [ 0, %.lr.ph ], [ %64, %62 ]
-  %19 = phi i32 [ 0, %.lr.ph ], [ %65, %62 ]
-  %20 = phi i32 [ 0, %.lr.ph ], [ %66, %62 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %.02933 = phi i32 [ %8, %.lr.ph ], [ %.1, %62 ]
-  %.03032 = phi i32 [ 0, %.lr.ph ], [ %.131, %62 ]
+16:                                               ; preds = %.lr.ph, %63
+  %17 = phi i32 [ 0, %.lr.ph ], [ %64, %63 ]
+  %18 = phi i64 [ 0, %.lr.ph ], [ %65, %63 ]
+  %19 = phi i32 [ 0, %.lr.ph ], [ %66, %63 ]
+  %20 = phi i32 [ 0, %.lr.ph ], [ %67, %63 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %.02933 = phi i32 [ %8, %.lr.ph ], [ %.1, %63 ]
+  %.03032 = phi i32 [ 0, %.lr.ph ], [ %.131, %63 ]
   %21 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !9
   %23 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = add i32 %24, %22
   %.not = icmp eq i32 %25, %.02933
-  br i1 %.not, label %62, label %26
+  br i1 %.not, label %63, label %26
 
 26:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
@@ -1509,109 +1511,111 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.
   %56 = load i32, ptr %55, align 4, !tbaa !9, !alias.scope !67, !noalias !73
   %57 = add nsw i32 %56, %52
   store i32 %57, ptr %55, align 4, !tbaa !9, !alias.scope !67, !noalias !73
-  %58 = zext i1 %51 to i64
-  %59 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %15, i64 0, i64 %54, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !9, !alias.scope !67, !noalias !73
-  %61 = add nsw i32 %60, %28
-  store i32 %61, ptr %59, align 4, !tbaa !9, !alias.scope !67, !noalias !73
-  br label %62
+  %58 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %15, i64 0, i64 %54
+  %59 = zext i1 %51 to i64
+  %60 = getelementptr inbounds nuw [2 x i32], ptr %58, i64 0, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !9, !alias.scope !67, !noalias !73
+  %62 = add nsw i32 %61, %28
+  store i32 %62, ptr %60, align 4, !tbaa !9, !alias.scope !67, !noalias !73
+  br label %63
 
-62:                                               ; preds = %GetEntropyUnrefinedHelper.exit, %16
-  %63 = phi i32 [ %17, %16 ], [ %47, %GetEntropyUnrefinedHelper.exit ]
-  %64 = phi i64 [ %18, %16 ], [ %48, %GetEntropyUnrefinedHelper.exit ]
-  %65 = phi i32 [ %19, %16 ], [ %49, %GetEntropyUnrefinedHelper.exit ]
-  %66 = phi i32 [ %20, %16 ], [ %50, %GetEntropyUnrefinedHelper.exit ]
+63:                                               ; preds = %GetEntropyUnrefinedHelper.exit, %16
+  %64 = phi i32 [ %17, %16 ], [ %47, %GetEntropyUnrefinedHelper.exit ]
+  %65 = phi i64 [ %18, %16 ], [ %48, %GetEntropyUnrefinedHelper.exit ]
+  %66 = phi i32 [ %19, %16 ], [ %49, %GetEntropyUnrefinedHelper.exit ]
+  %67 = phi i32 [ %20, %16 ], [ %50, %GetEntropyUnrefinedHelper.exit ]
   %.131 = phi i32 [ %.03032, %16 ], [ %27, %GetEntropyUnrefinedHelper.exit ]
   %.1 = phi i32 [ %.02933, %16 ], [ %25, %GetEntropyUnrefinedHelper.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !74
 
-._crit_edge:                                      ; preds = %62, %5
-  %67 = phi i32 [ 0, %5 ], [ %63, %62 ]
-  %68 = phi i64 [ 0, %5 ], [ %64, %62 ]
-  %69 = phi i32 [ 0, %5 ], [ %65, %62 ]
-  %70 = phi i32 [ 0, %5 ], [ %66, %62 ]
-  %.030.lcssa = phi i32 [ 0, %5 ], [ %.131, %62 ]
-  %.029.lcssa = phi i32 [ %8, %5 ], [ %.1, %62 ]
-  %.0.lcssa = phi i32 [ 1, %5 ], [ %2, %62 ]
+._crit_edge:                                      ; preds = %63, %5
+  %68 = phi i32 [ 0, %5 ], [ %64, %63 ]
+  %69 = phi i64 [ 0, %5 ], [ %65, %63 ]
+  %70 = phi i32 [ 0, %5 ], [ %66, %63 ]
+  %71 = phi i32 [ 0, %5 ], [ %67, %63 ]
+  %.030.lcssa = phi i32 [ 0, %5 ], [ %.131, %63 ]
+  %.029.lcssa = phi i32 [ %8, %5 ], [ %.1, %63 ]
+  %.0.lcssa = phi i32 [ 1, %5 ], [ %2, %63 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %71 = sub nsw i32 %.0.lcssa, %.030.lcssa
+  %72 = sub nsw i32 %.0.lcssa, %.030.lcssa
   %.not.i22 = icmp eq i32 %.029.lcssa, 0
-  br i1 %.not.i22, label %GetEntropyUnrefinedHelper.exit24, label %72
+  br i1 %.not.i22, label %GetEntropyUnrefinedHelper.exit24, label %73
 
-72:                                               ; preds = %._crit_edge
-  %73 = mul i32 %71, %.029.lcssa
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %75 = add i32 %70, %73
-  store i32 %75, ptr %74, align 8, !tbaa !10, !alias.scope !75, !noalias !80
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %77 = add nsw i32 %69, %71
-  store i32 %77, ptr %76, align 4, !tbaa !11, !alias.scope !75, !noalias !80
+73:                                               ; preds = %._crit_edge
+  %74 = mul i32 %72, %.029.lcssa
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %76 = add i32 %71, %74
+  store i32 %76, ptr %75, align 8, !tbaa !10, !alias.scope !75, !noalias !80
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %78 = add nsw i32 %70, %72
+  store i32 %78, ptr %77, align 4, !tbaa !11, !alias.scope !75, !noalias !80
   store i32 %.030.lcssa, ptr %9, align 4, !tbaa !3, !alias.scope !75, !noalias !80
-  %78 = icmp ult i32 %.029.lcssa, 256
-  br i1 %78, label %79, label %83
+  %79 = icmp ult i32 %.029.lcssa, 256
+  br i1 %79, label %80, label %84
 
-79:                                               ; preds = %72
-  %80 = zext nneg i32 %.029.lcssa to i64
-  %81 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %80
-  %82 = load i64, ptr %81, align 8, !tbaa !12, !noalias !83
+80:                                               ; preds = %73
+  %81 = zext nneg i32 %.029.lcssa to i64
+  %82 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %81
+  %83 = load i64, ptr %82, align 8, !tbaa !12, !noalias !83
   br label %VP8LFastSLog2.exit.i23
 
-83:                                               ; preds = %72
-  %84 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !83
-  %85 = tail call i64 %84(i32 noundef %.029.lcssa) #12, !noalias !83
+84:                                               ; preds = %73
+  %85 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !83
+  %86 = tail call i64 %85(i32 noundef %.029.lcssa) #12, !noalias !83
   br label %VP8LFastSLog2.exit.i23
 
-VP8LFastSLog2.exit.i23:                           ; preds = %83, %79
-  %86 = phi i64 [ %82, %79 ], [ %85, %83 ]
-  %87 = sext i32 %71 to i64
-  %88 = mul i64 %86, %87
-  %89 = add i64 %68, %88
-  %90 = icmp ult i32 %67, %.029.lcssa
-  br i1 %90, label %91, label %GetEntropyUnrefinedHelper.exit24
+VP8LFastSLog2.exit.i23:                           ; preds = %84, %80
+  %87 = phi i64 [ %83, %80 ], [ %86, %84 ]
+  %88 = sext i32 %72 to i64
+  %89 = mul i64 %87, %88
+  %90 = add i64 %69, %89
+  %91 = icmp ult i32 %68, %.029.lcssa
+  br i1 %91, label %92, label %GetEntropyUnrefinedHelper.exit24
 
-91:                                               ; preds = %VP8LFastSLog2.exit.i23
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %.029.lcssa, ptr %92, align 8, !tbaa !15, !alias.scope !75, !noalias !80
+92:                                               ; preds = %VP8LFastSLog2.exit.i23
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %.029.lcssa, ptr %93, align 8, !tbaa !15, !alias.scope !75, !noalias !80
   br label %GetEntropyUnrefinedHelper.exit24
 
-GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i23, %91
-  %93 = phi i64 [ %68, %._crit_edge ], [ %89, %VP8LFastSLog2.exit.i23 ], [ %89, %91 ]
-  %94 = phi i32 [ %70, %._crit_edge ], [ %75, %VP8LFastSLog2.exit.i23 ], [ %75, %91 ]
-  %95 = icmp sgt i32 %71, 3
-  %96 = zext i1 %95 to i32
-  %97 = icmp ne i32 %.029.lcssa, 0
-  %98 = zext i1 %97 to i64
-  %99 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !9, !alias.scope !78, !noalias !84
-  %101 = add nsw i32 %100, %96
-  store i32 %101, ptr %99, align 4, !tbaa !9, !alias.scope !78, !noalias !84
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %103 = zext i1 %95 to i64
-  %104 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %102, i64 0, i64 %98, i64 %103
-  %105 = load i32, ptr %104, align 4, !tbaa !9, !alias.scope !78, !noalias !84
-  %106 = add nsw i32 %105, %71
-  store i32 %106, ptr %104, align 4, !tbaa !9, !alias.scope !78, !noalias !84
-  %107 = icmp ult i32 %94, 256
-  br i1 %107, label %108, label %112
+GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i23, %92
+  %94 = phi i64 [ %69, %._crit_edge ], [ %90, %VP8LFastSLog2.exit.i23 ], [ %90, %92 ]
+  %95 = phi i32 [ %71, %._crit_edge ], [ %76, %VP8LFastSLog2.exit.i23 ], [ %76, %92 ]
+  %96 = icmp sgt i32 %72, 3
+  %97 = zext i1 %96 to i32
+  %98 = icmp ne i32 %.029.lcssa, 0
+  %99 = zext i1 %98 to i64
+  %100 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %99
+  %101 = load i32, ptr %100, align 4, !tbaa !9, !alias.scope !78, !noalias !84
+  %102 = add nsw i32 %101, %97
+  store i32 %102, ptr %100, align 4, !tbaa !9, !alias.scope !78, !noalias !84
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %104 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %103, i64 0, i64 %99
+  %105 = zext i1 %96 to i64
+  %106 = getelementptr inbounds nuw [2 x i32], ptr %104, i64 0, i64 %105
+  %107 = load i32, ptr %106, align 4, !tbaa !9, !alias.scope !78, !noalias !84
+  %108 = add nsw i32 %107, %72
+  store i32 %108, ptr %106, align 4, !tbaa !9, !alias.scope !78, !noalias !84
+  %109 = icmp ult i32 %95, 256
+  br i1 %109, label %110, label %114
 
-108:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
-  %109 = zext nneg i32 %94 to i64
-  %110 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %109
-  %111 = load i64, ptr %110, align 8, !tbaa !12
+110:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
+  %111 = zext nneg i32 %95 to i64
+  %112 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %111
+  %113 = load i64, ptr %112, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
-112:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
-  %113 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %114 = tail call i64 %113(i32 noundef %94) #12
+114:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
+  %115 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %116 = tail call i64 %115(i32 noundef %95) #12
   br label %VP8LFastSLog2.exit
 
-VP8LFastSLog2.exit:                               ; preds = %108, %112
-  %115 = phi i64 [ %111, %108 ], [ %114, %112 ]
-  %116 = sub i64 %115, %93
-  store i64 %116, ptr %3, align 8, !tbaa !18
+VP8LFastSLog2.exit:                               ; preds = %110, %114
+  %117 = phi i64 [ %113, %110 ], [ %116, %114 ]
+  %118 = sub i64 %117, %94
+  store i64 %118, ptr %3, align 8, !tbaa !18
   ret void
 }
 

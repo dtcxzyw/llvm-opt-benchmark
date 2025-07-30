@@ -1572,61 +1572,63 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %.preheader
 
-.preheader:                                       ; preds = %4, %24
-  %indvars.iv39 = phi i64 [ 0, %4 ], [ %indvars.iv.next40, %24 ]
+.preheader:                                       ; preds = %4, %26
+  %indvars.iv39 = phi i64 [ 0, %4 ], [ %indvars.iv.next40, %26 ]
   %8 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv39
   %9 = load ptr, ptr %8, align 8, !tbaa !38
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  br label %25
+  %10 = getelementptr inbounds nuw [3 x [6 x float]], ptr %1, i64 0, i64 %indvars.iv39
+  %11 = getelementptr inbounds nuw [3 x [6 x float]], ptr %7, i64 0, i64 %indvars.iv39
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  br label %27
 
-11:                                               ; preds = %24
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %13 = load i32, ptr %12, align 16, !tbaa !54
-  %14 = sitofp i32 %13 to float
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %16 = load float, ptr %15, align 8, !tbaa !70
-  %17 = fmul reassoc nsz arcp contract afn float %16, %14
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 148
-  %19 = load i32, ptr %18, align 4, !tbaa !71
-  %20 = sitofp i32 %19 to float
-  %21 = fmul reassoc nsz arcp contract afn float %16, %20
-  %22 = fcmp reassoc nsz arcp contract afn olt float %17, %21
-  %. = select reassoc nsz arcp contract afn i1 %22, float %17, float %21
-  %23 = fptosi float %. to i32
-  %.not35 = icmp eq i32 %23, 0
+13:                                               ; preds = %26
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %15 = load i32, ptr %14, align 16, !tbaa !54
+  %16 = sitofp i32 %15 to float
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %18 = load float, ptr %17, align 8, !tbaa !70
+  %19 = fmul reassoc nsz arcp contract afn float %18, %16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 148
+  %21 = load i32, ptr %20, align 4, !tbaa !71
+  %22 = sitofp i32 %21 to float
+  %23 = fmul reassoc nsz arcp contract afn float %18, %22
+  %24 = fcmp reassoc nsz arcp contract afn olt float %19, %23
+  %. = select reassoc nsz arcp contract afn i1 %24, float %19, float %23
+  %25 = fptosi float %. to i32
+  %.not35 = icmp eq i32 %25, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
-24:                                               ; preds = %25
+26:                                               ; preds = %27
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 3
-  br i1 %exitcond42.not, label %11, label %.preheader
+  br i1 %exitcond42.not, label %13, label %.preheader
 
-25:                                               ; preds = %.preheader, %25
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw [3 x [6 x float]], ptr %1, i64 0, i64 %indvars.iv39, i64 %indvars.iv
-  %27 = load float, ptr %26, align 4, !tbaa !33
-  %28 = getelementptr inbounds nuw [3 x [6 x float]], ptr %7, i64 0, i64 %indvars.iv39, i64 %indvars.iv
+27:                                               ; preds = %.preheader, %27
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
+  %28 = getelementptr inbounds nuw [6 x float], ptr %10, i64 0, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !33
-  %30 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %10, i64 0, i64 %indvars.iv
-  store float %27, ptr %30, align 8, !tbaa !46
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store float %29, ptr %31, align 4, !tbaa !48
+  %30 = getelementptr inbounds nuw [6 x float], ptr %11, i64 0, i64 %indvars.iv
+  %31 = load float, ptr %30, align 4, !tbaa !33
+  %32 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %12, i64 0, i64 %indvars.iv
+  store float %29, ptr %32, align 8, !tbaa !46
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store float %31, ptr %33, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %24, label %25
+  br i1 %exitcond.not, label %26, label %27
 
-._crit_edge:                                      ; preds = %.lr.ph, %11
-  %.028.lcssa = phi i32 [ 0, %11 ], [ %34, %.lr.ph ]
-  %32 = tail call i32 @llvm.umin.i32(i32 %.028.lcssa, i32 6)
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %32, ptr %33, align 8, !tbaa !36
+._crit_edge:                                      ; preds = %.lr.ph, %13
+  %.028.lcssa = phi i32 [ 0, %13 ], [ %36, %.lr.ph ]
+  %34 = tail call i32 @llvm.umin.i32(i32 %.028.lcssa, i32 6)
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 %34, ptr %35, align 8, !tbaa !36
   ret void
 
-.lr.ph:                                           ; preds = %11, %.lr.ph
-  %.037 = phi i32 [ %35, %.lr.ph ], [ %23, %11 ]
-  %.02836 = phi i32 [ %34, %.lr.ph ], [ 0, %11 ]
-  %34 = add nuw nsw i32 %.02836, 1
-  %35 = ashr i32 %.037, 1
+.lr.ph:                                           ; preds = %13, %.lr.ph
+  %.037 = phi i32 [ %37, %.lr.ph ], [ %25, %13 ]
+  %.02836 = phi i32 [ %36, %.lr.ph ], [ 0, %13 ]
+  %36 = add nuw nsw i32 %.02836, 1
+  %37 = ashr i32 %.037, 1
   %.not = icmp ult i32 %.037, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
@@ -1641,7 +1643,7 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
   br label %22
 
-9:                                                ; preds = %35
+9:                                                ; preds = %37
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %11 = load i32, ptr %10, align 16, !tbaa !54
   %12 = sitofp i32 %11 to float
@@ -1658,8 +1660,8 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %.not37 = icmp eq i32 %21, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
-22:                                               ; preds = %3, %35
-  %indvars.iv41 = phi i64 [ 0, %3 ], [ %indvars.iv.next42, %35 ]
+22:                                               ; preds = %3, %37
+  %indvars.iv41 = phi i64 [ 0, %3 ], [ %indvars.iv.next42, %37 ]
   %23 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 184
   store i32 65536, ptr %24, align 8, !tbaa !83
@@ -1680,46 +1682,48 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   store float 1.000000e+00, ptr %32, align 8, !tbaa !50
   %33 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %indvars.iv41
   store ptr %23, ptr %33, align 8, !tbaa !38
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %34 = getelementptr inbounds nuw [3 x [6 x float]], ptr %6, i64 0, i64 %indvars.iv41
+  %35 = getelementptr inbounds nuw [3 x [6 x float]], ptr %8, i64 0, i64 %indvars.iv41
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %invariant.gep = getelementptr inbounds nuw i8, ptr %23, i64 28
-  br label %36
+  br label %38
 
-35:                                               ; preds = %36
-  store i8 %44, ptr %28, align 4, !tbaa !40
+37:                                               ; preds = %38
+  store i8 %46, ptr %28, align 4, !tbaa !40
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 3
   br i1 %exitcond44.not, label %9, label %22
 
-36:                                               ; preds = %22, %36
-  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %36 ]
-  %37 = phi i8 [ 0, %22 ], [ %44, %36 ]
-  %38 = getelementptr inbounds nuw [3 x [6 x float]], ptr %6, i64 0, i64 %indvars.iv41, i64 %indvars.iv
-  %39 = load float, ptr %38, align 4, !tbaa !33
-  %40 = getelementptr inbounds nuw [3 x [6 x float]], ptr %8, i64 0, i64 %indvars.iv41, i64 %indvars.iv
+38:                                               ; preds = %22, %38
+  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %38 ]
+  %39 = phi i8 [ 0, %22 ], [ %46, %38 ]
+  %40 = getelementptr inbounds nuw [6 x float], ptr %34, i64 0, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !33
-  %42 = zext i8 %37 to i64
-  %43 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %34, i64 0, i64 %42
-  store float %39, ptr %43, align 8, !tbaa !46
-  %.idx.i = shl nuw nsw i64 %42, 3
+  %42 = getelementptr inbounds nuw [6 x float], ptr %35, i64 0, i64 %indvars.iv
+  %43 = load float, ptr %42, align 4, !tbaa !33
+  %44 = zext i8 %39 to i64
+  %45 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %36, i64 0, i64 %44
+  store float %41, ptr %45, align 8, !tbaa !46
+  %.idx.i = shl nuw nsw i64 %44, 3
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx.i
-  store float %41, ptr %gep, align 4, !tbaa !48
-  %44 = add i8 %37, 1
+  store float %43, ptr %gep, align 4, !tbaa !48
+  %46 = add i8 %39, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %35, label %36
+  br i1 %exitcond.not, label %37, label %38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  %.030.lcssa = phi i32 [ 0, %9 ], [ %47, %.lr.ph ]
-  %45 = tail call i32 @llvm.umin.i32(i32 %.030.lcssa, i32 6)
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %45, ptr %46, align 8, !tbaa !36
+  %.030.lcssa = phi i32 [ 0, %9 ], [ %49, %.lr.ph ]
+  %47 = tail call i32 @llvm.umin.i32(i32 %.030.lcssa, i32 6)
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 %47, ptr %48, align 8, !tbaa !36
   ret void
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.039 = phi i32 [ %48, %.lr.ph ], [ %21, %9 ]
-  %.03038 = phi i32 [ %47, %.lr.ph ], [ 0, %9 ]
-  %47 = add nuw nsw i32 %.03038, 1
-  %48 = ashr i32 %.039, 1
+  %.039 = phi i32 [ %50, %.lr.ph ], [ %21, %9 ]
+  %.03038 = phi i32 [ %49, %.lr.ph ], [ 0, %9 ]
+  %49 = add nuw nsw i32 %.03038, 1
+  %50 = ashr i32 %.039, 1
   %.not = icmp ult i32 %.039, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
@@ -1771,36 +1775,41 @@ define void @init(ptr noundef writeonly captures(none) initializes((676, 700), (
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   br label %.preheader20
 
-.preheader20:                                     ; preds = %1, %16
-  %indvars.iv29 = phi i64 [ 0, %1 ], [ %indvars.iv.next30, %16 ]
-  br label %11
+.preheader20:                                     ; preds = %1, %18
+  %indvars.iv29 = phi i64 [ 0, %1 ], [ %indvars.iv.next30, %18 ]
+  %10 = getelementptr inbounds nuw [3 x [6 x float]], ptr %4, i64 0, i64 %indvars.iv29
+  br label %13
 
-10:                                               ; preds = %16
+11:                                               ; preds = %18
   ret void
 
-11:                                               ; preds = %.preheader20, %11
-  %indvars.iv = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next, %11 ]
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
-  %13 = uitofp nneg i32 %12 to float
-  %14 = fmul reassoc nsz arcp contract afn float %13, 0x3FC99999A0000000
-  %15 = getelementptr inbounds nuw [3 x [6 x float]], ptr %4, i64 0, i64 %indvars.iv29, i64 %indvars.iv
-  store float %14, ptr %15, align 4, !tbaa !33
+.preheader:                                       ; preds = %13
+  %12 = getelementptr inbounds nuw [3 x [6 x float]], ptr %9, i64 0, i64 %indvars.iv29
+  br label %19
+
+13:                                               ; preds = %.preheader20, %13
+  %indvars.iv = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next, %13 ]
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  %15 = uitofp nneg i32 %14 to float
+  %16 = fmul reassoc nsz arcp contract afn float %15, 0x3FC99999A0000000
+  %17 = getelementptr inbounds nuw [6 x float], ptr %10, i64 0, i64 %indvars.iv
+  store float %16, ptr %17, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.preheader, label %11
+  br i1 %exitcond.not, label %.preheader, label %13
 
-16:                                               ; preds = %.preheader
+18:                                               ; preds = %19
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 3
-  br i1 %exitcond32.not, label %10, label %.preheader20
+  br i1 %exitcond32.not, label %11, label %.preheader20
 
-.preheader:                                       ; preds = %11, %.preheader
-  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 0, %11 ]
-  %17 = getelementptr inbounds nuw [3 x [6 x float]], ptr %9, i64 0, i64 %indvars.iv29, i64 %indvars.iv25
-  store float 5.000000e-01, ptr %17, align 4, !tbaa !33
+19:                                               ; preds = %.preheader, %19
+  %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %19 ]
+  %20 = getelementptr inbounds nuw [6 x float], ptr %12, i64 0, i64 %indvars.iv25
+  store float 5.000000e-01, ptr %20, align 4, !tbaa !33
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 6
-  br i1 %exitcond28.not, label %16, label %.preheader
+  br i1 %exitcond28.not, label %18, label %19
 }
 
 ; Function Attrs: nounwind uwtable

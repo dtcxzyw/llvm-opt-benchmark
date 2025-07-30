@@ -8939,19 +8939,17 @@ define hidden i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Al
   %. = zext i1 %not. to i64
   %.0 = select i1 %2, i64 2, i64 %.
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %4 = getelementptr inbounds nuw [3 x [2 x [16 x float]]], ptr %3, i64 0, i64 %.0, i64 0
+  %4 = getelementptr inbounds nuw [3 x [2 x [16 x float]]], ptr %3, i64 0, i64 %.0
   %5 = tail call { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %4, i64 noundef 16)
   %6 = extractvalue { i16, i16 } %5, 0
   %7 = extractvalue { i16, i16 } %5, 1
-  %.idx = shl nuw nsw i64 %.0, 7
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %10 = tail call { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %9, i64 noundef 16)
-  %11 = extractvalue { i16, i16 } %10, 0
-  %12 = extractvalue { i16, i16 } %10, 1
-  %.sroa.7.0.insert.ext = zext i16 %12 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %9 = tail call { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %8, i64 noundef 16)
+  %10 = extractvalue { i16, i16 } %9, 0
+  %11 = extractvalue { i16, i16 } %9, 1
+  %.sroa.7.0.insert.ext = zext i16 %11 to i64
   %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 48
-  %.sroa.5.0.insert.ext = zext i16 %11 to i64
+  %.sroa.5.0.insert.ext = zext i16 %10 to i64
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.5.0.insert.shift
   %.sroa.3.0.insert.ext = zext i16 %7 to i64
@@ -9032,17 +9030,15 @@ define hidden i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Al
   %. = zext i1 %not. to i64
   %.0 = select i1 %2, i64 2, i64 %.
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %4 = getelementptr inbounds nuw [3 x [2 x [16 x float]]], ptr %3, i64 0, i64 %.0, i64 0
+  %4 = getelementptr inbounds nuw [3 x [2 x [16 x float]]], ptr %3, i64 0, i64 %.0
   %5 = tail call noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %4, i64 noundef 16)
-  %.idx = shl nuw nsw i64 %.0, 7
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %8 = tail call noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %7, i64 noundef 16)
-  %9 = bitcast float %5 to i32
-  %10 = bitcast float %8 to i32
-  %.sroa.3.0.insert.ext = zext i32 %10 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %7 = tail call noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %6, i64 noundef 16)
+  %8 = bitcast float %5 to i32
+  %9 = bitcast float %7 to i32
+  %.sroa.3.0.insert.ext = zext i32 %9 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %9 to i64
+  %.sroa.0.0.insert.ext = zext i32 %8 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -9071,13 +9067,14 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   store i64 0, ptr %.sroa.5, align 8
   br label %13
 
-.loopexit:                                        ; preds = %36
+.loopexit:                                        ; preds = %35
   %12 = add nuw nsw i64 %.sroa.0.037, 1
   %exitcond.not = icmp eq i64 %12, 16
   br i1 %exitcond.not, label %14, label %13
 
 13:                                               ; preds = %4, %.loopexit
   %.sroa.0.037 = phi i64 [ 1, %4 ], [ %12, %.loopexit ]
+  %invariant.gep = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %.sroa.0.037
   br label %30
 
 14:                                               ; preds = %.loopexit
@@ -9126,24 +9123,24 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
   ret void
 
-30:                                               ; preds = %13, %36
-  %31 = phi i1 [ true, %13 ], [ false, %36 ]
-  %.sroa.04.036.sroa.phi = phi ptr [ %.sroa.0, %13 ], [ %.sroa.5, %36 ]
-  %.sroa.04.036.sroa.phi39 = phi ptr [ %.sroa.042, %13 ], [ %.sroa.3, %36 ]
-  %.sroa.04.036 = phi i64 [ 0, %13 ], [ 1, %36 ]
-  %32 = getelementptr inbounds nuw [3 x [2 x [16 x float]]], ptr %7, i64 0, i64 %.0, i64 %.sroa.04.036, i64 %.sroa.0.037
-  %33 = load float, ptr %32, align 4, !noundef !13
-  %34 = load float, ptr %.sroa.04.036.sroa.phi39, align 4, !noundef !13
-  %35 = fcmp olt float %33, %34
-  br i1 %35, label %37, label %36
+30:                                               ; preds = %13, %35
+  %31 = phi i1 [ true, %13 ], [ false, %35 ]
+  %.sroa.04.036.sroa.phi = phi ptr [ %.sroa.0, %13 ], [ %.sroa.5, %35 ]
+  %.sroa.04.036.sroa.phi39 = phi ptr [ %.sroa.042, %13 ], [ %.sroa.3, %35 ]
+  %.sroa.04.036 = phi i64 [ 0, %13 ], [ 1, %35 ]
+  %gep = getelementptr inbounds nuw [2 x [16 x float]], ptr %invariant.gep, i64 0, i64 %.sroa.04.036
+  %32 = load float, ptr %gep, align 4, !noundef !13
+  %33 = load float, ptr %.sroa.04.036.sroa.phi39, align 4, !noundef !13
+  %34 = fcmp olt float %32, %33
+  br i1 %34, label %36, label %35
 
-36:                                               ; preds = %30, %37
+35:                                               ; preds = %30, %36
   br i1 %31, label %30, label %.loopexit
 
-37:                                               ; preds = %30
+36:                                               ; preds = %30
   store i64 %.sroa.0.037, ptr %.sroa.04.036.sroa.phi, align 8
-  store float %33, ptr %.sroa.04.036.sroa.phi39, align 4
-  br label %36
+  store float %32, ptr %.sroa.04.036.sroa.phi39, align 4
+  br label %35
 }
 
 ; Function Attrs: nonlazybind uwtable

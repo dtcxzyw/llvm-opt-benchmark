@@ -4550,25 +4550,27 @@ define void @ff_vvc_inv_lfnst_1d(ptr noundef writeonly captures(none) %0, ptr no
   %16 = icmp sgt i32 %3, 16
   %17 = add nsw i32 %5, -1
   %18 = sext i32 %17 to i64
-  br i1 %16, label %.thread, label %20
+  br i1 %16, label %.thread, label %21
 
 .thread:                                          ; preds = %14
-  %19 = getelementptr inbounds [4 x [2 x [16 x [48 x i8]]]], ptr @ff_vvc_lfnst_8x8, i64 0, i64 %15, i64 %18
+  %19 = getelementptr inbounds nuw [4 x [2 x [16 x [48 x i8]]]], ptr @ff_vvc_lfnst_8x8, i64 0, i64 %15
+  %20 = getelementptr inbounds [2 x [16 x [48 x i8]]], ptr %19, i64 0, i64 %18
   br label %.preheader.lr.ph
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds [4 x [2 x [16 x [16 x i8]]]], ptr @ff_vvc_lfnst_4x4, i64 0, i64 %15, i64 %18
-  %22 = icmp sgt i32 %3, 0
-  br i1 %22, label %.preheader.lr.ph, label %._crit_edge32
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds nuw [4 x [2 x [16 x [16 x i8]]]], ptr @ff_vvc_lfnst_4x4, i64 0, i64 %15
+  %23 = getelementptr inbounds [2 x [16 x [16 x i8]]], ptr %22, i64 0, i64 %18
+  %24 = icmp sgt i32 %3, 0
+  br i1 %24, label %.preheader.lr.ph, label %._crit_edge32
 
-.preheader.lr.ph:                                 ; preds = %.thread, %20
-  %23 = phi ptr [ %19, %.thread ], [ %21, %20 ]
-  %24 = icmp sgt i32 %2, 0
-  %25 = shl nuw i32 1, %6
+.preheader.lr.ph:                                 ; preds = %.thread, %21
+  %25 = phi ptr [ %20, %.thread ], [ %23, %21 ]
+  %26 = icmp sgt i32 %2, 0
+  %27 = shl nuw i32 1, %6
   %.neg.i = shl i32 -2, %6
-  %26 = add nsw i32 %25, -1
-  %27 = zext nneg i32 %3 to i64
-  br i1 %24, label %.preheader.us.preheader, label %.preheader.lr.ph.split
+  %28 = add nsw i32 %27, -1
+  %29 = zext nneg i32 %3 to i64
+  br i1 %26, label %.preheader.us.preheader, label %.preheader.lr.ph.split
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -4576,46 +4578,46 @@ define void @ff_vvc_inv_lfnst_1d(ptr noundef writeonly captures(none) %0, ptr no
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv36 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next37, %._crit_edge.us ]
-  %.02530.us = phi ptr [ %23, %.preheader.us.preheader ], [ %44, %._crit_edge.us ]
-  br label %28
+  %.02530.us = phi ptr [ %25, %.preheader.us.preheader ], [ %46, %._crit_edge.us ]
+  br label %30
 
-28:                                               ; preds = %.preheader.us, %28
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %28 ]
-  %.02328.us = phi i32 [ 0, %.preheader.us ], [ %36, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 4, !tbaa !4
-  %31 = mul nuw nsw i64 %indvars.iv, %27
-  %32 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !8
-  %34 = sext i8 %33 to i32
-  %35 = mul nsw i32 %30, %34
-  %36 = add nsw i32 %35, %.02328.us
+30:                                               ; preds = %.preheader.us, %30
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %30 ]
+  %.02328.us = phi i32 [ 0, %.preheader.us ], [ %38, %30 ]
+  %31 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %32 = load i32, ptr %31, align 4, !tbaa !4
+  %33 = mul nuw nsw i64 %indvars.iv, %29
+  %34 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !8
+  %36 = sext i8 %35 to i32
+  %37 = mul nsw i32 %32, %36
+  %38 = add nsw i32 %37, %.02328.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !15
 
-._crit_edge.us:                                   ; preds = %28
-  %37 = add nsw i32 %36, 64
-  %38 = ashr i32 %37, 7
-  %39 = add i32 %38, %25
-  %40 = and i32 %39, %.neg.i
-  %.not.i.us = icmp eq i32 %40, 0
-  %41 = ashr i32 %37, 31
-  %42 = xor i32 %41, %26
-  %.0.i.us = select i1 %.not.i.us, i32 %38, i32 %42
-  %43 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv36
-  store i32 %.0.i.us, ptr %43, align 4, !tbaa !4
+._crit_edge.us:                                   ; preds = %30
+  %39 = add nsw i32 %38, 64
+  %40 = ashr i32 %39, 7
+  %41 = add i32 %40, %27
+  %42 = and i32 %41, %.neg.i
+  %.not.i.us = icmp eq i32 %42, 0
+  %43 = ashr i32 %39, 31
+  %44 = xor i32 %43, %28
+  %.0.i.us = select i1 %.not.i.us, i32 %40, i32 %44
+  %45 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv36
+  store i32 %.0.i.us, ptr %45, align 4, !tbaa !4
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %44 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 1
-  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %27
+  %46 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 1
+  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %29
   br i1 %exitcond40.not, label %._crit_edge32, label %.preheader.us, !llvm.loop !16
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  %45 = shl nuw nsw i64 %27, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %45, i1 false), !tbaa !4
+  %47 = shl nuw nsw i64 %29, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %47, i1 false), !tbaa !4
   br label %._crit_edge32
 
-._crit_edge32:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split, %20
+._crit_edge32:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split, %21
   ret void
 }
 

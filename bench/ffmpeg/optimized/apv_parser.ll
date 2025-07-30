@@ -46,7 +46,7 @@ define internal noundef i32 @parse(ptr noundef captures(none) %0, ptr noundef %1
   %11 = tail call ptr @av_buffer_create(ptr noundef %4, i64 noundef %10, ptr noundef nonnull @dummy_free, ptr noundef %4, i32 noundef 1) #5
   store ptr %11, ptr %7, align 8, !tbaa !26
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %80, label %12
+  br i1 %.not, label %81, label %12
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %8, align 8, !tbaa !12
@@ -111,45 +111,46 @@ define internal noundef i32 @parse(ptr noundef captures(none) %0, ptr noundef %1
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %47 = load i8, ptr %46, align 4, !tbaa !43
   %48 = zext i8 %47 to i64
-  %49 = add nuw nsw i32 %35, 4
-  %50 = lshr i32 %49, 2
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [5 x [5 x i32]], ptr @apv_format_table, i64 0, i64 %48, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !25
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i32 %53, ptr %54, align 8, !tbaa !44
-  %55 = load i8, ptr %39, align 4, !tbaa !45
-  %56 = zext i8 %55 to i32
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  store i32 %56, ptr %57, align 8, !tbaa !46
-  %58 = getelementptr inbounds nuw i8, ptr %32, i64 9
-  %59 = load i8, ptr %58, align 1, !tbaa !61
-  %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 692
-  store i32 %60, ptr %61, align 4, !tbaa !62
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store i32 3, ptr %62, align 8, !tbaa !63
-  %63 = getelementptr inbounds nuw i8, ptr %32, i64 26
-  %64 = load i8, ptr %63, align 2, !tbaa !64
-  %65 = zext i8 %64 to i32
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i32 %65, ptr %66, align 8, !tbaa !68
-  %67 = getelementptr inbounds nuw i8, ptr %32, i64 27
-  %68 = load i8, ptr %67, align 1, !tbaa !69
-  %69 = zext i8 %68 to i32
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  store i32 %69, ptr %70, align 4, !tbaa !70
-  %71 = getelementptr inbounds nuw i8, ptr %32, i64 28
-  %72 = load i8, ptr %71, align 4, !tbaa !71
-  %73 = zext i8 %72 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i32 %73, ptr %74, align 8, !tbaa !72
-  %75 = getelementptr inbounds nuw i8, ptr %32, i64 29
-  %76 = load i8, ptr %75, align 1, !tbaa !73
-  %.not67 = icmp eq i8 %76, 0
-  %77 = select i1 %.not67, i32 1, i32 2
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  store i32 %77, ptr %78, align 4, !tbaa !74
+  %49 = getelementptr inbounds nuw [5 x [5 x i32]], ptr @apv_format_table, i64 0, i64 %48
+  %50 = add nuw nsw i32 %35, 4
+  %51 = lshr i32 %50, 2
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw [5 x i32], ptr %49, i64 0, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !25
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store i32 %54, ptr %55, align 8, !tbaa !44
+  %56 = load i8, ptr %39, align 4, !tbaa !45
+  %57 = zext i8 %56 to i32
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 688
+  store i32 %57, ptr %58, align 8, !tbaa !46
+  %59 = getelementptr inbounds nuw i8, ptr %32, i64 9
+  %60 = load i8, ptr %59, align 1, !tbaa !61
+  %61 = zext i8 %60 to i32
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 692
+  store i32 %61, ptr %62, align 4, !tbaa !62
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store i32 3, ptr %63, align 8, !tbaa !63
+  %64 = getelementptr inbounds nuw i8, ptr %32, i64 26
+  %65 = load i8, ptr %64, align 2, !tbaa !64
+  %66 = zext i8 %65 to i32
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store i32 %66, ptr %67, align 8, !tbaa !68
+  %68 = getelementptr inbounds nuw i8, ptr %32, i64 27
+  %69 = load i8, ptr %68, align 1, !tbaa !69
+  %70 = zext i8 %69 to i32
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  store i32 %70, ptr %71, align 4, !tbaa !70
+  %72 = getelementptr inbounds nuw i8, ptr %32, i64 28
+  %73 = load i8, ptr %72, align 4, !tbaa !71
+  %74 = zext i8 %73 to i32
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  store i32 %74, ptr %75, align 8, !tbaa !72
+  %76 = getelementptr inbounds nuw i8, ptr %32, i64 29
+  %77 = load i8, ptr %76, align 1, !tbaa !73
+  %.not67 = icmp eq i8 %77, 0
+  %78 = select i1 %.not67, i32 1, i32 2
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 156
+  store i32 %78, ptr %79, align 4, !tbaa !74
   br label %.loopexit
 
 .thread:                                          ; preds = %30, %27
@@ -160,11 +161,11 @@ define internal noundef i32 @parse(ptr noundef captures(none) %0, ptr noundef %1
 .loopexit:                                        ; preds = %.thread, %17, %38, %16
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %9) #5
   call void @av_buffer_unref(ptr noundef nonnull %7) #5
-  %79 = load ptr, ptr %8, align 8, !tbaa !12
-  store ptr null, ptr %79, align 8, !tbaa !27
-  br label %80
+  %80 = load ptr, ptr %8, align 8, !tbaa !12
+  store ptr null, ptr %80, align 8, !tbaa !27
+  br label %81
 
-80:                                               ; preds = %6, %.loopexit
+81:                                               ; preds = %6, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   ret i32 %5
 }

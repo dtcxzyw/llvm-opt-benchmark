@@ -1906,370 +1906,371 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
 62:                                               ; preds = %50
   %63 = and i8 %54, 32
   %.not228 = icmp eq i8 %63, 0
-  br i1 %.not228, label %72, label %64
+  br i1 %.not228, label %73, label %64
 
 64:                                               ; preds = %62
   %65 = add nsw i32 %55, -32
   %66 = sext i32 %65 to i64
-  %67 = zext i32 %.0183325 to i64
-  %68 = getelementptr inbounds [5 x [13 x %struct.td_entry]], ptr @td_parser_table, i64 0, i64 %66, i64 %67
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %67 = getelementptr inbounds [5 x [13 x %struct.td_entry]], ptr @td_parser_table, i64 0, i64 %66
+  %68 = zext i32 %.0183325 to i64
+  %69 = getelementptr inbounds nuw [13 x %struct.td_entry], ptr %67, i64 0, i64 %68
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.not229 = icmp eq ptr %.sroa.5.0.copyload, null
-  br i1 %.not229, label %72, label %69
+  br i1 %.not229, label %73, label %70
 
-69:                                               ; preds = %64
-  %.sroa.049.0.copyload = load i64, ptr %68, align 16
+70:                                               ; preds = %64
+  %.sroa.049.0.copyload = load i64, ptr %69, align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %.sroa.5.0.copyload, i64 %.sroa.049.0.copyload, i1 false)
-  %70 = load i64, ptr %27, align 8
-  %71 = add i64 %70, %.sroa.049.0.copyload
-  store i64 %71, ptr %27, align 8
+  %71 = load i64, ptr %27, align 8
+  %72 = add i64 %71, %.sroa.049.0.copyload
+  store i64 %72, ptr %27, align 8
   br label %report_parse_error.exit
 
-72:                                               ; preds = %64, %62
-  %73 = and i8 %54, 64
-  %.not230 = icmp eq i8 %73, 0
-  br i1 %.not230, label %201, label %74
+73:                                               ; preds = %64, %62
+  %74 = and i8 %54, 64
+  %.not230 = icmp eq i8 %74, 0
+  br i1 %.not230, label %202, label %75
 
-74:                                               ; preds = %72
+75:                                               ; preds = %73
   switch i8 %54, label %report_parse_error.exitthread-pre-split [
-    i8 64, label %75
-    i8 65, label %85
-    i8 66, label %90
-    i8 67, label %100
-    i8 68, label %105
-    i8 69, label %118
-    i8 70, label %132
-    i8 71, label %145
-    i8 72, label %155
-    i8 73, label %165
-    i8 74, label %189
+    i8 64, label %76
+    i8 65, label %86
+    i8 66, label %91
+    i8 67, label %101
+    i8 68, label %106
+    i8 69, label %119
+    i8 70, label %133
+    i8 71, label %146
+    i8 72, label %156
+    i8 73, label %166
+    i8 74, label %190
   ]
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr %49, align 8
-  %77 = load i32, ptr %42, align 8
-  %78 = icmp sgt i32 %77, 6399
-  br i1 %78, label %report_parse_error.exit.thread, label %79
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %49, align 8
+  %78 = load i32, ptr %42, align 8
+  %79 = icmp sgt i32 %78, 6399
+  br i1 %79, label %report_parse_error.exit.thread, label %80
 
-79:                                               ; preds = %75
-  %.not250 = icmp eq ptr %76, null
-  br i1 %.not250, label %83, label %80
+80:                                               ; preds = %76
+  %.not250 = icmp eq ptr %77, null
+  br i1 %.not250, label %84, label %81
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %1, align 8
-  %82 = tail call i32 %76(ptr noundef %81) #16
-  %.not251 = icmp eq i32 %82, 0
-  br i1 %.not251, label %83, label %report_parse_error.exit.thread
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %1, align 8
+  %83 = tail call i32 %77(ptr noundef %82) #16
+  %.not251 = icmp eq i32 %83, 0
+  br i1 %.not251, label %84, label %report_parse_error.exit.thread
 
-83:                                               ; preds = %79, %80
-  %84 = tail call fastcc zeroext i1 @inc_lex_level(ptr noundef nonnull %0)
-  br i1 %84, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
+84:                                               ; preds = %80, %81
+  %85 = tail call fastcc zeroext i1 @inc_lex_level(ptr noundef nonnull %0)
+  br i1 %85, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
-85:                                               ; preds = %74
-  %86 = load ptr, ptr %48, align 8
+86:                                               ; preds = %75
+  %87 = load ptr, ptr %48, align 8
   tail call fastcc void @dec_lex_level(ptr noundef nonnull %0)
-  %.not248 = icmp eq ptr %86, null
-  br i1 %.not248, label %report_parse_error.exitthread-pre-split, label %87
+  %.not248 = icmp eq ptr %87, null
+  br i1 %.not248, label %report_parse_error.exitthread-pre-split, label %88
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr %1, align 8
-  %89 = tail call i32 %86(ptr noundef %88) #16
-  %.not249 = icmp eq i32 %89, 0
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %1, align 8
+  %90 = tail call i32 %87(ptr noundef %89) #16
+  %.not249 = icmp eq i32 %90, 0
   br i1 %.not249, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
-90:                                               ; preds = %74
-  %91 = load ptr, ptr %47, align 8
-  %92 = load i32, ptr %42, align 8
-  %93 = icmp sgt i32 %92, 6399
-  br i1 %93, label %report_parse_error.exit.thread, label %94
+91:                                               ; preds = %75
+  %92 = load ptr, ptr %47, align 8
+  %93 = load i32, ptr %42, align 8
+  %94 = icmp sgt i32 %93, 6399
+  br i1 %94, label %report_parse_error.exit.thread, label %95
 
-94:                                               ; preds = %90
-  %.not246 = icmp eq ptr %91, null
-  br i1 %.not246, label %98, label %95
+95:                                               ; preds = %91
+  %.not246 = icmp eq ptr %92, null
+  br i1 %.not246, label %99, label %96
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %1, align 8
-  %97 = tail call i32 %91(ptr noundef %96) #16
-  %.not247 = icmp eq i32 %97, 0
-  br i1 %.not247, label %98, label %report_parse_error.exit.thread
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %1, align 8
+  %98 = tail call i32 %92(ptr noundef %97) #16
+  %.not247 = icmp eq i32 %98, 0
+  br i1 %.not247, label %99, label %report_parse_error.exit.thread
 
-98:                                               ; preds = %94, %95
-  %99 = tail call fastcc zeroext i1 @inc_lex_level(ptr noundef nonnull %0)
-  br i1 %99, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
+99:                                               ; preds = %95, %96
+  %100 = tail call fastcc zeroext i1 @inc_lex_level(ptr noundef nonnull %0)
+  br i1 %100, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
-100:                                              ; preds = %74
-  %101 = load ptr, ptr %46, align 8
+101:                                              ; preds = %75
+  %102 = load ptr, ptr %46, align 8
   tail call fastcc void @dec_lex_level(ptr noundef nonnull %0)
-  %.not244 = icmp eq ptr %101, null
-  br i1 %.not244, label %report_parse_error.exitthread-pre-split, label %102
+  %.not244 = icmp eq ptr %102, null
+  br i1 %.not244, label %report_parse_error.exitthread-pre-split, label %103
 
-102:                                              ; preds = %100
-  %103 = load ptr, ptr %1, align 8
-  %104 = tail call i32 %101(ptr noundef %103) #16
-  %.not245 = icmp eq i32 %104, 0
+103:                                              ; preds = %101
+  %104 = load ptr, ptr %1, align 8
+  %105 = tail call i32 %102(ptr noundef %104) #16
+  %.not245 = icmp eq i32 %105, 0
   br i1 %.not245, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
-105:                                              ; preds = %74
-  %106 = load ptr, ptr %45, align 8
-  %107 = load ptr, ptr %44, align 8
-  %108 = icmp ne ptr %106, null
+106:                                              ; preds = %75
+  %107 = load ptr, ptr %45, align 8
+  %108 = load ptr, ptr %44, align 8
   %109 = icmp ne ptr %107, null
-  %or.cond = select i1 %108, i1 true, i1 %109
-  br i1 %or.cond, label %110, label %.thread293
+  %110 = icmp ne ptr %108, null
+  %or.cond = select i1 %109, i1 true, i1 %110
+  br i1 %or.cond, label %111, label %.thread293
 
-110:                                              ; preds = %105
-  %111 = load i8, ptr %39, align 8, !range !3, !noundef !4
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %113, label %.thread293
+111:                                              ; preds = %106
+  %112 = load i8, ptr %39, align 8, !range !3, !noundef !4
+  %113 = trunc nuw i8 %112 to i1
+  br i1 %113, label %114, label %.thread293
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr %40, align 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = tail call noalias ptr @strdup(ptr noundef %115) #16
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %report_parse_error.exit.thread, label %.thread293
+114:                                              ; preds = %111
+  %115 = load ptr, ptr %40, align 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = tail call noalias ptr @strdup(ptr noundef %116) #16
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %report_parse_error.exit.thread, label %.thread293
 
-.thread293:                                       ; preds = %110, %105, %113
-  %.0203 = phi ptr [ %116, %113 ], [ null, %110 ], [ null, %105 ]
+.thread293:                                       ; preds = %111, %106, %114
+  %.0203 = phi ptr [ %117, %114 ], [ null, %111 ], [ null, %106 ]
   tail call fastcc void @set_fname(ptr noundef nonnull %0, ptr noundef %.0203)
   br label %report_parse_error.exitthread-pre-split
 
-118:                                              ; preds = %74
-  %119 = icmp eq i32 %.0183325, 11
-  %120 = load ptr, ptr %45, align 8
+119:                                              ; preds = %75
+  %120 = icmp eq i32 %.0183325, 11
+  %121 = load ptr, ptr %45, align 8
   %.val265 = load i32, ptr %42, align 8
   %.val266 = load ptr, ptr %7, align 8
-  %121 = getelementptr i8, ptr %.val266, i64 32
-  %.val266.val = load ptr, ptr %121, align 8
-  %122 = zext i1 %119 to i8
-  %123 = sext i32 %.val265 to i64
-  %124 = getelementptr inbounds i8, ptr %.val266.val, i64 %123
-  store i8 %122, ptr %124, align 1
-  %.not242 = icmp eq ptr %120, null
-  br i1 %.not242, label %report_parse_error.exitthread-pre-split, label %125
+  %122 = getelementptr i8, ptr %.val266, i64 32
+  %.val266.val = load ptr, ptr %122, align 8
+  %123 = zext i1 %120 to i8
+  %124 = sext i32 %.val265 to i64
+  %125 = getelementptr inbounds i8, ptr %.val266.val, i64 %124
+  store i8 %123, ptr %125, align 1
+  %.not242 = icmp eq ptr %121, null
+  br i1 %.not242, label %report_parse_error.exitthread-pre-split, label %126
 
-125:                                              ; preds = %118
+126:                                              ; preds = %119
   %.val269 = load i32, ptr %42, align 8
   %.val270 = load ptr, ptr %7, align 8
-  %126 = getelementptr i8, ptr %.val270, i64 24
-  %.val270.val = load ptr, ptr %126, align 8
-  %127 = sext i32 %.val269 to i64
-  %128 = getelementptr inbounds ptr, ptr %.val270.val, i64 %127
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %1, align 8
-  %131 = tail call i32 %120(ptr noundef %130, ptr noundef %129, i1 noundef zeroext %119) #16
-  %.not243 = icmp eq i32 %131, 0
+  %127 = getelementptr i8, ptr %.val270, i64 24
+  %.val270.val = load ptr, ptr %127, align 8
+  %128 = sext i32 %.val269 to i64
+  %129 = getelementptr inbounds ptr, ptr %.val270.val, i64 %128
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr %1, align 8
+  %132 = tail call i32 %121(ptr noundef %131, ptr noundef %130, i1 noundef zeroext %120) #16
+  %.not243 = icmp eq i32 %132, 0
   br i1 %.not243, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
-132:                                              ; preds = %74
-  %133 = load ptr, ptr %44, align 8
-  %.not240 = icmp eq ptr %133, null
-  br i1 %.not240, label %report_parse_error.exitthread-pre-split, label %134
+133:                                              ; preds = %75
+  %134 = load ptr, ptr %44, align 8
+  %.not240 = icmp eq ptr %134, null
+  br i1 %.not240, label %report_parse_error.exitthread-pre-split, label %135
 
-134:                                              ; preds = %132
+135:                                              ; preds = %133
   %.val271 = load i32, ptr %42, align 8
   %.val272 = load ptr, ptr %7, align 8
-  %135 = getelementptr i8, ptr %.val272, i64 24
-  %.val272.val = load ptr, ptr %135, align 8
-  %136 = sext i32 %.val271 to i64
-  %137 = getelementptr inbounds ptr, ptr %.val272.val, i64 %136
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr i8, ptr %.val272, i64 32
-  %.val274.val = load ptr, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %.val274.val, i64 %136
-  %141 = load i8, ptr %140, align 1, !range !3, !noundef !4
-  %142 = trunc nuw i8 %141 to i1
-  %143 = load ptr, ptr %1, align 8
-  %144 = tail call i32 %133(ptr noundef %143, ptr noundef %138, i1 noundef zeroext %142) #16
-  %.not241 = icmp eq i32 %144, 0
+  %136 = getelementptr i8, ptr %.val272, i64 24
+  %.val272.val = load ptr, ptr %136, align 8
+  %137 = sext i32 %.val271 to i64
+  %138 = getelementptr inbounds ptr, ptr %.val272.val, i64 %137
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr i8, ptr %.val272, i64 32
+  %.val274.val = load ptr, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %.val274.val, i64 %137
+  %142 = load i8, ptr %141, align 1, !range !3, !noundef !4
+  %143 = trunc nuw i8 %142 to i1
+  %144 = load ptr, ptr %1, align 8
+  %145 = tail call i32 %134(ptr noundef %144, ptr noundef %139, i1 noundef zeroext %143) #16
+  %.not241 = icmp eq i32 %145, 0
   br i1 %.not241, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
-145:                                              ; preds = %74
-  %146 = load ptr, ptr %43, align 8
-  %147 = icmp eq i32 %.0183325, 11
+146:                                              ; preds = %75
+  %147 = load ptr, ptr %43, align 8
+  %148 = icmp eq i32 %.0183325, 11
   %.val267 = load i32, ptr %42, align 8
   %.val268 = load ptr, ptr %7, align 8
-  %148 = getelementptr i8, ptr %.val268, i64 32
-  %.val268.val = load ptr, ptr %148, align 8
-  %149 = zext i1 %147 to i8
-  %150 = sext i32 %.val267 to i64
-  %151 = getelementptr inbounds i8, ptr %.val268.val, i64 %150
-  store i8 %149, ptr %151, align 1
-  %.not238 = icmp eq ptr %146, null
-  br i1 %.not238, label %report_parse_error.exitthread-pre-split, label %152
+  %149 = getelementptr i8, ptr %.val268, i64 32
+  %.val268.val = load ptr, ptr %149, align 8
+  %150 = zext i1 %148 to i8
+  %151 = sext i32 %.val267 to i64
+  %152 = getelementptr inbounds i8, ptr %.val268.val, i64 %151
+  store i8 %150, ptr %152, align 1
+  %.not238 = icmp eq ptr %147, null
+  br i1 %.not238, label %report_parse_error.exitthread-pre-split, label %153
 
-152:                                              ; preds = %145
-  %153 = load ptr, ptr %1, align 8
-  %154 = tail call i32 %146(ptr noundef %153, i1 noundef zeroext %147) #16
-  %.not239 = icmp eq i32 %154, 0
+153:                                              ; preds = %146
+  %154 = load ptr, ptr %1, align 8
+  %155 = tail call i32 %147(ptr noundef %154, i1 noundef zeroext %148) #16
+  %.not239 = icmp eq i32 %155, 0
   br i1 %.not239, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
-155:                                              ; preds = %74
-  %156 = load ptr, ptr %41, align 8
-  %.not236 = icmp eq ptr %156, null
-  br i1 %.not236, label %report_parse_error.exitthread-pre-split, label %157
+156:                                              ; preds = %75
+  %157 = load ptr, ptr %41, align 8
+  %.not236 = icmp eq ptr %157, null
+  br i1 %.not236, label %report_parse_error.exitthread-pre-split, label %158
 
-157:                                              ; preds = %155
+158:                                              ; preds = %156
   %.val275 = load i32, ptr %42, align 8
   %.val276 = load ptr, ptr %7, align 8
-  %158 = getelementptr i8, ptr %.val276, i64 32
-  %.val276.val = load ptr, ptr %158, align 8
-  %159 = sext i32 %.val275 to i64
-  %160 = getelementptr inbounds i8, ptr %.val276.val, i64 %159
-  %161 = load i8, ptr %160, align 1, !range !3, !noundef !4
-  %162 = trunc nuw i8 %161 to i1
-  %163 = load ptr, ptr %1, align 8
-  %164 = tail call i32 %156(ptr noundef %163, i1 noundef zeroext %162) #16
-  %.not237 = icmp eq i32 %164, 0
+  %159 = getelementptr i8, ptr %.val276, i64 32
+  %.val276.val = load ptr, ptr %159, align 8
+  %160 = sext i32 %.val275 to i64
+  %161 = getelementptr inbounds i8, ptr %.val276.val, i64 %160
+  %162 = load i8, ptr %161, align 1, !range !3, !noundef !4
+  %163 = trunc nuw i8 %162 to i1
+  %164 = load ptr, ptr %1, align 8
+  %165 = tail call i32 %157(ptr noundef %164, i1 noundef zeroext %163) #16
+  %.not237 = icmp eq i32 %165, 0
   br i1 %.not237, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
-165:                                              ; preds = %74
-  %166 = load ptr, ptr %34, align 8
+166:                                              ; preds = %75
+  %167 = load ptr, ptr %34, align 8
   store ptr null, ptr %35, align 8
-  %.not234 = icmp eq ptr %166, null
-  br i1 %.not234, label %report_parse_error.exitthread-pre-split, label %167
+  %.not234 = icmp eq ptr %167, null
+  br i1 %.not234, label %report_parse_error.exitthread-pre-split, label %168
 
-167:                                              ; preds = %165
-  %168 = icmp eq i32 %.0183325, 1
-  br i1 %168, label %169, label %177
+168:                                              ; preds = %166
+  %169 = icmp eq i32 %.0183325, 1
+  br i1 %169, label %170, label %178
 
-169:                                              ; preds = %167
-  %170 = load i8, ptr %39, align 8, !range !3, !noundef !4
-  %171 = trunc nuw i8 %170 to i1
-  br i1 %171, label %172, label %188
+170:                                              ; preds = %168
+  %171 = load i8, ptr %39, align 8, !range !3, !noundef !4
+  %172 = trunc nuw i8 %171 to i1
+  br i1 %172, label %173, label %189
 
-172:                                              ; preds = %169
-  %173 = load ptr, ptr %40, align 8
-  %174 = load ptr, ptr %173, align 8
-  %175 = tail call noalias ptr @strdup(ptr noundef %174) #16
-  store ptr %175, ptr %35, align 8
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %report_parse_error.exit.thread, label %188
+173:                                              ; preds = %170
+  %174 = load ptr, ptr %40, align 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = tail call noalias ptr @strdup(ptr noundef %175) #16
+  store ptr %176, ptr %35, align 8
+  %177 = icmp eq ptr %176, null
+  br i1 %177, label %report_parse_error.exit.thread, label %189
 
-177:                                              ; preds = %167
-  %178 = load ptr, ptr %20, align 8
-  %179 = load ptr, ptr %38, align 8
-  %180 = ptrtoint ptr %178 to i64
+178:                                              ; preds = %168
+  %179 = load ptr, ptr %20, align 8
+  %180 = load ptr, ptr %38, align 8
   %181 = ptrtoint ptr %179 to i64
-  %182 = sub i64 %180, %181
-  %183 = add i64 %182, 1
-  %184 = tail call noalias ptr @malloc(i64 noundef %183) #18
-  store ptr %184, ptr %35, align 8
-  %.not235 = icmp eq ptr %184, null
-  br i1 %.not235, label %report_parse_error.exit.thread, label %185
+  %182 = ptrtoint ptr %180 to i64
+  %183 = sub i64 %181, %182
+  %184 = add i64 %183, 1
+  %185 = tail call noalias ptr @malloc(i64 noundef %184) #18
+  store ptr %185, ptr %35, align 8
+  %.not235 = icmp eq ptr %185, null
+  br i1 %.not235, label %report_parse_error.exit.thread, label %186
 
-185:                                              ; preds = %177
-  %186 = load ptr, ptr %38, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %184, ptr align 1 %186, i64 %182, i1 false)
-  %187 = getelementptr inbounds i8, ptr %184, i64 %182
-  store i8 0, ptr %187, align 1
-  br label %188
+186:                                              ; preds = %178
+  %187 = load ptr, ptr %38, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %185, ptr align 1 %187, i64 %183, i1 false)
+  %188 = getelementptr inbounds i8, ptr %185, i64 %183
+  store i8 0, ptr %188, align 1
+  br label %189
 
-188:                                              ; preds = %185, %169, %172
+189:                                              ; preds = %186, %170, %173
   store i32 %.0183325, ptr %36, align 8
   br label %report_parse_error.exitthread-pre-split
 
-189:                                              ; preds = %74
-  %190 = load ptr, ptr %34, align 8
-  %.not231 = icmp eq ptr %190, null
-  br i1 %.not231, label %report_parse_error.exitthread-pre-split, label %191
+190:                                              ; preds = %75
+  %191 = load ptr, ptr %34, align 8
+  %.not231 = icmp eq ptr %191, null
+  br i1 %.not231, label %report_parse_error.exitthread-pre-split, label %192
 
-191:                                              ; preds = %189
-  %192 = load ptr, ptr %1, align 8
-  %193 = load ptr, ptr %35, align 8
-  %194 = load i32, ptr %36, align 8
-  %195 = tail call i32 %190(ptr noundef %192, ptr noundef %193, i32 noundef %194) #16
-  %196 = load i32, ptr %37, align 4
-  %197 = and i32 %196, 4
-  %.not232 = icmp eq i32 %197, 0
-  br i1 %.not232, label %200, label %198
+192:                                              ; preds = %190
+  %193 = load ptr, ptr %1, align 8
+  %194 = load ptr, ptr %35, align 8
+  %195 = load i32, ptr %36, align 8
+  %196 = tail call i32 %191(ptr noundef %193, ptr noundef %194, i32 noundef %195) #16
+  %197 = load i32, ptr %37, align 4
+  %198 = and i32 %197, 4
+  %.not232 = icmp eq i32 %198, 0
+  br i1 %.not232, label %201, label %199
 
-198:                                              ; preds = %191
-  %199 = load ptr, ptr %35, align 8
-  tail call void @free(ptr noundef %199) #16
-  br label %200
+199:                                              ; preds = %192
+  %200 = load ptr, ptr %35, align 8
+  tail call void @free(ptr noundef %200) #16
+  br label %201
 
-200:                                              ; preds = %198, %191
+201:                                              ; preds = %199, %192
   store ptr null, ptr %35, align 8
-  %.not233 = icmp eq i32 %195, 0
+  %.not233 = icmp eq i32 %196, 0
   br i1 %.not233, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
-201:                                              ; preds = %72
-  switch i8 %54, label %215 [
-    i8 1, label %202
-    i8 35, label %214
-    i8 36, label %206
-    i8 33, label %213
-    i8 34, label %216
-    i8 12, label %212
-    i8 8, label %211
-    i8 6, label %216
-    i8 4, label %206
-    i8 7, label %207
+202:                                              ; preds = %73
+  switch i8 %54, label %216 [
+    i8 1, label %203
+    i8 35, label %215
+    i8 36, label %207
+    i8 33, label %214
+    i8 34, label %217
+    i8 12, label %213
+    i8 8, label %212
+    i8 6, label %217
+    i8 4, label %207
+    i8 7, label %208
   ]
 
-202:                                              ; preds = %201
-  %203 = getelementptr i8, ptr %53, i64 -1
-  %204 = load i8, ptr %203, align 1
-  %205 = icmp eq i8 %204, 8
-  %.258 = zext i1 %205 to i64
-  br label %216
+203:                                              ; preds = %202
+  %204 = getelementptr i8, ptr %53, i64 -1
+  %205 = load i8, ptr %204, align 1
+  %206 = icmp eq i8 %205, 8
+  %.258 = zext i1 %206 to i64
+  br label %217
 
-206:                                              ; preds = %201, %201
-  br label %216
+207:                                              ; preds = %202, %202
+  br label %217
 
-207:                                              ; preds = %201
-  %208 = getelementptr i8, ptr %53, i64 -1
-  %209 = load i8, ptr %208, align 1
-  %210 = icmp eq i8 %209, 1
-  %.259 = select i1 %210, i64 6, i64 3
-  br label %216
+208:                                              ; preds = %202
+  %209 = getelementptr i8, ptr %53, i64 -1
+  %210 = load i8, ptr %209, align 1
+  %211 = icmp eq i8 %210, 1
+  %.259 = select i1 %211, i64 6, i64 3
+  br label %217
 
-211:                                              ; preds = %201
-  br label %216
+212:                                              ; preds = %202
+  br label %217
 
-212:                                              ; preds = %201
-  br label %216
+213:                                              ; preds = %202
+  br label %217
 
-213:                                              ; preds = %201
-  br label %216
+214:                                              ; preds = %202
+  br label %217
 
-214:                                              ; preds = %201
-  br label %216
+215:                                              ; preds = %202
+  br label %217
 
-215:                                              ; preds = %201
-  br label %216
+216:                                              ; preds = %202
+  br label %217
 
-216:                                              ; preds = %207, %201, %201, %202, %215, %214, %213, %212, %211, %206
-  %.0186 = phi i64 [ 0, %215 ], [ 6, %206 ], [ 5, %211 ], [ 8, %212 ], [ 2, %213 ], [ 4, %214 ], [ %.258, %202 ], [ 3, %201 ], [ 3, %201 ], [ %.259, %207 ]
-  %217 = load ptr, ptr %38, align 8
-  %218 = icmp eq ptr %217, null
-  br i1 %218, label %report_parse_error.exit.thread, label %219
+217:                                              ; preds = %208, %202, %202, %203, %216, %215, %214, %213, %212, %207
+  %.0186 = phi i64 [ 0, %216 ], [ 6, %207 ], [ 5, %212 ], [ 8, %213 ], [ 2, %214 ], [ 4, %215 ], [ %.258, %203 ], [ 3, %202 ], [ 3, %202 ], [ %.259, %208 ]
+  %218 = load ptr, ptr %38, align 8
+  %219 = icmp eq ptr %218, null
+  br i1 %219, label %report_parse_error.exit.thread, label %220
 
-219:                                              ; preds = %216
-  %220 = load i32, ptr %26, align 4
-  %221 = icmp eq i32 %220, 12
-  br i1 %221, label %report_parse_error.exit.thread, label %switch.lookup
+220:                                              ; preds = %217
+  %221 = load i32, ptr %26, align 4
+  %222 = icmp eq i32 %221, 12
+  br i1 %222, label %report_parse_error.exit.thread, label %switch.lookup
 
-report_parse_error.exitthread-pre-split:          ; preds = %.thread293, %83, %98, %125, %134, %157, %74, %57, %61, %85, %87, %100, %102, %118, %132, %145, %152, %155, %188, %165, %189, %200
-  %.2185.ph = phi i32 [ %.0183325, %200 ], [ %.0183325, %189 ], [ %.0183325, %165 ], [ %.0183325, %188 ], [ %.0183325, %155 ], [ %.0183325, %152 ], [ %.0183325, %145 ], [ %.0183325, %132 ], [ %.0183325, %118 ], [ %.0183325, %102 ], [ %.0183325, %100 ], [ %.0183325, %87 ], [ %.0183325, %85 ], [ %.0183325, %.thread293 ], [ %.0183325, %157 ], [ %.0183325, %134 ], [ %.0183325, %125 ], [ %.0183325, %98 ], [ %.0183325, %83 ], [ %.0183325, %74 ], [ %.0183325, %57 ], [ %.val, %61 ]
+report_parse_error.exitthread-pre-split:          ; preds = %.thread293, %84, %99, %126, %135, %158, %75, %57, %61, %86, %88, %101, %103, %119, %133, %146, %153, %156, %189, %166, %190, %201
+  %.2185.ph = phi i32 [ %.0183325, %201 ], [ %.0183325, %190 ], [ %.0183325, %166 ], [ %.0183325, %189 ], [ %.0183325, %156 ], [ %.0183325, %153 ], [ %.0183325, %146 ], [ %.0183325, %133 ], [ %.0183325, %119 ], [ %.0183325, %103 ], [ %.0183325, %101 ], [ %.0183325, %88 ], [ %.0183325, %86 ], [ %.0183325, %.thread293 ], [ %.0183325, %158 ], [ %.0183325, %135 ], [ %.0183325, %126 ], [ %.0183325, %99 ], [ %.0183325, %84 ], [ %.0183325, %75 ], [ %.0183325, %57 ], [ %.val, %61 ]
   %.val264.pr = load i64, ptr %27, align 8
   br label %report_parse_error.exit
 
-report_parse_error.exit:                          ; preds = %report_parse_error.exitthread-pre-split, %69
-  %.val264 = phi i64 [ %.val264.pr, %report_parse_error.exitthread-pre-split ], [ %71, %69 ]
-  %.2185 = phi i32 [ %.2185.ph, %report_parse_error.exitthread-pre-split ], [ %.0183325, %69 ]
+report_parse_error.exit:                          ; preds = %report_parse_error.exitthread-pre-split, %70
+  %.val264 = phi i64 [ %.val264.pr, %report_parse_error.exitthread-pre-split ], [ %72, %70 ]
+  %.2185 = phi i32 [ %.2185.ph, %report_parse_error.exitthread-pre-split ], [ %.0183325, %70 ]
   %.not321 = icmp eq i64 %.val264, 0
   br i1 %.not321, label %report_parse_error.exit.thread, label %50, !llvm.loop !19
 
-switch.lookup:                                    ; preds = %219
+switch.lookup:                                    ; preds = %220
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.pg_parse_json_incremental, i64 0, i64 %.0186
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %report_parse_error.exit.thread
 
-report_parse_error.exit.thread:                   ; preds = %report_parse_error.exit, %83, %98, %125, %134, %157, %59, %87, %102, %113, %152, %172, %200, %75, %80, %90, %95, %177, %switch.lookup, %28, %219, %216, %18, %14, %5, %10
-  %.0 = phi i32 [ 16, %10 ], [ 16, %5 ], [ 2, %14 ], [ %24, %18 ], [ 11, %216 ], [ 11, %219 ], [ 0, %28 ], [ %switch.load, %switch.lookup ], [ 0, %report_parse_error.exit ], [ 16, %83 ], [ 16, %98 ], [ %131, %125 ], [ %144, %134 ], [ %164, %157 ], [ %60, %59 ], [ %89, %87 ], [ %104, %102 ], [ 16, %113 ], [ %154, %152 ], [ 16, %172 ], [ %195, %200 ], [ 3, %75 ], [ %82, %80 ], [ 3, %90 ], [ %97, %95 ], [ 16, %177 ]
+report_parse_error.exit.thread:                   ; preds = %report_parse_error.exit, %84, %99, %126, %135, %158, %59, %88, %103, %114, %153, %173, %201, %76, %81, %91, %96, %178, %switch.lookup, %28, %220, %217, %18, %14, %5, %10
+  %.0 = phi i32 [ 16, %10 ], [ 16, %5 ], [ 2, %14 ], [ %24, %18 ], [ 11, %217 ], [ 11, %220 ], [ 0, %28 ], [ %switch.load, %switch.lookup ], [ 0, %report_parse_error.exit ], [ 16, %84 ], [ 16, %99 ], [ %132, %126 ], [ %145, %135 ], [ %165, %158 ], [ %60, %59 ], [ %90, %88 ], [ %105, %103 ], [ 16, %114 ], [ %155, %153 ], [ 16, %173 ], [ %196, %201 ], [ 3, %76 ], [ %83, %81 ], [ 3, %91 ], [ %98, %96 ], [ 16, %178 ]
   ret i32 %.0
 }
 

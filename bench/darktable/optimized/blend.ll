@@ -338,43 +338,47 @@ define range(i32 0, 2) i32 @dt_develop_blendif_init_masking_profile(ptr noundef 
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 960
   br label %.preheader33
 
-.preheader33:                                     ; preds = %18, %22
-  %.03037 = phi i64 [ 0, %18 ], [ %23, %22 ]
+.preheader33:                                     ; preds = %18, %24
+  %.03039 = phi i64 [ 0, %18 ], [ %25, %24 ]
+  %22 = getelementptr inbounds nuw [4 x [4 x float]], ptr @__const.dt_develop_blendif_init_masking_profile.M, i64 0, i64 %.03039
+  %23 = getelementptr inbounds nuw [4 x [4 x float]], ptr %20, i64 0, i64 %.03039
+  %invariant.gep36 = getelementptr inbounds nuw [4 x float], ptr %21, i64 0, i64 %.03039
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader33, %24
-  %.02936 = phi i64 [ 0, %.preheader33 ], [ %27, %24 ]
-  br label %28
+.preheader:                                       ; preds = %.preheader33, %26
+  %.02938 = phi i64 [ 0, %.preheader33 ], [ %28, %26 ]
+  %invariant.gep = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.02938
+  br label %29
 
-22:                                               ; preds = %24
-  %23 = add nuw nsw i64 %.03037, 1
-  %exitcond39.not = icmp eq i64 %23, 3
-  br i1 %exitcond39.not, label %.loopexit, label %.preheader33
+24:                                               ; preds = %26
+  %25 = add nuw nsw i64 %.03039, 1
+  %exitcond41.not = icmp eq i64 %25, 3
+  br i1 %exitcond41.not, label %.loopexit, label %.preheader33
 
-24:                                               ; preds = %28
-  %25 = getelementptr inbounds nuw [4 x [4 x float]], ptr %20, i64 0, i64 %.03037, i64 %.02936
-  store float %34, ptr %25, align 4, !tbaa !31
-  %26 = getelementptr inbounds nuw [4 x [4 x float]], ptr %21, i64 0, i64 %.02936, i64 %.03037
-  store float %34, ptr %26, align 4, !tbaa !31
-  %27 = add nuw nsw i64 %.02936, 1
-  %exitcond38.not = icmp eq i64 %27, 3
-  br i1 %exitcond38.not, label %22, label %.preheader
+26:                                               ; preds = %29
+  %27 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %.02938
+  store float %34, ptr %27, align 4, !tbaa !31
+  %gep37 = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep36, i64 0, i64 %.02938
+  store float %34, ptr %gep37, align 4, !tbaa !31
+  %28 = add nuw nsw i64 %.02938, 1
+  %exitcond40.not = icmp eq i64 %28, 3
+  br i1 %exitcond40.not, label %24, label %.preheader
 
-28:                                               ; preds = %.preheader, %28
-  %.035 = phi i64 [ 0, %.preheader ], [ %35, %28 ]
-  %.02834 = phi float [ 0.000000e+00, %.preheader ], [ %34, %28 ]
-  %29 = getelementptr inbounds nuw [4 x [4 x float]], ptr @__const.dt_develop_blendif_init_masking_profile.M, i64 0, i64 %.03037, i64 %.035
-  %30 = load float, ptr %29, align 4, !tbaa !31
-  %31 = getelementptr inbounds nuw [4 x [4 x float]], ptr %19, i64 0, i64 %.035, i64 %.02936
-  %32 = load float, ptr %31, align 4, !tbaa !31
-  %33 = fmul reassoc nsz arcp contract afn float %32, %30
+29:                                               ; preds = %.preheader, %29
+  %.035 = phi i64 [ 0, %.preheader ], [ %35, %29 ]
+  %.02834 = phi float [ 0.000000e+00, %.preheader ], [ %34, %29 ]
+  %30 = getelementptr inbounds nuw [4 x float], ptr %22, i64 0, i64 %.035
+  %31 = load float, ptr %30, align 4, !tbaa !31
+  %gep = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep, i64 0, i64 %.035
+  %32 = load float, ptr %gep, align 4, !tbaa !31
+  %33 = fmul reassoc nsz arcp contract afn float %32, %31
   %34 = fadd reassoc nsz arcp contract afn float %33, %.02834
   %35 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %35, 3
-  br i1 %exitcond.not, label %24, label %28
+  br i1 %exitcond.not, label %26, label %29
 
-.loopexit:                                        ; preds = %22, %16
-  %.031 = phi i32 [ 0, %16 ], [ 1, %22 ]
+.loopexit:                                        ; preds = %24, %16
+  %.031 = phi i32 [ 0, %16 ], [ 1, %24 ]
   ret i32 %.031
 }
 

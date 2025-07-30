@@ -1266,20 +1266,20 @@ define hidden void @Ushort555RgbxDrawGlyphListAA(ptr noundef readonly captures(n
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %60
 
-60:                                               ; preds = %120, %41
-  %.0105 = phi i32 [ %50, %41 ], [ %123, %120 ]
-  %.2 = phi ptr [ %.1, %41 ], [ %122, %120 ]
-  %.098.in = phi i64 [ %58, %41 ], [ %121, %120 ]
+60:                                               ; preds = %122, %41
+  %.0105 = phi i32 [ %50, %41 ], [ %125, %122 ]
+  %.2 = phi ptr [ %.1, %41 ], [ %124, %122 ]
+  %.098.in = phi i64 [ %58, %41 ], [ %123, %122 ]
   %.098 = inttoptr i64 %.098.in to ptr
   br label %61
 
-61:                                               ; preds = %119, %60
-  %indvars.iv = phi i64 [ %indvars.iv.next, %119 ], [ 0, %60 ]
+61:                                               ; preds = %121, %60
+  %indvars.iv = phi i64 [ %indvars.iv.next, %121 ], [ 0, %60 ]
   %62 = getelementptr inbounds nuw i8, ptr %.2, i64 %indvars.iv
   %63 = load i8, ptr %62, align 1
   switch i8 %63, label %64 [
-    i8 0, label %119
-    i8 -1, label %117
+    i8 0, label %121
+    i8 -1, label %119
   ]
 
 64:                                               ; preds = %61
@@ -1302,60 +1302,62 @@ define hidden void @Ushort555RgbxDrawGlyphListAA(ptr noundef readonly captures(n
   %81 = lshr i32 %79, 2
   %82 = or disjoint i32 %80, %81
   %83 = zext i8 %65 to i64
-  %84 = zext nneg i32 %72 to i64
-  %85 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %83, i64 %84
-  %86 = load i8, ptr %85, align 1
-  %87 = zext i8 %86 to i16
-  %88 = zext i8 %63 to i64
-  %89 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %88, i64 %23
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i16
-  %92 = add nuw nsw i16 %91, %87
-  %93 = zext nneg i32 %77 to i64
-  %94 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %83, i64 %93
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i16
-  %97 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %88, i64 %24
-  %98 = load i8, ptr %97, align 1
-  %99 = zext i8 %98 to i16
-  %100 = add nuw nsw i16 %99, %96
-  %101 = zext nneg i32 %82 to i64
-  %102 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %83, i64 %101
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i16
-  %105 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %88, i64 %25
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i16
-  %108 = add nuw nsw i16 %107, %104
-  %109 = shl i16 %92, 8
-  %110 = and i16 %109, -2048
-  %111 = shl nuw nsw i16 %100, 3
-  %112 = and i16 %111, 4032
-  %113 = or i16 %112, %110
-  %114 = lshr i16 %108, 2
-  %115 = and i16 %114, 126
-  %116 = or i16 %113, %115
-  store i16 %116, ptr %66, align 2
-  br label %119
+  %84 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %83
+  %85 = zext nneg i32 %72 to i64
+  %86 = getelementptr inbounds nuw [256 x i8], ptr %84, i64 0, i64 %85
+  %87 = load i8, ptr %86, align 1
+  %88 = zext i8 %87 to i16
+  %89 = zext i8 %63 to i64
+  %90 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %89
+  %91 = getelementptr inbounds nuw [256 x i8], ptr %90, i64 0, i64 %23
+  %92 = load i8, ptr %91, align 1
+  %93 = zext i8 %92 to i16
+  %94 = add nuw nsw i16 %93, %88
+  %95 = zext nneg i32 %77 to i64
+  %96 = getelementptr inbounds nuw [256 x i8], ptr %84, i64 0, i64 %95
+  %97 = load i8, ptr %96, align 1
+  %98 = zext i8 %97 to i16
+  %99 = getelementptr inbounds nuw [256 x i8], ptr %90, i64 0, i64 %24
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i16
+  %102 = add nuw nsw i16 %101, %98
+  %103 = zext nneg i32 %82 to i64
+  %104 = getelementptr inbounds nuw [256 x i8], ptr %84, i64 0, i64 %103
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i16
+  %107 = getelementptr inbounds nuw [256 x i8], ptr %90, i64 0, i64 %25
+  %108 = load i8, ptr %107, align 1
+  %109 = zext i8 %108 to i16
+  %110 = add nuw nsw i16 %109, %106
+  %111 = shl i16 %94, 8
+  %112 = and i16 %111, -2048
+  %113 = shl nuw nsw i16 %102, 3
+  %114 = and i16 %113, 4032
+  %115 = or i16 %114, %112
+  %116 = lshr i16 %110, 2
+  %117 = and i16 %116, 126
+  %118 = or i16 %115, %117
+  store i16 %118, ptr %66, align 2
+  br label %121
 
-117:                                              ; preds = %61
-  %118 = getelementptr inbounds nuw i16, ptr %.098, i64 %indvars.iv
-  store i16 %22, ptr %118, align 2
-  br label %119
+119:                                              ; preds = %61
+  %120 = getelementptr inbounds nuw i16, ptr %.098, i64 %indvars.iv
+  store i16 %22, ptr %120, align 2
+  br label %121
 
-119:                                              ; preds = %61, %64, %117
+121:                                              ; preds = %61, %64, %119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %120, label %61, !llvm.loop !43
+  br i1 %exitcond.not, label %122, label %61, !llvm.loop !43
 
-120:                                              ; preds = %119
-  %121 = add nsw i64 %.098.in, %21
-  %122 = getelementptr inbounds i8, ptr %.2, i64 %59
-  %123 = add nsw i32 %.0105, -1
-  %124 = icmp sgt i32 %.0105, 1
-  br i1 %124, label %60, label %.loopexit, !llvm.loop !44
+122:                                              ; preds = %121
+  %123 = add nsw i64 %.098.in, %21
+  %124 = getelementptr inbounds i8, ptr %.2, i64 %59
+  %125 = add nsw i32 %.0105, -1
+  %126 = icmp sgt i32 %.0105, 1
+  br i1 %126, label %60, label %.loopexit, !llvm.loop !44
 
-.loopexit:                                        ; preds = %120, %30, %26
+.loopexit:                                        ; preds = %122, %30, %26
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
   br i1 %exitcond131.not, label %._crit_edge, label %26, !llvm.loop !45
@@ -1390,15 +1392,18 @@ define hidden void @Ushort555RgbxDrawGlyphListLCD(ptr noundef readonly captures(
   %33 = sext i32 %31 to i64
   %.not176 = icmp eq i32 %9, 0
   %34 = zext i8 %29 to i64
+  %invariant.gep = getelementptr inbounds nuw [256 x i8], ptr @mul8table, i64 0, i64 %34
   %35 = zext i8 %24 to i64
+  %invariant.gep184 = getelementptr inbounds nuw [256 x i8], ptr @mul8table, i64 0, i64 %35
   %36 = zext i8 %19 to i64
+  %invariant.gep186 = getelementptr inbounds nuw [256 x i8], ptr @mul8table, i64 0, i64 %36
   %37 = trunc i32 %3 to i16
-  %wide.trip.count196 = zext nneg i32 %2 to i64
+  %wide.trip.count200 = zext nneg i32 %2 to i64
   br label %38
 
 38:                                               ; preds = %.lr.ph, %.loopexit183
-  %indvars.iv193 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next194, %.loopexit183 ]
-  %39 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv193
+  %indvars.iv197 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next198, %.loopexit183 ]
+  %39 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv197
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -1465,8 +1470,8 @@ define hidden void @Ushort555RgbxDrawGlyphListLCD(ptr noundef readonly captures(
 
 .preheader.us.preheader:                          ; preds = %63
   %79 = sext i32 %41 to i64
-  %smax190 = tail call i32 @llvm.smax.i32(i32 %64, i32 1)
-  %wide.trip.count191 = zext nneg i32 %smax190 to i64
+  %smax194 = tail call i32 @llvm.smax.i32(i32 %64, i32 1)
+  %wide.trip.count195 = zext nneg i32 %smax194 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
@@ -1477,21 +1482,21 @@ define hidden void @Ushort555RgbxDrawGlyphListLCD(ptr noundef readonly captures(
   br label %80
 
 80:                                               ; preds = %.preheader.us, %85
-  %indvars.iv187 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next188, %85 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.3.us, i64 %indvars.iv187
+  %indvars.iv191 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next192, %85 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.3.us, i64 %indvars.iv191
   %82 = load i8, ptr %81, align 1
   %.not179.us = icmp eq i8 %82, 0
   br i1 %.not179.us, label %85, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i16, ptr %.0148.us, i64 %indvars.iv187
+  %84 = getelementptr inbounds nuw i16, ptr %.0148.us, i64 %indvars.iv191
   store i16 %37, ptr %84, align 2
   br label %85
 
 85:                                               ; preds = %83, %80
-  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
-  %exitcond192.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count191
-  br i1 %exitcond192.not, label %.loopexit.us, label %80, !llvm.loop !46
+  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
+  %exitcond196.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count195
+  br i1 %exitcond196.not, label %.loopexit.us, label %80, !llvm.loop !46
 
 .loopexit.us:                                     ; preds = %85
   %86 = add nsw i64 %.0148.in.us, %33
@@ -1563,39 +1568,42 @@ define hidden void @Ushort555RgbxDrawGlyphListLCD(ptr noundef readonly captures(
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = zext nneg i32 %103 to i64
-  %133 = zext i8 %125 to i64
-  %134 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %132, i64 %133
-  %135 = load i8, ptr %134, align 1
-  %136 = zext i8 %135 to i64
-  %137 = zext i8 %.0150.in to i64
-  %138 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %34
-  %139 = load i8, ptr %138, align 1
+  %133 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %132
+  %134 = zext i8 %125 to i64
+  %135 = getelementptr inbounds nuw [256 x i8], ptr %133, i64 0, i64 %134
+  %136 = load i8, ptr %135, align 1
+  %137 = zext i8 %136 to i64
+  %138 = zext i8 %.0150.in to i64
+  %gep = getelementptr inbounds nuw [256 x [256 x i8]], ptr %invariant.gep, i64 0, i64 %138
+  %139 = load i8, ptr %gep, align 1
   %140 = zext i8 %139 to i64
   %141 = zext nneg i32 %104 to i64
-  %142 = zext i8 %128 to i64
-  %143 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %141, i64 %142
-  %144 = load i8, ptr %143, align 1
-  %145 = zext i8 %144 to i64
-  %146 = zext i8 %94 to i64
-  %147 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %146, i64 %35
-  %148 = load i8, ptr %147, align 1
+  %142 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %141
+  %143 = zext i8 %128 to i64
+  %144 = getelementptr inbounds nuw [256 x i8], ptr %142, i64 0, i64 %143
+  %145 = load i8, ptr %144, align 1
+  %146 = zext i8 %145 to i64
+  %147 = zext i8 %94 to i64
+  %gep185 = getelementptr inbounds nuw [256 x [256 x i8]], ptr %invariant.gep184, i64 0, i64 %147
+  %148 = load i8, ptr %gep185, align 1
   %149 = zext i8 %148 to i64
   %150 = zext nneg i32 %105 to i64
-  %151 = zext i8 %131 to i64
-  %152 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %150, i64 %151
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i64
-  %155 = zext i8 %.0149.in to i64
-  %156 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %155, i64 %36
-  %157 = load i8, ptr %156, align 1
+  %151 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %150
+  %152 = zext i8 %131 to i64
+  %153 = getelementptr inbounds nuw [256 x i8], ptr %151, i64 0, i64 %152
+  %154 = load i8, ptr %153, align 1
+  %155 = zext i8 %154 to i64
+  %156 = zext i8 %.0149.in to i64
+  %gep187 = getelementptr inbounds nuw [256 x [256 x i8]], ptr %invariant.gep186, i64 0, i64 %156
+  %157 = load i8, ptr %gep187, align 1
   %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw i8, ptr %10, i64 %136
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 %137
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 %140
   %161 = load i8, ptr %160, align 1
-  %162 = getelementptr inbounds nuw i8, ptr %10, i64 %145
+  %162 = getelementptr inbounds nuw i8, ptr %10, i64 %146
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 %149
   %164 = load i8, ptr %163, align 1
-  %165 = getelementptr inbounds nuw i8, ptr %10, i64 %154
+  %165 = getelementptr inbounds nuw i8, ptr %10, i64 %155
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 %158
   %167 = load i8, ptr %166, align 1
   %168 = lshr i8 %161, 3
@@ -1630,9 +1638,9 @@ define hidden void @Ushort555RgbxDrawGlyphListLCD(ptr noundef readonly captures(
   br i1 %185, label %.preheader181, label %.loopexit183, !llvm.loop !50
 
 .loopexit183:                                     ; preds = %.loopexit182, %.loopexit.us, %47, %38
-  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
-  br i1 %exitcond197.not, label %._crit_edge, label %38, !llvm.loop !51
+  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
+  %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
+  br i1 %exitcond201.not, label %._crit_edge, label %38, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.loopexit183, %14
   ret void

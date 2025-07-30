@@ -75,30 +75,31 @@ define void @av_blowfish_init(ptr noundef captures(none) initializes((72, 4168))
   %28 = icmp samesign ult i64 %indvars.iv48, 16
   br i1 %28, label %22, label %.preheader, !llvm.loop !12
 
-.preheader:                                       ; preds = %22, %36
-  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %36 ], [ 0, %22 ]
-  br label %29
+.preheader:                                       ; preds = %22, %37
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %37 ], [ 0, %22 ]
+  %29 = getelementptr inbounds nuw [4 x [256 x i32]], ptr %6, i64 0, i64 %indvars.iv54
+  br label %30
 
-29:                                               ; preds = %.preheader, %29
-  %indvars.iv51 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next52, %29 ]
+30:                                               ; preds = %.preheader, %30
+  %indvars.iv51 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next52, %30 ]
   call void @av_blowfish_crypt_ecb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0)
-  %30 = load i32, ptr %4, align 4, !tbaa !9
-  %31 = getelementptr inbounds nuw [4 x [256 x i32]], ptr %6, i64 0, i64 %indvars.iv54, i64 %indvars.iv51
-  store i32 %30, ptr %31, align 4, !tbaa !9
-  %32 = load i32, ptr %5, align 4, !tbaa !9
-  %33 = or disjoint i64 %indvars.iv51, 1
-  %34 = getelementptr inbounds nuw [4 x [256 x i32]], ptr %6, i64 0, i64 %indvars.iv54, i64 %33
-  store i32 %32, ptr %34, align 4, !tbaa !9
+  %31 = load i32, ptr %4, align 4, !tbaa !9
+  %32 = getelementptr inbounds nuw [256 x i32], ptr %29, i64 0, i64 %indvars.iv51
+  store i32 %31, ptr %32, align 4, !tbaa !9
+  %33 = load i32, ptr %5, align 4, !tbaa !9
+  %34 = or disjoint i64 %indvars.iv51, 1
+  %35 = getelementptr inbounds nuw [256 x i32], ptr %29, i64 0, i64 %34
+  store i32 %33, ptr %35, align 4, !tbaa !9
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 2
-  %35 = icmp samesign ult i64 %indvars.iv51, 254
-  br i1 %35, label %29, label %36, !llvm.loop !13
+  %36 = icmp samesign ult i64 %indvars.iv51, 254
+  br i1 %36, label %30, label %37, !llvm.loop !13
 
-36:                                               ; preds = %29
+37:                                               ; preds = %30
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 4
-  br i1 %exitcond57.not, label %37, label %.preheader, !llvm.loop !14
+  br i1 %exitcond57.not, label %38, label %.preheader, !llvm.loop !14
 
-37:                                               ; preds = %36
+38:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   ret void

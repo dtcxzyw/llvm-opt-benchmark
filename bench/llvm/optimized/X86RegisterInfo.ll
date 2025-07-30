@@ -1140,7 +1140,7 @@ define dso_local i64 @_ZNK4llvm18X86GenRegisterInfo37reverseComposeSubRegIndexLa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %21, label %4
+  br i1 %.not, label %22, label %4
 
 4:                                                ; preds = %3
   %5 = add i32 %2, -1
@@ -1148,31 +1148,32 @@ define dso_local noundef ptr @_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubR
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i16, ptr %7, align 8, !tbaa !275
   %9 = zext i16 %8 to i64
-  %10 = zext i32 %5 to i64
-  %11 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !265
-  %.not10 = icmp eq i8 %12, 0
-  br i1 %.not10, label %21, label %13
+  %10 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9
+  %11 = zext i32 %5 to i64
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 0, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !265
+  %.not10 = icmp eq i8 %13, 0
+  br i1 %.not10, label %22, label %14
 
-13:                                               ; preds = %4
-  %14 = zext i8 %12 to i64
-  %15 = add nuw nsw i64 %14, 4294967295
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %17 = load ptr, ptr %16, align 8, !tbaa !276
-  %18 = and i64 %15, 4294967295
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !277
-  br label %21
+14:                                               ; preds = %4
+  %15 = zext i8 %13 to i64
+  %16 = add nuw nsw i64 %15, 4294967295
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %18 = load ptr, ptr %17, align 8, !tbaa !276
+  %19 = and i64 %16, 4294967295
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !277
+  br label %22
 
-21:                                               ; preds = %13, %4, %3
-  %.0 = phi ptr [ %1, %3 ], [ %20, %13 ], [ null, %4 ]
+22:                                               ; preds = %14, %4, %3
+  %.0 = phi ptr [ %1, %3 ], [ %21, %14 ], [ null, %4 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK4llvm18X86GenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %21, label %4
+  br i1 %.not, label %22, label %4
 
 4:                                                ; preds = %3
   %5 = add i32 %2, -1
@@ -1180,24 +1181,25 @@ define dso_local noundef ptr @_ZNK4llvm18X86GenRegisterInfo19getSubRegisterClass
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i16, ptr %7, align 8, !tbaa !275
   %9 = zext i16 %8 to i64
-  %10 = zext i32 %5 to i64
-  %11 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !265
-  %.not10 = icmp eq i8 %12, 0
-  br i1 %.not10, label %21, label %13
+  %10 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9
+  %11 = zext i32 %5 to i64
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 0, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !265
+  %.not10 = icmp eq i8 %13, 0
+  br i1 %.not10, label %22, label %14
 
-13:                                               ; preds = %4
-  %14 = zext i8 %12 to i64
-  %15 = add nuw nsw i64 %14, 4294967295
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %17 = load ptr, ptr %16, align 8, !tbaa !276
-  %18 = and i64 %15, 4294967295
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !277
-  br label %21
+14:                                               ; preds = %4
+  %15 = zext i8 %13 to i64
+  %16 = add nuw nsw i64 %15, 4294967295
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %18 = load ptr, ptr %17, align 8, !tbaa !276
+  %19 = and i64 %16, 4294967295
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !277
+  br label %22
 
-21:                                               ; preds = %13, %4, %3
-  %.0 = phi ptr [ %1, %3 ], [ %20, %13 ], [ null, %4 ]
+22:                                               ; preds = %14, %4, %3
+  %.0 = phi ptr [ %1, %3 ], [ %21, %14 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -2073,24 +2075,25 @@ define dso_local noundef ptr @_ZNK4llvm15X86RegisterInfo21getSubClassWithSubRegE
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i16, ptr %11, align 8, !tbaa !275
   %13 = zext i16 %12 to i64
-  %14 = zext i32 %9 to i64
-  %15 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %13, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !265
-  %.not10.i = icmp eq i8 %16, 0
-  br i1 %.not10.i, label %_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj.exit, label %17
+  %14 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %13
+  %15 = zext i32 %9 to i64
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 0, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !265
+  %.not10.i = icmp eq i8 %17, 0
+  br i1 %.not10.i, label %_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj.exit, label %18
 
-17:                                               ; preds = %8
-  %18 = zext i8 %16 to i64
-  %19 = add nuw nsw i64 %18, 4294967295
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %21 = load ptr, ptr %20, align 8, !tbaa !276
-  %22 = and i64 %19, 4294967295
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !277
+18:                                               ; preds = %8
+  %19 = zext i8 %17 to i64
+  %20 = add nuw nsw i64 %19, 4294967295
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %22 = load ptr, ptr %21, align 8, !tbaa !276
+  %23 = and i64 %20, 4294967295
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !277
   br label %_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj.exit
 
-_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj.exit: ; preds = %3, %8, %17
-  %.0.i = phi ptr [ %1, %3 ], [ %24, %17 ], [ null, %8 ]
+_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj.exit: ; preds = %3, %8, %18
+  %.0.i = phi ptr [ %1, %3 ], [ %25, %18 ], [ null, %8 ]
   ret ptr %.0.i
 }
 

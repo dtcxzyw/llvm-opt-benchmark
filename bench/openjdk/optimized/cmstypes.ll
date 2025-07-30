@@ -93,33 +93,35 @@ define hidden range(i32 0, 2) i32 @IsIdentity(ptr noundef readonly captures(none
   store double 0.000000e+00, ptr %7, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %17
-  %indvars.iv16 = phi i64 [ 0, %1 ], [ %indvars.iv.next17, %17 ]
-  br label %9
+.preheader:                                       ; preds = %1, %19
+  %indvars.iv16 = phi i64 [ 0, %1 ], [ %indvars.iv.next17, %19 ]
+  %8 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv16
+  %9 = getelementptr inbounds nuw [3 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv16
+  br label %11
 
-8:                                                ; preds = %9
+10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %17, label %9, !llvm.loop !6
+  br i1 %exitcond.not, label %19, label %11, !llvm.loop !6
 
-9:                                                ; preds = %.preheader, %8
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv16, i64 %indvars.iv
-  %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds nuw [3 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv16, i64 %indvars.iv
+11:                                               ; preds = %.preheader, %10
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %10 ]
+  %12 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
-  %14 = fsub double %13, %11
-  %15 = tail call double @llvm.fabs.f64(double %14)
-  %16 = fcmp uge double %15, 0x3EF0001000100010
-  br i1 %16, label %.loopexit, label %8
+  %14 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv
+  %15 = load double, ptr %14, align 8
+  %16 = fsub double %15, %13
+  %17 = tail call double @llvm.fabs.f64(double %16)
+  %18 = fcmp uge double %17, 0x3EF0001000100010
+  br i1 %18, label %.loopexit, label %10
 
-17:                                               ; preds = %8
+19:                                               ; preds = %10
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 3
   br i1 %exitcond19.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
-.loopexit:                                        ; preds = %17, %9
-  %.010 = phi i32 [ 0, %9 ], [ 1, %17 ]
+.loopexit:                                        ; preds = %19, %11
+  %.010 = phi i32 [ 0, %11 ], [ 1, %19 ]
   ret i32 %.010
 }
 
@@ -7614,168 +7616,170 @@ define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr readnone captures(none)
   store double 0.000000e+00, ptr %38, align 8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %48, %32
-  %indvars.iv16.i = phi i64 [ 0, %32 ], [ %indvars.iv.next17.i, %48 ]
-  br label %40
+.preheader.i:                                     ; preds = %50, %32
+  %indvars.iv16.i = phi i64 [ 0, %32 ], [ %indvars.iv.next17.i, %50 ]
+  %39 = getelementptr inbounds nuw [4 x double], ptr %33, i64 %indvars.iv16.i
+  %40 = getelementptr inbounds nuw [3 x [4 x double]], ptr %5, i64 0, i64 %indvars.iv16.i
+  br label %42
 
-39:                                               ; preds = %40
+41:                                               ; preds = %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %48, label %40, !llvm.loop !6
+  br i1 %exitcond.not.i, label %50, label %42, !llvm.loop !6
 
-40:                                               ; preds = %39, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %39 ]
-  %41 = getelementptr inbounds nuw [4 x double], ptr %33, i64 %indvars.iv16.i, i64 %indvars.iv.i
-  %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds nuw [3 x [4 x double]], ptr %5, i64 0, i64 %indvars.iv16.i, i64 %indvars.iv.i
+42:                                               ; preds = %41, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %41 ]
+  %43 = getelementptr inbounds nuw [4 x double], ptr %39, i64 0, i64 %indvars.iv.i
   %44 = load double, ptr %43, align 8
-  %45 = fsub double %44, %42
-  %46 = tail call double @llvm.fabs.f64(double %45)
-  %47 = fcmp uge double %46, 0x3EF0001000100010
-  br i1 %47, label %49, label %39
+  %45 = getelementptr inbounds nuw [4 x double], ptr %40, i64 0, i64 %indvars.iv.i
+  %46 = load double, ptr %45, align 8
+  %47 = fsub double %46, %44
+  %48 = tail call double @llvm.fabs.f64(double %47)
+  %49 = fcmp uge double %48, 0x3EF0001000100010
+  br i1 %49, label %51, label %41
 
-48:                                               ; preds = %39
+50:                                               ; preds = %41
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 3
   br i1 %exitcond19.not.i, label %IsIdentity.exit, label %.preheader.i, !llvm.loop !8
 
-IsIdentity.exit:                                  ; preds = %48
+IsIdentity.exit:                                  ; preds = %50
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
   br label %WriteDoubles.exit
 
-49:                                               ; preds = %40
+51:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
-  %50 = load ptr, ptr %6, align 8
-  %51 = tail call i32 %50(ptr noundef nonnull %1) #14
-  %52 = sub i32 %51, %9
+  %52 = load ptr, ptr %6, align 8
+  %53 = tail call i32 %52(ptr noundef nonnull %1) #14
+  %54 = sub i32 %53, %9
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %55, %49
-  %.08.i = phi i32 [ %57, %55 ], [ 0, %49 ]
-  %.057.i = phi ptr [ %56, %55 ], [ %33, %49 ]
-  %53 = load double, ptr %.057.i, align 8
-  %54 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %53) #14
-  %.not.i = icmp eq i32 %54, 0
-  br i1 %.not.i, label %WriteDoubles.exit76, label %55
+.lr.ph.i:                                         ; preds = %57, %51
+  %.08.i = phi i32 [ %59, %57 ], [ 0, %51 ]
+  %.057.i = phi ptr [ %58, %57 ], [ %33, %51 ]
+  %55 = load double, ptr %.057.i, align 8
+  %56 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %55) #14
+  %.not.i = icmp eq i32 %56, 0
+  br i1 %.not.i, label %WriteDoubles.exit76, label %57
 
-55:                                               ; preds = %.lr.ph.i
-  %56 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
-  %57 = add nuw nsw i32 %.08.i, 1
-  %exitcond.not.i69 = icmp eq i32 %57, 12
+57:                                               ; preds = %.lr.ph.i
+  %58 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
+  %59 = add nuw nsw i32 %.08.i, 1
+  %exitcond.not.i69 = icmp eq i32 %59, 12
   br i1 %exitcond.not.i69, label %WriteDoubles.exit, label %.lr.ph.i, !llvm.loop !58
 
-WriteDoubles.exit:                                ; preds = %55, %IsIdentity.exit
-  %.051 = phi i32 [ 0, %IsIdentity.exit ], [ %52, %55 ]
-  %58 = load ptr, ptr %6, align 8
-  %59 = tail call i32 %58(ptr noundef nonnull %1) #14
-  %60 = sub i32 %59, %9
-  %61 = load i32, ptr %2, align 8
-  %.not11.i = icmp eq i32 %61, 0
+WriteDoubles.exit:                                ; preds = %57, %IsIdentity.exit
+  %.051 = phi i32 [ 0, %IsIdentity.exit ], [ %54, %57 ]
+  %60 = load ptr, ptr %6, align 8
+  %61 = tail call i32 %60(ptr noundef nonnull %1) #14
+  %62 = sub i32 %61, %9
+  %63 = load i32, ptr %2, align 8
+  %.not11.i = icmp eq i32 %63, 0
   br i1 %.not11.i, label %.loopexit106, label %.lr.ph.i70.preheader
 
 .lr.ph.i70.preheader:                             ; preds = %WriteDoubles.exit
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load ptr, ptr %64, align 8
   br label %.lr.ph.i70
 
-.lr.ph.i70:                                       ; preds = %.lr.ph.i70.preheader, %66
-  %.08.i71 = phi i32 [ %68, %66 ], [ 0, %.lr.ph.i70.preheader ]
-  %.057.i72 = phi ptr [ %67, %66 ], [ %63, %.lr.ph.i70.preheader ]
-  %64 = load double, ptr %.057.i72, align 8
-  %65 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %64) #14
-  %.not.i73 = icmp eq i32 %65, 0
-  br i1 %.not.i73, label %WriteDoubles.exit76, label %66
+.lr.ph.i70:                                       ; preds = %.lr.ph.i70.preheader, %68
+  %.08.i71 = phi i32 [ %70, %68 ], [ 0, %.lr.ph.i70.preheader ]
+  %.057.i72 = phi ptr [ %69, %68 ], [ %65, %.lr.ph.i70.preheader ]
+  %66 = load double, ptr %.057.i72, align 8
+  %67 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %66) #14
+  %.not.i73 = icmp eq i32 %67, 0
+  br i1 %.not.i73, label %WriteDoubles.exit76, label %68
 
-66:                                               ; preds = %.lr.ph.i70
-  %67 = getelementptr inbounds nuw i8, ptr %.057.i72, i64 8
-  %68 = add nuw i32 %.08.i71, 1
-  %exitcond.not.i74 = icmp eq i32 %68, %61
+68:                                               ; preds = %.lr.ph.i70
+  %69 = getelementptr inbounds nuw i8, ptr %.057.i72, i64 8
+  %70 = add nuw i32 %.08.i71, 1
+  %exitcond.not.i74 = icmp eq i32 %70, %63
   br i1 %exitcond.not.i74, label %.loopexit106, label %.lr.ph.i70, !llvm.loop !58
 
-.loopexit106:                                     ; preds = %66, %WriteDoubles.exit
-  %69 = load ptr, ptr %6, align 8
-  %70 = tail call i32 %69(ptr noundef nonnull %1) #14
-  %71 = sub i32 %70, %9
-  %72 = load i32, ptr %2, align 8
-  %.not11.i77 = icmp eq i32 %72, 0
+.loopexit106:                                     ; preds = %68, %WriteDoubles.exit
+  %71 = load ptr, ptr %6, align 8
+  %72 = tail call i32 %71(ptr noundef nonnull %1) #14
+  %73 = sub i32 %72, %9
+  %74 = load i32, ptr %2, align 8
+  %.not11.i77 = icmp eq i32 %74, 0
   br i1 %.not11.i77, label %.loopexit104, label %.lr.ph.i78.preheader
 
 .lr.ph.i78.preheader:                             ; preds = %.loopexit106
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %76 = load ptr, ptr %75, align 8
   br label %.lr.ph.i78
 
-.lr.ph.i78:                                       ; preds = %.lr.ph.i78.preheader, %77
-  %.08.i79 = phi i32 [ %79, %77 ], [ 0, %.lr.ph.i78.preheader ]
-  %.057.i80 = phi ptr [ %78, %77 ], [ %74, %.lr.ph.i78.preheader ]
-  %75 = load double, ptr %.057.i80, align 8
-  %76 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %75) #14
-  %.not.i81 = icmp eq i32 %76, 0
-  br i1 %.not.i81, label %WriteDoubles.exit76, label %77
+.lr.ph.i78:                                       ; preds = %.lr.ph.i78.preheader, %79
+  %.08.i79 = phi i32 [ %81, %79 ], [ 0, %.lr.ph.i78.preheader ]
+  %.057.i80 = phi ptr [ %80, %79 ], [ %76, %.lr.ph.i78.preheader ]
+  %77 = load double, ptr %.057.i80, align 8
+  %78 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %77) #14
+  %.not.i81 = icmp eq i32 %78, 0
+  br i1 %.not.i81, label %WriteDoubles.exit76, label %79
 
-77:                                               ; preds = %.lr.ph.i78
-  %78 = getelementptr inbounds nuw i8, ptr %.057.i80, i64 8
-  %79 = add nuw i32 %.08.i79, 1
-  %exitcond.not.i82 = icmp eq i32 %79, %72
+79:                                               ; preds = %.lr.ph.i78
+  %80 = getelementptr inbounds nuw i8, ptr %.057.i80, i64 8
+  %81 = add nuw i32 %.08.i79, 1
+  %exitcond.not.i82 = icmp eq i32 %81, %74
   br i1 %exitcond.not.i82, label %.loopexit104, label %.lr.ph.i78, !llvm.loop !58
 
-.loopexit104:                                     ; preds = %77, %.loopexit106
-  %80 = load ptr, ptr %6, align 8
-  %81 = tail call i32 %80(ptr noundef nonnull %1) #14
-  %82 = sub i32 %81, %9
-  %83 = load i32, ptr %2, align 8
-  %.not11.i85 = icmp eq i32 %83, 0
+.loopexit104:                                     ; preds = %79, %.loopexit106
+  %82 = load ptr, ptr %6, align 8
+  %83 = tail call i32 %82(ptr noundef nonnull %1) #14
+  %84 = sub i32 %83, %9
+  %85 = load i32, ptr %2, align 8
+  %.not11.i85 = icmp eq i32 %85, 0
   br i1 %.not11.i85, label %.loopexit, label %.lr.ph.i86.preheader
 
 .lr.ph.i86.preheader:                             ; preds = %.loopexit104
-  %84 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %87 = load ptr, ptr %86, align 8
   br label %.lr.ph.i86
 
-.lr.ph.i86:                                       ; preds = %.lr.ph.i86.preheader, %88
-  %.08.i87 = phi i32 [ %90, %88 ], [ 0, %.lr.ph.i86.preheader ]
-  %.057.i88 = phi ptr [ %89, %88 ], [ %85, %.lr.ph.i86.preheader ]
-  %86 = load double, ptr %.057.i88, align 8
-  %87 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %86) #14
-  %.not.i89 = icmp eq i32 %87, 0
-  br i1 %.not.i89, label %WriteDoubles.exit76, label %88
+.lr.ph.i86:                                       ; preds = %.lr.ph.i86.preheader, %90
+  %.08.i87 = phi i32 [ %92, %90 ], [ 0, %.lr.ph.i86.preheader ]
+  %.057.i88 = phi ptr [ %91, %90 ], [ %87, %.lr.ph.i86.preheader ]
+  %88 = load double, ptr %.057.i88, align 8
+  %89 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %88) #14
+  %.not.i89 = icmp eq i32 %89, 0
+  br i1 %.not.i89, label %WriteDoubles.exit76, label %90
 
-88:                                               ; preds = %.lr.ph.i86
-  %89 = getelementptr inbounds nuw i8, ptr %.057.i88, i64 8
-  %90 = add nuw i32 %.08.i87, 1
-  %exitcond.not.i90 = icmp eq i32 %90, %83
+90:                                               ; preds = %.lr.ph.i86
+  %91 = getelementptr inbounds nuw i8, ptr %.057.i88, i64 8
+  %92 = add nuw i32 %.08.i87, 1
+  %exitcond.not.i90 = icmp eq i32 %92, %85
   br i1 %exitcond.not.i90, label %.loopexit, label %.lr.ph.i86, !llvm.loop !58
 
-.loopexit:                                        ; preds = %88, %.loopexit104
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %92 = load ptr, ptr %91, align 8
-  %93 = tail call i32 %92(ptr noundef nonnull %1, i32 noundef %24) #14
-  %.not64 = icmp eq i32 %93, 0
-  br i1 %.not64, label %WriteDoubles.exit76, label %94
+.loopexit:                                        ; preds = %90, %.loopexit104
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call i32 %94(ptr noundef nonnull %1, i32 noundef %24) #14
+  %.not64 = icmp eq i32 %95, 0
+  br i1 %.not64, label %WriteDoubles.exit76, label %96
 
-94:                                               ; preds = %.loopexit
-  %95 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %.051) #14
-  %.not65 = icmp eq i32 %95, 0
-  br i1 %.not65, label %WriteDoubles.exit76, label %96
-
-96:                                               ; preds = %94
-  %97 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %60) #14
-  %.not66 = icmp eq i32 %97, 0
-  br i1 %.not66, label %WriteDoubles.exit76, label %98
+96:                                               ; preds = %.loopexit
+  %97 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %.051) #14
+  %.not65 = icmp eq i32 %97, 0
+  br i1 %.not65, label %WriteDoubles.exit76, label %98
 
 98:                                               ; preds = %96
-  %99 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %71) #14
-  %.not67 = icmp eq i32 %99, 0
-  br i1 %.not67, label %WriteDoubles.exit76, label %100
+  %99 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %62) #14
+  %.not66 = icmp eq i32 %99, 0
+  br i1 %.not66, label %WriteDoubles.exit76, label %100
 
 100:                                              ; preds = %98
-  %101 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %82) #14
-  %.not68 = icmp ne i32 %101, 0
+  %101 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %73) #14
+  %.not67 = icmp eq i32 %101, 0
+  br i1 %.not67, label %WriteDoubles.exit76, label %102
+
+102:                                              ; preds = %100
+  %103 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %84) #14
+  %.not68 = icmp ne i32 %103, 0
   %. = zext i1 %.not68 to i32
   br label %WriteDoubles.exit76
 
-WriteDoubles.exit76:                              ; preds = %.lr.ph.i, %.lr.ph.i70, %.lr.ph.i78, %.lr.ph.i86, %100, %98, %96, %94, %.loopexit, %30, %28, %26, %22, %18, %14, %11, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %14 ], [ 0, %18 ], [ 0, %22 ], [ 0, %26 ], [ 0, %28 ], [ 0, %30 ], [ 0, %.loopexit ], [ 0, %94 ], [ 0, %96 ], [ 0, %98 ], [ %., %100 ], [ 0, %.lr.ph.i86 ], [ 0, %.lr.ph.i78 ], [ 0, %.lr.ph.i70 ], [ 0, %.lr.ph.i ]
+WriteDoubles.exit76:                              ; preds = %.lr.ph.i, %.lr.ph.i70, %.lr.ph.i78, %.lr.ph.i86, %102, %100, %98, %96, %.loopexit, %30, %28, %26, %22, %18, %14, %11, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %14 ], [ 0, %18 ], [ 0, %22 ], [ 0, %26 ], [ 0, %28 ], [ 0, %30 ], [ 0, %.loopexit ], [ 0, %96 ], [ 0, %98 ], [ 0, %100 ], [ %., %102 ], [ 0, %.lr.ph.i86 ], [ 0, %.lr.ph.i78 ], [ 0, %.lr.ph.i70 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 

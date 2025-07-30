@@ -108,7 +108,7 @@ define internal ptr @cmath_acos(ptr readnone captures(none) %0, ptr noundef %1) 
   %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
   %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %67
+  br i1 %.not, label %5, label %68
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
@@ -120,7 +120,7 @@ define internal ptr @cmath_acos(ptr readnone captures(none) %0, ptr noundef %1) 
   %11 = tail call double @llvm.fabs.f64(double %6)
   %12 = fcmp ueq double %11, 0x7FF0000000000000
   %or.cond.i = select i1 %10, i1 true, i1 %12
-  br i1 %or.cond.i, label %13, label %36
+  br i1 %or.cond.i, label %13, label %37
 
 13:                                               ; preds = %5
   br i1 %10, label %20, label %14
@@ -151,89 +151,90 @@ define internal ptr @cmath_acos(ptr readnone captures(none) %0, ptr noundef %1) 
 
 special_type.exit.i:                              ; preds = %22, %20, %19, %18
   %.0.i.i = phi i64 [ %..i.i, %18 ], [ %.7.i.i, %19 ], [ 6, %20 ], [ %.8.i.i, %22 ]
-  br i1 %12, label %31, label %25
+  %25 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acos_special_values, i64 0, i64 %.0.i.i
+  br i1 %12, label %32, label %26
 
-25:                                               ; preds = %special_type.exit.i
-  %26 = fcmp une double %6, 0.000000e+00
-  %27 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
-  %28 = fcmp oeq double %27, 1.000000e+00
-  br i1 %26, label %29, label %30
+26:                                               ; preds = %special_type.exit.i
+  %27 = fcmp une double %6, 0.000000e+00
+  %28 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %29 = fcmp oeq double %28, 1.000000e+00
+  br i1 %27, label %30, label %31
 
-29:                                               ; preds = %25
-  %..i34.i = select i1 %28, i64 4, i64 1
+30:                                               ; preds = %26
+  %..i34.i = select i1 %29, i64 4, i64 1
   br label %cmath_acos_impl.exit
 
-30:                                               ; preds = %25
-  %.7.i32.i = select i1 %28, i64 3, i64 2
+31:                                               ; preds = %26
+  %.7.i32.i = select i1 %29, i64 3, i64 2
   br label %cmath_acos_impl.exit
 
-31:                                               ; preds = %special_type.exit.i
-  %32 = fcmp uno double %6, 0.000000e+00
-  br i1 %32, label %cmath_acos_impl.exit, label %33
+32:                                               ; preds = %special_type.exit.i
+  %33 = fcmp uno double %6, 0.000000e+00
+  br i1 %33, label %cmath_acos_impl.exit, label %34
 
-33:                                               ; preds = %31
-  %34 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
-  %35 = fcmp oeq double %34, 1.000000e+00
-  %.8.i35.i = select i1 %35, i64 5, i64 0
+34:                                               ; preds = %32
+  %35 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %36 = fcmp oeq double %35, 1.000000e+00
+  %.8.i35.i = select i1 %36, i64 5, i64 0
   br label %cmath_acos_impl.exit
 
-36:                                               ; preds = %5
-  %37 = fcmp ogt double %9, 0x7FCFFFFFFFFFFFFF
-  %38 = fcmp ogt double %11, 0x7FCFFFFFFFFFFFFF
-  %or.cond31.i = select i1 %37, i1 true, i1 %38
-  br i1 %or.cond31.i, label %39, label %48
+37:                                               ; preds = %5
+  %38 = fcmp ogt double %9, 0x7FCFFFFFFFFFFFFF
+  %39 = fcmp ogt double %11, 0x7FCFFFFFFFFFFFFF
+  %or.cond31.i = select i1 %38, i1 true, i1 %39
+  br i1 %or.cond31.i, label %40, label %49
 
-39:                                               ; preds = %36
-  %40 = tail call double @atan2(double noundef %11, double noundef %7) #10, !tbaa !3
-  %41 = fmul double %7, 5.000000e-01
-  %42 = fmul double %6, 5.000000e-01
-  %43 = tail call double @hypot(double noundef %41, double noundef %42) #10, !tbaa !3
-  %44 = tail call double @log(double noundef %43) #10, !tbaa !3
-  %45 = fadd double %44, 0x3FF62E42FEFA39EF
-  %46 = fneg double %6
-  %47 = tail call double @llvm.copysign.f64(double %45, double %46)
+40:                                               ; preds = %37
+  %41 = tail call double @atan2(double noundef %11, double noundef %7) #10, !tbaa !3
+  %42 = fmul double %7, 5.000000e-01
+  %43 = fmul double %6, 5.000000e-01
+  %44 = tail call double @hypot(double noundef %42, double noundef %43) #10, !tbaa !3
+  %45 = tail call double @log(double noundef %44) #10, !tbaa !3
+  %46 = fadd double %45, 0x3FF62E42FEFA39EF
+  %47 = fneg double %6
+  %48 = tail call double @llvm.copysign.f64(double %46, double %47)
   br label %cmath_acos_impl.exit.thread
 
-48:                                               ; preds = %36
-  %49 = fsub double 1.000000e+00, %7
-  %50 = fneg double %6
-  %51 = tail call fastcc { double, double } @cmath_sqrt_impl(double %49, double %50)
-  %52 = extractvalue { double, double } %51, 0
-  %53 = extractvalue { double, double } %51, 1
-  %54 = fadd double %7, 1.000000e+00
-  %55 = tail call fastcc { double, double } @cmath_sqrt_impl(double %54, double %6)
-  %56 = extractvalue { double, double } %55, 0
-  %57 = extractvalue { double, double } %55, 1
-  %58 = tail call double @atan2(double noundef %52, double noundef %56) #10, !tbaa !3
-  %59 = fmul double %58, 2.000000e+00
-  %60 = fneg double %52
-  %61 = fmul double %57, %60
-  %62 = tail call double @llvm.fmuladd.f64(double %56, double %53, double %61)
-  %63 = tail call double @asinh(double noundef %62) #10, !tbaa !3
+49:                                               ; preds = %37
+  %50 = fsub double 1.000000e+00, %7
+  %51 = fneg double %6
+  %52 = tail call fastcc { double, double } @cmath_sqrt_impl(double %50, double %51)
+  %53 = extractvalue { double, double } %52, 0
+  %54 = extractvalue { double, double } %52, 1
+  %55 = fadd double %7, 1.000000e+00
+  %56 = tail call fastcc { double, double } @cmath_sqrt_impl(double %55, double %6)
+  %57 = extractvalue { double, double } %56, 0
+  %58 = extractvalue { double, double } %56, 1
+  %59 = tail call double @atan2(double noundef %53, double noundef %57) #10, !tbaa !3
+  %60 = fmul double %59, 2.000000e+00
+  %61 = fneg double %53
+  %62 = fmul double %58, %61
+  %63 = tail call double @llvm.fmuladd.f64(double %57, double %54, double %62)
+  %64 = tail call double @asinh(double noundef %63) #10, !tbaa !3
   br label %cmath_acos_impl.exit.thread
 
-cmath_acos_impl.exit.thread:                      ; preds = %39, %48
-  %.sroa.03.0.i = phi double [ %40, %39 ], [ %59, %48 ]
-  %.sroa.5.0.i = phi double [ %47, %39 ], [ %63, %48 ]
+cmath_acos_impl.exit.thread:                      ; preds = %40, %49
+  %.sroa.03.0.i = phi double [ %41, %40 ], [ %60, %49 ]
+  %.sroa.5.0.i = phi double [ %48, %40 ], [ %64, %49 ]
   store i32 0, ptr %8, align 4, !tbaa !3
-  br label %65
+  br label %66
 
-cmath_acos_impl.exit:                             ; preds = %29, %30, %31, %33
-  %.0.i33.i = phi i64 [ %..i34.i, %29 ], [ %.7.i32.i, %30 ], [ 6, %31 ], [ %.8.i35.i, %33 ]
-  %64 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acos_special_values, i64 0, i64 %.0.i.i, i64 %.0.i33.i
-  %.sroa.028.0.copyload.i = load double, ptr %64, align 16, !tbaa !7
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %64, i64 8
+cmath_acos_impl.exit:                             ; preds = %30, %31, %32, %34
+  %.0.i33.i = phi i64 [ %..i34.i, %30 ], [ %.7.i32.i, %31 ], [ 6, %32 ], [ %.8.i35.i, %34 ]
+  %65 = getelementptr [7 x %struct.Py_complex], ptr %25, i64 0, i64 %.0.i33.i
+  %.sroa.028.0.copyload.i = load double, ptr %65, align 16, !tbaa !7
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %65, i64 8
   %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !7
-  br label %65
+  br label %66
 
-65:                                               ; preds = %cmath_acos_impl.exit, %cmath_acos_impl.exit.thread
+66:                                               ; preds = %cmath_acos_impl.exit, %cmath_acos_impl.exit.thread
   %.sroa.3.0.i15 = phi double [ %.sroa.5.0.i, %cmath_acos_impl.exit.thread ], [ %.sroa.3.0.copyload.i, %cmath_acos_impl.exit ]
   %.sroa.028.0.i14 = phi double [ %.sroa.03.0.i, %cmath_acos_impl.exit.thread ], [ %.sroa.028.0.copyload.i, %cmath_acos_impl.exit ]
-  %66 = tail call ptr @PyComplex_FromCComplex(double %.sroa.028.0.i14, double %.sroa.3.0.i15) #10
-  br label %67
+  %67 = tail call ptr @PyComplex_FromCComplex(double %.sroa.028.0.i14, double %.sroa.3.0.i15) #10
+  br label %68
 
-67:                                               ; preds = %2, %65
-  %.0 = phi ptr [ null, %2 ], [ %66, %65 ]
+68:                                               ; preds = %2, %66
+  %.0 = phi ptr [ null, %2 ], [ %67, %66 ]
   ret ptr %.0
 }
 
@@ -242,7 +243,7 @@ define internal ptr @cmath_acosh(ptr readnone captures(none) %0, ptr noundef %1)
   %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
   %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %63
+  br i1 %.not, label %5, label %64
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
@@ -254,7 +255,7 @@ define internal ptr @cmath_acosh(ptr readnone captures(none) %0, ptr noundef %1)
   %11 = tail call double @llvm.fabs.f64(double %6)
   %12 = fcmp ueq double %11, 0x7FF0000000000000
   %or.cond.i = select i1 %10, i1 true, i1 %12
-  br i1 %or.cond.i, label %13, label %36
+  br i1 %or.cond.i, label %13, label %37
 
 13:                                               ; preds = %5
   br i1 %10, label %20, label %14
@@ -285,85 +286,86 @@ define internal ptr @cmath_acosh(ptr readnone captures(none) %0, ptr noundef %1)
 
 special_type.exit.i:                              ; preds = %22, %20, %19, %18
   %.0.i.i = phi i64 [ %..i.i, %18 ], [ %.7.i.i, %19 ], [ 6, %20 ], [ %.8.i.i, %22 ]
-  br i1 %12, label %31, label %25
+  %25 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acosh_special_values, i64 0, i64 %.0.i.i
+  br i1 %12, label %32, label %26
 
-25:                                               ; preds = %special_type.exit.i
-  %26 = fcmp une double %6, 0.000000e+00
-  %27 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
-  %28 = fcmp oeq double %27, 1.000000e+00
-  br i1 %26, label %29, label %30
+26:                                               ; preds = %special_type.exit.i
+  %27 = fcmp une double %6, 0.000000e+00
+  %28 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %29 = fcmp oeq double %28, 1.000000e+00
+  br i1 %27, label %30, label %31
 
-29:                                               ; preds = %25
-  %..i32.i = select i1 %28, i64 4, i64 1
+30:                                               ; preds = %26
+  %..i32.i = select i1 %29, i64 4, i64 1
   br label %cmath_acosh_impl.exit
 
-30:                                               ; preds = %25
-  %.7.i30.i = select i1 %28, i64 3, i64 2
+31:                                               ; preds = %26
+  %.7.i30.i = select i1 %29, i64 3, i64 2
   br label %cmath_acosh_impl.exit
 
-31:                                               ; preds = %special_type.exit.i
-  %32 = fcmp uno double %6, 0.000000e+00
-  br i1 %32, label %cmath_acosh_impl.exit, label %33
+32:                                               ; preds = %special_type.exit.i
+  %33 = fcmp uno double %6, 0.000000e+00
+  br i1 %33, label %cmath_acosh_impl.exit, label %34
 
-33:                                               ; preds = %31
-  %34 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
-  %35 = fcmp oeq double %34, 1.000000e+00
-  %.8.i33.i = select i1 %35, i64 5, i64 0
+34:                                               ; preds = %32
+  %35 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %36 = fcmp oeq double %35, 1.000000e+00
+  %.8.i33.i = select i1 %36, i64 5, i64 0
   br label %cmath_acosh_impl.exit
 
-36:                                               ; preds = %5
-  %37 = fcmp ogt double %9, 0x7FCFFFFFFFFFFFFF
-  %38 = fcmp ogt double %11, 0x7FCFFFFFFFFFFFFF
-  %or.cond29.i = select i1 %37, i1 true, i1 %38
-  br i1 %or.cond29.i, label %39, label %46
+37:                                               ; preds = %5
+  %38 = fcmp ogt double %9, 0x7FCFFFFFFFFFFFFF
+  %39 = fcmp ogt double %11, 0x7FCFFFFFFFFFFFFF
+  %or.cond29.i = select i1 %38, i1 true, i1 %39
+  br i1 %or.cond29.i, label %40, label %47
 
-39:                                               ; preds = %36
-  %40 = fmul double %7, 5.000000e-01
-  %41 = fmul double %6, 5.000000e-01
-  %42 = tail call double @hypot(double noundef %40, double noundef %41) #10, !tbaa !3
-  %43 = tail call double @log(double noundef %42) #10, !tbaa !3
-  %44 = fadd double %43, 0x3FF62E42FEFA39EF
-  %45 = tail call double @atan2(double noundef %6, double noundef %7) #10, !tbaa !3
+40:                                               ; preds = %37
+  %41 = fmul double %7, 5.000000e-01
+  %42 = fmul double %6, 5.000000e-01
+  %43 = tail call double @hypot(double noundef %41, double noundef %42) #10, !tbaa !3
+  %44 = tail call double @log(double noundef %43) #10, !tbaa !3
+  %45 = fadd double %44, 0x3FF62E42FEFA39EF
+  %46 = tail call double @atan2(double noundef %6, double noundef %7) #10, !tbaa !3
   br label %cmath_acosh_impl.exit.thread
 
-46:                                               ; preds = %36
-  %47 = fadd double %7, -1.000000e+00
-  %48 = tail call fastcc { double, double } @cmath_sqrt_impl(double %47, double %6)
-  %49 = extractvalue { double, double } %48, 0
-  %50 = extractvalue { double, double } %48, 1
-  %51 = fadd double %7, 1.000000e+00
-  %52 = tail call fastcc { double, double } @cmath_sqrt_impl(double %51, double %6)
-  %53 = extractvalue { double, double } %52, 0
-  %54 = extractvalue { double, double } %52, 1
-  %55 = fmul double %50, %54
-  %56 = tail call double @llvm.fmuladd.f64(double %49, double %53, double %55)
-  %57 = tail call double @asinh(double noundef %56) #10, !tbaa !3
-  %58 = tail call double @atan2(double noundef %50, double noundef %53) #10, !tbaa !3
-  %59 = fmul double %58, 2.000000e+00
+47:                                               ; preds = %37
+  %48 = fadd double %7, -1.000000e+00
+  %49 = tail call fastcc { double, double } @cmath_sqrt_impl(double %48, double %6)
+  %50 = extractvalue { double, double } %49, 0
+  %51 = extractvalue { double, double } %49, 1
+  %52 = fadd double %7, 1.000000e+00
+  %53 = tail call fastcc { double, double } @cmath_sqrt_impl(double %52, double %6)
+  %54 = extractvalue { double, double } %53, 0
+  %55 = extractvalue { double, double } %53, 1
+  %56 = fmul double %51, %55
+  %57 = tail call double @llvm.fmuladd.f64(double %50, double %54, double %56)
+  %58 = tail call double @asinh(double noundef %57) #10, !tbaa !3
+  %59 = tail call double @atan2(double noundef %51, double noundef %54) #10, !tbaa !3
+  %60 = fmul double %59, 2.000000e+00
   br label %cmath_acosh_impl.exit.thread
 
-cmath_acosh_impl.exit.thread:                     ; preds = %39, %46
-  %.sroa.03.0.i = phi double [ %44, %39 ], [ %57, %46 ]
-  %.sroa.5.0.i = phi double [ %45, %39 ], [ %59, %46 ]
+cmath_acosh_impl.exit.thread:                     ; preds = %40, %47
+  %.sroa.03.0.i = phi double [ %45, %40 ], [ %58, %47 ]
+  %.sroa.5.0.i = phi double [ %46, %40 ], [ %60, %47 ]
   store i32 0, ptr %8, align 4, !tbaa !3
-  br label %61
+  br label %62
 
-cmath_acosh_impl.exit:                            ; preds = %29, %30, %31, %33
-  %.0.i31.i = phi i64 [ %..i32.i, %29 ], [ %.7.i30.i, %30 ], [ 6, %31 ], [ %.8.i33.i, %33 ]
-  %60 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acosh_special_values, i64 0, i64 %.0.i.i, i64 %.0.i31.i
-  %.sroa.026.0.copyload.i = load double, ptr %60, align 16, !tbaa !7
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
+cmath_acosh_impl.exit:                            ; preds = %30, %31, %32, %34
+  %.0.i31.i = phi i64 [ %..i32.i, %30 ], [ %.7.i30.i, %31 ], [ 6, %32 ], [ %.8.i33.i, %34 ]
+  %61 = getelementptr [7 x %struct.Py_complex], ptr %25, i64 0, i64 %.0.i31.i
+  %.sroa.026.0.copyload.i = load double, ptr %61, align 16, !tbaa !7
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !7
-  br label %61
+  br label %62
 
-61:                                               ; preds = %cmath_acosh_impl.exit, %cmath_acosh_impl.exit.thread
+62:                                               ; preds = %cmath_acosh_impl.exit, %cmath_acosh_impl.exit.thread
   %.sroa.3.0.i15 = phi double [ %.sroa.5.0.i, %cmath_acosh_impl.exit.thread ], [ %.sroa.3.0.copyload.i, %cmath_acosh_impl.exit ]
   %.sroa.026.0.i14 = phi double [ %.sroa.03.0.i, %cmath_acosh_impl.exit.thread ], [ %.sroa.026.0.copyload.i, %cmath_acosh_impl.exit ]
-  %62 = tail call ptr @PyComplex_FromCComplex(double %.sroa.026.0.i14, double %.sroa.3.0.i15) #10
-  br label %63
+  %63 = tail call ptr @PyComplex_FromCComplex(double %.sroa.026.0.i14, double %.sroa.3.0.i15) #10
+  br label %64
 
-63:                                               ; preds = %2, %61
-  %.0 = phi ptr [ null, %2 ], [ %62, %61 ]
+64:                                               ; preds = %2, %62
+  %.0 = phi ptr [ null, %2 ], [ %63, %62 ]
   ret ptr %.0
 }
 
@@ -617,7 +619,7 @@ define internal ptr @cmath_exp(ptr readnone captures(none) %0, ptr noundef %1) #
   %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
   %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %83
+  br i1 %.not, label %5, label %84
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
@@ -628,7 +630,7 @@ define internal ptr @cmath_exp(ptr readnone captures(none) %0, ptr noundef %1) #
   %11 = tail call double @llvm.fabs.f64(double %6)
   %12 = fcmp one double %11, 0x7FF0000000000000
   %or.cond33.not.i = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond33.not.i, label %55, label %13
+  br i1 %or.cond33.not.i, label %56, label %13
 
 13:                                               ; preds = %5
   %14 = fcmp oeq double %9, 0x7FF0000000000000
@@ -647,12 +649,12 @@ define internal ptr @cmath_exp(ptr readnone captures(none) %0, ptr noundef %1) #
 20:                                               ; preds = %16
   %21 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %18)
   %22 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %19)
-  br label %51
+  br label %52
 
 23:                                               ; preds = %16
   %24 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %18)
   %25 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %19)
-  br label %51
+  br label %52
 
 26:                                               ; preds = %15, %13
   %27 = fcmp ueq double %9, 0x7FF0000000000000
@@ -684,106 +686,107 @@ define internal ptr @cmath_exp(ptr readnone captures(none) %0, ptr noundef %1) #
 
 special_type.exit.i:                              ; preds = %36, %34, %33, %32
   %.0.i.i = phi i64 [ %..i.i, %32 ], [ %.7.i.i, %33 ], [ 6, %34 ], [ %.8.i.i, %36 ]
-  br i1 %12, label %39, label %45
+  %39 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @exp_special_values, i64 0, i64 %.0.i.i
+  br i1 %12, label %40, label %46
 
-39:                                               ; preds = %special_type.exit.i
-  %40 = fcmp une double %6, 0.000000e+00
-  %41 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
-  %42 = fcmp oeq double %41, 1.000000e+00
-  br i1 %40, label %43, label %44
+40:                                               ; preds = %special_type.exit.i
+  %41 = fcmp une double %6, 0.000000e+00
+  %42 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %43 = fcmp oeq double %42, 1.000000e+00
+  br i1 %41, label %44, label %45
 
-43:                                               ; preds = %39
-  %..i39.i = select i1 %42, i64 4, i64 1
+44:                                               ; preds = %40
+  %..i39.i = select i1 %43, i64 4, i64 1
   br label %special_type.exit41.i
 
-44:                                               ; preds = %39
-  %.7.i37.i = select i1 %42, i64 3, i64 2
+45:                                               ; preds = %40
+  %.7.i37.i = select i1 %43, i64 3, i64 2
   br label %special_type.exit41.i
 
-45:                                               ; preds = %special_type.exit.i
-  %46 = fcmp uno double %6, 0.000000e+00
-  br i1 %46, label %special_type.exit41.i, label %47
+46:                                               ; preds = %special_type.exit.i
+  %47 = fcmp uno double %6, 0.000000e+00
+  br i1 %47, label %special_type.exit41.i, label %48
 
-47:                                               ; preds = %45
-  %48 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
-  %49 = fcmp oeq double %48, 1.000000e+00
-  %.8.i40.i = select i1 %49, i64 5, i64 0
+48:                                               ; preds = %46
+  %49 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %50 = fcmp oeq double %49, 1.000000e+00
+  %.8.i40.i = select i1 %50, i64 5, i64 0
   br label %special_type.exit41.i
 
-special_type.exit41.i:                            ; preds = %47, %45, %44, %43
-  %.0.i38.i = phi i64 [ %..i39.i, %43 ], [ %.7.i37.i, %44 ], [ 6, %45 ], [ %.8.i40.i, %47 ]
-  %50 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @exp_special_values, i64 0, i64 %.0.i.i, i64 %.0.i38.i
-  %.sroa.030.0.copyload.i = load double, ptr %50, align 16, !tbaa !7
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+special_type.exit41.i:                            ; preds = %48, %46, %45, %44
+  %.0.i38.i = phi i64 [ %..i39.i, %44 ], [ %.7.i37.i, %45 ], [ 6, %46 ], [ %.8.i40.i, %48 ]
+  %51 = getelementptr [7 x %struct.Py_complex], ptr %39, i64 0, i64 %.0.i38.i
+  %.sroa.030.0.copyload.i = load double, ptr %51, align 16, !tbaa !7
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.7.0.copyload.i = load double, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !7
-  br label %51
+  br label %52
 
-51:                                               ; preds = %special_type.exit41.i, %23, %20
+52:                                               ; preds = %special_type.exit41.i, %23, %20
   %.sroa.030.0.i = phi double [ %21, %20 ], [ %24, %23 ], [ %.sroa.030.0.copyload.i, %special_type.exit41.i ]
   %.sroa.7.0.i = phi double [ %22, %20 ], [ %25, %23 ], [ %.sroa.7.0.copyload.i, %special_type.exit41.i ]
-  %52 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %52, label %53, label %81
+  %53 = fcmp oeq double %11, 0x7FF0000000000000
+  br i1 %53, label %54, label %82
 
-53:                                               ; preds = %51
-  %54 = fcmp ogt double %7, 0.000000e+00
-  %or.cond5.i = select i1 %14, i1 %54, i1 false
+54:                                               ; preds = %52
+  %55 = fcmp ogt double %7, 0.000000e+00
+  %or.cond5.i = select i1 %14, i1 %55, i1 false
   %or.cond34.i = select i1 %10, i1 true, i1 %or.cond5.i
-  br i1 %or.cond34.i, label %77, label %81
+  br i1 %or.cond34.i, label %78, label %82
 
-55:                                               ; preds = %5
-  %56 = fcmp ogt double %7, 0x4086232BDD7ABCD2
-  br i1 %56, label %57, label %66
+56:                                               ; preds = %5
+  %57 = fcmp ogt double %7, 0x4086232BDD7ABCD2
+  br i1 %57, label %58, label %67
 
-57:                                               ; preds = %55
-  %58 = fadd double %7, -1.000000e+00
-  %59 = tail call double @exp(double noundef %58) #10, !tbaa !3
-  %60 = tail call double @cos(double noundef %6) #10, !tbaa !3
-  %61 = fmul double %59, %60
-  %62 = fmul double %61, 0x4005BF0A8B145769
-  %63 = tail call double @sin(double noundef %6) #10, !tbaa !3
-  %64 = fmul double %59, %63
-  %65 = fmul double %64, 0x4005BF0A8B145769
-  br label %72
+58:                                               ; preds = %56
+  %59 = fadd double %7, -1.000000e+00
+  %60 = tail call double @exp(double noundef %59) #10, !tbaa !3
+  %61 = tail call double @cos(double noundef %6) #10, !tbaa !3
+  %62 = fmul double %60, %61
+  %63 = fmul double %62, 0x4005BF0A8B145769
+  %64 = tail call double @sin(double noundef %6) #10, !tbaa !3
+  %65 = fmul double %60, %64
+  %66 = fmul double %65, 0x4005BF0A8B145769
+  br label %73
 
-66:                                               ; preds = %55
-  %67 = tail call double @exp(double noundef %7) #10, !tbaa !3
-  %68 = tail call double @cos(double noundef %6) #10, !tbaa !3
-  %69 = fmul double %67, %68
-  %70 = tail call double @sin(double noundef %6) #10, !tbaa !3
-  %71 = fmul double %67, %70
-  br label %72
+67:                                               ; preds = %56
+  %68 = tail call double @exp(double noundef %7) #10, !tbaa !3
+  %69 = tail call double @cos(double noundef %6) #10, !tbaa !3
+  %70 = fmul double %68, %69
+  %71 = tail call double @sin(double noundef %6) #10, !tbaa !3
+  %72 = fmul double %68, %71
+  br label %73
 
-72:                                               ; preds = %66, %57
-  %.sroa.030.2.i = phi double [ %62, %57 ], [ %69, %66 ]
-  %.sroa.7.2.i = phi double [ %65, %57 ], [ %71, %66 ]
-  %73 = tail call double @llvm.fabs.f64(double %.sroa.030.2.i) #12
-  %74 = fcmp oeq double %73, 0x7FF0000000000000
-  %75 = tail call double @llvm.fabs.f64(double %.sroa.7.2.i) #12
-  %76 = fcmp oeq double %75, 0x7FF0000000000000
-  %or.cond36.i = select i1 %74, i1 true, i1 %76
-  br i1 %or.cond36.i, label %79, label %81
+73:                                               ; preds = %67, %58
+  %.sroa.030.2.i = phi double [ %63, %58 ], [ %70, %67 ]
+  %.sroa.7.2.i = phi double [ %66, %58 ], [ %72, %67 ]
+  %74 = tail call double @llvm.fabs.f64(double %.sroa.030.2.i) #12
+  %75 = fcmp oeq double %74, 0x7FF0000000000000
+  %76 = tail call double @llvm.fabs.f64(double %.sroa.7.2.i) #12
+  %77 = fcmp oeq double %76, 0x7FF0000000000000
+  %or.cond36.i = select i1 %75, i1 true, i1 %77
+  br i1 %or.cond36.i, label %80, label %82
 
-77:                                               ; preds = %53
+78:                                               ; preds = %54
   store i32 33, ptr %8, align 4, !tbaa !3
-  %78 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %78, ptr noundef nonnull @.str.25) #10
-  br label %83
+  %79 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %79, ptr noundef nonnull @.str.25) #10
+  br label %84
 
-79:                                               ; preds = %72
+80:                                               ; preds = %73
   store i32 34, ptr %8, align 4, !tbaa !3
-  %80 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.26) #10
-  br label %83
+  %81 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %81, ptr noundef nonnull @.str.26) #10
+  br label %84
 
-81:                                               ; preds = %72, %51, %53
-  %.sroa.030.1.i.ph = phi double [ %.sroa.030.0.i, %53 ], [ %.sroa.030.0.i, %51 ], [ %.sroa.030.2.i, %72 ]
-  %.sroa.7.1.i.ph = phi double [ %.sroa.7.0.i, %53 ], [ %.sroa.7.0.i, %51 ], [ %.sroa.7.2.i, %72 ]
+82:                                               ; preds = %73, %52, %54
+  %.sroa.030.1.i.ph = phi double [ %.sroa.030.0.i, %54 ], [ %.sroa.030.0.i, %52 ], [ %.sroa.030.2.i, %73 ]
+  %.sroa.7.1.i.ph = phi double [ %.sroa.7.0.i, %54 ], [ %.sroa.7.0.i, %52 ], [ %.sroa.7.2.i, %73 ]
   store i32 0, ptr %8, align 4, !tbaa !3
-  %82 = tail call ptr @PyComplex_FromCComplex(double %.sroa.030.1.i.ph, double %.sroa.7.1.i.ph) #10
-  br label %83
+  %83 = tail call ptr @PyComplex_FromCComplex(double %.sroa.030.1.i.ph, double %.sroa.7.1.i.ph) #10
+  br label %84
 
-83:                                               ; preds = %2, %81, %79, %77
-  %.0 = phi ptr [ null, %2 ], [ null, %77 ], [ null, %79 ], [ %82, %81 ]
+84:                                               ; preds = %2, %82, %80, %78
+  %.0 = phi ptr [ null, %2 ], [ null, %78 ], [ null, %80 ], [ %83, %82 ]
   ret ptr %.0
 }
 
@@ -1315,7 +1318,7 @@ define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef read
   %31 = tail call double @llvm.fabs.f64(double %.0)
   %32 = fcmp ueq double %31, 0x7FF0000000000000
   %or.cond28.i = or i1 %30, %32
-  br i1 %or.cond28.i, label %33, label %75
+  br i1 %or.cond28.i, label %33, label %76
 
 33:                                               ; preds = %27
   %34 = fcmp oeq double %29, 0x7FF0000000000000
@@ -1334,7 +1337,7 @@ define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef read
   %40 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %38)
   %41 = tail call double @sin(double noundef %.0) #10, !tbaa !3
   %42 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %41)
-  br label %73
+  br label %74
 
 43:                                               ; preds = %36
   %44 = fneg double %38
@@ -1342,7 +1345,7 @@ define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef read
   %46 = tail call double @sin(double noundef %.0) #10, !tbaa !3
   %47 = fneg double %46
   %48 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %47)
-  br label %73
+  br label %74
 
 49:                                               ; preds = %35, %33
   br i1 %30, label %56, label %50
@@ -1373,78 +1376,79 @@ define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef read
 
 special_type.exit.i:                              ; preds = %58, %56, %55, %54
   %.0.i.i = phi i64 [ %..i.i, %54 ], [ %.7.i.i, %55 ], [ 6, %56 ], [ %.8.i.i, %58 ]
-  br i1 %32, label %67, label %61
+  %61 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @rect_special_values, i64 0, i64 %.0.i.i
+  br i1 %32, label %68, label %62
 
-61:                                               ; preds = %special_type.exit.i
-  %62 = fcmp une double %.0, 0.000000e+00
-  %63 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.0)
-  %64 = fcmp oeq double %63, 1.000000e+00
-  br i1 %62, label %65, label %66
+62:                                               ; preds = %special_type.exit.i
+  %63 = fcmp une double %.0, 0.000000e+00
+  %64 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.0)
+  %65 = fcmp oeq double %64, 1.000000e+00
+  br i1 %63, label %66, label %67
 
-65:                                               ; preds = %61
-  %..i34.i = select i1 %64, i64 4, i64 1
+66:                                               ; preds = %62
+  %..i34.i = select i1 %65, i64 4, i64 1
   br label %special_type.exit36.i
 
-66:                                               ; preds = %61
-  %.7.i32.i = select i1 %64, i64 3, i64 2
+67:                                               ; preds = %62
+  %.7.i32.i = select i1 %65, i64 3, i64 2
   br label %special_type.exit36.i
 
-67:                                               ; preds = %special_type.exit.i
-  %68 = fcmp uno double %.0, 0.000000e+00
-  br i1 %68, label %special_type.exit36.i, label %69
+68:                                               ; preds = %special_type.exit.i
+  %69 = fcmp uno double %.0, 0.000000e+00
+  br i1 %69, label %special_type.exit36.i, label %70
 
-69:                                               ; preds = %67
-  %70 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.0)
-  %71 = fcmp oeq double %70, 1.000000e+00
-  %.8.i35.i = select i1 %71, i64 5, i64 0
+70:                                               ; preds = %68
+  %71 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.0)
+  %72 = fcmp oeq double %71, 1.000000e+00
+  %.8.i35.i = select i1 %72, i64 5, i64 0
   br label %special_type.exit36.i
 
-special_type.exit36.i:                            ; preds = %69, %67, %66, %65
-  %.0.i33.i = phi i64 [ %..i34.i, %65 ], [ %.7.i32.i, %66 ], [ 6, %67 ], [ %.8.i35.i, %69 ]
-  %72 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @rect_special_values, i64 0, i64 %.0.i.i, i64 %.0.i33.i
-  %.sroa.0.0.copyload.i = load double, ptr %72, align 16, !tbaa !7
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %72, i64 8
+special_type.exit36.i:                            ; preds = %70, %68, %67, %66
+  %.0.i33.i = phi i64 [ %..i34.i, %66 ], [ %.7.i32.i, %67 ], [ 6, %68 ], [ %.8.i35.i, %70 ]
+  %73 = getelementptr [7 x %struct.Py_complex], ptr %61, i64 0, i64 %.0.i33.i
+  %.sroa.0.0.copyload.i = load double, ptr %73, align 16, !tbaa !7
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %73, i64 8
   %.sroa.8.0.copyload.i = load double, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !7
-  br label %73
+  br label %74
 
-73:                                               ; preds = %special_type.exit36.i, %43, %39
+74:                                               ; preds = %special_type.exit36.i, %43, %39
   %.sroa.8.0.i = phi double [ %42, %39 ], [ %48, %43 ], [ %.sroa.8.0.copyload.i, %special_type.exit36.i ]
   %.sroa.0.0.i = phi double [ %40, %39 ], [ %45, %43 ], [ %.sroa.0.0.copyload.i, %special_type.exit36.i ]
   %or.cond29.i = fcmp one double %.015, 0.000000e+00
-  %74 = fcmp oeq double %31, 0x7FF0000000000000
-  %or.cond31.i = and i1 %or.cond29.i, %74
-  br i1 %or.cond31.i, label %math_error.exit.i, label %85
+  %75 = fcmp oeq double %31, 0x7FF0000000000000
+  %or.cond31.i = and i1 %or.cond29.i, %75
+  br i1 %or.cond31.i, label %math_error.exit.i, label %86
 
-75:                                               ; preds = %27
-  %76 = fcmp oeq double %.0, 0.000000e+00
-  br i1 %76, label %77, label %79
+76:                                               ; preds = %27
+  %77 = fcmp oeq double %.0, 0.000000e+00
+  br i1 %77, label %78, label %80
 
-77:                                               ; preds = %75
-  %78 = fmul double %.015, %.0
-  br label %85
+78:                                               ; preds = %76
+  %79 = fmul double %.015, %.0
+  br label %86
 
-79:                                               ; preds = %75
-  %80 = tail call double @cos(double noundef %.0) #10, !tbaa !3
-  %81 = fmul double %.015, %80
-  %82 = tail call double @sin(double noundef %.0) #10, !tbaa !3
-  %83 = fmul double %.015, %82
-  br label %85
+80:                                               ; preds = %76
+  %81 = tail call double @cos(double noundef %.0) #10, !tbaa !3
+  %82 = fmul double %.015, %81
+  %83 = tail call double @sin(double noundef %.0) #10, !tbaa !3
+  %84 = fmul double %.015, %83
+  br label %86
 
-math_error.exit.i:                                ; preds = %73
+math_error.exit.i:                                ; preds = %74
   store i32 33, ptr %28, align 4, !tbaa !3
-  %84 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.25) #10
+  %85 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull @.str.25) #10
   br label %cmath_rect_impl.exit
 
-85:                                               ; preds = %79, %77, %73
-  %.sroa.8.1.ph.i = phi double [ %83, %79 ], [ %78, %77 ], [ %.sroa.8.0.i, %73 ]
-  %.sroa.0.1.ph.i = phi double [ %81, %79 ], [ %.015, %77 ], [ %.sroa.0.0.i, %73 ]
+86:                                               ; preds = %80, %78, %74
+  %.sroa.8.1.ph.i = phi double [ %84, %80 ], [ %79, %78 ], [ %.sroa.8.0.i, %74 ]
+  %.sroa.0.1.ph.i = phi double [ %82, %80 ], [ %.015, %78 ], [ %.sroa.0.0.i, %74 ]
   store i32 0, ptr %28, align 4, !tbaa !3
-  %86 = tail call ptr @PyComplex_FromCComplex(double %.sroa.0.1.ph.i, double %.sroa.8.1.ph.i) #10
+  %87 = tail call ptr @PyComplex_FromCComplex(double %.sroa.0.1.ph.i, double %.sroa.8.1.ph.i) #10
   br label %cmath_rect_impl.exit
 
-cmath_rect_impl.exit:                             ; preds = %85, %math_error.exit.i, %25, %14, %4
-  %.016 = phi ptr [ null, %25 ], [ null, %14 ], [ null, %4 ], [ null, %math_error.exit.i ], [ %86, %85 ]
+cmath_rect_impl.exit:                             ; preds = %86, %math_error.exit.i, %25, %14, %4
+  %.016 = phi ptr [ null, %25 ], [ null, %14 ], [ null, %4 ], [ null, %math_error.exit.i ], [ %87, %86 ]
   ret ptr %.016
 }
 
@@ -1694,7 +1698,7 @@ define internal fastcc { double, double } @cmath_sqrt_impl(double %0, double %1)
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ueq double %5, 0x7FF0000000000000
   %or.cond39 = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond39, label %7, label %32
+  br i1 %or.cond39, label %7, label %33
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__errno_location() #11
@@ -1727,86 +1731,87 @@ define internal fastcc { double, double } @cmath_sqrt_impl(double %0, double %1)
 
 special_type.exit:                                ; preds = %13, %14, %15, %17
   %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
-  br i1 %6, label %26, label %20
+  %20 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sqrt_special_values, i64 0, i64 %.0.i
+  br i1 %6, label %27, label %21
 
-20:                                               ; preds = %special_type.exit
-  %21 = fcmp une double %1, 0.000000e+00
-  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %23 = fcmp oeq double %22, 1.000000e+00
-  br i1 %21, label %24, label %25
+21:                                               ; preds = %special_type.exit
+  %22 = fcmp une double %1, 0.000000e+00
+  %23 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %24 = fcmp oeq double %23, 1.000000e+00
+  br i1 %22, label %25, label %26
 
-24:                                               ; preds = %20
-  %..i42 = select i1 %23, i64 4, i64 1
+25:                                               ; preds = %21
+  %..i42 = select i1 %24, i64 4, i64 1
   br label %special_type.exit44
 
-25:                                               ; preds = %20
-  %.7.i40 = select i1 %23, i64 3, i64 2
+26:                                               ; preds = %21
+  %.7.i40 = select i1 %24, i64 3, i64 2
   br label %special_type.exit44
 
-26:                                               ; preds = %special_type.exit
-  %27 = fcmp uno double %1, 0.000000e+00
-  br i1 %27, label %special_type.exit44, label %28
+27:                                               ; preds = %special_type.exit
+  %28 = fcmp uno double %1, 0.000000e+00
+  br i1 %28, label %special_type.exit44, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %30 = fcmp oeq double %29, 1.000000e+00
-  %.8.i43 = select i1 %30, i64 5, i64 0
+29:                                               ; preds = %27
+  %30 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %31 = fcmp oeq double %30, 1.000000e+00
+  %.8.i43 = select i1 %31, i64 5, i64 0
   br label %special_type.exit44
 
-special_type.exit44:                              ; preds = %24, %25, %26, %28
-  %.0.i41 = phi i64 [ %..i42, %24 ], [ %.7.i40, %25 ], [ 6, %26 ], [ %.8.i43, %28 ]
-  %31 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sqrt_special_values, i64 0, i64 %.0.i, i64 %.0.i41
-  %.sroa.034.0.copyload = load double, ptr %31, align 16, !tbaa !7
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+special_type.exit44:                              ; preds = %25, %26, %27, %29
+  %.0.i41 = phi i64 [ %..i42, %25 ], [ %.7.i40, %26 ], [ 6, %27 ], [ %.8.i43, %29 ]
+  %32 = getelementptr [7 x %struct.Py_complex], ptr %20, i64 0, i64 %.0.i41
+  %.sroa.034.0.copyload = load double, ptr %32, align 16, !tbaa !7
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
-  br label %59
+  br label %60
 
-32:                                               ; preds = %2
-  %33 = fcmp oeq double %0, 0.000000e+00
-  %34 = fcmp oeq double %1, 0.000000e+00
-  %or.cond = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond, label %59, label %35
+33:                                               ; preds = %2
+  %34 = fcmp oeq double %0, 0.000000e+00
+  %35 = fcmp oeq double %1, 0.000000e+00
+  %or.cond = select i1 %34, i1 %35, i1 false
+  br i1 %or.cond, label %60, label %36
 
-35:                                               ; preds = %32
-  %36 = fcmp olt double %3, 0x10000000000000
-  %37 = fcmp olt double %5, 0x10000000000000
-  %or.cond4 = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond4, label %38, label %45
+36:                                               ; preds = %33
+  %37 = fcmp olt double %3, 0x10000000000000
+  %38 = fcmp olt double %5, 0x10000000000000
+  %or.cond4 = select i1 %37, i1 %38, i1 false
+  br i1 %or.cond4, label %39, label %46
 
-38:                                               ; preds = %35
-  %39 = tail call double @ldexp(double noundef %3, i32 noundef 53) #10, !tbaa !3
-  %40 = tail call double @ldexp(double noundef %5, i32 noundef 53) #10, !tbaa !3
-  %41 = tail call double @hypot(double noundef %39, double noundef %40) #10, !tbaa !3
-  %42 = fadd double %39, %41
-  %43 = tail call double @sqrt(double noundef %42) #10, !tbaa !3
-  %44 = tail call double @ldexp(double noundef %43, i32 noundef -27) #10, !tbaa !3
-  br label %52
+39:                                               ; preds = %36
+  %40 = tail call double @ldexp(double noundef %3, i32 noundef 53) #10, !tbaa !3
+  %41 = tail call double @ldexp(double noundef %5, i32 noundef 53) #10, !tbaa !3
+  %42 = tail call double @hypot(double noundef %40, double noundef %41) #10, !tbaa !3
+  %43 = fadd double %40, %42
+  %44 = tail call double @sqrt(double noundef %43) #10, !tbaa !3
+  %45 = tail call double @ldexp(double noundef %44, i32 noundef -27) #10, !tbaa !3
+  br label %53
 
-45:                                               ; preds = %35
-  %46 = fmul double %3, 1.250000e-01
-  %47 = fmul double %5, 1.250000e-01
-  %48 = tail call double @hypot(double noundef %46, double noundef %47) #10, !tbaa !3
-  %49 = fadd double %46, %48
-  %50 = tail call double @sqrt(double noundef %49) #10, !tbaa !3
-  %51 = fmul double %50, 2.000000e+00
-  br label %52
+46:                                               ; preds = %36
+  %47 = fmul double %3, 1.250000e-01
+  %48 = fmul double %5, 1.250000e-01
+  %49 = tail call double @hypot(double noundef %47, double noundef %48) #10, !tbaa !3
+  %50 = fadd double %47, %49
+  %51 = tail call double @sqrt(double noundef %50) #10, !tbaa !3
+  %52 = fmul double %51, 2.000000e+00
+  br label %53
 
-52:                                               ; preds = %45, %38
-  %.0 = phi double [ %44, %38 ], [ %51, %45 ]
-  %53 = fmul double %.0, 2.000000e+00
-  %54 = fdiv double %5, %53
-  %55 = fcmp ult double %0, 0.000000e+00
-  %56 = tail call double @llvm.copysign.f64(double %54, double %1)
-  %57 = tail call double @llvm.copysign.f64(double %.0, double %1)
-  %.sroa.7.0 = select i1 %55, double %57, double %56
-  %.sroa.0.0 = select i1 %55, double %54, double %.0
-  %58 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %58, align 4, !tbaa !3
-  br label %59
+53:                                               ; preds = %46, %39
+  %.0 = phi double [ %45, %39 ], [ %52, %46 ]
+  %54 = fmul double %.0, 2.000000e+00
+  %55 = fdiv double %5, %54
+  %56 = fcmp ult double %0, 0.000000e+00
+  %57 = tail call double @llvm.copysign.f64(double %55, double %1)
+  %58 = tail call double @llvm.copysign.f64(double %.0, double %1)
+  %.sroa.7.0 = select i1 %56, double %58, double %57
+  %.sroa.0.0 = select i1 %56, double %55, double %.0
+  %59 = tail call ptr @__errno_location() #11
+  store i32 0, ptr %59, align 4, !tbaa !3
+  br label %60
 
-59:                                               ; preds = %32, %52, %special_type.exit44
-  %.sroa.034.0 = phi double [ %.sroa.0.0, %52 ], [ %.sroa.034.0.copyload, %special_type.exit44 ], [ 0.000000e+00, %32 ]
-  %.sroa.4.0 = phi double [ %.sroa.7.0, %52 ], [ %.sroa.4.0.copyload, %special_type.exit44 ], [ %1, %32 ]
+60:                                               ; preds = %33, %53, %special_type.exit44
+  %.sroa.034.0 = phi double [ %.sroa.0.0, %53 ], [ %.sroa.034.0.copyload, %special_type.exit44 ], [ 0.000000e+00, %33 ]
+  %.sroa.4.0 = phi double [ %.sroa.7.0, %53 ], [ %.sroa.4.0.copyload, %special_type.exit44 ], [ %1, %33 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.034.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -1831,7 +1836,7 @@ define internal fastcc { double, double } @cmath_asinh_impl(double %0, double %1
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ueq double %5, 0x7FF0000000000000
   %or.cond = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond, label %7, label %32
+  br i1 %or.cond, label %7, label %33
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__errno_location() #11
@@ -1864,85 +1869,86 @@ define internal fastcc { double, double } @cmath_asinh_impl(double %0, double %1
 
 special_type.exit:                                ; preds = %13, %14, %15, %17
   %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
-  br i1 %6, label %26, label %20
+  %20 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @asinh_special_values, i64 0, i64 %.0.i
+  br i1 %6, label %27, label %21
 
-20:                                               ; preds = %special_type.exit
-  %21 = fcmp une double %1, 0.000000e+00
-  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %23 = fcmp oeq double %22, 1.000000e+00
-  br i1 %21, label %24, label %25
+21:                                               ; preds = %special_type.exit
+  %22 = fcmp une double %1, 0.000000e+00
+  %23 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %24 = fcmp oeq double %23, 1.000000e+00
+  br i1 %22, label %25, label %26
 
-24:                                               ; preds = %20
-  %..i41 = select i1 %23, i64 4, i64 1
+25:                                               ; preds = %21
+  %..i41 = select i1 %24, i64 4, i64 1
   br label %special_type.exit43
 
-25:                                               ; preds = %20
-  %.7.i39 = select i1 %23, i64 3, i64 2
+26:                                               ; preds = %21
+  %.7.i39 = select i1 %24, i64 3, i64 2
   br label %special_type.exit43
 
-26:                                               ; preds = %special_type.exit
-  %27 = fcmp uno double %1, 0.000000e+00
-  br i1 %27, label %special_type.exit43, label %28
+27:                                               ; preds = %special_type.exit
+  %28 = fcmp uno double %1, 0.000000e+00
+  br i1 %28, label %special_type.exit43, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %30 = fcmp oeq double %29, 1.000000e+00
-  %.8.i42 = select i1 %30, i64 5, i64 0
+29:                                               ; preds = %27
+  %30 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %31 = fcmp oeq double %30, 1.000000e+00
+  %.8.i42 = select i1 %31, i64 5, i64 0
   br label %special_type.exit43
 
-special_type.exit43:                              ; preds = %24, %25, %26, %28
-  %.0.i40 = phi i64 [ %..i41, %24 ], [ %.7.i39, %25 ], [ 6, %26 ], [ %.8.i42, %28 ]
-  %31 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @asinh_special_values, i64 0, i64 %.0.i, i64 %.0.i40
-  %.sroa.035.0.copyload = load double, ptr %31, align 16, !tbaa !7
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+special_type.exit43:                              ; preds = %25, %26, %27, %29
+  %.0.i40 = phi i64 [ %..i41, %25 ], [ %.7.i39, %26 ], [ 6, %27 ], [ %.8.i42, %29 ]
+  %32 = getelementptr [7 x %struct.Py_complex], ptr %20, i64 0, i64 %.0.i40
+  %.sroa.035.0.copyload = load double, ptr %32, align 16, !tbaa !7
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !7
-  br label %62
+  br label %63
 
-32:                                               ; preds = %2
-  %33 = fcmp ogt double %3, 0x7FCFFFFFFFFFFFFF
-  %34 = fcmp ogt double %5, 0x7FCFFFFFFFFFFFFF
-  %or.cond38 = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond38, label %35, label %42
+33:                                               ; preds = %2
+  %34 = fcmp ogt double %3, 0x7FCFFFFFFFFFFFFF
+  %35 = fcmp ogt double %5, 0x7FCFFFFFFFFFFFFF
+  %or.cond38 = select i1 %34, i1 true, i1 %35
+  br i1 %or.cond38, label %36, label %43
 
-35:                                               ; preds = %32
-  %36 = fmul double %0, 5.000000e-01
-  %37 = fmul double %1, 5.000000e-01
-  %38 = tail call double @hypot(double noundef %36, double noundef %37) #10, !tbaa !3
-  %39 = tail call double @log(double noundef %38) #10, !tbaa !3
-  %40 = fadd double %39, 0x3FF62E42FEFA39EF
-  %41 = tail call double @llvm.copysign.f64(double %40, double %0)
-  br label %59
+36:                                               ; preds = %33
+  %37 = fmul double %0, 5.000000e-01
+  %38 = fmul double %1, 5.000000e-01
+  %39 = tail call double @hypot(double noundef %37, double noundef %38) #10, !tbaa !3
+  %40 = tail call double @log(double noundef %39) #10, !tbaa !3
+  %41 = fadd double %40, 0x3FF62E42FEFA39EF
+  %42 = tail call double @llvm.copysign.f64(double %41, double %0)
+  br label %60
 
-42:                                               ; preds = %32
-  %43 = fadd double %1, 1.000000e+00
-  %44 = fneg double %0
-  %45 = tail call fastcc { double, double } @cmath_sqrt_impl(double %43, double %44)
-  %46 = extractvalue { double, double } %45, 0
-  %47 = extractvalue { double, double } %45, 1
-  %48 = fsub double 1.000000e+00, %1
-  %49 = tail call fastcc { double, double } @cmath_sqrt_impl(double %48, double %0)
-  %50 = extractvalue { double, double } %49, 0
-  %51 = extractvalue { double, double } %49, 1
-  %52 = fneg double %47
-  %53 = fmul double %50, %52
-  %54 = tail call double @llvm.fmuladd.f64(double %46, double %51, double %53)
-  %55 = tail call double @asinh(double noundef %54) #10, !tbaa !3
-  %56 = fneg double %51
-  %57 = fmul double %47, %56
-  %58 = tail call double @llvm.fmuladd.f64(double %46, double %50, double %57)
-  br label %59
+43:                                               ; preds = %33
+  %44 = fadd double %1, 1.000000e+00
+  %45 = fneg double %0
+  %46 = tail call fastcc { double, double } @cmath_sqrt_impl(double %44, double %45)
+  %47 = extractvalue { double, double } %46, 0
+  %48 = extractvalue { double, double } %46, 1
+  %49 = fsub double 1.000000e+00, %1
+  %50 = tail call fastcc { double, double } @cmath_sqrt_impl(double %49, double %0)
+  %51 = extractvalue { double, double } %50, 0
+  %52 = extractvalue { double, double } %50, 1
+  %53 = fneg double %48
+  %54 = fmul double %51, %53
+  %55 = tail call double @llvm.fmuladd.f64(double %47, double %52, double %54)
+  %56 = tail call double @asinh(double noundef %55) #10, !tbaa !3
+  %57 = fneg double %52
+  %58 = fmul double %48, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %47, double %51, double %58)
+  br label %60
 
-59:                                               ; preds = %42, %35
-  %.sink = phi double [ %58, %42 ], [ %3, %35 ]
-  %.sroa.03.1 = phi double [ %55, %42 ], [ %41, %35 ]
-  %60 = tail call double @atan2(double noundef %1, double noundef %.sink) #10, !tbaa !3
-  %61 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %61, align 4, !tbaa !3
-  br label %62
+60:                                               ; preds = %43, %36
+  %.sink = phi double [ %59, %43 ], [ %3, %36 ]
+  %.sroa.03.1 = phi double [ %56, %43 ], [ %42, %36 ]
+  %61 = tail call double @atan2(double noundef %1, double noundef %.sink) #10, !tbaa !3
+  %62 = tail call ptr @__errno_location() #11
+  store i32 0, ptr %62, align 4, !tbaa !3
+  br label %63
 
-62:                                               ; preds = %59, %special_type.exit43
-  %.sroa.035.0 = phi double [ %.sroa.03.1, %59 ], [ %.sroa.035.0.copyload, %special_type.exit43 ]
-  %.sroa.3.0 = phi double [ %60, %59 ], [ %.sroa.3.0.copyload, %special_type.exit43 ]
+63:                                               ; preds = %60, %special_type.exit43
+  %.sroa.035.0 = phi double [ %.sroa.03.1, %60 ], [ %.sroa.035.0.copyload, %special_type.exit43 ]
+  %.sroa.3.0 = phi double [ %61, %60 ], [ %.sroa.3.0.copyload, %special_type.exit43 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.035.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
@@ -1955,7 +1961,7 @@ define internal fastcc { double, double } @cmath_atanh_impl(double %0, double %1
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ueq double %5, 0x7FF0000000000000
   %or.cond = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond, label %7, label %34
+  br i1 %or.cond, label %7, label %35
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__errno_location() #11
@@ -1988,131 +1994,132 @@ define internal fastcc { double, double } @cmath_atanh_impl(double %0, double %1
 
 special_type.exit:                                ; preds = %13, %14, %15, %17
   %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
-  br i1 %6, label %26, label %20
+  %20 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @atanh_special_values, i64 0, i64 %.0.i
+  br i1 %6, label %27, label %21
 
-20:                                               ; preds = %special_type.exit
-  %21 = fcmp une double %1, 0.000000e+00
-  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %23 = fcmp oeq double %22, 1.000000e+00
-  br i1 %21, label %24, label %25
+21:                                               ; preds = %special_type.exit
+  %22 = fcmp une double %1, 0.000000e+00
+  %23 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %24 = fcmp oeq double %23, 1.000000e+00
+  br i1 %22, label %25, label %26
 
-24:                                               ; preds = %20
-  %..i44 = select i1 %23, i64 4, i64 1
+25:                                               ; preds = %21
+  %..i44 = select i1 %24, i64 4, i64 1
   br label %special_type.exit46
 
-25:                                               ; preds = %20
-  %.7.i42 = select i1 %23, i64 3, i64 2
+26:                                               ; preds = %21
+  %.7.i42 = select i1 %24, i64 3, i64 2
   br label %special_type.exit46
 
-26:                                               ; preds = %special_type.exit
-  %27 = fcmp uno double %1, 0.000000e+00
-  br i1 %27, label %special_type.exit46, label %28
+27:                                               ; preds = %special_type.exit
+  %28 = fcmp uno double %1, 0.000000e+00
+  br i1 %28, label %special_type.exit46, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %30 = fcmp oeq double %29, 1.000000e+00
-  %.8.i45 = select i1 %30, i64 5, i64 0
+29:                                               ; preds = %27
+  %30 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %31 = fcmp oeq double %30, 1.000000e+00
+  %.8.i45 = select i1 %31, i64 5, i64 0
   br label %special_type.exit46
 
-special_type.exit46:                              ; preds = %24, %25, %26, %28
-  %.0.i43 = phi i64 [ %..i44, %24 ], [ %.7.i42, %25 ], [ 6, %26 ], [ %.8.i45, %28 ]
-  %31 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @atanh_special_values, i64 0, i64 %.0.i, i64 %.0.i43
-  %.sroa.037.0.copyload = load double, ptr %31, align 16, !tbaa !7
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+special_type.exit46:                              ; preds = %25, %26, %27, %29
+  %.0.i43 = phi i64 [ %..i44, %25 ], [ %.7.i42, %26 ], [ 6, %27 ], [ %.8.i45, %29 ]
+  %32 = getelementptr [7 x %struct.Py_complex], ptr %20, i64 0, i64 %.0.i43
+  %.sroa.037.0.copyload = load double, ptr %32, align 16, !tbaa !7
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
-  %32 = insertvalue { double, double } poison, double %.sroa.037.0.copyload, 0
-  %33 = insertvalue { double, double } %32, double %.sroa.4.0.copyload, 1
+  %33 = insertvalue { double, double } poison, double %.sroa.037.0.copyload, 0
+  %34 = insertvalue { double, double } %33, double %.sroa.4.0.copyload, 1
   br label %common.ret2
 
-34:                                               ; preds = %2
-  %35 = fcmp olt double %0, 0.000000e+00
-  br i1 %35, label %36, label %44
+35:                                               ; preds = %2
+  %36 = fcmp olt double %0, 0.000000e+00
+  br i1 %36, label %37, label %45
 
-common.ret2:                                      ; preds = %86, %special_type.exit46, %36
-  %common.ret2.op = phi { double, double } [ %43, %36 ], [ %89, %86 ], [ %33, %special_type.exit46 ]
+common.ret2:                                      ; preds = %87, %special_type.exit46, %37
+  %common.ret2.op = phi { double, double } [ %44, %37 ], [ %90, %87 ], [ %34, %special_type.exit46 ]
   ret { double, double } %common.ret2.op
 
-36:                                               ; preds = %34
-  %37 = tail call { double, double } @_Py_c_neg(double %0, double %1) #10
-  %38 = extractvalue { double, double } %37, 0
-  %39 = extractvalue { double, double } %37, 1
-  %40 = tail call fastcc { double, double } @cmath_atanh_impl(double %38, double %39)
-  %41 = extractvalue { double, double } %40, 0
-  %42 = extractvalue { double, double } %40, 1
-  %43 = tail call { double, double } @_Py_c_neg(double %41, double %42) #10
+37:                                               ; preds = %35
+  %38 = tail call { double, double } @_Py_c_neg(double %0, double %1) #10
+  %39 = extractvalue { double, double } %38, 0
+  %40 = extractvalue { double, double } %38, 1
+  %41 = tail call fastcc { double, double } @cmath_atanh_impl(double %39, double %40)
+  %42 = extractvalue { double, double } %41, 0
+  %43 = extractvalue { double, double } %41, 1
+  %44 = tail call { double, double } @_Py_c_neg(double %42, double %43) #10
   br label %common.ret2
 
-44:                                               ; preds = %34
-  %45 = fcmp ogt double %0, 0x5FDFFFFFFFFFFFFF
-  %46 = fcmp ogt double %5, 0x5FDFFFFFFFFFFFFF
-  %or.cond40 = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond40, label %47, label %55
+45:                                               ; preds = %35
+  %46 = fcmp ogt double %0, 0x5FDFFFFFFFFFFFFF
+  %47 = fcmp ogt double %5, 0x5FDFFFFFFFFFFFFF
+  %or.cond40 = select i1 %46, i1 true, i1 %47
+  br i1 %or.cond40, label %48, label %56
 
-47:                                               ; preds = %44
-  %48 = fmul double %0, 5.000000e-01
-  %49 = fmul double %1, 5.000000e-01
-  %50 = tail call double @hypot(double noundef %48, double noundef %49) #10, !tbaa !3
-  %51 = fmul double %0, 2.500000e-01
-  %52 = fdiv double %51, %50
-  %53 = fdiv double %52, %50
-  %54 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %1)
-  br label %86
+48:                                               ; preds = %45
+  %49 = fmul double %0, 5.000000e-01
+  %50 = fmul double %1, 5.000000e-01
+  %51 = tail call double @hypot(double noundef %49, double noundef %50) #10, !tbaa !3
+  %52 = fmul double %0, 2.500000e-01
+  %53 = fdiv double %52, %51
+  %54 = fdiv double %53, %51
+  %55 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %1)
+  br label %87
 
-55:                                               ; preds = %44
-  %56 = fcmp oeq double %0, 1.000000e+00
-  %57 = fcmp olt double %5, 0x2000000000000000
-  %or.cond41 = select i1 %56, i1 %57, i1 false
-  br i1 %or.cond41, label %58, label %70
+56:                                               ; preds = %45
+  %57 = fcmp oeq double %0, 1.000000e+00
+  %58 = fcmp olt double %5, 0x2000000000000000
+  %or.cond41 = select i1 %57, i1 %58, i1 false
+  br i1 %or.cond41, label %59, label %71
 
-58:                                               ; preds = %55
-  %59 = fcmp oeq double %1, 0.000000e+00
-  br i1 %59, label %86, label %60
+59:                                               ; preds = %56
+  %60 = fcmp oeq double %1, 0.000000e+00
+  br i1 %60, label %87, label %61
 
-60:                                               ; preds = %58
+61:                                               ; preds = %59
   %sqrt = tail call double @llvm.sqrt.f64(double %5)
-  %61 = tail call double @hypot(double noundef %5, double noundef 2.000000e+00) #10, !tbaa !3
-  %62 = tail call double @sqrt(double noundef %61) #10, !tbaa !3
-  %63 = fdiv double %sqrt, %62
-  %64 = tail call double @log(double noundef %63) #10, !tbaa !3
-  %65 = fneg double %64
-  %66 = fneg double %5
-  %67 = tail call double @atan2(double noundef 2.000000e+00, double noundef %66) #10, !tbaa !3
-  %68 = fmul double %67, 5.000000e-01
-  %69 = tail call double @llvm.copysign.f64(double %68, double %1)
-  br label %86
+  %62 = tail call double @hypot(double noundef %5, double noundef 2.000000e+00) #10, !tbaa !3
+  %63 = tail call double @sqrt(double noundef %62) #10, !tbaa !3
+  %64 = fdiv double %sqrt, %63
+  %65 = tail call double @log(double noundef %64) #10, !tbaa !3
+  %66 = fneg double %65
+  %67 = fneg double %5
+  %68 = tail call double @atan2(double noundef 2.000000e+00, double noundef %67) #10, !tbaa !3
+  %69 = fmul double %68, 5.000000e-01
+  %70 = tail call double @llvm.copysign.f64(double %69, double %1)
+  br label %87
 
-70:                                               ; preds = %55
-  %71 = fmul double %0, 4.000000e+00
-  %72 = fsub double 1.000000e+00, %0
-  %73 = fmul double %1, %1
-  %74 = tail call double @llvm.fmuladd.f64(double %72, double %72, double %73)
-  %75 = fdiv double %71, %74
-  %76 = fcmp oeq double %75, 0.000000e+00
-  br i1 %76, label %_Py_log1p.exit, label %77
+71:                                               ; preds = %56
+  %72 = fmul double %0, 4.000000e+00
+  %73 = fsub double 1.000000e+00, %0
+  %74 = fmul double %1, %1
+  %75 = tail call double @llvm.fmuladd.f64(double %73, double %73, double %74)
+  %76 = fdiv double %72, %75
+  %77 = fcmp oeq double %76, 0.000000e+00
+  br i1 %77, label %_Py_log1p.exit, label %78
 
-77:                                               ; preds = %70
-  %78 = tail call double @log1p(double noundef %75) #10, !tbaa !3
+78:                                               ; preds = %71
+  %79 = tail call double @log1p(double noundef %76) #10, !tbaa !3
   br label %_Py_log1p.exit
 
-_Py_log1p.exit:                                   ; preds = %70, %77
-  %.0.i47 = phi double [ %78, %77 ], [ %75, %70 ]
-  %79 = fmul double %.0.i47, 2.500000e-01
-  %80 = fmul double %1, -2.000000e+00
-  %81 = fadd double %0, 1.000000e+00
-  %82 = fneg double %73
-  %83 = tail call double @llvm.fmuladd.f64(double %72, double %81, double %82)
-  %84 = tail call double @atan2(double noundef %80, double noundef %83) #10, !tbaa !3
-  %85 = fmul double %84, -5.000000e-01
-  br label %86
+_Py_log1p.exit:                                   ; preds = %71, %78
+  %.0.i47 = phi double [ %79, %78 ], [ %76, %71 ]
+  %80 = fmul double %.0.i47, 2.500000e-01
+  %81 = fmul double %1, -2.000000e+00
+  %82 = fadd double %0, 1.000000e+00
+  %83 = fneg double %74
+  %84 = tail call double @llvm.fmuladd.f64(double %73, double %82, double %83)
+  %85 = tail call double @atan2(double noundef %81, double noundef %84) #10, !tbaa !3
+  %86 = fmul double %85, -5.000000e-01
+  br label %87
 
-86:                                               ; preds = %58, %_Py_log1p.exit, %60, %47
-  %.sink = phi i32 [ 0, %_Py_log1p.exit ], [ 0, %60 ], [ 0, %47 ], [ 33, %58 ]
-  %.sroa.014.0 = phi double [ %79, %_Py_log1p.exit ], [ %65, %60 ], [ %53, %47 ], [ 0x7FF0000000000000, %58 ]
-  %.sroa.7.0 = phi double [ %85, %_Py_log1p.exit ], [ %69, %60 ], [ %54, %47 ], [ %1, %58 ]
-  %87 = tail call ptr @__errno_location() #11
-  store i32 %.sink, ptr %87, align 4, !tbaa !3
-  %88 = insertvalue { double, double } poison, double %.sroa.014.0, 0
-  %89 = insertvalue { double, double } %88, double %.sroa.7.0, 1
+87:                                               ; preds = %59, %_Py_log1p.exit, %61, %48
+  %.sink = phi i32 [ 0, %_Py_log1p.exit ], [ 0, %61 ], [ 0, %48 ], [ 33, %59 ]
+  %.sroa.014.0 = phi double [ %80, %_Py_log1p.exit ], [ %66, %61 ], [ %54, %48 ], [ 0x7FF0000000000000, %59 ]
+  %.sroa.7.0 = phi double [ %86, %_Py_log1p.exit ], [ %70, %61 ], [ %55, %48 ], [ %1, %59 ]
+  %88 = tail call ptr @__errno_location() #11
+  store i32 %.sink, ptr %88, align 4, !tbaa !3
+  %89 = insertvalue { double, double } poison, double %.sroa.014.0, 0
+  %90 = insertvalue { double, double } %89, double %.sroa.7.0, 1
   br label %common.ret2
 }
 
@@ -2128,7 +2135,7 @@ define internal fastcc { double, double } @cmath_cosh_impl(double %0, double %1)
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ueq double %5, 0x7FF0000000000000
   %or.cond27 = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond27, label %7, label %50
+  br i1 %or.cond27, label %7, label %51
 
 7:                                                ; preds = %2
   %8 = fcmp oeq double %3, 0x7FF0000000000000
@@ -2147,12 +2154,12 @@ define internal fastcc { double, double } @cmath_cosh_impl(double %0, double %1)
 
 15:                                               ; preds = %10
   %16 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %14)
-  br label %44
+  br label %45
 
 17:                                               ; preds = %10
   %18 = fneg double %14
   %19 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %18)
-  br label %44
+  br label %45
 
 20:                                               ; preds = %9, %7
   br i1 %4, label %27, label %21
@@ -2183,105 +2190,106 @@ define internal fastcc { double, double } @cmath_cosh_impl(double %0, double %1)
 
 special_type.exit:                                ; preds = %25, %26, %27, %29
   %.0.i = phi i64 [ %..i, %25 ], [ %.7.i, %26 ], [ 6, %27 ], [ %.8.i, %29 ]
-  br i1 %6, label %38, label %32
+  %32 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @cosh_special_values, i64 0, i64 %.0.i
+  br i1 %6, label %39, label %33
 
-32:                                               ; preds = %special_type.exit
-  %33 = fcmp une double %1, 0.000000e+00
-  %34 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %35 = fcmp oeq double %34, 1.000000e+00
-  br i1 %33, label %36, label %37
+33:                                               ; preds = %special_type.exit
+  %34 = fcmp une double %1, 0.000000e+00
+  %35 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %36 = fcmp oeq double %35, 1.000000e+00
+  br i1 %34, label %37, label %38
 
-36:                                               ; preds = %32
-  %..i33 = select i1 %35, i64 4, i64 1
+37:                                               ; preds = %33
+  %..i33 = select i1 %36, i64 4, i64 1
   br label %special_type.exit35
 
-37:                                               ; preds = %32
-  %.7.i31 = select i1 %35, i64 3, i64 2
+38:                                               ; preds = %33
+  %.7.i31 = select i1 %36, i64 3, i64 2
   br label %special_type.exit35
 
-38:                                               ; preds = %special_type.exit
-  %39 = fcmp uno double %1, 0.000000e+00
-  br i1 %39, label %special_type.exit35, label %40
+39:                                               ; preds = %special_type.exit
+  %40 = fcmp uno double %1, 0.000000e+00
+  br i1 %40, label %special_type.exit35, label %41
 
-40:                                               ; preds = %38
-  %41 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %42 = fcmp oeq double %41, 1.000000e+00
-  %.8.i34 = select i1 %42, i64 5, i64 0
+41:                                               ; preds = %39
+  %42 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %43 = fcmp oeq double %42, 1.000000e+00
+  %.8.i34 = select i1 %43, i64 5, i64 0
   br label %special_type.exit35
 
-special_type.exit35:                              ; preds = %36, %37, %38, %40
-  %.0.i32 = phi i64 [ %..i33, %36 ], [ %.7.i31, %37 ], [ 6, %38 ], [ %.8.i34, %40 ]
-  %43 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @cosh_special_values, i64 0, i64 %.0.i, i64 %.0.i32
-  %.sroa.025.0.copyload = load double, ptr %43, align 16, !tbaa !7
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
+special_type.exit35:                              ; preds = %37, %38, %39, %41
+  %.0.i32 = phi i64 [ %..i33, %37 ], [ %.7.i31, %38 ], [ 6, %39 ], [ %.8.i34, %41 ]
+  %44 = getelementptr [7 x %struct.Py_complex], ptr %32, i64 0, i64 %.0.i32
+  %.sroa.025.0.copyload = load double, ptr %44, align 16, !tbaa !7
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !7
-  br label %44
+  br label %45
 
-44:                                               ; preds = %15, %17, %special_type.exit35
+45:                                               ; preds = %15, %17, %special_type.exit35
   %.sroa.025.0 = phi double [ %13, %15 ], [ %13, %17 ], [ %.sroa.025.0.copyload, %special_type.exit35 ]
   %.sroa.7.0 = phi double [ %16, %15 ], [ %19, %17 ], [ %.sroa.7.0.copyload, %special_type.exit35 ]
-  %45 = fcmp une double %5, 0x7FF0000000000000
-  %46 = fcmp uno double %0, 0.000000e+00
-  %or.cond28 = select i1 %45, i1 true, i1 %46
-  %47 = tail call ptr @__errno_location() #11
-  br i1 %or.cond28, label %49, label %48
+  %46 = fcmp une double %5, 0x7FF0000000000000
+  %47 = fcmp uno double %0, 0.000000e+00
+  %or.cond28 = select i1 %46, i1 true, i1 %47
+  %48 = tail call ptr @__errno_location() #11
+  br i1 %or.cond28, label %50, label %49
 
-48:                                               ; preds = %44
-  store i32 33, ptr %47, align 4, !tbaa !3
-  br label %78
+49:                                               ; preds = %45
+  store i32 33, ptr %48, align 4, !tbaa !3
+  br label %79
 
-49:                                               ; preds = %44
-  store i32 0, ptr %47, align 4, !tbaa !3
-  br label %78
+50:                                               ; preds = %45
+  store i32 0, ptr %48, align 4, !tbaa !3
+  br label %79
 
-50:                                               ; preds = %2
-  %51 = fcmp ogt double %3, 0x4086232BDD7ABCD2
-  br i1 %51, label %52, label %63
+51:                                               ; preds = %2
+  %52 = fcmp ogt double %3, 0x4086232BDD7ABCD2
+  br i1 %52, label %53, label %64
 
-52:                                               ; preds = %50
-  %53 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %54 = fsub double %0, %53
-  %55 = tail call double @cos(double noundef %1) #10, !tbaa !3
-  %56 = tail call double @cosh(double noundef %54) #10, !tbaa !3
-  %57 = fmul double %55, %56
-  %58 = fmul double %57, 0x4005BF0A8B145769
-  %59 = tail call double @sin(double noundef %1) #10, !tbaa !3
-  %60 = tail call double @sinh(double noundef %54) #10, !tbaa !3
-  %61 = fmul double %59, %60
-  %62 = fmul double %61, 0x4005BF0A8B145769
-  br label %70
+53:                                               ; preds = %51
+  %54 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %55 = fsub double %0, %54
+  %56 = tail call double @cos(double noundef %1) #10, !tbaa !3
+  %57 = tail call double @cosh(double noundef %55) #10, !tbaa !3
+  %58 = fmul double %56, %57
+  %59 = fmul double %58, 0x4005BF0A8B145769
+  %60 = tail call double @sin(double noundef %1) #10, !tbaa !3
+  %61 = tail call double @sinh(double noundef %55) #10, !tbaa !3
+  %62 = fmul double %60, %61
+  %63 = fmul double %62, 0x4005BF0A8B145769
+  br label %71
 
-63:                                               ; preds = %50
-  %64 = tail call double @cos(double noundef %1) #10, !tbaa !3
-  %65 = tail call double @cosh(double noundef %0) #10, !tbaa !3
-  %66 = fmul double %64, %65
-  %67 = tail call double @sin(double noundef %1) #10, !tbaa !3
-  %68 = tail call double @sinh(double noundef %0) #10, !tbaa !3
-  %69 = fmul double %67, %68
-  br label %70
+64:                                               ; preds = %51
+  %65 = tail call double @cos(double noundef %1) #10, !tbaa !3
+  %66 = tail call double @cosh(double noundef %0) #10, !tbaa !3
+  %67 = fmul double %65, %66
+  %68 = tail call double @sin(double noundef %1) #10, !tbaa !3
+  %69 = tail call double @sinh(double noundef %0) #10, !tbaa !3
+  %70 = fmul double %68, %69
+  br label %71
 
-70:                                               ; preds = %63, %52
-  %.sroa.025.2 = phi double [ %58, %52 ], [ %66, %63 ]
-  %.sroa.7.2 = phi double [ %62, %52 ], [ %69, %63 ]
-  %71 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #12
-  %72 = fcmp oeq double %71, 0x7FF0000000000000
-  %73 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #12
-  %74 = fcmp oeq double %73, 0x7FF0000000000000
-  %or.cond30 = select i1 %72, i1 true, i1 %74
-  %75 = tail call ptr @__errno_location() #11
-  br i1 %or.cond30, label %76, label %77
+71:                                               ; preds = %64, %53
+  %.sroa.025.2 = phi double [ %59, %53 ], [ %67, %64 ]
+  %.sroa.7.2 = phi double [ %63, %53 ], [ %70, %64 ]
+  %72 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #12
+  %73 = fcmp oeq double %72, 0x7FF0000000000000
+  %74 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #12
+  %75 = fcmp oeq double %74, 0x7FF0000000000000
+  %or.cond30 = select i1 %73, i1 true, i1 %75
+  %76 = tail call ptr @__errno_location() #11
+  br i1 %or.cond30, label %77, label %78
 
-76:                                               ; preds = %70
-  store i32 34, ptr %75, align 4, !tbaa !3
-  br label %78
+77:                                               ; preds = %71
+  store i32 34, ptr %76, align 4, !tbaa !3
+  br label %79
 
-77:                                               ; preds = %70
-  store i32 0, ptr %75, align 4, !tbaa !3
-  br label %78
+78:                                               ; preds = %71
+  store i32 0, ptr %76, align 4, !tbaa !3
+  br label %79
 
-78:                                               ; preds = %76, %77, %48, %49
-  %.sroa.025.1 = phi double [ %.sroa.025.0, %49 ], [ %.sroa.025.0, %48 ], [ %.sroa.025.2, %77 ], [ %.sroa.025.2, %76 ]
-  %.sroa.7.1 = phi double [ %.sroa.7.0, %49 ], [ %.sroa.7.0, %48 ], [ %.sroa.7.2, %77 ], [ %.sroa.7.2, %76 ]
+79:                                               ; preds = %77, %78, %49, %50
+  %.sroa.025.1 = phi double [ %.sroa.025.0, %50 ], [ %.sroa.025.0, %49 ], [ %.sroa.025.2, %78 ], [ %.sroa.025.2, %77 ]
+  %.sroa.7.1 = phi double [ %.sroa.7.0, %50 ], [ %.sroa.7.0, %49 ], [ %.sroa.7.2, %78 ], [ %.sroa.7.2, %77 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.025.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.1, 1
   ret { double, double } %.fca.1.insert
@@ -2321,7 +2329,7 @@ define internal fastcc { double, double } @c_log(double %0, double %1) unnamed_a
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ueq double %5, 0x7FF0000000000000
   %or.cond49 = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond49, label %7, label %32
+  br i1 %or.cond49, label %7, label %33
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__errno_location() #11
@@ -2354,121 +2362,122 @@ define internal fastcc { double, double } @c_log(double %0, double %1) unnamed_a
 
 special_type.exit:                                ; preds = %13, %14, %15, %17
   %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
-  br i1 %6, label %26, label %20
+  %20 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @log_special_values, i64 0, i64 %.0.i
+  br i1 %6, label %27, label %21
 
-20:                                               ; preds = %special_type.exit
-  %21 = fcmp une double %1, 0.000000e+00
-  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %23 = fcmp oeq double %22, 1.000000e+00
-  br i1 %21, label %24, label %25
+21:                                               ; preds = %special_type.exit
+  %22 = fcmp une double %1, 0.000000e+00
+  %23 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %24 = fcmp oeq double %23, 1.000000e+00
+  br i1 %22, label %25, label %26
 
-24:                                               ; preds = %20
-  %..i52 = select i1 %23, i64 4, i64 1
+25:                                               ; preds = %21
+  %..i52 = select i1 %24, i64 4, i64 1
   br label %special_type.exit54
 
-25:                                               ; preds = %20
-  %.7.i50 = select i1 %23, i64 3, i64 2
+26:                                               ; preds = %21
+  %.7.i50 = select i1 %24, i64 3, i64 2
   br label %special_type.exit54
 
-26:                                               ; preds = %special_type.exit
-  %27 = fcmp uno double %1, 0.000000e+00
-  br i1 %27, label %special_type.exit54, label %28
+27:                                               ; preds = %special_type.exit
+  %28 = fcmp uno double %1, 0.000000e+00
+  br i1 %28, label %special_type.exit54, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %30 = fcmp oeq double %29, 1.000000e+00
-  %.8.i53 = select i1 %30, i64 5, i64 0
+29:                                               ; preds = %27
+  %30 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %31 = fcmp oeq double %30, 1.000000e+00
+  %.8.i53 = select i1 %31, i64 5, i64 0
   br label %special_type.exit54
 
-special_type.exit54:                              ; preds = %24, %25, %26, %28
-  %.0.i51 = phi i64 [ %..i52, %24 ], [ %.7.i50, %25 ], [ 6, %26 ], [ %.8.i53, %28 ]
-  %31 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @log_special_values, i64 0, i64 %.0.i, i64 %.0.i51
-  %.sroa.046.0.copyload = load double, ptr %31, align 16, !tbaa !7
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+special_type.exit54:                              ; preds = %25, %26, %27, %29
+  %.0.i51 = phi i64 [ %..i52, %25 ], [ %.7.i50, %26 ], [ 6, %27 ], [ %.8.i53, %29 ]
+  %32 = getelementptr [7 x %struct.Py_complex], ptr %20, i64 0, i64 %.0.i51
+  %.sroa.046.0.copyload = load double, ptr %32, align 16, !tbaa !7
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
-  br label %77
+  br label %78
 
-32:                                               ; preds = %2
-  %33 = fcmp ogt double %3, 0x7FCFFFFFFFFFFFFF
-  %34 = fcmp ogt double %5, 0x7FCFFFFFFFFFFFFF
-  %or.cond = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond, label %35, label %41
+33:                                               ; preds = %2
+  %34 = fcmp ogt double %3, 0x7FCFFFFFFFFFFFFF
+  %35 = fcmp ogt double %5, 0x7FCFFFFFFFFFFFFF
+  %or.cond = select i1 %34, i1 true, i1 %35
+  br i1 %or.cond, label %36, label %42
 
-35:                                               ; preds = %32
-  %36 = fmul double %3, 5.000000e-01
-  %37 = fmul double %5, 5.000000e-01
-  %38 = tail call double @hypot(double noundef %36, double noundef %37) #10, !tbaa !3
-  %39 = tail call double @log(double noundef %38) #10, !tbaa !3
-  %40 = fadd double %39, 0x3FE62E42FEFA39EF
-  br label %74
+36:                                               ; preds = %33
+  %37 = fmul double %3, 5.000000e-01
+  %38 = fmul double %5, 5.000000e-01
+  %39 = tail call double @hypot(double noundef %37, double noundef %38) #10, !tbaa !3
+  %40 = tail call double @log(double noundef %39) #10, !tbaa !3
+  %41 = fadd double %40, 0x3FE62E42FEFA39EF
+  br label %75
 
-41:                                               ; preds = %32
-  %42 = fcmp olt double %3, 0x10000000000000
-  %43 = fcmp olt double %5, 0x10000000000000
-  %or.cond3 = select i1 %42, i1 %43, i1 false
-  br i1 %or.cond3, label %44, label %56
+42:                                               ; preds = %33
+  %43 = fcmp olt double %3, 0x10000000000000
+  %44 = fcmp olt double %5, 0x10000000000000
+  %or.cond3 = select i1 %43, i1 %44, i1 false
+  br i1 %or.cond3, label %45, label %57
 
-44:                                               ; preds = %41
-  %45 = fcmp one double %0, 0.000000e+00
-  %46 = fcmp one double %1, 0.000000e+00
-  %or.cond5 = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond5, label %47, label %53
+45:                                               ; preds = %42
+  %46 = fcmp one double %0, 0.000000e+00
+  %47 = fcmp one double %1, 0.000000e+00
+  %or.cond5 = select i1 %46, i1 true, i1 %47
+  br i1 %or.cond5, label %48, label %54
 
-47:                                               ; preds = %44
-  %48 = tail call double @ldexp(double noundef %3, i32 noundef 53) #10, !tbaa !3
-  %49 = tail call double @ldexp(double noundef %5, i32 noundef 53) #10, !tbaa !3
-  %50 = tail call double @hypot(double noundef %48, double noundef %49) #10, !tbaa !3
-  %51 = tail call double @log(double noundef %50) #10, !tbaa !3
-  %52 = fadd double %51, 0xC0425E4F7B2737FA
-  br label %74
+48:                                               ; preds = %45
+  %49 = tail call double @ldexp(double noundef %3, i32 noundef 53) #10, !tbaa !3
+  %50 = tail call double @ldexp(double noundef %5, i32 noundef 53) #10, !tbaa !3
+  %51 = tail call double @hypot(double noundef %49, double noundef %50) #10, !tbaa !3
+  %52 = tail call double @log(double noundef %51) #10, !tbaa !3
+  %53 = fadd double %52, 0xC0425E4F7B2737FA
+  br label %75
 
-53:                                               ; preds = %44
-  %54 = tail call double @atan2(double noundef %1, double noundef %0) #10, !tbaa !3
-  %55 = tail call ptr @__errno_location() #11
-  store i32 33, ptr %55, align 4, !tbaa !3
-  br label %77
+54:                                               ; preds = %45
+  %55 = tail call double @atan2(double noundef %1, double noundef %0) #10, !tbaa !3
+  %56 = tail call ptr @__errno_location() #11
+  store i32 33, ptr %56, align 4, !tbaa !3
+  br label %78
 
-56:                                               ; preds = %41
-  %57 = tail call double @hypot(double noundef %3, double noundef %5) #10, !tbaa !3
-  %58 = fcmp oge double %57, 7.100000e-01
-  %59 = fcmp ole double %57, 1.730000e+00
-  %or.cond7 = and i1 %58, %59
-  br i1 %or.cond7, label %60, label %72
+57:                                               ; preds = %42
+  %58 = tail call double @hypot(double noundef %3, double noundef %5) #10, !tbaa !3
+  %59 = fcmp oge double %58, 7.100000e-01
+  %60 = fcmp ole double %58, 1.730000e+00
+  %or.cond7 = and i1 %59, %60
+  br i1 %or.cond7, label %61, label %73
 
-60:                                               ; preds = %56
-  %61 = fcmp ogt double %3, %5
-  %62 = select i1 %61, double %3, double %5
-  %63 = select i1 %61, double %5, double %3
-  %64 = fadd double %62, -1.000000e+00
-  %65 = fadd double %62, 1.000000e+00
-  %66 = fmul double %63, %63
-  %67 = tail call double @llvm.fmuladd.f64(double %64, double %65, double %66)
-  %68 = fcmp oeq double %67, 0.000000e+00
-  br i1 %68, label %_Py_log1p.exit, label %69
+61:                                               ; preds = %57
+  %62 = fcmp ogt double %3, %5
+  %63 = select i1 %62, double %3, double %5
+  %64 = select i1 %62, double %5, double %3
+  %65 = fadd double %63, -1.000000e+00
+  %66 = fadd double %63, 1.000000e+00
+  %67 = fmul double %64, %64
+  %68 = tail call double @llvm.fmuladd.f64(double %65, double %66, double %67)
+  %69 = fcmp oeq double %68, 0.000000e+00
+  br i1 %69, label %_Py_log1p.exit, label %70
 
-69:                                               ; preds = %60
-  %70 = tail call double @log1p(double noundef %67) #10, !tbaa !3
+70:                                               ; preds = %61
+  %71 = tail call double @log1p(double noundef %68) #10, !tbaa !3
   br label %_Py_log1p.exit
 
-_Py_log1p.exit:                                   ; preds = %60, %69
-  %.0.i55 = phi double [ %70, %69 ], [ %67, %60 ]
-  %71 = fmul double %.0.i55, 5.000000e-01
-  br label %74
+_Py_log1p.exit:                                   ; preds = %61, %70
+  %.0.i55 = phi double [ %71, %70 ], [ %68, %61 ]
+  %72 = fmul double %.0.i55, 5.000000e-01
+  br label %75
 
-72:                                               ; preds = %56
-  %73 = tail call double @log(double noundef %57) #10, !tbaa !3
-  br label %74
+73:                                               ; preds = %57
+  %74 = tail call double @log(double noundef %58) #10, !tbaa !3
+  br label %75
 
-74:                                               ; preds = %47, %72, %_Py_log1p.exit, %35
-  %.sroa.0.0 = phi double [ %40, %35 ], [ %52, %47 ], [ %71, %_Py_log1p.exit ], [ %73, %72 ]
-  %75 = tail call double @atan2(double noundef %1, double noundef %0) #10, !tbaa !3
-  %76 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %76, align 4, !tbaa !3
-  br label %77
+75:                                               ; preds = %48, %73, %_Py_log1p.exit, %36
+  %.sroa.0.0 = phi double [ %41, %36 ], [ %53, %48 ], [ %72, %_Py_log1p.exit ], [ %74, %73 ]
+  %76 = tail call double @atan2(double noundef %1, double noundef %0) #10, !tbaa !3
+  %77 = tail call ptr @__errno_location() #11
+  store i32 0, ptr %77, align 4, !tbaa !3
+  br label %78
 
-77:                                               ; preds = %74, %53, %special_type.exit54
-  %.sroa.046.0 = phi double [ %.sroa.0.0, %74 ], [ 0xFFF0000000000000, %53 ], [ %.sroa.046.0.copyload, %special_type.exit54 ]
-  %.sroa.4.0 = phi double [ %75, %74 ], [ %54, %53 ], [ %.sroa.4.0.copyload, %special_type.exit54 ]
+78:                                               ; preds = %75, %54, %special_type.exit54
+  %.sroa.046.0 = phi double [ %.sroa.0.0, %75 ], [ 0xFFF0000000000000, %54 ], [ %.sroa.046.0.copyload, %special_type.exit54 ]
+  %.sroa.4.0 = phi double [ %76, %75 ], [ %55, %54 ], [ %.sroa.4.0.copyload, %special_type.exit54 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.046.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -2489,7 +2498,7 @@ define internal fastcc { double, double } @cmath_sinh_impl(double %0, double %1)
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ueq double %5, 0x7FF0000000000000
   %or.cond27 = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond27, label %7, label %52
+  br i1 %or.cond27, label %7, label %53
 
 7:                                                ; preds = %2
   %8 = fcmp oeq double %3, 0x7FF0000000000000
@@ -2508,14 +2517,14 @@ define internal fastcc { double, double } @cmath_sinh_impl(double %0, double %1)
   %14 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %12)
   %15 = tail call double @sin(double noundef %1) #10, !tbaa !3
   %16 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %15)
-  br label %46
+  br label %47
 
 17:                                               ; preds = %10
   %18 = fneg double %12
   %19 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %18)
   %20 = tail call double @sin(double noundef %1) #10, !tbaa !3
   %21 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %20)
-  br label %46
+  br label %47
 
 22:                                               ; preds = %9, %7
   br i1 %4, label %29, label %23
@@ -2546,105 +2555,106 @@ define internal fastcc { double, double } @cmath_sinh_impl(double %0, double %1)
 
 special_type.exit:                                ; preds = %27, %28, %29, %31
   %.0.i = phi i64 [ %..i, %27 ], [ %.7.i, %28 ], [ 6, %29 ], [ %.8.i, %31 ]
-  br i1 %6, label %40, label %34
+  %34 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sinh_special_values, i64 0, i64 %.0.i
+  br i1 %6, label %41, label %35
 
-34:                                               ; preds = %special_type.exit
-  %35 = fcmp une double %1, 0.000000e+00
-  %36 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %37 = fcmp oeq double %36, 1.000000e+00
-  br i1 %35, label %38, label %39
+35:                                               ; preds = %special_type.exit
+  %36 = fcmp une double %1, 0.000000e+00
+  %37 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %38 = fcmp oeq double %37, 1.000000e+00
+  br i1 %36, label %39, label %40
 
-38:                                               ; preds = %34
-  %..i33 = select i1 %37, i64 4, i64 1
+39:                                               ; preds = %35
+  %..i33 = select i1 %38, i64 4, i64 1
   br label %special_type.exit35
 
-39:                                               ; preds = %34
-  %.7.i31 = select i1 %37, i64 3, i64 2
+40:                                               ; preds = %35
+  %.7.i31 = select i1 %38, i64 3, i64 2
   br label %special_type.exit35
 
-40:                                               ; preds = %special_type.exit
-  %41 = fcmp uno double %1, 0.000000e+00
-  br i1 %41, label %special_type.exit35, label %42
+41:                                               ; preds = %special_type.exit
+  %42 = fcmp uno double %1, 0.000000e+00
+  br i1 %42, label %special_type.exit35, label %43
 
-42:                                               ; preds = %40
-  %43 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %44 = fcmp oeq double %43, 1.000000e+00
-  %.8.i34 = select i1 %44, i64 5, i64 0
+43:                                               ; preds = %41
+  %44 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %45 = fcmp oeq double %44, 1.000000e+00
+  %.8.i34 = select i1 %45, i64 5, i64 0
   br label %special_type.exit35
 
-special_type.exit35:                              ; preds = %38, %39, %40, %42
-  %.0.i32 = phi i64 [ %..i33, %38 ], [ %.7.i31, %39 ], [ 6, %40 ], [ %.8.i34, %42 ]
-  %45 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sinh_special_values, i64 0, i64 %.0.i, i64 %.0.i32
-  %.sroa.025.0.copyload = load double, ptr %45, align 16, !tbaa !7
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
+special_type.exit35:                              ; preds = %39, %40, %41, %43
+  %.0.i32 = phi i64 [ %..i33, %39 ], [ %.7.i31, %40 ], [ 6, %41 ], [ %.8.i34, %43 ]
+  %46 = getelementptr [7 x %struct.Py_complex], ptr %34, i64 0, i64 %.0.i32
+  %.sroa.025.0.copyload = load double, ptr %46, align 16, !tbaa !7
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !7
-  br label %46
+  br label %47
 
-46:                                               ; preds = %13, %17, %special_type.exit35
+47:                                               ; preds = %13, %17, %special_type.exit35
   %.sroa.025.0 = phi double [ %14, %13 ], [ %19, %17 ], [ %.sroa.025.0.copyload, %special_type.exit35 ]
   %.sroa.7.0 = phi double [ %16, %13 ], [ %21, %17 ], [ %.sroa.7.0.copyload, %special_type.exit35 ]
-  %47 = fcmp une double %5, 0x7FF0000000000000
-  %48 = fcmp uno double %0, 0.000000e+00
-  %or.cond28 = select i1 %47, i1 true, i1 %48
-  %49 = tail call ptr @__errno_location() #11
-  br i1 %or.cond28, label %51, label %50
+  %48 = fcmp une double %5, 0x7FF0000000000000
+  %49 = fcmp uno double %0, 0.000000e+00
+  %or.cond28 = select i1 %48, i1 true, i1 %49
+  %50 = tail call ptr @__errno_location() #11
+  br i1 %or.cond28, label %52, label %51
 
-50:                                               ; preds = %46
-  store i32 33, ptr %49, align 4, !tbaa !3
-  br label %80
+51:                                               ; preds = %47
+  store i32 33, ptr %50, align 4, !tbaa !3
+  br label %81
 
-51:                                               ; preds = %46
-  store i32 0, ptr %49, align 4, !tbaa !3
-  br label %80
+52:                                               ; preds = %47
+  store i32 0, ptr %50, align 4, !tbaa !3
+  br label %81
 
-52:                                               ; preds = %2
-  %53 = fcmp ogt double %3, 0x4086232BDD7ABCD2
-  br i1 %53, label %54, label %65
+53:                                               ; preds = %2
+  %54 = fcmp ogt double %3, 0x4086232BDD7ABCD2
+  br i1 %54, label %55, label %66
 
-54:                                               ; preds = %52
-  %55 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %56 = fsub double %0, %55
-  %57 = tail call double @cos(double noundef %1) #10, !tbaa !3
-  %58 = tail call double @sinh(double noundef %56) #10, !tbaa !3
-  %59 = fmul double %57, %58
-  %60 = fmul double %59, 0x4005BF0A8B145769
-  %61 = tail call double @sin(double noundef %1) #10, !tbaa !3
-  %62 = tail call double @cosh(double noundef %56) #10, !tbaa !3
-  %63 = fmul double %61, %62
-  %64 = fmul double %63, 0x4005BF0A8B145769
-  br label %72
+55:                                               ; preds = %53
+  %56 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %57 = fsub double %0, %56
+  %58 = tail call double @cos(double noundef %1) #10, !tbaa !3
+  %59 = tail call double @sinh(double noundef %57) #10, !tbaa !3
+  %60 = fmul double %58, %59
+  %61 = fmul double %60, 0x4005BF0A8B145769
+  %62 = tail call double @sin(double noundef %1) #10, !tbaa !3
+  %63 = tail call double @cosh(double noundef %57) #10, !tbaa !3
+  %64 = fmul double %62, %63
+  %65 = fmul double %64, 0x4005BF0A8B145769
+  br label %73
 
-65:                                               ; preds = %52
-  %66 = tail call double @cos(double noundef %1) #10, !tbaa !3
-  %67 = tail call double @sinh(double noundef %0) #10, !tbaa !3
-  %68 = fmul double %66, %67
-  %69 = tail call double @sin(double noundef %1) #10, !tbaa !3
-  %70 = tail call double @cosh(double noundef %0) #10, !tbaa !3
-  %71 = fmul double %69, %70
-  br label %72
+66:                                               ; preds = %53
+  %67 = tail call double @cos(double noundef %1) #10, !tbaa !3
+  %68 = tail call double @sinh(double noundef %0) #10, !tbaa !3
+  %69 = fmul double %67, %68
+  %70 = tail call double @sin(double noundef %1) #10, !tbaa !3
+  %71 = tail call double @cosh(double noundef %0) #10, !tbaa !3
+  %72 = fmul double %70, %71
+  br label %73
 
-72:                                               ; preds = %65, %54
-  %.sroa.025.2 = phi double [ %60, %54 ], [ %68, %65 ]
-  %.sroa.7.2 = phi double [ %64, %54 ], [ %71, %65 ]
-  %73 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #12
-  %74 = fcmp oeq double %73, 0x7FF0000000000000
-  %75 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #12
-  %76 = fcmp oeq double %75, 0x7FF0000000000000
-  %or.cond30 = select i1 %74, i1 true, i1 %76
-  %77 = tail call ptr @__errno_location() #11
-  br i1 %or.cond30, label %78, label %79
+73:                                               ; preds = %66, %55
+  %.sroa.025.2 = phi double [ %61, %55 ], [ %69, %66 ]
+  %.sroa.7.2 = phi double [ %65, %55 ], [ %72, %66 ]
+  %74 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #12
+  %75 = fcmp oeq double %74, 0x7FF0000000000000
+  %76 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #12
+  %77 = fcmp oeq double %76, 0x7FF0000000000000
+  %or.cond30 = select i1 %75, i1 true, i1 %77
+  %78 = tail call ptr @__errno_location() #11
+  br i1 %or.cond30, label %79, label %80
 
-78:                                               ; preds = %72
-  store i32 34, ptr %77, align 4, !tbaa !3
-  br label %80
+79:                                               ; preds = %73
+  store i32 34, ptr %78, align 4, !tbaa !3
+  br label %81
 
-79:                                               ; preds = %72
-  store i32 0, ptr %77, align 4, !tbaa !3
-  br label %80
+80:                                               ; preds = %73
+  store i32 0, ptr %78, align 4, !tbaa !3
+  br label %81
 
-80:                                               ; preds = %78, %79, %50, %51
-  %.sroa.025.1 = phi double [ %.sroa.025.0, %51 ], [ %.sroa.025.0, %50 ], [ %.sroa.025.2, %79 ], [ %.sroa.025.2, %78 ]
-  %.sroa.7.1 = phi double [ %.sroa.7.0, %51 ], [ %.sroa.7.0, %50 ], [ %.sroa.7.2, %79 ], [ %.sroa.7.2, %78 ]
+81:                                               ; preds = %79, %80, %51, %52
+  %.sroa.025.1 = phi double [ %.sroa.025.0, %52 ], [ %.sroa.025.0, %51 ], [ %.sroa.025.2, %80 ], [ %.sroa.025.2, %79 ]
+  %.sroa.7.1 = phi double [ %.sroa.7.0, %52 ], [ %.sroa.7.0, %51 ], [ %.sroa.7.2, %80 ], [ %.sroa.7.2, %79 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.025.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.1, 1
   ret { double, double } %.fca.1.insert
@@ -2657,7 +2667,7 @@ define internal fastcc { double, double } @cmath_tanh_impl(double %0, double %1)
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ueq double %5, 0x7FF0000000000000
   %or.cond37 = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond37, label %7, label %46
+  br i1 %or.cond37, label %7, label %47
 
 7:                                                ; preds = %2
   %8 = fcmp oeq double %3, 0x7FF0000000000000
@@ -2675,7 +2685,7 @@ define internal fastcc { double, double } @cmath_tanh_impl(double %0, double %1)
   %15 = fmul double %13, %14
   %16 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %15)
   %. = select i1 %11, double 1.000000e+00, double -1.000000e+00
-  br label %41
+  br label %42
 
 17:                                               ; preds = %9, %7
   br i1 %4, label %24, label %18
@@ -2706,96 +2716,97 @@ define internal fastcc { double, double } @cmath_tanh_impl(double %0, double %1)
 
 special_type.exit:                                ; preds = %22, %23, %24, %26
   %.0.i = phi i64 [ %..i, %22 ], [ %.7.i, %23 ], [ 6, %24 ], [ %.8.i, %26 ]
-  br i1 %6, label %35, label %29
+  %29 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @tanh_special_values, i64 0, i64 %.0.i
+  br i1 %6, label %36, label %30
 
-29:                                               ; preds = %special_type.exit
-  %30 = fcmp une double %1, 0.000000e+00
-  %31 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %32 = fcmp oeq double %31, 1.000000e+00
-  br i1 %30, label %33, label %34
+30:                                               ; preds = %special_type.exit
+  %31 = fcmp une double %1, 0.000000e+00
+  %32 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %33 = fcmp oeq double %32, 1.000000e+00
+  br i1 %31, label %34, label %35
 
-33:                                               ; preds = %29
-  %..i42 = select i1 %32, i64 4, i64 1
+34:                                               ; preds = %30
+  %..i42 = select i1 %33, i64 4, i64 1
   br label %special_type.exit44
 
-34:                                               ; preds = %29
-  %.7.i40 = select i1 %32, i64 3, i64 2
+35:                                               ; preds = %30
+  %.7.i40 = select i1 %33, i64 3, i64 2
   br label %special_type.exit44
 
-35:                                               ; preds = %special_type.exit
-  %36 = fcmp uno double %1, 0.000000e+00
-  br i1 %36, label %special_type.exit44, label %37
+36:                                               ; preds = %special_type.exit
+  %37 = fcmp uno double %1, 0.000000e+00
+  br i1 %37, label %special_type.exit44, label %38
 
-37:                                               ; preds = %35
-  %38 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %39 = fcmp oeq double %38, 1.000000e+00
-  %.8.i43 = select i1 %39, i64 5, i64 0
+38:                                               ; preds = %36
+  %39 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %40 = fcmp oeq double %39, 1.000000e+00
+  %.8.i43 = select i1 %40, i64 5, i64 0
   br label %special_type.exit44
 
-special_type.exit44:                              ; preds = %33, %34, %35, %37
-  %.0.i41 = phi i64 [ %..i42, %33 ], [ %.7.i40, %34 ], [ 6, %35 ], [ %.8.i43, %37 ]
-  %40 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @tanh_special_values, i64 0, i64 %.0.i, i64 %.0.i41
-  %.sroa.034.0.copyload = load double, ptr %40, align 16, !tbaa !7
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
+special_type.exit44:                              ; preds = %34, %35, %36, %38
+  %.0.i41 = phi i64 [ %..i42, %34 ], [ %.7.i40, %35 ], [ 6, %36 ], [ %.8.i43, %38 ]
+  %41 = getelementptr [7 x %struct.Py_complex], ptr %29, i64 0, i64 %.0.i41
+  %.sroa.034.0.copyload = load double, ptr %41, align 16, !tbaa !7
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !7
-  br label %41
+  br label %42
 
-41:                                               ; preds = %10, %special_type.exit44
+42:                                               ; preds = %10, %special_type.exit44
   %.sroa.034.0 = phi double [ %.sroa.034.0.copyload, %special_type.exit44 ], [ %., %10 ]
   %.sroa.6.0 = phi double [ %.sroa.6.0.copyload, %special_type.exit44 ], [ %16, %10 ]
-  %42 = fcmp une double %5, 0x7FF0000000000000
-  %brmerge = or i1 %4, %42
-  %43 = tail call ptr @__errno_location() #11
-  br i1 %brmerge, label %45, label %44
+  %43 = fcmp une double %5, 0x7FF0000000000000
+  %brmerge = or i1 %4, %43
+  %44 = tail call ptr @__errno_location() #11
+  br i1 %brmerge, label %46, label %45
 
-44:                                               ; preds = %41
-  store i32 33, ptr %43, align 4, !tbaa !3
-  br label %72
+45:                                               ; preds = %42
+  store i32 33, ptr %44, align 4, !tbaa !3
+  br label %73
 
-45:                                               ; preds = %41
-  store i32 0, ptr %43, align 4, !tbaa !3
-  br label %72
+46:                                               ; preds = %42
+  store i32 0, ptr %44, align 4, !tbaa !3
+  br label %73
 
-46:                                               ; preds = %2
-  %47 = fcmp ogt double %3, 0x4086232BDD7ABCD2
-  br i1 %47, label %48, label %57
+47:                                               ; preds = %2
+  %48 = fcmp ogt double %3, 0x4086232BDD7ABCD2
+  br i1 %48, label %49, label %58
 
-48:                                               ; preds = %46
-  %49 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %50 = tail call double @sin(double noundef %1) #10, !tbaa !3
-  %51 = fmul double %50, 4.000000e+00
-  %52 = tail call double @cos(double noundef %1) #10, !tbaa !3
-  %53 = fmul double %51, %52
-  %54 = fmul double %3, -2.000000e+00
-  %55 = tail call double @exp(double noundef %54) #10, !tbaa !3
-  %56 = fmul double %53, %55
-  br label %70
+49:                                               ; preds = %47
+  %50 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %51 = tail call double @sin(double noundef %1) #10, !tbaa !3
+  %52 = fmul double %51, 4.000000e+00
+  %53 = tail call double @cos(double noundef %1) #10, !tbaa !3
+  %54 = fmul double %52, %53
+  %55 = fmul double %3, -2.000000e+00
+  %56 = tail call double @exp(double noundef %55) #10, !tbaa !3
+  %57 = fmul double %54, %56
+  br label %71
 
-57:                                               ; preds = %46
-  %58 = tail call double @tanh(double noundef %0) #10, !tbaa !3
-  %59 = tail call double @tan(double noundef %1) #10, !tbaa !3
-  %60 = tail call double @cosh(double noundef %0) #10, !tbaa !3
-  %61 = fdiv double 1.000000e+00, %60
-  %62 = fmul double %58, %59
-  %63 = tail call double @llvm.fmuladd.f64(double %62, double %62, double 1.000000e+00)
-  %64 = tail call double @llvm.fmuladd.f64(double %59, double %59, double 1.000000e+00)
-  %65 = fmul double %58, %64
-  %66 = fdiv double %65, %63
-  %67 = fdiv double %59, %63
-  %68 = fmul double %61, %67
-  %69 = fmul double %61, %68
-  br label %70
+58:                                               ; preds = %47
+  %59 = tail call double @tanh(double noundef %0) #10, !tbaa !3
+  %60 = tail call double @tan(double noundef %1) #10, !tbaa !3
+  %61 = tail call double @cosh(double noundef %0) #10, !tbaa !3
+  %62 = fdiv double 1.000000e+00, %61
+  %63 = fmul double %59, %60
+  %64 = tail call double @llvm.fmuladd.f64(double %63, double %63, double 1.000000e+00)
+  %65 = tail call double @llvm.fmuladd.f64(double %60, double %60, double 1.000000e+00)
+  %66 = fmul double %59, %65
+  %67 = fdiv double %66, %64
+  %68 = fdiv double %60, %64
+  %69 = fmul double %62, %68
+  %70 = fmul double %62, %69
+  br label %71
 
-70:                                               ; preds = %57, %48
-  %.sroa.034.2 = phi double [ %49, %48 ], [ %66, %57 ]
-  %.sroa.6.2 = phi double [ %56, %48 ], [ %69, %57 ]
-  %71 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %71, align 4, !tbaa !3
-  br label %72
+71:                                               ; preds = %58, %49
+  %.sroa.034.2 = phi double [ %50, %49 ], [ %67, %58 ]
+  %.sroa.6.2 = phi double [ %57, %49 ], [ %70, %58 ]
+  %72 = tail call ptr @__errno_location() #11
+  store i32 0, ptr %72, align 4, !tbaa !3
+  br label %73
 
-72:                                               ; preds = %44, %45, %70
-  %.sroa.034.1 = phi double [ %.sroa.034.2, %70 ], [ %.sroa.034.0, %45 ], [ %.sroa.034.0, %44 ]
-  %.sroa.6.1 = phi double [ %.sroa.6.2, %70 ], [ %.sroa.6.0, %45 ], [ %.sroa.6.0, %44 ]
+73:                                               ; preds = %45, %46, %71
+  %.sroa.034.1 = phi double [ %.sroa.034.2, %71 ], [ %.sroa.034.0, %46 ], [ %.sroa.034.0, %45 ]
+  %.sroa.6.1 = phi double [ %.sroa.6.2, %71 ], [ %.sroa.6.0, %46 ], [ %.sroa.6.0, %45 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.034.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.1, 1
   ret { double, double } %.fca.1.insert

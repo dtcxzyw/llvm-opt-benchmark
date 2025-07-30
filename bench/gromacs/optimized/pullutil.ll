@@ -203,6 +203,7 @@ define void @_Z14pull_calc_comsPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcdN
   %48 = load i32, ptr %47, align 8, !tbaa !86
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %50 = zext nneg i32 %45 to i64
+  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %50
   br label %51
 
 51:                                               ; preds = %.preheader227, %54
@@ -210,37 +211,38 @@ define void @_Z14pull_calc_comsPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcdN
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = trunc nuw i64 %indvars.iv.next to i32
   %53 = icmp sgt i32 %48, %52
-  br i1 %53, label %54, label %62
+  br i1 %53, label %54, label %61
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw [3 x [3 x float]], ptr %49, i64 0, i64 %indvars.iv.next, i64 %50
-  %56 = load float, ptr %55, align 4, !tbaa !9
-  %57 = fcmp une float %56, 0.000000e+00
-  br i1 %57, label %58, label %51, !llvm.loop !87
+  %gep = getelementptr inbounds nuw [3 x [3 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv.next
+  %55 = load float, ptr %gep, align 4, !tbaa !9
+  %56 = fcmp une float %55, 0.000000e+00
+  br i1 %56, label %57, label %51, !llvm.loop !87
 
-58:                                               ; preds = %54
+57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #14
   call void @_ZNSt10filesystem7__cxx114pathC2IA126_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 1 dereferenceable(126) @.str.5, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 570, ptr noundef nonnull @.str.6) #23
-          to label %59 unwind label %60
+          to label %58 unwind label %59
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   unreachable
 
-common.resume:                                    ; preds = %825, %60
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %826, %825 ]
+common.resume:                                    ; preds = %825, %59
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %826, %825 ]
   resume { ptr, i32 } %common.resume.op
 
-60:                                               ; preds = %58
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %57
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #14
   br label %common.resume
 
-62:                                               ; preds = %51
-  %63 = getelementptr inbounds nuw [3 x [3 x float]], ptr %49, i64 0, i64 %50, i64 %50
+61:                                               ; preds = %51
+  %62 = getelementptr inbounds nuw [3 x [3 x float]], ptr %49, i64 0, i64 %50
+  %63 = getelementptr inbounds nuw [3 x float], ptr %62, i64 0, i64 %50
   %64 = load float, ptr %63, align 4, !tbaa !9
   %65 = fpext float %64 to double
   %66 = fdiv double 0x401921FB54442D18, %65
@@ -248,7 +250,7 @@ common.resume:                                    ; preds = %825, %60
   store float %67, ptr %19, align 4, !tbaa !9
   br label %68
 
-68:                                               ; preds = %62, %43
+68:                                               ; preds = %61, %43
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %71 = load ptr, ptr %70, align 8, !tbaa !89
@@ -3040,24 +3042,28 @@ define internal fastcc noundef zeroext i1 @_ZL29pullGroupObeysPbcRestrictionsRK1
   %28 = icmp slt i64 %27, %16
   br i1 %28, label %.lr.ph, label %.loopexit84
 
-.lr.ph:                                           ; preds = %25, %34
-  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %34 ], [ %indvars.iv, %25 ]
-  %.17287 = phi i1 [ %.273, %34 ], [ %.07189, %25 ]
-  %29 = getelementptr inbounds nuw [3 x [3 x float]], ptr %15, i64 0, i64 %indvars.iv127, i64 %indvars.iv129
-  %30 = load float, ptr %29, align 4, !tbaa !9
+.lr.ph:                                           ; preds = %25
+  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv129
+  br label %29
+
+29:                                               ; preds = %.lr.ph, %34
+  %indvars.iv127 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next128, %34 ]
+  %.17287 = phi i1 [ %.07189, %.lr.ph ], [ %.273, %34 ]
+  %gep = getelementptr inbounds nuw [3 x [3 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv127
+  %30 = load float, ptr %gep, align 4, !tbaa !9
   %31 = fcmp une float %30, 0.000000e+00
   br i1 %31, label %32, label %34
 
-32:                                               ; preds = %.lr.ph
+32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw [3 x i8], ptr %7, i64 0, i64 %indvars.iv127
   store i8 1, ptr %33, align 1, !tbaa !232
   br label %34
 
-34:                                               ; preds = %.lr.ph, %32
-  %.273 = phi i1 [ false, %32 ], [ %.17287, %.lr.ph ]
+34:                                               ; preds = %29, %32
+  %.273 = phi i1 [ false, %32 ], [ %.17287, %29 ]
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count132
-  br i1 %exitcond.not, label %.loopexit84, label %.lr.ph, !llvm.loop !239
+  br i1 %exitcond.not, label %.loopexit84, label %29, !llvm.loop !239
 
 .loopexit84:                                      ; preds = %34, %..loopexit84_crit_edge, %25
   %indvars.iv.next130.pre-phi = phi i64 [ %.pre, %..loopexit84_crit_edge ], [ %27, %25 ], [ %27, %34 ]

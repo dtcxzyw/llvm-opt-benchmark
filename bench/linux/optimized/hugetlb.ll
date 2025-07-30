@@ -4485,85 +4485,89 @@ define internal noundef i32 @hugetlb_init() #10 section ".init.text" align 16 {
   %53 = icmp ult i32 %52, 64
   br i1 %53, label %.preheader8, label %.thread
 
-.preheader8:                                      ; preds = %50, %66
-  %54 = phi i32 [ %68, %66 ], [ %52, %50 ]
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr [64 x i32], ptr @default_hugepages_in_node, i64 0, i64 %55
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %46, i32 14, i64 %55
-  store i32 %57, ptr %58, align 4
-  %59 = icmp eq i32 %54, 63
-  br i1 %59, label %.thread, label %60, !prof !15
+.preheader8:                                      ; preds = %50
+  %.split = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %46, i32 14
+  br label %54
 
-60:                                               ; preds = %.preheader8
-  %61 = add nuw nsw i32 %54, 1
-  %62 = zext nneg i32 %61 to i64
-  %63 = shl nsw i64 -1, %62
-  %64 = and i64 %63, %48
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.thread, label %66
+54:                                               ; preds = %.preheader8, %67
+  %55 = phi i32 [ %69, %67 ], [ %52, %.preheader8 ]
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr [64 x i32], ptr @default_hugepages_in_node, i64 0, i64 %56
+  %58 = load i32, ptr %57, align 4
+  %59 = getelementptr [64 x i32], ptr %.split, i64 0, i64 %56
+  store i32 %58, ptr %59, align 4
+  %60 = icmp eq i32 %55, 63
+  br i1 %60, label %.thread, label %61, !prof !15
 
-66:                                               ; preds = %60
-  %67 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %64) #24, !srcloc !14
-  %68 = trunc i64 %67 to i32
-  %69 = icmp ult i32 %68, 64
-  br i1 %69, label %.preheader8, label %.thread, !llvm.loop !52
+61:                                               ; preds = %54
+  %62 = add nuw nsw i32 %55, 1
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nsw i64 -1, %63
+  %65 = and i64 %64, %48
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %.thread, label %67
 
-.thread:                                          ; preds = %60, %.preheader8, %66, %43, %50, %18, %0
+67:                                               ; preds = %61
+  %68 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %65) #24, !srcloc !14
+  %69 = trunc i64 %68 to i32
+  %70 = icmp ult i32 %69, 64
+  br i1 %70, label %54, label %.thread, !llvm.loop !52
+
+.thread:                                          ; preds = %61, %54, %67, %43, %50, %18, %0
   call fastcc void @hugetlb_init_hstates() #26
   call fastcc void @gather_bootmem_prealloc() #26
   call fastcc void @report_hugepages() #26
   call fastcc void @hugetlb_sysfs_init() #26
   call void @hugetlb_cgroup_file_init() #25
   call void @__register_sysctl_init(ptr noundef nonnull @.str.37, ptr noundef nonnull @hugetlb_table, ptr noundef nonnull @.str.38, i64 noundef 5) #22
-  %70 = load i64, ptr @__cpu_possible_mask, align 8
-  %71 = call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %70) #23, !srcloc !49
-  %72 = shl i64 %71, 3
-  %73 = and i64 %72, 4294967288
-  %74 = add nsw i64 %73, -1
-  %75 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %74, i32 -1) #24, !srcloc !53
-  %76 = add i32 %75, 1
-  %77 = zext nneg i32 %76 to i64
-  %78 = shl nuw i64 1, %77
-  %79 = trunc i64 %78 to i32
-  store i32 %79, ptr @num_fault_mutexes, align 4
-  %80 = shl i64 4294967296, %77
-  %81 = icmp slt i64 %80, 0
-  br i1 %81, label %.thread7, label %82, !prof !15
+  %71 = load i64, ptr @__cpu_possible_mask, align 8
+  %72 = call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %71) #23, !srcloc !49
+  %73 = shl i64 %72, 3
+  %74 = and i64 %73, 4294967288
+  %75 = add nsw i64 %74, -1
+  %76 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %75, i32 -1) #24, !srcloc !53
+  %77 = add i32 %76, 1
+  %78 = zext nneg i32 %77 to i64
+  %79 = shl nuw i64 1, %78
+  %80 = trunc i64 %79 to i32
+  store i32 %80, ptr @num_fault_mutexes, align 4
+  %81 = shl i64 4294967296, %78
+  %82 = icmp slt i64 %81, 0
+  br i1 %82, label %.thread7, label %83, !prof !15
 
 .thread7:                                         ; preds = %.thread
   store ptr null, ptr @hugetlb_fault_mutex_table, align 64
-  br label %89
+  br label %90
 
-82:                                               ; preds = %.thread
-  %83 = lshr exact i64 %80, 27
-  %84 = call noalias align 8 ptr @__kmalloc(i64 noundef %83, i32 noundef 3264) #27
-  store ptr %84, ptr @hugetlb_fault_mutex_table, align 64
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %89, label %86, !prof !54
+83:                                               ; preds = %.thread
+  %84 = lshr exact i64 %81, 27
+  %85 = call noalias align 8 ptr @__kmalloc(i64 noundef %84, i32 noundef 3264) #27
+  store ptr %85, ptr @hugetlb_fault_mutex_table, align 64
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %90, label %87, !prof !54
 
-86:                                               ; preds = %82
-  %87 = load i32, ptr @num_fault_mutexes, align 4
-  %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.preheader, label %.loopexit
+87:                                               ; preds = %83
+  %88 = load i32, ptr @num_fault_mutexes, align 4
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %.preheader, label %.loopexit
 
-89:                                               ; preds = %.thread7, %82
+90:                                               ; preds = %.thread7, %83
   call void asm sideeffect "489: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 489b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 489) #22, !srcloc !55
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4562, i32 0, i64 12) #22, !srcloc !56
   unreachable
 
-.preheader:                                       ; preds = %86, %.preheader
-  %90 = phi i64 [ %93, %.preheader ], [ 0, %86 ]
-  %91 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
-  %92 = getelementptr %struct.mutex, ptr %91, i64 %90
-  call void @__mutex_init(ptr noundef %92, ptr noundef nonnull @.str.27, ptr noundef nonnull @hugetlb_init.__key) #22
-  %93 = add nuw nsw i64 %90, 1
-  %94 = load i32, ptr @num_fault_mutexes, align 4
-  %95 = sext i32 %94 to i64
-  %96 = icmp slt i64 %93, %95
-  br i1 %96, label %.preheader, label %.loopexit, !llvm.loop !57
+.preheader:                                       ; preds = %87, %.preheader
+  %91 = phi i64 [ %94, %.preheader ], [ 0, %87 ]
+  %92 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
+  %93 = getelementptr %struct.mutex, ptr %92, i64 %91
+  call void @__mutex_init(ptr noundef %93, ptr noundef nonnull @.str.27, ptr noundef nonnull @hugetlb_init.__key) #22
+  %94 = add nuw nsw i64 %91, 1
+  %95 = load i32, ptr @num_fault_mutexes, align 4
+  %96 = sext i32 %95 to i64
+  %97 = icmp slt i64 %94, %96
+  br i1 %97, label %.preheader, label %.loopexit, !llvm.loop !57
 
-.loopexit:                                        ; preds = %.preheader, %86
+.loopexit:                                        ; preds = %.preheader, %87
   ret i32 0
 }
 
@@ -4943,7 +4947,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #10 sectio
 
 3:                                                ; preds = %1
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47, ptr noundef %0) #25
-  br label %67
+  br label %68
 
 5:                                                ; preds = %1
   %6 = tail call i64 @memparse(ptr noundef %0, ptr noundef null) #22
@@ -4952,7 +4956,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #10 sectio
 
 8:                                                ; preds = %5
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48, ptr noundef %0) #25
-  br label %67
+  br label %68
 
 10:                                               ; preds = %5
   %11 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %6, i32 -1) #24, !srcloc !53
@@ -4993,7 +4997,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #10 sectio
   store i32 %33, ptr @default_hstate_idx, align 4
   %34 = load i64, ptr @default_hstate_max_huge_pages, align 8
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %67, label %36
+  br i1 %35, label %68, label %36
 
 36:                                               ; preds = %29
   %37 = and i64 %32, 4294967295
@@ -5009,46 +5013,50 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #10 sectio
   %44 = icmp ult i32 %43, 64
   br i1 %44, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %41, %57
-  %45 = phi i32 [ %59, %57 ], [ %43, %41 ]
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr [64 x i32], ptr @default_hugepages_in_node, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %37, i32 14, i64 %46
-  store i32 %48, ptr %49, align 4
-  %50 = icmp eq i32 %45, 63
-  br i1 %50, label %.thread, label %51, !prof !15
+.preheader:                                       ; preds = %41
+  %.split = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %37, i32 14
+  br label %45
 
-51:                                               ; preds = %.preheader
-  %52 = add nuw nsw i32 %45, 1
-  %53 = zext nneg i32 %52 to i64
-  %54 = shl nsw i64 -1, %53
-  %55 = and i64 %54, %39
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %.thread, label %57
+45:                                               ; preds = %.preheader, %58
+  %46 = phi i32 [ %60, %58 ], [ %43, %.preheader ]
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr [64 x i32], ptr @default_hugepages_in_node, i64 0, i64 %47
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr [64 x i32], ptr %.split, i64 0, i64 %47
+  store i32 %49, ptr %50, align 4
+  %51 = icmp eq i32 %46, 63
+  br i1 %51, label %.thread, label %52, !prof !15
 
-57:                                               ; preds = %51
-  %58 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %55) #24, !srcloc !14
-  %59 = trunc i64 %58 to i32
-  %60 = icmp ult i32 %59, 64
-  br i1 %60, label %.preheader, label %.thread, !llvm.loop !65
+52:                                               ; preds = %45
+  %53 = add nuw nsw i32 %46, 1
+  %54 = zext nneg i32 %53 to i64
+  %55 = shl nsw i64 -1, %54
+  %56 = and i64 %55, %39
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %.thread, label %58
 
-.thread:                                          ; preds = %51, %.preheader, %57, %36, %41
-  %61 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %37
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp ugt i32 %63, 10
-  br i1 %64, label %65, label %66
+58:                                               ; preds = %52
+  %59 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %56) #24, !srcloc !14
+  %60 = trunc i64 %59 to i32
+  %61 = icmp ult i32 %60, 64
+  br i1 %61, label %45, label %.thread, !llvm.loop !65
 
-65:                                               ; preds = %.thread
-  tail call fastcc void @hugetlb_hstate_alloc_pages(ptr noundef %61) #26
-  br label %66
+.thread:                                          ; preds = %52, %45, %58, %36, %41
+  %62 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %37
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp ugt i32 %64, 10
+  br i1 %65, label %66, label %67
 
-66:                                               ; preds = %65, %.thread
-  store i64 0, ptr @default_hstate_max_huge_pages, align 8
+66:                                               ; preds = %.thread
+  tail call fastcc void @hugetlb_hstate_alloc_pages(ptr noundef %62) #26
   br label %67
 
-67:                                               ; preds = %66, %29, %8, %3
+67:                                               ; preds = %66, %.thread
+  store i64 0, ptr @default_hstate_max_huge_pages, align 8
+  br label %68
+
+68:                                               ; preds = %67, %29, %8, %3
   ret i32 1
 }
 
@@ -14820,19 +14828,20 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr no
   %29 = phi i64 [ %27, %26 ], [ %7, %5 ]
   %30 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %29, i32 7
   %31 = load i64, ptr %30, align 8
-  br label %36
+  br label %37
 
 32:                                               ; preds = %26
-  %33 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %27, i32 15, i64 %18
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %34 to i64
-  br label %36
+  %33 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %27, i32 15
+  %34 = getelementptr [64 x i32], ptr %33, i64 0, i64 %18
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  br label %37
 
-36:                                               ; preds = %32, %.thread
-  %37 = phi i64 [ %31, %.thread ], [ %35, %32 ]
-  %38 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %37) #22
-  %39 = sext i32 %38 to i64
-  ret i64 %39
+37:                                               ; preds = %32, %.thread
+  %38 = phi i64 [ %31, %.thread ], [ %36, %32 ]
+  %39 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %38) #22
+  %40 = sext i32 %39 to i64
+  ret i64 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -16194,19 +16203,20 @@ define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr 
   %29 = phi i64 [ %27, %26 ], [ %7, %5 ]
   %30 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %29, i32 8
   %31 = load i64, ptr %30, align 8
-  br label %36
+  br label %37
 
 32:                                               ; preds = %26
-  %33 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %27, i32 16, i64 %18
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %34 to i64
-  br label %36
+  %33 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %27, i32 16
+  %34 = getelementptr [64 x i32], ptr %33, i64 0, i64 %18
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  br label %37
 
-36:                                               ; preds = %32, %.thread
-  %37 = phi i64 [ %31, %.thread ], [ %35, %32 ]
-  %38 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %37) #22
-  %39 = sext i32 %38 to i64
-  ret i64 %39
+37:                                               ; preds = %32, %.thread
+  %38 = phi i64 [ %31, %.thread ], [ %36, %32 ]
+  %39 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %38) #22
+  %40 = sext i32 %39 to i64
+  ret i64 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -16262,19 +16272,20 @@ define internal range(i64 -2147483648, 2147483648) i64 @surplus_hugepages_show(p
   %29 = phi i64 [ %27, %26 ], [ %7, %5 ]
   %30 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %29, i32 10
   %31 = load i64, ptr %30, align 8
-  br label %36
+  br label %37
 
 32:                                               ; preds = %26
-  %33 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %27, i32 17, i64 %18
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %34 to i64
-  br label %36
+  %33 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %27, i32 17
+  %34 = getelementptr [64 x i32], ptr %33, i64 0, i64 %18
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  br label %37
 
-36:                                               ; preds = %32, %.thread
-  %37 = phi i64 [ %31, %.thread ], [ %35, %32 ]
-  %38 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %37) #22
-  %39 = sext i32 %38 to i64
-  ret i64 %39
+37:                                               ; preds = %32, %.thread
+  %38 = phi i64 [ %31, %.thread ], [ %36, %32 ]
+  %39 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %38) #22
+  %40 = sext i32 %39 to i64
+  ret i64 %40
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -17212,19 +17223,20 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_s
   %29 = phi i64 [ %27, %26 ], [ %7, %5 ]
   %30 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %29, i32 7
   %31 = load i64, ptr %30, align 8
-  br label %36
+  br label %37
 
 32:                                               ; preds = %26
-  %33 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %27, i32 15, i64 %18
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %34 to i64
-  br label %36
+  %33 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %27, i32 15
+  %34 = getelementptr [64 x i32], ptr %33, i64 0, i64 %18
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  br label %37
 
-36:                                               ; preds = %32, %.thread
-  %37 = phi i64 [ %31, %.thread ], [ %35, %32 ]
-  %38 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %37) #22
-  %39 = sext i32 %38 to i64
-  ret i64 %39
+37:                                               ; preds = %32, %.thread
+  %38 = phi i64 [ %31, %.thread ], [ %36, %32 ]
+  %39 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %38) #22
+  %40 = sext i32 %39 to i64
+  ret i64 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

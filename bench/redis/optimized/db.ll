@@ -158,7 +158,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @updateKeysizesHist(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ugt i32 %2, 4
-  br i1 %6, label %31, label %7, !prof !5
+  br i1 %6, label %43, label %7, !prof !5
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %0, align 8, !tbaa !6
@@ -166,55 +166,73 @@ define dso_local void @updateKeysizesHist(ptr noundef readonly captures(none) %0
   %10 = load ptr, ptr %0, align 8, !tbaa !6
   %11 = tail call ptr @kvstoreGetMetadata(ptr noundef %10) #20
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %21, label %12
+  br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %7
   %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %3, i1 true)
-  %.pre32 = xor i64 %13, 63
+  %14 = trunc nuw nsw i64 %13 to i32
+  %15 = xor i32 %14, 63
   %.not24 = icmp eq ptr %9, null
   %.pre30 = zext nneg i32 %2 to i64
-  br i1 %.not24, label %._crit_edge, label %14
+  br i1 %.not24, label %._crit_edge, label %16
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %9, i64 0, i64 %.pre30, i64 %.pre32
-  %16 = load i64, ptr %15, align 8, !tbaa !17
-  %17 = add i64 %16, -1
-  store i64 %17, ptr %15, align 8, !tbaa !17
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %12
+  %.pre32 = zext nneg i32 %15 to i64
+  br label %22
 
-._crit_edge:                                      ; preds = %12, %14
-  %18 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %11, i64 0, i64 %.pre30, i64 %.pre32
-  %19 = load i64, ptr %18, align 8, !tbaa !17
-  %20 = add i64 %19, -1
-  store i64 %20, ptr %18, align 8, !tbaa !17
-  br label %21
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %9, i64 0, i64 %.pre30
+  %18 = zext nneg i32 %15 to i64
+  %19 = getelementptr inbounds nuw [48 x i64], ptr %17, i64 0, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !17
+  %21 = add i64 %20, -1
+  store i64 %21, ptr %19, align 8, !tbaa !17
+  br label %22
 
-21:                                               ; preds = %._crit_edge, %7
+22:                                               ; preds = %._crit_edge, %16
+  %.pre-phi33 = phi i64 [ %.pre32, %._crit_edge ], [ %18, %16 ]
+  %23 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %11, i64 0, i64 %.pre30
+  %24 = getelementptr inbounds nuw [48 x i64], ptr %23, i64 0, i64 %.pre-phi33
+  %25 = load i64, ptr %24, align 8, !tbaa !17
+  %26 = add i64 %25, -1
+  store i64 %26, ptr %24, align 8, !tbaa !17
+  br label %27
+
+27:                                               ; preds = %22, %7
   %.not25 = icmp eq i64 %4, 0
-  br i1 %.not25, label %31, label %22
+  br i1 %.not25, label %43, label %28
 
-22:                                               ; preds = %21
-  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %4, i1 true)
-  %.pre28 = xor i64 %23, 63
+28:                                               ; preds = %27
+  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %4, i1 true)
+  %30 = trunc nuw nsw i64 %29 to i32
+  %31 = xor i32 %30, 63
   %.not26 = icmp eq ptr %9, null
   %.pre = zext nneg i32 %2 to i64
-  br i1 %.not26, label %._crit_edge27, label %24
+  br i1 %.not26, label %._crit_edge27, label %32
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %9, i64 0, i64 %.pre, i64 %.pre28
-  %26 = load i64, ptr %25, align 8, !tbaa !17
-  %27 = add i64 %26, 1
-  store i64 %27, ptr %25, align 8, !tbaa !17
-  br label %._crit_edge27
+._crit_edge27:                                    ; preds = %28
+  %.pre28 = zext nneg i32 %31 to i64
+  br label %38
 
-._crit_edge27:                                    ; preds = %22, %24
-  %28 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %11, i64 0, i64 %.pre, i64 %.pre28
-  %29 = load i64, ptr %28, align 8, !tbaa !17
-  %30 = add i64 %29, 1
-  store i64 %30, ptr %28, align 8, !tbaa !17
-  br label %31
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %9, i64 0, i64 %.pre
+  %34 = zext nneg i32 %31 to i64
+  %35 = getelementptr inbounds nuw [48 x i64], ptr %33, i64 0, i64 %34
+  %36 = load i64, ptr %35, align 8, !tbaa !17
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %35, align 8, !tbaa !17
+  br label %38
 
-31:                                               ; preds = %21, %._crit_edge27, %5
+38:                                               ; preds = %._crit_edge27, %32
+  %.pre-phi29 = phi i64 [ %.pre28, %._crit_edge27 ], [ %34, %32 ]
+  %39 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %11, i64 0, i64 %.pre
+  %40 = getelementptr inbounds nuw [48 x i64], ptr %39, i64 0, i64 %.pre-phi29
+  %41 = load i64, ptr %40, align 8, !tbaa !17
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %40, align 8, !tbaa !17
+  br label %43
+
+43:                                               ; preds = %27, %38, %5
   ret void
 }
 
@@ -690,27 +708,36 @@ getKeySlot.exit:                                  ; preds = %13, %17
 
 47:                                               ; preds = %42
   %48 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %40, i1 true)
-  %.pre28.i = xor i64 %48, 63
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = xor i32 %49, 63
   %.not26.i = icmp eq ptr %44, null
   %.pre.i = zext nneg i32 %39 to i64
-  br i1 %.not26.i, label %._crit_edge27.i, label %49
+  br i1 %.not26.i, label %._crit_edge27.i, label %51
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %44, i64 0, i64 %.pre.i, i64 %.pre28.i
-  %51 = load i64, ptr %50, align 8, !tbaa !17
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %50, align 8, !tbaa !17
-  br label %._crit_edge27.i
+._crit_edge27.i:                                  ; preds = %47
+  %.pre28.i = zext nneg i32 %50 to i64
+  br label %57
 
-._crit_edge27.i:                                  ; preds = %49, %47
-  %53 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %46, i64 0, i64 %.pre.i, i64 %.pre28.i
-  %54 = load i64, ptr %53, align 8, !tbaa !17
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %53, align 8, !tbaa !17
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %44, i64 0, i64 %.pre.i
+  %53 = zext nneg i32 %50 to i64
+  %54 = getelementptr inbounds nuw [48 x i64], ptr %52, i64 0, i64 %53
+  %55 = load i64, ptr %54, align 8, !tbaa !17
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %54, align 8, !tbaa !17
+  br label %57
+
+57:                                               ; preds = %51, %._crit_edge27.i
+  %.pre-phi29.i = phi i64 [ %.pre28.i, %._crit_edge27.i ], [ %53, %51 ]
+  %58 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %46, i64 0, i64 %.pre.i
+  %59 = getelementptr inbounds nuw [48 x i64], ptr %58, i64 0, i64 %.pre-phi29.i
+  %60 = load i64, ptr %59, align 8, !tbaa !17
+  %61 = add i64 %60, 1
+  store i64 %61, ptr %59, align 8, !tbaa !17
   br label %updateKeysizesHist.exit
 
-updateKeysizesHist.exit:                          ; preds = %._crit_edge27.i, %42, %29, %25
-  %.0 = phi ptr [ %26, %25 ], [ %21, %29 ], [ %21, %42 ], [ %21, %._crit_edge27.i ]
+updateKeysizesHist.exit:                          ; preds = %57, %42, %29, %25
+  %.0 = phi ptr [ %26, %25 ], [ %21, %29 ], [ %21, %42 ], [ %21, %57 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   ret ptr %.0
 }
@@ -954,7 +981,7 @@ getKeySlot.exit:                                  ; preds = %9, %13
   %15 = load ptr, ptr %0, align 8, !tbaa !6
   %16 = tail call ptr @kvstoreDictAddRaw(ptr noundef %15, i32 noundef %.0.i, ptr noundef %1, ptr noundef null) #20
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %38, label %18
+  br i1 %17, label %44, label %18
 
 18:                                               ; preds = %getKeySlot.exit
   %19 = load i32, ptr %2, align 8
@@ -973,32 +1000,41 @@ getKeySlot.exit:                                  ; preds = %9, %13
 
 28:                                               ; preds = %23
   %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %21, i1 true)
-  %.pre28.i = xor i64 %29, 63
+  %30 = trunc nuw nsw i64 %29 to i32
+  %31 = xor i32 %30, 63
   %.not26.i = icmp eq ptr %25, null
   %.pre.i = zext nneg i32 %20 to i64
-  br i1 %.not26.i, label %._crit_edge27.i, label %30
+  br i1 %.not26.i, label %._crit_edge27.i, label %32
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %25, i64 0, i64 %.pre.i, i64 %.pre28.i
-  %32 = load i64, ptr %31, align 8, !tbaa !17
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %31, align 8, !tbaa !17
-  br label %._crit_edge27.i
-
-._crit_edge27.i:                                  ; preds = %30, %28
-  %34 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %27, i64 0, i64 %.pre.i, i64 %.pre28.i
-  %35 = load i64, ptr %34, align 8, !tbaa !17
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %34, align 8, !tbaa !17
-  br label %updateKeysizesHist.exit
-
-updateKeysizesHist.exit:                          ; preds = %18, %23, %._crit_edge27.i
-  tail call void @initObjectLRUOrLFU(ptr noundef nonnull %2) #20
-  %37 = load ptr, ptr %0, align 8, !tbaa !6
-  tail call void @kvstoreDictSetVal(ptr noundef %37, i32 noundef %.0.i, ptr noundef nonnull %16, ptr noundef nonnull %2) #20
+._crit_edge27.i:                                  ; preds = %28
+  %.pre28.i = zext nneg i32 %31 to i64
   br label %38
 
-38:                                               ; preds = %getKeySlot.exit, %updateKeysizesHist.exit
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %25, i64 0, i64 %.pre.i
+  %34 = zext nneg i32 %31 to i64
+  %35 = getelementptr inbounds nuw [48 x i64], ptr %33, i64 0, i64 %34
+  %36 = load i64, ptr %35, align 8, !tbaa !17
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %35, align 8, !tbaa !17
+  br label %38
+
+38:                                               ; preds = %32, %._crit_edge27.i
+  %.pre-phi29.i = phi i64 [ %.pre28.i, %._crit_edge27.i ], [ %34, %32 ]
+  %39 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %27, i64 0, i64 %.pre.i
+  %40 = getelementptr inbounds nuw [48 x i64], ptr %39, i64 0, i64 %.pre-phi29.i
+  %41 = load i64, ptr %40, align 8, !tbaa !17
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %40, align 8, !tbaa !17
+  br label %updateKeysizesHist.exit
+
+updateKeysizesHist.exit:                          ; preds = %18, %23, %38
+  tail call void @initObjectLRUOrLFU(ptr noundef nonnull %2) #20
+  %43 = load ptr, ptr %0, align 8, !tbaa !6
+  tail call void @kvstoreDictSetVal(ptr noundef %43, i32 noundef %.0.i, ptr noundef nonnull %16, ptr noundef nonnull %2) #20
+  br label %44
+
+44:                                               ; preds = %getKeySlot.exit, %updateKeysizesHist.exit
   %.0 = phi i32 [ 1, %updateKeysizesHist.exit ], [ 0, %getKeySlot.exit ]
   ret i32 %.0
 }
@@ -1078,113 +1114,131 @@ getKeySlot.exit:                                  ; preds = %13, %17
 
 34:                                               ; preds = %29
   %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %27, i1 true)
-  %.pre32.i = xor i64 %35, 63
+  %36 = trunc nuw nsw i64 %35 to i32
+  %37 = xor i32 %36, 63
   %.not24.i = icmp eq ptr %31, null
   %.pre30.i = zext nneg i32 %26 to i64
-  br i1 %.not24.i, label %._crit_edge.i, label %36
+  br i1 %.not24.i, label %._crit_edge.i, label %38
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %31, i64 0, i64 %.pre30.i, i64 %.pre32.i
-  %38 = load i64, ptr %37, align 8, !tbaa !17
-  %39 = add i64 %38, -1
-  store i64 %39, ptr %37, align 8, !tbaa !17
-  br label %._crit_edge.i
+._crit_edge.i:                                    ; preds = %34
+  %.pre32.i = zext nneg i32 %37 to i64
+  br label %44
 
-._crit_edge.i:                                    ; preds = %36, %34
-  %40 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %33, i64 0, i64 %.pre30.i, i64 %.pre32.i
-  %41 = load i64, ptr %40, align 8, !tbaa !17
-  %42 = add i64 %41, -1
-  store i64 %42, ptr %40, align 8, !tbaa !17
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %31, i64 0, i64 %.pre30.i
+  %40 = zext nneg i32 %37 to i64
+  %41 = getelementptr inbounds nuw [48 x i64], ptr %39, i64 0, i64 %40
+  %42 = load i64, ptr %41, align 8, !tbaa !17
+  %43 = add i64 %42, -1
+  store i64 %43, ptr %41, align 8, !tbaa !17
+  br label %44
+
+44:                                               ; preds = %38, %._crit_edge.i
+  %.pre-phi33.i = phi i64 [ %.pre32.i, %._crit_edge.i ], [ %40, %38 ]
+  %45 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %33, i64 0, i64 %.pre30.i
+  %46 = getelementptr inbounds nuw [48 x i64], ptr %45, i64 0, i64 %.pre-phi33.i
+  %47 = load i64, ptr %46, align 8, !tbaa !17
+  %48 = add i64 %47, -1
+  store i64 %48, ptr %46, align 8, !tbaa !17
   br label %updateKeysizesHist.exit
 
-updateKeysizesHist.exit:                          ; preds = %29, %._crit_edge.i, %.thread
-  %43 = load i32, ptr %24, align 8
-  %44 = and i32 %43, -256
-  %45 = load i32, ptr %2, align 8
-  %46 = and i32 %45, 255
-  %47 = or disjoint i32 %46, %44
-  store i32 %47, ptr %2, align 8
+updateKeysizesHist.exit:                          ; preds = %29, %44, %.thread
+  %49 = load i32, ptr %24, align 8
+  %50 = and i32 %49, -256
+  %51 = load i32, ptr %2, align 8
+  %52 = and i32 %51, 255
+  %53 = or disjoint i32 %52, %50
+  store i32 %53, ptr %2, align 8
   %.not41 = icmp eq i32 %3, 0
-  br i1 %.not41, label %54, label %48
+  br i1 %.not41, label %60, label %54
 
-48:                                               ; preds = %updateKeysizesHist.exit
+54:                                               ; preds = %updateKeysizesHist.exit
   tail call void @incrRefCount(ptr noundef nonnull %24) #20
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %50 = load i32, ptr %49, align 8, !tbaa !67
-  tail call void @moduleNotifyKeyUnlink(ptr noundef nonnull %1, ptr noundef nonnull %24, i32 noundef %50, i32 noundef 8) #20
-  %51 = load i32, ptr %24, align 8
-  %52 = and i32 %51, 15
-  tail call void @signalDeletedKeyAsReady(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %52) #20
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %56 = load i32, ptr %55, align 8, !tbaa !67
+  tail call void @moduleNotifyKeyUnlink(ptr noundef nonnull %1, ptr noundef nonnull %24, i32 noundef %56, i32 noundef 8) #20
+  %57 = load i32, ptr %24, align 8
+  %58 = and i32 %57, 15
+  tail call void @signalDeletedKeyAsReady(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %58) #20
   tail call void @decrRefCount(ptr noundef nonnull %24) #20
-  %53 = tail call ptr @dictGetVal(ptr noundef nonnull %.03847) #20
-  br label %54
+  %59 = tail call ptr @dictGetVal(ptr noundef nonnull %.03847) #20
+  br label %60
 
-54:                                               ; preds = %48, %updateKeysizesHist.exit
-  %.0 = phi ptr [ %53, %48 ], [ %24, %updateKeysizesHist.exit ]
-  %55 = load ptr, ptr %0, align 8, !tbaa !6
-  tail call void @kvstoreDictSetVal(ptr noundef %55, i32 noundef %.0.i, ptr noundef nonnull %.03847, ptr noundef nonnull %2) #20
-  %56 = load i32, ptr %2, align 8
-  %57 = and i32 %56, 15
-  %58 = tail call i64 @getObjectLength(ptr noundef nonnull %2) #20
-  %59 = icmp samesign ugt i32 %57, 4
-  br i1 %59, label %updateKeysizesHist.exit44, label %60, !prof !5
-
-60:                                               ; preds = %54
+60:                                               ; preds = %54, %updateKeysizesHist.exit
+  %.0 = phi ptr [ %59, %54 ], [ %24, %updateKeysizesHist.exit ]
   %61 = load ptr, ptr %0, align 8, !tbaa !6
-  %62 = tail call ptr @kvstoreGetDictMetadata(ptr noundef %61, i32 noundef %.0.i) #20
-  %63 = load ptr, ptr %0, align 8, !tbaa !6
-  %64 = tail call ptr @kvstoreGetMetadata(ptr noundef %63) #20
-  %.not25.i = icmp eq i64 %58, 0
-  br i1 %.not25.i, label %updateKeysizesHist.exit44, label %65
+  tail call void @kvstoreDictSetVal(ptr noundef %61, i32 noundef %.0.i, ptr noundef nonnull %.03847, ptr noundef nonnull %2) #20
+  %62 = load i32, ptr %2, align 8
+  %63 = and i32 %62, 15
+  %64 = tail call i64 @getObjectLength(ptr noundef nonnull %2) #20
+  %65 = icmp samesign ugt i32 %63, 4
+  br i1 %65, label %updateKeysizesHist.exit44, label %66, !prof !5
 
-65:                                               ; preds = %60
-  %66 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %58, i1 true)
-  %.pre28.i = xor i64 %66, 63
-  %.not26.i = icmp eq ptr %62, null
-  %.pre.i = zext nneg i32 %57 to i64
-  br i1 %.not26.i, label %._crit_edge27.i, label %67
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %0, align 8, !tbaa !6
+  %68 = tail call ptr @kvstoreGetDictMetadata(ptr noundef %67, i32 noundef %.0.i) #20
+  %69 = load ptr, ptr %0, align 8, !tbaa !6
+  %70 = tail call ptr @kvstoreGetMetadata(ptr noundef %69) #20
+  %.not25.i = icmp eq i64 %64, 0
+  br i1 %.not25.i, label %updateKeysizesHist.exit44, label %71
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %62, i64 0, i64 %.pre.i, i64 %.pre28.i
-  %69 = load i64, ptr %68, align 8, !tbaa !17
-  %70 = add i64 %69, 1
-  store i64 %70, ptr %68, align 8, !tbaa !17
-  br label %._crit_edge27.i
+71:                                               ; preds = %66
+  %72 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %64, i1 true)
+  %73 = trunc nuw nsw i64 %72 to i32
+  %74 = xor i32 %73, 63
+  %.not26.i = icmp eq ptr %68, null
+  %.pre.i = zext nneg i32 %63 to i64
+  br i1 %.not26.i, label %._crit_edge27.i, label %75
 
-._crit_edge27.i:                                  ; preds = %67, %65
-  %71 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %64, i64 0, i64 %.pre.i, i64 %.pre28.i
-  %72 = load i64, ptr %71, align 8, !tbaa !17
-  %73 = add i64 %72, 1
-  store i64 %73, ptr %71, align 8, !tbaa !17
+._crit_edge27.i:                                  ; preds = %71
+  %.pre28.i = zext nneg i32 %74 to i64
+  br label %81
+
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %68, i64 0, i64 %.pre.i
+  %77 = zext nneg i32 %74 to i64
+  %78 = getelementptr inbounds nuw [48 x i64], ptr %76, i64 0, i64 %77
+  %79 = load i64, ptr %78, align 8, !tbaa !17
+  %80 = add i64 %79, 1
+  store i64 %80, ptr %78, align 8, !tbaa !17
+  br label %81
+
+81:                                               ; preds = %75, %._crit_edge27.i
+  %.pre-phi29.i = phi i64 [ %.pre28.i, %._crit_edge27.i ], [ %77, %75 ]
+  %82 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %70, i64 0, i64 %.pre.i
+  %83 = getelementptr inbounds nuw [48 x i64], ptr %82, i64 0, i64 %.pre-phi29.i
+  %84 = load i64, ptr %83, align 8, !tbaa !17
+  %85 = add i64 %84, 1
+  store i64 %85, ptr %83, align 8, !tbaa !17
   br label %updateKeysizesHist.exit44
 
-updateKeysizesHist.exit44:                        ; preds = %54, %60, %._crit_edge27.i
-  %74 = load i32, ptr %.0, align 8
-  %75 = and i32 %74, 15
-  %76 = icmp eq i32 %75, 4
-  br i1 %76, label %77, label %80
+updateKeysizesHist.exit44:                        ; preds = %60, %66, %81
+  %86 = load i32, ptr %.0, align 8
+  %87 = and i32 %86, 15
+  %88 = icmp eq i32 %87, 4
+  br i1 %88, label %89, label %92
 
-77:                                               ; preds = %updateKeysizesHist.exit44
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = tail call i64 @hashTypeRemoveFromExpires(ptr noundef nonnull %78, ptr noundef nonnull %.0) #20
-  br label %80
+89:                                               ; preds = %updateKeysizesHist.exit44
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %91 = tail call i64 @hashTypeRemoveFromExpires(ptr noundef nonnull %90, ptr noundef nonnull %.0) #20
+  br label %92
 
-80:                                               ; preds = %77, %updateKeysizesHist.exit44
-  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8048), align 8, !tbaa !85
-  %.not42 = icmp eq i32 %81, 0
-  br i1 %.not42, label %85, label %82
+92:                                               ; preds = %89, %updateKeysizesHist.exit44
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8048), align 8, !tbaa !85
+  %.not42 = icmp eq i32 %93, 0
+  br i1 %.not42, label %97, label %94
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %84 = load i32, ptr %83, align 8, !tbaa !67
-  tail call void @freeObjAsync(ptr noundef nonnull %1, ptr noundef nonnull %.0, i32 noundef %84) #20
-  br label %86
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %96 = load i32, ptr %95, align 8, !tbaa !67
+  tail call void @freeObjAsync(ptr noundef nonnull %1, ptr noundef nonnull %.0, i32 noundef %96) #20
+  br label %98
 
-85:                                               ; preds = %80
+97:                                               ; preds = %92
   tail call void @decrRefCount(ptr noundef nonnull %.0) #20
-  br label %86
+  br label %98
 
-86:                                               ; preds = %85, %82
+98:                                               ; preds = %97, %94
   ret void
 }
 
@@ -1534,7 +1588,7 @@ getKeySlot.exit:                                  ; preds = %14, %18
   %21 = load ptr, ptr %0, align 8, !tbaa !6
   %22 = call ptr @kvstoreDictTwoPhaseUnlinkFind(ptr noundef %21, i32 noundef %.0.i, ptr noundef %20, ptr noundef nonnull %5, ptr noundef nonnull %6) #20
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %66, label %23
+  br i1 %.not, label %72, label %23
 
 23:                                               ; preds = %getKeySlot.exit
   %24 = call ptr @dictGetVal(ptr noundef nonnull %22) #20
@@ -1554,69 +1608,78 @@ getKeySlot.exit:                                  ; preds = %14, %18
 
 34:                                               ; preds = %29
   %35 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %27, i1 true)
-  %.pre32.i = xor i64 %35, 63
+  %36 = trunc nuw nsw i64 %35 to i32
+  %37 = xor i32 %36, 63
   %.not24.i = icmp eq ptr %31, null
   %.pre30.i = zext nneg i32 %26 to i64
-  br i1 %.not24.i, label %._crit_edge.i, label %36
+  br i1 %.not24.i, label %._crit_edge.i, label %38
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %31, i64 0, i64 %.pre30.i, i64 %.pre32.i
-  %38 = load i64, ptr %37, align 8, !tbaa !17
-  %39 = add i64 %38, -1
-  store i64 %39, ptr %37, align 8, !tbaa !17
-  br label %._crit_edge.i
+._crit_edge.i:                                    ; preds = %34
+  %.pre32.i = zext nneg i32 %37 to i64
+  br label %44
 
-._crit_edge.i:                                    ; preds = %36, %34
-  %40 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %33, i64 0, i64 %.pre30.i, i64 %.pre32.i
-  %41 = load i64, ptr %40, align 8, !tbaa !17
-  %42 = add i64 %41, -1
-  store i64 %42, ptr %40, align 8, !tbaa !17
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %31, i64 0, i64 %.pre30.i
+  %40 = zext nneg i32 %37 to i64
+  %41 = getelementptr inbounds nuw [48 x i64], ptr %39, i64 0, i64 %40
+  %42 = load i64, ptr %41, align 8, !tbaa !17
+  %43 = add i64 %42, -1
+  store i64 %43, ptr %41, align 8, !tbaa !17
+  br label %44
+
+44:                                               ; preds = %38, %._crit_edge.i
+  %.pre-phi33.i = phi i64 [ %.pre32.i, %._crit_edge.i ], [ %40, %38 ]
+  %45 = getelementptr inbounds nuw [5 x [48 x i64]], ptr %33, i64 0, i64 %.pre30.i
+  %46 = getelementptr inbounds nuw [48 x i64], ptr %45, i64 0, i64 %.pre-phi33.i
+  %47 = load i64, ptr %46, align 8, !tbaa !17
+  %48 = add i64 %47, -1
+  store i64 %48, ptr %46, align 8, !tbaa !17
   br label %updateKeysizesHist.exit
 
-updateKeysizesHist.exit:                          ; preds = %29, %._crit_edge.i, %23
-  %43 = load i32, ptr %24, align 8
-  %44 = and i32 %43, 15
-  %45 = icmp eq i32 %44, 4
-  br i1 %45, label %46, label %49
+updateKeysizesHist.exit:                          ; preds = %29, %44, %23
+  %49 = load i32, ptr %24, align 8
+  %50 = and i32 %49, 15
+  %51 = icmp eq i32 %50, 4
+  br i1 %51, label %52, label %55
 
-46:                                               ; preds = %updateKeysizesHist.exit
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = call i64 @hashTypeRemoveFromExpires(ptr noundef nonnull %47, ptr noundef nonnull %24) #20
-  br label %49
+52:                                               ; preds = %updateKeysizesHist.exit
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %54 = call i64 @hashTypeRemoveFromExpires(ptr noundef nonnull %53, ptr noundef nonnull %24) #20
+  br label %55
 
-49:                                               ; preds = %46, %updateKeysizesHist.exit
+55:                                               ; preds = %52, %updateKeysizesHist.exit
   call void @incrRefCount(ptr noundef nonnull %24) #20
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %51 = load i32, ptr %50, align 8, !tbaa !67
-  call void @moduleNotifyKeyUnlink(ptr noundef nonnull %1, ptr noundef nonnull %24, i32 noundef %51, i32 noundef %3) #20
-  %52 = load i32, ptr %24, align 8
-  %53 = and i32 %52, 15
-  call void @signalDeletedKeyAsReady(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %53) #20
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %57 = load i32, ptr %56, align 8, !tbaa !67
+  call void @moduleNotifyKeyUnlink(ptr noundef nonnull %1, ptr noundef nonnull %24, i32 noundef %57, i32 noundef %3) #20
+  %58 = load i32, ptr %24, align 8
+  %59 = and i32 %58, 15
+  call void @signalDeletedKeyAsReady(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %59) #20
   call void @decrRefCount(ptr noundef nonnull %24) #20
   %.not36 = icmp eq i32 %2, 0
-  br i1 %.not36, label %58, label %54
+  br i1 %.not36, label %64, label %60
 
-54:                                               ; preds = %49
-  %55 = call ptr @dictGetVal(ptr noundef nonnull %22) #20
-  %56 = load i32, ptr %50, align 8, !tbaa !67
-  call void @freeObjAsync(ptr noundef nonnull %1, ptr noundef %55, i32 noundef %56) #20
-  %57 = load ptr, ptr %0, align 8, !tbaa !6
-  call void @kvstoreDictSetVal(ptr noundef %57, i32 noundef %.0.i, ptr noundef nonnull %22, ptr noundef null) #20
-  br label %58
-
-58:                                               ; preds = %54, %49
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !72
-  %61 = load ptr, ptr %7, align 8, !tbaa !18
-  %62 = call i32 @kvstoreDictDelete(ptr noundef %60, i32 noundef %.0.i, ptr noundef %61) #20
+60:                                               ; preds = %55
+  %61 = call ptr @dictGetVal(ptr noundef nonnull %22) #20
+  %62 = load i32, ptr %56, align 8, !tbaa !67
+  call void @freeObjAsync(ptr noundef nonnull %1, ptr noundef %61, i32 noundef %62) #20
   %63 = load ptr, ptr %0, align 8, !tbaa !6
-  %64 = load ptr, ptr %5, align 8, !tbaa !88
-  %65 = load i32, ptr %6, align 4, !tbaa !79
-  call void @kvstoreDictTwoPhaseUnlinkFree(ptr noundef %63, i32 noundef %.0.i, ptr noundef nonnull %22, ptr noundef %64, i32 noundef %65) #20
-  br label %66
+  call void @kvstoreDictSetVal(ptr noundef %63, i32 noundef %.0.i, ptr noundef nonnull %22, ptr noundef null) #20
+  br label %64
 
-66:                                               ; preds = %getKeySlot.exit, %58
-  %.0 = phi i32 [ 1, %58 ], [ 0, %getKeySlot.exit ]
+64:                                               ; preds = %60, %55
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !72
+  %67 = load ptr, ptr %7, align 8, !tbaa !18
+  %68 = call i32 @kvstoreDictDelete(ptr noundef %66, i32 noundef %.0.i, ptr noundef %67) #20
+  %69 = load ptr, ptr %0, align 8, !tbaa !6
+  %70 = load ptr, ptr %5, align 8, !tbaa !88
+  %71 = load i32, ptr %6, align 4, !tbaa !79
+  call void @kvstoreDictTwoPhaseUnlinkFree(ptr noundef %69, i32 noundef %.0.i, ptr noundef nonnull %22, ptr noundef %70, i32 noundef %71) #20
+  br label %72
+
+72:                                               ; preds = %getKeySlot.exit, %64
+  %.0 = phi i32 [ 1, %64 ], [ 0, %getKeySlot.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   ret i32 %.0

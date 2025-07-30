@@ -6933,7 +6933,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_pcms(ptr nou
 40:                                               ; preds = %46
   %41 = add i32 %48, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr [4 x [5 x i32]], ptr @get_empty_pcm_device.audio_idx, i64 0, i64 %33, i64 %42
+  %43 = getelementptr [5 x i32], ptr %34, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = icmp ugt i32 %44, 7
   br i1 %45, label %53, label %46, !llvm.loop !76

@@ -3063,7 +3063,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %9 = and i32 %8, 255
   store i32 %9, ptr %2, align 4, !tbaa !86
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 32, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 8192), i64 0, i64 %10
   %12 = load atomic i8, ptr %11 monotonic, align 1
   %13 = zext i8 %12 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #24
@@ -3500,7 +3500,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %26 = and i32 %25, 255
   store i32 %26, ptr %3, align 4, !tbaa !86
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 32, i64 %27
+  %28 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 8192), i64 0, i64 %27
   %29 = load atomic i8, ptr %28 monotonic, align 1
   %30 = zext i8 %29 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24

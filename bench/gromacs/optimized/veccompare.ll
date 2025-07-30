@@ -119,7 +119,7 @@ define void @_Z8cmp_ivecP8_IO_FILEPKciPKiS4_(ptr noundef captures(none) %0, ptr 
 ; Function Attrs: mustprogress uwtable
 define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
   %9 = icmp sgt i32 %2, 0
-  br i1 %5, label %.preheader28, label %23
+  br i1 %5, label %.preheader28, label %25
 
 .preheader28:                                     ; preds = %8
   br i1 %9, label %.preheader.preheader, label %._crit_edge
@@ -128,82 +128,86 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %18
-  %indvars.iv35 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next36, %18 ]
-  %.032 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %17, %18 ]
-  br label %10
+.preheader:                                       ; preds = %.preheader.preheader, %20
+  %indvars.iv35 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next36, %20 ]
+  %.032 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %19, %20 ]
+  %10 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv35
+  %11 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv35
+  br label %12
 
-10:                                               ; preds = %.preheader, %10
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %10 ]
-  %.130 = phi double [ %.032, %.preheader ], [ %17, %10 ]
-  %11 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv35, i64 %indvars.iv
-  %12 = load float, ptr %11, align 4, !tbaa !4
-  %13 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv35, i64 %indvars.iv
+12:                                               ; preds = %.preheader, %12
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
+  %.130 = phi double [ %.032, %.preheader ], [ %19, %12 ]
+  %13 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !4
-  %15 = fsub float %12, %14
-  %16 = fpext float %15 to double
-  %17 = tail call double @llvm.fmuladd.f64(double %16, double %16, double %.130)
+  %15 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv
+  %16 = load float, ptr %15, align 4, !tbaa !4
+  %17 = fsub float %14, %16
+  %18 = fpext float %17 to double
+  %19 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %.130)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %18, label %10, !llvm.loop !10
+  br i1 %exitcond.not, label %20, label %12, !llvm.loop !10
 
-18:                                               ; preds = %10
+20:                                               ; preds = %12
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count
   br i1 %exitcond38.not, label %._crit_edge, label %.preheader, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %18, %.preheader28
-  %.0.lcssa = phi double [ 0.000000e+00, %.preheader28 ], [ %17, %18 ]
-  %19 = sitofp i32 %2 to double
-  %20 = fdiv double %.0.lcssa, %19
-  %21 = tail call double @sqrt(double noundef %20) #6, !tbaa !8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %1, double noundef %21) #6
+._crit_edge:                                      ; preds = %20, %.preheader28
+  %.0.lcssa = phi double [ 0.000000e+00, %.preheader28 ], [ %19, %20 ]
+  %21 = sitofp i32 %2 to double
+  %22 = fdiv double %.0.lcssa, %21
+  %23 = tail call double @sqrt(double noundef %22) #6, !tbaa !8
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %1, double noundef %23) #6
   br label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
 
-23:                                               ; preds = %8
+25:                                               ; preds = %8
   br i1 %9, label %.preheader.preheader.i, label %._crit_edge.i
 
-.preheader.preheader.i:                           ; preds = %23
+.preheader.preheader.i:                           ; preds = %25
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %33, %.preheader.preheader.i
-  %indvars.iv49.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next50.i, %33 ]
-  %.044.i = phi double [ 0.000000e+00, %.preheader.preheader.i ], [ %32, %33 ]
-  br label %24
+.preheader.i:                                     ; preds = %37, %.preheader.preheader.i
+  %indvars.iv49.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next50.i, %37 ]
+  %.044.i = phi double [ 0.000000e+00, %.preheader.preheader.i ], [ %36, %37 ]
+  %26 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv49.i
+  %27 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv49.i
+  br label %28
 
-24:                                               ; preds = %24, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %.142.i = phi double [ %.044.i, %.preheader.i ], [ %32, %24 ]
-  %25 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv49.i, i64 %indvars.iv.i
-  %26 = load float, ptr %25, align 4, !tbaa !4
-  %27 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv49.i, i64 %indvars.iv.i
-  %28 = load float, ptr %27, align 4, !tbaa !4
-  %29 = fmul float %28, %28
-  %30 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %29)
-  %31 = fpext float %30 to double
-  %32 = fadd double %.142.i, %31
+28:                                               ; preds = %28, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %28 ]
+  %.142.i = phi double [ %.044.i, %.preheader.i ], [ %36, %28 ]
+  %29 = getelementptr inbounds nuw [3 x float], ptr %26, i64 0, i64 %indvars.iv.i
+  %30 = load float, ptr %29, align 4, !tbaa !4
+  %31 = getelementptr inbounds nuw [3 x float], ptr %27, i64 0, i64 %indvars.iv.i
+  %32 = load float, ptr %31, align 4, !tbaa !4
+  %33 = fmul float %32, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %33)
+  %35 = fpext float %34 to double
+  %36 = fadd double %.142.i, %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %33, label %24, !llvm.loop !13
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !13
 
-33:                                               ; preds = %24
+37:                                               ; preds = %28
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
   br i1 %exitcond52.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !14
 
-._crit_edge.i:                                    ; preds = %33, %23
-  %.0.lcssa.i = phi double [ 0.000000e+00, %23 ], [ %32, %33 ]
-  %34 = mul nsw i32 %2, 6
-  %35 = sitofp i32 %34 to double
-  %36 = fdiv double %.0.lcssa.i, %35
-  %37 = tail call double @sqrt(double noundef %36) #6, !tbaa !8
-  %38 = fpext float %6 to double
-  %39 = fmul double %37, %38
-  %40 = fpext float %7 to double
-  %41 = fcmp olt double %39, %40
-  %42 = fptrunc double %39 to float
-  %.038.i = select i1 %41, float %42, float %7
+._crit_edge.i:                                    ; preds = %37, %25
+  %.0.lcssa.i = phi double [ 0.000000e+00, %25 ], [ %36, %37 ]
+  %38 = mul nsw i32 %2, 6
+  %39 = sitofp i32 %38 to double
+  %40 = fdiv double %.0.lcssa.i, %39
+  %41 = tail call double @sqrt(double noundef %40) #6, !tbaa !8
+  %42 = fpext float %6 to double
+  %43 = fmul double %41, %42
+  %44 = fpext float %7 to double
+  %45 = fcmp olt double %43, %44
+  %46 = fptrunc double %43 to float
+  %.038.i = select i1 %45, float %46, float %7
   br i1 %9, label %.lr.ph.preheader.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i
@@ -212,10 +216,10 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv53.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next54.i, %.lr.ph.i ]
-  %43 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv53.i
-  %44 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv53.i
-  %45 = trunc nuw nsw i64 %indvars.iv53.i to i32
-  tail call void @_Z8cmp_rvecP8_IO_FILEPKciPKfS4_ff(ptr noundef %0, ptr noundef %1, i32 noundef %45, ptr noundef readonly %43, ptr noundef readonly %44, float noundef 0.000000e+00, float noundef %.038.i)
+  %47 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv53.i
+  %48 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv53.i
+  %49 = trunc nuw nsw i64 %indvars.iv53.i to i32
+  tail call void @_Z8cmp_rvecP8_IO_FILEPKciPKfS4_ff(ptr noundef %0, ptr noundef %1, i32 noundef %49, ptr noundef readonly %47, ptr noundef readonly %48, float noundef 0.000000e+00, float noundef %.038.i)
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
   br i1 %exitcond57.not.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit, label %.lr.ph.i, !llvm.loop !15

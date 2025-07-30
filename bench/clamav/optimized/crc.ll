@@ -238,8 +238,8 @@ _Z9InitCRC32Pj.exit.i.i.i:                        ; preds = %_Z9InitCRC32Pj.exit
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = lshr i32 %.01012.i.i.i, 8
   %20 = xor i32 %18, %19
-  %21 = getelementptr inbounds nuw [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 %indvars.iv.i.i.i, i64 %indvars.iv16.i.i.i
-  store i32 %20, ptr %21, align 4, !tbaa !3
+  %gep.i.i.i = getelementptr inbounds nuw [8 x [256 x i32]], ptr %11, i64 0, i64 %indvars.iv.i.i.i
+  store i32 %20, ptr %gep.i.i.i, align 4, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %13, label %14, !llvm.loop !16

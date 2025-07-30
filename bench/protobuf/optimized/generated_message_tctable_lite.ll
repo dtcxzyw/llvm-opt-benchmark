@@ -15888,8 +15888,9 @@ invoke.cont52:                                    ; preds = %invoke.cont48
 if.end:                                           ; preds = %invoke.cont52, %invoke.cont48
   %cmp = icmp eq i32 %shr, 2
   %idxprom56 = zext i1 %cmp to i64
+  %arrayidx57 = getelementptr inbounds nuw [2 x [4 x ptr]], ptr @_ZZN6google8protobuf8internal16TypeCardToStringB5cxx11EtE11kXFormNames, i64 0, i64 %idxprom56
   %idxprom58 = zext nneg i32 %shr3 to i64
-  %arrayidx59 = getelementptr inbounds nuw [2 x [4 x ptr]], ptr @_ZZN6google8protobuf8internal16TypeCardToStringB5cxx11EtE11kXFormNames, i64 0, i64 %idxprom56, i64 %idxprom58
+  %arrayidx59 = getelementptr inbounds nuw [4 x ptr], ptr %arrayidx57, i64 0, i64 %idxprom58
   %11 = load ptr, ptr %arrayidx59, align 8
   %tobool60.not = icmp eq ptr %11, null
   br i1 %tobool60.not, label %sw.epilog218, label %invoke.cont65

@@ -208,7 +208,7 @@ _ZL10hb_optionsv.exit:                            ; preds = %22, %26
   br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i: ; preds = %54
-  %58 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %47, i32 2, i64 0
+  %58 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %47, i32 2
   %59 = load i32, ptr %58, align 4
   br label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i
 
@@ -312,7 +312,7 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit: ; preds = 
   br i1 %.not.not.i.i.i.i.i.i.i61, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i44, label %.lr.ph.i.i.i.i.i.i.i55, !llvm.loop !10
 
 _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i62: ; preds = %105
-  %109 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %98, i32 2, i64 0
+  %109 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %98, i32 2
   %110 = load i32, ptr %109, align 4
   br label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i44
 
@@ -414,7 +414,7 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit63: ; preds 
   br i1 %.not.not.i.i.i.i.i.i.i82, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i65, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !10
 
 _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i83: ; preds = %154
-  %158 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %147, i32 2, i64 0
+  %158 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %147, i32 2
   %159 = load i32, ptr %158, align 4
   br label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i65
 
@@ -516,7 +516,7 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit84: ; preds 
   br i1 %.not.not.i.i.i.i.i.i.i103, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i86, label %.lr.ph.i.i.i.i.i.i.i97, !llvm.loop !10
 
 _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i104: ; preds = %203
-  %207 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %196, i32 2, i64 0
+  %207 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %196, i32 2
   %208 = load i32, ptr %207, align 4
   br label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i86
 
@@ -618,7 +618,7 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit105: ; preds
   br i1 %.not.not.i.i.i.i.i.i.i124, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i107, label %.lr.ph.i.i.i.i.i.i.i118, !llvm.loop !10
 
 _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i125: ; preds = %252
-  %256 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %245, i32 2, i64 0
+  %256 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %245, i32 2
   %257 = load i32, ptr %256, align 4
   br label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i107
 

@@ -896,14 +896,12 @@ define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr noundef readonl
   br label %23
 
 .preheader35:                                     ; preds = %_ZN15MarchingSquares9SetVertexEiPKdd.exit
-  switch i8 %.3.i, label %.preheader.lr.ph [
-    i8 15, label %.loopexit
-    i8 0, label %.loopexit
-  ]
+  %21 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %18
+  %22 = load i32, ptr %21, align 4
+  %.not3140 = icmp eq i32 %22, -1
+  br i1 %.not3140, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader35
-  %21 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %18, i64 0
-  %22 = load i32, ptr %21, align 4
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   br label %.preheader
 
@@ -1012,35 +1010,33 @@ _ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %48, %35, %_ZN6Squar
   br i1 %exitcond.not, label %.preheader35, label %23, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %indvars.iv50 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next51, %.preheader ]
-  %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next49, %.preheader ]
+  %indvars.iv49 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next50, %.preheader ]
+  %indvars.iv47 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next48, %.preheader ]
   %62 = phi i32 [ %22, %.preheader.lr.ph ], [ %72, %.preheader ]
   %63 = sext i32 %62 to i64
-  %64 = or disjoint i64 %indvars.iv48, 1
-  %65 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %18, i64 %64
-  %66 = load i32, ptr %65, align 4
-  %67 = sext i32 %66 to i64
-  %68 = shl nsw i64 %63, 4
-  %scevgep = getelementptr i8, ptr @_ZN15MarchingSquares10vertexListE, i64 %68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 16 dereferenceable(16) %scevgep, i64 16, i1 false)
-  %69 = shl nsw i64 %67, 4
-  %scevgep44 = getelementptr i8, ptr @_ZN15MarchingSquares10vertexListE, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %scevgep44, i64 16, i1 false)
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %70 = getelementptr inbounds nuw %class.Edge, ptr %2, i64 %indvars.iv50
+  %64 = getelementptr inbounds [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %63
+  %65 = or disjoint i64 %indvars.iv47, 1
+  %66 = getelementptr inbounds nuw [5 x i32], ptr %21, i64 0, i64 %65
+  %67 = load i32, ptr %66, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 16 dereferenceable(16) %64, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %69, i64 16, i1 false)
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %70 = getelementptr inbounds nuw %class.Edge, ptr %2, i64 %indvars.iv49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 2
-  %71 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %18, i64 %indvars.iv.next49
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 2
+  %71 = getelementptr inbounds nuw [5 x i32], ptr %21, i64 0, i64 %indvars.iv.next48
   %72 = load i32, ptr %71, align 4
   %.not31 = icmp eq i32 %72, -1
   br i1 %.not31, label %.loopexit.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %73 = trunc nuw i64 %indvars.iv.next51 to i32
+  %73 = trunc nuw i64 %indvars.iv.next50 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader35, %.preheader35, %.loopexit.loopexit, %3, %3
-  %.030 = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %.preheader35 ], [ %73, %.loopexit.loopexit ], [ 0, %.preheader35 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader35, %3, %3
+  %.030 = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %.preheader35 ], [ %73, %.loopexit.loopexit ]
   ret i32 %.030
 }
 
@@ -1146,33 +1142,39 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEhPi(i8 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 align 2 {
-  %3 = zext i8 %0 to i64
-  switch i8 %0, label %.preheader [
+  switch i8 %0, label %.preheader18 [
     i8 15, label %.loopexit
     i8 0, label %.loopexit
   ]
 
-.preheader:                                       ; preds = %2, %.preheader
-  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 0, %2 ]
-  %.01521 = phi i32 [ %11, %.preheader ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %3, i64 %indvars.iv25
+.preheader18:                                     ; preds = %2
+  %3 = zext i8 %0 to i64
+  %4 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv25
-  store i32 %5, ptr %6, align 4
-  %7 = or disjoint i64 %indvars.iv25, 1
-  %8 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %3, i64 %7
-  %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %7
-  store i32 %9, ptr %10, align 4
-  %11 = add nuw nsw i32 %.01521, 1
+  %.not1720 = icmp eq i32 %5, -1
+  br i1 %.not1720, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %.preheader18, %.preheader
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 0, %.preheader18 ]
+  %.01521 = phi i32 [ %13, %.preheader ], [ 0, %.preheader18 ]
+  %6 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv25
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv25
+  store i32 %7, ptr %8, align 4
+  %9 = or disjoint i64 %indvars.iv25, 1
+  %10 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %9
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  store i32 %11, ptr %12, align 4
+  %13 = add nuw nsw i32 %.01521, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 2
-  %12 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %3, i64 %indvars.iv.next26
-  %13 = load i32, ptr %12, align 4
-  %.not17 = icmp eq i32 %13, -1
+  %14 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.next26
+  %15 = load i32, ptr %14, align 4
+  %.not17 = icmp eq i32 %15, -1
   br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.preheader, %2, %2
-  %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ %11, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %.preheader18, %2, %2
+  %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ 0, %.preheader18 ], [ %13, %.preheader ]
   ret i32 %.016
 }
 
@@ -1196,37 +1198,38 @@ define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEPKddPi(ptr noundef read
   %16 = fcmp olt double %15, %1
   %17 = or disjoint i8 %.2.i, 8
   %.3.i = select i1 %16, i8 %17, i8 %.2.i
-  %18 = zext nneg i8 %.3.i to i64
-  switch i8 %.3.i, label %.preheader.i.preheader [
+  switch i8 %.3.i, label %.preheader18.i [
     i8 15, label %_ZN15MarchingSquares14AddEdgeIndicesEhPi.exit
     i8 0, label %_ZN15MarchingSquares14AddEdgeIndicesEhPi.exit
   ]
 
-.preheader.i.preheader:                           ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %18, i64 0
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %.preheader.i
+.preheader18.i:                                   ; preds = %3
+  %18 = zext nneg i8 %.3.i to i64
+  %19 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %18
+  %20 = load i32, ptr %19, align 4
+  %.not1720.i = icmp eq i32 %20, -1
+  br i1 %.not1720.i, label %_ZN15MarchingSquares14AddEdgeIndicesEhPi.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %19 = phi i32 [ %27, %.preheader.i ], [ %.pre, %.preheader.i.preheader ]
-  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %.01521.i = phi i32 [ %25, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv25.i
-  store i32 %19, ptr %20, align 4
-  %21 = or disjoint i64 %indvars.iv25.i, 1
-  %22 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %18, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %21
-  store i32 %23, ptr %24, align 4
-  %25 = add nuw nsw i32 %.01521.i, 1
+.preheader.i:                                     ; preds = %.preheader18.i, %.preheader.i
+  %21 = phi i32 [ %29, %.preheader.i ], [ %20, %.preheader18.i ]
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.preheader.i ], [ 0, %.preheader18.i ]
+  %.01521.i = phi i32 [ %27, %.preheader.i ], [ 0, %.preheader18.i ]
+  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv25.i
+  store i32 %21, ptr %22, align 4
+  %23 = or disjoint i64 %indvars.iv25.i, 1
+  %24 = getelementptr inbounds nuw [5 x i32], ptr %19, i64 0, i64 %23
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %23
+  store i32 %25, ptr %26, align 4
+  %27 = add nuw nsw i32 %.01521.i, 1
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 2
-  %26 = getelementptr inbounds nuw [16 x [5 x i32]], ptr @_ZN15MarchingSquares5edgesE, i64 0, i64 %18, i64 %indvars.iv.next26.i
-  %27 = load i32, ptr %26, align 4
-  %.not17.i = icmp eq i32 %27, -1
+  %28 = getelementptr inbounds nuw [5 x i32], ptr %19, i64 0, i64 %indvars.iv.next26.i
+  %29 = load i32, ptr %28, align 4
+  %.not17.i = icmp eq i32 %29, -1
   br i1 %.not17.i, label %_ZN15MarchingSquares14AddEdgeIndicesEhPi.exit, label %.preheader.i, !llvm.loop !8
 
-_ZN15MarchingSquares14AddEdgeIndicesEhPi.exit:    ; preds = %.preheader.i, %3, %3
-  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %25, %.preheader.i ]
+_ZN15MarchingSquares14AddEdgeIndicesEhPi.exit:    ; preds = %.preheader.i, %3, %3, %.preheader18.i
+  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %.preheader18.i ], [ %27, %.preheader.i ]
   ret i32 %.016.i
 }
 
@@ -1282,14 +1285,17 @@ define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKdd(ptr noundef readonly
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %.sroa.0 = alloca double, align 16
-  %.sroa.4 = alloca double, align 8
-  %.sroa.8 = alloca double, align 16
-  %.sroa.12 = alloca double, align 8
+  %4 = alloca [2 x [2 x double]], align 16
+  %indvars.iv181.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv175.sroa.gep225 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv169.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv163.sroa.gep227 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv157.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv151.sroa.gep229 = getelementptr inbounds nuw i8, ptr %4, i64 16
   switch i32 %2, label %.thread111 [
     i32 0, label %.preheader
     i32 1, label %.preheader115
-    i32 2, label %.thread111.sink.split
+    i32 2, label %.preheader117
     i32 3, label %.preheader121
     i32 4, label %.preheader123
     i32 5, label %.preheader127
@@ -1297,78 +1303,128 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKdd
 
 .preheader127:                                    ; preds = %3
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %.thread111.sink.split
+  %invariant.gep195 = getelementptr inbounds nuw double, ptr %invariant.gep, i64 0
+  %5 = load double, ptr %invariant.gep195, align 8
+  store double %5, ptr %4, align 8
+  %gep196.c = getelementptr inbounds nuw i8, ptr %invariant.gep195, i64 16
+  %6 = load double, ptr %gep196.c, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %6, ptr %7, align 8
+  %invariant.gep195.c = getelementptr inbounds nuw double, ptr %invariant.gep, i64 1
+  %8 = load double, ptr %invariant.gep195.c, align 8
+  store double %8, ptr %indvars.iv151.sroa.gep229, align 8
+  %gep196.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep195.c, i64 16
+  %9 = load double, ptr %gep196.c.c, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %indvars.iv151.sroa.gep229, i64 8
+  store double %9, ptr %10, align 8
+  br label %.thread111
 
 .preheader121:                                    ; preds = %3
   %invariant.gep133 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %.thread111.sink.split
+  %invariant.gep198 = getelementptr inbounds nuw double, ptr %invariant.gep133, i64 0
+  %11 = load double, ptr %invariant.gep198, align 8
+  store double %11, ptr %4, align 8
+  %gep199.c = getelementptr inbounds nuw i8, ptr %invariant.gep198, i64 32
+  %12 = load double, ptr %gep199.c, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %12, ptr %13, align 8
+  %invariant.gep198.c = getelementptr inbounds nuw double, ptr %invariant.gep133, i64 1
+  %14 = load double, ptr %invariant.gep198.c, align 8
+  store double %14, ptr %indvars.iv163.sroa.gep227, align 8
+  %gep199.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep198.c, i64 32
+  %15 = load double, ptr %gep199.c.c, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %indvars.iv163.sroa.gep227, i64 8
+  store double %15, ptr %16, align 8
+  br label %.thread111
 
 .preheader115:                                    ; preds = %3
   %invariant.gep139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %invariant.gep202 = getelementptr inbounds nuw i8, ptr %invariant.gep139, i64 0
-  %4 = load double, ptr %invariant.gep202, align 8
-  store double %4, ptr %.sroa.0, align 16
+  %17 = load double, ptr %invariant.gep202, align 8
+  store double %17, ptr %4, align 8
   %gep203.c = getelementptr inbounds nuw i8, ptr %invariant.gep202, i64 32
-  %5 = load double, ptr %gep203.c, align 8
-  store double %5, ptr %.sroa.4, align 8
+  %18 = load double, ptr %gep203.c, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %18, ptr %19, align 8
   %invariant.gep202.c = getelementptr inbounds nuw i8, ptr %invariant.gep139, i64 16
-  %6 = load double, ptr %invariant.gep202.c, align 8
-  store double %6, ptr %.sroa.8, align 16
+  %20 = load double, ptr %invariant.gep202.c, align 8
+  store double %20, ptr %indvars.iv175.sroa.gep225, align 8
   %gep203.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep202.c, i64 32
-  %7 = load double, ptr %gep203.c.c, align 8
-  store double %7, ptr %.sroa.12, align 8
+  %21 = load double, ptr %gep203.c.c, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %indvars.iv175.sroa.gep225, i64 8
+  store double %21, ptr %22, align 8
   br label %.thread111
 
 .preheader:                                       ; preds = %3
   %invariant.gep204 = getelementptr inbounds nuw i8, ptr %0, i64 0
-  %8 = load double, ptr %invariant.gep204, align 8
-  store double %8, ptr %.sroa.0, align 16
+  %23 = load double, ptr %invariant.gep204, align 8
+  store double %23, ptr %4, align 8
   %gep205.c = getelementptr inbounds nuw i8, ptr %invariant.gep204, i64 32
-  %9 = load double, ptr %gep205.c, align 8
-  store double %9, ptr %.sroa.4, align 8
+  %24 = load double, ptr %gep205.c, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %24, ptr %25, align 8
   %invariant.gep204.c = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load double, ptr %invariant.gep204.c, align 8
-  store double %10, ptr %.sroa.8, align 16
+  %26 = load double, ptr %invariant.gep204.c, align 8
+  store double %26, ptr %indvars.iv181.sroa.gep, align 8
   %gep205.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep204.c, i64 32
-  %11 = load double, ptr %gep205.c.c, align 8
-  store double %11, ptr %.sroa.12, align 8
+  %27 = load double, ptr %gep205.c.c, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %indvars.iv181.sroa.gep, i64 8
+  store double %27, ptr %28, align 8
+  br label %.thread111
+
+.preheader117:                                    ; preds = %3
+  %invariant.gep200 = getelementptr inbounds nuw double, ptr %0, i64 0
+  %29 = load double, ptr %invariant.gep200, align 8
+  store double %29, ptr %4, align 8
+  %gep201.c = getelementptr inbounds nuw i8, ptr %invariant.gep200, i64 32
+  %30 = load double, ptr %gep201.c, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %30, ptr %31, align 8
+  %invariant.gep200.c = getelementptr inbounds nuw double, ptr %0, i64 1
+  %32 = load double, ptr %invariant.gep200.c, align 8
+  store double %32, ptr %indvars.iv169.sroa.gep, align 8
+  %gep201.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep200.c, i64 32
+  %33 = load double, ptr %gep201.c.c, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %indvars.iv169.sroa.gep, i64 8
+  store double %33, ptr %34, align 8
   br label %.thread111
 
 .preheader123:                                    ; preds = %3
-  br label %.thread111.sink.split
-
-.thread111.sink.split:                            ; preds = %3, %.preheader121, %.preheader123, %.preheader127
-  %invariant.gep.sink237 = phi ptr [ %invariant.gep, %.preheader127 ], [ %0, %.preheader123 ], [ %invariant.gep133, %.preheader121 ], [ %0, %3 ]
-  %.sink232 = phi i64 [ 16, %.preheader127 ], [ 16, %.preheader123 ], [ 32, %.preheader121 ], [ 32, %3 ]
-  %12 = load double, ptr %invariant.gep.sink237, align 8
-  store double %12, ptr %.sroa.0, align 16
-  %gep196.c = getelementptr inbounds nuw i8, ptr %invariant.gep.sink237, i64 %.sink232
-  %13 = load double, ptr %gep196.c, align 8
-  store double %13, ptr %.sroa.4, align 8
-  %invariant.gep195.c = getelementptr inbounds nuw i8, ptr %invariant.gep.sink237, i64 8
-  %14 = load double, ptr %invariant.gep195.c, align 8
-  store double %14, ptr %.sroa.8, align 16
-  %gep196.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep195.c, i64 %.sink232
-  %15 = load double, ptr %gep196.c.c, align 8
-  store double %15, ptr %.sroa.12, align 8
+  %invariant.gep197 = getelementptr inbounds nuw double, ptr %0, i64 0
+  %35 = load double, ptr %invariant.gep197, align 8
+  store double %35, ptr %4, align 8
+  %gep.c = getelementptr inbounds nuw i8, ptr %invariant.gep197, i64 16
+  %36 = load double, ptr %gep.c, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %36, ptr %37, align 8
+  %invariant.gep197.c = getelementptr inbounds nuw double, ptr %0, i64 1
+  %38 = load double, ptr %invariant.gep197.c, align 8
+  store double %38, ptr %indvars.iv157.sroa.gep, align 8
+  %gep.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep197.c, i64 16
+  %39 = load double, ptr %gep.c.c, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %indvars.iv157.sroa.gep, i64 8
+  store double %39, ptr %40, align 8
   br label %.thread111
 
-.thread111:                                       ; preds = %.preheader115, %.preheader, %.thread111.sink.split, %3
-  %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16
-  %16 = fcmp olt double %.sroa.0.0..sroa.0.0., %1
-  %.0 = zext i1 %16 to i8
-  %.sroa.8.0..sroa.8.16. = load double, ptr %.sroa.8, align 16
-  %17 = fcmp olt double %.sroa.8.0..sroa.8.16., %1
-  %18 = or disjoint i8 %.0, 2
-  %.1 = select i1 %17, i8 %18, i8 %.0
-  %.sroa.12.0..sroa.12.24. = load double, ptr %.sroa.12, align 8
-  %19 = fcmp olt double %.sroa.12.0..sroa.12.24., %1
-  %20 = or disjoint i8 %.1, 4
-  %.2 = select i1 %19, i8 %20, i8 %.1
-  %.sroa.4.0..sroa.4.8. = load double, ptr %.sroa.4, align 8
-  %21 = fcmp olt double %.sroa.4.0..sroa.4.8., %1
-  %22 = or disjoint i8 %.2, 8
-  %.3 = select i1 %21, i8 %22, i8 %.2
+.thread111:                                       ; preds = %.preheader127, %.preheader123, %.preheader121, %.preheader117, %.preheader115, %.preheader, %3
+  %41 = load double, ptr %4, align 16
+  %42 = fcmp olt double %41, %1
+  %.0 = zext i1 %42 to i8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %44 = load double, ptr %43, align 16
+  %45 = fcmp olt double %44, %1
+  %46 = or disjoint i8 %.0, 2
+  %.1 = select i1 %45, i8 %46, i8 %.0
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %48 = load double, ptr %47, align 8
+  %49 = fcmp olt double %48, %1
+  %50 = or disjoint i8 %.1, 4
+  %.2 = select i1 %49, i8 %50, i8 %.1
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %52 = load double, ptr %51, align 8
+  %53 = fcmp olt double %52, %1
+  %54 = or disjoint i8 %.2, 8
+  %.3 = select i1 %53, i8 %54, i8 %.2
   ret i8 %.3
 }
 
@@ -1493,9 +1549,13 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr noundef 
   %37 = load i32, ptr %36, align 4
   br label %40
 
-.preheader.lr.ph:                                 ; preds = %_ZN13MarchingCubes9SetVertexEiPKdd.exit
-  %38 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 0
+.preheader37:                                     ; preds = %_ZN13MarchingCubes9SetVertexEiPKdd.exit
+  %38 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34
   %39 = load i32, ptr %38, align 16
+  %.not3543 = icmp eq i32 %39, -1
+  br i1 %.not3543, label %.loopexit, label %.preheader.lr.ph
+
+.preheader.lr.ph:                                 ; preds = %.preheader37
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %.sroa.0.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 48
   br label %.preheader
@@ -1591,45 +1651,42 @@ _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
   %95 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader37, label %40, !llvm.loop !9
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %indvars.iv54 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next55, %.preheader ]
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
+  %indvars.iv50 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next51, %.preheader ]
   %96 = phi i32 [ %39, %.preheader.lr.ph ], [ %111, %.preheader ]
   %97 = sext i32 %96 to i64
-  %98 = add nuw nsw i64 %indvars.iv52, 1
-  %99 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %98
-  %100 = load i32, ptr %99, align 4
-  %101 = sext i32 %100 to i64
-  %102 = add nuw nsw i64 %indvars.iv52, 2
-  %103 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %102
-  %104 = load i32, ptr %103, align 4
-  %105 = sext i32 %104 to i64
-  %106 = mul nsw i64 %97, 24
-  %scevgep = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 24, i1 false)
-  %107 = mul nsw i64 %101, 24
-  %scevgep47 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep47, i64 24, i1 false)
-  %108 = mul nsw i64 %105, 24
-  %scevgep48 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep48, i64 24, i1 false)
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %109 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv54
+  %98 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %97
+  %99 = add nuw nsw i64 %indvars.iv50, 1
+  %100 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %99
+  %101 = load i32, ptr %100, align 4
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %102
+  %104 = add nuw nsw i64 %indvars.iv50, 2
+  %105 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %104
+  %106 = load i32, ptr %105, align 4
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %98, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false)
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %109 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 3
-  %110 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next53
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 3
+  %110 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %indvars.iv.next51
   %111 = load i32, ptr %110, align 4
   %.not35 = icmp eq i32 %111, -1
   br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %112 = trunc nuw i64 %indvars.iv.next55 to i32
+  %112 = trunc nuw i64 %indvars.iv.next53 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.034 = phi i32 [ 0, %3 ], [ %112, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader37, %3
+  %.034 = phi i32 [ 0, %3 ], [ 0, %.preheader37 ], [ %112, %.loopexit.loopexit ]
   ret i32 %.034
 }
 
@@ -1759,37 +1816,43 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKddPi(ptr noundef re
   %32 = fcmp olt double %31, %1
   %33 = or i8 %.6.i, -128
   %.7.i = select i1 %32, i8 %33, i8 %.6.i
-  %34 = zext i8 %.7.i to i64
-  %35 = add i8 %.7.i, 1
-  %.not = icmp ult i8 %35, 2
-  br i1 %.not, label %.loopexit, label %.preheader
+  %34 = add i8 %.7.i, 1
+  %.not = icmp ult i8 %34, 2
+  br i1 %.not, label %.loopexit, label %.preheader20
 
-.preheader:                                       ; preds = %3, %41
-  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %41 ], [ 0, %3 ]
-  %.01723 = phi i32 [ %42, %41 ], [ 0, %3 ]
-  br label %36
+.preheader20:                                     ; preds = %3
+  %35 = zext i8 %.7.i to i64
+  %36 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %35
+  %37 = load i32, ptr %36, align 16
+  %.not1922 = icmp eq i32 %37, -1
+  br i1 %.not1922, label %.loopexit, label %.preheader
 
-36:                                               ; preds = %.preheader, %36
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %36 ]
-  %37 = add nuw nsw i64 %indvars.iv, %indvars.iv27
-  %38 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %37
-  store i32 %39, ptr %40, align 4
+.preheader:                                       ; preds = %.preheader20, %43
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %43 ], [ 0, %.preheader20 ]
+  %.01723 = phi i32 [ %44, %43 ], [ 0, %.preheader20 ]
+  br label %38
+
+38:                                               ; preds = %.preheader, %38
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %38 ]
+  %39 = add nuw nsw i64 %indvars.iv, %indvars.iv27
+  %40 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %39
+  store i32 %41, ptr %42, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %41, label %36, !llvm.loop !11
+  br i1 %exitcond.not, label %43, label %38, !llvm.loop !11
 
-41:                                               ; preds = %36
-  %42 = add nuw nsw i32 %.01723, 1
+43:                                               ; preds = %38
+  %44 = add nuw nsw i32 %.01723, 1
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 3
-  %43 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next28
-  %44 = load i32, ptr %43, align 4
-  %.not19 = icmp eq i32 %44, -1
+  %45 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %indvars.iv.next28
+  %46 = load i32, ptr %45, align 4
+  %.not19 = icmp eq i32 %46, -1
   br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !12
 
-.loopexit:                                        ; preds = %41, %3
-  %.018 = phi i32 [ 0, %3 ], [ %42, %41 ]
+.loopexit:                                        ; preds = %43, %.preheader20, %3
+  %.018 = phi i32 [ 0, %3 ], [ 0, %.preheader20 ], [ %44, %43 ]
   ret i32 %.018
 }
 
@@ -1845,10 +1908,13 @@ define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKff(ptr noundef readonly
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  %.sroa.14 = alloca double, align 16
-  %.sroa.21 = alloca double, align 8
+  %4 = alloca [2 x [2 x double]], align 16
+  %indvars.iv181.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv175.sroa.gep225 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv169.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv163.sroa.gep227 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv157.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv151.sroa.gep229 = getelementptr inbounds nuw i8, ptr %4, i64 16
   switch i32 %2, label %.thread111 [
     i32 0, label %.preheader
     i32 1, label %.preheader115
@@ -1861,146 +1927,164 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
 .preheader127:                                    ; preds = %3
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 16
   %invariant.gep195 = getelementptr inbounds nuw float, ptr %invariant.gep, i64 0
-  %4 = load float, ptr %invariant.gep195, align 4
-  %5 = fpext float %4 to double
-  store double %5, ptr %.sroa.0, align 16
+  %5 = load float, ptr %invariant.gep195, align 4
+  %6 = fpext float %5 to double
+  store double %6, ptr %4, align 8
   %gep196.c = getelementptr inbounds nuw i8, ptr %invariant.gep195, i64 8
-  %6 = load float, ptr %gep196.c, align 4
-  %7 = fpext float %6 to double
-  store double %7, ptr %.sroa.7, align 8
+  %7 = load float, ptr %gep196.c, align 4
+  %8 = fpext float %7 to double
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %8, ptr %9, align 8
   %invariant.gep195.c = getelementptr inbounds nuw float, ptr %invariant.gep, i64 1
-  %8 = load float, ptr %invariant.gep195.c, align 4
-  %9 = fpext float %8 to double
-  store double %9, ptr %.sroa.14, align 16
-  %gep196.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep195.c, i64 8
-  %10 = load float, ptr %gep196.c.c, align 4
+  %10 = load float, ptr %invariant.gep195.c, align 4
   %11 = fpext float %10 to double
-  store double %11, ptr %.sroa.21, align 8
+  store double %11, ptr %indvars.iv151.sroa.gep229, align 8
+  %gep196.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep195.c, i64 8
+  %12 = load float, ptr %gep196.c.c, align 4
+  %13 = fpext float %12 to double
+  %14 = getelementptr inbounds nuw i8, ptr %indvars.iv151.sroa.gep229, i64 8
+  store double %13, ptr %14, align 8
   br label %.thread111
 
 .preheader121:                                    ; preds = %3
   %invariant.gep133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %invariant.gep198 = getelementptr inbounds nuw float, ptr %invariant.gep133, i64 0
-  %12 = load float, ptr %invariant.gep198, align 4
-  %13 = fpext float %12 to double
-  store double %13, ptr %.sroa.0, align 16
+  %15 = load float, ptr %invariant.gep198, align 4
+  %16 = fpext float %15 to double
+  store double %16, ptr %4, align 8
   %gep199.c = getelementptr inbounds nuw i8, ptr %invariant.gep198, i64 16
-  %14 = load float, ptr %gep199.c, align 4
-  %15 = fpext float %14 to double
-  store double %15, ptr %.sroa.7, align 8
+  %17 = load float, ptr %gep199.c, align 4
+  %18 = fpext float %17 to double
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %18, ptr %19, align 8
   %invariant.gep198.c = getelementptr inbounds nuw float, ptr %invariant.gep133, i64 1
-  %16 = load float, ptr %invariant.gep198.c, align 4
-  %17 = fpext float %16 to double
-  store double %17, ptr %.sroa.14, align 16
+  %20 = load float, ptr %invariant.gep198.c, align 4
+  %21 = fpext float %20 to double
+  store double %21, ptr %indvars.iv163.sroa.gep227, align 8
   %gep199.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep198.c, i64 16
-  %18 = load float, ptr %gep199.c.c, align 4
-  %19 = fpext float %18 to double
-  store double %19, ptr %.sroa.21, align 8
+  %22 = load float, ptr %gep199.c.c, align 4
+  %23 = fpext float %22 to double
+  %24 = getelementptr inbounds nuw i8, ptr %indvars.iv163.sroa.gep227, i64 8
+  store double %23, ptr %24, align 8
   br label %.thread111
 
 .preheader115:                                    ; preds = %3
   %invariant.gep139 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %invariant.gep202 = getelementptr inbounds nuw i8, ptr %invariant.gep139, i64 0
-  %20 = load float, ptr %invariant.gep202, align 4
-  %21 = fpext float %20 to double
-  store double %21, ptr %.sroa.0, align 16
+  %25 = load float, ptr %invariant.gep202, align 4
+  %26 = fpext float %25 to double
+  store double %26, ptr %4, align 8
   %gep203.c = getelementptr inbounds nuw i8, ptr %invariant.gep202, i64 16
-  %22 = load float, ptr %gep203.c, align 4
-  %23 = fpext float %22 to double
-  store double %23, ptr %.sroa.7, align 8
+  %27 = load float, ptr %gep203.c, align 4
+  %28 = fpext float %27 to double
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %28, ptr %29, align 8
   %invariant.gep202.c = getelementptr inbounds nuw i8, ptr %invariant.gep139, i64 8
-  %24 = load float, ptr %invariant.gep202.c, align 4
-  %25 = fpext float %24 to double
-  store double %25, ptr %.sroa.14, align 16
+  %30 = load float, ptr %invariant.gep202.c, align 4
+  %31 = fpext float %30 to double
+  store double %31, ptr %indvars.iv175.sroa.gep225, align 8
   %gep203.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep202.c, i64 16
-  %26 = load float, ptr %gep203.c.c, align 4
-  %27 = fpext float %26 to double
-  store double %27, ptr %.sroa.21, align 8
+  %32 = load float, ptr %gep203.c.c, align 4
+  %33 = fpext float %32 to double
+  %34 = getelementptr inbounds nuw i8, ptr %indvars.iv175.sroa.gep225, i64 8
+  store double %33, ptr %34, align 8
   br label %.thread111
 
 .preheader:                                       ; preds = %3
   %invariant.gep204 = getelementptr inbounds nuw i8, ptr %0, i64 0
-  %28 = load float, ptr %invariant.gep204, align 4
-  %29 = fpext float %28 to double
-  store double %29, ptr %.sroa.0, align 16
+  %35 = load float, ptr %invariant.gep204, align 4
+  %36 = fpext float %35 to double
+  store double %36, ptr %4, align 8
   %gep205.c = getelementptr inbounds nuw i8, ptr %invariant.gep204, i64 16
-  %30 = load float, ptr %gep205.c, align 4
-  %31 = fpext float %30 to double
-  store double %31, ptr %.sroa.7, align 8
+  %37 = load float, ptr %gep205.c, align 4
+  %38 = fpext float %37 to double
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %38, ptr %39, align 8
   %invariant.gep204.c = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load float, ptr %invariant.gep204.c, align 4
-  %33 = fpext float %32 to double
-  store double %33, ptr %.sroa.14, align 16
+  %40 = load float, ptr %invariant.gep204.c, align 4
+  %41 = fpext float %40 to double
+  store double %41, ptr %indvars.iv181.sroa.gep, align 8
   %gep205.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep204.c, i64 16
-  %34 = load float, ptr %gep205.c.c, align 4
-  %35 = fpext float %34 to double
-  store double %35, ptr %.sroa.21, align 8
+  %42 = load float, ptr %gep205.c.c, align 4
+  %43 = fpext float %42 to double
+  %44 = getelementptr inbounds nuw i8, ptr %indvars.iv181.sroa.gep, i64 8
+  store double %43, ptr %44, align 8
   br label %.thread111
 
 .preheader117:                                    ; preds = %3
   %invariant.gep200 = getelementptr inbounds nuw float, ptr %0, i64 0
-  %36 = load float, ptr %invariant.gep200, align 4
-  %37 = fpext float %36 to double
-  store double %37, ptr %.sroa.0, align 16
+  %45 = load float, ptr %invariant.gep200, align 4
+  %46 = fpext float %45 to double
+  store double %46, ptr %4, align 8
   %gep201.c = getelementptr inbounds nuw i8, ptr %invariant.gep200, i64 16
-  %38 = load float, ptr %gep201.c, align 4
-  %39 = fpext float %38 to double
-  store double %39, ptr %.sroa.7, align 8
+  %47 = load float, ptr %gep201.c, align 4
+  %48 = fpext float %47 to double
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %48, ptr %49, align 8
   %invariant.gep200.c = getelementptr inbounds nuw float, ptr %0, i64 1
-  %40 = load float, ptr %invariant.gep200.c, align 4
-  %41 = fpext float %40 to double
-  store double %41, ptr %.sroa.14, align 16
+  %50 = load float, ptr %invariant.gep200.c, align 4
+  %51 = fpext float %50 to double
+  store double %51, ptr %indvars.iv169.sroa.gep, align 8
   %gep201.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep200.c, i64 16
-  %42 = load float, ptr %gep201.c.c, align 4
-  %43 = fpext float %42 to double
-  store double %43, ptr %.sroa.21, align 8
+  %52 = load float, ptr %gep201.c.c, align 4
+  %53 = fpext float %52 to double
+  %54 = getelementptr inbounds nuw i8, ptr %indvars.iv169.sroa.gep, i64 8
+  store double %53, ptr %54, align 8
   br label %.thread111
 
 .preheader123:                                    ; preds = %3
   %invariant.gep197 = getelementptr inbounds nuw float, ptr %0, i64 0
-  %44 = load float, ptr %invariant.gep197, align 4
-  %45 = fpext float %44 to double
-  store double %45, ptr %.sroa.0, align 16
+  %55 = load float, ptr %invariant.gep197, align 4
+  %56 = fpext float %55 to double
+  store double %56, ptr %4, align 8
   %gep.c = getelementptr inbounds nuw i8, ptr %invariant.gep197, i64 8
-  %46 = load float, ptr %gep.c, align 4
-  %47 = fpext float %46 to double
-  store double %47, ptr %.sroa.7, align 8
+  %57 = load float, ptr %gep.c, align 4
+  %58 = fpext float %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %58, ptr %59, align 8
   %invariant.gep197.c = getelementptr inbounds nuw float, ptr %0, i64 1
-  %48 = load float, ptr %invariant.gep197.c, align 4
-  %49 = fpext float %48 to double
-  store double %49, ptr %.sroa.14, align 16
+  %60 = load float, ptr %invariant.gep197.c, align 4
+  %61 = fpext float %60 to double
+  store double %61, ptr %indvars.iv157.sroa.gep, align 8
   %gep.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep197.c, i64 8
-  %50 = load float, ptr %gep.c.c, align 4
-  %51 = fpext float %50 to double
-  store double %51, ptr %.sroa.21, align 8
+  %62 = load float, ptr %gep.c.c, align 4
+  %63 = fpext float %62 to double
+  %64 = getelementptr inbounds nuw i8, ptr %indvars.iv157.sroa.gep, i64 8
+  store double %63, ptr %64, align 8
   br label %.thread111
 
 .thread111:                                       ; preds = %.preheader127, %.preheader123, %.preheader121, %.preheader117, %.preheader115, %.preheader, %3
-  %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16
-  %52 = fpext float %1 to double
-  %53 = fcmp olt double %.sroa.0.0..sroa.0.0., %52
-  %.0 = zext i1 %53 to i8
-  %.sroa.14.0..sroa.14.16. = load double, ptr %.sroa.14, align 16
-  %54 = fcmp olt double %.sroa.14.0..sroa.14.16., %52
-  %55 = or disjoint i8 %.0, 2
-  %.1 = select i1 %54, i8 %55, i8 %.0
-  %.sroa.21.0..sroa.21.24. = load double, ptr %.sroa.21, align 8
-  %56 = fcmp olt double %.sroa.21.0..sroa.21.24., %52
-  %57 = or disjoint i8 %.1, 4
-  %.2 = select i1 %56, i8 %57, i8 %.1
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8
-  %58 = fcmp olt double %.sroa.7.0..sroa.7.8., %52
-  %59 = or disjoint i8 %.2, 8
-  %.3 = select i1 %58, i8 %59, i8 %.2
+  %65 = load double, ptr %4, align 16
+  %66 = fpext float %1 to double
+  %67 = fcmp olt double %65, %66
+  %.0 = zext i1 %67 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %69 = load double, ptr %68, align 16
+  %70 = fcmp olt double %69, %66
+  %71 = or disjoint i8 %.0, 2
+  %.1 = select i1 %70, i8 %71, i8 %.0
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %73 = load double, ptr %72, align 8
+  %74 = fcmp olt double %73, %66
+  %75 = or disjoint i8 %.1, 4
+  %.2 = select i1 %74, i8 %75, i8 %.1
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %77 = load double, ptr %76, align 8
+  %78 = fcmp olt double %77, %66
+  %79 = or disjoint i8 %.2, 8
+  %.3 = select i1 %78, i8 %79, i8 %.2
   ret i8 %.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEhi(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %.sroa.0 = alloca i32, align 16
-  %.sroa.7 = alloca i32, align 4
-  %.sroa.14 = alloca i32, align 8
-  %.sroa.21 = alloca i32, align 4
+  %3 = alloca [2 x [2 x i32]], align 16
+  %indvars.iv191.sroa.gep217 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv184.sroa.gep218 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv177.sroa.gep219 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv170.sroa.gep220 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv162.sroa.gep221 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv154.sroa.gep222 = getelementptr inbounds nuw i8, ptr %3, i64 8
   switch i32 %1, label %.thread111 [
     i32 0, label %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader
     i32 1, label %.preheader115
@@ -2011,157 +2095,160 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEhi(i
   ]
 
 .preheader127:                                    ; preds = %2
-  %3 = zext i8 %0 to i32
+  %4 = zext i8 %0 to i32
   br label %.preheader126
 
 .preheader124:                                    ; preds = %2
-  %4 = zext i8 %0 to i32
+  %5 = zext i8 %0 to i32
   br label %.preheader123
 
 .preheader121:                                    ; preds = %2
-  %5 = zext i8 %0 to i32
+  %6 = zext i8 %0 to i32
   br label %.preheader120
 
 .preheader118:                                    ; preds = %2
-  %6 = zext i8 %0 to i32
+  %7 = zext i8 %0 to i32
   br label %.preheader117
 
 .preheader115:                                    ; preds = %2
-  %7 = zext i8 %0 to i32
+  %8 = zext i8 %0 to i32
   br label %.preheader114
 
 _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
-  %8 = zext i8 %0 to i32
+  %9 = zext i8 %0 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader, %.preheader
-  %9 = phi i1 [ true, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ false, %.preheader ]
-  %indvars.iv191.sroa.phi = phi ptr [ %.sroa.0, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ %.sroa.14, %.preheader ]
-  %indvars.iv191.sroa.phi223 = phi ptr [ %.sroa.7, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ %.sroa.21, %.preheader ]
+  %10 = phi i1 [ true, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ false, %.preheader ]
+  %indvars.iv191.sroa.phi = phi ptr [ %3, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ %indvars.iv191.sroa.gep217, %.preheader ]
   %indvars.iv191 = phi i64 [ 0, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ 2, %.preheader ]
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %indvars.iv191
-  %11 = load i32, ptr %10, align 8
-  %12 = shl nuw i32 1, %11
-  %13 = and i32 %12, %8
-  store i32 %13, ptr %indvars.iv191.sroa.phi, align 8
-  %14 = or disjoint i64 %indvars.iv191, 4
-  %15 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 8
-  %17 = shl nuw i32 1, %16
-  %18 = and i32 %17, %8
-  store i32 %18, ptr %indvars.iv191.sroa.phi223, align 4
-  br i1 %9, label %.preheader, label %.thread111, !llvm.loop !13
+  %11 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %indvars.iv191
+  %12 = load i32, ptr %11, align 8
+  %13 = shl nuw i32 1, %12
+  %14 = and i32 %13, %9
+  store i32 %14, ptr %indvars.iv191.sroa.phi, align 4
+  %15 = or disjoint i64 %indvars.iv191, 4
+  %16 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %15
+  %17 = load i32, ptr %16, align 8
+  %18 = shl nuw i32 1, %17
+  %19 = and i32 %18, %9
+  %20 = getelementptr inbounds nuw i8, ptr %indvars.iv191.sroa.phi, i64 4
+  store i32 %19, ptr %20, align 4
+  br i1 %10, label %.preheader, label %.thread111, !llvm.loop !13
 
 .preheader114:                                    ; preds = %.preheader115, %.preheader114
-  %19 = phi i1 [ true, %.preheader115 ], [ false, %.preheader114 ]
-  %indvars.iv184.sroa.phi = phi ptr [ %.sroa.0, %.preheader115 ], [ %.sroa.14, %.preheader114 ]
-  %indvars.iv184.sroa.phi226 = phi ptr [ %.sroa.7, %.preheader115 ], [ %.sroa.21, %.preheader114 ]
+  %21 = phi i1 [ true, %.preheader115 ], [ false, %.preheader114 ]
+  %indvars.iv184.sroa.phi = phi ptr [ %3, %.preheader115 ], [ %indvars.iv184.sroa.gep218, %.preheader114 ]
   %indvars.iv184 = phi i64 [ 0, %.preheader115 ], [ 2, %.preheader114 ]
-  %20 = or disjoint i64 %indvars.iv184, 1
-  %21 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %20
-  %22 = load i32, ptr %21, align 4
-  %23 = shl nuw i32 1, %22
-  %24 = and i32 %23, %7
-  store i32 %24, ptr %indvars.iv184.sroa.phi, align 8
-  %25 = or disjoint i64 %indvars.iv184, 5
-  %26 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = shl nuw i32 1, %27
-  %29 = and i32 %28, %7
-  store i32 %29, ptr %indvars.iv184.sroa.phi226, align 4
-  br i1 %19, label %.preheader114, label %.thread111, !llvm.loop !14
+  %22 = or disjoint i64 %indvars.iv184, 1
+  %23 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %22
+  %24 = load i32, ptr %23, align 4
+  %25 = shl nuw i32 1, %24
+  %26 = and i32 %25, %8
+  store i32 %26, ptr %indvars.iv184.sroa.phi, align 4
+  %27 = or disjoint i64 %indvars.iv184, 5
+  %28 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %27
+  %29 = load i32, ptr %28, align 4
+  %30 = shl nuw i32 1, %29
+  %31 = and i32 %30, %8
+  %32 = getelementptr inbounds nuw i8, ptr %indvars.iv184.sroa.phi, i64 4
+  store i32 %31, ptr %32, align 4
+  br i1 %21, label %.preheader114, label %.thread111, !llvm.loop !14
 
 .preheader117:                                    ; preds = %.preheader118, %.preheader117
-  %30 = phi i1 [ true, %.preheader118 ], [ false, %.preheader117 ]
-  %indvars.iv177.sroa.phi = phi ptr [ %.sroa.0, %.preheader118 ], [ %.sroa.14, %.preheader117 ]
-  %indvars.iv177.sroa.phi229 = phi ptr [ %.sroa.7, %.preheader118 ], [ %.sroa.21, %.preheader117 ]
+  %33 = phi i1 [ true, %.preheader118 ], [ false, %.preheader117 ]
+  %indvars.iv177.sroa.phi = phi ptr [ %3, %.preheader118 ], [ %indvars.iv177.sroa.gep219, %.preheader117 ]
   %indvars.iv177 = phi i64 [ 0, %.preheader118 ], [ 1, %.preheader117 ]
-  %31 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %indvars.iv177
-  %32 = load i32, ptr %31, align 4
-  %33 = shl nuw i32 1, %32
-  %34 = and i32 %33, %6
-  store i32 %34, ptr %indvars.iv177.sroa.phi, align 8
-  %35 = or disjoint i64 %indvars.iv177, 4
-  %36 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4
-  %38 = shl nuw i32 1, %37
-  %39 = and i32 %38, %6
-  store i32 %39, ptr %indvars.iv177.sroa.phi229, align 4
-  br i1 %30, label %.preheader117, label %.thread111, !llvm.loop !15
+  %34 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %indvars.iv177
+  %35 = load i32, ptr %34, align 4
+  %36 = shl nuw i32 1, %35
+  %37 = and i32 %36, %7
+  store i32 %37, ptr %indvars.iv177.sroa.phi, align 4
+  %38 = or disjoint i64 %indvars.iv177, 4
+  %39 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = shl nuw i32 1, %40
+  %42 = and i32 %41, %7
+  %43 = getelementptr inbounds nuw i8, ptr %indvars.iv177.sroa.phi, i64 4
+  store i32 %42, ptr %43, align 4
+  br i1 %33, label %.preheader117, label %.thread111, !llvm.loop !15
 
 .preheader120:                                    ; preds = %.preheader121, %.preheader120
-  %40 = phi i1 [ true, %.preheader121 ], [ false, %.preheader120 ]
-  %indvars.iv170.sroa.phi = phi ptr [ %.sroa.0, %.preheader121 ], [ %.sroa.14, %.preheader120 ]
-  %indvars.iv170.sroa.phi232 = phi ptr [ %.sroa.7, %.preheader121 ], [ %.sroa.21, %.preheader120 ]
+  %44 = phi i1 [ true, %.preheader121 ], [ false, %.preheader120 ]
+  %indvars.iv170.sroa.phi = phi ptr [ %3, %.preheader121 ], [ %indvars.iv170.sroa.gep220, %.preheader120 ]
   %indvars.iv170 = phi i64 [ 0, %.preheader121 ], [ 1, %.preheader120 ]
-  %41 = or disjoint i64 %indvars.iv170, 2
-  %42 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = shl nuw i32 1, %43
-  %45 = and i32 %44, %5
-  store i32 %45, ptr %indvars.iv170.sroa.phi, align 8
-  %46 = or disjoint i64 %indvars.iv170, 6
-  %47 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4
-  %49 = shl nuw i32 1, %48
-  %50 = and i32 %49, %5
-  store i32 %50, ptr %indvars.iv170.sroa.phi232, align 4
-  br i1 %40, label %.preheader120, label %.thread111, !llvm.loop !16
+  %45 = or disjoint i64 %indvars.iv170, 2
+  %46 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %45
+  %47 = load i32, ptr %46, align 4
+  %48 = shl nuw i32 1, %47
+  %49 = and i32 %48, %6
+  store i32 %49, ptr %indvars.iv170.sroa.phi, align 4
+  %50 = or disjoint i64 %indvars.iv170, 6
+  %51 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %53 = shl nuw i32 1, %52
+  %54 = and i32 %53, %6
+  %55 = getelementptr inbounds nuw i8, ptr %indvars.iv170.sroa.phi, i64 4
+  store i32 %54, ptr %55, align 4
+  br i1 %44, label %.preheader120, label %.thread111, !llvm.loop !16
 
 .preheader123:                                    ; preds = %.preheader124, %.preheader123
-  %51 = phi i1 [ true, %.preheader124 ], [ false, %.preheader123 ]
-  %indvars.iv162.sroa.phi = phi ptr [ %.sroa.0, %.preheader124 ], [ %.sroa.14, %.preheader123 ]
-  %indvars.iv162.sroa.phi235 = phi ptr [ %.sroa.7, %.preheader124 ], [ %.sroa.21, %.preheader123 ]
+  %56 = phi i1 [ true, %.preheader124 ], [ false, %.preheader123 ]
+  %indvars.iv162.sroa.phi = phi ptr [ %3, %.preheader124 ], [ %indvars.iv162.sroa.gep221, %.preheader123 ]
   %indvars.iv162 = phi i64 [ 0, %.preheader124 ], [ 1, %.preheader123 ]
-  %52 = or disjoint i64 %indvars.iv162, 4
-  %53 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %52
-  %54 = load i32, ptr %53, align 4
-  %55 = shl nuw i32 1, %54
-  %56 = and i32 %55, %4
-  store i32 %56, ptr %indvars.iv162.sroa.phi, align 8
-  %57 = or disjoint i64 %indvars.iv162, 6
+  %57 = or disjoint i64 %indvars.iv162, 4
   %58 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = shl nuw i32 1, %59
-  %61 = and i32 %60, %4
-  store i32 %61, ptr %indvars.iv162.sroa.phi235, align 4
-  br i1 %51, label %.preheader123, label %.thread111, !llvm.loop !17
+  %61 = and i32 %60, %5
+  store i32 %61, ptr %indvars.iv162.sroa.phi, align 4
+  %62 = or disjoint i64 %indvars.iv162, 6
+  %63 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %62
+  %64 = load i32, ptr %63, align 4
+  %65 = shl nuw i32 1, %64
+  %66 = and i32 %65, %5
+  %67 = getelementptr inbounds nuw i8, ptr %indvars.iv162.sroa.phi, i64 4
+  store i32 %66, ptr %67, align 4
+  br i1 %56, label %.preheader123, label %.thread111, !llvm.loop !17
 
 .preheader126:                                    ; preds = %.preheader127, %.preheader126
-  %62 = phi i1 [ true, %.preheader127 ], [ false, %.preheader126 ]
-  %indvars.iv154.sroa.phi = phi ptr [ %.sroa.0, %.preheader127 ], [ %.sroa.14, %.preheader126 ]
-  %indvars.iv154.sroa.phi238 = phi ptr [ %.sroa.7, %.preheader127 ], [ %.sroa.21, %.preheader126 ]
+  %68 = phi i1 [ true, %.preheader127 ], [ false, %.preheader126 ]
+  %indvars.iv154.sroa.phi = phi ptr [ %3, %.preheader127 ], [ %indvars.iv154.sroa.gep222, %.preheader126 ]
   %indvars.iv154 = phi i64 [ 0, %.preheader127 ], [ 1, %.preheader126 ]
-  %63 = or disjoint i64 %indvars.iv154, 4
-  %64 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = shl nuw i32 1, %65
-  %67 = and i32 %66, %3
-  store i32 %67, ptr %indvars.iv154.sroa.phi, align 8
-  %68 = or disjoint i64 %indvars.iv154, 6
-  %69 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %68
-  %70 = load i32, ptr %69, align 4
-  %71 = shl nuw i32 1, %70
-  %72 = and i32 %71, %3
-  store i32 %72, ptr %indvars.iv154.sroa.phi238, align 4
-  br i1 %62, label %.preheader126, label %.thread111, !llvm.loop !18
+  %69 = or disjoint i64 %indvars.iv154, 4
+  %70 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %69
+  %71 = load i32, ptr %70, align 4
+  %72 = shl nuw i32 1, %71
+  %73 = and i32 %72, %4
+  store i32 %73, ptr %indvars.iv154.sroa.phi, align 4
+  %74 = or disjoint i64 %indvars.iv154, 6
+  %75 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %77 = shl nuw i32 1, %76
+  %78 = and i32 %77, %4
+  %79 = getelementptr inbounds nuw i8, ptr %indvars.iv154.sroa.phi, i64 4
+  store i32 %78, ptr %79, align 4
+  br i1 %68, label %.preheader126, label %.thread111, !llvm.loop !18
 
 .thread111:                                       ; preds = %.preheader126, %.preheader123, %.preheader120, %.preheader117, %.preheader114, %.preheader, %2
-  %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 16
-  %.not75 = icmp ne i32 %.sroa.0.0..sroa.0.0., 0
+  %80 = load i32, ptr %3, align 16
+  %.not75 = icmp ne i32 %80, 0
   %spec.select = zext i1 %.not75 to i8
-  %.sroa.14.0..sroa.14.8. = load i32, ptr %.sroa.14, align 8
-  %.not76 = icmp eq i32 %.sroa.14.0..sroa.14.8., 0
-  %73 = or disjoint i8 %spec.select, 2
-  %.1 = select i1 %.not76, i8 %spec.select, i8 %73
-  %.sroa.21.0..sroa.21.12. = load i32, ptr %.sroa.21, align 4
-  %.not77 = icmp eq i32 %.sroa.21.0..sroa.21.12., 0
-  %74 = or disjoint i8 %.1, 4
-  %.2 = select i1 %.not77, i8 %.1, i8 %74
-  %.sroa.7.0..sroa.7.4. = load i32, ptr %.sroa.7, align 4
-  %.not78 = icmp eq i32 %.sroa.7.0..sroa.7.4., 0
-  %75 = or disjoint i8 %.2, 8
-  %.3 = select i1 %.not78, i8 %.2, i8 %75
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %82 = load i32, ptr %81, align 8
+  %.not76 = icmp eq i32 %82, 0
+  %83 = or disjoint i8 %spec.select, 2
+  %.1 = select i1 %.not76, i8 %spec.select, i8 %83
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %85 = load i32, ptr %84, align 4
+  %.not77 = icmp eq i32 %85, 0
+  %86 = or disjoint i8 %.1, 4
+  %.2 = select i1 %.not77, i8 %.1, i8 %86
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %88 = load i32, ptr %87, align 4
+  %.not78 = icmp eq i32 %88, 0
+  %89 = or disjoint i8 %.2, 8
+  %.3 = select i1 %.not78, i8 %.2, i8 %89
   ret i8 %.3
 }
 
@@ -2347,9 +2434,13 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr noundef 
   %37 = load i32, ptr %36, align 4
   br label %40
 
-.preheader.lr.ph:                                 ; preds = %_ZN13MarchingCubes9SetVertexEiPKff.exit
-  %38 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 0
+.preheader37:                                     ; preds = %_ZN13MarchingCubes9SetVertexEiPKff.exit
+  %38 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34
   %39 = load i32, ptr %38, align 16
+  %.not3543 = icmp eq i32 %39, -1
+  br i1 %.not3543, label %.loopexit, label %.preheader.lr.ph
+
+.preheader.lr.ph:                                 ; preds = %.preheader37
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %.sroa.0.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 48
   br label %.preheader
@@ -2448,45 +2539,42 @@ _ZN13MarchingCubes9SetVertexEiPKff.exit:          ; preds = %.sink.split.i, %40
   %98 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader37, label %40, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %indvars.iv54 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next55, %.preheader ]
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
+  %indvars.iv50 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next51, %.preheader ]
   %99 = phi i32 [ %39, %.preheader.lr.ph ], [ %114, %.preheader ]
   %100 = sext i32 %99 to i64
-  %101 = add nuw nsw i64 %indvars.iv52, 1
-  %102 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %101
-  %103 = load i32, ptr %102, align 4
-  %104 = sext i32 %103 to i64
-  %105 = add nuw nsw i64 %indvars.iv52, 2
-  %106 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %105
-  %107 = load i32, ptr %106, align 4
-  %108 = sext i32 %107 to i64
-  %109 = mul nsw i64 %100, 24
-  %scevgep = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 24, i1 false)
-  %110 = mul nsw i64 %104, 24
-  %scevgep47 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep47, i64 24, i1 false)
-  %111 = mul nsw i64 %108, 24
-  %scevgep48 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep48, i64 24, i1 false)
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %112 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv54
+  %101 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %100
+  %102 = add nuw nsw i64 %indvars.iv50, 1
+  %103 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %102
+  %104 = load i32, ptr %103, align 4
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %105
+  %107 = add nuw nsw i64 %indvars.iv50, 2
+  %108 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %107
+  %109 = load i32, ptr %108, align 4
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %110
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %101, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %111, i64 24, i1 false)
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %112 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %112, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 3
-  %113 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next53
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 3
+  %113 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %indvars.iv.next51
   %114 = load i32, ptr %113, align 4
   %.not35 = icmp eq i32 %114, -1
   br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %115 = trunc nuw i64 %indvars.iv.next55 to i32
+  %115 = trunc nuw i64 %indvars.iv.next53 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.034 = phi i32 [ 0, %3 ], [ %115, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader37, %3
+  %.034 = phi i32 [ 0, %3 ], [ 0, %.preheader37 ], [ %115, %.loopexit.loopexit ]
   ret i32 %.034
 }
 
@@ -2619,75 +2707,87 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr noundef re
   %32 = fcmp olt float %31, %1
   %33 = or i8 %.6.i, -128
   %.7.i = select i1 %32, i8 %33, i8 %.6.i
-  %34 = zext i8 %.7.i to i64
-  switch i8 %.7.i, label %.preheader.i [
+  switch i8 %.7.i, label %.preheader18.i [
     i8 -1, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit
     i8 0, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit
   ]
 
-.preheader.i:                                     ; preds = %3, %40
-  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %40 ], [ 0, %3 ]
-  %.01521.i = phi i32 [ %41, %40 ], [ 0, %3 ]
-  br label %35
+.preheader18.i:                                   ; preds = %3
+  %34 = zext i8 %.7.i to i64
+  %35 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34
+  %36 = load i32, ptr %35, align 16
+  %.not1720.i = icmp eq i32 %36, -1
+  br i1 %.not1720.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit, label %.preheader.i
 
-35:                                               ; preds = %35, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %35 ]
-  %36 = add nuw nsw i64 %indvars.iv.i, %indvars.iv25.i
-  %37 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %36
-  %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %36
-  store i32 %38, ptr %39, align 4
+.preheader.i:                                     ; preds = %.preheader18.i, %42
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %42 ], [ 0, %.preheader18.i ]
+  %.01521.i = phi i32 [ %43, %42 ], [ 0, %.preheader18.i ]
+  br label %37
+
+37:                                               ; preds = %37, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %37 ]
+  %38 = add nuw nsw i64 %indvars.iv.i, %indvars.iv25.i
+  %39 = getelementptr inbounds nuw [16 x i32], ptr %35, i64 0, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %38
+  store i32 %40, ptr %41, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %40, label %35, !llvm.loop !21
+  br i1 %exitcond.not.i, label %42, label %37, !llvm.loop !21
 
-40:                                               ; preds = %35
-  %41 = add nuw nsw i32 %.01521.i, 1
+42:                                               ; preds = %37
+  %43 = add nuw nsw i32 %.01521.i, 1
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 3
-  %42 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next26.i
-  %43 = load i32, ptr %42, align 4
-  %.not17.i = icmp eq i32 %43, -1
+  %44 = getelementptr inbounds nuw [16 x i32], ptr %35, i64 0, i64 %indvars.iv.next26.i
+  %45 = load i32, ptr %44, align 4
+  %.not17.i = icmp eq i32 %45, -1
   br i1 %.not17.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit, label %.preheader.i, !llvm.loop !22
 
-_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %40, %3, %3
-  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %41, %40 ]
+_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %42, %3, %3, %.preheader18.i
+  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %.preheader18.i ], [ %43, %42 ]
   ret i32 %.016.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEiPi(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 align 2 {
-  %3 = sext i32 %0 to i64
-  switch i32 %0, label %.preheader [
+  switch i32 %0, label %.preheader18 [
     i32 255, label %.loopexit
     i32 0, label %.loopexit
   ]
 
-.preheader:                                       ; preds = %2, %9
-  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %9 ], [ 0, %2 ]
-  %.01521 = phi i32 [ %10, %9 ], [ 0, %2 ]
-  br label %4
+.preheader18:                                     ; preds = %2
+  %3 = sext i32 %0 to i64
+  %4 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %3
+  %5 = load i32, ptr %4, align 16
+  %.not1720 = icmp eq i32 %5, -1
+  br i1 %.not1720, label %.loopexit, label %.preheader
 
-4:                                                ; preds = %.preheader, %4
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = add nuw nsw i64 %indvars.iv, %indvars.iv25
-  %6 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %3, i64 %5
-  %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %5
-  store i32 %7, ptr %8, align 4
+.preheader:                                       ; preds = %.preheader18, %11
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %11 ], [ 0, %.preheader18 ]
+  %.01521 = phi i32 [ %12, %11 ], [ 0, %.preheader18 ]
+  br label %6
+
+6:                                                ; preds = %.preheader, %6
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
+  %7 = add nuw nsw i64 %indvars.iv, %indvars.iv25
+  %8 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %7
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %7
+  store i32 %9, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !21
+  br i1 %exitcond.not, label %11, label %6, !llvm.loop !21
 
-9:                                                ; preds = %4
-  %10 = add nuw nsw i32 %.01521, 1
+11:                                               ; preds = %6
+  %12 = add nuw nsw i32 %.01521, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 3
-  %11 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %3, i64 %indvars.iv.next26
-  %12 = load i32, ptr %11, align 4
-  %.not17 = icmp eq i32 %12, -1
+  %13 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.next26
+  %14 = load i32, ptr %13, align 4
+  %.not17 = icmp eq i32 %14, -1
   br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !22
 
-.loopexit:                                        ; preds = %9, %2, %2
-  %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ %10, %9 ]
+.loopexit:                                        ; preds = %11, %.preheader18, %2, %2
+  %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ 0, %.preheader18 ], [ %12, %11 ]
   ret i32 %.016
 }
 

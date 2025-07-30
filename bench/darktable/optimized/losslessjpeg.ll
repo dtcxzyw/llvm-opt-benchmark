@@ -929,7 +929,7 @@ _ZN12ByteStreamBE7get_u16Ev.exit:                 ; preds = %4
   br i1 %.not54, label %.thread, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %_ZN12ByteStreamBE7get_u16Ev.exit, %._crit_edge
-  %.03655 = phi i16 [ %68, %._crit_edge ], [ %25, %_ZN12ByteStreamBE7get_u16Ev.exit ]
+  %.03655 = phi i16 [ %70, %._crit_edge ], [ %25, %_ZN12ByteStreamBE7get_u16Ev.exit ]
   %26 = zext i16 %.03655 to i32
   %27 = load i32, ptr %5, align 4, !tbaa !6
   %28 = load i32, ptr %8, align 8, !tbaa !13
@@ -956,11 +956,11 @@ _ZN12ByteStreamBE6get_u8Ev.exit:                  ; preds = %.lr.ph56
 
 .preheader49:                                     ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit
   %37 = zext nneg i8 %35 to i64
+  %38 = getelementptr inbounds nuw [17 x i32], ptr %2, i64 %37
   br label %41
 
-38:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit43
-  %39 = getelementptr inbounds nuw [17 x i32], ptr %2, i64 %37
-  store i32 0, ptr %39, align 4, !tbaa !71
+39:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit43
+  store i32 0, ptr %38, align 4, !tbaa !71
   %40 = icmp ugt i32 %52, 256
   br i1 %40, label %.thread, label %53
 
@@ -986,61 +986,62 @@ _ZN12ByteStreamBE6get_u8Ev.exit43:                ; preds = %41
   store i32 %49, ptr %5, align 4, !tbaa !6
   %50 = zext i8 %48 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds nuw [17 x i32], ptr %2, i64 %37, i64 %indvars.iv.next
+  %51 = getelementptr inbounds nuw [17 x i32], ptr %38, i64 0, i64 %indvars.iv.next
   store i32 %50, ptr %51, align 4, !tbaa !71
   %52 = add i32 %.03251, %50
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %38, label %41, !llvm.loop !72
+  br i1 %exitcond.not, label %39, label %41, !llvm.loop !72
 
-53:                                               ; preds = %38
+53:                                               ; preds = %39
   %54 = add nuw nsw i32 %52, 17
   %55 = icmp ugt i32 %54, %26
   br i1 %55, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %53
   %.not62 = icmp eq i32 %52, 0
-  br i1 %.not62, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph:                                           ; preds = %.preheader
+  %56 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 %37
   %wide.trip.count = zext nneg i32 %52 to i64
-  br label %.lr.ph
+  br label %57
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN12ByteStreamBE6get_u8Ev.exit45
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next65, %_ZN12ByteStreamBE6get_u8Ev.exit45 ]
-  %56 = load i32, ptr %5, align 4, !tbaa !6
-  %57 = load i32, ptr %8, align 8, !tbaa !13
-  %.not.i44 = icmp ult i32 %56, %57
-  br i1 %.not.i44, label %_ZN12ByteStreamBE6get_u8Ev.exit45, label %58
+57:                                               ; preds = %.lr.ph, %_ZN12ByteStreamBE6get_u8Ev.exit45
+  %indvars.iv64 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next65, %_ZN12ByteStreamBE6get_u8Ev.exit45 ]
+  %58 = load i32, ptr %5, align 4, !tbaa !6
+  %59 = load i32, ptr %8, align 8, !tbaa !13
+  %.not.i44 = icmp ult i32 %58, %59
+  br i1 %.not.i44, label %_ZN12ByteStreamBE6get_u8Ev.exit45, label %60
 
-58:                                               ; preds = %.lr.ph
-  %59 = tail call ptr @__cxa_allocate_exception(i64 4) #17
-  store i32 1, ptr %59, align 16, !tbaa !36
-  tail call void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
+60:                                               ; preds = %57
+  %61 = tail call ptr @__cxa_allocate_exception(i64 4) #17
+  store i32 1, ptr %61, align 16, !tbaa !36
+  tail call void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
   unreachable
 
-_ZN12ByteStreamBE6get_u8Ev.exit45:                ; preds = %.lr.ph
-  %60 = zext i32 %56 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !15
-  %63 = add nuw i32 %56, 1
-  store i32 %63, ptr %5, align 4, !tbaa !6
-  %64 = zext i8 %62 to i32
-  %65 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 %37, i64 %indvars.iv64
-  store i32 %64, ptr %65, align 4, !tbaa !71
+_ZN12ByteStreamBE6get_u8Ev.exit45:                ; preds = %57
+  %62 = zext i32 %58 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !15
+  %65 = add nuw i32 %58, 1
+  store i32 %65, ptr %5, align 4, !tbaa !6
+  %66 = zext i8 %64 to i32
+  %67 = getelementptr inbounds nuw [256 x i32], ptr %56, i64 0, i64 %indvars.iv64
+  store i32 %66, ptr %67, align 4, !tbaa !71
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
-  br i1 %exitcond67.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond67.not, label %._crit_edge, label %57, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit45, %.preheader
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %37
-  store i8 1, ptr %66, align 1, !tbaa !54
-  %67 = trunc nuw i32 %54 to i16
-  %68 = sub i16 %.03655, %67
-  %.not = icmp eq i16 %68, 0
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %37
+  store i8 1, ptr %68, align 1, !tbaa !54
+  %69 = trunc nuw i32 %54 to i16
+  %70 = sub i16 %.03655, %69
+  %.not = icmp eq i16 %70, 0
   br i1 %.not, label %.thread, label %.lr.ph56, !llvm.loop !74
 
-.thread:                                          ; preds = %._crit_edge, %_ZN12ByteStreamBE6get_u8Ev.exit, %38, %53, %_ZN12ByteStreamBE7get_u16Ev.exit
-  %.3 = phi i1 [ true, %_ZN12ByteStreamBE7get_u16Ev.exit ], [ true, %53 ], [ false, %38 ], [ false, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ true, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZN12ByteStreamBE6get_u8Ev.exit, %39, %53, %_ZN12ByteStreamBE7get_u16Ev.exit
+  %.3 = phi i1 [ true, %_ZN12ByteStreamBE7get_u16Ev.exit ], [ true, %53 ], [ false, %39 ], [ false, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ true, %._crit_edge ]
   ret i1 %.3
 }
 

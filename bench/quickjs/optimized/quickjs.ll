@@ -74534,173 +74534,175 @@ JS_FreeValueRT.exit:                              ; preds = %22, %26, %28, %free
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !715
 
-44:                                               ; preds = %.lr.ph, %71
-  %indvars.iv82 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next83, %71 ]
+44:                                               ; preds = %.lr.ph, %72
+  %indvars.iv82 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next83, %72 ]
   %45 = load ptr, ptr %18, align 8, !tbaa !716
-  br label %46
+  %46 = getelementptr inbounds nuw %struct.JSBinaryOperatorDefEntry, ptr %45, i64 %indvars.iv82, i32 1
+  br label %47
 
-46:                                               ; preds = %44, %JS_FreeValueRT.exit55
+47:                                               ; preds = %44, %JS_FreeValueRT.exit55
   %indvars.iv78 = phi i64 [ 0, %44 ], [ %indvars.iv.next79, %JS_FreeValueRT.exit55 ]
-  %47 = getelementptr inbounds nuw %struct.JSBinaryOperatorDefEntry, ptr %45, i64 %indvars.iv82, i32 1, i64 %indvars.iv78
-  %48 = load ptr, ptr %47, align 8, !tbaa !582
-  %.not51 = icmp eq ptr %48, null
-  br i1 %.not51, label %JS_FreeValueRT.exit55, label %49
+  %48 = getelementptr inbounds nuw [14 x ptr], ptr %46, i64 0, i64 %indvars.iv78
+  %49 = load ptr, ptr %48, align 8, !tbaa !582
+  %.not51 = icmp eq ptr %49, null
+  br i1 %.not51, label %JS_FreeValueRT.exit55, label %50
 
-49:                                               ; preds = %46
-  %50 = load i32, ptr %48, align 4, !tbaa !107
-  %51 = add i32 %50, -1
-  store i32 %51, ptr %48, align 4, !tbaa !107
-  %52 = icmp slt i32 %51, 1
-  br i1 %52, label %53, label %JS_FreeValueRT.exit55
+50:                                               ; preds = %47
+  %51 = load i32, ptr %49, align 4, !tbaa !107
+  %52 = add i32 %51, -1
+  store i32 %52, ptr %49, align 4, !tbaa !107
+  %53 = icmp slt i32 %52, 1
+  br i1 %53, label %54, label %JS_FreeValueRT.exit55
 
-53:                                               ; preds = %49
-  %54 = load i8, ptr %12, align 8
-  %.not.i58 = icmp eq i8 %54, 2
-  br i1 %.not.i58, label %JS_FreeValueRT.exit55, label %55
+54:                                               ; preds = %50
+  %55 = load i8, ptr %12, align 8
+  %.not.i58 = icmp eq i8 %55, 2
+  br i1 %.not.i58, label %JS_FreeValueRT.exit55, label %56
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !60
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !61
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %59, ptr %60, align 8, !tbaa !61
-  store ptr %57, ptr %59, align 8, !tbaa !60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
-  %61 = load ptr, ptr %14, align 8, !tbaa !61
-  store ptr %56, ptr %14, align 8, !tbaa !61
-  store ptr %13, ptr %56, align 8, !tbaa !60
-  store ptr %61, ptr %58, align 8, !tbaa !61
-  store ptr %56, ptr %61, align 8, !tbaa !60
-  %62 = load i8, ptr %12, align 8
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %64, label %JS_FreeValueRT.exit55
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !60
+  %59 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %60 = load ptr, ptr %59, align 8, !tbaa !61
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store ptr %60, ptr %61, align 8, !tbaa !61
+  store ptr %58, ptr %60, align 8, !tbaa !60
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
+  %62 = load ptr, ptr %14, align 8, !tbaa !61
+  store ptr %57, ptr %14, align 8, !tbaa !61
+  store ptr %13, ptr %57, align 8, !tbaa !60
+  store ptr %62, ptr %59, align 8, !tbaa !61
+  store ptr %57, ptr %62, align 8, !tbaa !60
+  %63 = load i8, ptr %12, align 8
+  %64 = icmp eq i8 %63, 0
+  br i1 %64, label %65, label %JS_FreeValueRT.exit55
 
-64:                                               ; preds = %55
+65:                                               ; preds = %56
   store i8 1, ptr %12, align 8
-  %65 = load ptr, ptr %14, align 8, !tbaa !127
-  %66 = icmp eq ptr %65, %13
-  br i1 %66, label %free_zero_refcount.exit.i60, label %.lr.ph.i59
+  %66 = load ptr, ptr %14, align 8, !tbaa !127
+  %67 = icmp eq ptr %66, %13
+  br i1 %67, label %free_zero_refcount.exit.i60, label %.lr.ph.i59
 
-.lr.ph.i59:                                       ; preds = %64, %.lr.ph.i59
-  %67 = phi ptr [ %69, %.lr.ph.i59 ], [ %65, %64 ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 -8
-  tail call fastcc void @free_gc_object(ptr noundef nonnull %0, ptr noundef nonnull %68) #43
-  %69 = load ptr, ptr %14, align 8, !tbaa !127
-  %70 = icmp eq ptr %69, %13
-  br i1 %70, label %free_zero_refcount.exit.i60, label %.lr.ph.i59
+.lr.ph.i59:                                       ; preds = %65, %.lr.ph.i59
+  %68 = phi ptr [ %70, %.lr.ph.i59 ], [ %66, %65 ]
+  %69 = getelementptr inbounds i8, ptr %68, i64 -8
+  tail call fastcc void @free_gc_object(ptr noundef nonnull %0, ptr noundef nonnull %69) #43
+  %70 = load ptr, ptr %14, align 8, !tbaa !127
+  %71 = icmp eq ptr %70, %13
+  br i1 %71, label %free_zero_refcount.exit.i60, label %.lr.ph.i59
 
-free_zero_refcount.exit.i60:                      ; preds = %.lr.ph.i59, %64
+free_zero_refcount.exit.i60:                      ; preds = %.lr.ph.i59, %65
   store i8 0, ptr %12, align 8
   br label %JS_FreeValueRT.exit55
 
-JS_FreeValueRT.exit55:                            ; preds = %49, %53, %55, %free_zero_refcount.exit.i60, %46
+JS_FreeValueRT.exit55:                            ; preds = %50, %54, %56, %free_zero_refcount.exit.i60, %47
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 14
-  br i1 %exitcond81.not, label %71, label %46, !llvm.loop !717
+  br i1 %exitcond81.not, label %72, label %47, !llvm.loop !717
 
-71:                                               ; preds = %JS_FreeValueRT.exit55
+72:                                               ; preds = %JS_FreeValueRT.exit55
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %72 = load i32, ptr %15, align 8, !tbaa !712
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next83, %73
-  br i1 %74, label %44, label %._crit_edge, !llvm.loop !718
+  %73 = load i32, ptr %15, align 8, !tbaa !712
+  %74 = sext i32 %73 to i64
+  %75 = icmp slt i64 %indvars.iv.next83, %74
+  br i1 %75, label %44, label %._crit_edge, !llvm.loop !718
 
-._crit_edge:                                      ; preds = %71, %.preheader
-  %75 = getelementptr inbounds nuw i8, ptr %10, i64 168
-  %76 = load ptr, ptr %75, align 8, !tbaa !716
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !33
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void %78(ptr noundef nonnull %79, ptr noundef %76) #41
-  %80 = getelementptr inbounds nuw i8, ptr %10, i64 176
-  %81 = load i32, ptr %80, align 8, !tbaa !719
-  %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %.lr.ph75, label %._crit_edge76
+._crit_edge:                                      ; preds = %72, %.preheader
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 168
+  %77 = load ptr, ptr %76, align 8, !tbaa !716
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !33
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void %79(ptr noundef nonnull %80, ptr noundef %77) #41
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 176
+  %82 = load i32, ptr %81, align 8, !tbaa !719
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %.lr.ph75, label %._crit_edge76
 
 .lr.ph75:                                         ; preds = %._crit_edge
-  %83 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  br label %84
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  br label %85
 
-84:                                               ; preds = %.lr.ph75, %111
-  %indvars.iv89 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next90, %111 ]
-  %85 = load ptr, ptr %83, align 8, !tbaa !720
-  br label %86
+85:                                               ; preds = %.lr.ph75, %113
+  %indvars.iv89 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next90, %113 ]
+  %86 = load ptr, ptr %84, align 8, !tbaa !720
+  %87 = getelementptr inbounds nuw %struct.JSBinaryOperatorDefEntry, ptr %86, i64 %indvars.iv89, i32 1
+  br label %88
 
-86:                                               ; preds = %84, %JS_FreeValueRT.exit56
-  %indvars.iv85 = phi i64 [ 0, %84 ], [ %indvars.iv.next86, %JS_FreeValueRT.exit56 ]
-  %87 = getelementptr inbounds nuw %struct.JSBinaryOperatorDefEntry, ptr %85, i64 %indvars.iv89, i32 1, i64 %indvars.iv85
-  %88 = load ptr, ptr %87, align 8, !tbaa !582
-  %.not49 = icmp eq ptr %88, null
-  br i1 %.not49, label %JS_FreeValueRT.exit56, label %89
+88:                                               ; preds = %85, %JS_FreeValueRT.exit56
+  %indvars.iv85 = phi i64 [ 0, %85 ], [ %indvars.iv.next86, %JS_FreeValueRT.exit56 ]
+  %89 = getelementptr inbounds nuw [14 x ptr], ptr %87, i64 0, i64 %indvars.iv85
+  %90 = load ptr, ptr %89, align 8, !tbaa !582
+  %.not49 = icmp eq ptr %90, null
+  br i1 %.not49, label %JS_FreeValueRT.exit56, label %91
 
-89:                                               ; preds = %86
-  %90 = load i32, ptr %88, align 4, !tbaa !107
-  %91 = add i32 %90, -1
-  store i32 %91, ptr %88, align 4, !tbaa !107
-  %92 = icmp slt i32 %91, 1
-  br i1 %92, label %93, label %JS_FreeValueRT.exit56
+91:                                               ; preds = %88
+  %92 = load i32, ptr %90, align 4, !tbaa !107
+  %93 = add i32 %92, -1
+  store i32 %93, ptr %90, align 4, !tbaa !107
+  %94 = icmp slt i32 %93, 1
+  br i1 %94, label %95, label %JS_FreeValueRT.exit56
 
-93:                                               ; preds = %89
-  %94 = load i8, ptr %12, align 8
-  %.not.i62 = icmp eq i8 %94, 2
-  br i1 %.not.i62, label %JS_FreeValueRT.exit56, label %95
+95:                                               ; preds = %91
+  %96 = load i8, ptr %12, align 8
+  %.not.i62 = icmp eq i8 %96, 2
+  br i1 %.not.i62, label %JS_FreeValueRT.exit56, label %97
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !60
-  %98 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !61
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store ptr %99, ptr %100, align 8, !tbaa !61
-  store ptr %97, ptr %99, align 8, !tbaa !60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
-  %101 = load ptr, ptr %14, align 8, !tbaa !61
-  store ptr %96, ptr %14, align 8, !tbaa !61
-  store ptr %13, ptr %96, align 8, !tbaa !60
-  store ptr %101, ptr %98, align 8, !tbaa !61
-  store ptr %96, ptr %101, align 8, !tbaa !60
-  %102 = load i8, ptr %12, align 8
-  %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %JS_FreeValueRT.exit56
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !60
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !61
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store ptr %101, ptr %102, align 8, !tbaa !61
+  store ptr %99, ptr %101, align 8, !tbaa !60
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, i8 0, i64 16, i1 false)
+  %103 = load ptr, ptr %14, align 8, !tbaa !61
+  store ptr %98, ptr %14, align 8, !tbaa !61
+  store ptr %13, ptr %98, align 8, !tbaa !60
+  store ptr %103, ptr %100, align 8, !tbaa !61
+  store ptr %98, ptr %103, align 8, !tbaa !60
+  %104 = load i8, ptr %12, align 8
+  %105 = icmp eq i8 %104, 0
+  br i1 %105, label %106, label %JS_FreeValueRT.exit56
 
-104:                                              ; preds = %95
+106:                                              ; preds = %97
   store i8 1, ptr %12, align 8
-  %105 = load ptr, ptr %14, align 8, !tbaa !127
-  %106 = icmp eq ptr %105, %13
-  br i1 %106, label %free_zero_refcount.exit.i64, label %.lr.ph.i63
+  %107 = load ptr, ptr %14, align 8, !tbaa !127
+  %108 = icmp eq ptr %107, %13
+  br i1 %108, label %free_zero_refcount.exit.i64, label %.lr.ph.i63
 
-.lr.ph.i63:                                       ; preds = %104, %.lr.ph.i63
-  %107 = phi ptr [ %109, %.lr.ph.i63 ], [ %105, %104 ]
-  %108 = getelementptr inbounds i8, ptr %107, i64 -8
-  tail call fastcc void @free_gc_object(ptr noundef nonnull %0, ptr noundef nonnull %108) #43
-  %109 = load ptr, ptr %14, align 8, !tbaa !127
-  %110 = icmp eq ptr %109, %13
-  br i1 %110, label %free_zero_refcount.exit.i64, label %.lr.ph.i63
+.lr.ph.i63:                                       ; preds = %106, %.lr.ph.i63
+  %109 = phi ptr [ %111, %.lr.ph.i63 ], [ %107, %106 ]
+  %110 = getelementptr inbounds i8, ptr %109, i64 -8
+  tail call fastcc void @free_gc_object(ptr noundef nonnull %0, ptr noundef nonnull %110) #43
+  %111 = load ptr, ptr %14, align 8, !tbaa !127
+  %112 = icmp eq ptr %111, %13
+  br i1 %112, label %free_zero_refcount.exit.i64, label %.lr.ph.i63
 
-free_zero_refcount.exit.i64:                      ; preds = %.lr.ph.i63, %104
+free_zero_refcount.exit.i64:                      ; preds = %.lr.ph.i63, %106
   store i8 0, ptr %12, align 8
   br label %JS_FreeValueRT.exit56
 
-JS_FreeValueRT.exit56:                            ; preds = %89, %93, %95, %free_zero_refcount.exit.i64, %86
+JS_FreeValueRT.exit56:                            ; preds = %91, %95, %97, %free_zero_refcount.exit.i64, %88
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 14
-  br i1 %exitcond88.not, label %111, label %86, !llvm.loop !721
+  br i1 %exitcond88.not, label %113, label %88, !llvm.loop !721
 
-111:                                              ; preds = %JS_FreeValueRT.exit56
+113:                                              ; preds = %JS_FreeValueRT.exit56
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %112 = load i32, ptr %80, align 8, !tbaa !719
-  %113 = sext i32 %112 to i64
-  %114 = icmp slt i64 %indvars.iv.next90, %113
-  br i1 %114, label %84, label %._crit_edge76, !llvm.loop !722
+  %114 = load i32, ptr %81, align 8, !tbaa !719
+  %115 = sext i32 %114 to i64
+  %116 = icmp slt i64 %indvars.iv.next90, %115
+  br i1 %116, label %85, label %._crit_edge76, !llvm.loop !722
 
-._crit_edge76:                                    ; preds = %111, %._crit_edge
-  %115 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  %116 = load ptr, ptr %115, align 8, !tbaa !720
-  %117 = load ptr, ptr %77, align 8, !tbaa !33
-  tail call void %117(ptr noundef nonnull %79, ptr noundef %116) #41
-  %118 = load ptr, ptr %77, align 8, !tbaa !33
-  tail call void %118(ptr noundef nonnull %79, ptr noundef nonnull %10) #41
+._crit_edge76:                                    ; preds = %113, %._crit_edge
+  %117 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  %118 = load ptr, ptr %117, align 8, !tbaa !720
+  %119 = load ptr, ptr %78, align 8, !tbaa !33
+  tail call void %119(ptr noundef nonnull %80, ptr noundef %118) #41
+  %120 = load ptr, ptr %78, align 8, !tbaa !33
+  tail call void %120(ptr noundef nonnull %80, ptr noundef nonnull %10) #41
   br label %JS_GetOpaque.exit.thread
 
 JS_GetOpaque.exit.thread:                         ; preds = %6, %3, %._crit_edge76, %JS_GetOpaque.exit
@@ -74756,7 +74758,7 @@ JS_GetOpaque.exit:                                ; preds = %7
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %.preheader54, label %17, !llvm.loop !723
 
-.preheader:                                       ; preds = %33, %.preheader54
+.preheader:                                       ; preds = %34, %.preheader54
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 176
   %23 = load i32, ptr %22, align 8, !tbaa !719
   %24 = icmp sgt i32 %23, 0
@@ -74764,65 +74766,67 @@ JS_GetOpaque.exit:                                ; preds = %7
 
 .lr.ph61:                                         ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 184
-  br label %37
+  br label %38
 
-26:                                               ; preds = %.lr.ph, %33
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next68, %33 ]
+26:                                               ; preds = %.lr.ph, %34
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next68, %34 ]
   %27 = load ptr, ptr %16, align 8, !tbaa !716
-  br label %28
+  %28 = getelementptr inbounds nuw %struct.JSBinaryOperatorDefEntry, ptr %27, i64 %indvars.iv67, i32 1
+  br label %29
 
-28:                                               ; preds = %26, %32
-  %indvars.iv63 = phi i64 [ 0, %26 ], [ %indvars.iv.next64, %32 ]
-  %29 = getelementptr inbounds nuw %struct.JSBinaryOperatorDefEntry, ptr %27, i64 %indvars.iv67, i32 1, i64 %indvars.iv63
-  %30 = load ptr, ptr %29, align 8, !tbaa !582
-  %.not48 = icmp eq ptr %30, null
-  br i1 %.not48, label %32, label %31
+29:                                               ; preds = %26, %33
+  %indvars.iv63 = phi i64 [ 0, %26 ], [ %indvars.iv.next64, %33 ]
+  %30 = getelementptr inbounds nuw [14 x ptr], ptr %28, i64 0, i64 %indvars.iv63
+  %31 = load ptr, ptr %30, align 8, !tbaa !582
+  %.not48 = icmp eq ptr %31, null
+  br i1 %.not48, label %33, label %32
 
-31:                                               ; preds = %28
-  tail call void %3(ptr noundef %0, ptr noundef nonnull %30) #41
-  br label %32
+32:                                               ; preds = %29
+  tail call void %3(ptr noundef %0, ptr noundef nonnull %31) #41
+  br label %33
 
-32:                                               ; preds = %28, %31
+33:                                               ; preds = %29, %32
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 14
-  br i1 %exitcond66.not, label %33, label %28, !llvm.loop !724
+  br i1 %exitcond66.not, label %34, label %29, !llvm.loop !724
 
-33:                                               ; preds = %32
+34:                                               ; preds = %33
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %34 = load i32, ptr %13, align 8, !tbaa !712
-  %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv.next68, %35
-  br i1 %36, label %26, label %.preheader, !llvm.loop !725
+  %35 = load i32, ptr %13, align 8, !tbaa !712
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next68, %36
+  br i1 %37, label %26, label %.preheader, !llvm.loop !725
 
-37:                                               ; preds = %.lr.ph61, %44
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next75, %44 ]
-  %38 = load ptr, ptr %25, align 8, !tbaa !720
-  br label %39
+38:                                               ; preds = %.lr.ph61, %46
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next75, %46 ]
+  %39 = load ptr, ptr %25, align 8, !tbaa !720
+  %40 = getelementptr inbounds nuw %struct.JSBinaryOperatorDefEntry, ptr %39, i64 %indvars.iv74, i32 1
+  br label %41
 
-39:                                               ; preds = %37, %43
-  %indvars.iv70 = phi i64 [ 0, %37 ], [ %indvars.iv.next71, %43 ]
-  %40 = getelementptr inbounds nuw %struct.JSBinaryOperatorDefEntry, ptr %38, i64 %indvars.iv74, i32 1, i64 %indvars.iv70
-  %41 = load ptr, ptr %40, align 8, !tbaa !582
-  %.not46 = icmp eq ptr %41, null
-  br i1 %.not46, label %43, label %42
+41:                                               ; preds = %38, %45
+  %indvars.iv70 = phi i64 [ 0, %38 ], [ %indvars.iv.next71, %45 ]
+  %42 = getelementptr inbounds nuw [14 x ptr], ptr %40, i64 0, i64 %indvars.iv70
+  %43 = load ptr, ptr %42, align 8, !tbaa !582
+  %.not46 = icmp eq ptr %43, null
+  br i1 %.not46, label %45, label %44
 
-42:                                               ; preds = %39
-  tail call void %3(ptr noundef %0, ptr noundef nonnull %41) #41
-  br label %43
+44:                                               ; preds = %41
+  tail call void %3(ptr noundef %0, ptr noundef nonnull %43) #41
+  br label %45
 
-43:                                               ; preds = %39, %42
+45:                                               ; preds = %41, %44
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 14
-  br i1 %exitcond73.not, label %44, label %39, !llvm.loop !726
+  br i1 %exitcond73.not, label %46, label %41, !llvm.loop !726
 
-44:                                               ; preds = %43
+46:                                               ; preds = %45
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %45 = load i32, ptr %22, align 8, !tbaa !719
-  %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next75, %46
-  br i1 %47, label %37, label %JS_GetOpaque.exit.thread, !llvm.loop !727
+  %47 = load i32, ptr %22, align 8, !tbaa !719
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next75, %48
+  br i1 %49, label %38, label %JS_GetOpaque.exit.thread, !llvm.loop !727
 
-JS_GetOpaque.exit.thread:                         ; preds = %44, %.preheader, %7, %4, %JS_GetOpaque.exit
+JS_GetOpaque.exit.thread:                         ; preds = %46, %.preheader, %7, %4, %JS_GetOpaque.exit
   ret void
 }
 

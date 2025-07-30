@@ -6011,54 +6011,55 @@ define internal fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef nonn
 
 .preheader32.us:                                  ; preds = %.preheader32.us.preheader, %._crit_edge.us
   %indvars.iv43 = phi i64 [ 0, %.preheader32.us.preheader ], [ %indvars.iv.next44, %._crit_edge.us ]
+  %invariant.gep.us = getelementptr [3 x float], ptr %4, i64 0, i64 %indvars.iv43
   %12 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv43
   %.promoted.us = load float, ptr %12, align 4, !tbaa !31
   br label %13
 
 13:                                               ; preds = %.preheader32.us, %13
   %indvars.iv39 = phi i64 [ 0, %.preheader32.us ], [ %indvars.iv.next40, %13 ]
-  %14 = phi float [ %.promoted.us, %.preheader32.us ], [ %21, %13 ]
+  %14 = phi float [ %.promoted.us, %.preheader32.us ], [ %20, %13 ]
   %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv39
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [3 x float], ptr %4, i64 %17, i64 %indvars.iv43
-  %19 = load float, ptr %18, align 4, !tbaa !31
-  %20 = fmul float %19, %19
-  %21 = fadd float %14, %20
+  %gep.us = getelementptr [3 x float], ptr %invariant.gep.us, i64 %17
+  %18 = load float, ptr %gep.us, align 4, !tbaa !31
+  %19 = fmul float %18, %18
+  %20 = fadd float %14, %19
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count
   br i1 %exitcond42.not, label %._crit_edge.us, label %13, !llvm.loop !143
 
 ._crit_edge.us:                                   ; preds = %13
-  %22 = fdiv float %21, %11
-  %23 = call noundef float @sqrtf(float noundef %22) #20, !tbaa !4
-  %24 = fpext float %23 to double
-  %25 = fmul double %24, 0x3FFBB67AE8584CAA
-  %26 = fdiv double 1.000000e+00, %25
-  %27 = fptrunc double %26 to float
-  store float %27, ptr %12, align 4, !tbaa !31
+  %21 = fdiv float %20, %11
+  %22 = call noundef float @sqrtf(float noundef %21) #20, !tbaa !4
+  %23 = fpext float %22 to double
+  %24 = fmul double %23, 0x3FFBB67AE8584CAA
+  %25 = fdiv double 1.000000e+00, %24
+  %26 = fptrunc double %25 to float
+  store float %26, ptr %12, align 4, !tbaa !31
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 3
   br i1 %exitcond46.not, label %.preheader31, label %.preheader32.us, !llvm.loop !144
 
 .preheader32:                                     ; preds = %5, %.preheader32
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader32 ], [ 0, %5 ]
-  %28 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv
-  %29 = load float, ptr %28, align 4, !tbaa !31
-  %30 = fdiv float %29, %11
-  %31 = call noundef float @sqrtf(float noundef %30) #20, !tbaa !4
-  %32 = fpext float %31 to double
-  %33 = fmul double %32, 0x3FFBB67AE8584CAA
-  %34 = fdiv double 1.000000e+00, %33
-  %35 = fptrunc double %34 to float
-  store float %35, ptr %28, align 4, !tbaa !31
+  %27 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv
+  %28 = load float, ptr %27, align 4, !tbaa !31
+  %29 = fdiv float %28, %11
+  %30 = call noundef float @sqrtf(float noundef %29) #20, !tbaa !4
+  %31 = fpext float %30 to double
+  %32 = fmul double %31, 0x3FFBB67AE8584CAA
+  %33 = fdiv double 1.000000e+00, %32
+  %34 = fptrunc double %33 to float
+  store float %34, ptr %27, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader31, label %.preheader32, !llvm.loop !145
 
 .preheader31:                                     ; preds = %.preheader32, %._crit_edge.us
-  %36 = icmp sgt i32 %3, 0
-  br i1 %36, label %.preheader.preheader, label %._crit_edge
+  %35 = icmp sgt i32 %3, 0
+  br i1 %35, label %.preheader.preheader, label %._crit_edge
 
 .preheader.preheader:                             ; preds = %.preheader31
   %wide.trip.count54 = zext nneg i32 %3 to i64
@@ -6066,13 +6067,14 @@ define internal fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef nonn
 
 .preheader:                                       ; preds = %.preheader.preheader, %43
   %indvars.iv51 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next52, %43 ]
+  %36 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv51
   br label %37
 
 37:                                               ; preds = %.preheader, %37
   %indvars.iv47 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next48, %37 ]
   %38 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv47
   %39 = load float, ptr %38, align 4, !tbaa !31
-  %40 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv51, i64 %indvars.iv47
+  %40 = getelementptr inbounds nuw [3 x float], ptr %36, i64 0, i64 %indvars.iv47
   %41 = load float, ptr %40, align 4, !tbaa !31
   %42 = fmul float %39, %41
   store float %42, ptr %40, align 4, !tbaa !31

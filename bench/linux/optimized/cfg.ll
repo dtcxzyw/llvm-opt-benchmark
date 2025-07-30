@@ -5586,7 +5586,7 @@ define internal i32 @ieee80211_set_bitrate_mask(ptr noundef readonly captures(no
   %18 = load volatile i64, ptr %17, align 8
   %19 = and i64 %18, 1
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %.thread10, label %21
+  br i1 %20, label %.thread11, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr i8, ptr %1, i64 7216
@@ -5609,7 +5609,7 @@ define internal i32 @ieee80211_set_bitrate_mask(ptr noundef readonly captures(no
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, %31
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.thread10, label %38
+  br i1 %37, label %.thread11, label %38
 
 38:                                               ; preds = %29, %25, %21
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 1400
@@ -5658,7 +5658,7 @@ define internal i32 @ieee80211_set_bitrate_mask(ptr noundef readonly captures(no
   %66 = load i32, ptr %65, align 8
   %67 = and i32 %66, 32
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.thread10, label %69
+  br i1 %68, label %.thread11, label %69
 
 69:                                               ; preds = %.thread
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_drv_set_bitrate_mask, i64 8), i32 2) #16
@@ -5756,7 +5756,7 @@ define internal i32 @ieee80211_set_bitrate_mask(ptr noundef readonly captures(no
 
 121:                                              ; preds = %118, %114, %101, %99
   %122 = icmp eq i32 %100, 0
-  br i1 %122, label %123, label %.thread10
+  br i1 %122, label %123, label %.thread11
 
 123:                                              ; preds = %121, %38
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -5791,44 +5791,44 @@ define internal i32 @ieee80211_set_bitrate_mask(ptr noundef readonly captures(no
 144:                                              ; preds = %.preheader
   %145 = add nuw nsw i64 %147, 1
   %146 = icmp eq i64 %145, 10
-  br i1 %146, label %.loopexit11.preheader, label %.preheader, !llvm.loop !138
+  br i1 %146, label %.loopexit12.preheader, label %.preheader, !llvm.loop !138
 
 .preheader:                                       ; preds = %130, %144
   %147 = phi i64 [ %145, %144 ], [ 0, %130 ]
-  %148 = getelementptr [6 x [10 x i8]], ptr %126, i64 0, i64 %131, i64 %147
+  %148 = getelementptr [10 x i8], ptr %137, i64 0, i64 %147
   %149 = load i8, ptr %148, align 1
   %150 = icmp eq i8 %149, -1
   br i1 %150, label %144, label %151
 
 151:                                              ; preds = %.preheader
   store i8 1, ptr %141, align 1
-  br label %.loopexit11.preheader
+  br label %.loopexit12.preheader
 
-.loopexit11.preheader:                            ; preds = %144, %151
-  br label %.loopexit11
+.loopexit12.preheader:                            ; preds = %144, %151
+  br label %.loopexit12
 
-152:                                              ; preds = %.loopexit11
+152:                                              ; preds = %.loopexit12
   %153 = add nuw nsw i64 %155, 1
   %154 = icmp eq i64 %153, 8
-  br i1 %154, label %.loopexit, label %.loopexit11, !llvm.loop !139
+  br i1 %154, label %.loopexit, label %.loopexit12, !llvm.loop !139
 
-.loopexit11:                                      ; preds = %.loopexit11.preheader, %152
-  %155 = phi i64 [ %153, %152 ], [ 0, %.loopexit11.preheader ]
-  %156 = getelementptr [6 x [8 x i16]], ptr %127, i64 0, i64 %131, i64 %155
+.loopexit12:                                      ; preds = %.loopexit12.preheader, %152
+  %155 = phi i64 [ %153, %152 ], [ 0, %.loopexit12.preheader ]
+  %156 = getelementptr [8 x i16], ptr %139, i64 0, i64 %155
   %157 = load i16, ptr %156, align 2
   %158 = icmp eq i16 %157, -1
   br i1 %158, label %152, label %159
 
-159:                                              ; preds = %.loopexit11
+159:                                              ; preds = %.loopexit12
   store i8 1, ptr %142, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %152, %159, %130
   %160 = add nuw nsw i64 %131, 1
   %161 = icmp eq i64 %160, 6
-  br i1 %161, label %.thread10, label %130, !llvm.loop !140
+  br i1 %161, label %.thread11, label %130, !llvm.loop !140
 
-.thread10:                                        ; preds = %.loopexit, %.thread, %121, %29, %15
+.thread11:                                        ; preds = %.loopexit, %.thread, %121, %29, %15
   %162 = phi i32 [ -22, %29 ], [ -100, %15 ], [ %100, %121 ], [ -5, %.thread ], [ 0, %.loopexit ]
   ret i32 %162
 }

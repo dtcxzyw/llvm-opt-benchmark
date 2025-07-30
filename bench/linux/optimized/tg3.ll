@@ -12277,7 +12277,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
 
 77:                                               ; preds = %.backedge, %76
   %78 = phi i32 [ 1, %76 ], [ %.be, %.backedge ]
-  %79 = phi i32 [ 10, %76 ], [ %.be116, %.backedge ]
+  %79 = phi i32 [ 10, %76 ], [ %.be118, %.backedge ]
   %80 = icmp eq i32 %78, 0
   br i1 %80, label %101, label %81
 
@@ -12288,9 +12288,9 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %83 = zext i8 %82 to i32
   %84 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %83, i32 noundef 0, i32 noundef 32768), !range !33
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.preheader50, label %.thread
+  br i1 %85, label %.preheader52, label %.thread
 
-.preheader50:                                     ; preds = %81, %97
+.preheader52:                                     ; preds = %81, %97
   %86 = phi i32 [ %98, %97 ], [ 4999, %81 ]
   %87 = load i8, ptr %52, align 4
   %88 = zext i8 %87 to i32
@@ -12298,7 +12298,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %.thread
 
-91:                                               ; preds = %.preheader50
+91:                                               ; preds = %.preheader52
   %92 = load i32, ptr %20, align 4
   %93 = and i32 %92, 32768
   %94 = icmp eq i32 %93, 0
@@ -12313,11 +12313,11 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   tail call void @__const_udelay(i64 noundef 42950) #27
   %98 = add nsw i32 %86, -1
   %99 = icmp eq i32 %86, 0
-  br i1 %99, label %.thread, label %.preheader50, !llvm.loop !34
+  br i1 %99, label %.thread, label %.preheader52, !llvm.loop !34
 
-.thread:                                          ; preds = %81, %95, %.preheader50, %97
+.thread:                                          ; preds = %81, %95, %.preheader52, %97
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #27
-  br label %.thread39
+  br label %.thread41
 
 100:                                              ; preds = %95
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #27
@@ -12356,19 +12356,19 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %124 = zext i8 %123 to i32
   %125 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %124, i32 noundef 24, i32 noundef 7), !range !33
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %.thread32
+  br i1 %126, label %127, label %.thread34
 
 127:                                              ; preds = %119
   %128 = load i8, ptr %52, align 4
   %129 = zext i8 %128 to i32
   %130 = call fastcc noundef i32 @__tg3_readphy(ptr noundef %0, i32 noundef %129, i32 noundef 24, ptr noundef nonnull %19), !range !33
   %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %.thread32
+  br i1 %131, label %132, label %.thread34
 
-.thread32:                                        ; preds = %127, %119
+.thread34:                                        ; preds = %127, %119
   %.ph = phi i32 [ %130, %127 ], [ %125, %119 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #27
-  br label %.thread39
+  br label %.thread41
 
 132:                                              ; preds = %127
   %133 = load i32, ptr %19, align 4
@@ -12378,26 +12378,26 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %137 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %136, i32 noundef 24, i32 noundef %134), !range !33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #27
   %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %.thread39
+  br i1 %138, label %139, label %.thread41
 
 139:                                              ; preds = %132
   %140 = load i8, ptr %52, align 4
   %141 = zext i8 %140 to i32
   %142 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %141, i32 noundef 23, i32 noundef 32773), !range !33
   %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %.preheader112
+  br i1 %143, label %144, label %.preheader114
 
 144:                                              ; preds = %139
   %145 = load i8, ptr %52, align 4
   %146 = zext i8 %145 to i32
   %147 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %146, i32 noundef 21, i32 noundef 2048), !range !33
-  br label %.preheader112
+  br label %.preheader114
 
-.preheader112:                                    ; preds = %144, %139
+.preheader114:                                    ; preds = %144, %139
   br label %148
 
-148:                                              ; preds = %.preheader112, %271
-  %149 = phi i64 [ %272, %271 ], [ 0, %.preheader112 ]
+148:                                              ; preds = %.preheader114, %271
+  %149 = phi i64 [ %272, %271 ], [ 0, %.preheader114 ]
   %150 = load i8, ptr %52, align 4
   %151 = zext i8 %150 to i32
   %152 = trunc i64 %149 to i32
@@ -12407,11 +12407,12 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %156 = load i8, ptr %52, align 4
   %157 = zext i8 %156 to i32
   %158 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %157, i32 noundef 22, i32 noundef 2), !range !33
+  %.split = getelementptr [4 x [6 x i32]], ptr @tg3_phy_write_and_check_testpat.test_pat, i64 0, i64 %149
   br label %159
 
 159:                                              ; preds = %159, %148
   %160 = phi i64 [ 0, %148 ], [ %166, %159 ]
-  %161 = getelementptr [4 x [6 x i32]], ptr @tg3_phy_write_and_check_testpat.test_pat, i64 0, i64 %149, i64 %160
+  %161 = getelementptr [6 x i32], ptr %.split, i64 0, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = load i8, ptr %52, align 4
   %164 = zext i8 %163 to i32
@@ -12501,7 +12502,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %216 = load i32, ptr %14, align 4
   %217 = and i32 %216, 4096
   %218 = icmp eq i32 %217, 0
-  br i1 %218, label %.preheader45.preheader, label %219
+  br i1 %218, label %.preheader47.preheader, label %219
 
 219:                                              ; preds = %215, %209
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #27
@@ -12509,12 +12510,12 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %221 = icmp eq i32 %210, 0
   br i1 %221, label %.critedge, label %209
 
-.preheader45.preheader:                           ; preds = %215
+.preheader47.preheader:                           ; preds = %215
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #27
-  br label %.preheader45
+  br label %.preheader47
 
-.preheader45:                                     ; preds = %.preheader45.preheader, %267
-  %222 = phi i64 [ %268, %267 ], [ 0, %.preheader45.preheader ]
+.preheader47:                                     ; preds = %.preheader47.preheader, %267
+  %222 = phi i64 [ %268, %267 ], [ 0, %.preheader47.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #27
   store i32 0, ptr %17, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #27
@@ -12523,16 +12524,16 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %224 = zext i8 %223 to i32
   %225 = call fastcc noundef i32 @__tg3_readphy(ptr noundef %0, i32 noundef %224, i32 noundef 21, ptr noundef nonnull %17), !range !33
   %226 = icmp eq i32 %225, 0
-  br i1 %226, label %227, label %.critedge22
+  br i1 %226, label %227, label %.critedge24
 
-227:                                              ; preds = %.preheader45
+227:                                              ; preds = %.preheader47
   %228 = load i8, ptr %52, align 4
   %229 = zext i8 %228 to i32
   %230 = call fastcc noundef i32 @__tg3_readphy(ptr noundef %0, i32 noundef %229, i32 noundef 21, ptr noundef nonnull %18), !range !33
   %231 = icmp eq i32 %230, 0
-  br i1 %231, label %.preheader44, label %.critedge22
+  br i1 %231, label %.preheader46, label %.critedge24
 
-.preheader44:                                     ; preds = %227, %241
+.preheader46:                                     ; preds = %227, %241
   %232 = phi i32 [ %242, %241 ], [ 99, %227 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #27
   store i32 0, ptr %13, align 4, !annotation !5
@@ -12542,23 +12543,23 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %236 = icmp eq i32 %235, 0
   br i1 %236, label %237, label %241
 
-237:                                              ; preds = %.preheader44
+237:                                              ; preds = %.preheader46
   %238 = load i32, ptr %13, align 4
   %239 = and i32 %238, 4096
   %240 = icmp eq i32 %239, 0
   br i1 %240, label %244, label %241
 
-241:                                              ; preds = %237, %.preheader44
+241:                                              ; preds = %237, %.preheader46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #27
   %242 = add nsw i32 %232, -1
   %243 = icmp eq i32 %232, 0
-  br i1 %243, label %.critedge22, label %.preheader44
+  br i1 %243, label %.critedge24, label %.preheader46
 
 244:                                              ; preds = %237
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #27
   %245 = load i32, ptr %17, align 4
   %246 = and i32 %245, 32767
-  %247 = getelementptr [4 x [6 x i32]], ptr @tg3_phy_write_and_check_testpat.test_pat, i64 0, i64 %149, i64 %222
+  %247 = getelementptr [6 x i32], ptr %.split, i64 0, i64 %222
   %248 = load i32, ptr %247, align 8
   %249 = icmp eq i32 %246, %248
   br i1 %249, label %250, label %257
@@ -12567,7 +12568,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %251 = load i32, ptr %18, align 4
   %252 = and i32 %251, 15
   %253 = or disjoint i64 %222, 1
-  %254 = getelementptr [4 x [6 x i32]], ptr @tg3_phy_write_and_check_testpat.test_pat, i64 0, i64 %149, i64 %253
+  %254 = getelementptr [6 x i32], ptr %.split, i64 0, i64 %253
   %255 = load i32, ptr %254, align 4
   %256 = icmp eq i32 %252, %255
   br i1 %256, label %267, label %257
@@ -12582,17 +12583,17 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %264 = load i8, ptr %52, align 4
   %265 = zext i8 %264 to i32
   %266 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %265, i32 noundef 21, i32 noundef 16389), !range !33
-  br label %.critedge22
+  br label %.critedge24
 
 267:                                              ; preds = %250
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #27
   %268 = add nuw nsw i64 %222, 2
   %269 = icmp samesign ult i64 %222, 4
-  br i1 %269, label %.preheader45, label %271, !llvm.loop !78
+  br i1 %269, label %.preheader47, label %271, !llvm.loop !78
 
-.critedge22:                                      ; preds = %227, %.preheader45, %241, %257
-  %270 = phi i32 [ 0, %257 ], [ 1, %241 ], [ 1, %.preheader45 ], [ 1, %227 ]
+.critedge24:                                      ; preds = %227, %.preheader47, %241, %257
+  %270 = phi i32 [ 0, %257 ], [ 1, %241 ], [ 1, %.preheader47 ], [ 1, %227 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #27
   br label %.critedge
@@ -12602,8 +12603,8 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %273 = icmp eq i64 %272, 4
   br i1 %273, label %.critedge.thread.preheader, label %148, !llvm.loop !79
 
-.critedge:                                        ; preds = %182, %202, %219, %.critedge22
-  %274 = phi i32 [ %270, %.critedge22 ], [ 1, %219 ], [ 1, %202 ], [ 1, %182 ]
+.critedge:                                        ; preds = %182, %202, %219, %.critedge24
+  %274 = phi i32 [ %270, %.critedge24 ], [ 1, %219 ], [ 1, %202 ], [ 1, %182 ]
   %275 = add i32 %79, -1
   %276 = icmp eq i32 %275, 0
   br i1 %276, label %.critedge.thread.preheader, label %.backedge
@@ -12615,7 +12616,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
 
 .backedge:                                        ; preds = %277, %.critedge
   %.be = phi i32 [ %274, %.critedge ], [ 0, %277 ]
-  %.be116 = phi i32 [ %275, %.critedge ], [ %278, %277 ]
+  %.be118 = phi i32 [ %275, %.critedge ], [ %278, %277 ]
   br label %77, !llvm.loop !80
 
 .critedge.thread.preheader:                       ; preds = %277, %.critedge, %271
@@ -12674,7 +12675,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #27
   %314 = add nsw i32 %304, -1
   %315 = icmp eq i32 %304, 0
-  br i1 %315, label %.thread39, label %303
+  br i1 %315, label %.thread41, label %303
 
 316:                                              ; preds = %280
   %317 = load i8, ptr %52, align 4
@@ -12730,10 +12731,10 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %354 = zext i8 %353 to i32
   %355 = call fastcc noundef i32 @__tg3_readphy(ptr noundef %0, i32 noundef %354, i32 noundef 16, ptr noundef nonnull %21), !range !33
   %356 = icmp eq i32 %355, 0
-  br i1 %356, label %357, label %.thread39
+  br i1 %356, label %357, label %.thread41
 
-.thread39:                                        ; preds = %132, %313, %348, %.thread, %.thread32
-  %.ph38 = phi i32 [ %.ph, %.thread32 ], [ -16, %.thread ], [ %355, %348 ], [ -16, %313 ], [ %137, %132 ]
+.thread41:                                        ; preds = %132, %313, %348, %.thread, %.thread34
+  %.ph40 = phi i32 [ %.ph, %.thread34 ], [ -16, %.thread ], [ %355, %348 ], [ -16, %313 ], [ %137, %132 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #27
   br label %801
@@ -12776,7 +12777,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %379 = zext i8 %378 to i32
   %380 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %379, i32 noundef 0, i32 noundef 32768), !range !33
   %381 = icmp eq i32 %380, 0
-  br i1 %381, label %.preheader, label %.thread42
+  br i1 %381, label %.preheader, label %.thread44
 
 .preheader:                                       ; preds = %376, %393
   %382 = phi i32 [ %394, %393 ], [ 4999, %376 ]
@@ -12784,7 +12785,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %384 = zext i8 %383 to i32
   %385 = call fastcc noundef i32 @__tg3_readphy(ptr noundef %0, i32 noundef %384, i32 noundef 0, ptr noundef nonnull %10), !range !33
   %386 = icmp eq i32 %385, 0
-  br i1 %386, label %387, label %.thread42
+  br i1 %386, label %387, label %.thread44
 
 387:                                              ; preds = %.preheader
   %388 = load i32, ptr %10, align 4
@@ -12795,15 +12796,15 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
 391:                                              ; preds = %387
   tail call void @__const_udelay(i64 noundef 171800) #27
   %392 = icmp slt i32 %382, 0
-  br i1 %392, label %.thread42, label %396
+  br i1 %392, label %.thread44, label %396
 
 393:                                              ; preds = %387
   tail call void @__const_udelay(i64 noundef 42950) #27
   %394 = add nsw i32 %382, -1
   %395 = icmp eq i32 %382, 0
-  br i1 %395, label %.thread42, label %.preheader, !llvm.loop !34
+  br i1 %395, label %.thread44, label %.preheader, !llvm.loop !34
 
-.thread42:                                        ; preds = %393, %.preheader, %376, %391
+.thread44:                                        ; preds = %393, %.preheader, %376, %391
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #27
   br label %801
 
@@ -13050,16 +13051,16 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %552 = zext i8 %551 to i32
   %553 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %552, i32 noundef 24, i32 noundef 7), !range !33
   %554 = icmp eq i32 %553, 0
-  br i1 %554, label %555, label %.critedge25
+  br i1 %554, label %555, label %.critedge27
 
 555:                                              ; preds = %550
   %556 = load i8, ptr %52, align 4
   %557 = zext i8 %556 to i32
   %558 = call fastcc noundef i32 @__tg3_readphy(ptr noundef %0, i32 noundef %557, i32 noundef 24, ptr noundef nonnull %7), !range !33
   %559 = icmp eq i32 %558, 0
-  br i1 %559, label %.critedge24, label %.critedge25
+  br i1 %559, label %.critedge26, label %.critedge27
 
-.critedge24:                                      ; preds = %555
+.critedge26:                                      ; preds = %555
   %560 = load i32, ptr %7, align 4
   %561 = or i32 %560, 3072
   %562 = load i8, ptr %52, align 4
@@ -13069,7 +13070,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #27
   br i1 %565, label %566, label %601
 
-566:                                              ; preds = %.critedge24
+566:                                              ; preds = %.critedge26
   %567 = load i8, ptr %52, align 4
   %568 = zext i8 %567 to i32
   %569 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %568, i32 noundef 23, i32 noundef 8223), !range !33
@@ -13102,14 +13103,14 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %586 = zext i8 %585 to i32
   %587 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %586, i32 noundef 24, i32 noundef 7), !range !33
   %588 = icmp eq i32 %587, 0
-  br i1 %588, label %589, label %.critedge27
+  br i1 %588, label %589, label %.critedge29
 
 589:                                              ; preds = %584
   %590 = load i8, ptr %52, align 4
   %591 = zext i8 %590 to i32
   %592 = call fastcc noundef i32 @__tg3_readphy(ptr noundef %0, i32 noundef %591, i32 noundef 24, ptr noundef nonnull %6), !range !33
   %593 = icmp eq i32 %592, 0
-  br i1 %593, label %594, label %.critedge27
+  br i1 %593, label %594, label %.critedge29
 
 594:                                              ; preds = %589
   %595 = load i32, ptr %6, align 4
@@ -13118,17 +13119,17 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %598 = load i8, ptr %52, align 4
   %599 = zext i8 %598 to i32
   %600 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %599, i32 noundef 24, i32 noundef %597), !range !33
-  br label %.critedge27
+  br label %.critedge29
 
-.critedge27:                                      ; preds = %584, %594, %589
+.critedge29:                                      ; preds = %584, %594, %589
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #27
   br label %601
 
-.critedge25:                                      ; preds = %550, %555
+.critedge27:                                      ; preds = %550, %555
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #27
   br label %601
 
-601:                                              ; preds = %.critedge25, %.critedge27, %.critedge24, %545
+601:                                              ; preds = %.critedge27, %.critedge29, %.critedge26, %545
   %602 = load i32, ptr %546, align 4
   %603 = and i32 %602, 16384
   %604 = icmp eq i32 %603, 0
@@ -13157,14 +13158,14 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %618 = zext i8 %617 to i32
   %619 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %618, i32 noundef 24, i32 noundef 7), !range !33
   %620 = icmp eq i32 %619, 0
-  br i1 %620, label %621, label %.critedge29
+  br i1 %620, label %621, label %.critedge31
 
 621:                                              ; preds = %616
   %622 = load i8, ptr %52, align 4
   %623 = zext i8 %622 to i32
   %624 = call fastcc noundef i32 @__tg3_readphy(ptr noundef %0, i32 noundef %623, i32 noundef 24, ptr noundef nonnull %5), !range !33
   %625 = icmp eq i32 %624, 0
-  br i1 %625, label %626, label %.critedge29
+  br i1 %625, label %626, label %.critedge31
 
 626:                                              ; preds = %621
   %627 = load i32, ptr %5, align 4
@@ -13305,11 +13306,11 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
   br label %716
 
-.critedge29:                                      ; preds = %616, %621
+.critedge31:                                      ; preds = %616, %621
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
   br label %716
 
-716:                                              ; preds = %.critedge29, %715, %714, %691, %678, %677, %626
+716:                                              ; preds = %.critedge31, %715, %714, %691, %678, %677, %626
   %717 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %718 = load i32, ptr %717, align 8
   %719 = and i32 %718, -16
@@ -13437,8 +13438,8 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
   br label %801
 
-801:                                              ; preds = %.thread42, %.thread39, %800, %427, %51
-  %802 = phi i32 [ 0, %800 ], [ -16, %51 ], [ 0, %427 ], [ %.ph38, %.thread39 ], [ -16, %.thread42 ]
+801:                                              ; preds = %.thread44, %.thread41, %800, %427, %51
+  %802 = phi i32 [ 0, %800 ], [ -16, %51 ], [ 0, %427 ], [ %.ph40, %.thread41 ], [ -16, %.thread44 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #27
   ret i32 %802
 }

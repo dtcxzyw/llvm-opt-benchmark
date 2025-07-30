@@ -19,11 +19,12 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 0, 256) i32 @VP8FilterStrengthFromDelta(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @llvm.smin.i32(i32 %1, i32 63)
   %4 = sext i32 %0 to i64
-  %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %4, i64 %5
-  %7 = load i8, ptr %6, align 1, !tbaa !3
-  %8 = zext i8 %7 to i32
-  ret i32 %8
+  %5 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %4
+  %6 = sext i32 %3 to i64
+  %7 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 %6
+  %8 = load i8, ptr %7, align 1, !tbaa !3
+  %9 = zext i8 %8 to i32
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -141,12 +142,12 @@ GetMBSSIM.exit:                                   ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %54
 
-54:                                               ; preds = %.lr.ph, %115
-  %.057 = phi i32 [ %16, %.lr.ph ], [ %116, %115 ]
+54:                                               ; preds = %.lr.ph, %116
+  %.057 = phi i32 [ %16, %.lr.ph ], [ %117, %116 ]
   %55 = add nsw i32 %.057, %13
   %56 = add i32 %55, -64
   %or.cond = icmp ult i32 %56, -63
-  br i1 %or.cond, label %115, label %57
+  br i1 %or.cond, label %116, label %57
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %2, align 8, !tbaa !18
@@ -258,19 +259,20 @@ DoFilter.exit:                                    ; preds = %73, %76
 
 GetMBSSIM.exit51:                                 ; preds = %108
   %110 = load ptr, ptr %19, align 8, !tbaa !6
-  %111 = zext nneg i32 %55 to i64
-  %112 = getelementptr inbounds nuw [4 x [64 x double]], ptr %110, i64 0, i64 %10, i64 %111
-  %113 = load double, ptr %112, align 8, !tbaa !16
-  %114 = fadd double %106, %113
-  store double %114, ptr %112, align 8, !tbaa !16
-  br label %115
+  %111 = getelementptr inbounds nuw [4 x [64 x double]], ptr %110, i64 0, i64 %10
+  %112 = zext nneg i32 %55 to i64
+  %113 = getelementptr inbounds nuw [64 x double], ptr %111, i64 0, i64 %112
+  %114 = load double, ptr %113, align 8, !tbaa !16
+  %115 = fadd double %106, %114
+  store double %115, ptr %113, align 8, !tbaa !16
+  br label %116
 
-115:                                              ; preds = %54, %GetMBSSIM.exit51
-  %116 = add nsw i32 %.057, %18
-  %.not34 = icmp sgt i32 %116, %15
+116:                                              ; preds = %54, %GetMBSSIM.exit51
+  %117 = add nsw i32 %.057, %18
+  %.not34 = icmp sgt i32 %117, %15
   br i1 %.not34, label %.loopexit, label %54, !llvm.loop !50
 
-.loopexit:                                        ; preds = %115, %GetMBSSIM.exit, %1
+.loopexit:                                        ; preds = %116, %GetMBSSIM.exit, %1
   ret void
 }
 
@@ -298,7 +300,7 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %11 ]
   %.03647 = phi i32 [ 0, %7 ], [ %.1, %11 ]
   %.04046 = phi double [ %10, %7 ], [ %.141, %11 ]
-  %12 = getelementptr inbounds nuw [4 x [64 x double]], ptr %5, i64 0, i64 %indvars.iv53, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [64 x double], ptr %8, i64 0, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !16
   %14 = fcmp ogt double %13, %.04046
   %.141 = select i1 %14, double %13, double %.04046
@@ -328,46 +330,47 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !54
   %26 = sext i32 %25 to i64
-  br label %27
+  %27 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %26
+  br label %28
 
-27:                                               ; preds = %.preheader, %45
-  %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %45 ]
-  %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %45 ]
-  %28 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %23, i64 0, i64 %indvars.iv57
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 688
-  %30 = load i32, ptr %29, align 8, !tbaa !55
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 226
-  %32 = load i16, ptr %31, align 2, !tbaa !56
-  %33 = zext i16 %32 to i32
-  %34 = mul nsw i32 %30, %33
-  %35 = ashr i32 %34, 3
-  %36 = tail call i32 @llvm.smin.i32(i32 %35, i32 63)
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %26, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !3
-  %40 = zext i8 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %28, i64 684
-  %42 = load i32, ptr %41, align 4, !tbaa !20
-  %43 = icmp slt i32 %42, %40
-  br i1 %43, label %44, label %45
+28:                                               ; preds = %.preheader, %46
+  %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %46 ]
+  %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %46 ]
+  %29 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %23, i64 0, i64 %indvars.iv57
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 688
+  %31 = load i32, ptr %30, align 8, !tbaa !55
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 226
+  %33 = load i16, ptr %32, align 2, !tbaa !56
+  %34 = zext i16 %33 to i32
+  %35 = mul nsw i32 %31, %34
+  %36 = ashr i32 %35, 3
+  %37 = tail call i32 @llvm.smin.i32(i32 %36, i32 63)
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [64 x i8], ptr %27, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !3
+  %41 = zext i8 %40 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 684
+  %43 = load i32, ptr %42, align 4, !tbaa !20
+  %44 = icmp slt i32 %43, %41
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %27
-  store i32 %40, ptr %41, align 4, !tbaa !20
-  br label %45
+45:                                               ; preds = %28
+  store i32 %41, ptr %42, align 4, !tbaa !20
+  br label %46
 
-45:                                               ; preds = %44, %27
-  %46 = phi i32 [ %40, %44 ], [ %42, %27 ]
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %46)
+46:                                               ; preds = %45, %28
+  %47 = phi i32 [ %41, %45 ], [ %43, %28 ]
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %47)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
-  br i1 %exitcond60.not, label %47, label %27, !llvm.loop !58
+  br i1 %exitcond60.not, label %48, label %28, !llvm.loop !58
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %spec.select, ptr %48, align 4, !tbaa !59
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 %spec.select, ptr %49, align 4, !tbaa !59
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %18, %47
+.loopexit:                                        ; preds = %16, %18, %48
   ret void
 }
 

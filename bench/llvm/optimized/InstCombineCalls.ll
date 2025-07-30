@@ -28625,52 +28625,54 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl14visitFenceInstERNS_9Fence
   %14 = and i16 %13, 7
   %15 = and i16 %.val, 7
   %16 = zext nneg i16 %14 to i64
-  %17 = zext nneg i16 %15 to i64
-  %18 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %16, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !308, !range !52, !noundef !53
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, label %.critedge
+  %17 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %16
+  %18 = zext nneg i16 %15 to i64
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 0, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !308, !range !52, !noundef !53
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, label %.critedge
 
 .critedge:                                        ; preds = %7, %2, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit"
-  %21 = tail call noundef ptr @_ZNK4llvm11Instruction26getPrevNonDebugInstructionEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext false) #28
-  %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread, label %22
+  %22 = tail call noundef ptr @_ZNK4llvm11Instruction26getPrevNonDebugInstructionEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext false) #28
+  %.not.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread, label %23
 
-22:                                               ; preds = %.critedge
-  %23 = load i8, ptr %21, align 8, !tbaa !112
-  %24 = icmp eq i8 %23, 64
-  br i1 %24, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread
+23:                                               ; preds = %.critedge
+  %24 = load i8, ptr %22, align 8, !tbaa !112
+  %25 = icmp eq i8 %24, 64
+  br i1 %25, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit: ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.val23 = load i8, ptr %25, align 8, !tbaa !834
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %27 = load i8, ptr %26, align 8, !tbaa !834
-  %.not.i24 = icmp ne i8 %27, %.val23
-  %or.cond.i25 = icmp ugt i8 %27, 1
+_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit: ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.val23 = load i8, ptr %26, align 8, !tbaa !834
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %28 = load i8, ptr %27, align 8, !tbaa !834
+  %.not.i24 = icmp ne i8 %28, %.val23
+  %or.cond.i25 = icmp ugt i8 %28, 1
   %or.cond10.i26 = or i1 %.not.i24, %or.cond.i25
   br i1 %or.cond10.i26, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread, label %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit28"
 
 "_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit28": ; preds = %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.val22 = load i16, ptr %28, align 2
-  %29 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %30 = load i16, ptr %29, align 2, !tbaa !122
-  %31 = and i16 %30, 7
-  %32 = and i16 %.val22, 7
-  %33 = zext nneg i16 %31 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %.val22 = load i16, ptr %29, align 2
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 2
+  %31 = load i16, ptr %30, align 2, !tbaa !122
+  %32 = and i16 %31, 7
+  %33 = and i16 %.val22, 7
   %34 = zext nneg i16 %32 to i64
-  %35 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %33, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !308, !range !52, !noundef !53
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread
+  %35 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %34
+  %36 = zext nneg i16 %33 to i64
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 0, i64 %36
+  %38 = load i8, ptr %37, align 1, !tbaa !308, !range !52, !noundef !53
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split: ; preds = %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit28", %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit", %5
-  %38 = tail call noundef ptr @_ZN4llvm16InstCombinerImpl21eraseInstFromFunctionERNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  %40 = tail call noundef ptr @_ZN4llvm16InstCombinerImpl21eraseInstFromFunctionERNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   br label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit, %.critedge, %22, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit28"
-  %.0 = phi ptr [ null, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit28" ], [ null, %22 ], [ null, %.critedge ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit ], [ %38, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split ]
+_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit, %.critedge, %23, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit28"
+  %.0 = phi ptr [ null, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit28" ], [ null, %23 ], [ null, %.critedge ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit ], [ %40, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split ]
   ret ptr %.0
 }
 

@@ -974,7 +974,7 @@ define internal range(i32 0, -2147483648) i32 @ac3_compute_mantissa_size_c(ptr n
 24:                                               ; preds = %2, %24
   %indvars.iv = phi i64 [ 5, %2 ], [ %indvars.iv.next, %24 ]
   %.123 = phi i32 [ %23, %2 ], [ %32, %24 ]
-  %25 = getelementptr inbounds nuw [16 x i16], ptr %0, i64 %indvars.iv27, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i16], ptr %3, i64 0, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = getelementptr inbounds nuw [16 x i16], ptr @ff_ac3_bap_bits, i64 0, i64 %indvars.iv

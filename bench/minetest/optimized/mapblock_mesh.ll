@@ -1820,7 +1820,8 @@ entry:
   %call = call noundef zeroext i8 @_ZNK7MapNode10getFaceDirEPK14NodeDefManagerb(ptr noundef nonnull align 4 dereferenceable(4) %mn, ptr noundef %0, i1 noundef zeroext true)
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %mn, align 4, !tbaa.struct !59
   %idxprom = zext i8 %call to i64
-  %arrayidx7 = getelementptr inbounds nuw [24 x [8 x %struct.anon.80]], ptr @_ZZ11getNodeTile7MapNodeRKN3irr4core8vector3dIsEES5_P12MeshMakeDataR8TileSpecE11dir_to_tile, i64 0, i64 %idxprom, i64 %and
+  %arrayidx7.split = getelementptr inbounds nuw [24 x [8 x %struct.anon.80]], ptr @_ZZ11getNodeTile7MapNodeRKN3irr4core8vector3dIsEES5_P12MeshMakeDataR8TileSpecE11dir_to_tile, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw [8 x %struct.anon.80], ptr %arrayidx7.split, i64 0, i64 %and
   %4 = load i8, ptr %arrayidx7, align 2, !tbaa !60
   call void @_Z12getNodeTileN7MapNodeRKN3irr4core8vector3dIsEEhP12MeshMakeDataR8TileSpec(i32 %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 2 dereferenceable(6) %p, i8 noundef zeroext %4, ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(120) %tile)
   %5 = load i8, ptr %tile, align 8, !tbaa !62, !range !34, !noundef !35

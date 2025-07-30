@@ -1330,6 +1330,7 @@ define dso_local void @hid_dump_field(ptr noundef readonly captures(none) %0, i3
   %73 = getelementptr [5 x ptr], ptr @hid_dump_field.systems, i64 0, i64 %72
   %74 = load ptr, ptr %73, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.32, ptr noundef %74) #9
+  %.split = getelementptr [5 x [8 x ptr]], ptr @hid_dump_field.units, i64 0, i64 %72
   br label %75
 
 75:                                               ; preds = %96, %71
@@ -1351,7 +1352,7 @@ define dso_local void @hid_dump_field(ptr noundef readonly captures(none) %0, i3
   br label %86
 
 86:                                               ; preds = %85, %82
-  %87 = getelementptr [5 x [8 x ptr]], ptr @hid_dump_field.units, i64 0, i64 %72, i64 %76
+  %87 = getelementptr [8 x ptr], ptr %.split, i64 0, i64 %76
   %88 = load ptr, ptr %87, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %88) #9
   %89 = icmp eq i32 %80, 1

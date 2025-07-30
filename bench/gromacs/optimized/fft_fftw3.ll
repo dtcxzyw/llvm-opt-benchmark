@@ -62,7 +62,7 @@ define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_many_1dPP7gmx_fftiii(ptr n
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #13
-  br label %92
+  br label %94
 
 15:                                               ; preds = %4
   store ptr null, ptr %0, align 8, !tbaa !8
@@ -84,7 +84,7 @@ define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_many_1dPP7gmx_fftiii(ptr n
   %20 = extractvalue { ptr, i32 } %19, 1
   %21 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #13
   %22 = icmp eq i32 %20, %21
-  br i1 %22, label %23, label %92
+  br i1 %22, label %23, label %94
 
 23:                                               ; preds = %18
   %24 = extractvalue { ptr, i32 } %19, 0
@@ -99,7 +99,7 @@ define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_many_1dPP7gmx_fftiii(ptr n
   %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %92 unwind label %93
+          to label %94 unwind label %95
 
 _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   %29 = tail call ptr @fftwf_malloc(i64 noundef 72)
@@ -108,7 +108,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 
 31:                                               ; preds = %_ZNSt5mutex4lockEv.exit
   %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  br label %91
+  br label %93
 
 33:                                               ; preds = %_ZNSt5mutex4lockEv.exit
   %34 = add nsw i32 %1, 2
@@ -123,7 +123,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 41:                                               ; preds = %33
   tail call void @fftwf_free(ptr noundef nonnull %29)
   %42 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  br label %91
+  br label %93
 
 43:                                               ; preds = %33
   %44 = tail call ptr @fftwf_malloc(i64 noundef %38)
@@ -134,7 +134,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   tail call void @fftwf_free(ptr noundef nonnull %39)
   tail call void @fftwf_free(ptr noundef nonnull %29)
   %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  br label %91
+  br label %93
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -171,73 +171,75 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   store ptr %71, ptr %72, align 8, !tbaa !11
   br label %.preheader103
 
-.preheader103:                                    ; preds = %48, %86
-  %73 = phi i1 [ true, %48 ], [ false, %86 ]
-  %indvars.iv111 = phi i64 [ 0, %48 ], [ 1, %86 ]
+.preheader103:                                    ; preds = %48, %88
+  %73 = phi i1 [ true, %48 ], [ false, %88 ]
+  %indvars.iv111 = phi i64 [ 0, %48 ], [ 1, %88 ]
+  %74 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %29, i64 0, i64 %indvars.iv111
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader103, %85
-  %74 = phi i1 [ true, %.preheader103 ], [ false, %85 ]
-  %indvars.iv108 = phi i64 [ 0, %.preheader103 ], [ 1, %85 ]
-  br label %76
+.preheader:                                       ; preds = %.preheader103, %87
+  %75 = phi i1 [ true, %.preheader103 ], [ false, %87 ]
+  %indvars.iv108 = phi i64 [ 0, %.preheader103 ], [ 1, %87 ]
+  %76 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %74, i64 0, i64 %indvars.iv108
+  br label %78
 
-75:                                               ; preds = %76
-  br i1 %77, label %76, label %85, !llvm.loop !13
+77:                                               ; preds = %78
+  br i1 %79, label %78, label %87, !llvm.loop !13
 
-76:                                               ; preds = %.preheader, %75
-  %77 = phi i1 [ true, %.preheader ], [ false, %75 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %75 ]
-  %78 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %29, i64 0, i64 %indvars.iv111, i64 %indvars.iv108, i64 %indvars.iv
-  %79 = load ptr, ptr %78, align 8, !tbaa !11
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %75
+78:                                               ; preds = %.preheader, %77
+  %79 = phi i1 [ true, %.preheader ], [ false, %77 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %77 ]
+  %80 = getelementptr inbounds nuw [2 x ptr], ptr %76, i64 0, i64 %indvars.iv
+  %81 = load ptr, ptr %80, align 8, !tbaa !11
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %77
 
-81:                                               ; preds = %76
+83:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #13
   call void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 1 dereferenceable(123) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 205, ptr noundef nonnull @.str.2) #14
-          to label %82 unwind label %83
+          to label %84 unwind label %85
 
-82:                                               ; preds = %81
+84:                                               ; preds = %83
   unreachable
 
-83:                                               ; preds = %81
-  %84 = landingpad { ptr, i32 }
+85:                                               ; preds = %83
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #13
-  br label %92
+  br label %94
 
-85:                                               ; preds = %75
-  br i1 %74, label %.preheader, label %86, !llvm.loop !15
+87:                                               ; preds = %77
+  br i1 %75, label %.preheader, label %88, !llvm.loop !15
 
-86:                                               ; preds = %85
-  br i1 %73, label %.preheader103, label %87, !llvm.loop !16
+88:                                               ; preds = %87
+  br i1 %73, label %.preheader103, label %89, !llvm.loop !16
 
-87:                                               ; preds = %86
+89:                                               ; preds = %88
   call void @fftwf_free(ptr noundef nonnull %39)
   call void @fftwf_free(ptr noundef nonnull %44)
-  %88 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  store i32 0, ptr %88, align 8, !tbaa !17
-  %89 = getelementptr inbounds nuw i8, ptr %29, i64 68
-  store i32 1, ptr %89, align 4, !tbaa !19
+  %90 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  store i32 0, ptr %90, align 8, !tbaa !17
+  %91 = getelementptr inbounds nuw i8, ptr %29, i64 68
+  store i32 1, ptr %91, align 4, !tbaa !19
   store ptr %29, ptr %0, align 8, !tbaa !8
-  %90 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  br label %91
+  %92 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
+  br label %93
 
-91:                                               ; preds = %87, %46, %41, %31
-  %.0 = phi i32 [ 12, %31 ], [ 12, %41 ], [ 12, %46 ], [ 0, %87 ]
+93:                                               ; preds = %89, %46, %41, %31
+  %.0 = phi i32 [ 12, %31 ], [ 12, %41 ], [ 12, %46 ], [ 0, %89 ]
   ret i32 %.0
 
-92:                                               ; preds = %27, %83, %18, %13
-  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %84, %83 ], [ %19, %18 ], [ %28, %27 ]
+94:                                               ; preds = %27, %85, %18, %13
+  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %86, %85 ], [ %19, %18 ], [ %28, %27 ]
   resume { ptr, i32 } %.merged
 
-93:                                               ; preds = %27
-  %94 = landingpad { ptr, i32 }
+95:                                               ; preds = %27
+  %96 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  tail call void @__clang_call_terminate(ptr %95) #15
+  %97 = extractvalue { ptr, i32 } %96, 0
+  tail call void @__clang_call_terminate(ptr %97) #15
   unreachable
 }
 
@@ -466,7 +468,7 @@ define noundef range(i32 0, 13) i32 @_Z25gmx_fft_init_many_1d_realPP7gmx_fftiii(
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #13
-  br label %116
+  br label %118
 
 15:                                               ; preds = %4
   store ptr null, ptr %0, align 8, !tbaa !8
@@ -488,7 +490,7 @@ define noundef range(i32 0, 13) i32 @_Z25gmx_fft_init_many_1d_realPP7gmx_fftiii(
   %20 = extractvalue { ptr, i32 } %19, 1
   %21 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #13
   %22 = icmp eq i32 %20, %21
-  br i1 %22, label %23, label %116
+  br i1 %22, label %23, label %118
 
 23:                                               ; preds = %18
   %24 = extractvalue { ptr, i32 } %19, 0
@@ -503,7 +505,7 @@ define noundef range(i32 0, 13) i32 @_Z25gmx_fft_init_many_1d_realPP7gmx_fftiii(
   %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %116 unwind label %117
+          to label %118 unwind label %119
 
 _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   %29 = tail call ptr @fftwf_malloc(i64 noundef 72)
@@ -512,7 +514,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 
 31:                                               ; preds = %_ZNSt5mutex4lockEv.exit
   %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  br label %115
+  br label %117
 
 33:                                               ; preds = %_ZNSt5mutex4lockEv.exit
   %34 = sdiv i32 %1, 2
@@ -529,7 +531,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 43:                                               ; preds = %33
   tail call void @fftwf_free(ptr noundef nonnull %29)
   %44 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  br label %115
+  br label %117
 
 45:                                               ; preds = %33
   %46 = tail call ptr @fftwf_malloc(i64 noundef %40)
@@ -540,7 +542,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   tail call void @fftwf_free(ptr noundef nonnull %41)
   tail call void @fftwf_free(ptr noundef nonnull %29)
   %49 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  br label %115
+  br label %117
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -599,73 +601,75 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   store ptr %96, ptr %75, align 8, !tbaa !11
   br label %.preheader103
 
-.preheader103:                                    ; preds = %50, %110
-  %97 = phi i1 [ true, %50 ], [ false, %110 ]
-  %indvars.iv111 = phi i64 [ 0, %50 ], [ 1, %110 ]
+.preheader103:                                    ; preds = %50, %112
+  %97 = phi i1 [ true, %50 ], [ false, %112 ]
+  %indvars.iv111 = phi i64 [ 0, %50 ], [ 1, %112 ]
+  %98 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %29, i64 0, i64 %indvars.iv111
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader103, %109
-  %98 = phi i1 [ true, %.preheader103 ], [ false, %109 ]
-  %indvars.iv108 = phi i64 [ 0, %.preheader103 ], [ 1, %109 ]
-  br label %100
+.preheader:                                       ; preds = %.preheader103, %111
+  %99 = phi i1 [ true, %.preheader103 ], [ false, %111 ]
+  %indvars.iv108 = phi i64 [ 0, %.preheader103 ], [ 1, %111 ]
+  %100 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %98, i64 0, i64 %indvars.iv108
+  br label %102
 
-99:                                               ; preds = %100
-  br i1 %101, label %100, label %109, !llvm.loop !31
+101:                                              ; preds = %102
+  br i1 %103, label %102, label %111, !llvm.loop !31
 
-100:                                              ; preds = %.preheader, %99
-  %101 = phi i1 [ true, %.preheader ], [ false, %99 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %99 ]
-  %102 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %29, i64 0, i64 %indvars.iv111, i64 %indvars.iv108, i64 %indvars.iv
-  %103 = load ptr, ptr %102, align 8, !tbaa !11
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %99
+102:                                              ; preds = %.preheader, %101
+  %103 = phi i1 [ true, %.preheader ], [ false, %101 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %101 ]
+  %104 = getelementptr inbounds nuw [2 x ptr], ptr %100, i64 0, i64 %indvars.iv
+  %105 = load ptr, ptr %104, align 8, !tbaa !11
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %107, label %101
 
-105:                                              ; preds = %100
+107:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #13
   call void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 1 dereferenceable(123) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 404, ptr noundef nonnull @.str.2) #14
-          to label %106 unwind label %107
+          to label %108 unwind label %109
 
-106:                                              ; preds = %105
+108:                                              ; preds = %107
   unreachable
 
-107:                                              ; preds = %105
-  %108 = landingpad { ptr, i32 }
+109:                                              ; preds = %107
+  %110 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #13
-  br label %116
+  br label %118
 
-109:                                              ; preds = %99
-  br i1 %98, label %.preheader, label %110, !llvm.loop !32
+111:                                              ; preds = %101
+  br i1 %99, label %.preheader, label %112, !llvm.loop !32
 
-110:                                              ; preds = %109
-  br i1 %97, label %.preheader103, label %111, !llvm.loop !33
+112:                                              ; preds = %111
+  br i1 %97, label %.preheader103, label %113, !llvm.loop !33
 
-111:                                              ; preds = %110
+113:                                              ; preds = %112
   call void @fftwf_free(ptr noundef nonnull %41)
   call void @fftwf_free(ptr noundef nonnull %46)
-  %112 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  store i32 1, ptr %112, align 8, !tbaa !17
-  %113 = getelementptr inbounds nuw i8, ptr %29, i64 68
-  store i32 1, ptr %113, align 4, !tbaa !19
+  %114 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  store i32 1, ptr %114, align 8, !tbaa !17
+  %115 = getelementptr inbounds nuw i8, ptr %29, i64 68
+  store i32 1, ptr %115, align 4, !tbaa !19
   store ptr %29, ptr %0, align 8, !tbaa !8
-  %114 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  br label %115
+  %116 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
+  br label %117
 
-115:                                              ; preds = %111, %48, %43, %31
-  %.0 = phi i32 [ 12, %31 ], [ 12, %43 ], [ 12, %48 ], [ 0, %111 ]
+117:                                              ; preds = %113, %48, %43, %31
+  %.0 = phi i32 [ 12, %31 ], [ 12, %43 ], [ 12, %48 ], [ 0, %113 ]
   ret i32 %.0
 
-116:                                              ; preds = %27, %107, %18, %13
-  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %108, %107 ], [ %19, %18 ], [ %28, %27 ]
+118:                                              ; preds = %27, %109, %18, %13
+  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %110, %109 ], [ %19, %18 ], [ %28, %27 ]
   resume { ptr, i32 } %.merged
 
-117:                                              ; preds = %27
-  %118 = landingpad { ptr, i32 }
+119:                                              ; preds = %27
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %119 = extractvalue { ptr, i32 } %118, 0
-  tail call void @__clang_call_terminate(ptr %119) #15
+  %121 = extractvalue { ptr, i32 } %120, 0
+  tail call void @__clang_call_terminate(ptr %121) #15
   unreachable
 }
 
@@ -696,7 +700,7 @@ define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_2d_realPP7gmx_fftiii(ptr n
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
-  br label %82
+  br label %84
 
 14:                                               ; preds = %4
   store ptr null, ptr %0, align 8, !tbaa !8
@@ -718,7 +722,7 @@ define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_2d_realPP7gmx_fftiii(ptr n
   %19 = extractvalue { ptr, i32 } %18, 1
   %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #13
   %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %82
+  br i1 %21, label %22, label %84
 
 22:                                               ; preds = %17
   %23 = extractvalue { ptr, i32 } %18, 0
@@ -733,12 +737,12 @@ define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_2d_realPP7gmx_fftiii(ptr n
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %82 unwind label %83
+          to label %84 unwind label %85
 
 _ZNSt5mutex4lockEv.exit:                          ; preds = %14
   %28 = tail call ptr @fftwf_malloc(i64 noundef 72)
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %80, label %30
+  br i1 %29, label %82, label %30
 
 30:                                               ; preds = %_ZNSt5mutex4lockEv.exit
   %31 = sdiv i32 %2, 2
@@ -754,7 +758,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
 
 40:                                               ; preds = %30
   tail call void @fftwf_free(ptr noundef nonnull %28)
-  br label %80
+  br label %82
 
 41:                                               ; preds = %30
   %42 = tail call ptr @fftwf_malloc(i64 noundef %37)
@@ -764,7 +768,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
 44:                                               ; preds = %41
   tail call void @fftwf_free(ptr noundef nonnull %38)
   tail call void @fftwf_free(ptr noundef nonnull %28)
-  br label %80
+  br label %82
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -794,73 +798,75 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
   store ptr %61, ptr %62, align 8, !tbaa !11
   br label %.preheader113
 
-.preheader113:                                    ; preds = %45, %76
-  %63 = phi i1 [ true, %45 ], [ false, %76 ]
-  %indvars.iv121 = phi i64 [ 0, %45 ], [ 1, %76 ]
+.preheader113:                                    ; preds = %45, %78
+  %63 = phi i1 [ true, %45 ], [ false, %78 ]
+  %indvars.iv121 = phi i64 [ 0, %45 ], [ 1, %78 ]
+  %64 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %28, i64 0, i64 %indvars.iv121
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader113, %75
-  %64 = phi i1 [ true, %.preheader113 ], [ false, %75 ]
-  %indvars.iv118 = phi i64 [ 0, %.preheader113 ], [ 1, %75 ]
-  br label %66
+.preheader:                                       ; preds = %.preheader113, %77
+  %65 = phi i1 [ true, %.preheader113 ], [ false, %77 ]
+  %indvars.iv118 = phi i64 [ 0, %.preheader113 ], [ 1, %77 ]
+  %66 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %64, i64 0, i64 %indvars.iv118
+  br label %68
 
-65:                                               ; preds = %66
-  br i1 %67, label %66, label %75, !llvm.loop !34
+67:                                               ; preds = %68
+  br i1 %69, label %68, label %77, !llvm.loop !34
 
-66:                                               ; preds = %.preheader, %65
-  %67 = phi i1 [ true, %.preheader ], [ false, %65 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %65 ]
-  %68 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %28, i64 0, i64 %indvars.iv121, i64 %indvars.iv118, i64 %indvars.iv
-  %69 = load ptr, ptr %68, align 8, !tbaa !11
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %65
+68:                                               ; preds = %.preheader, %67
+  %69 = phi i1 [ true, %.preheader ], [ false, %67 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %67 ]
+  %70 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %indvars.iv
+  %71 = load ptr, ptr %70, align 8, !tbaa !11
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %67
 
-71:                                               ; preds = %66
+73:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #13
   call void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(123) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 515, ptr noundef nonnull @.str.2) #14
-          to label %72 unwind label %73
+          to label %74 unwind label %75
 
-72:                                               ; preds = %71
+74:                                               ; preds = %73
   unreachable
 
-73:                                               ; preds = %71
-  %74 = landingpad { ptr, i32 }
+75:                                               ; preds = %73
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #13
-  br label %82
+  br label %84
 
-75:                                               ; preds = %65
-  br i1 %64, label %.preheader, label %76, !llvm.loop !35
+77:                                               ; preds = %67
+  br i1 %65, label %.preheader, label %78, !llvm.loop !35
 
-76:                                               ; preds = %75
-  br i1 %63, label %.preheader113, label %77, !llvm.loop !36
+78:                                               ; preds = %77
+  br i1 %63, label %.preheader113, label %79, !llvm.loop !36
 
-77:                                               ; preds = %76
+79:                                               ; preds = %78
   tail call void @fftwf_free(ptr noundef nonnull %38)
   tail call void @fftwf_free(ptr noundef nonnull %42)
-  %78 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  store i32 1, ptr %78, align 8, !tbaa !17
-  %79 = getelementptr inbounds nuw i8, ptr %28, i64 68
-  store i32 2, ptr %79, align 4, !tbaa !19
+  %80 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  store i32 1, ptr %80, align 8, !tbaa !17
+  %81 = getelementptr inbounds nuw i8, ptr %28, i64 68
+  store i32 2, ptr %81, align 4, !tbaa !19
   store ptr %28, ptr %0, align 8, !tbaa !8
-  br label %80
+  br label %82
 
-80:                                               ; preds = %_ZNSt5mutex4lockEv.exit, %77, %44, %40
-  %.0 = phi i32 [ 12, %40 ], [ 12, %44 ], [ 0, %77 ], [ 12, %_ZNSt5mutex4lockEv.exit ]
-  %81 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
+82:                                               ; preds = %_ZNSt5mutex4lockEv.exit, %79, %44, %40
+  %.0 = phi i32 [ 12, %40 ], [ 12, %44 ], [ 0, %79 ], [ 12, %_ZNSt5mutex4lockEv.exit ]
+  %83 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
   ret i32 %.0
 
-82:                                               ; preds = %26, %73, %17, %12
-  %.merged = phi { ptr, i32 } [ %13, %12 ], [ %74, %73 ], [ %18, %17 ], [ %27, %26 ]
+84:                                               ; preds = %26, %75, %17, %12
+  %.merged = phi { ptr, i32 } [ %13, %12 ], [ %76, %75 ], [ %18, %17 ], [ %27, %26 ]
   resume { ptr, i32 } %.merged
 
-83:                                               ; preds = %26
-  %84 = landingpad { ptr, i32 }
+85:                                               ; preds = %26
+  %86 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  tail call void @__clang_call_terminate(ptr %85) #15
+  %87 = extractvalue { ptr, i32 } %86, 0
+  tail call void @__clang_call_terminate(ptr %87) #15
   unreachable
 }
 
@@ -908,12 +914,14 @@ define noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef 
   %21 = and i64 %20, 15
   %22 = icmp eq i64 %21, 0
   %23 = zext i1 %22 to i64
-  %24 = zext i1 %17 to i64
-  %25 = xor i32 %1, 1
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %23, i64 %24, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !11
-  tail call void @fftwf_execute_dft(ptr noundef %28, ptr noundef %2, ptr noundef %3)
+  %24 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %23
+  %25 = zext i1 %17 to i64
+  %26 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %24, i64 0, i64 %25
+  %27 = xor i32 %1, 1
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw [2 x ptr], ptr %26, i64 0, i64 %28
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  tail call void @fftwf_execute_dft(ptr noundef %30, ptr noundef %2, ptr noundef %3)
   ret i32 0
 }
 
@@ -959,12 +967,14 @@ _Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_.exit: ; preds = %9
   %20 = and i64 %19, 15
   %21 = icmp eq i64 %20, 0
   %22 = zext i1 %21 to i64
-  %23 = zext i1 %16 to i64
-  %24 = xor i32 %1, 1
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %22, i64 %23, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !11
-  tail call void @fftwf_execute_dft(ptr noundef %27, ptr noundef %2, ptr noundef %3)
+  %23 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %22
+  %24 = zext i1 %16 to i64
+  %25 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %23, i64 0, i64 %24
+  %26 = xor i32 %1, 1
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 0, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !11
+  tail call void @fftwf_execute_dft(ptr noundef %29, ptr noundef %2, ptr noundef %3)
   ret i32 0
 }
 
@@ -1010,22 +1020,23 @@ define noundef i32 @_Z15gmx_fft_1d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr nou
 
 23:                                               ; preds = %15
   %24 = zext i1 %10 to i64
-  %25 = zext i1 %11 to i64
-  br i1 %12, label %26, label %29
+  %25 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24
+  %26 = zext i1 %11 to i64
+  br i1 %12, label %27, label %30
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25, i64 1
-  %28 = load ptr, ptr %27, align 8, !tbaa !11
-  tail call void @fftwf_execute_dft_r2c(ptr noundef %28, ptr noundef %2, ptr noundef %3)
-  br label %32
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %25, i64 0, i64 %26, i64 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !11
+  tail call void @fftwf_execute_dft_r2c(ptr noundef %29, ptr noundef %2, ptr noundef %3)
+  br label %33
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25
-  %31 = load ptr, ptr %30, align 8, !tbaa !11
-  tail call void @fftwf_execute_dft_c2r(ptr noundef %31, ptr noundef %2, ptr noundef %3)
-  br label %32
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %25, i64 0, i64 %26
+  %32 = load ptr, ptr %31, align 8, !tbaa !11
+  tail call void @fftwf_execute_dft_c2r(ptr noundef %32, ptr noundef %2, ptr noundef %3)
+  br label %33
 
-32:                                               ; preds = %29, %26
+33:                                               ; preds = %30, %27
   ret i32 0
 }
 
@@ -1081,153 +1092,156 @@ define noundef i32 @_Z15gmx_fft_2d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr nou
 
 23:                                               ; preds = %15
   %24 = zext i1 %10 to i64
-  %25 = zext i1 %11 to i64
-  br i1 %12, label %26, label %29
+  %25 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24
+  %26 = zext i1 %11 to i64
+  br i1 %12, label %27, label %30
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25, i64 1
-  %28 = load ptr, ptr %27, align 8, !tbaa !11
-  tail call void @fftwf_execute_dft_r2c(ptr noundef %28, ptr noundef %2, ptr noundef %3)
-  br label %32
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %25, i64 0, i64 %26, i64 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !11
+  tail call void @fftwf_execute_dft_r2c(ptr noundef %29, ptr noundef %2, ptr noundef %3)
+  br label %33
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25
-  %31 = load ptr, ptr %30, align 8, !tbaa !11
-  tail call void @fftwf_execute_dft_c2r(ptr noundef %31, ptr noundef %2, ptr noundef %3)
-  br label %32
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %25, i64 0, i64 %26
+  %32 = load ptr, ptr %31, align 8, !tbaa !11
+  tail call void @fftwf_execute_dft_c2r(ptr noundef %32, ptr noundef %2, ptr noundef %3)
+  br label %33
 
-32:                                               ; preds = %29, %26
+33:                                               ; preds = %30, %27
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z15gmx_fft_destroyP7gmx_fft(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %43, label %.preheader46
+  br i1 %.not, label %45, label %.preheader46
 
-.preheader46:                                     ; preds = %1, %27
-  %2 = phi i1 [ false, %27 ], [ true, %1 ]
-  %indvars.iv55 = phi i64 [ 1, %27 ], [ 0, %1 ]
+.preheader46:                                     ; preds = %1, %29
+  %2 = phi i1 [ false, %29 ], [ true, %1 ]
+  %indvars.iv55 = phi i64 [ 1, %29 ], [ 0, %1 ]
+  %3 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %indvars.iv55
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader46, %26
-  %3 = phi i1 [ true, %.preheader46 ], [ false, %26 ]
-  %indvars.iv52 = phi i64 [ 0, %.preheader46 ], [ 1, %26 ]
-  br label %4
+.preheader:                                       ; preds = %.preheader46, %28
+  %4 = phi i1 [ true, %.preheader46 ], [ false, %28 ]
+  %indvars.iv52 = phi i64 [ 0, %.preheader46 ], [ 1, %28 ]
+  %5 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %3, i64 0, i64 %indvars.iv52
+  br label %6
 
-4:                                                ; preds = %.preheader, %25
-  %5 = phi i1 [ true, %.preheader ], [ false, %25 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %25 ]
-  %6 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %indvars.iv55, i64 %indvars.iv52, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !11
-  %.not42 = icmp eq ptr %7, null
-  br i1 %.not42, label %25, label %8
+6:                                                ; preds = %.preheader, %27
+  %7 = phi i1 [ true, %.preheader ], [ false, %27 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %27 ]
+  %8 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  %.not42 = icmp eq ptr %9, null
+  br i1 %.not42, label %27, label %10
 
-8:                                                ; preds = %4
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %22, label %10
+10:                                               ; preds = %6
+  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %24, label %12
 
-10:                                               ; preds = %8
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %9) #14
-          to label %.noexc unwind label %11
+12:                                               ; preds = %10
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %11) #14
+          to label %.noexc unwind label %13
 
-.noexc:                                           ; preds = %10
+.noexc:                                           ; preds = %12
   unreachable
 
-11:                                               ; preds = %10
-  %12 = landingpad { ptr, i32 }
+13:                                               ; preds = %12
+  %14 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  %13 = extractvalue { ptr, i32 } %12, 1
-  %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #13
-  %15 = icmp eq i32 %13, %14
-  br i1 %15, label %16, label %44
+  %15 = extractvalue { ptr, i32 } %14, 1
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #13
+  %17 = icmp eq i32 %15, %16
+  br i1 %17, label %18, label %46
 
-16:                                               ; preds = %11
-  %17 = extractvalue { ptr, i32 } %12, 0
-  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #13
-  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
-          to label %19 unwind label %20
+18:                                               ; preds = %13
+  %19 = extractvalue { ptr, i32 } %14, 0
+  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #13
+  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %20) #14
+          to label %21 unwind label %22
 
-19:                                               ; preds = %16
+21:                                               ; preds = %18
   unreachable
 
-20:                                               ; preds = %16
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %18
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %44 unwind label %45
+          to label %46 unwind label %47
 
-22:                                               ; preds = %8
-  %23 = load ptr, ptr %6, align 8, !tbaa !11
-  tail call void @fftwf_destroy_plan(ptr noundef %23)
-  %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  store ptr null, ptr %6, align 8, !tbaa !11
-  br label %25
+24:                                               ; preds = %10
+  %25 = load ptr, ptr %8, align 8, !tbaa !11
+  tail call void @fftwf_destroy_plan(ptr noundef %25)
+  %26 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
+  store ptr null, ptr %8, align 8, !tbaa !11
+  br label %27
 
-25:                                               ; preds = %4, %22
-  br i1 %5, label %4, label %26, !llvm.loop !37
-
-26:                                               ; preds = %25
-  br i1 %3, label %.preheader, label %27, !llvm.loop !38
-
-27:                                               ; preds = %26
-  br i1 %2, label %.preheader46, label %28, !llvm.loop !39
+27:                                               ; preds = %6, %24
+  br i1 %7, label %6, label %28, !llvm.loop !37
 
 28:                                               ; preds = %27
-  %29 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  %.not.i43 = icmp eq i32 %29, 0
-  br i1 %.not.i43, label %_ZNSt5mutex4lockEv.exit45, label %30
+  br i1 %4, label %.preheader, label %29, !llvm.loop !38
 
-30:                                               ; preds = %28
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #14
-          to label %.noexc44 unwind label %31
+29:                                               ; preds = %28
+  br i1 %2, label %.preheader46, label %30, !llvm.loop !39
 
-.noexc44:                                         ; preds = %30
+30:                                               ; preds = %29
+  %31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
+  %.not.i43 = icmp eq i32 %31, 0
+  br i1 %.not.i43, label %_ZNSt5mutex4lockEv.exit45, label %32
+
+32:                                               ; preds = %30
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #14
+          to label %.noexc44 unwind label %33
+
+.noexc44:                                         ; preds = %32
   unreachable
 
-31:                                               ; preds = %30
-  %32 = landingpad { ptr, i32 }
+33:                                               ; preds = %32
+  %34 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  %33 = extractvalue { ptr, i32 } %32, 1
-  %34 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #13
-  %35 = icmp eq i32 %33, %34
-  br i1 %35, label %36, label %44
+  %35 = extractvalue { ptr, i32 } %34, 1
+  %36 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #13
+  %37 = icmp eq i32 %35, %36
+  br i1 %37, label %38, label %46
 
-36:                                               ; preds = %31
-  %37 = extractvalue { ptr, i32 } %32, 0
-  %38 = tail call ptr @__cxa_begin_catch(ptr %37) #13
-  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %38) #14
-          to label %39 unwind label %40
+38:                                               ; preds = %33
+  %39 = extractvalue { ptr, i32 } %34, 0
+  %40 = tail call ptr @__cxa_begin_catch(ptr %39) #13
+  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %40) #14
+          to label %41 unwind label %42
 
-39:                                               ; preds = %36
+41:                                               ; preds = %38
   unreachable
 
-40:                                               ; preds = %36
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %38
+  %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %44 unwind label %45
+          to label %46 unwind label %47
 
-_ZNSt5mutex4lockEv.exit45:                        ; preds = %28
+_ZNSt5mutex4lockEv.exit45:                        ; preds = %30
   tail call void @fftwf_free(ptr noundef nonnull %0)
-  %42 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
-  br label %43
+  %44 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
+  br label %45
 
-43:                                               ; preds = %_ZNSt5mutex4lockEv.exit45, %1
+45:                                               ; preds = %_ZNSt5mutex4lockEv.exit45, %1
   ret void
 
-44:                                               ; preds = %40, %20, %31, %11
-  %.merged = phi { ptr, i32 } [ %12, %11 ], [ %32, %31 ], [ %21, %20 ], [ %41, %40 ]
+46:                                               ; preds = %42, %22, %33, %13
+  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %34, %33 ], [ %23, %22 ], [ %43, %42 ]
   resume { ptr, i32 } %.merged
 
-45:                                               ; preds = %40, %20
-  %46 = landingpad { ptr, i32 }
+47:                                               ; preds = %42, %22
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #15
+  %49 = extractvalue { ptr, i32 } %48, 0
+  tail call void @__clang_call_terminate(ptr %49) #15
   unreachable
 }
 

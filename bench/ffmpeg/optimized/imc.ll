@@ -2585,32 +2585,35 @@ define internal void @imc_init_static() #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) @__const.imc_init_static.state, i64 16, i1 false)
   br label %.preheader
 
-.preheader:                                       ; preds = %0, %6
-  %indvars.iv15 = phi i64 [ 0, %0 ], [ %indvars.iv.next16, %6 ]
+.preheader:                                       ; preds = %0, %9
+  %indvars.iv15 = phi i64 [ 0, %0 ], [ %indvars.iv.next16, %9 ]
   %2 = getelementptr inbounds nuw [4 x i8], ptr @imc_huffman_sizes, i64 0, i64 %indvars.iv15
   %3 = load i8, ptr %2, align 1, !tbaa !31
   %4 = zext i8 %3 to i32
-  br label %7
+  %5 = getelementptr inbounds nuw [4 x [4 x [18 x i8]]], ptr @imc_huffman_lens, i64 0, i64 %indvars.iv15
+  %6 = getelementptr inbounds nuw [4 x [4 x [18 x i8]]], ptr @imc_huffman_syms, i64 0, i64 %indvars.iv15
+  %7 = getelementptr inbounds nuw [4 x [4 x ptr]], ptr @huffman_vlc, i64 0, i64 %indvars.iv15
+  br label %10
 
-5:                                                ; preds = %6
+8:                                                ; preds = %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #10
   ret void
 
-6:                                                ; preds = %7
+9:                                                ; preds = %10
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 4
-  br i1 %exitcond18.not, label %5, label %.preheader, !llvm.loop !141
+  br i1 %exitcond18.not, label %8, label %.preheader, !llvm.loop !141
 
-7:                                                ; preds = %.preheader, %7
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [4 x [4 x [18 x i8]]], ptr @imc_huffman_lens, i64 0, i64 %indvars.iv15, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw [4 x [4 x [18 x i8]]], ptr @imc_huffman_syms, i64 0, i64 %indvars.iv15, i64 %indvars.iv
-  %10 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #10
-  %11 = getelementptr inbounds nuw [4 x [4 x ptr]], ptr @huffman_vlc, i64 0, i64 %indvars.iv15, i64 %indvars.iv
-  store ptr %10, ptr %11, align 8, !tbaa !72
+10:                                               ; preds = %.preheader, %10
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds nuw [4 x [18 x i8]], ptr %5, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x [18 x i8]], ptr %6, i64 0, i64 %indvars.iv
+  %13 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef %4, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #10
+  %14 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  store ptr %13, ptr %14, align 8, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %6, label %7, !llvm.loop !142
+  br i1 %exitcond.not, label %9, label %10, !llvm.loop !142
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -1261,6 +1261,7 @@ define internal void @sbr_hf_gen_c(ptr noundef writeonly captures(none) %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) #1 {
+  %invariant.gep = getelementptr [40 x [2 x i32]], ptr %1, i64 0, i64 %4
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1268,57 +1269,57 @@ define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, p
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %7 = getelementptr inbounds nuw %struct.SoftFloat, ptr %2, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !36
   %10 = icmp sgt i32 %9, -39
-  br i1 %10, label %11, label %44
+  br i1 %10, label %11, label %43
 
 11:                                               ; preds = %.lr.ph
   %12 = sub nsw i32 22, %9
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw i64 1, %13
-  %15 = getelementptr inbounds [40 x [2 x i32]], ptr %1, i64 %indvars.iv, i64 %4
-  %16 = load i32, ptr %15, align 4, !tbaa !19
-  %17 = sext i32 %16 to i64
-  %18 = load i32, ptr %7, align 4, !tbaa !38
-  %19 = add nsw i32 %18, 64
-  %20 = ashr i32 %19, 7
-  %21 = sext i32 %20 to i64
-  %22 = mul nsw i64 %21, %17
-  %23 = add nsw i64 %22, %14
-  %24 = sub nsw i32 23, %9
-  %25 = zext nneg i32 %24 to i64
-  %26 = ashr i64 %23, %25
-  %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
-  store i32 %27, ptr %28, align 4, !tbaa !19
-  %29 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !19
-  %31 = sext i32 %30 to i64
-  %32 = load i32, ptr %7, align 4, !tbaa !38
-  %33 = add nsw i32 %32, 64
-  %34 = ashr i32 %33, 7
-  %35 = sext i32 %34 to i64
-  %36 = mul nsw i64 %35, %31
-  %37 = add nsw i64 %36, %14
-  %38 = load i32, ptr %8, align 4, !tbaa !36
-  %39 = sub nsw i32 23, %38
-  %40 = zext nneg i32 %39 to i64
-  %41 = ashr i64 %37, %40
-  %42 = trunc i64 %41 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  store i32 %42, ptr %43, align 4, !tbaa !19
-  br label %44
+  %gep = getelementptr [40 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv
+  %15 = load i32, ptr %gep, align 4, !tbaa !19
+  %16 = sext i32 %15 to i64
+  %17 = load i32, ptr %7, align 4, !tbaa !38
+  %18 = add nsw i32 %17, 64
+  %19 = ashr i32 %18, 7
+  %20 = sext i32 %19 to i64
+  %21 = mul nsw i64 %20, %16
+  %22 = add nsw i64 %21, %14
+  %23 = sub nsw i32 23, %9
+  %24 = zext nneg i32 %23 to i64
+  %25 = ashr i64 %22, %24
+  %26 = trunc i64 %25 to i32
+  %27 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  store i32 %26, ptr %27, align 4, !tbaa !19
+  %28 = getelementptr inbounds nuw i8, ptr %gep, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !19
+  %30 = sext i32 %29 to i64
+  %31 = load i32, ptr %7, align 4, !tbaa !38
+  %32 = add nsw i32 %31, 64
+  %33 = ashr i32 %32, 7
+  %34 = sext i32 %33 to i64
+  %35 = mul nsw i64 %34, %30
+  %36 = add nsw i64 %35, %14
+  %37 = load i32, ptr %8, align 4, !tbaa !36
+  %38 = sub nsw i32 23, %37
+  %39 = zext nneg i32 %38 to i64
+  %40 = ashr i64 %36, %39
+  %41 = trunc i64 %40 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  store i32 %41, ptr %42, align 4, !tbaa !19
+  br label %43
 
-44:                                               ; preds = %.lr.ph, %11
+43:                                               ; preds = %.lr.ph, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %44, %5
+._crit_edge:                                      ; preds = %43, %5
   ret void
 }
 

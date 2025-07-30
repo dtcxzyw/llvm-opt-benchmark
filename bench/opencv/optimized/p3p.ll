@@ -2362,44 +2362,53 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %189 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %indvars.iv228
   store double %186, ptr %189, align 8, !tbaa !32
   store double %.pre, ptr %185, align 8, !tbaa !32
-  br label %.preheader.i
+  %190 = getelementptr inbounds nuw [3 x [3 x double]], ptr %1, i64 %indvars.iv228
+  %191 = getelementptr inbounds nuw [3 x [3 x double]], ptr %1, i64 %indvars.iv.next229
+  br label %192
 
-.preheader.i:                                     ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %188
-  %.05.i = phi i64 [ 0, %188 ], [ %196, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
-  br label %190
+192:                                              ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %188
+  %.05.i = phi i64 [ 0, %188 ], [ %201, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
+  %193 = getelementptr inbounds nuw [3 x [3 x double]], ptr %190, i64 0, i64 %.05.i
+  %194 = getelementptr inbounds nuw [3 x [3 x double]], ptr %191, i64 0, i64 %.05.i
+  br label %195
 
-190:                                              ; preds = %190, %.preheader.i
-  %.05.i.i = phi i64 [ %195, %190 ], [ 0, %.preheader.i ]
-  %191 = getelementptr inbounds nuw [3 x [3 x double]], ptr %1, i64 %indvars.iv228, i64 %.05.i, i64 %.05.i.i
-  %192 = getelementptr inbounds nuw [3 x [3 x double]], ptr %1, i64 %indvars.iv.next229, i64 %.05.i, i64 %.05.i.i
-  %193 = load double, ptr %191, align 8, !tbaa !32
-  %194 = load double, ptr %192, align 8, !tbaa !32
-  store double %194, ptr %191, align 8, !tbaa !32
-  store double %193, ptr %192, align 8, !tbaa !32
-  %195 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %195, 3
-  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %190, !llvm.loop !78
-
-_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %190
-  %196 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %196, 3
-  br i1 %exitcond.not.i, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %.preheader.i, !llvm.loop !79
-
-_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit: ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
-  %.05.i194 = phi i64 [ %201, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit ], [ 0, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
-  %197 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv228, i64 %.05.i194
-  %198 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv.next229, i64 %.05.i194
+195:                                              ; preds = %195, %192
+  %.05.i.i = phi i64 [ 0, %192 ], [ %200, %195 ]
+  %196 = getelementptr inbounds nuw [3 x double], ptr %193, i64 0, i64 %.05.i.i
+  %197 = getelementptr inbounds nuw [3 x double], ptr %194, i64 0, i64 %.05.i.i
+  %198 = load double, ptr %196, align 8, !tbaa !32
   %199 = load double, ptr %197, align 8, !tbaa !32
-  %200 = load double, ptr %198, align 8, !tbaa !32
-  store double %200, ptr %197, align 8, !tbaa !32
-  store double %199, ptr %198, align 8, !tbaa !32
-  %201 = add nuw nsw i64 %.05.i194, 1
-  %exitcond.not.i195 = icmp eq i64 %201, 3
-  br i1 %exitcond.not.i195, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, !llvm.loop !78
+  store double %199, ptr %196, align 8, !tbaa !32
+  store double %198, ptr %197, align 8, !tbaa !32
+  %200 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %200, 3
+  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %195, !llvm.loop !78
 
-_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit: ; preds = %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
-  %202 = icmp sgt i64 %indvars.iv228, 1
-  br i1 %202, label %184, label %.critedge, !llvm.loop !80
+_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %195
+  %201 = add nuw nsw i64 %.05.i, 1
+  %exitcond.not.i = icmp eq i64 %201, 3
+  br i1 %exitcond.not.i, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %192, !llvm.loop !79
+
+_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit: ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i
+  %202 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv228
+  %203 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv.next229
+  br label %204
+
+204:                                              ; preds = %204, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
+  %.05.i194 = phi i64 [ 0, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit ], [ %209, %204 ]
+  %205 = getelementptr inbounds nuw [3 x double], ptr %202, i64 0, i64 %.05.i194
+  %206 = getelementptr inbounds nuw [3 x double], ptr %203, i64 0, i64 %.05.i194
+  %207 = load double, ptr %205, align 8, !tbaa !32
+  %208 = load double, ptr %206, align 8, !tbaa !32
+  store double %208, ptr %205, align 8, !tbaa !32
+  store double %207, ptr %206, align 8, !tbaa !32
+  %209 = add nuw nsw i64 %.05.i194, 1
+  %exitcond.not.i195 = icmp eq i64 %209, 3
+  br i1 %exitcond.not.i195, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit, label %204, !llvm.loop !78
+
+_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit: ; preds = %204
+  %210 = icmp sgt i64 %indvars.iv228, 1
+  br i1 %210, label %184, label %.critedge, !llvm.loop !80
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.critedge, %24, %._crit_edge
   %.0193.lcssa236 = phi i32 [ 1, %._crit_edge ], [ 0, %24 ], [ %97, %.critedge ], [ %97, %.lr.ph.split ]

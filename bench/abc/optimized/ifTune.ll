@@ -3208,16 +3208,16 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr noundef readonly capt
   %exitcond144.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond144.not, label %.preheader104, label %.preheader105, !llvm.loop !131
 
-57:                                               ; preds = %.lr.ph131, %182
-  %indvars.iv166 = phi i64 [ %36, %.lr.ph131 ], [ %indvars.iv.next167, %182 ]
-  %.091129 = phi i32 [ 0, %.lr.ph131 ], [ %.192, %182 ]
+57:                                               ; preds = %.lr.ph131, %183
+  %indvars.iv166 = phi i64 [ %36, %.lr.ph131 ], [ %indvars.iv.next167, %183 ]
+  %.091129 = phi i32 [ 0, %.lr.ph131 ], [ %.192, %183 ]
   %58 = getelementptr inbounds [22 x %struct.Ifn_Obj_t_], ptr %33, i64 0, i64 %indvars.iv166
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 7
   %61 = lshr i32 %59, 3
   %62 = and i32 %61, 31
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  switch i32 %60, label %182 [
+  switch i32 %60, label %183 [
     i32 3, label %.preheader
     i32 4, label %.preheader103
     i32 5, label %78
@@ -3257,7 +3257,7 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr noundef readonly capt
   %.289.lcssa = phi i32 [ 1, %.preheader ], [ %69, %.lr.ph126 ]
   %70 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv166
   store i32 %.289.lcssa, ptr %70, align 4, !tbaa !22
-  br label %182
+  br label %183
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.lr.ph121
   %indvars.iv156 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next157, %.lr.ph121 ]
@@ -3276,7 +3276,7 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr noundef readonly capt
   %.390.lcssa = phi i32 [ 0, %.preheader103 ], [ %76, %.lr.ph121 ]
   %77 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv166
   store i32 %.390.lcssa, ptr %77, align 4, !tbaa !22
-  br label %182
+  br label %183
 
 78:                                               ; preds = %57
   %79 = load i32, ptr %63, align 4, !tbaa !22
@@ -3296,7 +3296,7 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr noundef readonly capt
   %93 = call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %82, i32 noundef %87, i32 noundef %92) #24
   %94 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv166
   store i32 %93, ptr %94, align 4, !tbaa !22
-  br label %182
+  br label %183
 
 95:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #24
@@ -3385,10 +3385,10 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr noundef readonly capt
   %wide.trip.count.i = zext nneg i32 %62 to i64
   br label %137
 
-137:                                              ; preds = %171, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %171 ]
-  %138 = phi i64 [ %.5.i, %.lr.ph.i ], [ %172, %171 ]
-  %.029.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %171 ]
+137:                                              ; preds = %172, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %172 ]
+  %138 = phi i64 [ %.5.i, %.lr.ph.i ], [ %173, %172 ]
+  %.029.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %172 ]
   %139 = trunc nuw nsw i64 %indvars.iv.i to i32
   %140 = shl nuw nsw i32 1, %139
   %141 = zext nneg i32 %140 to i64
@@ -3398,99 +3398,100 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr noundef readonly capt
   %145 = xor i64 %142, %138
   %146 = and i64 %145, %144
   %.not26.i = icmp eq i64 %146, 0
-  br i1 %.not26.i, label %171, label %147
+  br i1 %.not26.i, label %172, label %147
 
 147:                                              ; preds = %137
   %148 = sext i32 %.029.i to i64
   %149 = icmp sgt i64 %indvars.iv.i, %148
-  br i1 %149, label %Abc_TtSwapVars.exit.i, label %168
+  br i1 %149, label %Abc_TtSwapVars.exit.i, label %169
 
 Abc_TtSwapVars.exit.i:                            ; preds = %147
   %150 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   %151 = load i32, ptr %150, align 4, !tbaa !22
   %152 = getelementptr inbounds i32, ptr %7, i64 %148
   store i32 %151, ptr %152, align 4, !tbaa !22
-  %153 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %148, i64 %indvars.iv.i
+  %153 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %148
+  %154 = getelementptr inbounds nuw [6 x [3 x i64]], ptr %153, i64 0, i64 %indvars.iv.i
   %.neg.i.i.i = shl nsw i32 -1, %.029.i
-  %154 = add nsw i32 %.neg.i.i.i, %140
-  %155 = load i64, ptr %153, align 8, !tbaa !44
-  %156 = and i64 %155, %138
-  %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %158 = load i64, ptr %157, align 8, !tbaa !44
-  %159 = and i64 %158, %138
-  %160 = zext i32 %154 to i64
-  %161 = shl i64 %159, %160
-  %162 = or i64 %161, %156
-  %163 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %164 = load i64, ptr %163, align 8, !tbaa !44
-  %165 = and i64 %164, %138
-  %166 = lshr i64 %165, %160
-  %167 = or i64 %162, %166
-  store i64 %167, ptr %8, align 8, !tbaa !44
-  br label %168
+  %155 = add nsw i32 %.neg.i.i.i, %140
+  %156 = load i64, ptr %154, align 8, !tbaa !44
+  %157 = and i64 %156, %138
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %159 = load i64, ptr %158, align 8, !tbaa !44
+  %160 = and i64 %159, %138
+  %161 = zext i32 %155 to i64
+  %162 = shl i64 %160, %161
+  %163 = or i64 %162, %157
+  %164 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %165 = load i64, ptr %164, align 8, !tbaa !44
+  %166 = and i64 %165, %138
+  %167 = lshr i64 %166, %161
+  %168 = or i64 %163, %167
+  store i64 %168, ptr %8, align 8, !tbaa !44
+  br label %169
 
-168:                                              ; preds = %Abc_TtSwapVars.exit.i, %147
-  %169 = phi i64 [ %167, %Abc_TtSwapVars.exit.i ], [ %138, %147 ]
-  %170 = add nsw i32 %.029.i, 1
-  br label %171
+169:                                              ; preds = %Abc_TtSwapVars.exit.i, %147
+  %170 = phi i64 [ %168, %Abc_TtSwapVars.exit.i ], [ %138, %147 ]
+  %171 = add nsw i32 %.029.i, 1
+  br label %172
 
-171:                                              ; preds = %168, %137
-  %172 = phi i64 [ %169, %168 ], [ %138, %137 ]
-  %.1.i = phi i32 [ %170, %168 ], [ %.029.i, %137 ]
+172:                                              ; preds = %169, %137
+  %173 = phi i64 [ %170, %169 ], [ %138, %137 ]
+  %.1.i = phi i32 [ %171, %169 ], [ %.029.i, %137 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_TtMinBase.exit, label %137, !llvm.loop !136
 
-Abc_TtMinBase.exit:                               ; preds = %171
-  %173 = icmp eq i32 %.1.i, 0
-  br i1 %173, label %Abc_TtMinBase.exit.thread, label %178
+Abc_TtMinBase.exit:                               ; preds = %172
+  %174 = icmp eq i32 %.1.i, 0
+  br i1 %174, label %Abc_TtMinBase.exit.thread, label %179
 
 Abc_TtMinBase.exit.thread:                        ; preds = %._crit_edge113, %Abc_TtMinBase.exit
-  %174 = phi i64 [ %172, %Abc_TtMinBase.exit ], [ %.5.i, %._crit_edge113 ]
-  %175 = trunc i64 %174 to i32
-  %176 = and i32 %175, 1
-  %177 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv166
-  store i32 %176, ptr %177, align 4, !tbaa !22
-  br label %181
+  %175 = phi i64 [ %173, %Abc_TtMinBase.exit ], [ %.5.i, %._crit_edge113 ]
+  %176 = trunc i64 %175 to i32
+  %177 = and i32 %176, 1
+  %178 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv166
+  store i32 %177, ptr %178, align 4, !tbaa !22
+  br label %182
 
-178:                                              ; preds = %Abc_TtMinBase.exit
+179:                                              ; preds = %Abc_TtMinBase.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #24
   store i32 %.1.i, ptr %9, align 8, !tbaa !80
   store i32 %.1.i, ptr %34, align 4, !tbaa !78
   store ptr %7, ptr %35, align 8, !tbaa !81
-  %179 = call i32 @Kit_TruthToGia(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.1.i, ptr noundef %4, ptr noundef nonnull %9, i32 noundef 1) #24
-  %180 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv166
-  store i32 %179, ptr %180, align 4, !tbaa !22
+  %180 = call i32 @Kit_TruthToGia(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.1.i, ptr noundef %4, ptr noundef nonnull %9, i32 noundef 1) #24
+  %181 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv166
+  store i32 %180, ptr %181, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #24
-  br label %181
-
-181:                                              ; preds = %178, %Abc_TtMinBase.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #24
   br label %182
 
-182:                                              ; preds = %57, %._crit_edge122, %181, %78, %._crit_edge127
-  %.192 = phi i32 [ %.091129, %._crit_edge127 ], [ %.091129, %._crit_edge122 ], [ %.091129, %78 ], [ %.293.lcssa, %181 ], [ %.091129, %57 ]
-  %indvars.iv.next167 = add nsw i64 %indvars.iv166, 1
-  %183 = load i32, ptr %12, align 4, !tbaa !12
-  %184 = sext i32 %183 to i64
-  %185 = icmp slt i64 %indvars.iv.next167, %184
-  br i1 %185, label %57, label %._crit_edge132, !llvm.loop !137
+182:                                              ; preds = %179, %Abc_TtMinBase.exit.thread
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #24
+  br label %183
 
-._crit_edge132:                                   ; preds = %182, %.preheader104
-  %.lcssa = phi i32 [ %13, %.preheader104 ], [ %183, %182 ]
-  %186 = and i32 %22, 63
-  %187 = zext nneg i32 %186 to i64
-  %188 = lshr i64 %26, %187
-  %189 = trunc i64 %188 to i32
-  %190 = and i32 %189, 1
-  %191 = add nsw i32 %.lcssa, -1
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %192
-  %194 = load i32, ptr %193, align 4, !tbaa !22
-  %195 = xor i32 %194, %190
+183:                                              ; preds = %57, %._crit_edge122, %182, %78, %._crit_edge127
+  %.192 = phi i32 [ %.091129, %._crit_edge127 ], [ %.091129, %._crit_edge122 ], [ %.091129, %78 ], [ %.293.lcssa, %182 ], [ %.091129, %57 ]
+  %indvars.iv.next167 = add nsw i64 %indvars.iv166, 1
+  %184 = load i32, ptr %12, align 4, !tbaa !12
+  %185 = sext i32 %184 to i64
+  %186 = icmp slt i64 %indvars.iv.next167, %185
+  br i1 %186, label %57, label %._crit_edge132, !llvm.loop !137
+
+._crit_edge132:                                   ; preds = %183, %.preheader104
+  %.lcssa = phi i32 [ %13, %.preheader104 ], [ %184, %183 ]
+  %187 = and i32 %22, 63
+  %188 = zext nneg i32 %187 to i64
+  %189 = lshr i64 %26, %188
+  %190 = trunc i64 %189 to i32
+  %191 = and i32 %190, 1
+  %192 = add nsw i32 %.lcssa, -1
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %193
+  %195 = load i32, ptr %194, align 4, !tbaa !22
+  %196 = xor i32 %195, %191
   call void @llvm.lifetime.end.p0(i64 4000, ptr nonnull %6) #24
-  ret i32 %195
+  ret i32 %196
 }
 
 declare i32 @Kit_TruthToGia(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9

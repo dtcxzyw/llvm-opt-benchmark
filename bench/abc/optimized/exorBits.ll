@@ -368,8 +368,8 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   br label %26
 
-.thread81:                                        ; preds = %.thread, %73
-  %.lcssa374183 = phi i32 [ %74, %73 ], [ %.lcssa374280, %.thread ]
+.thread81:                                        ; preds = %.thread, %75
+  %.lcssa374183 = phi i32 [ %76, %75 ], [ %.lcssa374280, %.thread ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8, !tbaa !17
   %24 = sext i32 %23 to i64
@@ -401,77 +401,79 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   %40 = getelementptr inbounds nuw [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %35
   %41 = load i8, ptr %40, align 1, !tbaa !3
   %42 = zext i8 %41 to i64
-  %43 = sext i32 %.lcssa374043 to i64
+  %43 = getelementptr inbounds nuw [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %42
+  %44 = sext i32 %.lcssa374043 to i64
   %wide.trip.count63 = zext nneg i8 %37 to i64
   %indvars.iv74.tr = trunc i64 %indvars.iv74 to i32
-  %44 = shl i32 %indvars.iv74.tr, 4
-  br label %45
+  %45 = shl i32 %indvars.iv74.tr, 4
+  br label %46
 
-45:                                               ; preds = %.preheader30, %45
-  %indvars.iv58 = phi i64 [ %43, %.preheader30 ], [ %indvars.iv.next59, %45 ]
-  %indvars.iv56 = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next57, %45 ]
-  %46 = getelementptr inbounds nuw [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %42, i64 %indvars.iv56
-  %47 = load i8, ptr %46, align 1, !tbaa !3
-  %48 = zext i8 %47 to i32
-  %49 = add nuw nsw i32 %44, %48
+46:                                               ; preds = %.preheader30, %46
+  %indvars.iv58 = phi i64 [ %44, %.preheader30 ], [ %indvars.iv.next59, %46 ]
+  %indvars.iv56 = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next57, %46 ]
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 0, i64 %indvars.iv56
+  %48 = load i8, ptr %47, align 1, !tbaa !3
+  %49 = zext i8 %48 to i32
+  %50 = add nuw nsw i32 %45, %49
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
-  %50 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv58
-  store i32 %49, ptr %50, align 4, !tbaa !8
+  %51 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv58
+  store i32 %50, ptr %51, align 4, !tbaa !8
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count63
-  br i1 %exitcond64.not, label %51, label %45, !llvm.loop !29
+  br i1 %exitcond64.not, label %52, label %46, !llvm.loop !29
 
-51:                                               ; preds = %45
-  %52 = trunc nsw i64 %indvars.iv.next59 to i32
-  %53 = icmp sgt i64 %indvars.iv58, 3
-  br i1 %53, label %.sink.split, label %.thread
+52:                                               ; preds = %46
+  %53 = trunc nsw i64 %indvars.iv.next59 to i32
+  %54 = icmp sgt i64 %indvars.iv58, 3
+  br i1 %54, label %.sink.split, label %.thread
 
-.thread:                                          ; preds = %26, %51
-  %.lcssa374280 = phi i32 [ %52, %51 ], [ %.lcssa374043, %26 ]
-  %54 = lshr i32 %33, 16
-  %55 = and i32 %54, 21845
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 1, !tbaa !3
-  %.not29 = icmp eq i8 %58, 0
-  br i1 %.not29, label %.thread81, label %59
+.thread:                                          ; preds = %26, %52
+  %.lcssa374280 = phi i32 [ %53, %52 ], [ %.lcssa374043, %26 ]
+  %55 = lshr i32 %33, 16
+  %56 = and i32 %55, 21845
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !3
+  %.not29 = icmp eq i8 %59, 0
+  br i1 %.not29, label %.thread81, label %60
 
-59:                                               ; preds = %.thread
-  %60 = icmp ult i8 %58, 5
-  br i1 %60, label %.preheader, label %.sink.split
+60:                                               ; preds = %.thread
+  %61 = icmp ult i8 %59, 5
+  br i1 %61, label %.preheader, label %.sink.split
 
-.preheader:                                       ; preds = %59
-  %61 = getelementptr inbounds nuw [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %56
-  %62 = load i8, ptr %61, align 1, !tbaa !3
-  %63 = zext i8 %62 to i64
-  %64 = sext i32 %.lcssa374280 to i64
-  %wide.trip.count72 = zext nneg i8 %58 to i64
+.preheader:                                       ; preds = %60
+  %62 = getelementptr inbounds nuw [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %57
+  %63 = load i8, ptr %62, align 1, !tbaa !3
+  %64 = zext i8 %63 to i64
+  %65 = getelementptr inbounds nuw [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %64
+  %66 = sext i32 %.lcssa374280 to i64
+  %wide.trip.count72 = zext nneg i8 %59 to i64
   %indvars.iv74.tr78 = trunc i64 %indvars.iv74 to i32
-  %65 = shl i32 %indvars.iv74.tr78, 4
-  %66 = or disjoint i32 %65, 8
-  br label %67
+  %67 = shl i32 %indvars.iv74.tr78, 4
+  %68 = or disjoint i32 %67, 8
+  br label %69
 
-67:                                               ; preds = %.preheader, %67
-  %indvars.iv67 = phi i64 [ %64, %.preheader ], [ %indvars.iv.next68, %67 ]
-  %indvars.iv65 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next66, %67 ]
-  %68 = getelementptr inbounds nuw [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %63, i64 %indvars.iv65
-  %69 = load i8, ptr %68, align 1, !tbaa !3
-  %70 = zext i8 %69 to i32
-  %71 = add nuw nsw i32 %66, %70
+69:                                               ; preds = %.preheader, %69
+  %indvars.iv67 = phi i64 [ %66, %.preheader ], [ %indvars.iv.next68, %69 ]
+  %indvars.iv65 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next66, %69 ]
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 0, i64 %indvars.iv65
+  %71 = load i8, ptr %70, align 1, !tbaa !3
+  %72 = zext i8 %71 to i32
+  %73 = add nuw nsw i32 %68, %72
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
-  %72 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv67
-  store i32 %71, ptr %72, align 4, !tbaa !8
+  %74 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv67
+  store i32 %73, ptr %74, align 4, !tbaa !8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count72
-  br i1 %exitcond73.not, label %73, label %67, !llvm.loop !30
+  br i1 %exitcond73.not, label %75, label %69, !llvm.loop !30
 
-73:                                               ; preds = %67
-  %74 = trunc nsw i64 %indvars.iv.next68 to i32
-  %75 = icmp sgt i64 %indvars.iv67, 3
-  br i1 %75, label %.sink.split, label %.thread81
+75:                                               ; preds = %69
+  %76 = trunc nsw i64 %indvars.iv.next68 to i32
+  %77 = icmp sgt i64 %indvars.iv67, 3
+  br i1 %77, label %.sink.split, label %.thread81
 
-.sink.split:                                      ; preds = %.thread81, %73, %59, %51, %38, %.loopexit33
-  %.025 = phi i32 [ %DiffVarCounter.promoted39, %.loopexit33 ], [ 5, %73 ], [ 5, %59 ], [ 5, %51 ], [ 5, %38 ], [ %.lcssa374183, %.thread81 ]
+.sink.split:                                      ; preds = %.thread81, %75, %60, %52, %38, %.loopexit33
+  %.025 = phi i32 [ %DiffVarCounter.promoted39, %.loopexit33 ], [ 5, %75 ], [ 5, %60 ], [ 5, %52 ], [ 5, %38 ], [ %.lcssa374183, %.thread81 ]
   ret i32 %.025
 }
 

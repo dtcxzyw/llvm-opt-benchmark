@@ -5086,45 +5086,46 @@ define void @virtual_weight(ptr noundef readonly captures(none) %0) local_unname
 
 endpoint_class.exit:                              ; preds = %1, %12
   %.0.i = phi i64 [ 2, %1 ], [ %16, %12 ]
-  %17 = icmp eq i32 %3, 2
-  %.idx9 = select i1 %17, i64 0, i64 -64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.idx9
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !51
-  %21 = getelementptr i8, ptr %20, i64 16
-  %.val10 = load ptr, ptr %21, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %.val10, i64 216
-  %23 = load i8, ptr %22, align 8, !tbaa !137
-  %24 = icmp eq i8 %23, 1
-  br i1 %24, label %endpoint_class.exit13, label %25
+  %17 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @table, i64 0, i64 %.0.i
+  %18 = icmp eq i32 %3, 2
+  %.idx9 = select i1 %18, i64 0, i64 -64
+  %19 = getelementptr inbounds i8, ptr %0, i64 %.idx9
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %21 = load ptr, ptr %20, align 8, !tbaa !51
+  %22 = getelementptr i8, ptr %21, i64 16
+  %.val10 = load ptr, ptr %22, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw i8, ptr %.val10, i64 216
+  %24 = load i8, ptr %23, align 8, !tbaa !137
+  %25 = icmp eq i8 %24, 1
+  br i1 %25, label %endpoint_class.exit13, label %26
 
-25:                                               ; preds = %endpoint_class.exit
-  %26 = getelementptr inbounds nuw i8, ptr %.val10, i64 234
-  %27 = load i8, ptr %26, align 2, !tbaa !204
-  %28 = icmp slt i8 %27, 2
-  %29 = zext i1 %28 to i64
+26:                                               ; preds = %endpoint_class.exit
+  %27 = getelementptr inbounds nuw i8, ptr %.val10, i64 234
+  %28 = load i8, ptr %27, align 2, !tbaa !204
+  %29 = icmp slt i8 %28, 2
+  %30 = zext i1 %29 to i64
   br label %endpoint_class.exit13
 
-endpoint_class.exit13:                            ; preds = %endpoint_class.exit, %25
-  %.0.i12 = phi i64 [ 2, %endpoint_class.exit ], [ %29, %25 ]
-  %30 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @table, i64 0, i64 %.0.i, i64 %.0.i12
-  %31 = load i32, ptr %30, align 4, !tbaa !67
-  %32 = sdiv i32 2147483647, %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 212
-  %36 = load i32, ptr %35, align 4, !tbaa !205
-  %37 = icmp slt i32 %32, %36
-  br i1 %37, label %38, label %39
+endpoint_class.exit13:                            ; preds = %endpoint_class.exit, %26
+  %.0.i12 = phi i64 [ 2, %endpoint_class.exit ], [ %30, %26 ]
+  %31 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %.0.i12
+  %32 = load i32, ptr %31, align 4, !tbaa !67
+  %33 = sdiv i32 2147483647, %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 212
+  %37 = load i32, ptr %36, align 4, !tbaa !205
+  %38 = icmp slt i32 %33, %37
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %endpoint_class.exit13
+39:                                               ; preds = %endpoint_class.exit13
   tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.9) #23
   tail call fastcc void @graphviz_exit() #26
   unreachable
 
-39:                                               ; preds = %endpoint_class.exit13
-  %40 = mul nsw i32 %36, %31
-  store i32 %40, ptr %35, align 4, !tbaa !205
+40:                                               ; preds = %endpoint_class.exit13
+  %41 = mul nsw i32 %37, %32
+  store i32 %41, ptr %36, align 4, !tbaa !205
   ret void
 }
 

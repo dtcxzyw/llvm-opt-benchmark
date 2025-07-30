@@ -4072,7 +4072,7 @@ define hidden noundef ptr @_glfwGetScancodeNameWayland(i32 noundef %0) local_unn
   br label %36
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds [349 x [5 x i8]], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 135378), i64 0, i64 %29, i64 %31
+  %35 = getelementptr inbounds nuw [5 x i8], ptr %30, i64 0, i64 %31
   store i8 0, ptr %35, align 1, !tbaa !314
   br label %36
 

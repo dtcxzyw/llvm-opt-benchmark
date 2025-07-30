@@ -6768,10 +6768,10 @@ define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr 
 .lr.ph:                                           ; preds = %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load ptr, ptr %27, align 8, !tbaa !75
-  br label %207
+  br label %208
 
-._crit_edge:                                      ; preds = %207, %.preheader
-  %.0128.lcssa = phi i64 [ 0, %.preheader ], [ %211, %207 ]
+._crit_edge:                                      ; preds = %208, %.preheader
+  %.0128.lcssa = phi i64 [ 0, %.preheader ], [ %212, %208 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6816,7 +6816,7 @@ define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr 
 
 54:                                               ; preds = %._crit_edge.us.i, %.lr.ph123.split.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.us.i ], [ 0, %.lr.ph123.split.us.i ]
-  %55 = phi i32 [ %110, %._crit_edge.us.i ], [ %47, %.lr.ph123.split.us.i ]
+  %55 = phi i32 [ %111, %._crit_edge.us.i ], [ %47, %.lr.ph123.split.us.i ]
   %56 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %indvars.iv.i, i32 1
   %57 = load ptr, ptr %56, align 32, !tbaa !54
   %58 = load ptr, ptr %57, align 8, !tbaa !81
@@ -6881,477 +6881,478 @@ CscPrefixMap_find.exit.us.i:                      ; preds = %74, %76, %.loopexit
   %84 = load i16, ptr %83, align 2, !tbaa !60
   %85 = zext i16 %84 to i32
   %86 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %indvars.iv.i, i32 8
-  %87 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %88
+  %87 = getelementptr inbounds nuw %struct._CscPrefixMapItem, ptr %42, i64 %82, i32 2
+  %88 = trunc nuw nsw i64 %indvars.iv.i to i32
+  br label %89
 
-88:                                               ; preds = %Classifier_match.exit.thread.us.i, %CscPrefixMap_find.exit.us.i
-  %.086120.us.i = phi i64 [ 0, %CscPrefixMap_find.exit.us.i ], [ %109, %Classifier_match.exit.thread.us.i ]
-  %89 = getelementptr inbounds nuw %struct._Classifier, ptr %53, i64 %.086120.us.i
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 12
-  %91 = load i32, ptr %90, align 4, !tbaa !79
-  %.not.i110.us.i = icmp eq i32 %91, %85
-  br i1 %.not.i110.us.i, label %92, label %Classifier_match.exit.thread.us.i
+89:                                               ; preds = %Classifier_match.exit.thread.us.i, %CscPrefixMap_find.exit.us.i
+  %.086120.us.i = phi i64 [ 0, %CscPrefixMap_find.exit.us.i ], [ %110, %Classifier_match.exit.thread.us.i ]
+  %90 = getelementptr inbounds nuw %struct._Classifier, ptr %53, i64 %.086120.us.i
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 12
+  %92 = load i32, ptr %91, align 4, !tbaa !79
+  %.not.i110.us.i = icmp eq i32 %92, %85
+  br i1 %.not.i110.us.i, label %93, label %Classifier_match.exit.thread.us.i
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 20
-  %94 = load i16, ptr %93, align 4, !tbaa !82
-  %.not7.i.us.i = icmp eq i16 %94, 0
-  %95 = load ptr, ptr %89, align 8, !tbaa !83
-  br i1 %.not7.i.us.i, label %98, label %96
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 20
+  %95 = load i16, ptr %94, align 4, !tbaa !82
+  %.not7.i.us.i = icmp eq i16 %95, 0
+  %96 = load ptr, ptr %90, align 8, !tbaa !83
+  br i1 %.not7.i.us.i, label %99, label %97
 
-96:                                               ; preds = %92
-  %97 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.0.i.us.i, ptr noundef %95) #22
+97:                                               ; preds = %93
+  %98 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.0.i.us.i, ptr noundef %96) #22
   br label %Classifier_match.exit.us.i
 
-98:                                               ; preds = %92
-  %99 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0.i.us.i, ptr noundef nonnull dereferenceable(1) %95) #22
+99:                                               ; preds = %93
+  %100 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0.i.us.i, ptr noundef nonnull dereferenceable(1) %96) #22
   br label %Classifier_match.exit.us.i
 
-Classifier_match.exit.us.i:                       ; preds = %98, %96
-  %.0.shrunk.i.in.us.i = phi i32 [ %97, %96 ], [ %99, %98 ]
+Classifier_match.exit.us.i:                       ; preds = %99, %97
+  %.0.shrunk.i.in.us.i = phi i32 [ %98, %97 ], [ %100, %99 ]
   %.0.shrunk.i.not.us.i = icmp eq i32 %.0.shrunk.i.in.us.i, 0
-  br i1 %.0.shrunk.i.not.us.i, label %100, label %Classifier_match.exit.thread.us.i
+  br i1 %.0.shrunk.i.not.us.i, label %101, label %Classifier_match.exit.thread.us.i
 
-100:                                              ; preds = %Classifier_match.exit.us.i
-  %101 = getelementptr inbounds nuw %struct._Classifier, ptr %53, i64 %.086120.us.i, i32 1
-  %102 = load i32, ptr %101, align 8, !tbaa !85
-  store i32 %102, ptr %86, align 4, !tbaa !59
-  %103 = getelementptr inbounds nuw %struct._Classifier, ptr %53, i64 %.086120.us.i, i32 3
-  %104 = load i32, ptr %103, align 8, !tbaa !84
-  %105 = icmp sgt i32 %104, -1
-  br i1 %105, label %106, label %Classifier_match.exit.thread.us.i
+101:                                              ; preds = %Classifier_match.exit.us.i
+  %102 = getelementptr inbounds nuw %struct._Classifier, ptr %53, i64 %.086120.us.i, i32 1
+  %103 = load i32, ptr %102, align 8, !tbaa !85
+  store i32 %103, ptr %86, align 4, !tbaa !59
+  %104 = getelementptr inbounds nuw %struct._Classifier, ptr %53, i64 %.086120.us.i, i32 3
+  %105 = load i32, ptr %104, align 8, !tbaa !84
+  %106 = icmp sgt i32 %105, -1
+  br i1 %106, label %107, label %Classifier_match.exit.thread.us.i
 
-106:                                              ; preds = %100
-  %107 = zext nneg i32 %104 to i64
-  %108 = getelementptr inbounds nuw %struct._CscPrefixMapItem, ptr %42, i64 %82, i32 2, i64 %107
-  store i32 %87, ptr %108, align 4, !tbaa !49
+107:                                              ; preds = %101
+  %108 = zext nneg i32 %105 to i64
+  %109 = getelementptr inbounds nuw [3 x i32], ptr %87, i64 0, i64 %108
+  store i32 %88, ptr %109, align 4, !tbaa !49
   br label %Classifier_match.exit.thread.us.i
 
-Classifier_match.exit.thread.us.i:                ; preds = %106, %100, %Classifier_match.exit.us.i, %88
-  %109 = add nuw i64 %.086120.us.i, 1
-  %exitcond.not.i = icmp eq i64 %109, %51
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %88, !llvm.loop !198
+Classifier_match.exit.thread.us.i:                ; preds = %107, %101, %Classifier_match.exit.us.i, %89
+  %110 = add nuw i64 %.086120.us.i, 1
+  %exitcond.not.i = icmp eq i64 %110, %51
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %89, !llvm.loop !198
 
 ._crit_edge.us.i:                                 ; preds = %Classifier_match.exit.thread.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %110 = load i32, ptr %31, align 8, !tbaa !45
-  %111 = sext i32 %110 to i64
-  %112 = icmp slt i64 %indvars.iv.next.i, %111
-  br i1 %112, label %54, label %.preheader.i, !llvm.loop !199
+  %111 = load i32, ptr %31, align 8, !tbaa !45
+  %112 = sext i32 %111 to i64
+  %113 = icmp slt i64 %indvars.iv.next.i, %112
+  br i1 %113, label %54, label %.preheader.i, !llvm.loop !199
 
 .preheader.i:                                     ; preds = %._crit_edge.us.i, %CscPrefixMap_find.exit.i
-  %113 = phi i32 [ %143, %CscPrefixMap_find.exit.i ], [ %110, %._crit_edge.us.i ]
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %.lr.ph.i, label %DwaCompressor_classifyChannels.exit
+  %114 = phi i32 [ %144, %CscPrefixMap_find.exit.i ], [ %111, %._crit_edge.us.i ]
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %.lr.ph.i, label %DwaCompressor_classifyChannels.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  br label %146
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  br label %147
 
 .lr.ph123.split.i:                                ; preds = %.lr.ph123.i, %CscPrefixMap_find.exit.i
-  %116 = phi i32 [ %143, %CscPrefixMap_find.exit.i ], [ %47, %.lr.ph123.i ]
+  %117 = phi i32 [ %144, %CscPrefixMap_find.exit.i ], [ %47, %.lr.ph123.i ]
   %indvars.iv136.i = phi i64 [ %indvars.iv.next137.i, %CscPrefixMap_find.exit.i ], [ 0, %.lr.ph123.i ]
-  %117 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %indvars.iv136.i, i32 1
-  %118 = load ptr, ptr %117, align 32, !tbaa !54
-  %119 = load ptr, ptr %118, align 8, !tbaa !81
-  %120 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %119, i32 noundef 46) #22
-  %.not.i.i = icmp eq ptr %120, null
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  %.0.i.i = select i1 %.not.i.i, ptr %119, ptr %121
-  %122 = ptrtoint ptr %.0.i.i to i64
-  %123 = ptrtoint ptr %119 to i64
-  %124 = sub i64 %122, %123
-  %125 = icmp sgt i32 %116, 0
-  br i1 %125, label %.lr.ph.preheader.i.i, label %CscPrefixMap_find.exit.i
+  %118 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %indvars.iv136.i, i32 1
+  %119 = load ptr, ptr %118, align 32, !tbaa !54
+  %120 = load ptr, ptr %119, align 8, !tbaa !81
+  %121 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %120, i32 noundef 46) #22
+  %.not.i.i = icmp eq ptr %121, null
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
+  %.0.i.i = select i1 %.not.i.i, ptr %120, ptr %122
+  %123 = ptrtoint ptr %.0.i.i to i64
+  %124 = ptrtoint ptr %120 to i64
+  %125 = sub i64 %123, %124
+  %126 = icmp sgt i32 %117, 0
+  br i1 %126, label %.lr.ph.preheader.i.i, label %CscPrefixMap_find.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph123.split.i
-  %wide.trip.count.i.i = zext nneg i32 %116 to i64
-  %126 = load ptr, ptr %42, align 8, !tbaa !194
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %.lr.ph.i.i._crit_edge, label %.lr.ph203
+  %wide.trip.count.i.i = zext nneg i32 %117 to i64
+  %127 = load ptr, ptr %42, align 8, !tbaa !194
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %.lr.ph.i.i._crit_edge, label %.lr.ph203
 
 .lr.ph.i.i._crit_edge:                            ; preds = %.lr.ph.i.backedge.i, %.lr.ph.preheader.i.i
-  %.lcssa = phi ptr [ %42, %.lr.ph.preheader.i.i ], [ %140, %.lr.ph.i.backedge.i ]
-  store ptr %119, ptr %.lcssa, align 8, !tbaa !194
-  %128 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  store i64 %124, ptr %128, align 8, !tbaa !196
-  %129 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  store i32 -1, ptr %129, align 8, !tbaa !49
-  %130 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 20
-  store i32 -1, ptr %130, align 4, !tbaa !49
-  %131 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
-  store i32 -1, ptr %131, align 8, !tbaa !49
+  %.lcssa = phi ptr [ %42, %.lr.ph.preheader.i.i ], [ %141, %.lr.ph.i.backedge.i ]
+  store ptr %120, ptr %.lcssa, align 8, !tbaa !194
+  %129 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
+  store i64 %125, ptr %129, align 8, !tbaa !196
+  %130 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+  store i32 -1, ptr %130, align 8, !tbaa !49
+  %131 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 20
+  store i32 -1, ptr %131, align 4, !tbaa !49
+  %132 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
+  store i32 -1, ptr %132, align 8, !tbaa !49
   %.pre.i = load i32, ptr %31, align 8, !tbaa !45
   br label %CscPrefixMap_find.exit.i
 
 .lr.ph203:                                        ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.backedge.i
-  %132 = phi ptr [ %141, %.lr.ph.i.backedge.i ], [ %126, %.lr.ph.preheader.i.i ]
-  %133 = phi ptr [ %140, %.lr.ph.i.backedge.i ], [ %42, %.lr.ph.preheader.i.i ]
+  %133 = phi ptr [ %142, %.lr.ph.i.backedge.i ], [ %127, %.lr.ph.preheader.i.i ]
+  %134 = phi ptr [ %141, %.lr.ph.i.backedge.i ], [ %42, %.lr.ph.preheader.i.i ]
   %indvars.iv.i.i202 = phi i64 [ %indvars.iv.i.be.i, %.lr.ph.i.backedge.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = load i64, ptr %134, align 8, !tbaa !196
-  %136 = icmp eq i64 %124, %135
-  br i1 %136, label %137, label %139
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %136 = load i64, ptr %135, align 8, !tbaa !196
+  %137 = icmp eq i64 %125, %136
+  br i1 %137, label %138, label %140
 
-137:                                              ; preds = %.lr.ph203
-  %138 = tail call i32 @strncmp(ptr noundef nonnull %119, ptr noundef nonnull %132, i64 noundef %124) #22
-  %.not.i109.i = icmp eq i32 %138, 0
+138:                                              ; preds = %.lr.ph203
+  %139 = tail call i32 @strncmp(ptr noundef nonnull %120, ptr noundef nonnull %133, i64 noundef %125) #22
+  %.not.i109.i = icmp eq i32 %139, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i202, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   %or.cond126.i = select i1 %.not.i109.i, i1 true, i1 %exitcond.not.i.i
   br i1 %or.cond126.i, label %CscPrefixMap_find.exit.i, label %.lr.ph.i.backedge.i
 
-139:                                              ; preds = %.lr.ph203
+140:                                              ; preds = %.lr.ph203
   %indvars.iv.next.i.old.i = add nuw nsw i64 %indvars.iv.i.i202, 1
   %exitcond.not.i.old.i = icmp eq i64 %indvars.iv.next.i.old.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.old.i, label %CscPrefixMap_find.exit.i, label %.lr.ph.i.backedge.i
 
-.lr.ph.i.backedge.i:                              ; preds = %139, %137
-  %indvars.iv.i.be.i = phi i64 [ %indvars.iv.next.i.old.i, %139 ], [ %indvars.iv.next.i.i, %137 ]
-  %140 = getelementptr inbounds nuw %struct._CscPrefixMapItem, ptr %42, i64 %indvars.iv.i.be.i
-  %141 = load ptr, ptr %140, align 8, !tbaa !194
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %.lr.ph.i.i._crit_edge, label %.lr.ph203, !llvm.loop !197
+.lr.ph.i.backedge.i:                              ; preds = %140, %138
+  %indvars.iv.i.be.i = phi i64 [ %indvars.iv.next.i.old.i, %140 ], [ %indvars.iv.next.i.i, %138 ]
+  %141 = getelementptr inbounds nuw %struct._CscPrefixMapItem, ptr %42, i64 %indvars.iv.i.be.i
+  %142 = load ptr, ptr %141, align 8, !tbaa !194
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %.lr.ph.i.i._crit_edge, label %.lr.ph203, !llvm.loop !197
 
-CscPrefixMap_find.exit.i:                         ; preds = %139, %137, %.lr.ph.i.i._crit_edge, %.lr.ph123.split.i
-  %143 = phi i32 [ %116, %.lr.ph123.split.i ], [ %.pre.i, %.lr.ph.i.i._crit_edge ], [ %116, %137 ], [ %116, %139 ]
+CscPrefixMap_find.exit.i:                         ; preds = %140, %138, %.lr.ph.i.i._crit_edge, %.lr.ph123.split.i
+  %144 = phi i32 [ %117, %.lr.ph123.split.i ], [ %.pre.i, %.lr.ph.i.i._crit_edge ], [ %117, %138 ], [ %117, %140 ]
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
-  %144 = sext i32 %143 to i64
-  %145 = icmp slt i64 %indvars.iv.next137.i, %144
-  br i1 %145, label %.lr.ph123.split.i, label %.preheader.i, !llvm.loop !200
+  %145 = sext i32 %144 to i64
+  %146 = icmp slt i64 %indvars.iv.next137.i, %145
+  br i1 %146, label %.lr.ph123.split.i, label %.preheader.i, !llvm.loop !200
 
-146:                                              ; preds = %195, %.lr.ph.i
-  %147 = phi i32 [ %113, %.lr.ph.i ], [ %196, %195 ]
-  %indvars.iv139.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next140.i, %195 ]
-  %148 = getelementptr inbounds nuw %struct._CscPrefixMapItem, ptr %42, i64 %indvars.iv139.i
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %150 = load i32, ptr %149, align 8, !tbaa !49
-  %151 = getelementptr inbounds nuw i8, ptr %148, i64 20
-  %152 = load i32, ptr %151, align 4, !tbaa !49
-  %153 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %154 = load i32, ptr %153, align 8, !tbaa !49
-  %155 = load ptr, ptr %148, align 8, !tbaa !194
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %DwaCompressor_classifyChannels.exit, label %157
+147:                                              ; preds = %196, %.lr.ph.i
+  %148 = phi i32 [ %114, %.lr.ph.i ], [ %197, %196 ]
+  %indvars.iv139.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next140.i, %196 ]
+  %149 = getelementptr inbounds nuw %struct._CscPrefixMapItem, ptr %42, i64 %indvars.iv139.i
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %151 = load i32, ptr %150, align 8, !tbaa !49
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 20
+  %153 = load i32, ptr %152, align 4, !tbaa !49
+  %154 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %155 = load i32, ptr %154, align 8, !tbaa !49
+  %156 = load ptr, ptr %149, align 8, !tbaa !194
+  %157 = icmp eq ptr %156, null
+  br i1 %157, label %DwaCompressor_classifyChannels.exit, label %158
 
-157:                                              ; preds = %146
-  %158 = icmp slt i32 %150, 0
-  %159 = icmp slt i32 %152, 0
-  %or.cond.i = select i1 %158, i1 true, i1 %159
-  %160 = icmp slt i32 %154, 0
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %160
-  br i1 %or.cond3.i, label %195, label %161
+158:                                              ; preds = %147
+  %159 = icmp slt i32 %151, 0
+  %160 = icmp slt i32 %153, 0
+  %or.cond.i = select i1 %159, i1 true, i1 %160
+  %161 = icmp slt i32 %155, 0
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %161
+  br i1 %or.cond3.i, label %196, label %162
 
-161:                                              ; preds = %157
-  %162 = zext nneg i32 %150 to i64
-  %163 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %162, i32 1
-  %164 = load ptr, ptr %163, align 32, !tbaa !54
-  %165 = zext nneg i32 %152 to i64
-  %166 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %165, i32 1
-  %167 = load ptr, ptr %166, align 32, !tbaa !54
-  %168 = zext nneg i32 %154 to i64
-  %169 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %168, i32 1
-  %170 = load ptr, ptr %169, align 32, !tbaa !54
-  %171 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %172 = load i32, ptr %171, align 8, !tbaa !201
-  %173 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %174 = load i32, ptr %173, align 8, !tbaa !201
-  %.not100.i = icmp eq i32 %172, %174
-  br i1 %.not100.i, label %175, label %195
+162:                                              ; preds = %158
+  %163 = zext nneg i32 %151 to i64
+  %164 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %163, i32 1
+  %165 = load ptr, ptr %164, align 32, !tbaa !54
+  %166 = zext nneg i32 %153 to i64
+  %167 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %166, i32 1
+  %168 = load ptr, ptr %167, align 32, !tbaa !54
+  %169 = zext nneg i32 %155 to i64
+  %170 = getelementptr inbounds nuw %struct._ChannelData, ptr %50, i64 %169, i32 1
+  %171 = load ptr, ptr %170, align 32, !tbaa !54
+  %172 = getelementptr inbounds nuw i8, ptr %165, i64 16
+  %173 = load i32, ptr %172, align 8, !tbaa !201
+  %174 = getelementptr inbounds nuw i8, ptr %168, i64 16
+  %175 = load i32, ptr %174, align 8, !tbaa !201
+  %.not100.i = icmp eq i32 %173, %175
+  br i1 %.not100.i, label %176, label %196
 
-175:                                              ; preds = %161
-  %176 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %177 = load i32, ptr %176, align 8, !tbaa !201
-  %.not101.i = icmp eq i32 %172, %177
-  br i1 %.not101.i, label %178, label %195
+176:                                              ; preds = %162
+  %177 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  %178 = load i32, ptr %177, align 8, !tbaa !201
+  %.not101.i = icmp eq i32 %173, %178
+  br i1 %.not101.i, label %179, label %196
 
-178:                                              ; preds = %175
-  %179 = getelementptr inbounds nuw i8, ptr %164, i64 20
-  %180 = load i32, ptr %179, align 4, !tbaa !107
-  %181 = getelementptr inbounds nuw i8, ptr %167, i64 20
-  %182 = load i32, ptr %181, align 4, !tbaa !107
-  %.not103.i = icmp eq i32 %180, %182
-  br i1 %.not103.i, label %183, label %195
+179:                                              ; preds = %176
+  %180 = getelementptr inbounds nuw i8, ptr %165, i64 20
+  %181 = load i32, ptr %180, align 4, !tbaa !107
+  %182 = getelementptr inbounds nuw i8, ptr %168, i64 20
+  %183 = load i32, ptr %182, align 4, !tbaa !107
+  %.not103.i = icmp eq i32 %181, %183
+  br i1 %.not103.i, label %184, label %196
 
-183:                                              ; preds = %178
-  %184 = getelementptr inbounds nuw i8, ptr %170, i64 20
-  %185 = load i32, ptr %184, align 4, !tbaa !107
-  %.not104.i = icmp eq i32 %180, %185
-  br i1 %.not104.i, label %186, label %195
+184:                                              ; preds = %179
+  %185 = getelementptr inbounds nuw i8, ptr %171, i64 20
+  %186 = load i32, ptr %185, align 4, !tbaa !107
+  %.not104.i = icmp eq i32 %181, %186
+  br i1 %.not104.i, label %187, label %196
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %36, align 8, !tbaa !114
-  %188 = load i32, ptr %115, align 4, !tbaa !113
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds %struct._CscChannelSet, ptr %187, i64 %189
-  store i32 %150, ptr %190, align 4, !tbaa !49
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  store i32 %152, ptr %191, align 4, !tbaa !49
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  store i32 %154, ptr %192, align 4, !tbaa !49
-  %193 = load i32, ptr %115, align 4, !tbaa !113
-  %194 = add nsw i32 %193, 1
-  store i32 %194, ptr %115, align 4, !tbaa !113
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %36, align 8, !tbaa !114
+  %189 = load i32, ptr %116, align 4, !tbaa !113
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds %struct._CscChannelSet, ptr %188, i64 %190
+  store i32 %151, ptr %191, align 4, !tbaa !49
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
+  store i32 %153, ptr %192, align 4, !tbaa !49
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  store i32 %155, ptr %193, align 4, !tbaa !49
+  %194 = load i32, ptr %116, align 4, !tbaa !113
+  %195 = add nsw i32 %194, 1
+  store i32 %195, ptr %116, align 4, !tbaa !113
   %.pre142.i = load i32, ptr %31, align 8, !tbaa !45
-  br label %195
+  br label %196
 
-195:                                              ; preds = %186, %183, %178, %175, %161, %157
-  %196 = phi i32 [ %.pre142.i, %186 ], [ %147, %157 ], [ %147, %183 ], [ %147, %178 ], [ %147, %175 ], [ %147, %161 ]
+196:                                              ; preds = %187, %184, %179, %176, %162, %158
+  %197 = phi i32 [ %.pre142.i, %187 ], [ %148, %158 ], [ %148, %184 ], [ %148, %179 ], [ %148, %176 ], [ %148, %162 ]
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
-  %197 = sext i32 %196 to i64
-  %198 = icmp slt i64 %indvars.iv.next140.i, %197
-  br i1 %198, label %146, label %DwaCompressor_classifyChannels.exit, !llvm.loop !202
+  %198 = sext i32 %197 to i64
+  %199 = icmp slt i64 %indvars.iv.next140.i, %198
+  br i1 %199, label %147, label %DwaCompressor_classifyChannels.exit, !llvm.loop !202
 
-DwaCompressor_classifyChannels.exit:              ; preds = %146, %195, %43, %.preheader.i
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %200 = load ptr, ptr %199, align 8, !tbaa !42
-  tail call void %200(ptr noundef nonnull %42) #20
-  %201 = load i32, ptr %31, align 8, !tbaa !45
-  %.not158207 = icmp sgt i32 %201, 0
-  br i1 %.not158207, label %.lr.ph213, label %247
+DwaCompressor_classifyChannels.exit:              ; preds = %147, %196, %43, %.preheader.i
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %201 = load ptr, ptr %200, align 8, !tbaa !42
+  tail call void %201(ptr noundef nonnull %42) #20
+  %202 = load i32, ptr %31, align 8, !tbaa !45
+  %.not158207 = icmp sgt i32 %202, 0
+  br i1 %.not158207, label %.lr.ph213, label %248
 
 .lr.ph213:                                        ; preds = %DwaCompressor_classifyChannels.exit
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %203 = shl nsw i64 %24, 1
-  %204 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %205 = mul i64 %19, 252
-  %206 = add i64 %205, 65536
-  br label %213
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %204 = shl nsw i64 %24, 1
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %206 = mul i64 %19, 252
+  %207 = add i64 %206, 65536
+  br label %214
 
-207:                                              ; preds = %.lr.ph, %207
-  %.0126201 = phi i64 [ 0, %.lr.ph ], [ %212, %207 ]
-  %.0128200 = phi i64 [ 0, %.lr.ph ], [ %211, %207 ]
-  %208 = getelementptr inbounds nuw %struct._Classifier, ptr %28, i64 %.0126201
-  %.val = load ptr, ptr %208, align 8, !tbaa !83
-  %209 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #22
-  %210 = add i64 %.0128200, 3
-  %211 = add i64 %210, %209
-  %212 = add nuw i64 %.0126201, 1
-  %exitcond.not = icmp eq i64 %212, %26
-  br i1 %exitcond.not, label %._crit_edge, label %207, !llvm.loop !203
+208:                                              ; preds = %.lr.ph, %208
+  %.0126201 = phi i64 [ 0, %.lr.ph ], [ %213, %208 ]
+  %.0128200 = phi i64 [ 0, %.lr.ph ], [ %212, %208 ]
+  %209 = getelementptr inbounds nuw %struct._Classifier, ptr %28, i64 %.0126201
+  %.val = load ptr, ptr %209, align 8, !tbaa !83
+  %210 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #22
+  %211 = add i64 %.0128200, 3
+  %212 = add i64 %211, %210
+  %213 = add nuw i64 %.0126201, 1
+  %exitcond.not = icmp eq i64 %213, %26
+  br i1 %exitcond.not, label %._crit_edge, label %208, !llvm.loop !203
 
-213:                                              ; preds = %.lr.ph213, %242
-  %214 = phi i32 [ %201, %.lr.ph213 ], [ %243, %242 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next, %242 ]
-  %215 = phi i64 [ 0, %.lr.ph213 ], [ %244, %242 ]
-  %.1129211 = phi i64 [ %.0128.lcssa, %.lr.ph213 ], [ %.4132.ph, %242 ]
-  %.0133210 = phi i64 [ 0, %.lr.ph213 ], [ %.3136.ph, %242 ]
-  %.0137209 = phi i64 [ 0, %.lr.ph213 ], [ %.3140.ph, %242 ]
-  %.0141208 = phi i64 [ 0, %.lr.ph213 ], [ %.3144.ph, %242 ]
-  %216 = phi i64 [ 0, %.lr.ph213 ], [ %245, %242 ]
-  %217 = load ptr, ptr %202, align 8, !tbaa !44
-  %218 = getelementptr inbounds nuw %struct._ChannelData, ptr %217, i64 %indvars.iv
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 448
-  %220 = load ptr, ptr %219, align 32, !tbaa !54
-  %221 = getelementptr inbounds nuw i8, ptr %218, i64 548
-  %222 = load i32, ptr %221, align 4, !tbaa !59
-  switch i32 %222, label %DwaCompressor_classifyChannels.exit.thread [
-    i32 1, label %223
-    i32 2, label %228
-    i32 0, label %235
+214:                                              ; preds = %.lr.ph213, %243
+  %215 = phi i32 [ %202, %.lr.ph213 ], [ %244, %243 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next, %243 ]
+  %216 = phi i64 [ 0, %.lr.ph213 ], [ %245, %243 ]
+  %.1129211 = phi i64 [ %.0128.lcssa, %.lr.ph213 ], [ %.4132.ph, %243 ]
+  %.0133210 = phi i64 [ 0, %.lr.ph213 ], [ %.3136.ph, %243 ]
+  %.0137209 = phi i64 [ 0, %.lr.ph213 ], [ %.3140.ph, %243 ]
+  %.0141208 = phi i64 [ 0, %.lr.ph213 ], [ %.3144.ph, %243 ]
+  %217 = phi i64 [ 0, %.lr.ph213 ], [ %246, %243 ]
+  %218 = load ptr, ptr %203, align 8, !tbaa !44
+  %219 = getelementptr inbounds nuw %struct._ChannelData, ptr %218, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 448
+  %221 = load ptr, ptr %220, align 32, !tbaa !54
+  %222 = getelementptr inbounds nuw i8, ptr %219, i64 548
+  %223 = load i32, ptr %222, align 4, !tbaa !59
+  switch i32 %223, label %DwaCompressor_classifyChannels.exit.thread [
+    i32 1, label %224
+    i32 2, label %229
+    i32 0, label %236
   ]
 
-223:                                              ; preds = %213
-  %224 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %20) #20
-  %225 = tail call noundef i64 @llvm.umax.i64(i64 %206, i64 %224)
-  %226 = add i64 %225, %.1129211
-  %227 = add i64 %.0133210, 1
+224:                                              ; preds = %214
+  %225 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %20) #20
+  %226 = tail call noundef i64 @llvm.umax.i64(i64 %207, i64 %225)
+  %227 = add i64 %226, %.1129211
+  %228 = add i64 %.0133210, 1
   %.pre = load i32, ptr %31, align 8, !tbaa !45
-  br label %242
+  br label %243
 
-228:                                              ; preds = %213
-  %229 = getelementptr inbounds nuw i8, ptr %220, i64 25
-  %230 = load i8, ptr %229, align 1, !tbaa !95
-  %231 = sext i8 %230 to i64
-  %232 = mul i64 %203, %231
-  %233 = add i64 %232, %.0137209
-  %234 = add i64 %232, %215
-  br label %242
+229:                                              ; preds = %214
+  %230 = getelementptr inbounds nuw i8, ptr %221, i64 25
+  %231 = load i8, ptr %230, align 1, !tbaa !95
+  %232 = sext i8 %231 to i64
+  %233 = mul i64 %204, %232
+  %234 = add i64 %233, %.0137209
+  %235 = add i64 %233, %216
+  br label %243
 
-235:                                              ; preds = %213
-  %236 = getelementptr inbounds nuw i8, ptr %220, i64 25
-  %237 = load i8, ptr %236, align 1, !tbaa !95
-  %238 = sext i8 %237 to i64
-  %239 = mul i64 %24, %238
-  %240 = add i64 %239, %.0141208
-  %241 = add i64 %239, %216
-  br label %242
+236:                                              ; preds = %214
+  %237 = getelementptr inbounds nuw i8, ptr %221, i64 25
+  %238 = load i8, ptr %237, align 1, !tbaa !95
+  %239 = sext i8 %238 to i64
+  %240 = mul i64 %24, %239
+  %241 = add i64 %240, %.0141208
+  %242 = add i64 %240, %217
+  br label %243
 
-242:                                              ; preds = %235, %228, %223
-  %243 = phi i32 [ %214, %235 ], [ %214, %228 ], [ %.pre, %223 ]
-  %244 = phi i64 [ %215, %235 ], [ %234, %228 ], [ %215, %223 ]
-  %245 = phi i64 [ %241, %235 ], [ %216, %228 ], [ %216, %223 ]
-  %.3144.ph = phi i64 [ %240, %235 ], [ %.0141208, %228 ], [ %.0141208, %223 ]
-  %.3140.ph = phi i64 [ %.0137209, %235 ], [ %233, %228 ], [ %.0137209, %223 ]
-  %.3136.ph = phi i64 [ %.0133210, %235 ], [ %.0133210, %228 ], [ %227, %223 ]
-  %.4132.ph = phi i64 [ %.1129211, %235 ], [ %.1129211, %228 ], [ %226, %223 ]
+243:                                              ; preds = %236, %229, %224
+  %244 = phi i32 [ %215, %236 ], [ %215, %229 ], [ %.pre, %224 ]
+  %245 = phi i64 [ %216, %236 ], [ %235, %229 ], [ %216, %224 ]
+  %246 = phi i64 [ %242, %236 ], [ %217, %229 ], [ %217, %224 ]
+  %.3144.ph = phi i64 [ %241, %236 ], [ %.0141208, %229 ], [ %.0141208, %224 ]
+  %.3140.ph = phi i64 [ %.0137209, %236 ], [ %234, %229 ], [ %.0137209, %224 ]
+  %.3136.ph = phi i64 [ %.0133210, %236 ], [ %.0133210, %229 ], [ %228, %224 ]
+  %.4132.ph = phi i64 [ %.1129211, %236 ], [ %.1129211, %229 ], [ %227, %224 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %246 = sext i32 %243 to i64
-  %.not158 = icmp slt i64 %indvars.iv.next, %246
-  br i1 %.not158, label %213, label %._crit_edge214, !llvm.loop !204
+  %247 = sext i32 %244 to i64
+  %.not158 = icmp slt i64 %indvars.iv.next, %247
+  br i1 %.not158, label %214, label %._crit_edge214, !llvm.loop !204
 
-._crit_edge214:                                   ; preds = %242
-  store i64 %244, ptr %204, align 16
-  br label %247
+._crit_edge214:                                   ; preds = %243
+  store i64 %245, ptr %205, align 16
+  br label %248
 
-247:                                              ; preds = %._crit_edge214, %DwaCompressor_classifyChannels.exit
-  %248 = phi i64 [ %245, %._crit_edge214 ], [ 0, %DwaCompressor_classifyChannels.exit ]
+248:                                              ; preds = %._crit_edge214, %DwaCompressor_classifyChannels.exit
+  %249 = phi i64 [ %246, %._crit_edge214 ], [ 0, %DwaCompressor_classifyChannels.exit ]
   %.0141.lcssa = phi i64 [ %.3144.ph, %._crit_edge214 ], [ 0, %DwaCompressor_classifyChannels.exit ]
   %.0137.lcssa = phi i64 [ %.3140.ph, %._crit_edge214 ], [ 0, %DwaCompressor_classifyChannels.exit ]
   %.0133.lcssa = phi i64 [ %.3136.ph, %._crit_edge214 ], [ 0, %DwaCompressor_classifyChannels.exit ]
   %.1129.lcssa = phi i64 [ %.4132.ph, %._crit_edge214 ], [ %.0128.lcssa, %DwaCompressor_classifyChannels.exit ]
-  store i64 %248, ptr %2, align 16
-  %249 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0137.lcssa) #20
-  %250 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0141.lcssa) #20
-  %251 = mul i64 %.0133.lcssa, %21
-  %252 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %251) #20
-  %253 = add i64 %.1129.lcssa, 88
-  %254 = add i64 %253, %249
+  store i64 %249, ptr %2, align 16
+  %250 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0137.lcssa) #20
+  %251 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0141.lcssa) #20
+  %252 = mul i64 %.0133.lcssa, %21
+  %253 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %252) #20
+  %254 = add i64 %.1129.lcssa, 88
   %255 = add i64 %254, %250
-  %256 = add i64 %255, %252
-  store i64 %256, ptr %1, align 8, !tbaa !74
-  %257 = mul i64 %.0133.lcssa, %20
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %259 = load i64, ptr %258, align 8, !tbaa !150
-  %260 = icmp ugt i64 %257, %259
-  br i1 %260, label %261, label %272
+  %256 = add i64 %255, %251
+  %257 = add i64 %256, %253
+  store i64 %257, ptr %1, align 8, !tbaa !74
+  %258 = mul i64 %.0133.lcssa, %20
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %260 = load i64, ptr %259, align 8, !tbaa !150
+  %261 = icmp ugt i64 %258, %260
+  br i1 %261, label %262, label %273
 
-261:                                              ; preds = %247
-  store i64 %257, ptr %258, align 8, !tbaa !150
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %263 = load ptr, ptr %262, align 8, !tbaa !91
-  %.not159 = icmp eq ptr %263, null
-  br i1 %.not159, label %266, label %264
+262:                                              ; preds = %248
+  store i64 %258, ptr %259, align 8, !tbaa !150
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %264 = load ptr, ptr %263, align 8, !tbaa !91
+  %.not159 = icmp eq ptr %264, null
+  br i1 %.not159, label %267, label %265
 
-264:                                              ; preds = %261
-  %265 = load ptr, ptr %199, align 8, !tbaa !42
-  tail call void %265(ptr noundef nonnull %263) #20
-  %.pre246 = load i64, ptr %258, align 8, !tbaa !150
-  br label %266
+265:                                              ; preds = %262
+  %266 = load ptr, ptr %200, align 8, !tbaa !42
+  tail call void %266(ptr noundef nonnull %264) #20
+  %.pre246 = load i64, ptr %259, align 8, !tbaa !150
+  br label %267
 
-266:                                              ; preds = %264, %261
-  %267 = phi i64 [ %.pre246, %264 ], [ %257, %261 ]
-  %268 = load ptr, ptr %29, align 8, !tbaa !41
-  %269 = tail call ptr %268(i64 noundef %267) #20
-  store ptr %269, ptr %262, align 8, !tbaa !91
-  %.not160 = icmp eq ptr %269, null
-  br i1 %.not160, label %DwaCompressor_classifyChannels.exit.thread, label %270
+267:                                              ; preds = %265, %262
+  %268 = phi i64 [ %.pre246, %265 ], [ %258, %262 ]
+  %269 = load ptr, ptr %29, align 8, !tbaa !41
+  %270 = tail call ptr %269(i64 noundef %268) #20
+  store ptr %270, ptr %263, align 8, !tbaa !91
+  %.not160 = icmp eq ptr %270, null
+  br i1 %.not160, label %DwaCompressor_classifyChannels.exit.thread, label %271
 
-270:                                              ; preds = %266
-  %271 = load i64, ptr %258, align 8, !tbaa !150
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %269, i8 0, i64 %271, i1 false)
-  br label %272
+271:                                              ; preds = %267
+  %272 = load i64, ptr %259, align 8, !tbaa !150
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %270, i8 0, i64 %272, i1 false)
+  br label %273
 
-272:                                              ; preds = %270, %247
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %274 = load i64, ptr %273, align 8, !tbaa !153
-  %275 = icmp ugt i64 %251, %274
-  br i1 %275, label %276, label %287
+273:                                              ; preds = %271, %248
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %275 = load i64, ptr %274, align 8, !tbaa !153
+  %276 = icmp ugt i64 %252, %275
+  br i1 %276, label %277, label %288
 
-276:                                              ; preds = %272
-  store i64 %251, ptr %273, align 8, !tbaa !153
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %278 = load ptr, ptr %277, align 8, !tbaa !92
-  %.not161 = icmp eq ptr %278, null
-  br i1 %.not161, label %281, label %279
+277:                                              ; preds = %273
+  store i64 %252, ptr %274, align 8, !tbaa !153
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %279 = load ptr, ptr %278, align 8, !tbaa !92
+  %.not161 = icmp eq ptr %279, null
+  br i1 %.not161, label %282, label %280
 
-279:                                              ; preds = %276
-  %280 = load ptr, ptr %199, align 8, !tbaa !42
-  tail call void %280(ptr noundef nonnull %278) #20
-  %.pre247 = load i64, ptr %273, align 8, !tbaa !153
-  br label %281
+280:                                              ; preds = %277
+  %281 = load ptr, ptr %200, align 8, !tbaa !42
+  tail call void %281(ptr noundef nonnull %279) #20
+  %.pre247 = load i64, ptr %274, align 8, !tbaa !153
+  br label %282
 
-281:                                              ; preds = %279, %276
-  %282 = phi i64 [ %.pre247, %279 ], [ %251, %276 ]
-  %283 = load ptr, ptr %29, align 8, !tbaa !41
-  %284 = tail call ptr %283(i64 noundef %282) #20
-  store ptr %284, ptr %277, align 8, !tbaa !92
-  %.not162 = icmp eq ptr %284, null
-  br i1 %.not162, label %DwaCompressor_classifyChannels.exit.thread, label %285
+282:                                              ; preds = %280, %277
+  %283 = phi i64 [ %.pre247, %280 ], [ %252, %277 ]
+  %284 = load ptr, ptr %29, align 8, !tbaa !41
+  %285 = tail call ptr %284(i64 noundef %283) #20
+  store ptr %285, ptr %278, align 8, !tbaa !92
+  %.not162 = icmp eq ptr %285, null
+  br i1 %.not162, label %DwaCompressor_classifyChannels.exit.thread, label %286
 
-285:                                              ; preds = %281
-  %286 = load i64, ptr %273, align 8, !tbaa !153
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %284, i8 0, i64 %286, i1 false)
-  br label %287
+286:                                              ; preds = %282
+  %287 = load i64, ptr %274, align 8, !tbaa !153
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %285, i8 0, i64 %287, i1 false)
+  br label %288
 
-287:                                              ; preds = %285, %272
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %289 = load i64, ptr %288, align 8, !tbaa !137
-  %290 = icmp ugt i64 %.0137.lcssa, %289
-  br i1 %290, label %291, label %300
+288:                                              ; preds = %286, %273
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %290 = load i64, ptr %289, align 8, !tbaa !137
+  %291 = icmp ugt i64 %.0137.lcssa, %290
+  br i1 %291, label %292, label %301
 
-291:                                              ; preds = %287
-  store i64 %.0137.lcssa, ptr %288, align 8, !tbaa !137
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %293 = load ptr, ptr %292, align 8, !tbaa !136
-  %.not163 = icmp eq ptr %293, null
-  br i1 %.not163, label %296, label %294
+292:                                              ; preds = %288
+  store i64 %.0137.lcssa, ptr %289, align 8, !tbaa !137
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %294 = load ptr, ptr %293, align 8, !tbaa !136
+  %.not163 = icmp eq ptr %294, null
+  br i1 %.not163, label %297, label %295
 
-294:                                              ; preds = %291
-  %295 = load ptr, ptr %199, align 8, !tbaa !42
-  tail call void %295(ptr noundef nonnull %293) #20
-  br label %296
+295:                                              ; preds = %292
+  %296 = load ptr, ptr %200, align 8, !tbaa !42
+  tail call void %296(ptr noundef nonnull %294) #20
+  br label %297
 
-296:                                              ; preds = %294, %291
-  %297 = load ptr, ptr %29, align 8, !tbaa !41
-  %298 = tail call ptr %297(i64 noundef %.0137.lcssa) #20
-  store ptr %298, ptr %292, align 8, !tbaa !136
-  %.not164 = icmp eq ptr %298, null
-  br i1 %.not164, label %DwaCompressor_classifyChannels.exit.thread, label %299
+297:                                              ; preds = %295, %292
+  %298 = load ptr, ptr %29, align 8, !tbaa !41
+  %299 = tail call ptr %298(i64 noundef %.0137.lcssa) #20
+  store ptr %299, ptr %293, align 8, !tbaa !136
+  %.not164 = icmp eq ptr %299, null
+  br i1 %.not164, label %DwaCompressor_classifyChannels.exit.thread, label %300
 
-299:                                              ; preds = %296
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %298, i8 0, i64 %.0137.lcssa, i1 false)
-  br label %300
+300:                                              ; preds = %297
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %299, i8 0, i64 %.0137.lcssa, i1 false)
+  br label %301
 
-300:                                              ; preds = %299, %287
-  %.not165 = icmp eq i64 %248, 0
-  br i1 %.not165, label %303, label %301
+301:                                              ; preds = %300, %288
+  %.not165 = icmp eq i64 %249, 0
+  br i1 %.not165, label %304, label %302
 
-301:                                              ; preds = %300
-  %302 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %248) #20
-  store i64 %302, ptr %2, align 16, !tbaa !74
-  br label %303
+302:                                              ; preds = %301
+  %303 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %249) #20
+  store i64 %303, ptr %2, align 16, !tbaa !74
+  br label %304
 
-303:                                              ; preds = %301, %300
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br label %306
+304:                                              ; preds = %302, %301
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br label %307
 
-306:                                              ; preds = %303, %320
-  %indvars.iv242 = phi i64 [ 0, %303 ], [ %indvars.iv.next243, %320 ]
-  %307 = getelementptr inbounds nuw [3 x i64], ptr %2, i64 0, i64 %indvars.iv242
-  %308 = load i64, ptr %307, align 8, !tbaa !74
-  %309 = getelementptr inbounds nuw [3 x i64], ptr %304, i64 0, i64 %indvars.iv242
-  %310 = load i64, ptr %309, align 8, !tbaa !74
-  %311 = icmp ugt i64 %308, %310
-  br i1 %311, label %312, label %320
+307:                                              ; preds = %304, %321
+  %indvars.iv242 = phi i64 [ 0, %304 ], [ %indvars.iv.next243, %321 ]
+  %308 = getelementptr inbounds nuw [3 x i64], ptr %2, i64 0, i64 %indvars.iv242
+  %309 = load i64, ptr %308, align 8, !tbaa !74
+  %310 = getelementptr inbounds nuw [3 x i64], ptr %305, i64 0, i64 %indvars.iv242
+  %311 = load i64, ptr %310, align 8, !tbaa !74
+  %312 = icmp ugt i64 %309, %311
+  br i1 %312, label %313, label %321
 
-312:                                              ; preds = %306
-  store i64 %308, ptr %309, align 8, !tbaa !74
-  %313 = getelementptr inbounds nuw [3 x ptr], ptr %305, i64 0, i64 %indvars.iv242
-  %314 = load ptr, ptr %313, align 8, !tbaa !97
-  %.not166 = icmp eq ptr %314, null
-  br i1 %.not166, label %317, label %315
+313:                                              ; preds = %307
+  store i64 %309, ptr %310, align 8, !tbaa !74
+  %314 = getelementptr inbounds nuw [3 x ptr], ptr %306, i64 0, i64 %indvars.iv242
+  %315 = load ptr, ptr %314, align 8, !tbaa !97
+  %.not166 = icmp eq ptr %315, null
+  br i1 %.not166, label %318, label %316
 
-315:                                              ; preds = %312
-  %316 = load ptr, ptr %199, align 8, !tbaa !42
-  tail call void %316(ptr noundef nonnull %314) #20
-  br label %317
+316:                                              ; preds = %313
+  %317 = load ptr, ptr %200, align 8, !tbaa !42
+  tail call void %317(ptr noundef nonnull %315) #20
+  br label %318
 
-317:                                              ; preds = %312, %315
-  %318 = load ptr, ptr %29, align 8, !tbaa !41
-  %319 = tail call ptr %318(i64 noundef %308) #20
-  store ptr %319, ptr %313, align 8, !tbaa !97
-  %.not167 = icmp eq ptr %319, null
-  br i1 %.not167, label %DwaCompressor_classifyChannels.exit.thread, label %320
+318:                                              ; preds = %313, %316
+  %319 = load ptr, ptr %29, align 8, !tbaa !41
+  %320 = tail call ptr %319(i64 noundef %309) #20
+  store ptr %320, ptr %314, align 8, !tbaa !97
+  %.not167 = icmp eq ptr %320, null
+  br i1 %.not167, label %DwaCompressor_classifyChannels.exit.thread, label %321
 
-320:                                              ; preds = %306, %317
+321:                                              ; preds = %307, %318
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond245 = icmp eq i64 %indvars.iv.next243, 3
-  br i1 %exitcond245, label %DwaCompressor_classifyChannels.exit.thread, label %306, !llvm.loop !205
+  br i1 %exitcond245, label %DwaCompressor_classifyChannels.exit.thread, label %307, !llvm.loop !205
 
-DwaCompressor_classifyChannels.exit.thread:       ; preds = %213, %320, %317, %37, %._crit_edge, %296, %281, %266
-  %.0121 = phi i32 [ 1, %266 ], [ 1, %281 ], [ 1, %296 ], [ 1, %._crit_edge ], [ 1, %37 ], [ 1, %317 ], [ 0, %320 ], [ 3, %213 ]
+DwaCompressor_classifyChannels.exit.thread:       ; preds = %214, %321, %318, %37, %._crit_edge, %297, %282, %267
+  %.0121 = phi i32 [ 1, %267 ], [ 1, %282 ], [ 1, %297 ], [ 1, %._crit_edge ], [ 1, %37 ], [ 1, %318 ], [ 0, %321 ], [ 3, %214 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #20
   ret i32 %.0121
 }

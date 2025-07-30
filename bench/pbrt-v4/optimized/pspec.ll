@@ -9684,8 +9684,8 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr n
   br label %15
 
 ._crit_edge.i:                                    ; preds = %15, %1
-  %.0.lcssa.i = phi i64 [ 0, %1 ], [ %38, %15 ]
-  br i1 %.not.not.i, label %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, label %39
+  %.0.lcssa.i = phi i64 [ 0, %1 ], [ %39, %15 ]
+  br i1 %.not.not.i, label %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, label %40
 
 ._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge: ; preds = %._crit_edge.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9694,7 +9694,7 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr n
 
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %13, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %.023.i = phi i64 [ 0, %.lr.ph.i ], [ %38, %15 ]
+  %.023.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %15 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %16 = shl nuw nsw i64 %indvars.iv.next.i, 1
   %17 = sub nsw i64 %16, %14
@@ -9714,396 +9714,397 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr n
   %31 = lshr i64 %29, 24
   %32 = xor i64 %30, %31
   %33 = urem i64 %32, 24
-  %34 = getelementptr inbounds nuw [24 x [4 x i8]], ptr @_ZZNK4pbrt13ZSobolSampler14GetSampleIndexEvE12permutations, i64 0, i64 %33, i64 %20
-  %35 = load i8, ptr %34, align 1, !tbaa !13
-  %36 = zext i8 %35 to i64
-  %37 = shl i64 %36, %18
-  %38 = or i64 %37, %.023.i
+  %34 = getelementptr inbounds nuw [24 x [4 x i8]], ptr @_ZZNK4pbrt13ZSobolSampler14GetSampleIndexEvE12permutations, i64 0, i64 %33
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 0, i64 %20
+  %36 = load i8, ptr %35, align 1, !tbaa !13
+  %37 = zext i8 %36 to i64
+  %38 = shl i64 %37, %18
+  %39 = or i64 %38, %.023.i
   %.not.not20.i = icmp samesign ugt i64 %indvars.iv.next.i, %14
   br i1 %.not.not20.i, label %15, label %._crit_edge.i, !llvm.loop !371
 
-39:                                               ; preds = %._crit_edge.i
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !158
-  %42 = lshr i64 %41, 1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %44 = load i32, ptr %43, align 8, !tbaa !154
-  %45 = mul i32 %44, 1431655765
-  %46 = zext i32 %45 to i64
-  %47 = xor i64 %42, %46
-  %48 = lshr i64 %47, 31
-  %49 = xor i64 %48, %47
-  %50 = mul i64 %49, 9202493588570546565
-  %51 = lshr i64 %50, 27
-  %52 = xor i64 %51, %50
-  %53 = mul i64 %52, -9089707755183418291
-  %54 = lshr i64 %53, 33
-  %55 = xor i64 %41, %54
-  %56 = xor i64 %55, %53
-  %57 = and i64 %56, 1
-  %58 = or i64 %57, %.0.lcssa.i
+40:                                               ; preds = %._crit_edge.i
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load i64, ptr %41, align 8, !tbaa !158
+  %43 = lshr i64 %42, 1
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %45 = load i32, ptr %44, align 8, !tbaa !154
+  %46 = mul i32 %45, 1431655765
+  %47 = zext i32 %46 to i64
+  %48 = xor i64 %43, %47
+  %49 = lshr i64 %48, 31
+  %50 = xor i64 %49, %48
+  %51 = mul i64 %50, 9202493588570546565
+  %52 = lshr i64 %51, 27
+  %53 = xor i64 %52, %51
+  %54 = mul i64 %53, -9089707755183418291
+  %55 = lshr i64 %54, 33
+  %56 = xor i64 %42, %55
+  %57 = xor i64 %56, %54
+  %58 = and i64 %57, 1
+  %59 = or i64 %58, %.0.lcssa.i
   br label %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
 
-_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, %39
-  %59 = phi i32 [ %44, %39 ], [ %.pre, %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
-  %.1.i = phi i64 [ %58, %39 ], [ %.0.lcssa.i, %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %61 = add nsw i32 %59, 2
-  store i32 %61, ptr %60, align 8, !tbaa !154
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !366
-  %.sroa.4.0.insert.ext.i = zext i32 %63 to i64
+_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, %40
+  %60 = phi i32 [ %45, %40 ], [ %.pre, %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
+  %.1.i = phi i64 [ %59, %40 ], [ %.0.lcssa.i, %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %62 = add nsw i32 %60, 2
+  store i32 %62, ptr %61, align 8, !tbaa !154
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %64 = load i32, ptr %63, align 4, !tbaa !366
+  %.sroa.4.0.insert.ext.i = zext i32 %64 to i64
   %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %61 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %62 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %64 = mul i64 %.sroa.0.0.insert.insert.i, -4132994306676758123
-  %65 = lshr i64 %64, 47
-  %66 = xor i64 %65, %64
-  %67 = mul i64 %66, -4132994306676758123
-  %68 = xor i64 %67, 3829533694005038248
-  %69 = mul i64 %68, -4132994306676758123
-  %70 = lshr i64 %69, 47
-  %71 = xor i64 %70, %69
-  %72 = mul i64 %71, -4132994306676758123
-  %73 = lshr i64 %72, 47
-  %74 = xor i64 %73, %72
-  %75 = trunc i64 %74 to i32
-  %76 = lshr i64 %72, 32
-  %77 = trunc nuw i64 %76 to i32
-  %78 = load i32, ptr %0, align 8, !tbaa !365
+  %65 = mul i64 %.sroa.0.0.insert.insert.i, -4132994306676758123
+  %66 = lshr i64 %65, 47
+  %67 = xor i64 %66, %65
+  %68 = mul i64 %67, -4132994306676758123
+  %69 = xor i64 %68, 3829533694005038248
+  %70 = mul i64 %69, -4132994306676758123
+  %71 = lshr i64 %70, 47
+  %72 = xor i64 %71, %70
+  %73 = mul i64 %72, -4132994306676758123
+  %74 = lshr i64 %73, 47
+  %75 = xor i64 %74, %73
+  %76 = trunc i64 %75 to i32
+  %77 = lshr i64 %73, 32
+  %78 = trunc nuw i64 %77 to i32
+  %79 = load i32, ptr %0, align 8, !tbaa !365
   %.not12.i88 = icmp eq i64 %.1.i, 0
-  switch i32 %78, label %165 [
-    i32 0, label %79
-    i32 1, label %99
-    i32 2, label %121
+  switch i32 %79, label %166 [
+    i32 0, label %80
+    i32 1, label %100
+    i32 2, label %122
   ]
 
-79:                                               ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
+80:                                               ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
   br i1 %.not12.i88, label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33, label %.lr.ph.i14
 
-.lr.ph.i14:                                       ; preds = %79, %85
-  %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i17, %85 ], [ 0, %79 ]
-  %.0914.i = phi i32 [ %.1.i16, %85 ], [ 0, %79 ]
-  %.01013.i = phi i64 [ %86, %85 ], [ %.1.i, %79 ]
-  %80 = and i64 %.01013.i, 1
-  %.not11.i = icmp eq i64 %80, 0
-  br i1 %.not11.i, label %85, label %81
+.lr.ph.i14:                                       ; preds = %80, %86
+  %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i17, %86 ], [ 0, %80 ]
+  %.0914.i = phi i32 [ %.1.i16, %86 ], [ 0, %80 ]
+  %.01013.i = phi i64 [ %87, %86 ], [ %.1.i, %80 ]
+  %81 = and i64 %.01013.i, 1
+  %.not11.i = icmp eq i64 %81, 0
+  br i1 %.not11.i, label %86, label %82
 
-81:                                               ; preds = %.lr.ph.i14
-  %82 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i15
-  %83 = load i32, ptr %82, align 4, !tbaa !15
-  %84 = xor i32 %83, %.0914.i
-  br label %85
+82:                                               ; preds = %.lr.ph.i14
+  %83 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i15
+  %84 = load i32, ptr %83, align 4, !tbaa !15
+  %85 = xor i32 %84, %.0914.i
+  br label %86
 
-85:                                               ; preds = %81, %.lr.ph.i14
-  %.1.i16 = phi i32 [ %84, %81 ], [ %.0914.i, %.lr.ph.i14 ]
-  %86 = ashr i64 %.01013.i, 1
+86:                                               ; preds = %82, %.lr.ph.i14
+  %.1.i16 = phi i32 [ %85, %82 ], [ %.0914.i, %.lr.ph.i14 ]
+  %87 = ashr i64 %.01013.i, 1
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %.not.i = icmp ult i64 %.01013.i, 2
   br i1 %.not.i, label %.lr.ph.i21, label %.lr.ph.i14, !llvm.loop !372
 
-._crit_edge.loopexit.i29:                         ; preds = %97
-  %87 = uitofp i32 %.1.i16 to float
-  %88 = fmul float %87, 0x3DF0000000000000
-  %89 = fcmp ogt float %88, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i = select i1 %89, float 0x3FEFFFFFE0000000, float %88
-  %90 = uitofp i32 %.1.i26 to float
-  %91 = fmul float %90, 0x3DF0000000000000
+._crit_edge.loopexit.i29:                         ; preds = %98
+  %88 = uitofp i32 %.1.i16 to float
+  %89 = fmul float %88, 0x3DF0000000000000
+  %90 = fcmp ogt float %89, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i = select i1 %90, float 0x3FEFFFFFE0000000, float %89
+  %91 = uitofp i32 %.1.i26 to float
+  %92 = fmul float %91, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33
 
-.lr.ph.i21:                                       ; preds = %85, %97
-  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i27, %97 ], [ 52, %85 ]
-  %.0914.i23 = phi i32 [ %.1.i26, %97 ], [ 0, %85 ]
-  %.01013.i24 = phi i64 [ %98, %97 ], [ %.1.i, %85 ]
-  %92 = and i64 %.01013.i24, 1
-  %.not11.i25 = icmp eq i64 %92, 0
-  br i1 %.not11.i25, label %97, label %93
+.lr.ph.i21:                                       ; preds = %86, %98
+  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i27, %98 ], [ 52, %86 ]
+  %.0914.i23 = phi i32 [ %.1.i26, %98 ], [ 0, %86 ]
+  %.01013.i24 = phi i64 [ %99, %98 ], [ %.1.i, %86 ]
+  %93 = and i64 %.01013.i24, 1
+  %.not11.i25 = icmp eq i64 %93, 0
+  br i1 %.not11.i25, label %98, label %94
 
-93:                                               ; preds = %.lr.ph.i21
-  %94 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i22
-  %95 = load i32, ptr %94, align 4, !tbaa !15
-  %96 = xor i32 %95, %.0914.i23
-  br label %97
+94:                                               ; preds = %.lr.ph.i21
+  %95 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i22
+  %96 = load i32, ptr %95, align 4, !tbaa !15
+  %97 = xor i32 %96, %.0914.i23
+  br label %98
 
-97:                                               ; preds = %93, %.lr.ph.i21
-  %.1.i26 = phi i32 [ %96, %93 ], [ %.0914.i23, %.lr.ph.i21 ]
-  %98 = ashr i64 %.01013.i24, 1
+98:                                               ; preds = %94, %.lr.ph.i21
+  %.1.i26 = phi i32 [ %97, %94 ], [ %.0914.i23, %.lr.ph.i21 ]
+  %99 = ashr i64 %.01013.i24, 1
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i22, 1
   %.not.i28 = icmp ult i64 %.01013.i24, 2
   br i1 %.not.i28, label %._crit_edge.loopexit.i29, label %.lr.ph.i21, !llvm.loop !372
 
-99:                                               ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
+100:                                              ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
   br i1 %.not12.i88, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60, label %.lr.ph.i36
 
-.lr.ph.i36:                                       ; preds = %99, %105
-  %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i42, %105 ], [ 0, %99 ]
-  %.0914.i38 = phi i32 [ %.1.i41, %105 ], [ 0, %99 ]
-  %.01013.i39 = phi i64 [ %106, %105 ], [ %.1.i, %99 ]
-  %100 = and i64 %.01013.i39, 1
-  %.not11.i40 = icmp eq i64 %100, 0
-  br i1 %.not11.i40, label %105, label %101
+.lr.ph.i36:                                       ; preds = %100, %106
+  %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i42, %106 ], [ 0, %100 ]
+  %.0914.i38 = phi i32 [ %.1.i41, %106 ], [ 0, %100 ]
+  %.01013.i39 = phi i64 [ %107, %106 ], [ %.1.i, %100 ]
+  %101 = and i64 %.01013.i39, 1
+  %.not11.i40 = icmp eq i64 %101, 0
+  br i1 %.not11.i40, label %106, label %102
 
-101:                                              ; preds = %.lr.ph.i36
-  %102 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i37
-  %103 = load i32, ptr %102, align 4, !tbaa !15
-  %104 = xor i32 %103, %.0914.i38
-  br label %105
+102:                                              ; preds = %.lr.ph.i36
+  %103 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i37
+  %104 = load i32, ptr %103, align 4, !tbaa !15
+  %105 = xor i32 %104, %.0914.i38
+  br label %106
 
-105:                                              ; preds = %101, %.lr.ph.i36
-  %.1.i41 = phi i32 [ %104, %101 ], [ %.0914.i38, %.lr.ph.i36 ]
-  %106 = ashr i64 %.01013.i39, 1
+106:                                              ; preds = %102, %.lr.ph.i36
+  %.1.i41 = phi i32 [ %105, %102 ], [ %.0914.i38, %.lr.ph.i36 ]
+  %107 = ashr i64 %.01013.i39, 1
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i37, 1
   %.not.i43 = icmp ult i64 %.01013.i39, 2
   br i1 %.not.i43, label %.lr.ph.i49, label %.lr.ph.i36, !llvm.loop !373
 
-.lr.ph.i49:                                       ; preds = %105, %112
-  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i55, %112 ], [ 52, %105 ]
-  %.0914.i51 = phi i32 [ %.1.i54, %112 ], [ 0, %105 ]
-  %.01013.i52 = phi i64 [ %113, %112 ], [ %.1.i, %105 ]
-  %107 = and i64 %.01013.i52, 1
-  %.not11.i53 = icmp eq i64 %107, 0
-  br i1 %.not11.i53, label %112, label %108
+.lr.ph.i49:                                       ; preds = %106, %113
+  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i55, %113 ], [ 52, %106 ]
+  %.0914.i51 = phi i32 [ %.1.i54, %113 ], [ 0, %106 ]
+  %.01013.i52 = phi i64 [ %114, %113 ], [ %.1.i, %106 ]
+  %108 = and i64 %.01013.i52, 1
+  %.not11.i53 = icmp eq i64 %108, 0
+  br i1 %.not11.i53, label %113, label %109
 
-108:                                              ; preds = %.lr.ph.i49
-  %109 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i50
-  %110 = load i32, ptr %109, align 4, !tbaa !15
-  %111 = xor i32 %110, %.0914.i51
-  br label %112
+109:                                              ; preds = %.lr.ph.i49
+  %110 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i50
+  %111 = load i32, ptr %110, align 4, !tbaa !15
+  %112 = xor i32 %111, %.0914.i51
+  br label %113
 
-112:                                              ; preds = %108, %.lr.ph.i49
-  %.1.i54 = phi i32 [ %111, %108 ], [ %.0914.i51, %.lr.ph.i49 ]
-  %113 = ashr i64 %.01013.i52, 1
+113:                                              ; preds = %109, %.lr.ph.i49
+  %.1.i54 = phi i32 [ %112, %109 ], [ %.0914.i51, %.lr.ph.i49 ]
+  %114 = ashr i64 %.01013.i52, 1
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i50, 1
   %.not.i56 = icmp ult i64 %.01013.i52, 2
   br i1 %.not.i56, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60.loopexit, label %.lr.ph.i49, !llvm.loop !373
 
-_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60.loopexit: ; preds = %112
-  %114 = xor i32 %.1.i41, %75
+_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60.loopexit: ; preds = %113
+  %115 = xor i32 %.1.i41, %76
   br label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60
 
-_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60: ; preds = %99, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60.loopexit
-  %.sink148 = phi i32 [ %114, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60.loopexit ], [ %75, %99 ]
-  %.09.lcssa.i58 = phi i32 [ %.1.i54, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60.loopexit ], [ 0, %99 ]
-  %115 = uitofp i32 %.sink148 to float
-  %116 = fmul float %115, 0x3DF0000000000000
-  %117 = fcmp ogt float %116, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i46 = select i1 %117, float 0x3FEFFFFFE0000000, float %116
-  %118 = xor i32 %.09.lcssa.i58, %77
-  %119 = uitofp i32 %118 to float
-  %120 = fmul float %119, 0x3DF0000000000000
+_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60: ; preds = %100, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60.loopexit
+  %.sink148 = phi i32 [ %115, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60.loopexit ], [ %76, %100 ]
+  %.09.lcssa.i58 = phi i32 [ %.1.i54, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60.loopexit ], [ 0, %100 ]
+  %116 = uitofp i32 %.sink148 to float
+  %117 = fmul float %116, 0x3DF0000000000000
+  %118 = fcmp ogt float %117, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i46 = select i1 %118, float 0x3FEFFFFFE0000000, float %117
+  %119 = xor i32 %.09.lcssa.i58, %78
+  %120 = uitofp i32 %119 to float
+  %121 = fmul float %120, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33
 
-121:                                              ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
+122:                                              ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
   br i1 %.not12.i88, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %.lr.ph.i63
 
-.lr.ph.i63:                                       ; preds = %121, %127
-  %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i69, %127 ], [ 0, %121 ]
-  %.0914.i65 = phi i32 [ %.1.i68, %127 ], [ 0, %121 ]
-  %.01013.i66 = phi i64 [ %128, %127 ], [ %.1.i, %121 ]
-  %122 = and i64 %.01013.i66, 1
-  %.not11.i67 = icmp eq i64 %122, 0
-  br i1 %.not11.i67, label %127, label %123
+.lr.ph.i63:                                       ; preds = %122, %128
+  %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i69, %128 ], [ 0, %122 ]
+  %.0914.i65 = phi i32 [ %.1.i68, %128 ], [ 0, %122 ]
+  %.01013.i66 = phi i64 [ %129, %128 ], [ %.1.i, %122 ]
+  %123 = and i64 %.01013.i66, 1
+  %.not11.i67 = icmp eq i64 %123, 0
+  br i1 %.not11.i67, label %128, label %124
 
-123:                                              ; preds = %.lr.ph.i63
-  %124 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i64
-  %125 = load i32, ptr %124, align 4, !tbaa !15
-  %126 = xor i32 %125, %.0914.i65
-  br label %127
+124:                                              ; preds = %.lr.ph.i63
+  %125 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i64
+  %126 = load i32, ptr %125, align 4, !tbaa !15
+  %127 = xor i32 %126, %.0914.i65
+  br label %128
 
-127:                                              ; preds = %123, %.lr.ph.i63
-  %.1.i68 = phi i32 [ %126, %123 ], [ %.0914.i65, %.lr.ph.i63 ]
-  %128 = ashr i64 %.01013.i66, 1
+128:                                              ; preds = %124, %.lr.ph.i63
+  %.1.i68 = phi i32 [ %127, %124 ], [ %.0914.i65, %.lr.ph.i63 ]
+  %129 = ashr i64 %.01013.i66, 1
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i64, 1
   %.not.i70 = icmp ult i64 %.01013.i66, 2
   br i1 %.not.i70, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %.lr.ph.i63, !llvm.loop !374
 
-_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %127, %121
-  %.09.lcssa.i72 = phi i32 [ 0, %121 ], [ %.1.i68, %127 ]
-  %129 = tail call noundef i32 @llvm.bitreverse.i32(i32 %.09.lcssa.i72)
-  %130 = mul i32 %129, 1025551850
-  %131 = xor i32 %130, %129
-  %132 = add i32 %131, %75
-  %133 = lshr i32 %75, 16
-  %134 = or i32 %133, 1
-  %135 = mul i32 %132, %134
-  %136 = mul i32 %135, 89287766
-  %137 = xor i32 %136, %135
-  %138 = mul i32 %137, 1403136100
-  %139 = xor i32 %138, %137
-  %140 = tail call noundef i32 @llvm.bitreverse.i32(i32 %139)
-  %141 = uitofp i32 %140 to float
-  %142 = fmul float %141, 0x3DF0000000000000
-  %143 = fcmp ogt float %142, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i73 = select i1 %143, float 0x3FEFFFFFE0000000, float %142
+_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %128, %122
+  %.09.lcssa.i72 = phi i32 [ 0, %122 ], [ %.1.i68, %128 ]
+  %130 = tail call noundef i32 @llvm.bitreverse.i32(i32 %.09.lcssa.i72)
+  %131 = mul i32 %130, 1025551850
+  %132 = xor i32 %131, %130
+  %133 = add i32 %132, %76
+  %134 = lshr i32 %76, 16
+  %135 = or i32 %134, 1
+  %136 = mul i32 %133, %135
+  %137 = mul i32 %136, 89287766
+  %138 = xor i32 %137, %136
+  %139 = mul i32 %138, 1403136100
+  %140 = xor i32 %139, %138
+  %141 = tail call noundef i32 @llvm.bitreverse.i32(i32 %140)
+  %142 = uitofp i32 %141 to float
+  %143 = fmul float %142, 0x3DF0000000000000
+  %144 = fcmp ogt float %143, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i73 = select i1 %144, float 0x3FEFFFFFE0000000, float %143
   br i1 %.not12.i88, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87, label %.lr.ph.i76
 
-.lr.ph.i76:                                       ; preds = %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, %149
-  %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i82, %149 ], [ 52, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ]
-  %.0914.i78 = phi i32 [ %.1.i81, %149 ], [ 0, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ]
-  %.01013.i79 = phi i64 [ %150, %149 ], [ %.1.i, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ]
-  %144 = and i64 %.01013.i79, 1
-  %.not11.i80 = icmp eq i64 %144, 0
-  br i1 %.not11.i80, label %149, label %145
+.lr.ph.i76:                                       ; preds = %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, %150
+  %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i82, %150 ], [ 52, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ]
+  %.0914.i78 = phi i32 [ %.1.i81, %150 ], [ 0, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ]
+  %.01013.i79 = phi i64 [ %151, %150 ], [ %.1.i, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ]
+  %145 = and i64 %.01013.i79, 1
+  %.not11.i80 = icmp eq i64 %145, 0
+  br i1 %.not11.i80, label %150, label %146
 
-145:                                              ; preds = %.lr.ph.i76
-  %146 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i77
-  %147 = load i32, ptr %146, align 4, !tbaa !15
-  %148 = xor i32 %147, %.0914.i78
-  br label %149
+146:                                              ; preds = %.lr.ph.i76
+  %147 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i77
+  %148 = load i32, ptr %147, align 4, !tbaa !15
+  %149 = xor i32 %148, %.0914.i78
+  br label %150
 
-149:                                              ; preds = %145, %.lr.ph.i76
-  %.1.i81 = phi i32 [ %148, %145 ], [ %.0914.i78, %.lr.ph.i76 ]
-  %150 = ashr i64 %.01013.i79, 1
+150:                                              ; preds = %146, %.lr.ph.i76
+  %.1.i81 = phi i32 [ %149, %146 ], [ %.0914.i78, %.lr.ph.i76 ]
+  %151 = ashr i64 %.01013.i79, 1
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i77, 1
   %.not.i83 = icmp ult i64 %.01013.i79, 2
   br i1 %.not.i83, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87, label %.lr.ph.i76, !llvm.loop !374
 
-_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87: ; preds = %149, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit
-  %.09.lcssa.i85 = phi i32 [ 0, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ], [ %.1.i81, %149 ]
-  %151 = tail call noundef i32 @llvm.bitreverse.i32(i32 %.09.lcssa.i85)
-  %152 = mul i32 %151, 1025551850
-  %153 = xor i32 %152, %151
-  %154 = add i32 %153, %77
-  %155 = lshr i32 %77, 16
-  %156 = or i32 %155, 1
-  %157 = mul i32 %154, %156
-  %158 = mul i32 %157, 89287766
-  %159 = xor i32 %158, %157
-  %160 = mul i32 %159, 1403136100
-  %161 = xor i32 %160, %159
-  %162 = tail call noundef i32 @llvm.bitreverse.i32(i32 %161)
-  %163 = uitofp i32 %162 to float
-  %164 = fmul float %163, 0x3DF0000000000000
+_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87: ; preds = %150, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit
+  %.09.lcssa.i85 = phi i32 [ 0, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ], [ %.1.i81, %150 ]
+  %152 = tail call noundef i32 @llvm.bitreverse.i32(i32 %.09.lcssa.i85)
+  %153 = mul i32 %152, 1025551850
+  %154 = xor i32 %153, %152
+  %155 = add i32 %154, %78
+  %156 = lshr i32 %78, 16
+  %157 = or i32 %156, 1
+  %158 = mul i32 %155, %157
+  %159 = mul i32 %158, 89287766
+  %160 = xor i32 %159, %158
+  %161 = mul i32 %160, 1403136100
+  %162 = xor i32 %161, %160
+  %163 = tail call noundef i32 @llvm.bitreverse.i32(i32 %162)
+  %164 = uitofp i32 %163 to float
+  %165 = fmul float %164, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33
 
-165:                                              ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
+166:                                              ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
   br i1 %.not12.i88, label %._crit_edge.i98, label %.lr.ph.i90
 
-._crit_edge.i98:                                  ; preds = %192, %165
-  %.09.lcssa.i99 = phi i32 [ 0, %165 ], [ %.1.i95, %192 ]
-  %166 = shl i32 %75, 31
-  %spec.select.i.i = xor i32 %.09.lcssa.i99, %166
-  br label %167
+._crit_edge.i98:                                  ; preds = %193, %166
+  %.09.lcssa.i99 = phi i32 [ 0, %166 ], [ %.1.i95, %193 ]
+  %167 = shl i32 %76, 31
+  %spec.select.i.i = xor i32 %.09.lcssa.i99, %167
+  br label %168
 
-167:                                              ; preds = %167, %._crit_edge.i98
-  %.113.i.i = phi i32 [ %spec.select.i.i, %._crit_edge.i98 ], [ %.2.i.i, %167 ]
-  %.01012.i.i = phi i32 [ 1, %._crit_edge.i98 ], [ %186, %167 ]
-  %168 = sub nuw nsw i32 32, %.01012.i.i
-  %169 = shl nsw i32 -1, %168
-  %170 = and i32 %169, %.113.i.i
-  %171 = xor i32 %170, %75
-  %172 = zext i32 %171 to i64
-  %173 = lshr i64 %172, 31
-  %174 = xor i64 %173, %172
-  %175 = mul i64 %174, 9202493588570546565
-  %176 = lshr i64 %175, 27
-  %177 = xor i64 %176, %175
-  %178 = mul i64 %177, -9089707755183418291
-  %179 = lshr i64 %178, 33
-  %180 = xor i64 %179, %178
-  %181 = trunc i64 %180 to i32
-  %182 = shl nuw i32 1, %.01012.i.i
-  %183 = and i32 %182, %181
-  %.not11.i.i = icmp eq i32 %183, 0
-  %184 = lshr exact i32 -2147483648, %.01012.i.i
-  %185 = select i1 %.not11.i.i, i32 0, i32 %184
-  %.2.i.i = xor i32 %185, %.113.i.i
-  %186 = add nuw nsw i32 %.01012.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %186, 32
-  br i1 %exitcond.not.i.i, label %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit, label %167, !llvm.loop !144
+168:                                              ; preds = %168, %._crit_edge.i98
+  %.113.i.i = phi i32 [ %spec.select.i.i, %._crit_edge.i98 ], [ %.2.i.i, %168 ]
+  %.01012.i.i = phi i32 [ 1, %._crit_edge.i98 ], [ %187, %168 ]
+  %169 = sub nuw nsw i32 32, %.01012.i.i
+  %170 = shl nsw i32 -1, %169
+  %171 = and i32 %170, %.113.i.i
+  %172 = xor i32 %171, %76
+  %173 = zext i32 %172 to i64
+  %174 = lshr i64 %173, 31
+  %175 = xor i64 %174, %173
+  %176 = mul i64 %175, 9202493588570546565
+  %177 = lshr i64 %176, 27
+  %178 = xor i64 %177, %176
+  %179 = mul i64 %178, -9089707755183418291
+  %180 = lshr i64 %179, 33
+  %181 = xor i64 %180, %179
+  %182 = trunc i64 %181 to i32
+  %183 = shl nuw i32 1, %.01012.i.i
+  %184 = and i32 %183, %182
+  %.not11.i.i = icmp eq i32 %184, 0
+  %185 = lshr exact i32 -2147483648, %.01012.i.i
+  %186 = select i1 %.not11.i.i, i32 0, i32 %185
+  %.2.i.i = xor i32 %186, %.113.i.i
+  %187 = add nuw nsw i32 %.01012.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %187, 32
+  br i1 %exitcond.not.i.i, label %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit, label %168, !llvm.loop !144
 
-.lr.ph.i90:                                       ; preds = %165, %192
-  %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i96, %192 ], [ 0, %165 ]
-  %.0914.i92 = phi i32 [ %.1.i95, %192 ], [ 0, %165 ]
-  %.01013.i93 = phi i64 [ %193, %192 ], [ %.1.i, %165 ]
-  %187 = and i64 %.01013.i93, 1
-  %.not11.i94 = icmp eq i64 %187, 0
-  br i1 %.not11.i94, label %192, label %188
+.lr.ph.i90:                                       ; preds = %166, %193
+  %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i96, %193 ], [ 0, %166 ]
+  %.0914.i92 = phi i32 [ %.1.i95, %193 ], [ 0, %166 ]
+  %.01013.i93 = phi i64 [ %194, %193 ], [ %.1.i, %166 ]
+  %188 = and i64 %.01013.i93, 1
+  %.not11.i94 = icmp eq i64 %188, 0
+  br i1 %.not11.i94, label %193, label %189
 
-188:                                              ; preds = %.lr.ph.i90
-  %189 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i91
-  %190 = load i32, ptr %189, align 4, !tbaa !15
-  %191 = xor i32 %190, %.0914.i92
-  br label %192
+189:                                              ; preds = %.lr.ph.i90
+  %190 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i91
+  %191 = load i32, ptr %190, align 4, !tbaa !15
+  %192 = xor i32 %191, %.0914.i92
+  br label %193
 
-192:                                              ; preds = %188, %.lr.ph.i90
-  %.1.i95 = phi i32 [ %191, %188 ], [ %.0914.i92, %.lr.ph.i90 ]
-  %193 = ashr i64 %.01013.i93, 1
+193:                                              ; preds = %189, %.lr.ph.i90
+  %.1.i95 = phi i32 [ %192, %189 ], [ %.0914.i92, %.lr.ph.i90 ]
+  %194 = ashr i64 %.01013.i93, 1
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i91, 1
   %.not.i97 = icmp ult i64 %.01013.i93, 2
   br i1 %.not.i97, label %._crit_edge.i98, label %.lr.ph.i90, !llvm.loop !145
 
-_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit: ; preds = %167
-  %194 = uitofp i32 %.2.i.i to float
-  %195 = fmul float %194, 0x3DF0000000000000
-  %196 = fcmp ogt float %195, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i100 = select i1 %196, float 0x3FEFFFFFE0000000, float %195
+_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit: ; preds = %168
+  %195 = uitofp i32 %.2.i.i to float
+  %196 = fmul float %195, 0x3DF0000000000000
+  %197 = fcmp ogt float %196, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i100 = select i1 %197, float 0x3FEFFFFFE0000000, float %196
   br i1 %.not12.i88, label %._crit_edge.i111, label %.lr.ph.i103
 
-._crit_edge.i111:                                 ; preds = %223, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit
-  %.09.lcssa.i112 = phi i32 [ 0, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ], [ %.1.i108, %223 ]
-  %197 = shl i32 %77, 31
-  %spec.select.i.i113 = xor i32 %.09.lcssa.i112, %197
-  br label %198
+._crit_edge.i111:                                 ; preds = %224, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit
+  %.09.lcssa.i112 = phi i32 [ 0, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ], [ %.1.i108, %224 ]
+  %198 = shl i32 %78, 31
+  %spec.select.i.i113 = xor i32 %.09.lcssa.i112, %198
+  br label %199
 
-198:                                              ; preds = %198, %._crit_edge.i111
-  %.113.i.i114 = phi i32 [ %spec.select.i.i113, %._crit_edge.i111 ], [ %.2.i.i117, %198 ]
-  %.01012.i.i115 = phi i32 [ 1, %._crit_edge.i111 ], [ %217, %198 ]
-  %199 = sub nuw nsw i32 32, %.01012.i.i115
-  %200 = shl nsw i32 -1, %199
-  %201 = and i32 %200, %.113.i.i114
-  %202 = xor i32 %201, %77
-  %203 = zext i32 %202 to i64
-  %204 = lshr i64 %203, 31
-  %205 = xor i64 %204, %203
-  %206 = mul i64 %205, 9202493588570546565
-  %207 = lshr i64 %206, 27
-  %208 = xor i64 %207, %206
-  %209 = mul i64 %208, -9089707755183418291
-  %210 = lshr i64 %209, 33
-  %211 = xor i64 %210, %209
-  %212 = trunc i64 %211 to i32
-  %213 = shl nuw i32 1, %.01012.i.i115
-  %214 = and i32 %213, %212
-  %.not11.i.i116 = icmp eq i32 %214, 0
-  %215 = lshr exact i32 -2147483648, %.01012.i.i115
-  %216 = select i1 %.not11.i.i116, i32 0, i32 %215
-  %.2.i.i117 = xor i32 %216, %.113.i.i114
-  %217 = add nuw nsw i32 %.01012.i.i115, 1
-  %exitcond.not.i.i118 = icmp eq i32 %217, 32
-  br i1 %exitcond.not.i.i118, label %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120, label %198, !llvm.loop !144
+199:                                              ; preds = %199, %._crit_edge.i111
+  %.113.i.i114 = phi i32 [ %spec.select.i.i113, %._crit_edge.i111 ], [ %.2.i.i117, %199 ]
+  %.01012.i.i115 = phi i32 [ 1, %._crit_edge.i111 ], [ %218, %199 ]
+  %200 = sub nuw nsw i32 32, %.01012.i.i115
+  %201 = shl nsw i32 -1, %200
+  %202 = and i32 %201, %.113.i.i114
+  %203 = xor i32 %202, %78
+  %204 = zext i32 %203 to i64
+  %205 = lshr i64 %204, 31
+  %206 = xor i64 %205, %204
+  %207 = mul i64 %206, 9202493588570546565
+  %208 = lshr i64 %207, 27
+  %209 = xor i64 %208, %207
+  %210 = mul i64 %209, -9089707755183418291
+  %211 = lshr i64 %210, 33
+  %212 = xor i64 %211, %210
+  %213 = trunc i64 %212 to i32
+  %214 = shl nuw i32 1, %.01012.i.i115
+  %215 = and i32 %214, %213
+  %.not11.i.i116 = icmp eq i32 %215, 0
+  %216 = lshr exact i32 -2147483648, %.01012.i.i115
+  %217 = select i1 %.not11.i.i116, i32 0, i32 %216
+  %.2.i.i117 = xor i32 %217, %.113.i.i114
+  %218 = add nuw nsw i32 %.01012.i.i115, 1
+  %exitcond.not.i.i118 = icmp eq i32 %218, 32
+  br i1 %exitcond.not.i.i118, label %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120, label %199, !llvm.loop !144
 
-.lr.ph.i103:                                      ; preds = %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit, %223
-  %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i109, %223 ], [ 52, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ]
-  %.0914.i105 = phi i32 [ %.1.i108, %223 ], [ 0, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ]
-  %.01013.i106 = phi i64 [ %224, %223 ], [ %.1.i, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ]
-  %218 = and i64 %.01013.i106, 1
-  %.not11.i107 = icmp eq i64 %218, 0
-  br i1 %.not11.i107, label %223, label %219
+.lr.ph.i103:                                      ; preds = %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit, %224
+  %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i109, %224 ], [ 52, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ]
+  %.0914.i105 = phi i32 [ %.1.i108, %224 ], [ 0, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ]
+  %.01013.i106 = phi i64 [ %225, %224 ], [ %.1.i, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ]
+  %219 = and i64 %.01013.i106, 1
+  %.not11.i107 = icmp eq i64 %219, 0
+  br i1 %.not11.i107, label %224, label %220
 
-219:                                              ; preds = %.lr.ph.i103
-  %220 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i104
-  %221 = load i32, ptr %220, align 4, !tbaa !15
-  %222 = xor i32 %221, %.0914.i105
-  br label %223
+220:                                              ; preds = %.lr.ph.i103
+  %221 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i104
+  %222 = load i32, ptr %221, align 4, !tbaa !15
+  %223 = xor i32 %222, %.0914.i105
+  br label %224
 
-223:                                              ; preds = %219, %.lr.ph.i103
-  %.1.i108 = phi i32 [ %222, %219 ], [ %.0914.i105, %.lr.ph.i103 ]
-  %224 = ashr i64 %.01013.i106, 1
+224:                                              ; preds = %220, %.lr.ph.i103
+  %.1.i108 = phi i32 [ %223, %220 ], [ %.0914.i105, %.lr.ph.i103 ]
+  %225 = ashr i64 %.01013.i106, 1
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i104, 1
   %.not.i110 = icmp ult i64 %.01013.i106, 2
   br i1 %.not.i110, label %._crit_edge.i111, label %.lr.ph.i103, !llvm.loop !145
 
-_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120: ; preds = %198
-  %225 = uitofp i32 %.2.i.i117 to float
-  %226 = fmul float %225, 0x3DF0000000000000
+_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120: ; preds = %199
+  %226 = uitofp i32 %.2.i.i117 to float
+  %227 = fmul float %226, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33
 
-_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33: ; preds = %._crit_edge.loopexit.i29, %79, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60
-  %.sink150 = phi float [ %226, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120 ], [ %164, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87 ], [ %120, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60 ], [ %91, %._crit_edge.loopexit.i29 ], [ 0.000000e+00, %79 ]
-  %.sroa.speculated.i100.sink = phi float [ %.sroa.speculated.i100, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120 ], [ %.sroa.speculated.i73, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87 ], [ %.sroa.speculated.i46, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60 ], [ %.sroa.speculated.i, %._crit_edge.loopexit.i29 ], [ 0.000000e+00, %79 ]
-  %227 = fcmp ogt float %.sink150, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i119 = select i1 %227, float 0x3FEFFFFFE0000000, float %.sink150
+_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33: ; preds = %._crit_edge.loopexit.i29, %80, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60
+  %.sink150 = phi float [ %227, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120 ], [ %165, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87 ], [ %121, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60 ], [ %92, %._crit_edge.loopexit.i29 ], [ 0.000000e+00, %80 ]
+  %.sroa.speculated.i100.sink = phi float [ %.sroa.speculated.i100, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit120 ], [ %.sroa.speculated.i73, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit87 ], [ %.sroa.speculated.i46, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit60 ], [ %.sroa.speculated.i, %._crit_edge.loopexit.i29 ], [ 0.000000e+00, %80 ]
+  %228 = fcmp ogt float %.sink150, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i119 = select i1 %228, float 0x3FEFFFFFE0000000, float %.sink150
   %.sroa.0126.0.vec.insert133 = insertelement <2 x float> poison, float %.sroa.speculated.i100.sink, i64 0
   %.sroa.0126.4.vec.insert139 = insertelement <2 x float> %.sroa.0126.0.vec.insert133, float %.sroa.speculated.i119, i64 1
   ret <2 x float> %.sroa.0126.4.vec.insert139
@@ -13714,15 +13715,15 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail8DispatchIRZNS_7Sampler16Star
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !480
   %10 = load i32, ptr %9, align 4, !tbaa !15
-  switch i32 %2, label %243 [
+  switch i32 %2, label %245 [
     i32 0, label %11
     i32 1, label %15
     i32 2, label %63
     i32 3, label %114
     i32 4, label %115
     i32 5, label %119
-    i32 6, label %158
-    i32 7, label %200
+    i32 6, label %160
+    i32 7, label %202
   ]
 
 11:                                               ; preds = %3
@@ -13733,7 +13734,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail8DispatchIRZNS_7Sampler16Star
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %10, i32 2)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %.sroa.speculated.i.i, ptr %14, align 4, !tbaa !484
-  br label %286
+  br label %288
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -13807,7 +13808,7 @@ _ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_18Independen
   %61 = mul i64 %.016.lcssa.i.i.i, %59
   %62 = add i64 %61, %.015.lcssa.i.i.i
   store i64 %62, ptr %60, align 8, !tbaa !176
-  br label %286
+  br label %288
 
 63:                                               ; preds = %3
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -13887,11 +13888,11 @@ _ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_17Stratified
   %112 = mul i64 %.016.lcssa.i.i.i32, %110
   %113 = add i64 %112, %.015.lcssa.i.i.i33
   store i64 %113, ptr %111, align 8, !tbaa !176
-  br label %286
+  br label %288
 
 114:                                              ; preds = %3
   tail call void @_ZN4pbrt13HaltonSampler16StartPixelSampleENS_6Point2IiEEii(ptr noundef nonnull align 8 dereferenceable(52) %1, i64 %.sroa.0.0.copyload.i.i, i32 noundef %7, i32 noundef %10)
-  br label %286
+  br label %288
 
 115:                                              ; preds = %3
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -13900,7 +13901,7 @@ _ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_17Stratified
   store i32 %7, ptr %117, align 4, !tbaa !488
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %10, ptr %118, align 4, !tbaa !489
-  br label %286
+  br label %288
 
 119:                                              ; preds = %3
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13927,263 +13928,265 @@ _ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_17Stratified
 .lr.ph.i.i.i38:                                   ; preds = %128
   %132 = sub nuw nsw i32 30, %124
   %133 = zext nneg i32 %132 to i64
-  br label %141
+  %134 = getelementptr inbounds nuw [0 x [52 x i64]], ptr @_ZN4pbrt16VdCSobolMatricesE, i64 0, i64 %133
+  br label %143
 
-._crit_edge.i.i.i:                                ; preds = %147, %128
-  %.025.lcssa.i.i.i = phi i64 [ 0, %128 ], [ %.1.i.i.i39, %147 ]
-  %134 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
-  %135 = zext nneg i32 %125 to i64
-  %136 = shl nuw nsw i64 %134, %135
-  %137 = or i64 %136, %.sroa.2.0.extract.shift.i.i.i
-  %.not3138.i.i.i = icmp eq i64 %.025.lcssa.i.i.i, %137
+._crit_edge.i.i.i:                                ; preds = %149, %128
+  %.025.lcssa.i.i.i = phi i64 [ 0, %128 ], [ %.1.i.i.i39, %149 ]
+  %135 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
+  %136 = zext nneg i32 %125 to i64
+  %137 = shl nuw nsw i64 %135, %136
+  %138 = or i64 %137, %.sroa.2.0.extract.shift.i.i.i
+  %.not3138.i.i.i = icmp eq i64 %.025.lcssa.i.i.i, %138
   br i1 %.not3138.i.i.i, label %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_12SobolSamplerEEEDaS3_.exit, label %.lr.ph43.i.i.i
 
 .lr.ph43.i.i.i:                                   ; preds = %._crit_edge.i.i.i
-  %138 = xor i64 %.025.lcssa.i.i.i, %137
-  %139 = sub nsw i32 30, %124
-  %140 = zext i32 %139 to i64
+  %139 = xor i64 %.025.lcssa.i.i.i, %138
+  %140 = sub nsw i32 30, %124
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds nuw [0 x [52 x i64]], ptr @_ZN4pbrt19VdCSobolMatricesInvE, i64 0, i64 %141
+  br label %151
+
+143:                                              ; preds = %149, %.lr.ph.i.i.i38
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i38 ], [ %indvars.iv.next.i.i.i, %149 ]
+  %.02536.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i38 ], [ %.1.i.i.i39, %149 ]
+  %.02935.i.i.i = phi i64 [ %126, %.lr.ph.i.i.i38 ], [ %150, %149 ]
+  %144 = and i64 %.02935.i.i.i, 1
+  %.not33.i.i.i = icmp eq i64 %144, 0
+  br i1 %.not33.i.i.i, label %149, label %145
+
+145:                                              ; preds = %143
+  %146 = getelementptr inbounds nuw [52 x i64], ptr %134, i64 0, i64 %indvars.iv.i.i.i
+  %147 = load i64, ptr %146, align 8, !tbaa !30
+  %148 = xor i64 %147, %.02536.i.i.i
   br label %149
 
-141:                                              ; preds = %147, %.lr.ph.i.i.i38
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i38 ], [ %indvars.iv.next.i.i.i, %147 ]
-  %.02536.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i38 ], [ %.1.i.i.i39, %147 ]
-  %.02935.i.i.i = phi i64 [ %126, %.lr.ph.i.i.i38 ], [ %148, %147 ]
-  %142 = and i64 %.02935.i.i.i, 1
-  %.not33.i.i.i = icmp eq i64 %142, 0
-  br i1 %.not33.i.i.i, label %147, label %143
-
-143:                                              ; preds = %141
-  %144 = getelementptr inbounds nuw [0 x [52 x i64]], ptr @_ZN4pbrt16VdCSobolMatricesE, i64 0, i64 %133, i64 %indvars.iv.i.i.i
-  %145 = load i64, ptr %144, align 8, !tbaa !30
-  %146 = xor i64 %145, %.02536.i.i.i
-  br label %147
-
-147:                                              ; preds = %143, %141
-  %.1.i.i.i39 = phi i64 [ %146, %143 ], [ %.02536.i.i.i, %141 ]
-  %148 = lshr i64 %.02935.i.i.i, 1
+149:                                              ; preds = %145, %143
+  %.1.i.i.i39 = phi i64 [ %148, %145 ], [ %.02536.i.i.i, %143 ]
+  %150 = lshr i64 %.02935.i.i.i, 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.not.i.i.i40 = icmp ult i64 %.02935.i.i.i, 2
-  br i1 %.not.i.i.i40, label %._crit_edge.i.i.i, label %141, !llvm.loop !493
+  br i1 %.not.i.i.i40, label %._crit_edge.i.i.i, label %143, !llvm.loop !493
 
-149:                                              ; preds = %155, %.lr.ph43.i.i.i
-  %indvars.iv46.i.i.i = phi i64 [ 0, %.lr.ph43.i.i.i ], [ %indvars.iv.next47.i.i.i, %155 ]
-  %.02340.i.i.i = phi i64 [ %138, %.lr.ph43.i.i.i ], [ %156, %155 ]
-  %.02639.i.i.i = phi i64 [ %131, %.lr.ph43.i.i.i ], [ %.127.i.i.i, %155 ]
-  %150 = and i64 %.02340.i.i.i, 1
-  %.not32.i.i.i = icmp eq i64 %150, 0
-  br i1 %.not32.i.i.i, label %155, label %151
+151:                                              ; preds = %157, %.lr.ph43.i.i.i
+  %indvars.iv46.i.i.i = phi i64 [ 0, %.lr.ph43.i.i.i ], [ %indvars.iv.next47.i.i.i, %157 ]
+  %.02340.i.i.i = phi i64 [ %139, %.lr.ph43.i.i.i ], [ %158, %157 ]
+  %.02639.i.i.i = phi i64 [ %131, %.lr.ph43.i.i.i ], [ %.127.i.i.i, %157 ]
+  %152 = and i64 %.02340.i.i.i, 1
+  %.not32.i.i.i = icmp eq i64 %152, 0
+  br i1 %.not32.i.i.i, label %157, label %153
 
-151:                                              ; preds = %149
-  %152 = getelementptr inbounds nuw [0 x [52 x i64]], ptr @_ZN4pbrt19VdCSobolMatricesInvE, i64 0, i64 %140, i64 %indvars.iv46.i.i.i
-  %153 = load i64, ptr %152, align 8, !tbaa !30
-  %154 = xor i64 %153, %.02639.i.i.i
-  br label %155
+153:                                              ; preds = %151
+  %154 = getelementptr inbounds nuw [52 x i64], ptr %142, i64 0, i64 %indvars.iv46.i.i.i
+  %155 = load i64, ptr %154, align 8, !tbaa !30
+  %156 = xor i64 %155, %.02639.i.i.i
+  br label %157
 
-155:                                              ; preds = %151, %149
-  %.127.i.i.i = phi i64 [ %154, %151 ], [ %.02639.i.i.i, %149 ]
-  %156 = lshr i64 %.02340.i.i.i, 1
+157:                                              ; preds = %153, %151
+  %.127.i.i.i = phi i64 [ %156, %153 ], [ %.02639.i.i.i, %151 ]
+  %158 = lshr i64 %.02340.i.i.i, 1
   %indvars.iv.next47.i.i.i = add nuw nsw i64 %indvars.iv46.i.i.i, 1
   %.not31.i.i.i = icmp ult i64 %.02340.i.i.i, 2
-  br i1 %.not31.i.i.i, label %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_12SobolSamplerEEEDaS3_.exit, label %149, !llvm.loop !494
+  br i1 %.not31.i.i.i, label %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_12SobolSamplerEEEDaS3_.exit, label %151, !llvm.loop !494
 
-_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_12SobolSamplerEEEDaS3_.exit: ; preds = %155, %119, %._crit_edge.i.i.i
-  %.028.i.i.i = phi i64 [ %126, %119 ], [ %131, %._crit_edge.i.i.i ], [ %.127.i.i.i, %155 ]
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %.028.i.i.i, ptr %157, align 8, !tbaa !495
-  br label %286
+_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_12SobolSamplerEEEDaS3_.exit: ; preds = %157, %119, %._crit_edge.i.i.i
+  %.028.i.i.i = phi i64 [ %126, %119 ], [ %131, %._crit_edge.i.i.i ], [ %.127.i.i.i, %157 ]
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 %.028.i.i.i, ptr %159, align 8, !tbaa !495
+  br label %288
 
-158:                                              ; preds = %3
+160:                                              ; preds = %3
   %.sroa.2.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %10, ptr %159, align 8, !tbaa !154
-  %160 = shl nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 16
-  %161 = or i64 %160, %.sroa.2.0.extract.shift.i.i
-  %162 = and i64 %161, 281470681808895
-  %163 = shl nuw nsw i64 %162, 8
-  %164 = or i64 %163, %162
-  %165 = and i64 %164, 71777214294589695
-  %166 = shl nuw nsw i64 %165, 4
-  %167 = or i64 %166, %165
-  %168 = and i64 %167, 1085102592571150095
-  %169 = shl nuw nsw i64 %168, 2
-  %170 = or i64 %169, %168
-  %171 = and i64 %170, 3689348814741910323
-  %172 = shl nuw i64 %171, 2
-  %173 = shl nuw nsw i64 %171, 1
-  %174 = or i64 %172, %173
-  %175 = and i64 %174, -6148914691236517206
-  %176 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
-  %177 = shl nuw nsw i64 %176, 16
-  %178 = or i64 %177, %176
-  %179 = and i64 %178, 281470681808895
-  %180 = shl nuw nsw i64 %179, 8
-  %181 = or i64 %180, %179
-  %182 = and i64 %181, 71777214294589695
-  %183 = shl nuw nsw i64 %182, 4
-  %184 = or i64 %183, %182
-  %185 = and i64 %184, 1085102592571150095
-  %186 = shl nuw nsw i64 %185, 2
-  %187 = or i64 %186, %185
-  %188 = and i64 %187, 3689348814741910323
-  %189 = shl nuw nsw i64 %188, 1
-  %190 = or i64 %189, %188
-  %191 = and i64 %190, 6148914691236517205
-  %192 = or disjoint i64 %175, %191
-  %193 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %194 = load i32, ptr %193, align 8, !tbaa !157
-  %195 = zext nneg i32 %194 to i64
-  %196 = shl i64 %192, %195
-  %197 = sext i32 %7 to i64
-  %198 = or i64 %196, %197
-  %199 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %198, ptr %199, align 8, !tbaa !158
-  br label %286
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %10, ptr %161, align 8, !tbaa !154
+  %162 = shl nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 16
+  %163 = or i64 %162, %.sroa.2.0.extract.shift.i.i
+  %164 = and i64 %163, 281470681808895
+  %165 = shl nuw nsw i64 %164, 8
+  %166 = or i64 %165, %164
+  %167 = and i64 %166, 71777214294589695
+  %168 = shl nuw nsw i64 %167, 4
+  %169 = or i64 %168, %167
+  %170 = and i64 %169, 1085102592571150095
+  %171 = shl nuw nsw i64 %170, 2
+  %172 = or i64 %171, %170
+  %173 = and i64 %172, 3689348814741910323
+  %174 = shl nuw i64 %173, 2
+  %175 = shl nuw nsw i64 %173, 1
+  %176 = or i64 %174, %175
+  %177 = and i64 %176, -6148914691236517206
+  %178 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
+  %179 = shl nuw nsw i64 %178, 16
+  %180 = or i64 %179, %178
+  %181 = and i64 %180, 281470681808895
+  %182 = shl nuw nsw i64 %181, 8
+  %183 = or i64 %182, %181
+  %184 = and i64 %183, 71777214294589695
+  %185 = shl nuw nsw i64 %184, 4
+  %186 = or i64 %185, %184
+  %187 = and i64 %186, 1085102592571150095
+  %188 = shl nuw nsw i64 %187, 2
+  %189 = or i64 %188, %187
+  %190 = and i64 %189, 3689348814741910323
+  %191 = shl nuw nsw i64 %190, 1
+  %192 = or i64 %191, %190
+  %193 = and i64 %192, 6148914691236517205
+  %194 = or disjoint i64 %177, %193
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %196 = load i32, ptr %195, align 8, !tbaa !157
+  %197 = zext nneg i32 %196 to i64
+  %198 = shl i64 %194, %197
+  %199 = sext i32 %7 to i64
+  %200 = or i64 %198, %199
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %200, ptr %201, align 8, !tbaa !158
+  br label %288
 
-200:                                              ; preds = %3
-  %201 = mul i64 %.sroa.0.0.copyload.i.i, -4132994306676758123
-  %202 = lshr i64 %201, 47
-  %203 = xor i64 %202, %201
-  %204 = mul i64 %203, -4132994306676758123
-  %205 = xor i64 %204, 3829533694005038248
+202:                                              ; preds = %3
+  %203 = mul i64 %.sroa.0.0.copyload.i.i, -4132994306676758123
+  %204 = lshr i64 %203, 47
+  %205 = xor i64 %204, %203
   %206 = mul i64 %205, -4132994306676758123
-  %207 = lshr i64 %206, 47
-  %208 = xor i64 %207, %206
-  %209 = mul i64 %208, -4132994306676758123
-  %210 = lshr i64 %209, 47
-  %211 = xor i64 %210, %209
-  %212 = shl i64 %211, 1
-  %213 = or disjoint i64 %212, 1
-  %214 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %213, ptr %214, align 8, !tbaa !177
-  %215 = shl nsw i32 %7, 16
-  %216 = shl nsw i32 %10, 13
-  %217 = add nsw i32 %216, %215
-  %.not21.i.i.i43 = icmp eq i32 %217, 0
+  %207 = xor i64 %206, 3829533694005038248
+  %208 = mul i64 %207, -4132994306676758123
+  %209 = lshr i64 %208, 47
+  %210 = xor i64 %209, %208
+  %211 = mul i64 %210, -4132994306676758123
+  %212 = lshr i64 %211, 47
+  %213 = xor i64 %212, %211
+  %214 = shl i64 %213, 1
+  %215 = or disjoint i64 %214, 1
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %215, ptr %216, align 8, !tbaa !177
+  %217 = shl nsw i32 %7, 16
+  %218 = shl nsw i32 %10, 13
+  %219 = add nsw i32 %218, %217
+  %.not21.i.i.i43 = icmp eq i32 %219, 0
   br i1 %.not21.i.i.i43, label %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_10MLTSamplerEEEDaS3_.exit, label %.lr.ph.i.preheader.i.i
 
-.lr.ph.i.preheader.i.i:                           ; preds = %200
-  %218 = sext i32 %217 to i64
+.lr.ph.i.preheader.i.i:                           ; preds = %202
+  %220 = sext i32 %219 to i64
   br label %.lr.ph.i.i.i44
 
-.lr.ph.i.i.i44:                                   ; preds = %224, %.lr.ph.i.preheader.i.i
-  %.026.i.i.i45 = phi i64 [ %228, %224 ], [ %218, %.lr.ph.i.preheader.i.i ]
-  %.01525.i.i.i46 = phi i64 [ %.1.i.i.i52, %224 ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %.01624.i.i.i47 = phi i64 [ %.117.i.i.i51, %224 ], [ 1, %.lr.ph.i.preheader.i.i ]
-  %.01823.i.i.i48 = phi i64 [ %226, %224 ], [ %213, %.lr.ph.i.preheader.i.i ]
-  %.01922.i.i.i49 = phi i64 [ %227, %224 ], [ 6364136223846793005, %.lr.ph.i.preheader.i.i ]
-  %219 = and i64 %.026.i.i.i45, 1
-  %.not20.i.i.i50 = icmp eq i64 %219, 0
-  br i1 %.not20.i.i.i50, label %224, label %220
+.lr.ph.i.i.i44:                                   ; preds = %226, %.lr.ph.i.preheader.i.i
+  %.026.i.i.i45 = phi i64 [ %230, %226 ], [ %220, %.lr.ph.i.preheader.i.i ]
+  %.01525.i.i.i46 = phi i64 [ %.1.i.i.i52, %226 ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %.01624.i.i.i47 = phi i64 [ %.117.i.i.i51, %226 ], [ 1, %.lr.ph.i.preheader.i.i ]
+  %.01823.i.i.i48 = phi i64 [ %228, %226 ], [ %215, %.lr.ph.i.preheader.i.i ]
+  %.01922.i.i.i49 = phi i64 [ %229, %226 ], [ 6364136223846793005, %.lr.ph.i.preheader.i.i ]
+  %221 = and i64 %.026.i.i.i45, 1
+  %.not20.i.i.i50 = icmp eq i64 %221, 0
+  br i1 %.not20.i.i.i50, label %226, label %222
 
-220:                                              ; preds = %.lr.ph.i.i.i44
-  %221 = mul i64 %.01922.i.i.i49, %.01624.i.i.i47
-  %222 = mul i64 %.01922.i.i.i49, %.01525.i.i.i46
-  %223 = add i64 %222, %.01823.i.i.i48
-  br label %224
+222:                                              ; preds = %.lr.ph.i.i.i44
+  %223 = mul i64 %.01922.i.i.i49, %.01624.i.i.i47
+  %224 = mul i64 %.01922.i.i.i49, %.01525.i.i.i46
+  %225 = add i64 %224, %.01823.i.i.i48
+  br label %226
 
-224:                                              ; preds = %220, %.lr.ph.i.i.i44
-  %.117.i.i.i51 = phi i64 [ %221, %220 ], [ %.01624.i.i.i47, %.lr.ph.i.i.i44 ]
-  %.1.i.i.i52 = phi i64 [ %223, %220 ], [ %.01525.i.i.i46, %.lr.ph.i.i.i44 ]
-  %225 = add i64 %.01922.i.i.i49, 1
-  %226 = mul i64 %225, %.01823.i.i.i48
-  %227 = mul i64 %.01922.i.i.i49, %.01922.i.i.i49
-  %228 = lshr i64 %.026.i.i.i45, 1
+226:                                              ; preds = %222, %.lr.ph.i.i.i44
+  %.117.i.i.i51 = phi i64 [ %223, %222 ], [ %.01624.i.i.i47, %.lr.ph.i.i.i44 ]
+  %.1.i.i.i52 = phi i64 [ %225, %222 ], [ %.01525.i.i.i46, %.lr.ph.i.i.i44 ]
+  %227 = add i64 %.01922.i.i.i49, 1
+  %228 = mul i64 %227, %.01823.i.i.i48
+  %229 = mul i64 %.01922.i.i.i49, %.01922.i.i.i49
+  %230 = lshr i64 %.026.i.i.i45, 1
   %.not.i.i.i53 = icmp ult i64 %.026.i.i.i45, 2
   br i1 %.not.i.i.i53, label %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_10MLTSamplerEEEDaS3_.exit, label %.lr.ph.i.i.i44, !llvm.loop !485
 
-_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_10MLTSamplerEEEDaS3_.exit: ; preds = %224, %200
-  %.016.lcssa.i.i.i54 = phi i64 [ 1, %200 ], [ %.117.i.i.i51, %224 ]
-  %.015.lcssa.i.i.i55 = phi i64 [ 0, %200 ], [ %.1.i.i.i52, %224 ]
-  %229 = lshr i64 %209, 31
-  %230 = xor i64 %211, %229
-  %231 = mul i64 %230, 9202493588570546565
-  %232 = lshr i64 %231, 27
-  %233 = xor i64 %232, %231
-  %234 = mul i64 %233, -9089707755183418291
-  %235 = lshr i64 %234, 33
-  %236 = xor i64 %235, %234
-  %237 = add i64 %236, %213
-  %238 = mul i64 %237, 6364136223846793005
-  %239 = add i64 %238, %213
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %241 = mul i64 %.016.lcssa.i.i.i54, %239
-  %242 = add i64 %241, %.015.lcssa.i.i.i55
-  store i64 %242, ptr %240, align 8, !tbaa !176
-  br label %286
+_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_10MLTSamplerEEEDaS3_.exit: ; preds = %226, %202
+  %.016.lcssa.i.i.i54 = phi i64 [ 1, %202 ], [ %.117.i.i.i51, %226 ]
+  %.015.lcssa.i.i.i55 = phi i64 [ 0, %202 ], [ %.1.i.i.i52, %226 ]
+  %231 = lshr i64 %211, 31
+  %232 = xor i64 %213, %231
+  %233 = mul i64 %232, 9202493588570546565
+  %234 = lshr i64 %233, 27
+  %235 = xor i64 %234, %233
+  %236 = mul i64 %235, -9089707755183418291
+  %237 = lshr i64 %236, 33
+  %238 = xor i64 %237, %236
+  %239 = add i64 %238, %215
+  %240 = mul i64 %239, 6364136223846793005
+  %241 = add i64 %240, %215
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %243 = mul i64 %.016.lcssa.i.i.i54, %241
+  %244 = add i64 %243, %.015.lcssa.i.i.i55
+  store i64 %244, ptr %242, align 8, !tbaa !176
+  br label %288
 
-243:                                              ; preds = %3
-  %244 = mul i64 %.sroa.0.0.copyload.i.i, -4132994306676758123
-  %245 = lshr i64 %244, 47
-  %246 = xor i64 %245, %244
-  %247 = mul i64 %246, -4132994306676758123
-  %248 = xor i64 %247, 3829533694005038248
+245:                                              ; preds = %3
+  %246 = mul i64 %.sroa.0.0.copyload.i.i, -4132994306676758123
+  %247 = lshr i64 %246, 47
+  %248 = xor i64 %247, %246
   %249 = mul i64 %248, -4132994306676758123
-  %250 = lshr i64 %249, 47
-  %251 = xor i64 %250, %249
-  %252 = mul i64 %251, -4132994306676758123
-  %253 = lshr i64 %252, 47
-  %254 = xor i64 %253, %252
-  %255 = shl i64 %254, 1
-  %256 = or disjoint i64 %255, 1
-  %257 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %256, ptr %257, align 8, !tbaa !177
-  %258 = shl nsw i32 %7, 16
-  %259 = shl nsw i32 %10, 13
-  %260 = add nsw i32 %259, %258
-  %.not21.i.i.i.i = icmp eq i32 %260, 0
+  %250 = xor i64 %249, 3829533694005038248
+  %251 = mul i64 %250, -4132994306676758123
+  %252 = lshr i64 %251, 47
+  %253 = xor i64 %252, %251
+  %254 = mul i64 %253, -4132994306676758123
+  %255 = lshr i64 %254, 47
+  %256 = xor i64 %255, %254
+  %257 = shl i64 %256, 1
+  %258 = or disjoint i64 %257, 1
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %258, ptr %259, align 8, !tbaa !177
+  %260 = shl nsw i32 %7, 16
+  %261 = shl nsw i32 %10, 13
+  %262 = add nsw i32 %261, %260
+  %.not21.i.i.i.i = icmp eq i32 %262, 0
   br i1 %.not21.i.i.i.i, label %_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_15DebugMLTSamplerEEET0_OS5_Pvi.exit, label %.lr.ph.i.preheader.i.i.i
 
-.lr.ph.i.preheader.i.i.i:                         ; preds = %243
-  %261 = sext i32 %260 to i64
+.lr.ph.i.preheader.i.i.i:                         ; preds = %245
+  %263 = sext i32 %262 to i64
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %267, %.lr.ph.i.preheader.i.i.i
-  %.026.i.i.i.i = phi i64 [ %271, %267 ], [ %261, %.lr.ph.i.preheader.i.i.i ]
-  %.01525.i.i.i.i = phi i64 [ %.1.i.i.i.i, %267 ], [ 0, %.lr.ph.i.preheader.i.i.i ]
-  %.01624.i.i.i.i = phi i64 [ %.117.i.i.i.i, %267 ], [ 1, %.lr.ph.i.preheader.i.i.i ]
-  %.01823.i.i.i.i = phi i64 [ %269, %267 ], [ %256, %.lr.ph.i.preheader.i.i.i ]
-  %.01922.i.i.i.i = phi i64 [ %270, %267 ], [ 6364136223846793005, %.lr.ph.i.preheader.i.i.i ]
-  %262 = and i64 %.026.i.i.i.i, 1
-  %.not20.i.i.i.i = icmp eq i64 %262, 0
-  br i1 %.not20.i.i.i.i, label %267, label %263
+.lr.ph.i.i.i.i:                                   ; preds = %269, %.lr.ph.i.preheader.i.i.i
+  %.026.i.i.i.i = phi i64 [ %273, %269 ], [ %263, %.lr.ph.i.preheader.i.i.i ]
+  %.01525.i.i.i.i = phi i64 [ %.1.i.i.i.i, %269 ], [ 0, %.lr.ph.i.preheader.i.i.i ]
+  %.01624.i.i.i.i = phi i64 [ %.117.i.i.i.i, %269 ], [ 1, %.lr.ph.i.preheader.i.i.i ]
+  %.01823.i.i.i.i = phi i64 [ %271, %269 ], [ %258, %.lr.ph.i.preheader.i.i.i ]
+  %.01922.i.i.i.i = phi i64 [ %272, %269 ], [ 6364136223846793005, %.lr.ph.i.preheader.i.i.i ]
+  %264 = and i64 %.026.i.i.i.i, 1
+  %.not20.i.i.i.i = icmp eq i64 %264, 0
+  br i1 %.not20.i.i.i.i, label %269, label %265
 
-263:                                              ; preds = %.lr.ph.i.i.i.i
-  %264 = mul i64 %.01922.i.i.i.i, %.01624.i.i.i.i
-  %265 = mul i64 %.01922.i.i.i.i, %.01525.i.i.i.i
-  %266 = add i64 %265, %.01823.i.i.i.i
-  br label %267
+265:                                              ; preds = %.lr.ph.i.i.i.i
+  %266 = mul i64 %.01922.i.i.i.i, %.01624.i.i.i.i
+  %267 = mul i64 %.01922.i.i.i.i, %.01525.i.i.i.i
+  %268 = add i64 %267, %.01823.i.i.i.i
+  br label %269
 
-267:                                              ; preds = %263, %.lr.ph.i.i.i.i
-  %.117.i.i.i.i = phi i64 [ %264, %263 ], [ %.01624.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %.1.i.i.i.i = phi i64 [ %266, %263 ], [ %.01525.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %268 = add i64 %.01922.i.i.i.i, 1
-  %269 = mul i64 %268, %.01823.i.i.i.i
-  %270 = mul i64 %.01922.i.i.i.i, %.01922.i.i.i.i
-  %271 = lshr i64 %.026.i.i.i.i, 1
+269:                                              ; preds = %265, %.lr.ph.i.i.i.i
+  %.117.i.i.i.i = phi i64 [ %266, %265 ], [ %.01624.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.1.i.i.i.i = phi i64 [ %268, %265 ], [ %.01525.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %270 = add i64 %.01922.i.i.i.i, 1
+  %271 = mul i64 %270, %.01823.i.i.i.i
+  %272 = mul i64 %.01922.i.i.i.i, %.01922.i.i.i.i
+  %273 = lshr i64 %.026.i.i.i.i, 1
   %.not.i.i.i.i = icmp ult i64 %.026.i.i.i.i, 2
   br i1 %.not.i.i.i.i, label %_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_15DebugMLTSamplerEEET0_OS5_Pvi.exit, label %.lr.ph.i.i.i.i, !llvm.loop !485
 
-_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_15DebugMLTSamplerEEET0_OS5_Pvi.exit: ; preds = %267, %243
-  %.016.lcssa.i.i.i.i = phi i64 [ 1, %243 ], [ %.117.i.i.i.i, %267 ]
-  %.015.lcssa.i.i.i.i = phi i64 [ 0, %243 ], [ %.1.i.i.i.i, %267 ]
-  %272 = lshr i64 %252, 31
-  %273 = xor i64 %254, %272
-  %274 = mul i64 %273, 9202493588570546565
-  %275 = lshr i64 %274, 27
-  %276 = xor i64 %275, %274
-  %277 = mul i64 %276, -9089707755183418291
-  %278 = lshr i64 %277, 33
-  %279 = xor i64 %278, %277
-  %280 = add i64 %279, %256
-  %281 = mul i64 %280, 6364136223846793005
-  %282 = add i64 %281, %256
-  %283 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %284 = mul i64 %.016.lcssa.i.i.i.i, %282
-  %285 = add i64 %284, %.015.lcssa.i.i.i.i
-  store i64 %285, ptr %283, align 8, !tbaa !176
-  br label %286
+_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_15DebugMLTSamplerEEET0_OS5_Pvi.exit: ; preds = %269, %245
+  %.016.lcssa.i.i.i.i = phi i64 [ 1, %245 ], [ %.117.i.i.i.i, %269 ]
+  %.015.lcssa.i.i.i.i = phi i64 [ 0, %245 ], [ %.1.i.i.i.i, %269 ]
+  %274 = lshr i64 %254, 31
+  %275 = xor i64 %256, %274
+  %276 = mul i64 %275, 9202493588570546565
+  %277 = lshr i64 %276, 27
+  %278 = xor i64 %277, %276
+  %279 = mul i64 %278, -9089707755183418291
+  %280 = lshr i64 %279, 33
+  %281 = xor i64 %280, %279
+  %282 = add i64 %281, %258
+  %283 = mul i64 %282, 6364136223846793005
+  %284 = add i64 %283, %258
+  %285 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %286 = mul i64 %.016.lcssa.i.i.i.i, %284
+  %287 = add i64 %286, %.015.lcssa.i.i.i.i
+  store i64 %287, ptr %285, align 8, !tbaa !176
+  br label %288
 
-286:                                              ; preds = %_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_15DebugMLTSamplerEEET0_OS5_Pvi.exit, %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_10MLTSamplerEEEDaS3_.exit, %158, %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_12SobolSamplerEEEDaS3_.exit, %115, %114, %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_17StratifiedSamplerEEEDaS3_.exit, %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_18IndependentSamplerEEEDaS3_.exit, %11
+288:                                              ; preds = %_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_15DebugMLTSamplerEEET0_OS5_Pvi.exit, %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_10MLTSamplerEEEDaS3_.exit, %160, %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_12SobolSamplerEEEDaS3_.exit, %115, %114, %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_17StratifiedSamplerEEEDaS3_.exit, %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_18IndependentSamplerEEEDaS3_.exit, %11
   ret void
 }
 
@@ -14571,56 +14574,61 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit10:        ; preds = %._crit_edge
   %78 = lshr i32 %6, 1
   %79 = urem i32 %78, 5
   %80 = zext nneg i32 %79 to i64
-  %81 = srem i32 %.0, 65536
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %80, i64 %82
-  %84 = load i32, ptr %83, align 8, !tbaa !15
-  %85 = uitofp i32 %84 to double
-  %86 = fmul double %85, 0x3DF0000000000000
-  %87 = fptrunc double %86 to float
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %89 = load i32, ptr %88, align 4, !tbaa !15
-  %90 = uitofp i32 %89 to double
-  %91 = fmul double %90, 0x3DF0000000000000
-  %92 = fptrunc double %91 to float
+  %81 = getelementptr inbounds nuw [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %80
+  %82 = srem i32 %.0, 65536
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds [65536 x [2 x i32]], ptr %81, i64 0, i64 %83
+  %85 = load i32, ptr %84, align 8, !tbaa !15
+  %86 = uitofp i32 %85 to double
+  %87 = fmul double %86, 0x3DF0000000000000
+  %88 = fptrunc double %87 to float
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %90 = load i32, ptr %89, align 4, !tbaa !15
+  %91 = uitofp i32 %90 to double
+  %92 = fmul double %91, 0x3DF0000000000000
+  %93 = fptrunc double %92 to float
   %.sroa.3.0.extract.shift.i = lshr i64 %.sroa.02.0.copyload, 32
-  %93 = urem i32 %6, 48
-  %94 = and i64 %.sroa.02.0.copyload, 127
-  %95 = and i64 %.sroa.3.0.extract.shift.i, 127
-  %96 = zext nneg i32 %93 to i64
-  %97 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %96, i64 %94, i64 %95
-  %98 = load i16, ptr %97, align 2, !tbaa !133
-  %99 = uitofp i16 %98 to float
-  %100 = fdiv float %99, 6.553500e+04
-  %101 = add nuw nsw i32 %6, 1
-  %102 = urem i32 %101, 48
-  %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %103, i64 %94, i64 %95
-  %105 = load i16, ptr %104, align 2, !tbaa !133
-  %106 = uitofp i16 %105 to float
-  %107 = fdiv float %106, 6.553500e+04
-  %108 = fadd float %100, %87
-  %109 = insertelement <2 x float> poison, float %108, i64 0
-  %110 = fadd float %107, %92
-  %.sroa.013.4.vec.insert = insertelement <2 x float> %109, float %110, i64 1
-  %111 = fcmp ult float %108, 1.000000e+00
-  %112 = fadd float %108, -1.000000e+00
-  %.sroa.013.0.vec.insert = insertelement <2 x float> %.sroa.013.4.vec.insert, float %112, i64 0
-  %.sroa.013.0 = select i1 %111, <2 x float> %.sroa.013.4.vec.insert, <2 x float> %.sroa.013.0.vec.insert
-  %113 = fcmp ult float %110, 1.000000e+00
-  %114 = fadd float %110, -1.000000e+00
-  %.sroa.013.4.vec.insert42 = insertelement <2 x float> %.sroa.013.0, float %114, i64 1
-  %.sroa.013.1 = select i1 %113, <2 x float> %.sroa.013.0, <2 x float> %.sroa.013.4.vec.insert42
-  %115 = add nuw nsw i32 %6, 2
-  store i32 %115, ptr %5, align 4, !tbaa !484
+  %94 = urem i32 %6, 48
+  %95 = and i64 %.sroa.02.0.copyload, 127
+  %96 = and i64 %.sroa.3.0.extract.shift.i, 127
+  %97 = zext nneg i32 %94 to i64
+  %98 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %97
+  %99 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %98, i64 0, i64 %95
+  %100 = getelementptr inbounds nuw [128 x i16], ptr %99, i64 0, i64 %96
+  %101 = load i16, ptr %100, align 2, !tbaa !133
+  %102 = uitofp i16 %101 to float
+  %103 = fdiv float %102, 6.553500e+04
+  %104 = add nuw nsw i32 %6, 1
+  %105 = urem i32 %104, 48
+  %106 = zext nneg i32 %105 to i64
+  %107 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %106
+  %108 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %107, i64 0, i64 %95
+  %109 = getelementptr inbounds nuw [128 x i16], ptr %108, i64 0, i64 %96
+  %110 = load i16, ptr %109, align 2, !tbaa !133
+  %111 = uitofp i16 %110 to float
+  %112 = fdiv float %111, 6.553500e+04
+  %113 = fadd float %103, %88
+  %114 = insertelement <2 x float> poison, float %113, i64 0
+  %115 = fadd float %112, %93
+  %.sroa.013.4.vec.insert = insertelement <2 x float> %114, float %115, i64 1
+  %116 = fcmp ult float %113, 1.000000e+00
+  %117 = fadd float %113, -1.000000e+00
+  %.sroa.013.0.vec.insert = insertelement <2 x float> %.sroa.013.4.vec.insert, float %117, i64 0
+  %.sroa.013.0 = select i1 %116, <2 x float> %.sroa.013.4.vec.insert, <2 x float> %.sroa.013.0.vec.insert
+  %118 = fcmp ult float %115, 1.000000e+00
+  %119 = fadd float %115, -1.000000e+00
+  %.sroa.013.4.vec.insert42 = insertelement <2 x float> %.sroa.013.0, float %119, i64 1
+  %.sroa.013.1 = select i1 %118, <2 x float> %.sroa.013.0, <2 x float> %.sroa.013.4.vec.insert42
+  %120 = add nuw nsw i32 %6, 2
+  store i32 %120, ptr %5, align 4, !tbaa !484
   %.sroa.013.0.vec.extract37 = extractelement <2 x float> %.sroa.013.1, i64 0
-  %116 = fcmp ogt float %.sroa.013.0.vec.extract37, 0x3FEFFFFFE0000000
-  %117 = select i1 %116, float 0x3FEFFFFFE0000000, float %.sroa.013.0.vec.extract37
+  %121 = fcmp ogt float %.sroa.013.0.vec.extract37, 0x3FEFFFFFE0000000
+  %122 = select i1 %121, float 0x3FEFFFFFE0000000, float %.sroa.013.0.vec.extract37
   %.sroa.013.4.vec.extract40 = extractelement <2 x float> %.sroa.013.1, i64 1
-  %118 = fcmp ogt float %.sroa.013.4.vec.extract40, 0x3FEFFFFFE0000000
-  %119 = select i1 %118, float 0x3FEFFFFFE0000000, float %.sroa.013.4.vec.extract40
-  %.sroa.029.0.vec.insert = insertelement <2 x float> poison, float %117, i64 0
-  %.sroa.029.4.vec.insert = insertelement <2 x float> %.sroa.029.0.vec.insert, float %119, i64 1
+  %123 = fcmp ogt float %.sroa.013.4.vec.extract40, 0x3FEFFFFFE0000000
+  %124 = select i1 %123, float 0x3FEFFFFFE0000000, float %.sroa.013.4.vec.extract40
+  %.sroa.029.0.vec.insert = insertelement <2 x float> poison, float %122, i64 0
+  %.sroa.029.4.vec.insert = insertelement <2 x float> %.sroa.029.0.vec.insert, float %124, i64 1
   ret <2 x float> %.sroa.029.4.vec.insert
 }
 

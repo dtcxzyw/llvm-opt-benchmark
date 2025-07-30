@@ -9337,7 +9337,7 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   br label %405
 
 405:                                              ; preds = %384, %382
-  %406 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN2cv6dynafu8triTableE, i64 0, i64 %105, i64 0
+  %406 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN2cv6dynafu8triTableE, i64 0, i64 %105
   %407 = load i32, ptr %406, align 16, !tbaa !20
   %.not329752 = icmp eq i32 %407, -1
   br i1 %.not329752, label %._crit_edge, label %.lr.ph
@@ -9504,7 +9504,7 @@ _ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_
   %.sroa.14.6 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #31
   %484 = add nuw nsw i64 %indvars.iv812, 1
-  %485 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN2cv6dynafu8triTableE, i64 0, i64 %105, i64 %484
+  %485 = getelementptr inbounds nuw [16 x i32], ptr %406, i64 0, i64 %484
   %486 = load i32, ptr %485, align 4, !tbaa !20
   %487 = sext i32 %486 to i64
   %488 = getelementptr inbounds [12 x %"class.cv::Point3_.1"], ptr %4, i64 0, i64 %487
@@ -9653,7 +9653,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_
   %.sroa.0649.9 = phi ptr [ %551, %.noexc499 ], [ %.sroa.0649.8, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i498 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31
   %564 = add nuw nsw i64 %indvars.iv812, 2
-  %565 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN2cv6dynafu8triTableE, i64 0, i64 %105, i64 %564
+  %565 = getelementptr inbounds nuw [16 x i32], ptr %406, i64 0, i64 %564
   %566 = load i32, ptr %565, align 4, !tbaa !20
   %567 = sext i32 %566 to i64
   %568 = getelementptr inbounds [12 x %"class.cv::Point3_.1"], ptr %4, i64 0, i64 %567
@@ -9795,7 +9795,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EE9push_backEOS2_.exit516: ; preds = %.prehea
   %.sroa.14.8 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i567.pn, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #31
   %indvars.iv.next813 = add nuw nsw i64 %indvars.iv812, 3
-  %640 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN2cv6dynafu8triTableE, i64 0, i64 %105, i64 %indvars.iv.next813
+  %640 = getelementptr inbounds nuw [16 x i32], ptr %406, i64 0, i64 %indvars.iv.next813
   %641 = load i32, ptr %640, align 4, !tbaa !20
   %.not329 = icmp eq i32 %641, -1
   br i1 %.not329, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !435

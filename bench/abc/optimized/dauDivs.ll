@@ -82,7 +82,7 @@ define noalias noundef ptr @Dau_DsdDivisors(ptr noundef readonly captures(none) 
   %41 = trunc nuw nsw i64 %indvars.iv112 to i32
   %notmask = shl nsw i32 -1, %41
   %42 = xor i32 %notmask, -1
-  %43 = getelementptr inbounds nuw [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 0, i64 %indvars.iv112
+  %43 = getelementptr inbounds nuw [6 x [3 x i64]], ptr @s_PPMasks, i64 0, i64 %indvars.iv112
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = zext nneg i32 %42 to i64
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -195,7 +195,7 @@ Abc_TtSwapVars.exit.thread:                       ; preds = %50
 
 .thread:                                          ; preds = %..thread_crit_edge, %Abc_TtSwapVars.exit.thread
   %95 = phi i64 [ %.pre, %..thread_crit_edge ], [ %92, %Abc_TtSwapVars.exit.thread ]
-  %96 = getelementptr inbounds nuw [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 1, i64 %indvars.iv108
+  %96 = getelementptr inbounds nuw [6 x [3 x i64]], ptr getelementptr inbounds nuw (i8, ptr @s_PPMasks, i64 144), i64 0, i64 %indvars.iv108
   %97 = trunc nuw nsw i64 %indvars.iv108 to i32
   %98 = shl nuw i32 1, %97
   %99 = add i32 %98, -2
@@ -226,7 +226,7 @@ Abc_TtSwapVars.exit.thread:                       ; preds = %50
   %116 = trunc nuw nsw i64 %indvars.iv108 to i32
   %117 = shl nuw nsw i32 1, %116
   %118 = add nsw i32 %117, -2
-  %119 = getelementptr inbounds nuw [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 1, i64 %indvars.iv108
+  %119 = getelementptr inbounds nuw [6 x [3 x i64]], ptr getelementptr inbounds nuw (i8, ptr @s_PPMasks, i64 144), i64 0, i64 %indvars.iv108
   %120 = load i64, ptr %119, align 8, !tbaa !5
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %122 = load i64, ptr %121, align 8, !tbaa !5

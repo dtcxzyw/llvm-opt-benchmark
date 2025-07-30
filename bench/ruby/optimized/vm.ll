@@ -41973,9 +41973,9 @@ vm_ci_flag.exit179:                               ; preds = %37, %40
 
 47:                                               ; preds = %vm_ci_flag.exit179
   %48 = and i16 %46, 8574
-  switch i16 %48, label %151 [
+  switch i16 %48, label %152 [
     i16 0, label %49
-    i16 2, label %105
+    i16 2, label %106
   ], !prof !625
 
 49:                                               ; preds = %47
@@ -42088,430 +42088,431 @@ vm_ci_flag.exit.i181:                             ; preds = %91, %88
 
 99:                                               ; preds = %96
   %100 = sext i32 %4 to i64
-  %101 = sext i32 %5 to i64
-  %102 = getelementptr [4 x [6 x ptr]], ptr @vm_call_iseq_handlers, i64 0, i64 %100, i64 %101
-  %103 = load ptr, ptr %102, align 8, !tbaa !181
+  %101 = getelementptr [4 x [6 x ptr]], ptr @vm_call_iseq_handlers, i64 0, i64 %100
+  %102 = sext i32 %5 to i64
+  %103 = getelementptr [6 x ptr], ptr %101, i64 0, i64 %102
+  %104 = load ptr, ptr %103, align 8, !tbaa !181
   br label %vm_call_iseq_setup_func.exit
 
 vm_call_iseq_setup_func.exit:                     ; preds = %vm_ci_flag.exit.i181, %96, %99
-  %.0.i182 = phi ptr [ %103, %99 ], [ @vm_call_iseq_setup_tailcall_0start, %vm_ci_flag.exit.i181 ], [ @vm_call_iseq_setup_normal_0start, %96 ]
-  %104 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %.0.i182, ptr %104, align 8, !tbaa !181
+  %.0.i182 = phi ptr [ %104, %99 ], [ @vm_call_iseq_setup_tailcall_0start, %vm_ci_flag.exit.i181 ], [ @vm_call_iseq_setup_normal_0start, %96 ]
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %.0.i182, ptr %105, align 8, !tbaa !181
   br label %CC_SET_FASTPATH.exit210
 
-105:                                              ; preds = %47
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !66
-  %108 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %109 = load i32, ptr %108, align 8, !tbaa !179
-  %110 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
-  %111 = load i32, ptr %110, align 4, !tbaa !626
-  %112 = add i32 %111, %109
-  tail call fastcc void @CALLER_SETUP_ARG(ptr noundef %107, ptr noundef nonnull %1, ptr noundef %8, i32 noundef %112)
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %114 = load i32, ptr %113, align 8, !tbaa !215
-  %115 = sub i32 %114, %109
-  %116 = icmp slt i32 %115, 0
-  %117 = icmp sgt i32 %115, %111
-  %or.cond = or i1 %116, %117
-  br i1 %or.cond, label %118, label %119
+106:                                              ; preds = %47
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %108 = load ptr, ptr %107, align 8, !tbaa !66
+  %109 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  %110 = load i32, ptr %109, align 8, !tbaa !179
+  %111 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
+  %112 = load i32, ptr %111, align 4, !tbaa !626
+  %113 = add i32 %112, %110
+  tail call fastcc void @CALLER_SETUP_ARG(ptr noundef %108, ptr noundef nonnull %1, ptr noundef %8, i32 noundef %113)
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %115 = load i32, ptr %114, align 8, !tbaa !215
+  %116 = sub i32 %115, %110
+  %117 = icmp slt i32 %116, 0
+  %118 = icmp sgt i32 %116, %112
+  %or.cond = or i1 %117, %118
+  br i1 %or.cond, label %119, label %120
 
-118:                                              ; preds = %105
-  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %114, i32 noundef %109, i32 noundef %112) #56
+119:                                              ; preds = %106
+  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %115, i32 noundef %110, i32 noundef %113) #56
   unreachable
 
-119:                                              ; preds = %105
+120:                                              ; preds = %106
   br i1 %.not.i.not.i177, label %vm_ci_flag.exit185, label %vm_ci_flag.exit185.thread
 
-vm_ci_flag.exit185:                               ; preds = %119
-  %120 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %121 = load i64, ptr %120, align 8, !tbaa !171
-  %122 = and i64 %121, 128
-  %.not165 = icmp eq i64 %122, 0
-  %123 = and i64 %121, 1
-  %.not168 = icmp eq i64 %123, 0
+vm_ci_flag.exit185:                               ; preds = %120
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %122 = load i64, ptr %121, align 8, !tbaa !171
+  %123 = and i64 %122, 128
+  %.not165 = icmp eq i64 %123, 0
+  %124 = and i64 %122, 1
+  %.not168 = icmp eq i64 %124, 0
   br i1 %.not165, label %vm_ci_flag.exit188, label %vm_ci_flag.exit194, !prof !69
 
-vm_ci_flag.exit185.thread:                        ; preds = %119
-  %124 = and i64 %35, 8388608
-  %.not165249 = icmp eq i64 %124, 0
-  %125 = and i64 %35, 65536
-  %.not168251 = icmp eq i64 %125, 0
+vm_ci_flag.exit185.thread:                        ; preds = %120
+  %125 = and i64 %35, 8388608
+  %.not165249 = icmp eq i64 %125, 0
+  %126 = and i64 %35, 65536
+  %.not168251 = icmp eq i64 %126, 0
   br i1 %.not165249, label %vm_ci_flag.exit188.thread, label %vm_ci_flag.exit194.thread, !prof !69
 
 vm_ci_flag.exit188:                               ; preds = %vm_ci_flag.exit185
-  br i1 %.not168, label %128, label %CC_SET_FASTPATH.exit, !prof !627
+  br i1 %.not168, label %129, label %CC_SET_FASTPATH.exit, !prof !627
 
 vm_ci_flag.exit188.thread:                        ; preds = %vm_ci_flag.exit185.thread
   br i1 %.not168251, label %.thread252, label %CC_SET_FASTPATH.exit, !prof !627
 
 .thread252:                                       ; preds = %vm_ci_flag.exit188.thread
-  %126 = trunc i64 %35 to i32
-  %127 = lshr i32 %126, 16
+  %127 = trunc i64 %35 to i32
+  %128 = lshr i32 %127, 16
   br label %vm_ci_flag.exit191
 
-128:                                              ; preds = %vm_ci_flag.exit188
-  %129 = trunc i64 %121 to i32
+129:                                              ; preds = %vm_ci_flag.exit188
+  %130 = trunc i64 %122 to i32
   br label %vm_ci_flag.exit191
 
-vm_ci_flag.exit191:                               ; preds = %.thread252, %128
-  %.0.i190 = phi i32 [ %127, %.thread252 ], [ %129, %128 ]
-  %130 = and i32 %.0.i190, 32
-  %.not169 = icmp eq i32 %130, 0
-  br i1 %.not169, label %131, label %CC_SET_FASTPATH.exit, !prof !627
+vm_ci_flag.exit191:                               ; preds = %.thread252, %129
+  %.0.i190 = phi i32 [ %128, %.thread252 ], [ %130, %129 ]
+  %131 = and i32 %.0.i190, 32
+  %.not169 = icmp eq i32 %131, 0
+  br i1 %.not169, label %132, label %CC_SET_FASTPATH.exit, !prof !627
 
-131:                                              ; preds = %vm_ci_flag.exit191
-  %132 = tail call fastcc zeroext i1 @vm_call_cacheable(ptr noundef %8, ptr noundef %10)
-  br i1 %132, label %CC_SET_FASTPATH.exit.sink.split, label %CC_SET_FASTPATH.exit, !prof !328
+132:                                              ; preds = %vm_ci_flag.exit191
+  %133 = tail call fastcc zeroext i1 @vm_call_cacheable(ptr noundef %8, ptr noundef %10)
+  br i1 %133, label %CC_SET_FASTPATH.exit.sink.split, label %CC_SET_FASTPATH.exit, !prof !328
 
 vm_ci_flag.exit194:                               ; preds = %vm_ci_flag.exit185
-  br i1 %.not168, label %135, label %CC_SET_FASTPATH.exit, !prof !627
+  br i1 %.not168, label %136, label %CC_SET_FASTPATH.exit, !prof !627
 
 vm_ci_flag.exit194.thread:                        ; preds = %vm_ci_flag.exit185.thread
   br i1 %.not168251, label %.thread257, label %CC_SET_FASTPATH.exit, !prof !627
 
 .thread257:                                       ; preds = %vm_ci_flag.exit194.thread
-  %133 = trunc i64 %35 to i32
-  %134 = lshr i32 %133, 16
+  %134 = trunc i64 %35 to i32
+  %135 = lshr i32 %134, 16
   br label %vm_ci_flag.exit197
 
-135:                                              ; preds = %vm_ci_flag.exit194
-  %136 = trunc i64 %121 to i32
+136:                                              ; preds = %vm_ci_flag.exit194
+  %137 = trunc i64 %122 to i32
   br label %vm_ci_flag.exit197
 
-vm_ci_flag.exit197:                               ; preds = %.thread257, %135
-  %.0.i196 = phi i32 [ %134, %.thread257 ], [ %136, %135 ]
-  %137 = and i32 %.0.i196, 32
-  %.not167 = icmp eq i32 %137, 0
-  br i1 %.not167, label %138, label %CC_SET_FASTPATH.exit, !prof !627
+vm_ci_flag.exit197:                               ; preds = %.thread257, %136
+  %.0.i196 = phi i32 [ %135, %.thread257 ], [ %137, %136 ]
+  %138 = and i32 %.0.i196, 32
+  %.not167 = icmp eq i32 %138, 0
+  br i1 %.not167, label %139, label %CC_SET_FASTPATH.exit, !prof !627
 
-138:                                              ; preds = %vm_ci_flag.exit197
-  %139 = tail call fastcc zeroext i1 @vm_call_cacheable(ptr noundef %8, ptr noundef %10)
-  br i1 %139, label %CC_SET_FASTPATH.exit.sink.split, label %CC_SET_FASTPATH.exit, !prof !328
+139:                                              ; preds = %vm_ci_flag.exit197
+  %140 = tail call fastcc zeroext i1 @vm_call_cacheable(ptr noundef %8, ptr noundef %10)
+  br i1 %140, label %CC_SET_FASTPATH.exit.sink.split, label %CC_SET_FASTPATH.exit, !prof !328
 
-CC_SET_FASTPATH.exit.sink.split:                  ; preds = %138, %131
-  %vm_call_iseq_setup_tailcall_opt_start.sink = phi ptr [ @vm_call_iseq_setup_normal_opt_start, %131 ], [ @vm_call_iseq_setup_tailcall_opt_start, %138 ]
-  %140 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %vm_call_iseq_setup_tailcall_opt_start.sink, ptr %140, align 8, !tbaa !181
+CC_SET_FASTPATH.exit.sink.split:                  ; preds = %139, %132
+  %vm_call_iseq_setup_tailcall_opt_start.sink = phi ptr [ @vm_call_iseq_setup_normal_opt_start, %132 ], [ @vm_call_iseq_setup_tailcall_opt_start, %139 ]
+  %141 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %vm_call_iseq_setup_tailcall_opt_start.sink, ptr %141, align 8, !tbaa !181
   br label %CC_SET_FASTPATH.exit
 
-CC_SET_FASTPATH.exit:                             ; preds = %CC_SET_FASTPATH.exit.sink.split, %vm_ci_flag.exit194.thread, %vm_ci_flag.exit194, %vm_ci_flag.exit197, %vm_ci_flag.exit188.thread, %vm_ci_flag.exit188, %vm_ci_flag.exit191, %138, %131
-  %141 = icmp slt i32 %114, %112
-  br i1 %141, label %.lr.ph.preheader, label %._crit_edge
+CC_SET_FASTPATH.exit:                             ; preds = %CC_SET_FASTPATH.exit.sink.split, %vm_ci_flag.exit194.thread, %vm_ci_flag.exit194, %vm_ci_flag.exit197, %vm_ci_flag.exit188.thread, %vm_ci_flag.exit188, %vm_ci_flag.exit191, %139, %132
+  %142 = icmp slt i32 %115, %113
+  br i1 %142, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %CC_SET_FASTPATH.exit
-  %142 = sext i32 %114 to i64
-  %wide.trip.count = sext i32 %112 to i64
+  %143 = sext i32 %115 to i64
+  %wide.trip.count = sext i32 %113 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %CC_SET_FASTPATH.exit
-  %143 = load ptr, ptr %11, align 8, !tbaa !73
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 48
-  %145 = load ptr, ptr %144, align 8, !tbaa !628
-  %146 = zext nneg i32 %115 to i64
-  %147 = getelementptr i64, ptr %145, i64 %146
-  %148 = load i64, ptr %147, align 8, !tbaa !7
-  %149 = trunc i64 %148 to i32
+  %144 = load ptr, ptr %11, align 8, !tbaa !73
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 48
+  %146 = load ptr, ptr %145, align 8, !tbaa !628
+  %147 = zext nneg i32 %116 to i64
+  %148 = getelementptr i64, ptr %146, i64 %147
+  %149 = load i64, ptr %148, align 8, !tbaa !7
+  %150 = trunc i64 %149 to i32
   br label %CC_SET_FASTPATH.exit210
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %142, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %150 = getelementptr i64, ptr %3, i64 %indvars.iv
-  store i64 4, ptr %150, align 8, !tbaa !7
+  %indvars.iv = phi i64 [ %143, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %151 = getelementptr i64, ptr %3, i64 %indvars.iv
+  store i64 4, ptr %151, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !629
 
-151:                                              ; preds = %47
-  %152 = and i16 %46, 8318
-  %153 = icmp eq i16 %152, 16
-  br i1 %153, label %154, label %.critedge174
+152:                                              ; preds = %47
+  %153 = and i16 %46, 8318
+  %154 = icmp eq i16 %153, 16
+  br i1 %154, label %155, label %.critedge174
 
-154:                                              ; preds = %151
+155:                                              ; preds = %152
   br i1 %.not.i.not.i177, label %vm_ci_flag.exit201, label %vm_ci_flag.exit201.thread
 
-vm_ci_flag.exit201:                               ; preds = %154
-  %155 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %156 = load i64, ptr %155, align 8, !tbaa !171
-  %157 = and i64 %156, 1
-  %.not159 = icmp eq i64 %157, 0
+vm_ci_flag.exit201:                               ; preds = %155
+  %156 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %157 = load i64, ptr %156, align 8, !tbaa !171
+  %158 = and i64 %157, 1
+  %.not159 = icmp eq i64 %158, 0
   br i1 %.not159, label %vm_ci_flag.exit204, label %.critedge174
 
-vm_ci_flag.exit201.thread:                        ; preds = %154
-  %158 = and i64 %35, 65536
-  %.not159261 = icmp eq i64 %158, 0
+vm_ci_flag.exit201.thread:                        ; preds = %155
+  %159 = and i64 %35, 65536
+  %.not159261 = icmp eq i64 %159, 0
   br i1 %.not159261, label %vm_ci_flag.exit204.thread, label %.critedge174.thread
 
 vm_ci_flag.exit204:                               ; preds = %vm_ci_flag.exit201
-  %159 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %160 = load i32, ptr %159, align 8, !tbaa !179
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %162 = load i32, ptr %161, align 8, !tbaa !215
-  %163 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
-  %164 = load ptr, ptr %163, align 8, !tbaa !630
-  %165 = and i64 %156, 32
-  %.not160 = icmp eq i64 %165, 0
-  br i1 %.not160, label %198, label %vm_ci_kwarg.exit
+  %160 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  %161 = load i32, ptr %160, align 8, !tbaa !179
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %163 = load i32, ptr %162, align 8, !tbaa !215
+  %164 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
+  %165 = load ptr, ptr %164, align 8, !tbaa !630
+  %166 = and i64 %157, 32
+  %.not160 = icmp eq i64 %166, 0
+  br i1 %.not160, label %199, label %vm_ci_kwarg.exit
 
 vm_ci_flag.exit204.thread:                        ; preds = %vm_ci_flag.exit201.thread
-  %166 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %167 = load i32, ptr %166, align 8, !tbaa !179
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %169 = load i32, ptr %168, align 8, !tbaa !215
-  %170 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
-  %171 = load ptr, ptr %170, align 8, !tbaa !630
-  %172 = and i64 %35, 2097152
-  %.not160264 = icmp eq i64 %172, 0
+  %167 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  %168 = load i32, ptr %167, align 8, !tbaa !179
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %170 = load i32, ptr %169, align 8, !tbaa !215
+  %171 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
+  %172 = load ptr, ptr %171, align 8, !tbaa !630
+  %173 = and i64 %35, 2097152
+  %.not160264 = icmp eq i64 %173, 0
   tail call void @llvm.assume(i1 %.not160264)
-  br label %198
+  br label %199
 
 vm_ci_kwarg.exit:                                 ; preds = %vm_ci_flag.exit204
-  %173 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %174 = load ptr, ptr %173, align 8, !tbaa !225
-  %175 = load i32, ptr %174, align 8, !tbaa !141
-  %176 = sub i32 %162, %175
-  %.not161 = icmp eq i32 %176, %160
-  br i1 %.not161, label %177, label %.critedge174
+  %174 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %175 = load ptr, ptr %174, align 8, !tbaa !225
+  %176 = load i32, ptr %175, align 8, !tbaa !141
+  %177 = sub i32 %163, %176
+  %.not161 = icmp eq i32 %177, %161
+  br i1 %.not161, label %178, label %.critedge174
 
-177:                                              ; preds = %vm_ci_kwarg.exit
-  %178 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  %179 = sext i32 %175 to i64
-  %180 = icmp slt i32 %175, 0
-  br i1 %180, label %181, label %rbimpl_size_mul_or_raise.exit207, !prof !178
+178:                                              ; preds = %vm_ci_kwarg.exit
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %180 = sext i32 %176 to i64
+  %181 = icmp slt i32 %176, 0
+  br i1 %181, label %182, label %rbimpl_size_mul_or_raise.exit207, !prof !178
 
-181:                                              ; preds = %177
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %179) #37
+182:                                              ; preds = %178
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %180) #37
   unreachable
 
-rbimpl_size_mul_or_raise.exit207:                 ; preds = %177
-  %182 = shl nuw nsw i64 %179, 3
-  %183 = alloca i8, i64 %182, align 16
-  %.not.i208 = icmp eq i32 %175, 0
-  br i1 %.not.i208, label %ruby_nonempty_memcpy.exit, label %184
+rbimpl_size_mul_or_raise.exit207:                 ; preds = %178
+  %183 = shl nuw nsw i64 %180, 3
+  %184 = alloca i8, i64 %183, align 16
+  %.not.i208 = icmp eq i32 %176, 0
+  br i1 %.not.i208, label %ruby_nonempty_memcpy.exit, label %185
 
-184:                                              ; preds = %rbimpl_size_mul_or_raise.exit207
-  %185 = sext i32 %160 to i64
-  %186 = getelementptr i64, ptr %3, i64 %185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 %183, ptr noundef nonnull readonly align 1 %186, i64 noundef %182, i1 noundef false) #21
+185:                                              ; preds = %rbimpl_size_mul_or_raise.exit207
+  %186 = sext i32 %161 to i64
+  %187 = getelementptr i64, ptr %3, i64 %186
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 %184, ptr noundef nonnull readonly align 1 %187, i64 noundef %183, i1 noundef false) #21
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit207, %184
-  %187 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %188 = load i32, ptr %187, align 8, !tbaa !631
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr i64, ptr %3, i64 %189
-  %191 = load i32, ptr %164, align 8, !tbaa !633
-  %192 = sext i32 %191 to i64
-  %193 = sub nsw i64 0, %192
-  %194 = getelementptr i64, ptr %190, i64 %193
-  call fastcc void @args_setup_kw_parameters(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %183, i32 noundef %175, ptr noundef nonnull %178, ptr noundef %194)
-  %195 = tail call fastcc zeroext i1 @vm_call_cacheable(ptr noundef nonnull %8, ptr noundef %10)
-  br i1 %195, label %196, label %CC_SET_FASTPATH.exit210, !prof !69
+ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit207, %185
+  %188 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %189 = load i32, ptr %188, align 8, !tbaa !631
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr i64, ptr %3, i64 %190
+  %192 = load i32, ptr %165, align 8, !tbaa !633
+  %193 = sext i32 %192 to i64
+  %194 = sub nsw i64 0, %193
+  %195 = getelementptr i64, ptr %191, i64 %194
+  call fastcc void @args_setup_kw_parameters(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %184, i32 noundef %176, ptr noundef nonnull %179, ptr noundef %195)
+  %196 = tail call fastcc zeroext i1 @vm_call_cacheable(ptr noundef nonnull %8, ptr noundef %10)
+  br i1 %196, label %197, label %CC_SET_FASTPATH.exit210, !prof !69
 
-196:                                              ; preds = %ruby_nonempty_memcpy.exit
-  %197 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr @vm_call_iseq_setup_kwparm_kwarg, ptr %197, align 8, !tbaa !181
+197:                                              ; preds = %ruby_nonempty_memcpy.exit
+  %198 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr @vm_call_iseq_setup_kwparm_kwarg, ptr %198, align 8, !tbaa !181
   br label %CC_SET_FASTPATH.exit210
 
-198:                                              ; preds = %vm_ci_flag.exit204.thread, %vm_ci_flag.exit204
-  %199 = phi i32 [ %167, %vm_ci_flag.exit204.thread ], [ %160, %vm_ci_flag.exit204 ]
-  %200 = phi i32 [ %169, %vm_ci_flag.exit204.thread ], [ %162, %vm_ci_flag.exit204 ]
-  %201 = phi ptr [ %171, %vm_ci_flag.exit204.thread ], [ %164, %vm_ci_flag.exit204 ]
-  %202 = icmp eq i32 %200, %199
-  br i1 %202, label %203, label %.critedge174
+199:                                              ; preds = %vm_ci_flag.exit204.thread, %vm_ci_flag.exit204
+  %200 = phi i32 [ %168, %vm_ci_flag.exit204.thread ], [ %161, %vm_ci_flag.exit204 ]
+  %201 = phi i32 [ %170, %vm_ci_flag.exit204.thread ], [ %163, %vm_ci_flag.exit204 ]
+  %202 = phi ptr [ %172, %vm_ci_flag.exit204.thread ], [ %165, %vm_ci_flag.exit204 ]
+  %203 = icmp eq i32 %201, %200
+  br i1 %203, label %204, label %.critedge174
 
-203:                                              ; preds = %198
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %205 = load i32, ptr %204, align 8, !tbaa !631
-  %206 = sext i32 %205 to i64
-  %207 = getelementptr i64, ptr %3, i64 %206
-  %208 = load i32, ptr %201, align 8, !tbaa !633
-  %209 = sext i32 %208 to i64
-  %210 = sub nsw i64 0, %209
-  %211 = getelementptr i64, ptr %207, i64 %210
-  tail call fastcc void @args_setup_kw_parameters(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %211)
-  %212 = load i32, ptr %201, align 8, !tbaa !633
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr i64, ptr %211, i64 %213
-  %215 = load i64, ptr %214, align 8, !tbaa !7
-  %216 = icmp eq i64 %215, 1
-  br i1 %216, label %217, label %CC_SET_FASTPATH.exit210
+204:                                              ; preds = %199
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %206 = load i32, ptr %205, align 8, !tbaa !631
+  %207 = sext i32 %206 to i64
+  %208 = getelementptr i64, ptr %3, i64 %207
+  %209 = load i32, ptr %202, align 8, !tbaa !633
+  %210 = sext i32 %209 to i64
+  %211 = sub nsw i64 0, %210
+  %212 = getelementptr i64, ptr %208, i64 %211
+  tail call fastcc void @args_setup_kw_parameters(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %212)
+  %213 = load i32, ptr %202, align 8, !tbaa !633
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr i64, ptr %212, i64 %214
+  %216 = load i64, ptr %215, align 8, !tbaa !7
+  %217 = icmp eq i64 %216, 1
+  br i1 %217, label %218, label %CC_SET_FASTPATH.exit210
 
-217:                                              ; preds = %203
-  %218 = tail call fastcc zeroext i1 @vm_call_cacheable(ptr noundef %8, ptr noundef %10)
-  br i1 %218, label %219, label %CC_SET_FASTPATH.exit210, !prof !69
+218:                                              ; preds = %204
+  %219 = tail call fastcc zeroext i1 @vm_call_cacheable(ptr noundef %8, ptr noundef %10)
+  br i1 %219, label %220, label %CC_SET_FASTPATH.exit210, !prof !69
 
-219:                                              ; preds = %217
-  %220 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr @vm_call_iseq_setup_kwparm_nokwarg, ptr %220, align 8, !tbaa !181
+220:                                              ; preds = %218
+  %221 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr @vm_call_iseq_setup_kwparm_nokwarg, ptr %221, align 8, !tbaa !181
   br label %CC_SET_FASTPATH.exit210
 
-.critedge174:                                     ; preds = %vm_ci_flag.exit179, %198, %vm_ci_kwarg.exit, %151, %vm_ci_flag.exit201
-  %221 = and i16 %46, 8192
-  %.not162 = icmp eq i16 %221, 0
-  br i1 %.not162, label %.critedge174.thread, label %222
+.critedge174:                                     ; preds = %vm_ci_flag.exit179, %199, %vm_ci_kwarg.exit, %152, %vm_ci_flag.exit201
+  %222 = and i16 %46, 8192
+  %.not162 = icmp eq i16 %222, 0
+  br i1 %.not162, label %.critedge174.thread, label %223
 
-222:                                              ; preds = %.critedge174
+223:                                              ; preds = %.critedge174
   br i1 %.not.i.not.i177, label %vm_ci_flag.exit214, label %vm_ci_flag.exit214.thread
 
-vm_ci_flag.exit214:                               ; preds = %222
-  %223 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %224 = load i64, ptr %223, align 8, !tbaa !171
-  %225 = and i64 %224, 8192
-  %.not163 = icmp eq i64 %225, 0
-  br i1 %.not163, label %vm_ci_markable.exit.thread348, label %231
+vm_ci_flag.exit214:                               ; preds = %223
+  %224 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %225 = load i64, ptr %224, align 8, !tbaa !171
+  %226 = and i64 %225, 8192
+  %.not163 = icmp eq i64 %226, 0
+  br i1 %.not163, label %vm_ci_markable.exit.thread348, label %232
 
-vm_ci_flag.exit214.thread:                        ; preds = %222
-  %226 = and i64 %35, 536870912
-  %.not163269 = icmp eq i64 %226, 0
-  br i1 %.not163269, label %.thread294, label %227
+vm_ci_flag.exit214.thread:                        ; preds = %223
+  %227 = and i64 %35, 536870912
+  %.not163269 = icmp eq i64 %227, 0
+  br i1 %.not163269, label %.thread294, label %228
 
-227:                                              ; preds = %vm_ci_flag.exit214.thread
-  %228 = trunc i64 %35 to i32
-  %229 = lshr i32 %228, 1
-  %230 = and i32 %229, 32767
+228:                                              ; preds = %vm_ci_flag.exit214.thread
+  %229 = trunc i64 %35 to i32
+  %230 = lshr i32 %229, 1
+  %231 = and i32 %230, 32767
   br label %vm_ci_argc.exit
 
-231:                                              ; preds = %vm_ci_flag.exit214
-  %232 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %233 = load i64, ptr %232, align 8, !tbaa !170
-  %234 = trunc i64 %233 to i32
+232:                                              ; preds = %vm_ci_flag.exit214
+  %233 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %234 = load i64, ptr %233, align 8, !tbaa !170
+  %235 = trunc i64 %234 to i32
   br label %vm_ci_argc.exit
 
-vm_ci_argc.exit:                                  ; preds = %227, %231
-  %.0.i216 = phi i32 [ %230, %227 ], [ %234, %231 ]
-  %235 = load ptr, ptr %1, align 8, !tbaa !211
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  %237 = load ptr, ptr %236, align 8, !tbaa !229
-  %238 = ptrtoint ptr %237 to i64
-  %239 = and i64 %238, 1
-  %.not.i.not.i217 = icmp eq i64 %239, 0
-  br i1 %.not.i.not.i217, label %244, label %240
+vm_ci_argc.exit:                                  ; preds = %228, %232
+  %.0.i216 = phi i32 [ %231, %228 ], [ %235, %232 ]
+  %236 = load ptr, ptr %1, align 8, !tbaa !211
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  %238 = load ptr, ptr %237, align 8, !tbaa !229
+  %239 = ptrtoint ptr %238 to i64
+  %240 = and i64 %239, 1
+  %.not.i.not.i217 = icmp eq i64 %240, 0
+  br i1 %.not.i.not.i217, label %245, label %241
 
-240:                                              ; preds = %vm_ci_argc.exit
-  %241 = trunc i64 %238 to i32
-  %242 = lshr i32 %241, 1
-  %243 = and i32 %242, 32767
+241:                                              ; preds = %vm_ci_argc.exit
+  %242 = trunc i64 %239 to i32
+  %243 = lshr i32 %242, 1
+  %244 = and i32 %243, 32767
   br label %vm_ci_argc.exit219
 
-244:                                              ; preds = %vm_ci_argc.exit
-  %245 = getelementptr inbounds nuw i8, ptr %237, i64 32
-  %246 = load i64, ptr %245, align 8, !tbaa !170
-  %247 = trunc i64 %246 to i32
+245:                                              ; preds = %vm_ci_argc.exit
+  %246 = getelementptr inbounds nuw i8, ptr %238, i64 32
+  %247 = load i64, ptr %246, align 8, !tbaa !170
+  %248 = trunc i64 %247 to i32
   br label %vm_ci_argc.exit219
 
-vm_ci_argc.exit219:                               ; preds = %240, %244
-  %.0.i218 = phi i32 [ %243, %240 ], [ %247, %244 ]
+vm_ci_argc.exit219:                               ; preds = %241, %245
+  %.0.i218 = phi i32 [ %244, %241 ], [ %248, %245 ]
   %.not164 = icmp eq i32 %.0.i216, %.0.i218
-  br i1 %.not164, label %.thread294, label %248
+  br i1 %.not164, label %.thread294, label %249
 
-248:                                              ; preds = %vm_ci_argc.exit219
-  br i1 %.not.i.not.i177, label %254, label %vm_ci_argc.exit227
+249:                                              ; preds = %vm_ci_argc.exit219
+  br i1 %.not.i.not.i177, label %255, label %vm_ci_argc.exit227
 
-vm_ci_argc.exit227:                               ; preds = %248
-  %249 = lshr i64 %35, 32
-  %250 = trunc i64 %35 to i32
-  %251 = lshr i32 %250, 16
-  %252 = lshr i32 %250, 1
-  %253 = and i32 %252, 32767
+vm_ci_argc.exit227:                               ; preds = %249
+  %250 = lshr i64 %35, 32
+  %251 = trunc i64 %35 to i32
+  %252 = lshr i32 %251, 16
+  %253 = lshr i32 %251, 1
+  %254 = and i32 %253, 32767
   br label %vm_ci_kwarg.exit230
 
-254:                                              ; preds = %248
-  %255 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %256 = load i64, ptr %255, align 8, !tbaa !156
-  %257 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %258 = load i64, ptr %257, align 8, !tbaa !171
-  %259 = trunc i64 %258 to i32
-  %260 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %261 = load i64, ptr %260, align 8, !tbaa !170
-  %262 = trunc i64 %261 to i32
-  %263 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %264 = load ptr, ptr %263, align 8, !tbaa !225
+255:                                              ; preds = %249
+  %256 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %257 = load i64, ptr %256, align 8, !tbaa !156
+  %258 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %259 = load i64, ptr %258, align 8, !tbaa !171
+  %260 = trunc i64 %259 to i32
+  %261 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %262 = load i64, ptr %261, align 8, !tbaa !170
+  %263 = trunc i64 %262 to i32
+  %264 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %265 = load ptr, ptr %264, align 8, !tbaa !225
   br label %vm_ci_kwarg.exit230
 
-vm_ci_kwarg.exit230:                              ; preds = %vm_ci_argc.exit227, %254
-  %.0.i226292 = phi i32 [ %262, %254 ], [ %253, %vm_ci_argc.exit227 ]
-  %.0.i221277281290 = phi i64 [ %256, %254 ], [ %249, %vm_ci_argc.exit227 ]
-  %.0.i223283288 = phi i32 [ %259, %254 ], [ %251, %vm_ci_argc.exit227 ]
-  %.0.i229 = phi ptr [ %264, %254 ], [ null, %vm_ci_argc.exit227 ]
-  %265 = tail call fastcc ptr @vm_ci_new_runtime_(i64 noundef %.0.i221277281290, i32 noundef %.0.i223283288, i32 noundef %.0.i226292, ptr noundef %.0.i229)
-  %.pre336 = ptrtoint ptr %265 to i64
+vm_ci_kwarg.exit230:                              ; preds = %vm_ci_argc.exit227, %255
+  %.0.i226292 = phi i32 [ %263, %255 ], [ %254, %vm_ci_argc.exit227 ]
+  %.0.i221277281290 = phi i64 [ %257, %255 ], [ %250, %vm_ci_argc.exit227 ]
+  %.0.i223283288 = phi i32 [ %260, %255 ], [ %252, %vm_ci_argc.exit227 ]
+  %.0.i229 = phi ptr [ %265, %255 ], [ null, %vm_ci_argc.exit227 ]
+  %266 = tail call fastcc ptr @vm_ci_new_runtime_(i64 noundef %.0.i221277281290, i32 noundef %.0.i223283288, i32 noundef %.0.i226292, ptr noundef %.0.i229)
+  %.pre336 = ptrtoint ptr %266 to i64
   br label %.thread294
 
 .thread294:                                       ; preds = %vm_ci_kwarg.exit230, %vm_ci_flag.exit214.thread, %vm_ci_argc.exit219
-  %.pre335.pre-phi = phi i64 [ %238, %vm_ci_argc.exit219 ], [ %35, %vm_ci_flag.exit214.thread ], [ %.pre336, %vm_ci_kwarg.exit230 ]
+  %.pre335.pre-phi = phi i64 [ %239, %vm_ci_argc.exit219 ], [ %35, %vm_ci_flag.exit214.thread ], [ %.pre336, %vm_ci_kwarg.exit230 ]
   %.not163271 = phi i1 [ false, %vm_ci_argc.exit219 ], [ true, %vm_ci_flag.exit214.thread ], [ false, %vm_ci_kwarg.exit230 ]
-  %.0146 = phi ptr [ %237, %vm_ci_argc.exit219 ], [ %8, %vm_ci_flag.exit214.thread ], [ %265, %vm_ci_kwarg.exit230 ]
+  %.0146 = phi ptr [ %238, %vm_ci_argc.exit219 ], [ %8, %vm_ci_flag.exit214.thread ], [ %266, %vm_ci_kwarg.exit230 ]
   %.not.i231 = icmp ne ptr %.0146, null
   tail call void @llvm.assume(i1 %.not.i231)
-  %266 = and i64 %.pre335.pre-phi, 1
-  %.not.i.not.i232 = icmp eq i64 %266, 0
+  %267 = and i64 %.pre335.pre-phi, 1
+  %.not.i.not.i232 = icmp eq i64 %267, 0
   br i1 %.not.i.not.i232, label %vm_ci_markable.exit, label %vm_ci_markable.exit.thread
 
 vm_ci_markable.exit.thread:                       ; preds = %.thread294
-  %267 = add i32 %4, -1
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr i64, ptr %3, i64 %268
-  store i64 %.pre335.pre-phi, ptr %269, align 8, !tbaa !7
-  br i1 %.not163271, label %296, label %CC_SET_FASTPATH.exit210, !prof !328
+  %268 = add i32 %4, -1
+  %269 = sext i32 %268 to i64
+  %270 = getelementptr i64, ptr %3, i64 %269
+  store i64 %.pre335.pre-phi, ptr %270, align 8, !tbaa !7
+  br i1 %.not163271, label %297, label %CC_SET_FASTPATH.exit210, !prof !328
 
 vm_ci_markable.exit:                              ; preds = %.thread294
-  %270 = load i64, ptr %.0146, align 8, !tbaa !97
-  %271 = and i64 %270, 65536
-  %.not5.i = icmp eq i64 %271, 0
-  br i1 %.not5.i, label %289, label %vm_ci_markable.exit.thread305
+  %271 = load i64, ptr %.0146, align 8, !tbaa !97
+  %272 = and i64 %271, 65536
+  %.not5.i = icmp eq i64 %272, 0
+  br i1 %.not5.i, label %290, label %vm_ci_markable.exit.thread305
 
 vm_ci_markable.exit.thread348:                    ; preds = %vm_ci_flag.exit214
-  %272 = load i64, ptr %8, align 8, !tbaa !97
-  %273 = and i64 %272, 65536
-  %.not5.i352 = icmp eq i64 %273, 0
+  %273 = load i64, ptr %8, align 8, !tbaa !97
+  %274 = and i64 %273, 65536
+  %.not5.i352 = icmp eq i64 %274, 0
   br i1 %.not5.i352, label %.sink.split, label %vm_ci_markable.exit.thread305
 
 vm_ci_markable.exit.thread305:                    ; preds = %vm_ci_markable.exit.thread348, %vm_ci_markable.exit
   %.0146300343354 = phi ptr [ %8, %vm_ci_markable.exit.thread348 ], [ %.0146, %vm_ci_markable.exit ]
-  %274 = getelementptr inbounds nuw i8, ptr %.0146300343354, i64 16
-  %275 = load i64, ptr %274, align 8, !tbaa !156
-  %276 = getelementptr inbounds nuw i8, ptr %.0146300343354, i64 24
-  %277 = load i64, ptr %276, align 8, !tbaa !171
-  %278 = trunc i64 %277 to i32
-  %279 = getelementptr inbounds nuw i8, ptr %.0146300343354, i64 32
-  %280 = load i64, ptr %279, align 8, !tbaa !170
-  %281 = trunc i64 %280 to i32
-  %282 = getelementptr inbounds nuw i8, ptr %.0146300343354, i64 8
-  %283 = load ptr, ptr %282, align 8, !tbaa !225
-  %284 = tail call fastcc ptr @vm_ci_new_runtime_(i64 noundef %275, i32 noundef %278, i32 noundef %281, ptr noundef %283)
-  %285 = ptrtoint ptr %284 to i64
-  %286 = add i32 %4, -1
-  %287 = sext i32 %286 to i64
-  %288 = getelementptr i64, ptr %3, i64 %287
-  store i64 %285, ptr %288, align 8, !tbaa !7
+  %275 = getelementptr inbounds nuw i8, ptr %.0146300343354, i64 16
+  %276 = load i64, ptr %275, align 8, !tbaa !156
+  %277 = getelementptr inbounds nuw i8, ptr %.0146300343354, i64 24
+  %278 = load i64, ptr %277, align 8, !tbaa !171
+  %279 = trunc i64 %278 to i32
+  %280 = getelementptr inbounds nuw i8, ptr %.0146300343354, i64 32
+  %281 = load i64, ptr %280, align 8, !tbaa !170
+  %282 = trunc i64 %281 to i32
+  %283 = getelementptr inbounds nuw i8, ptr %.0146300343354, i64 8
+  %284 = load ptr, ptr %283, align 8, !tbaa !225
+  %285 = tail call fastcc ptr @vm_ci_new_runtime_(i64 noundef %276, i32 noundef %279, i32 noundef %282, ptr noundef %284)
+  %286 = ptrtoint ptr %285 to i64
+  %287 = add i32 %4, -1
+  %288 = sext i32 %287 to i64
+  %289 = getelementptr i64, ptr %3, i64 %288
+  store i64 %286, ptr %289, align 8, !tbaa !7
   br label %CC_SET_FASTPATH.exit210
 
-289:                                              ; preds = %vm_ci_markable.exit
-  %290 = add i32 %4, -1
-  %291 = sext i32 %290 to i64
-  %292 = getelementptr i64, ptr %3, i64 %291
-  store i64 %.pre335.pre-phi, ptr %292, align 8, !tbaa !7
-  br i1 %.not163271, label %296, label %CC_SET_FASTPATH.exit210, !prof !328
+290:                                              ; preds = %vm_ci_markable.exit
+  %291 = add i32 %4, -1
+  %292 = sext i32 %291 to i64
+  %293 = getelementptr i64, ptr %3, i64 %292
+  store i64 %.pre335.pre-phi, ptr %293, align 8, !tbaa !7
+  br i1 %.not163271, label %297, label %CC_SET_FASTPATH.exit210, !prof !328
 
 .sink.split:                                      ; preds = %vm_ci_markable.exit.thread348
-  %293 = add i32 %4, -1
-  %294 = sext i32 %293 to i64
-  %295 = getelementptr i64, ptr %3, i64 %294
-  store i64 %35, ptr %295, align 8, !tbaa !7
-  br label %296
+  %294 = add i32 %4, -1
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr i64, ptr %3, i64 %295
+  store i64 %35, ptr %296, align 8, !tbaa !7
+  br label %297
 
-296:                                              ; preds = %.sink.split, %vm_ci_markable.exit.thread, %289
-  %297 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr @vm_call_iseq_forwardable, ptr %297, align 8, !tbaa !181
+297:                                              ; preds = %.sink.split, %vm_ci_markable.exit.thread, %290
+  %298 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr @vm_call_iseq_forwardable, ptr %298, align 8, !tbaa !181
   br label %CC_SET_FASTPATH.exit210
 
 .critedge174.thread:                              ; preds = %vm_ci_flag.exit201.thread, %.critedge174
-  %298 = tail call fastcc i32 @setup_parameters_complex(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef %8, ptr noundef %3, i32 noundef 0)
+  %299 = tail call fastcc i32 @setup_parameters_complex(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef %8, ptr noundef %3, i32 noundef 0)
   br label %CC_SET_FASTPATH.exit210
 
-CC_SET_FASTPATH.exit210:                          ; preds = %vm_ci_flag.exit.thread.i, %vm_ci_flag.exit.i, %296, %289, %vm_ci_markable.exit.thread305, %vm_ci_markable.exit.thread, %219, %217, %196, %ruby_nonempty_memcpy.exit, %203, %vm_call_iseq_optimizable_p.exit, %vm_call_iseq_setup_func.exit, %77, %.critedge174.thread, %._crit_edge
-  %.0 = phi i32 [ %149, %._crit_edge ], [ %298, %.critedge174.thread ], [ 0, %77 ], [ 0, %vm_call_iseq_setup_func.exit ], [ 0, %vm_call_iseq_optimizable_p.exit ], [ 0, %203 ], [ 0, %ruby_nonempty_memcpy.exit ], [ 0, %196 ], [ 0, %217 ], [ 0, %219 ], [ 0, %vm_ci_markable.exit.thread ], [ 0, %vm_ci_markable.exit.thread305 ], [ 0, %289 ], [ 0, %296 ], [ 0, %vm_ci_flag.exit.i ], [ 0, %vm_ci_flag.exit.thread.i ]
+CC_SET_FASTPATH.exit210:                          ; preds = %vm_ci_flag.exit.thread.i, %vm_ci_flag.exit.i, %297, %290, %vm_ci_markable.exit.thread305, %vm_ci_markable.exit.thread, %220, %218, %197, %ruby_nonempty_memcpy.exit, %204, %vm_call_iseq_optimizable_p.exit, %vm_call_iseq_setup_func.exit, %77, %.critedge174.thread, %._crit_edge
+  %.0 = phi i32 [ %150, %._crit_edge ], [ %299, %.critedge174.thread ], [ 0, %77 ], [ 0, %vm_call_iseq_setup_func.exit ], [ 0, %vm_call_iseq_optimizable_p.exit ], [ 0, %204 ], [ 0, %ruby_nonempty_memcpy.exit ], [ 0, %197 ], [ 0, %218 ], [ 0, %220 ], [ 0, %vm_ci_markable.exit.thread ], [ 0, %vm_ci_markable.exit.thread305 ], [ 0, %290 ], [ 0, %297 ], [ 0, %vm_ci_flag.exit.i ], [ 0, %vm_ci_flag.exit.thread.i ]
   ret i32 %.0
 }
 

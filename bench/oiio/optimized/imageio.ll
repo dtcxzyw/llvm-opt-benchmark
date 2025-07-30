@@ -9771,19 +9771,19 @@ _ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlS2_S2_liii.exit:
   br i1 %exitcond85.not, label %._crit_edge.us, label %.preheader57.us.us, !llvm.loop !227
 
 .preheader.us.us.us:                              ; preds = %.preheader57.us.us, %._crit_edge.us.us.us
-  %.04362.us.us.us = phi i32 [ %104, %._crit_edge.us.us.us ], [ 0, %.preheader57.us.us ]
-  %.04461.us.us.us = phi ptr [ %105, %._crit_edge.us.us.us ], [ %.04664.us.us, %.preheader57.us.us ]
+  %.04362.us.us.us = phi i32 [ %105, %._crit_edge.us.us.us ], [ 0, %.preheader57.us.us ]
+  %.04461.us.us.us = phi ptr [ %106, %._crit_edge.us.us.us ], [ %.04664.us.us, %.preheader57.us.us ]
   %37 = add nsw i32 %.04362.us.us.us, %13
   br label %38
 
-38:                                               ; preds = %101, %.preheader.us.us.us
-  %.04160.us.us.us = phi i32 [ 0, %.preheader.us.us.us ], [ %102, %101 ]
-  %.04259.us.us.us = phi ptr [ %.04461.us.us.us, %.preheader.us.us.us ], [ %103, %101 ]
+38:                                               ; preds = %102, %.preheader.us.us.us
+  %.04160.us.us.us = phi i32 [ 0, %.preheader.us.us.us ], [ %103, %102 ]
+  %.04259.us.us.us = phi ptr [ %.04461.us.us.us, %.preheader.us.us.us ], [ %104, %102 ]
   %39 = add nsw i32 %.04160.us.us.us, %12
   %40 = icmp eq i32 %39, %9
   %41 = icmp eq i32 %39, %10
   %or.cond.us.us.us = or i1 %40, %41
-  br i1 %or.cond.us.us.us, label %101, label %42
+  br i1 %or.cond.us.us.us, label %102, label %42
 
 42:                                               ; preds = %38
   %43 = and i32 %39, -4
@@ -9843,28 +9843,29 @@ _ZN11OpenImageIO6v3_1_03pvt19bluenoise_4chan_ptrEiiiii.exit.us.us.us: ; preds = 
   %89 = and i32 %.0.i.us.us.us, 255
   %90 = and i32 %.015.i.us.us.us, 255
   %91 = zext nneg i32 %90 to i64
-  %92 = zext nneg i32 %89 to i64
-  %93 = getelementptr inbounds nuw [256 x [256 x [4 x float]]], ptr @_ZN11OpenImageIO6v3_1_03pvt15bluenoise_tableE, i64 0, i64 %91, i64 %92
-  %94 = and i32 %39, 3
-  %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw float, ptr %93, i64 %95
-  %97 = load float, ptr %96, align 4, !tbaa !63
-  %98 = fadd float %97, -5.000000e-01
-  %99 = load float, ptr %.04259.us.us.us, align 4, !tbaa !63
-  %100 = tail call float @llvm.fmuladd.f32(float %8, float %98, float %99)
-  store float %100, ptr %.04259.us.us.us, align 4, !tbaa !63
-  br label %101
+  %92 = getelementptr inbounds nuw [256 x [256 x [4 x float]]], ptr @_ZN11OpenImageIO6v3_1_03pvt15bluenoise_tableE, i64 0, i64 %91
+  %93 = zext nneg i32 %89 to i64
+  %94 = getelementptr inbounds nuw [256 x [4 x float]], ptr %92, i64 0, i64 %93
+  %95 = and i32 %39, 3
+  %96 = zext nneg i32 %95 to i64
+  %97 = getelementptr inbounds nuw float, ptr %94, i64 %96
+  %98 = load float, ptr %97, align 4, !tbaa !63
+  %99 = fadd float %98, -5.000000e-01
+  %100 = load float, ptr %.04259.us.us.us, align 4, !tbaa !63
+  %101 = tail call float @llvm.fmuladd.f32(float %8, float %99, float %100)
+  store float %101, ptr %.04259.us.us.us, align 4, !tbaa !63
+  br label %102
 
-101:                                              ; preds = %_ZN11OpenImageIO6v3_1_03pvt19bluenoise_4chan_ptrEiiiii.exit.us.us.us, %38
-  %102 = add nuw nsw i32 %.04160.us.us.us, 1
-  %103 = getelementptr inbounds nuw i8, ptr %.04259.us.us.us, i64 4
-  %exitcond.not = icmp eq i32 %102, %0
+102:                                              ; preds = %_ZN11OpenImageIO6v3_1_03pvt19bluenoise_4chan_ptrEiiiii.exit.us.us.us, %38
+  %103 = add nuw nsw i32 %.04160.us.us.us, 1
+  %104 = getelementptr inbounds nuw i8, ptr %.04259.us.us.us, i64 4
+  %exitcond.not = icmp eq i32 %103, %0
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %38, !llvm.loop !228
 
-._crit_edge.us.us.us:                             ; preds = %101
-  %104 = add nuw nsw i32 %.04362.us.us.us, 1
-  %105 = getelementptr inbounds i8, ptr %.04461.us.us.us, i64 %.055
-  %exitcond84.not = icmp eq i32 %104, %1
+._crit_edge.us.us.us:                             ; preds = %102
+  %105 = add nuw nsw i32 %.04362.us.us.us, 1
+  %106 = getelementptr inbounds i8, ptr %.04461.us.us.us, i64 %.055
+  %exitcond84.not = icmp eq i32 %105, %1
   br i1 %exitcond84.not, label %._crit_edge63.us.us, label %.preheader.us.us.us, !llvm.loop !229
 
 ._crit_edge75:                                    ; preds = %._crit_edge.us, %.preheader58.lr.ph, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlS2_S2_liii.exit

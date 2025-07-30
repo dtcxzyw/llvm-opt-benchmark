@@ -7856,7 +7856,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz8geometry11SkinningJob3RunEv(ptr no
   %3 = load i32, ptr %0, align 8
   %4 = icmp ne i32 %3, 0
   %or.cond.not = select i1 %2, i1 %4, i1 false
-  br i1 %or.cond.not, label %5, label %25
+  br i1 %or.cond.not, label %5, label %27
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7877,12 +7877,14 @@ define dso_local noundef zeroext i1 @_ZNK3ozz8geometry11SkinningJob3RunEv(ptr no
   %20 = icmp ne i64 %19, 0
   %21 = zext i1 %20 to i64
   %22 = add nuw nsw i64 %21, %17
-  %23 = getelementptr inbounds nuw [2 x [5 x [3 x ptr]]], ptr @_ZN3ozz8geometryL12kSkinningFctE, i64 0, i64 %9, i64 %13, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !578
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(232) %0)
-  br label %25
+  %23 = getelementptr inbounds nuw [2 x [5 x [3 x ptr]]], ptr @_ZN3ozz8geometryL12kSkinningFctE, i64 0, i64 %9
+  %24 = getelementptr inbounds nuw [5 x [3 x ptr]], ptr %23, i64 0, i64 %13
+  %25 = getelementptr inbounds nuw [3 x ptr], ptr %24, i64 0, i64 %22
+  %26 = load ptr, ptr %25, align 8, !tbaa !578
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(232) %0)
+  br label %27
 
-25:                                               ; preds = %1, %5
+27:                                               ; preds = %1, %5
   ret i1 %2
 }
 

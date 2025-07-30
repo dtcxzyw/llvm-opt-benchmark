@@ -453,6 +453,7 @@ define internal void @sbr_hf_gen_c(ptr noundef writeonly captures(none) %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) #1 {
+  %invariant.gep = getelementptr [40 x [2 x float]], ptr %1, i64 0, i64 %4
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -462,19 +463,19 @@ define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds [40 x [2 x float]], ptr %1, i64 %indvars.iv, i64 %4
-  %8 = load float, ptr %7, align 4, !tbaa !19
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %10 = load float, ptr %9, align 4, !tbaa !19
-  %11 = fmul nsz float %8, %10
-  %12 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv
-  store float %11, ptr %12, align 4, !tbaa !19
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %14 = load float, ptr %13, align 4, !tbaa !19
-  %15 = load float, ptr %9, align 4, !tbaa !19
-  %16 = fmul nsz float %14, %15
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store float %16, ptr %17, align 4, !tbaa !19
+  %gep = getelementptr [40 x [2 x float]], ptr %invariant.gep, i64 %indvars.iv
+  %7 = load float, ptr %gep, align 4, !tbaa !19
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %9 = load float, ptr %8, align 4, !tbaa !19
+  %10 = fmul nsz float %7, %9
+  %11 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv
+  store float %10, ptr %11, align 4, !tbaa !19
+  %12 = getelementptr inbounds nuw i8, ptr %gep, i64 4
+  %13 = load float, ptr %12, align 4, !tbaa !19
+  %14 = load float, ptr %8, align 4, !tbaa !19
+  %15 = fmul nsz float %13, %14
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store float %15, ptr %16, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32

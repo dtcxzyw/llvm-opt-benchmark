@@ -1315,7 +1315,7 @@ rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.ex
   %32 = call i64 @rb_obj_is_kind_of(i64 noundef %30, i64 noundef %31) #21
   %33 = and i64 %32, -5
   %.not = icmp eq i64 %33, 0
-  br i1 %.not, label %118, label %34
+  br i1 %.not, label %119, label %34
 
 34:                                               ; preds = %rb_scan_args_set.exit
   %35 = load i64, ptr %11, align 8, !tbaa !6
@@ -1323,7 +1323,7 @@ rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.ex
   %37 = call i64 @rb_obj_is_kind_of(i64 noundef %35, i64 noundef %36) #21
   %38 = and i64 %37, -5
   %.not9 = icmp eq i64 %38, 0
-  br i1 %.not9, label %118, label %39
+  br i1 %.not9, label %119, label %39
 
 39:                                               ; preds = %34
   %40 = load i64, ptr %12, align 8, !tbaa !6
@@ -1331,7 +1331,7 @@ rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.ex
   %42 = call i64 @rb_obj_is_kind_of(i64 noundef %40, i64 noundef %41) #21
   %43 = and i64 %42, -5
   %.not10 = icmp eq i64 %43, 0
-  br i1 %.not10, label %118, label %44
+  br i1 %.not10, label %119, label %44
 
 44:                                               ; preds = %39
   %45 = load i64, ptr %10, align 8, !tbaa !6
@@ -1474,23 +1474,24 @@ guess_style.exit.i:                               ; preds = %84, %80, %f_negativ
 
 c_gregorian_last_day_of_month.exit.i.i.i:         ; preds = %104, %92
   %108 = phi i64 [ %107, %104 ], [ 1, %92 ]
-  %109 = zext nneg i32 %spec.select.i.i.i to i64
-  %110 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %108, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !33
-  %112 = icmp slt i32 %61, 0
-  %113 = add nsw i32 %61, 1
-  %114 = add i32 %113, %111
-  %.018.i.i.i = select i1 %112, i32 %114, i32 %61
-  %115 = icmp slt i32 %.018.i.i.i, 1
-  %116 = icmp sgt i32 %.018.i.i.i, %111
-  %or.cond22.i.i.i = select i1 %115, i1 true, i1 %116
+  %109 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %108
+  %110 = zext nneg i32 %spec.select.i.i.i to i64
+  %111 = getelementptr inbounds nuw [13 x i32], ptr %109, i64 0, i64 %110
+  %112 = load i32, ptr %111, align 4, !tbaa !33
+  %113 = icmp slt i32 %61, 0
+  %114 = add nsw i32 %61, 1
+  %115 = add i32 %114, %112
+  %.018.i.i.i = select i1 %113, i32 %115, i32 %61
+  %116 = icmp slt i32 %.018.i.i.i, 1
+  %117 = icmp sgt i32 %.018.i.i.i, %112
+  %or.cond22.i.i.i = select i1 %116, i1 true, i1 %117
   br i1 %or.cond22.i.i.i, label %select.unfold, label %.sink.split
 
 guess_style.exit.thread.i:                        ; preds = %guess_style.exit.i, %82
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #21
-  %117 = call fastcc i32 @valid_civil_p(i64 noundef %45, i32 noundef %55, i32 noundef %61, double noundef %.0.i4, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %.not17.i = icmp eq i32 %117, 0
+  %118 = call fastcc i32 @valid_civil_p(i64 noundef %45, i32 noundef %55, i32 noundef %61, double noundef %.0.i4, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %.not17.i = icmp eq i32 %118, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
   br i1 %.not17.i, label %select.unfold, label %.sink.split
@@ -1504,9 +1505,9 @@ select.unfold:                                    ; preds = %c_gregorian_last_da
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  br label %118
+  br label %119
 
-118:                                              ; preds = %.sink.split, %39, %34, %rb_scan_args_set.exit
+119:                                              ; preds = %.sink.split, %39, %34, %rb_scan_args_set.exit
   %.0 = phi i64 [ 0, %rb_scan_args_set.exit ], [ 0, %34 ], [ 0, %39 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
@@ -4873,7 +4874,7 @@ guess_style.exit:                                 ; preds = %111, %f_negative_p.
   %spec.select.i.i = select i1 %132, i32 %133, i32 %.040
   %134 = add nsw i32 %spec.select.i.i, -13
   %or.cond.i.i = icmp ult i32 %134, -12
-  br i1 %or.cond.i.i, label %160, label %135
+  br i1 %or.cond.i.i, label %161, label %135
 
 135:                                              ; preds = %130
   %136 = and i32 %131, 3
@@ -4905,78 +4906,79 @@ guess_style.exit:                                 ; preds = %111, %f_negative_p.
 
 c_gregorian_last_day_of_month.exit.i.i:           ; preds = %147, %135
   %151 = phi i64 [ %150, %147 ], [ 1, %135 ]
-  %152 = zext nneg i32 %spec.select.i.i to i64
-  %153 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %151, i64 %152
-  %154 = load i32, ptr %153, align 4, !tbaa !33
-  %155 = icmp slt i32 %.037, 0
-  %156 = add nsw i32 %.037, 1
-  %157 = add i32 %156, %154
-  %.018.i.i = select i1 %155, i32 %157, i32 %.037
-  %158 = icmp slt i32 %.018.i.i, 1
-  %159 = icmp sgt i32 %.018.i.i, %154
-  %or.cond22.i.i = select i1 %158, i1 true, i1 %159
-  br i1 %or.cond22.i.i, label %160, label %valid_gregorian_p.exit
+  %152 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %151
+  %153 = zext nneg i32 %spec.select.i.i to i64
+  %154 = getelementptr inbounds nuw [13 x i32], ptr %152, i64 0, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !33
+  %156 = icmp slt i32 %.037, 0
+  %157 = add nsw i32 %.037, 1
+  %158 = add i32 %157, %155
+  %.018.i.i = select i1 %156, i32 %158, i32 %.037
+  %159 = icmp slt i32 %.018.i.i, 1
+  %160 = icmp sgt i32 %.018.i.i, %155
+  %or.cond22.i.i = select i1 %159, i1 true, i1 %160
+  br i1 %or.cond22.i.i, label %161, label %valid_gregorian_p.exit
 
-160:                                              ; preds = %130, %c_gregorian_last_day_of_month.exit.i.i
-  %161 = load i64, ptr @eDateError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %161, ptr noundef nonnull @.str.168) #22
+161:                                              ; preds = %130, %c_gregorian_last_day_of_month.exit.i.i
+  %162 = load i64, ptr @eDateError, align 8, !tbaa !6
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %162, ptr noundef nonnull @.str.168) #22
   unreachable
 
 valid_gregorian_p.exit:                           ; preds = %c_gregorian_last_day_of_month.exit.i.i
-  %162 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %163 = load i64, ptr %10, align 8, !tbaa !6
-  %164 = icmp eq i64 %163, 0
-  %165 = and i64 %163, 7
-  %166 = icmp ne i64 %165, 0
-  %167 = or i1 %164, %166
-  br i1 %167, label %canon.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.i
+  %163 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %164 = load i64, ptr %10, align 8, !tbaa !6
+  %165 = icmp eq i64 %164, 0
+  %166 = and i64 %164, 7
+  %167 = icmp ne i64 %166, 0
+  %168 = or i1 %165, %167
+  br i1 %168, label %canon.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %valid_gregorian_p.exit
-  %168 = inttoptr i64 %163 to ptr
-  %169 = load i64, ptr %168, align 8, !tbaa !35
-  %170 = and i64 %169, 31
-  %171 = icmp eq i64 %170, 15
-  br i1 %171, label %172, label %canon.exit
+  %169 = inttoptr i64 %164 to ptr
+  %170 = load i64, ptr %169, align 8, !tbaa !35
+  %171 = and i64 %170, 31
+  %172 = icmp eq i64 %171, 15
+  br i1 %172, label %173, label %canon.exit
 
-172:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %173 = call i64 @rb_rational_den(i64 noundef %163) #24
-  %or.cond.i66 = icmp eq i64 %173, 3
-  br i1 %or.cond.i66, label %174, label %canon.exit
+173:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
+  %174 = call i64 @rb_rational_den(i64 noundef %164) #24
+  %or.cond.i66 = icmp eq i64 %174, 3
+  br i1 %or.cond.i66, label %175, label %canon.exit
 
-174:                                              ; preds = %172
-  %175 = call i64 @rb_rational_num(i64 noundef %163) #24
+175:                                              ; preds = %173
+  %176 = call i64 @rb_rational_num(i64 noundef %164) #24
   br label %canon.exit
 
-canon.exit:                                       ; preds = %valid_gregorian_p.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i, %172, %174
-  %.1.i = phi i64 [ %175, %174 ], [ %163, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %163, %valid_gregorian_p.exit ], [ %163, %172 ]
-  store i64 %.1.i, ptr %162, align 8, !tbaa !6
-  %176 = icmp eq i64 %.1.i, 0
-  %177 = and i64 %.1.i, 7
-  %178 = icmp ne i64 %177, 0
-  %179 = or i1 %176, %178
-  br i1 %179, label %rb_obj_write.exit, label %180
+canon.exit:                                       ; preds = %valid_gregorian_p.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i, %173, %175
+  %.1.i = phi i64 [ %176, %175 ], [ %164, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %164, %valid_gregorian_p.exit ], [ %164, %173 ]
+  store i64 %.1.i, ptr %163, align 8, !tbaa !6
+  %177 = icmp eq i64 %.1.i, 0
+  %178 = and i64 %.1.i, 7
+  %179 = icmp ne i64 %178, 0
+  %180 = or i1 %177, %179
+  br i1 %180, label %rb_obj_write.exit, label %181
 
-180:                                              ; preds = %canon.exit
+181:                                              ; preds = %canon.exit
   call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.1.i) #21
   br label %rb_obj_write.exit
 
-rb_obj_write.exit:                                ; preds = %canon.exit, %180
-  %181 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 0, ptr %181, align 4, !tbaa !22
-  %182 = fptrunc double %.036 to float
-  %183 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store float %182, ptr %183, align 8, !tbaa !26
-  %184 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  store i32 %131, ptr %184, align 4, !tbaa !27
-  %185 = shl nuw nsw i32 %spec.select.i.i, 22
-  %186 = shl i32 %.018.i.i, 17
-  %187 = or i32 %186, %185
-  %188 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i32 %187, ptr %188, align 8, !tbaa !28
+rb_obj_write.exit:                                ; preds = %canon.exit, %181
+  %182 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 0, ptr %182, align 4, !tbaa !22
+  %183 = fptrunc double %.036 to float
+  %184 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store float %183, ptr %184, align 8, !tbaa !26
+  %185 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  store i32 %131, ptr %185, align 4, !tbaa !27
+  %186 = shl nuw nsw i32 %spec.select.i.i, 22
+  %187 = shl i32 %.018.i.i, 17
+  %188 = or i32 %187, %186
+  %189 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i32 %188, ptr %189, align 8, !tbaa !28
   store i32 4, ptr %18, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  br label %224
+  br label %225
 
 guess_style.exit.thread:                          ; preds = %125, %guess_style.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #21
@@ -4985,70 +4987,70 @@ guess_style.exit.thread:                          ; preds = %125, %guess_style.e
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #21
-  %189 = call fastcc i32 @valid_civil_p(i64 noundef %.0, i32 noundef %.040, i32 noundef %.037, double noundef %.036, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
-  %.not48 = icmp eq i32 %189, 0
-  br i1 %.not48, label %190, label %192
+  %190 = call fastcc i32 @valid_civil_p(i64 noundef %.0, i32 noundef %.040, i32 noundef %.037, double noundef %.036, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  %.not48 = icmp eq i32 %190, 0
+  br i1 %.not48, label %191, label %193
 
-190:                                              ; preds = %guess_style.exit.thread
-  %191 = load i64, ptr @eDateError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %191, ptr noundef nonnull @.str.168) #22
+191:                                              ; preds = %guess_style.exit.thread
+  %192 = load i64, ptr @eDateError, align 8, !tbaa !6
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %192, ptr noundef nonnull @.str.168) #22
   unreachable
 
-192:                                              ; preds = %guess_style.exit.thread
-  %193 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %194 = load i64, ptr %12, align 8, !tbaa !6
-  %195 = icmp eq i64 %194, 0
-  %196 = and i64 %194, 7
-  %197 = icmp ne i64 %196, 0
-  %198 = or i1 %195, %197
-  br i1 %198, label %canon.exit70, label %rbimpl_RB_TYPE_P_fastpath.exit.i67
+193:                                              ; preds = %guess_style.exit.thread
+  %194 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %195 = load i64, ptr %12, align 8, !tbaa !6
+  %196 = icmp eq i64 %195, 0
+  %197 = and i64 %195, 7
+  %198 = icmp ne i64 %197, 0
+  %199 = or i1 %196, %198
+  br i1 %199, label %canon.exit70, label %rbimpl_RB_TYPE_P_fastpath.exit.i67
 
-rbimpl_RB_TYPE_P_fastpath.exit.i67:               ; preds = %192
-  %199 = inttoptr i64 %194 to ptr
-  %200 = load i64, ptr %199, align 8, !tbaa !35
-  %201 = and i64 %200, 31
-  %202 = icmp eq i64 %201, 15
-  br i1 %202, label %203, label %canon.exit70
+rbimpl_RB_TYPE_P_fastpath.exit.i67:               ; preds = %193
+  %200 = inttoptr i64 %195 to ptr
+  %201 = load i64, ptr %200, align 8, !tbaa !35
+  %202 = and i64 %201, 31
+  %203 = icmp eq i64 %202, 15
+  br i1 %203, label %204, label %canon.exit70
 
-203:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i67
-  %204 = call i64 @rb_rational_den(i64 noundef %194) #24
-  %or.cond.i69 = icmp eq i64 %204, 3
-  br i1 %or.cond.i69, label %205, label %canon.exit70
+204:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i67
+  %205 = call i64 @rb_rational_den(i64 noundef %195) #24
+  %or.cond.i69 = icmp eq i64 %205, 3
+  br i1 %or.cond.i69, label %206, label %canon.exit70
 
-205:                                              ; preds = %203
-  %206 = call i64 @rb_rational_num(i64 noundef %194) #24
+206:                                              ; preds = %204
+  %207 = call i64 @rb_rational_num(i64 noundef %195) #24
   br label %canon.exit70
 
-canon.exit70:                                     ; preds = %192, %rbimpl_RB_TYPE_P_fastpath.exit.i67, %203, %205
-  %.1.i68 = phi i64 [ %206, %205 ], [ %194, %rbimpl_RB_TYPE_P_fastpath.exit.i67 ], [ %194, %192 ], [ %194, %203 ]
-  store i64 %.1.i68, ptr %193, align 8, !tbaa !6
-  %207 = icmp eq i64 %.1.i68, 0
-  %208 = and i64 %.1.i68, 7
-  %209 = icmp ne i64 %208, 0
-  %210 = or i1 %207, %209
-  br i1 %210, label %rb_obj_write.exit71, label %211
+canon.exit70:                                     ; preds = %193, %rbimpl_RB_TYPE_P_fastpath.exit.i67, %204, %206
+  %.1.i68 = phi i64 [ %207, %206 ], [ %195, %rbimpl_RB_TYPE_P_fastpath.exit.i67 ], [ %195, %193 ], [ %195, %204 ]
+  store i64 %.1.i68, ptr %194, align 8, !tbaa !6
+  %208 = icmp eq i64 %.1.i68, 0
+  %209 = and i64 %.1.i68, 7
+  %210 = icmp ne i64 %209, 0
+  %211 = or i1 %208, %210
+  br i1 %211, label %rb_obj_write.exit71, label %212
 
-211:                                              ; preds = %canon.exit70
+212:                                              ; preds = %canon.exit70
   call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.1.i68) #21
   br label %rb_obj_write.exit71
 
-rb_obj_write.exit71:                              ; preds = %canon.exit70, %211
-  %212 = load i32, ptr %16, align 4, !tbaa !33
-  %213 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 %212, ptr %213, align 4, !tbaa !22
-  %214 = fptrunc double %.036 to float
-  %215 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store float %214, ptr %215, align 8, !tbaa !26
-  %216 = load i32, ptr %13, align 4, !tbaa !33
-  %217 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  store i32 %216, ptr %217, align 4, !tbaa !27
-  %218 = load i32, ptr %14, align 4, !tbaa !33
-  %219 = shl i32 %218, 22
-  %220 = load i32, ptr %15, align 4, !tbaa !33
-  %221 = shl i32 %220, 17
-  %222 = or i32 %221, %219
-  %223 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i32 %222, ptr %223, align 8, !tbaa !28
+rb_obj_write.exit71:                              ; preds = %canon.exit70, %212
+  %213 = load i32, ptr %16, align 4, !tbaa !33
+  %214 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 %213, ptr %214, align 4, !tbaa !22
+  %215 = fptrunc double %.036 to float
+  %216 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store float %215, ptr %216, align 8, !tbaa !26
+  %217 = load i32, ptr %13, align 4, !tbaa !33
+  %218 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  store i32 %217, ptr %218, align 4, !tbaa !27
+  %219 = load i32, ptr %14, align 4, !tbaa !33
+  %220 = shl i32 %219, 22
+  %221 = load i32, ptr %15, align 4, !tbaa !33
+  %222 = shl i32 %221, 17
+  %223 = or i32 %222, %220
+  %224 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i32 %223, ptr %224, align 8, !tbaa !28
   store i32 5, ptr %18, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #21
@@ -5056,61 +5058,61 @@ rb_obj_write.exit71:                              ; preds = %canon.exit70, %211
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
-  br label %224
+  br label %225
 
-224:                                              ; preds = %rb_obj_write.exit71, %rb_obj_write.exit
-  %225 = icmp eq i64 %.043, 0
-  %226 = and i64 %.043, 7
-  %227 = icmp ne i64 %226, 0
-  %228 = or i1 %225, %227
-  br i1 %228, label %229, label %rb_type.exit.i72
+225:                                              ; preds = %rb_obj_write.exit71, %rb_obj_write.exit
+  %226 = icmp eq i64 %.043, 0
+  %227 = and i64 %.043, 7
+  %228 = icmp ne i64 %227, 0
+  %229 = or i1 %226, %228
+  br i1 %229, label %230, label %rb_type.exit.i72
 
-229:                                              ; preds = %224
-  %230 = call i64 @llvm.fshl.i64(i64 %.043, i64 %.043, i64 62)
-  switch i64 %230, label %231 [
+230:                                              ; preds = %225
+  %231 = call i64 @llvm.fshl.i64(i64 %.043, i64 %.043, i64 62)
+  switch i64 %231, label %232 [
     i64 0, label %f_zero_p.exit78
     i64 1, label %f_zero_p.exit78
     i64 5, label %f_zero_p.exit78
     i64 9, label %f_zero_p.exit78
   ]
 
-231:                                              ; preds = %229
-  %232 = and i64 %.043, 1
-  %.not.i.i77 = icmp eq i64 %232, 0
+232:                                              ; preds = %230
+  %233 = and i64 %.043, 1
+  %.not.i.i77 = icmp eq i64 %233, 0
   br i1 %.not.i.i77, label %f_zero_p.exit78, label %rb_type.exit.thread8.i75
 
-rb_type.exit.i72:                                 ; preds = %224
-  %233 = inttoptr i64 %.043 to ptr
-  %234 = load i64, ptr %233, align 8, !tbaa !35
-  %235 = trunc i64 %234 to i32
-  %236 = and i32 %235, 31
-  switch i32 %236, label %f_zero_p.exit78 [
+rb_type.exit.i72:                                 ; preds = %225
+  %234 = inttoptr i64 %.043 to ptr
+  %235 = load i64, ptr %234, align 8, !tbaa !35
+  %236 = trunc i64 %235 to i32
+  %237 = and i32 %236, 31
+  switch i32 %237, label %f_zero_p.exit78 [
     i32 21, label %rb_type.exit.thread8.i75
     i32 10, label %f_zero_p.exit78.thread
-    i32 15, label %238
+    i32 15, label %239
   ]
 
-rb_type.exit.thread8.i75:                         ; preds = %rb_type.exit.i72, %231
-  %237 = icmp ult i64 %.043, 2
-  br i1 %237, label %f_zero_p.exit78.thread103, label %f_zero_p.exit78.thread
+rb_type.exit.thread8.i75:                         ; preds = %rb_type.exit.i72, %232
+  %238 = icmp ult i64 %.043, 2
+  br i1 %238, label %f_zero_p.exit78.thread103, label %f_zero_p.exit78.thread
 
-238:                                              ; preds = %rb_type.exit.i72
-  %239 = call i64 @rb_rational_num(i64 noundef %.043) #24
-  %or.cond106 = icmp eq i64 %239, 1
+239:                                              ; preds = %rb_type.exit.i72
+  %240 = call i64 @rb_rational_num(i64 noundef %.043) #24
+  %or.cond106 = icmp eq i64 %240, 1
   br i1 %or.cond106, label %f_zero_p.exit78.thread103, label %f_zero_p.exit78.thread
 
-f_zero_p.exit78:                                  ; preds = %229, %229, %229, %229, %231, %rb_type.exit.i72
-  %240 = load i64, ptr @id_eqeq_p, align 8, !tbaa !6
-  %241 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.043, i64 noundef %240, i32 noundef 1, i64 noundef 1) #21
-  %.not50 = icmp eq i64 %241, 0
+f_zero_p.exit78:                                  ; preds = %230, %230, %230, %230, %232, %rb_type.exit.i72
+  %241 = load i64, ptr @id_eqeq_p, align 8, !tbaa !6
+  %242 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.043, i64 noundef %241, i32 noundef 1, i64 noundef 1) #21
+  %.not50 = icmp eq i64 %242, 0
   br i1 %.not50, label %f_zero_p.exit78.thread, label %f_zero_p.exit78.thread103
 
-f_zero_p.exit78.thread:                           ; preds = %238, %rb_type.exit.i72, %rb_type.exit.thread8.i75, %f_zero_p.exit78
-  %242 = call i64 @d_lite_plus(i64 noundef %2, i64 noundef %.043)
+f_zero_p.exit78.thread:                           ; preds = %239, %rb_type.exit.i72, %rb_type.exit.thread8.i75, %f_zero_p.exit78
+  %243 = call i64 @d_lite_plus(i64 noundef %2, i64 noundef %.043)
   br label %f_zero_p.exit78.thread103
 
-f_zero_p.exit78.thread103:                        ; preds = %238, %rb_type.exit.thread8.i75, %f_zero_p.exit78.thread, %f_zero_p.exit78
-  %.042 = phi i64 [ %2, %f_zero_p.exit78 ], [ %242, %f_zero_p.exit78.thread ], [ %2, %rb_type.exit.thread8.i75 ], [ %2, %238 ]
+f_zero_p.exit78.thread103:                        ; preds = %239, %rb_type.exit.thread8.i75, %f_zero_p.exit78.thread, %f_zero_p.exit78
+  %.042 = phi i64 [ %2, %f_zero_p.exit78 ], [ %243, %f_zero_p.exit78.thread ], [ %2, %rb_type.exit.thread8.i75 ], [ %2, %239 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
@@ -14554,7 +14556,7 @@ guess_style.exit.i:                               ; preds = %262, %258, %f_negat
   %spec.select.i.i.i = select i1 %267, i32 %268, i32 %.083.i
   %269 = add nsw i32 %spec.select.i.i.i, -13
   %or.cond.i.i.i = icmp ult i32 %269, -12
-  br i1 %or.cond.i.i.i, label %295, label %270
+  br i1 %or.cond.i.i.i, label %296, label %270
 
 270:                                              ; preds = %265
   %271 = and i32 %266, 3
@@ -14586,128 +14588,129 @@ guess_style.exit.i:                               ; preds = %262, %258, %f_negat
 
 c_gregorian_last_day_of_month.exit.i.i.i:         ; preds = %282, %270
   %286 = phi i64 [ %285, %282 ], [ 1, %270 ]
-  %287 = zext nneg i32 %spec.select.i.i.i to i64
-  %288 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %286, i64 %287
-  %289 = load i32, ptr %288, align 4, !tbaa !33
-  %290 = icmp slt i32 %.080.i, 0
-  %291 = add nsw i32 %.080.i, 1
-  %292 = add i32 %291, %289
-  %.018.i.i.i = select i1 %290, i32 %292, i32 %.080.i
-  %293 = icmp slt i32 %.018.i.i.i, 1
-  %294 = icmp sgt i32 %.018.i.i.i, %289
-  %or.cond22.i.i.i = select i1 %293, i1 true, i1 %294
-  br i1 %or.cond22.i.i.i, label %295, label %valid_gregorian_p.exit.i
+  %287 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %286
+  %288 = zext nneg i32 %spec.select.i.i.i to i64
+  %289 = getelementptr inbounds nuw [13 x i32], ptr %287, i64 0, i64 %288
+  %290 = load i32, ptr %289, align 4, !tbaa !33
+  %291 = icmp slt i32 %.080.i, 0
+  %292 = add nsw i32 %.080.i, 1
+  %293 = add i32 %292, %290
+  %.018.i.i.i = select i1 %291, i32 %293, i32 %.080.i
+  %294 = icmp slt i32 %.018.i.i.i, 1
+  %295 = icmp sgt i32 %.018.i.i.i, %290
+  %or.cond22.i.i.i = select i1 %294, i1 true, i1 %295
+  br i1 %or.cond22.i.i.i, label %296, label %valid_gregorian_p.exit.i
 
-295:                                              ; preds = %c_gregorian_last_day_of_month.exit.i.i.i, %265
-  %296 = load i64, ptr @eDateError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %296, ptr noundef nonnull @.str.168) #22
+296:                                              ; preds = %c_gregorian_last_day_of_month.exit.i.i.i, %265
+  %297 = load i64, ptr @eDateError, align 8, !tbaa !6
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %297, ptr noundef nonnull @.str.168) #22
   unreachable
 
 valid_gregorian_p.exit.i:                         ; preds = %c_gregorian_last_day_of_month.exit.i.i.i
-  %297 = icmp slt i32 %.076.i, 0
-  %298 = add nsw i32 %.076.i, 24
-  %spec.select.i148.i = select i1 %297, i32 %298, i32 %.076.i
-  %299 = icmp slt i32 %.071.i, 0
-  %300 = add nsw i32 %.071.i, 60
-  %.029.i.i = select i1 %299, i32 %300, i32 %.071.i
-  %301 = icmp slt i32 %.065.i, 0
-  %302 = add nsw i32 %.065.i, 60
-  %.030.i.i = select i1 %301, i32 %302, i32 %.065.i
+  %298 = icmp slt i32 %.076.i, 0
+  %299 = add nsw i32 %.076.i, 24
+  %spec.select.i148.i = select i1 %298, i32 %299, i32 %.076.i
+  %300 = icmp slt i32 %.071.i, 0
+  %301 = add nsw i32 %.071.i, 60
+  %.029.i.i = select i1 %300, i32 %301, i32 %.071.i
+  %302 = icmp slt i32 %.065.i, 0
+  %303 = add nsw i32 %.065.i, 60
+  %.030.i.i = select i1 %302, i32 %303, i32 %.065.i
   %or.cond.i149.i = icmp ugt i32 %spec.select.i148.i, 24
-  %303 = icmp ugt i32 %.029.i.i, 59
-  %or.cond5.i.i = select i1 %or.cond.i149.i, i1 true, i1 %303
-  %304 = icmp ugt i32 %.030.i.i, 59
-  %or.cond9.i.i = select i1 %or.cond5.i.i, i1 true, i1 %304
-  br i1 %or.cond9.i.i, label %c_valid_time_p.exit.thread.i, label %305
+  %304 = icmp ugt i32 %.029.i.i, 59
+  %or.cond5.i.i = select i1 %or.cond.i149.i, i1 true, i1 %304
+  %305 = icmp ugt i32 %.030.i.i, 59
+  %or.cond9.i.i = select i1 %or.cond5.i.i, i1 true, i1 %305
+  br i1 %or.cond9.i.i, label %c_valid_time_p.exit.thread.i, label %306
 
-305:                                              ; preds = %valid_gregorian_p.exit.i
-  %306 = icmp eq i32 %spec.select.i148.i, 24
-  br i1 %306, label %c_valid_time_p.exit.i, label %312
+306:                                              ; preds = %valid_gregorian_p.exit.i
+  %307 = icmp eq i32 %spec.select.i148.i, 24
+  br i1 %307, label %c_valid_time_p.exit.i, label %313
 
-c_valid_time_p.exit.i:                            ; preds = %305
-  %307 = icmp ne i32 %.029.i.i, 0
-  %308 = icmp ne i32 %.030.i.i, 0
-  %.not37.i.not.i = select i1 %307, i1 true, i1 %308
-  br i1 %.not37.i.not.i, label %c_valid_time_p.exit.thread.i, label %310
+c_valid_time_p.exit.i:                            ; preds = %306
+  %308 = icmp ne i32 %.029.i.i, 0
+  %309 = icmp ne i32 %.030.i.i, 0
+  %.not37.i.not.i = select i1 %308, i1 true, i1 %309
+  br i1 %.not37.i.not.i, label %c_valid_time_p.exit.thread.i, label %311
 
 c_valid_time_p.exit.thread.i:                     ; preds = %c_valid_time_p.exit.i, %valid_gregorian_p.exit.i
-  %309 = load i64, ptr @eDateError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %309, ptr noundef nonnull @.str.168) #22
+  %310 = load i64, ptr @eDateError, align 8, !tbaa !6
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %310, ptr noundef nonnull @.str.168) #22
   unreachable
 
-310:                                              ; preds = %c_valid_time_p.exit.i
-  %311 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.056.i, i64 noundef 43, i32 noundef 1, i64 noundef 3) #21
-  br label %312
+311:                                              ; preds = %c_valid_time_p.exit.i
+  %312 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.056.i, i64 noundef 43, i32 noundef 1, i64 noundef 3) #21
+  br label %313
 
-312:                                              ; preds = %310, %305
-  %.0189.i = phi i32 [ 0, %310 ], [ %spec.select.i148.i, %305 ]
-  %.6.i = phi i64 [ %311, %310 ], [ %.056.i, %305 ]
-  %313 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %314 = load i64, ptr %15, align 8, !tbaa !6
-  %315 = icmp eq i64 %314, 0
-  %316 = and i64 %314, 7
-  %317 = icmp ne i64 %316, 0
-  %318 = or i1 %315, %317
-  br i1 %318, label %canon.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i
+313:                                              ; preds = %311, %306
+  %.0189.i = phi i32 [ 0, %311 ], [ %spec.select.i148.i, %306 ]
+  %.6.i = phi i64 [ %312, %311 ], [ %.056.i, %306 ]
+  %314 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %315 = load i64, ptr %15, align 8, !tbaa !6
+  %316 = icmp eq i64 %315, 0
+  %317 = and i64 %315, 7
+  %318 = icmp ne i64 %317, 0
+  %319 = or i1 %316, %318
+  br i1 %319, label %canon.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %312
-  %319 = inttoptr i64 %314 to ptr
-  %320 = load i64, ptr %319, align 8, !tbaa !35
-  %321 = and i64 %320, 31
-  %322 = icmp eq i64 %321, 15
-  br i1 %322, label %323, label %canon.exit.i
+rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %313
+  %320 = inttoptr i64 %315 to ptr
+  %321 = load i64, ptr %320, align 8, !tbaa !35
+  %322 = and i64 %321, 31
+  %323 = icmp eq i64 %322, 15
+  br i1 %323, label %324, label %canon.exit.i
 
-323:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
-  %324 = call i64 @rb_rational_den(i64 noundef %314) #24
-  %or.cond.i150.i = icmp eq i64 %324, 3
-  br i1 %or.cond.i150.i, label %325, label %canon.exit.i
+324:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
+  %325 = call i64 @rb_rational_den(i64 noundef %315) #24
+  %or.cond.i150.i = icmp eq i64 %325, 3
+  br i1 %or.cond.i150.i, label %326, label %canon.exit.i
 
-325:                                              ; preds = %323
-  %326 = call i64 @rb_rational_num(i64 noundef %314) #24
+326:                                              ; preds = %324
+  %327 = call i64 @rb_rational_num(i64 noundef %315) #24
   br label %canon.exit.i
 
-canon.exit.i:                                     ; preds = %325, %323, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %312
-  %.1.i.i = phi i64 [ %326, %325 ], [ %314, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %314, %312 ], [ %314, %323 ]
-  store i64 %.1.i.i, ptr %313, align 8, !tbaa !6
-  %327 = icmp eq i64 %.1.i.i, 0
-  %328 = and i64 %.1.i.i, 7
-  %329 = icmp ne i64 %328, 0
-  %330 = or i1 %327, %329
-  br i1 %330, label %rb_obj_write.exit.i, label %331
+canon.exit.i:                                     ; preds = %326, %324, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %313
+  %.1.i.i = phi i64 [ %327, %326 ], [ %315, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %315, %313 ], [ %315, %324 ]
+  store i64 %.1.i.i, ptr %314, align 8, !tbaa !6
+  %328 = icmp eq i64 %.1.i.i, 0
+  %329 = and i64 %.1.i.i, 7
+  %330 = icmp ne i64 %329, 0
+  %331 = or i1 %328, %330
+  br i1 %331, label %rb_obj_write.exit.i, label %332
 
-331:                                              ; preds = %canon.exit.i
+332:                                              ; preds = %canon.exit.i
   call void @rb_gc_writebarrier(i64 noundef %23, i64 noundef %.1.i.i) #21
   br label %rb_obj_write.exit.i
 
-rb_obj_write.exit.i:                              ; preds = %331, %canon.exit.i
-  %332 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i32 0, ptr %332, align 4, !tbaa !62
-  %333 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  store i32 0, ptr %333, align 4, !tbaa !64
-  %334 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store i64 1, ptr %334, align 8, !tbaa !6
-  %335 = load i32, ptr %13, align 4, !tbaa !33
-  %336 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store i32 %335, ptr %336, align 8, !tbaa !65
-  %337 = fptrunc double %.057.i to float
-  %338 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store float %337, ptr %338, align 8, !tbaa !66
-  %339 = getelementptr inbounds nuw i8, ptr %40, i64 20
-  store i32 %266, ptr %339, align 4, !tbaa !67
-  %340 = shl nuw nsw i32 %spec.select.i.i.i, 22
-  %341 = shl i32 %.018.i.i.i, 17
-  %342 = or i32 %341, %340
-  %343 = shl nuw nsw i32 %.0189.i, 12
-  %344 = or i32 %342, %343
-  %345 = shl nuw nsw i32 %.029.i.i, 6
-  %346 = or disjoint i32 %344, %345
-  %347 = or disjoint i32 %346, %.030.i.i
-  %348 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store i32 %347, ptr %348, align 8, !tbaa !68
+rb_obj_write.exit.i:                              ; preds = %332, %canon.exit.i
+  %333 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store i32 0, ptr %333, align 4, !tbaa !62
+  %334 = getelementptr inbounds nuw i8, ptr %40, i64 28
+  store i32 0, ptr %334, align 4, !tbaa !64
+  %335 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  store i64 1, ptr %335, align 8, !tbaa !6
+  %336 = load i32, ptr %13, align 4, !tbaa !33
+  %337 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store i32 %336, ptr %337, align 8, !tbaa !65
+  %338 = fptrunc double %.057.i to float
+  %339 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store float %338, ptr %339, align 8, !tbaa !66
+  %340 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  store i32 %266, ptr %340, align 4, !tbaa !67
+  %341 = shl nuw nsw i32 %spec.select.i.i.i, 22
+  %342 = shl i32 %.018.i.i.i, 17
+  %343 = or i32 %342, %341
+  %344 = shl nuw nsw i32 %.0189.i, 12
+  %345 = or i32 %343, %344
+  %346 = shl nuw nsw i32 %.029.i.i, 6
+  %347 = or disjoint i32 %345, %346
+  %348 = or disjoint i32 %347, %.030.i.i
+  %349 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store i32 %348, ptr %349, align 8, !tbaa !68
   store i32 140, ptr %40, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #21
-  br label %416
+  br label %417
 
 guess_style.exit.thread.i:                        ; preds = %guess_style.exit.i, %260
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #21
@@ -14716,130 +14719,130 @@ guess_style.exit.thread.i:                        ; preds = %guess_style.exit.i,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #21
-  %349 = call fastcc i32 @valid_civil_p(i64 noundef %.0.i, i32 noundef %.083.i, i32 noundef %.080.i, double noundef %.057.i, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22)
-  %.not92.i = icmp eq i32 %349, 0
-  br i1 %.not92.i, label %350, label %352
+  %350 = call fastcc i32 @valid_civil_p(i64 noundef %.0.i, i32 noundef %.083.i, i32 noundef %.080.i, double noundef %.057.i, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22)
+  %.not92.i = icmp eq i32 %350, 0
+  br i1 %.not92.i, label %351, label %353
 
-350:                                              ; preds = %guess_style.exit.thread.i
-  %351 = load i64, ptr @eDateError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %351, ptr noundef nonnull @.str.168) #22
+351:                                              ; preds = %guess_style.exit.thread.i
+  %352 = load i64, ptr @eDateError, align 8, !tbaa !6
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %352, ptr noundef nonnull @.str.168) #22
   unreachable
 
-352:                                              ; preds = %guess_style.exit.thread.i
-  %353 = icmp slt i32 %.076.i, 0
-  %354 = add nsw i32 %.076.i, 24
-  %spec.select.i152.i = select i1 %353, i32 %354, i32 %.076.i
-  %355 = icmp slt i32 %.071.i, 0
-  %356 = add nsw i32 %.071.i, 60
-  %.029.i153.i = select i1 %355, i32 %356, i32 %.071.i
-  %357 = icmp slt i32 %.065.i, 0
-  %358 = add nsw i32 %.065.i, 60
-  %.030.i154.i = select i1 %357, i32 %358, i32 %.065.i
+353:                                              ; preds = %guess_style.exit.thread.i
+  %354 = icmp slt i32 %.076.i, 0
+  %355 = add nsw i32 %.076.i, 24
+  %spec.select.i152.i = select i1 %354, i32 %355, i32 %.076.i
+  %356 = icmp slt i32 %.071.i, 0
+  %357 = add nsw i32 %.071.i, 60
+  %.029.i153.i = select i1 %356, i32 %357, i32 %.071.i
+  %358 = icmp slt i32 %.065.i, 0
+  %359 = add nsw i32 %.065.i, 60
+  %.030.i154.i = select i1 %358, i32 %359, i32 %.065.i
   %or.cond.i155.i = icmp ugt i32 %spec.select.i152.i, 24
-  %359 = icmp ugt i32 %.029.i153.i, 59
-  %or.cond5.i156.i = select i1 %or.cond.i155.i, i1 true, i1 %359
-  %360 = icmp ugt i32 %.030.i154.i, 59
-  %or.cond9.i157.i = select i1 %or.cond5.i156.i, i1 true, i1 %360
-  br i1 %or.cond9.i157.i, label %c_valid_time_p.exit159.thread.i, label %361
+  %360 = icmp ugt i32 %.029.i153.i, 59
+  %or.cond5.i156.i = select i1 %or.cond.i155.i, i1 true, i1 %360
+  %361 = icmp ugt i32 %.030.i154.i, 59
+  %or.cond9.i157.i = select i1 %or.cond5.i156.i, i1 true, i1 %361
+  br i1 %or.cond9.i157.i, label %c_valid_time_p.exit159.thread.i, label %362
 
-361:                                              ; preds = %352
-  %362 = icmp eq i32 %spec.select.i152.i, 24
-  br i1 %362, label %c_valid_time_p.exit159.i, label %368
+362:                                              ; preds = %353
+  %363 = icmp eq i32 %spec.select.i152.i, 24
+  br i1 %363, label %c_valid_time_p.exit159.i, label %369
 
-c_valid_time_p.exit159.i:                         ; preds = %361
-  %363 = icmp ne i32 %.029.i153.i, 0
-  %364 = icmp ne i32 %.030.i154.i, 0
-  %.not37.i158.not.i = select i1 %363, i1 true, i1 %364
-  br i1 %.not37.i158.not.i, label %c_valid_time_p.exit159.thread.i, label %366
+c_valid_time_p.exit159.i:                         ; preds = %362
+  %364 = icmp ne i32 %.029.i153.i, 0
+  %365 = icmp ne i32 %.030.i154.i, 0
+  %.not37.i158.not.i = select i1 %364, i1 true, i1 %365
+  br i1 %.not37.i158.not.i, label %c_valid_time_p.exit159.thread.i, label %367
 
-c_valid_time_p.exit159.thread.i:                  ; preds = %c_valid_time_p.exit159.i, %352
-  %365 = load i64, ptr @eDateError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %365, ptr noundef nonnull @.str.168) #22
+c_valid_time_p.exit159.thread.i:                  ; preds = %c_valid_time_p.exit159.i, %353
+  %366 = load i64, ptr @eDateError, align 8, !tbaa !6
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %366, ptr noundef nonnull @.str.168) #22
   unreachable
 
-366:                                              ; preds = %c_valid_time_p.exit159.i
-  %367 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.056.i, i64 noundef 43, i32 noundef 1, i64 noundef 3) #21
-  br label %368
+367:                                              ; preds = %c_valid_time_p.exit159.i
+  %368 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.056.i, i64 noundef 43, i32 noundef 1, i64 noundef 3) #21
+  br label %369
 
-368:                                              ; preds = %366, %361
-  %.0188.i = phi i32 [ 0, %366 ], [ %spec.select.i152.i, %361 ]
-  %.8.i = phi i64 [ %367, %366 ], [ %.056.i, %361 ]
-  %369 = load i32, ptr %21, align 4, !tbaa !33
-  %370 = mul nuw nsw i32 %.0188.i, 3600
-  %371 = mul nuw nsw i32 %.029.i153.i, 60
-  %372 = load i32, ptr %13, align 4, !tbaa !33
-  %373 = add nuw nsw i32 %.030.i154.i, %371
-  %374 = add nuw nsw i32 %373, %370
-  %375 = sub i32 %374, %372
-  %376 = icmp samesign ugt i32 %375, 86399
-  %377 = zext i1 %376 to i32
-  %.inv.i.i = icmp sgt i32 %375, -1
-  %.0.v.i.i = select i1 %.inv.i.i, i32 %377, i32 -1
-  %.0.i160.i = add nsw i32 %.0.v.i.i, %369
-  %378 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %379 = load i64, ptr %17, align 8, !tbaa !6
-  %380 = icmp eq i64 %379, 0
-  %381 = and i64 %379, 7
-  %382 = icmp ne i64 %381, 0
-  %383 = or i1 %380, %382
-  br i1 %383, label %canon.exit164.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i161.i
+369:                                              ; preds = %367, %362
+  %.0188.i = phi i32 [ 0, %367 ], [ %spec.select.i152.i, %362 ]
+  %.8.i = phi i64 [ %368, %367 ], [ %.056.i, %362 ]
+  %370 = load i32, ptr %21, align 4, !tbaa !33
+  %371 = mul nuw nsw i32 %.0188.i, 3600
+  %372 = mul nuw nsw i32 %.029.i153.i, 60
+  %373 = load i32, ptr %13, align 4, !tbaa !33
+  %374 = add nuw nsw i32 %.030.i154.i, %372
+  %375 = add nuw nsw i32 %374, %371
+  %376 = sub i32 %375, %373
+  %377 = icmp samesign ugt i32 %376, 86399
+  %378 = zext i1 %377 to i32
+  %.inv.i.i = icmp sgt i32 %376, -1
+  %.0.v.i.i = select i1 %.inv.i.i, i32 %378, i32 -1
+  %.0.i160.i = add nsw i32 %.0.v.i.i, %370
+  %379 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %380 = load i64, ptr %17, align 8, !tbaa !6
+  %381 = icmp eq i64 %380, 0
+  %382 = and i64 %380, 7
+  %383 = icmp ne i64 %382, 0
+  %384 = or i1 %381, %383
+  br i1 %384, label %canon.exit164.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i161.i
 
-rbimpl_RB_TYPE_P_fastpath.exit.i161.i:            ; preds = %368
-  %384 = inttoptr i64 %379 to ptr
-  %385 = load i64, ptr %384, align 8, !tbaa !35
-  %386 = and i64 %385, 31
-  %387 = icmp eq i64 %386, 15
-  br i1 %387, label %388, label %canon.exit164.i
+rbimpl_RB_TYPE_P_fastpath.exit.i161.i:            ; preds = %369
+  %385 = inttoptr i64 %380 to ptr
+  %386 = load i64, ptr %385, align 8, !tbaa !35
+  %387 = and i64 %386, 31
+  %388 = icmp eq i64 %387, 15
+  br i1 %388, label %389, label %canon.exit164.i
 
-388:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i161.i
-  %389 = call i64 @rb_rational_den(i64 noundef %379) #24
-  %or.cond.i163.i = icmp eq i64 %389, 3
-  br i1 %or.cond.i163.i, label %390, label %canon.exit164.i
+389:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i161.i
+  %390 = call i64 @rb_rational_den(i64 noundef %380) #24
+  %or.cond.i163.i = icmp eq i64 %390, 3
+  br i1 %or.cond.i163.i, label %391, label %canon.exit164.i
 
-390:                                              ; preds = %388
-  %391 = call i64 @rb_rational_num(i64 noundef %379) #24
+391:                                              ; preds = %389
+  %392 = call i64 @rb_rational_num(i64 noundef %380) #24
   br label %canon.exit164.i
 
-canon.exit164.i:                                  ; preds = %390, %388, %rbimpl_RB_TYPE_P_fastpath.exit.i161.i, %368
-  %.1.i162.i = phi i64 [ %391, %390 ], [ %379, %rbimpl_RB_TYPE_P_fastpath.exit.i161.i ], [ %379, %368 ], [ %379, %388 ]
-  store i64 %.1.i162.i, ptr %378, align 8, !tbaa !6
-  %392 = icmp eq i64 %.1.i162.i, 0
-  %393 = and i64 %.1.i162.i, 7
-  %394 = icmp ne i64 %393, 0
-  %395 = or i1 %392, %394
-  br i1 %395, label %rb_obj_write.exit165.i, label %396
+canon.exit164.i:                                  ; preds = %391, %389, %rbimpl_RB_TYPE_P_fastpath.exit.i161.i, %369
+  %.1.i162.i = phi i64 [ %392, %391 ], [ %380, %rbimpl_RB_TYPE_P_fastpath.exit.i161.i ], [ %380, %369 ], [ %380, %389 ]
+  store i64 %.1.i162.i, ptr %379, align 8, !tbaa !6
+  %393 = icmp eq i64 %.1.i162.i, 0
+  %394 = and i64 %.1.i162.i, 7
+  %395 = icmp ne i64 %394, 0
+  %396 = or i1 %393, %395
+  br i1 %396, label %rb_obj_write.exit165.i, label %397
 
-396:                                              ; preds = %canon.exit164.i
+397:                                              ; preds = %canon.exit164.i
   call void @rb_gc_writebarrier(i64 noundef %23, i64 noundef %.1.i162.i) #21
   br label %rb_obj_write.exit165.i
 
-rb_obj_write.exit165.i:                           ; preds = %396, %canon.exit164.i
-  %397 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i32 %.0.i160.i, ptr %397, align 4, !tbaa !62
-  %398 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  store i32 0, ptr %398, align 4, !tbaa !64
-  %399 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store i64 1, ptr %399, align 8, !tbaa !6
-  %400 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store i32 %372, ptr %400, align 8, !tbaa !65
-  %401 = fptrunc double %.057.i to float
-  %402 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store float %401, ptr %402, align 8, !tbaa !66
-  %403 = load i32, ptr %18, align 4, !tbaa !33
-  %404 = getelementptr inbounds nuw i8, ptr %40, i64 20
-  store i32 %403, ptr %404, align 4, !tbaa !67
-  %405 = load i32, ptr %19, align 4, !tbaa !33
-  %406 = shl i32 %405, 22
-  %407 = load i32, ptr %20, align 4, !tbaa !33
-  %408 = shl i32 %407, 17
-  %409 = shl nuw nsw i32 %.0188.i, 12
-  %410 = or i32 %406, %409
-  %411 = or i32 %410, %408
-  %412 = shl nuw nsw i32 %.029.i153.i, 6
-  %413 = or disjoint i32 %411, %412
-  %414 = or disjoint i32 %413, %.030.i154.i
-  %415 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store i32 %414, ptr %415, align 8, !tbaa !68
+rb_obj_write.exit165.i:                           ; preds = %397, %canon.exit164.i
+  %398 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store i32 %.0.i160.i, ptr %398, align 4, !tbaa !62
+  %399 = getelementptr inbounds nuw i8, ptr %40, i64 28
+  store i32 0, ptr %399, align 4, !tbaa !64
+  %400 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  store i64 1, ptr %400, align 8, !tbaa !6
+  %401 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store i32 %373, ptr %401, align 8, !tbaa !65
+  %402 = fptrunc double %.057.i to float
+  %403 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store float %402, ptr %403, align 8, !tbaa !66
+  %404 = load i32, ptr %18, align 4, !tbaa !33
+  %405 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  store i32 %404, ptr %405, align 4, !tbaa !67
+  %406 = load i32, ptr %19, align 4, !tbaa !33
+  %407 = shl i32 %406, 22
+  %408 = load i32, ptr %20, align 4, !tbaa !33
+  %409 = shl i32 %408, 17
+  %410 = shl nuw nsw i32 %.0188.i, 12
+  %411 = or i32 %407, %410
+  %412 = or i32 %411, %409
+  %413 = shl nuw nsw i32 %.029.i153.i, 6
+  %414 = or disjoint i32 %412, %413
+  %415 = or disjoint i32 %414, %.030.i154.i
+  %416 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store i32 %415, ptr %416, align 8, !tbaa !68
   store i32 141, ptr %40, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #21
@@ -14847,62 +14850,62 @@ rb_obj_write.exit165.i:                           ; preds = %396, %canon.exit164
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #21
-  br label %416
+  br label %417
 
-416:                                              ; preds = %rb_obj_write.exit165.i, %rb_obj_write.exit.i
+417:                                              ; preds = %rb_obj_write.exit165.i, %rb_obj_write.exit.i
   %.7.i = phi i64 [ %.6.i, %rb_obj_write.exit.i ], [ %.8.i, %rb_obj_write.exit165.i ]
-  %417 = icmp eq i64 %.7.i, 0
-  %418 = and i64 %.7.i, 7
-  %419 = icmp ne i64 %418, 0
-  %420 = or i1 %417, %419
-  br i1 %420, label %421, label %rb_type.exit.i167.i
+  %418 = icmp eq i64 %.7.i, 0
+  %419 = and i64 %.7.i, 7
+  %420 = icmp ne i64 %419, 0
+  %421 = or i1 %418, %420
+  br i1 %421, label %422, label %rb_type.exit.i167.i
 
-421:                                              ; preds = %416
-  %422 = call i64 @llvm.fshl.i64(i64 %.7.i, i64 %.7.i, i64 62)
-  switch i64 %422, label %423 [
+422:                                              ; preds = %417
+  %423 = call i64 @llvm.fshl.i64(i64 %.7.i, i64 %.7.i, i64 62)
+  switch i64 %423, label %424 [
     i64 0, label %f_zero_p.exit173.i
     i64 1, label %f_zero_p.exit173.i
     i64 5, label %f_zero_p.exit173.i
     i64 9, label %f_zero_p.exit173.i
   ]
 
-423:                                              ; preds = %421
-  %424 = and i64 %.7.i, 1
-  %.not.i.i172.i = icmp eq i64 %424, 0
+424:                                              ; preds = %422
+  %425 = and i64 %.7.i, 1
+  %.not.i.i172.i = icmp eq i64 %425, 0
   br i1 %.not.i.i172.i, label %f_zero_p.exit173.i, label %rb_type.exit.thread8.i170.i
 
-rb_type.exit.i167.i:                              ; preds = %416
-  %425 = inttoptr i64 %.7.i to ptr
-  %426 = load i64, ptr %425, align 8, !tbaa !35
-  %427 = trunc i64 %426 to i32
-  %428 = and i32 %427, 31
-  switch i32 %428, label %f_zero_p.exit173.i [
+rb_type.exit.i167.i:                              ; preds = %417
+  %426 = inttoptr i64 %.7.i to ptr
+  %427 = load i64, ptr %426, align 8, !tbaa !35
+  %428 = trunc i64 %427 to i32
+  %429 = and i32 %428, 31
+  switch i32 %429, label %f_zero_p.exit173.i [
     i32 21, label %rb_type.exit.thread8.i170.i
     i32 10, label %f_zero_p.exit173.thread.i
-    i32 15, label %430
+    i32 15, label %431
   ]
 
-rb_type.exit.thread8.i170.i:                      ; preds = %rb_type.exit.i167.i, %423
-  %429 = icmp ult i64 %.7.i, 2
-  br i1 %429, label %datetime_initialize.exit, label %f_zero_p.exit173.thread.i
+rb_type.exit.thread8.i170.i:                      ; preds = %rb_type.exit.i167.i, %424
+  %430 = icmp ult i64 %.7.i, 2
+  br i1 %430, label %datetime_initialize.exit, label %f_zero_p.exit173.thread.i
 
-430:                                              ; preds = %rb_type.exit.i167.i
-  %431 = call i64 @rb_rational_num(i64 noundef %.7.i) #24
-  %or.cond248.i = icmp eq i64 %431, 1
+431:                                              ; preds = %rb_type.exit.i167.i
+  %432 = call i64 @rb_rational_num(i64 noundef %.7.i) #24
+  %or.cond248.i = icmp eq i64 %432, 1
   br i1 %or.cond248.i, label %datetime_initialize.exit, label %f_zero_p.exit173.thread.i
 
-f_zero_p.exit173.i:                               ; preds = %rb_type.exit.i167.i, %423, %421, %421, %421, %421
-  %432 = load i64, ptr @id_eqeq_p, align 8, !tbaa !6
-  %433 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.7.i, i64 noundef %432, i32 noundef 1, i64 noundef 1) #21
-  %.not96.i = icmp eq i64 %433, 0
+f_zero_p.exit173.i:                               ; preds = %rb_type.exit.i167.i, %424, %422, %422, %422, %422
+  %433 = load i64, ptr @id_eqeq_p, align 8, !tbaa !6
+  %434 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.7.i, i64 noundef %433, i32 noundef 1, i64 noundef 1) #21
+  %.not96.i = icmp eq i64 %434, 0
   br i1 %.not96.i, label %f_zero_p.exit173.thread.i, label %datetime_initialize.exit
 
-f_zero_p.exit173.thread.i:                        ; preds = %f_zero_p.exit173.i, %430, %rb_type.exit.thread8.i170.i, %rb_type.exit.i167.i
-  %434 = call i64 @d_lite_plus(i64 noundef %23, i64 noundef %.7.i)
+f_zero_p.exit173.thread.i:                        ; preds = %f_zero_p.exit173.i, %431, %rb_type.exit.thread8.i170.i, %rb_type.exit.i167.i
+  %435 = call i64 @d_lite_plus(i64 noundef %23, i64 noundef %.7.i)
   br label %datetime_initialize.exit
 
-datetime_initialize.exit:                         ; preds = %rb_type.exit.thread8.i170.i, %430, %f_zero_p.exit173.i, %f_zero_p.exit173.thread.i
-  %.085.i = phi i64 [ %23, %f_zero_p.exit173.i ], [ %434, %f_zero_p.exit173.thread.i ], [ %23, %rb_type.exit.thread8.i170.i ], [ %23, %430 ]
+datetime_initialize.exit:                         ; preds = %rb_type.exit.thread8.i170.i, %431, %f_zero_p.exit173.i, %f_zero_p.exit173.thread.i
+  %.085.i = phi i64 [ %23, %f_zero_p.exit173.i ], [ %435, %f_zero_p.exit173.thread.i ], [ %23, %rb_type.exit.thread8.i170.i ], [ %23, %431 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
@@ -19680,7 +19683,7 @@ f_zero_p.exit.thread:                             ; preds = %53, %rb_type.exit.i
 63:                                               ; preds = %guess_style.exit
   tail call fastcc void @decode_year(i64 noundef %0, double noundef %.0.i, ptr noundef %4, ptr noundef %5)
   %64 = fcmp olt double %.0.i, 0.000000e+00
-  br i1 %64, label %65, label %95
+  br i1 %64, label %65, label %96
 
 65:                                               ; preds = %63
   %66 = load i32, ptr %5, align 4, !tbaa !33
@@ -19721,90 +19724,92 @@ f_zero_p.exit.thread:                             ; preds = %53, %rb_type.exit.i
 
 c_gregorian_last_day_of_month.exit.i:             ; preds = %82, %70
   %86 = phi i64 [ %85, %82 ], [ 1, %70 ]
-  %87 = zext nneg i32 %spec.select.i to i64
-  %88 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %86, i64 %87
-  %89 = load i32, ptr %88, align 4, !tbaa !33
-  %90 = icmp slt i32 %2, 0
-  %91 = add nsw i32 %2, 1
-  %92 = add i32 %91, %89
-  %.018.i = select i1 %90, i32 %92, i32 %2
-  %93 = icmp slt i32 %.018.i, 1
-  %94 = icmp sgt i32 %.018.i, %89
-  %or.cond22.i = select i1 %93, i1 true, i1 %94
+  %87 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %86
+  %88 = zext nneg i32 %spec.select.i to i64
+  %89 = getelementptr inbounds nuw [13 x i32], ptr %87, i64 0, i64 %88
+  %90 = load i32, ptr %89, align 4, !tbaa !33
+  %91 = icmp slt i32 %2, 0
+  %92 = add nsw i32 %2, 1
+  %93 = add i32 %92, %90
+  %.018.i = select i1 %91, i32 %93, i32 %2
+  %94 = icmp slt i32 %.018.i, 1
+  %95 = icmp sgt i32 %.018.i, %90
+  %or.cond22.i = select i1 %94, i1 true, i1 %95
   br i1 %or.cond22.i, label %c_valid_gregorian_p.exit.thread, label %c_valid_gregorian_p.exit
 
-95:                                               ; preds = %63
-  %96 = icmp slt i32 %1, 0
-  %97 = add nsw i32 %1, 13
-  %spec.select.i53 = select i1 %96, i32 %97, i32 %1
-  %98 = add nsw i32 %spec.select.i53, -13
-  %or.cond.i54 = icmp ult i32 %98, -12
-  br i1 %or.cond.i54, label %c_valid_gregorian_p.exit.thread, label %99
+96:                                               ; preds = %63
+  %97 = icmp slt i32 %1, 0
+  %98 = add nsw i32 %1, 13
+  %spec.select.i53 = select i1 %97, i32 %98, i32 %1
+  %99 = add nsw i32 %spec.select.i53, -13
+  %or.cond.i54 = icmp ult i32 %99, -12
+  br i1 %or.cond.i54, label %c_valid_gregorian_p.exit.thread, label %100
 
-99:                                               ; preds = %95
-  %100 = load i32, ptr %5, align 4, !tbaa !33
-  %101 = and i32 %100, 3
-  %102 = icmp eq i32 %101, 0
-  %103 = zext i1 %102 to i64
-  %104 = zext nneg i32 %spec.select.i53 to i64
-  %105 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %103, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !33
-  %107 = icmp slt i32 %2, 0
-  %108 = add nsw i32 %2, 1
-  %109 = add i32 %108, %106
-  %.018.i55 = select i1 %107, i32 %109, i32 %2
-  %110 = icmp slt i32 %.018.i55, 1
-  %111 = icmp sgt i32 %.018.i55, %106
-  %or.cond22.i56 = select i1 %110, i1 true, i1 %111
+100:                                              ; preds = %96
+  %101 = load i32, ptr %5, align 4, !tbaa !33
+  %102 = and i32 %101, 3
+  %103 = icmp eq i32 %102, 0
+  %104 = zext i1 %103 to i64
+  %105 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @monthtab, i64 0, i64 %104
+  %106 = zext nneg i32 %spec.select.i53 to i64
+  %107 = getelementptr inbounds nuw [13 x i32], ptr %105, i64 0, i64 %106
+  %108 = load i32, ptr %107, align 4, !tbaa !33
+  %109 = icmp slt i32 %2, 0
+  %110 = add nsw i32 %2, 1
+  %111 = add i32 %110, %108
+  %.018.i55 = select i1 %109, i32 %111, i32 %2
+  %112 = icmp slt i32 %.018.i55, 1
+  %113 = icmp sgt i32 %.018.i55, %108
+  %or.cond22.i56 = select i1 %112, i1 true, i1 %113
   br i1 %or.cond22.i56, label %c_valid_gregorian_p.exit.thread, label %c_valid_gregorian_p.exit
 
-c_valid_gregorian_p.exit:                         ; preds = %99, %c_gregorian_last_day_of_month.exit.i
-  %storemerge70 = phi i32 [ %spec.select.i, %c_gregorian_last_day_of_month.exit.i ], [ %spec.select.i53, %99 ]
-  %storemerge = phi i32 [ %.018.i, %c_gregorian_last_day_of_month.exit.i ], [ %.018.i55, %99 ]
+c_valid_gregorian_p.exit:                         ; preds = %100, %c_gregorian_last_day_of_month.exit.i
+  %storemerge70 = phi i32 [ %spec.select.i, %c_gregorian_last_day_of_month.exit.i ], [ %spec.select.i53, %100 ]
+  %storemerge = phi i32 [ %.018.i, %c_gregorian_last_day_of_month.exit.i ], [ %.018.i55, %100 ]
   store i32 %storemerge70, ptr %6, align 4, !tbaa !33
   store i32 %storemerge, ptr %7, align 4, !tbaa !33
-  %112 = load i32, ptr %5, align 4, !tbaa !33
-  %113 = load i32, ptr %6, align 4, !tbaa !33
-  %114 = icmp slt i32 %113, 3
-  %115 = add nsw i32 %113, 12
-  %.018.i58 = select i1 %114, i32 %115, i32 %113
-  %116 = sext i1 %114 to i32
-  %.017.i = add nsw i32 %112, %116
-  %117 = sitofp i32 %.017.i to double
-  %118 = fdiv double %117, 1.000000e+02
-  %119 = tail call double @llvm.floor.f64(double %118)
-  %120 = fsub double 2.000000e+00, %119
-  %121 = fmul double %119, 2.500000e-01
-  %122 = tail call double @llvm.floor.f64(double %121)
-  %123 = fadd double %120, %122
-  %124 = add nsw i32 %.017.i, 4716
-  %125 = sitofp i32 %124 to double
-  %126 = fmul double %125, 3.652500e+02
-  %127 = tail call double @llvm.floor.f64(double %126)
-  %128 = add nsw i32 %.018.i58, 1
-  %129 = sitofp i32 %128 to double
-  %130 = fmul double %129, 3.060010e+01
-  %131 = tail call double @llvm.floor.f64(double %130)
-  %132 = fadd double %131, %127
-  %133 = uitofp nneg i32 %storemerge to double
-  %134 = fadd double %132, %133
-  %135 = fadd double %134, %123
-  %136 = fadd double %135, -1.524000e+03
-  %137 = fcmp uge double %136, %.0.i
-  %138 = fsub double %136, %123
-  %storemerge.i = zext i1 %137 to i32
-  %.0.i59 = select i1 %137, double %136, double %138
+  %114 = load i32, ptr %5, align 4, !tbaa !33
+  %115 = load i32, ptr %6, align 4, !tbaa !33
+  %116 = icmp slt i32 %115, 3
+  %117 = add nsw i32 %115, 12
+  %.018.i58 = select i1 %116, i32 %117, i32 %115
+  %118 = sext i1 %116 to i32
+  %.017.i = add nsw i32 %114, %118
+  %119 = sitofp i32 %.017.i to double
+  %120 = fdiv double %119, 1.000000e+02
+  %121 = tail call double @llvm.floor.f64(double %120)
+  %122 = fsub double 2.000000e+00, %121
+  %123 = fmul double %121, 2.500000e-01
+  %124 = tail call double @llvm.floor.f64(double %123)
+  %125 = fadd double %122, %124
+  %126 = add nsw i32 %.017.i, 4716
+  %127 = sitofp i32 %126 to double
+  %128 = fmul double %127, 3.652500e+02
+  %129 = tail call double @llvm.floor.f64(double %128)
+  %130 = add nsw i32 %.018.i58, 1
+  %131 = sitofp i32 %130 to double
+  %132 = fmul double %131, 3.060010e+01
+  %133 = tail call double @llvm.floor.f64(double %132)
+  %134 = fadd double %133, %129
+  %135 = uitofp nneg i32 %storemerge to double
+  %136 = fadd double %134, %135
+  %137 = fadd double %136, %125
+  %138 = fadd double %137, -1.524000e+03
+  %139 = fcmp uge double %138, %.0.i
+  %140 = fsub double %138, %125
+  %storemerge.i = zext i1 %139 to i32
+  %.0.i59 = select i1 %139, double %138, double %140
   store i32 %storemerge.i, ptr %9, align 4, !tbaa !33
-  %139 = fptosi double %.0.i59 to i32
-  store i32 %139, ptr %8, align 4, !tbaa !33
+  %141 = fptosi double %.0.i59 to i32
+  store i32 %141, ptr %8, align 4, !tbaa !33
   br label %c_valid_gregorian_p.exit.thread
 
 .critedge:                                        ; preds = %guess_style.exit.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
   br label %c_valid_gregorian_p.exit.thread
 
-c_valid_gregorian_p.exit.thread:                  ; preds = %99, %95, %c_gregorian_last_day_of_month.exit.i, %65, %62, %c_valid_gregorian_p.exit, %.critedge
-  %.145 = phi i32 [ 0, %.critedge ], [ 1, %c_valid_gregorian_p.exit ], [ 1, %62 ], [ 0, %65 ], [ 0, %c_gregorian_last_day_of_month.exit.i ], [ 0, %95 ], [ 0, %99 ]
+c_valid_gregorian_p.exit.thread:                  ; preds = %100, %96, %c_gregorian_last_day_of_month.exit.i, %65, %62, %c_valid_gregorian_p.exit, %.critedge
+  %.145 = phi i32 [ 0, %.critedge ], [ 1, %c_valid_gregorian_p.exit ], [ 1, %62 ], [ 0, %65 ], [ 0, %c_gregorian_last_day_of_month.exit.i ], [ 0, %96 ], [ 0, %100 ]
   ret i32 %.145
 }
 
@@ -25273,7 +25278,7 @@ m_proleptic_gregorian_p.exit._crit_edge:          ; preds = %m_proleptic_gregori
   %18 = fsub double %17, %.0.i
   %19 = fcmp ogt double %18, 3.660000e+02
   %.pre89 = load i32, ptr %0, align 8, !tbaa !47
-  br i1 %19, label %20, label %170
+  br i1 %19, label %20, label %171
 
 20:                                               ; preds = %m_proleptic_gregorian_p.exit._crit_edge, %16
   %21 = phi i32 [ %.pre88, %m_proleptic_gregorian_p.exit._crit_edge ], [ %.pre89, %16 ]
@@ -25521,311 +25526,313 @@ m_mday.exit:                                      ; preds = %110, %c_jd_to_civil
 
 c_gregorian_to_yday.exit:                         ; preds = %m_mday.exit, %161
   %165 = phi i64 [ %164, %161 ], [ 1, %m_mday.exit ]
-  %166 = zext nneg i32 %.0.i20 to i64
-  %167 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @yeartab, i64 0, i64 %165, i64 %166
-  %168 = load i32, ptr %167, align 4, !tbaa !33
-  %169 = add nsw i32 %168, %.0.i32
-  br label %339
+  %166 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @yeartab, i64 0, i64 %165
+  %167 = zext nneg i32 %.0.i20 to i64
+  %168 = getelementptr inbounds nuw [13 x i32], ptr %166, i64 0, i64 %167
+  %169 = load i32, ptr %168, align 4, !tbaa !33
+  %170 = add nsw i32 %169, %.0.i32
+  br label %341
 
-170:                                              ; preds = %16
-  %171 = and i32 %.pre89, 128
-  %.not.i.i41 = icmp eq i32 %171, 0
-  br i1 %.not.i.i41, label %m_proleptic_julian_p.exit, label %172
+171:                                              ; preds = %16
+  %172 = and i32 %.pre89, 128
+  %.not.i.i41 = icmp eq i32 %172, 0
+  br i1 %.not.i.i41, label %m_proleptic_julian_p.exit, label %173
 
-172:                                              ; preds = %170
+173:                                              ; preds = %171
   tail call fastcc void @get_c_jd(ptr noundef nonnull %0)
   %.0.in.i.i43.pre = load float, ptr %.0.in.in.i.i, align 8, !tbaa !47
   br label %m_proleptic_julian_p.exit
 
-m_proleptic_julian_p.exit:                        ; preds = %170, %172
-  %.0.in.i.i43 = phi float [ %.0.in.i.i, %170 ], [ %.0.in.i.i43.pre, %172 ]
+m_proleptic_julian_p.exit:                        ; preds = %171, %173
+  %.0.in.i.i43 = phi float [ %.0.in.i.i, %171 ], [ %.0.in.i.i43.pre, %173 ]
   %or.cond.i44 = fcmp une float %.0.in.i.i43, 0x7FF0000000000000
-  br i1 %or.cond.i44, label %310, label %173
+  br i1 %or.cond.i44, label %312, label %174
 
-173:                                              ; preds = %m_proleptic_julian_p.exit
-  %174 = load i32, ptr %0, align 8, !tbaa !47
-  %175 = and i32 %174, 128
-  %.not.i46 = icmp eq i32 %175, 0
-  br i1 %.not.i46, label %176, label %217
+174:                                              ; preds = %m_proleptic_julian_p.exit
+  %175 = load i32, ptr %0, align 8, !tbaa !47
+  %176 = and i32 %175, 128
+  %.not.i46 = icmp eq i32 %176, 0
+  br i1 %.not.i46, label %177, label %218
 
-176:                                              ; preds = %173
-  %177 = and i32 %174, 4
-  %.not.i.i49 = icmp eq i32 %177, 0
-  br i1 %.not.i.i49, label %178, label %m_year.exit56
+177:                                              ; preds = %174
+  %178 = and i32 %175, 4
+  %.not.i.i49 = icmp eq i32 %178, 0
+  br i1 %.not.i.i49, label %179, label %m_year.exit56
 
-178:                                              ; preds = %176
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %180 = load i32, ptr %179, align 4, !tbaa !47
-  %181 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
-  %182 = sitofp i32 %180 to double
-  %183 = fcmp ogt double %181, %182
-  br i1 %183, label %c_jd_to_civil.exit.i.i50, label %184
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %181 = load i32, ptr %180, align 4, !tbaa !47
+  %182 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
+  %183 = sitofp i32 %181 to double
+  %184 = fcmp ogt double %182, %183
+  br i1 %184, label %c_jd_to_civil.exit.i.i50, label %185
 
-184:                                              ; preds = %178
-  %185 = fadd double %182, 0xC13C7DD040000000
-  %186 = fdiv double %185, 0x40E1D58800000000
-  %187 = tail call double @llvm.floor.f64(double %186)
-  %188 = add nsw i32 %180, 1
-  %189 = sitofp i32 %188 to double
-  %190 = fadd double %187, %189
-  %191 = fmul double %187, 2.500000e-01
-  %192 = tail call double @llvm.floor.f64(double %191)
-  %193 = fsub double %190, %192
+185:                                              ; preds = %179
+  %186 = fadd double %183, 0xC13C7DD040000000
+  %187 = fdiv double %186, 0x40E1D58800000000
+  %188 = tail call double @llvm.floor.f64(double %187)
+  %189 = add nsw i32 %181, 1
+  %190 = sitofp i32 %189 to double
+  %191 = fadd double %188, %190
+  %192 = fmul double %188, 2.500000e-01
+  %193 = tail call double @llvm.floor.f64(double %192)
+  %194 = fsub double %191, %193
   br label %c_jd_to_civil.exit.i.i50
 
-c_jd_to_civil.exit.i.i50:                         ; preds = %184, %178
-  %.0.i.i.i51 = phi double [ %193, %184 ], [ %182, %178 ]
-  %194 = fadd double %.0.i.i.i51, 1.524000e+03
-  %195 = fadd double %194, -1.221000e+02
-  %196 = fdiv double %195, 3.652500e+02
-  %197 = tail call double @llvm.floor.f64(double %196)
-  %198 = fmul double %197, 3.652500e+02
-  %199 = tail call double @llvm.floor.f64(double %198)
-  %200 = fsub double %194, %199
-  %201 = fdiv double %200, 3.060010e+01
-  %202 = tail call double @llvm.floor.f64(double %201)
-  %203 = fcmp ugt double %202, 1.300000e+01
-  %.026.v.i.i.i52 = select i1 %203, double -4.715000e+03, double -4.716000e+03
-  %.026.i.i.i53 = fadd double %197, %.026.v.i.i.i52
-  %.025.v.i.i.i54 = select i1 %203, double -1.300000e+01, double -1.000000e+00
-  %.025.i.i.i55 = fadd double %202, %.025.v.i.i.i54
-  %204 = fmul double %202, 3.060010e+01
-  %205 = tail call double @llvm.floor.f64(double %204)
-  %206 = fsub double %200, %205
-  %207 = fptosi double %.026.i.i.i53 to i32
-  %208 = fptosi double %.025.i.i.i55 to i32
-  %209 = fptosi double %206 to i32
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %207, ptr %210, align 4, !tbaa !47
-  %211 = shl i32 %208, 22
-  %212 = shl i32 %209, 17
-  %213 = or i32 %211, %212
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %213, ptr %214, align 8, !tbaa !47
-  %215 = load i32, ptr %0, align 8, !tbaa !47
-  %216 = or i32 %215, 4
-  store i32 %216, ptr %0, align 8, !tbaa !47
+c_jd_to_civil.exit.i.i50:                         ; preds = %185, %179
+  %.0.i.i.i51 = phi double [ %194, %185 ], [ %183, %179 ]
+  %195 = fadd double %.0.i.i.i51, 1.524000e+03
+  %196 = fadd double %195, -1.221000e+02
+  %197 = fdiv double %196, 3.652500e+02
+  %198 = tail call double @llvm.floor.f64(double %197)
+  %199 = fmul double %198, 3.652500e+02
+  %200 = tail call double @llvm.floor.f64(double %199)
+  %201 = fsub double %195, %200
+  %202 = fdiv double %201, 3.060010e+01
+  %203 = tail call double @llvm.floor.f64(double %202)
+  %204 = fcmp ugt double %203, 1.300000e+01
+  %.026.v.i.i.i52 = select i1 %204, double -4.715000e+03, double -4.716000e+03
+  %.026.i.i.i53 = fadd double %198, %.026.v.i.i.i52
+  %.025.v.i.i.i54 = select i1 %204, double -1.300000e+01, double -1.000000e+00
+  %.025.i.i.i55 = fadd double %203, %.025.v.i.i.i54
+  %205 = fmul double %203, 3.060010e+01
+  %206 = tail call double @llvm.floor.f64(double %205)
+  %207 = fsub double %201, %206
+  %208 = fptosi double %.026.i.i.i53 to i32
+  %209 = fptosi double %.025.i.i.i55 to i32
+  %210 = fptosi double %207 to i32
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %208, ptr %211, align 4, !tbaa !47
+  %212 = shl i32 %209, 22
+  %213 = shl i32 %210, 17
+  %214 = or i32 %212, %213
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %214, ptr %215, align 8, !tbaa !47
+  %216 = load i32, ptr %0, align 8, !tbaa !47
+  %217 = or i32 %216, 4
+  store i32 %217, ptr %0, align 8, !tbaa !47
   br label %m_year.exit56
 
-217:                                              ; preds = %173
+218:                                              ; preds = %174
   tail call fastcc void @get_c_civil(ptr noundef nonnull %0)
   %.pre = load i32, ptr %0, align 8, !tbaa !47
   br label %m_year.exit56
 
-m_year.exit56:                                    ; preds = %176, %c_jd_to_civil.exit.i.i50, %217
-  %218 = phi i32 [ %174, %176 ], [ %216, %c_jd_to_civil.exit.i.i50 ], [ %.pre, %217 ]
+m_year.exit56:                                    ; preds = %177, %c_jd_to_civil.exit.i.i50, %218
+  %219 = phi i32 [ %175, %177 ], [ %217, %c_jd_to_civil.exit.i.i50 ], [ %.pre, %218 ]
   %.0.in.i47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.0.i48 = load i32, ptr %.0.in.i47, align 4, !tbaa !47
-  %219 = and i32 %218, 128
-  %.not.i57 = icmp eq i32 %219, 0
-  br i1 %.not.i57, label %220, label %260
+  %220 = and i32 %219, 128
+  %.not.i57 = icmp eq i32 %220, 0
+  br i1 %.not.i57, label %221, label %261
 
-220:                                              ; preds = %m_year.exit56
-  %221 = and i32 %218, 4
-  %.not.i.i62 = icmp eq i32 %221, 0
-  br i1 %.not.i.i62, label %222, label %m_mon.exit69
+221:                                              ; preds = %m_year.exit56
+  %222 = and i32 %219, 4
+  %.not.i.i62 = icmp eq i32 %222, 0
+  br i1 %.not.i.i62, label %223, label %m_mon.exit69
 
-222:                                              ; preds = %220
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %224 = load i32, ptr %223, align 4, !tbaa !47
-  %225 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
-  %226 = sitofp i32 %224 to double
-  %227 = fcmp ogt double %225, %226
-  br i1 %227, label %c_jd_to_civil.exit.i.i63, label %228
+223:                                              ; preds = %221
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %225 = load i32, ptr %224, align 4, !tbaa !47
+  %226 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
+  %227 = sitofp i32 %225 to double
+  %228 = fcmp ogt double %226, %227
+  br i1 %228, label %c_jd_to_civil.exit.i.i63, label %229
 
-228:                                              ; preds = %222
-  %229 = fadd double %226, 0xC13C7DD040000000
-  %230 = fdiv double %229, 0x40E1D58800000000
-  %231 = tail call double @llvm.floor.f64(double %230)
-  %232 = add nsw i32 %224, 1
-  %233 = sitofp i32 %232 to double
-  %234 = fadd double %231, %233
-  %235 = fmul double %231, 2.500000e-01
-  %236 = tail call double @llvm.floor.f64(double %235)
-  %237 = fsub double %234, %236
+229:                                              ; preds = %223
+  %230 = fadd double %227, 0xC13C7DD040000000
+  %231 = fdiv double %230, 0x40E1D58800000000
+  %232 = tail call double @llvm.floor.f64(double %231)
+  %233 = add nsw i32 %225, 1
+  %234 = sitofp i32 %233 to double
+  %235 = fadd double %232, %234
+  %236 = fmul double %232, 2.500000e-01
+  %237 = tail call double @llvm.floor.f64(double %236)
+  %238 = fsub double %235, %237
   br label %c_jd_to_civil.exit.i.i63
 
-c_jd_to_civil.exit.i.i63:                         ; preds = %228, %222
-  %.0.i.i.i64 = phi double [ %237, %228 ], [ %226, %222 ]
-  %238 = fadd double %.0.i.i.i64, 1.524000e+03
-  %239 = fadd double %238, -1.221000e+02
-  %240 = fdiv double %239, 3.652500e+02
-  %241 = tail call double @llvm.floor.f64(double %240)
-  %242 = fmul double %241, 3.652500e+02
-  %243 = tail call double @llvm.floor.f64(double %242)
-  %244 = fsub double %238, %243
-  %245 = fdiv double %244, 3.060010e+01
-  %246 = tail call double @llvm.floor.f64(double %245)
-  %247 = fcmp ugt double %246, 1.300000e+01
-  %.026.v.i.i.i65 = select i1 %247, double -4.715000e+03, double -4.716000e+03
-  %.026.i.i.i66 = fadd double %241, %.026.v.i.i.i65
-  %.025.v.i.i.i67 = select i1 %247, double -1.300000e+01, double -1.000000e+00
-  %.025.i.i.i68 = fadd double %246, %.025.v.i.i.i67
-  %248 = fmul double %246, 3.060010e+01
-  %249 = tail call double @llvm.floor.f64(double %248)
-  %250 = fsub double %244, %249
-  %251 = fptosi double %.026.i.i.i66 to i32
-  %252 = fptosi double %.025.i.i.i68 to i32
-  %253 = fptosi double %250 to i32
-  store i32 %251, ptr %.0.in.i47, align 4, !tbaa !47
-  %254 = shl i32 %252, 22
-  %255 = shl i32 %253, 17
-  %256 = or i32 %254, %255
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %256, ptr %257, align 8, !tbaa !47
-  %258 = load i32, ptr %0, align 8, !tbaa !47
-  %259 = or i32 %258, 4
-  store i32 %259, ptr %0, align 8, !tbaa !47
+c_jd_to_civil.exit.i.i63:                         ; preds = %229, %223
+  %.0.i.i.i64 = phi double [ %238, %229 ], [ %227, %223 ]
+  %239 = fadd double %.0.i.i.i64, 1.524000e+03
+  %240 = fadd double %239, -1.221000e+02
+  %241 = fdiv double %240, 3.652500e+02
+  %242 = tail call double @llvm.floor.f64(double %241)
+  %243 = fmul double %242, 3.652500e+02
+  %244 = tail call double @llvm.floor.f64(double %243)
+  %245 = fsub double %239, %244
+  %246 = fdiv double %245, 3.060010e+01
+  %247 = tail call double @llvm.floor.f64(double %246)
+  %248 = fcmp ugt double %247, 1.300000e+01
+  %.026.v.i.i.i65 = select i1 %248, double -4.715000e+03, double -4.716000e+03
+  %.026.i.i.i66 = fadd double %242, %.026.v.i.i.i65
+  %.025.v.i.i.i67 = select i1 %248, double -1.300000e+01, double -1.000000e+00
+  %.025.i.i.i68 = fadd double %247, %.025.v.i.i.i67
+  %249 = fmul double %247, 3.060010e+01
+  %250 = tail call double @llvm.floor.f64(double %249)
+  %251 = fsub double %245, %250
+  %252 = fptosi double %.026.i.i.i66 to i32
+  %253 = fptosi double %.025.i.i.i68 to i32
+  %254 = fptosi double %251 to i32
+  store i32 %252, ptr %.0.in.i47, align 4, !tbaa !47
+  %255 = shl i32 %253, 22
+  %256 = shl i32 %254, 17
+  %257 = or i32 %255, %256
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %257, ptr %258, align 8, !tbaa !47
+  %259 = load i32, ptr %0, align 8, !tbaa !47
+  %260 = or i32 %259, 4
+  store i32 %260, ptr %0, align 8, !tbaa !47
   br label %m_mon.exit69
 
-260:                                              ; preds = %m_year.exit56
+261:                                              ; preds = %m_year.exit56
   tail call fastcc void @get_c_civil(ptr noundef nonnull %0)
   %.pre86 = load i32, ptr %0, align 8, !tbaa !47
   br label %m_mon.exit69
 
-m_mon.exit69:                                     ; preds = %220, %c_jd_to_civil.exit.i.i63, %260
-  %261 = phi i32 [ %218, %220 ], [ %259, %c_jd_to_civil.exit.i.i63 ], [ %.pre86, %260 ]
+m_mon.exit69:                                     ; preds = %221, %c_jd_to_civil.exit.i.i63, %261
+  %262 = phi i32 [ %219, %221 ], [ %260, %c_jd_to_civil.exit.i.i63 ], [ %.pre86, %261 ]
   %.0.in.in.in.i58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.0.in.in.i59 = load i32, ptr %.0.in.in.in.i58, align 8, !tbaa !47
   %.0.in.i60 = lshr i32 %.0.in.in.i59, 22
   %.0.i61 = and i32 %.0.in.i60, 15
-  %262 = and i32 %261, 128
-  %.not.i70 = icmp eq i32 %262, 0
-  br i1 %.not.i70, label %263, label %302
+  %263 = and i32 %262, 128
+  %.not.i70 = icmp eq i32 %263, 0
+  br i1 %.not.i70, label %264, label %303
 
-263:                                              ; preds = %m_mon.exit69
-  %264 = and i32 %261, 4
-  %.not.i.i75 = icmp eq i32 %264, 0
-  br i1 %.not.i.i75, label %265, label %m_mday.exit82
+264:                                              ; preds = %m_mon.exit69
+  %265 = and i32 %262, 4
+  %.not.i.i75 = icmp eq i32 %265, 0
+  br i1 %.not.i.i75, label %266, label %m_mday.exit82
 
-265:                                              ; preds = %263
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %267 = load i32, ptr %266, align 4, !tbaa !47
-  %268 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
-  %269 = sitofp i32 %267 to double
-  %270 = fcmp ogt double %268, %269
-  br i1 %270, label %c_jd_to_civil.exit.i.i76, label %271
+266:                                              ; preds = %264
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %268 = load i32, ptr %267, align 4, !tbaa !47
+  %269 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
+  %270 = sitofp i32 %268 to double
+  %271 = fcmp ogt double %269, %270
+  br i1 %271, label %c_jd_to_civil.exit.i.i76, label %272
 
-271:                                              ; preds = %265
-  %272 = fadd double %269, 0xC13C7DD040000000
-  %273 = fdiv double %272, 0x40E1D58800000000
-  %274 = tail call double @llvm.floor.f64(double %273)
-  %275 = add nsw i32 %267, 1
-  %276 = sitofp i32 %275 to double
-  %277 = fadd double %274, %276
-  %278 = fmul double %274, 2.500000e-01
-  %279 = tail call double @llvm.floor.f64(double %278)
-  %280 = fsub double %277, %279
+272:                                              ; preds = %266
+  %273 = fadd double %270, 0xC13C7DD040000000
+  %274 = fdiv double %273, 0x40E1D58800000000
+  %275 = tail call double @llvm.floor.f64(double %274)
+  %276 = add nsw i32 %268, 1
+  %277 = sitofp i32 %276 to double
+  %278 = fadd double %275, %277
+  %279 = fmul double %275, 2.500000e-01
+  %280 = tail call double @llvm.floor.f64(double %279)
+  %281 = fsub double %278, %280
   br label %c_jd_to_civil.exit.i.i76
 
-c_jd_to_civil.exit.i.i76:                         ; preds = %271, %265
-  %.0.i.i.i77 = phi double [ %280, %271 ], [ %269, %265 ]
-  %281 = fadd double %.0.i.i.i77, 1.524000e+03
-  %282 = fadd double %281, -1.221000e+02
-  %283 = fdiv double %282, 3.652500e+02
-  %284 = tail call double @llvm.floor.f64(double %283)
-  %285 = fmul double %284, 3.652500e+02
-  %286 = tail call double @llvm.floor.f64(double %285)
-  %287 = fsub double %281, %286
-  %288 = fdiv double %287, 3.060010e+01
-  %289 = tail call double @llvm.floor.f64(double %288)
-  %290 = fcmp ugt double %289, 1.300000e+01
-  %.026.v.i.i.i78 = select i1 %290, double -4.715000e+03, double -4.716000e+03
-  %.026.i.i.i79 = fadd double %284, %.026.v.i.i.i78
-  %.025.v.i.i.i80 = select i1 %290, double -1.300000e+01, double -1.000000e+00
-  %.025.i.i.i81 = fadd double %289, %.025.v.i.i.i80
-  %291 = fmul double %289, 3.060010e+01
-  %292 = tail call double @llvm.floor.f64(double %291)
-  %293 = fsub double %287, %292
-  %294 = fptosi double %.026.i.i.i79 to i32
-  %295 = fptosi double %.025.i.i.i81 to i32
-  %296 = fptosi double %293 to i32
-  store i32 %294, ptr %.0.in.i47, align 4, !tbaa !47
-  %297 = shl i32 %295, 22
-  %298 = shl i32 %296, 17
-  %299 = or i32 %297, %298
-  store i32 %299, ptr %.0.in.in.in.i58, align 8, !tbaa !47
-  %300 = load i32, ptr %0, align 8, !tbaa !47
-  %301 = or i32 %300, 4
-  store i32 %301, ptr %0, align 8, !tbaa !47
+c_jd_to_civil.exit.i.i76:                         ; preds = %272, %266
+  %.0.i.i.i77 = phi double [ %281, %272 ], [ %270, %266 ]
+  %282 = fadd double %.0.i.i.i77, 1.524000e+03
+  %283 = fadd double %282, -1.221000e+02
+  %284 = fdiv double %283, 3.652500e+02
+  %285 = tail call double @llvm.floor.f64(double %284)
+  %286 = fmul double %285, 3.652500e+02
+  %287 = tail call double @llvm.floor.f64(double %286)
+  %288 = fsub double %282, %287
+  %289 = fdiv double %288, 3.060010e+01
+  %290 = tail call double @llvm.floor.f64(double %289)
+  %291 = fcmp ugt double %290, 1.300000e+01
+  %.026.v.i.i.i78 = select i1 %291, double -4.715000e+03, double -4.716000e+03
+  %.026.i.i.i79 = fadd double %285, %.026.v.i.i.i78
+  %.025.v.i.i.i80 = select i1 %291, double -1.300000e+01, double -1.000000e+00
+  %.025.i.i.i81 = fadd double %290, %.025.v.i.i.i80
+  %292 = fmul double %290, 3.060010e+01
+  %293 = tail call double @llvm.floor.f64(double %292)
+  %294 = fsub double %288, %293
+  %295 = fptosi double %.026.i.i.i79 to i32
+  %296 = fptosi double %.025.i.i.i81 to i32
+  %297 = fptosi double %294 to i32
+  store i32 %295, ptr %.0.in.i47, align 4, !tbaa !47
+  %298 = shl i32 %296, 22
+  %299 = shl i32 %297, 17
+  %300 = or i32 %298, %299
+  store i32 %300, ptr %.0.in.in.in.i58, align 8, !tbaa !47
+  %301 = load i32, ptr %0, align 8, !tbaa !47
+  %302 = or i32 %301, 4
+  store i32 %302, ptr %0, align 8, !tbaa !47
   br label %m_mday.exit82
 
-302:                                              ; preds = %m_mon.exit69
+303:                                              ; preds = %m_mon.exit69
   tail call fastcc void @get_c_civil(ptr noundef nonnull %0)
   %.0.in.in.i72.pre = load i32, ptr %.0.in.in.in.i58, align 8, !tbaa !47
   br label %m_mday.exit82
 
-m_mday.exit82:                                    ; preds = %263, %c_jd_to_civil.exit.i.i76, %302
-  %.0.in.in.i72 = phi i32 [ %.0.in.in.i59, %263 ], [ %299, %c_jd_to_civil.exit.i.i76 ], [ %.0.in.in.i72.pre, %302 ]
+m_mday.exit82:                                    ; preds = %264, %c_jd_to_civil.exit.i.i76, %303
+  %.0.in.in.i72 = phi i32 [ %.0.in.in.i59, %264 ], [ %300, %c_jd_to_civil.exit.i.i76 ], [ %.0.in.in.i72.pre, %303 ]
   %.0.in.i73 = lshr i32 %.0.in.in.i72, 17
   %.0.i74 = and i32 %.0.in.i73, 31
-  %303 = and i32 %.0.i48, 3
-  %304 = icmp eq i32 %303, 0
-  %305 = zext i1 %304 to i64
-  %306 = zext nneg i32 %.0.i61 to i64
-  %307 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @yeartab, i64 0, i64 %305, i64 %306
-  %308 = load i32, ptr %307, align 4, !tbaa !33
-  %309 = add nsw i32 %.0.i74, %308
-  br label %339
+  %304 = and i32 %.0.i48, 3
+  %305 = icmp eq i32 %304, 0
+  %306 = zext i1 %305 to i64
+  %307 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @yeartab, i64 0, i64 %306
+  %308 = zext nneg i32 %.0.i61 to i64
+  %309 = getelementptr inbounds nuw [13 x i32], ptr %307, i64 0, i64 %308
+  %310 = load i32, ptr %309, align 4, !tbaa !33
+  %311 = add nsw i32 %.0.i74, %310
+  br label %341
 
-310:                                              ; preds = %m_proleptic_julian_p.exit
+312:                                              ; preds = %m_proleptic_julian_p.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
-  %311 = fcmp ogt double %.0.i, %17
-  br i1 %311, label %c_jd_to_civil.exit.i, label %312
+  %313 = fcmp ogt double %.0.i, %17
+  br i1 %313, label %c_jd_to_civil.exit.i, label %314
 
-312:                                              ; preds = %310
-  %313 = fadd double %17, 0xC13C7DD040000000
-  %314 = fdiv double %313, 0x40E1D58800000000
-  %315 = tail call double @llvm.floor.f64(double %314)
-  %316 = add nsw i32 %6, 1
-  %317 = sitofp i32 %316 to double
-  %318 = fadd double %315, %317
-  %319 = fmul double %315, 2.500000e-01
-  %320 = tail call double @llvm.floor.f64(double %319)
-  %321 = fsub double %318, %320
+314:                                              ; preds = %312
+  %315 = fadd double %17, 0xC13C7DD040000000
+  %316 = fdiv double %315, 0x40E1D58800000000
+  %317 = tail call double @llvm.floor.f64(double %316)
+  %318 = add nsw i32 %6, 1
+  %319 = sitofp i32 %318 to double
+  %320 = fadd double %317, %319
+  %321 = fmul double %317, 2.500000e-01
+  %322 = tail call double @llvm.floor.f64(double %321)
+  %323 = fsub double %320, %322
   br label %c_jd_to_civil.exit.i
 
-c_jd_to_civil.exit.i:                             ; preds = %312, %310
-  %.0.i.i = phi double [ %321, %312 ], [ %17, %310 ]
-  %322 = fadd double %.0.i.i, 1.524000e+03
-  %323 = fadd double %322, -1.221000e+02
-  %324 = fdiv double %323, 3.652500e+02
-  %325 = tail call double @llvm.floor.f64(double %324)
-  %326 = fmul double %325, 3.652500e+02
+c_jd_to_civil.exit.i:                             ; preds = %314, %312
+  %.0.i.i = phi double [ %323, %314 ], [ %17, %312 ]
+  %324 = fadd double %.0.i.i, 1.524000e+03
+  %325 = fadd double %324, -1.221000e+02
+  %326 = fdiv double %325, 3.652500e+02
   %327 = tail call double @llvm.floor.f64(double %326)
-  %328 = fsub double %322, %327
-  %329 = fdiv double %328, 3.060010e+01
-  %330 = tail call double @llvm.floor.f64(double %329)
-  %331 = fcmp ugt double %330, 1.300000e+01
-  %.026.v.i.i = select i1 %331, double -4.715000e+03, double -4.716000e+03
-  %.026.i.i = fadd double %325, %.026.v.i.i
-  %332 = fptosi double %.026.i.i to i32
+  %328 = fmul double %327, 3.652500e+02
+  %329 = tail call double @llvm.floor.f64(double %328)
+  %330 = fsub double %324, %329
+  %331 = fdiv double %330, 3.060010e+01
+  %332 = tail call double @llvm.floor.f64(double %331)
+  %333 = fcmp ugt double %332, 1.300000e+01
+  %.026.v.i.i = select i1 %333, double -4.715000e+03, double -4.716000e+03
+  %.026.i.i = fadd double %327, %.026.v.i.i
+  %334 = fptosi double %.026.i.i to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
-  br label %333
+  br label %335
 
-333:                                              ; preds = %333, %c_jd_to_civil.exit.i
-  %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit.i ], [ %335, %333 ]
-  %334 = call fastcc i32 @c_valid_civil_p(i32 noundef %332, i32 noundef 1, i32 noundef %.08.i.i, double noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %.not.i.i83 = icmp ne i32 %334, 0
-  %335 = add nuw nsw i32 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %335, 31
+335:                                              ; preds = %335, %c_jd_to_civil.exit.i
+  %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit.i ], [ %337, %335 ]
+  %336 = call fastcc i32 @c_valid_civil_p(i32 noundef %334, i32 noundef 1, i32 noundef %.08.i.i, double noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %.not.i.i83 = icmp ne i32 %336, 0
+  %337 = add nuw nsw i32 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %337, 31
   %or.cond.i84 = select i1 %.not.i.i83, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i84, label %c_jd_to_ordinal.exit, label %333, !llvm.loop !80
+  br i1 %or.cond.i84, label %c_jd_to_ordinal.exit, label %335, !llvm.loop !80
 
-c_jd_to_ordinal.exit:                             ; preds = %333
+c_jd_to_ordinal.exit:                             ; preds = %335
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #21
-  %336 = load i32, ptr %4, align 4, !tbaa !33
-  %337 = add i32 %6, 1
-  %338 = sub i32 %337, %336
+  %338 = load i32, ptr %4, align 4, !tbaa !33
+  %339 = add i32 %6, 1
+  %340 = sub i32 %339, %338
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
-  br label %339
+  br label %341
 
-339:                                              ; preds = %c_jd_to_ordinal.exit, %m_mday.exit82, %c_gregorian_to_yday.exit
-  %.0 = phi i32 [ %169, %c_gregorian_to_yday.exit ], [ %309, %m_mday.exit82 ], [ %338, %c_jd_to_ordinal.exit ]
+341:                                              ; preds = %c_jd_to_ordinal.exit, %m_mday.exit82, %c_gregorian_to_yday.exit
+  %.0 = phi i32 [ %170, %c_gregorian_to_yday.exit ], [ %311, %m_mday.exit82 ], [ %340, %c_jd_to_ordinal.exit ]
   ret i32 %.0
 }
 

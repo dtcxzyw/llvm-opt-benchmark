@@ -3206,7 +3206,7 @@ define internal fastcc void @SetMatShaper(ptr noundef %0, ptr noundef readonly c
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @_cmsMalloc(ptr noundef %10, i32 noundef 101440) #10
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %95, label %13
+  br i1 %12, label %96, label %13
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr %9, align 8
@@ -3317,66 +3317,67 @@ FillFirstShaper.exit56:                           ; preds = %63
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 3080
   br label %.preheader57
 
-.preheader57:                                     ; preds = %FillFirstShaper.exit56, %84
-  %indvars.iv63 = phi i64 [ 0, %FillFirstShaper.exit56 ], [ %indvars.iv.next64, %84 ]
+.preheader57:                                     ; preds = %FillFirstShaper.exit56, %85
+  %indvars.iv63 = phi i64 [ 0, %FillFirstShaper.exit56 ], [ %indvars.iv.next64, %85 ]
   %74 = getelementptr inbounds nuw [3 x %struct.cmsVEC3], ptr %2, i64 0, i64 %indvars.iv63
-  br label %77
+  %75 = getelementptr inbounds nuw [3 x [3 x i32]], ptr %73, i64 0, i64 %indvars.iv63
+  br label %78
 
-.preheader:                                       ; preds = %84
-  %75 = icmp eq ptr %3, null
-  %76 = getelementptr i8, ptr %11, i64 3116
-  br i1 %75, label %.preheader.split.us.preheader, label %.preheader.split
+.preheader:                                       ; preds = %85
+  %76 = icmp eq ptr %3, null
+  %77 = getelementptr i8, ptr %11, i64 3116
+  br i1 %76, label %.preheader.split.us.preheader, label %.preheader.split
 
 .preheader.split.us.preheader:                    ; preds = %.preheader
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %76, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %77, i8 0, i64 12, i1 false)
   br label %.split.us
 
-77:                                               ; preds = %.preheader57, %77
-  %indvars.iv = phi i64 [ 0, %.preheader57 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw [3 x double], ptr %74, i64 0, i64 %indvars.iv
-  %79 = load double, ptr %78, align 8
-  %80 = tail call double @llvm.fmuladd.f64(double %79, double 1.638400e+04, double 5.000000e-01)
-  %81 = tail call double @llvm.floor.f64(double %80)
-  %82 = fptosi double %81 to i32
-  %83 = getelementptr inbounds nuw [3 x [3 x i32]], ptr %73, i64 0, i64 %indvars.iv63, i64 %indvars.iv
-  store i32 %82, ptr %83, align 4
+78:                                               ; preds = %.preheader57, %78
+  %indvars.iv = phi i64 [ 0, %.preheader57 ], [ %indvars.iv.next, %78 ]
+  %79 = getelementptr inbounds nuw [3 x double], ptr %74, i64 0, i64 %indvars.iv
+  %80 = load double, ptr %79, align 8
+  %81 = tail call double @llvm.fmuladd.f64(double %80, double 1.638400e+04, double 5.000000e-01)
+  %82 = tail call double @llvm.floor.f64(double %81)
+  %83 = fptosi double %82 to i32
+  %84 = getelementptr inbounds nuw [3 x i32], ptr %75, i64 0, i64 %indvars.iv
+  store i32 %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %84, label %77, !llvm.loop !63
+  br i1 %exitcond.not, label %85, label %78, !llvm.loop !63
 
-84:                                               ; preds = %77
+85:                                               ; preds = %78
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 3
   br i1 %exitcond66.not, label %.preheader, label %.preheader57, !llvm.loop !64
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.preheader.split ], [ 0, %.preheader ]
-  %85 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %indvars.iv67
-  %86 = load double, ptr %85, align 8
-  %87 = tail call double @llvm.fmuladd.f64(double %86, double 1.638400e+04, double 5.000000e-01)
-  %88 = tail call double @llvm.floor.f64(double %87)
-  %89 = fptosi double %88 to i32
-  %90 = getelementptr inbounds nuw [3 x i32], ptr %76, i64 0, i64 %indvars.iv67
-  store i32 %89, ptr %90, align 4
+  %86 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %indvars.iv67
+  %87 = load double, ptr %86, align 8
+  %88 = tail call double @llvm.fmuladd.f64(double %87, double 1.638400e+04, double 5.000000e-01)
+  %89 = tail call double @llvm.floor.f64(double %88)
+  %90 = fptosi double %89 to i32
+  %91 = getelementptr inbounds nuw [3 x i32], ptr %77, i64 0, i64 %indvars.iv67
+  store i32 %90, ptr %91, align 4
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
   br i1 %exitcond70.not, label %.split.us, label %.preheader.split, !llvm.loop !65
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us.preheader
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %94, label %91
+  br i1 %.not, label %95, label %92
 
-91:                                               ; preds = %.split.us
-  %92 = load i32, ptr %5, align 4
-  %93 = or i32 %92, 2097152
-  store i32 %93, ptr %5, align 4
-  br label %94
-
-94:                                               ; preds = %91, %.split.us
-  tail call void @_cmsPipelineSetOptimizationParameters(ptr noundef %0, ptr noundef nonnull @MatShaperEval16, ptr noundef nonnull %11, ptr noundef nonnull @FreeMatShaper, ptr noundef nonnull @DupMatShaper) #10
+92:                                               ; preds = %.split.us
+  %93 = load i32, ptr %5, align 4
+  %94 = or i32 %93, 2097152
+  store i32 %94, ptr %5, align 4
   br label %95
 
-95:                                               ; preds = %6, %94
+95:                                               ; preds = %92, %.split.us
+  tail call void @_cmsPipelineSetOptimizationParameters(ptr noundef %0, ptr noundef nonnull @MatShaperEval16, ptr noundef nonnull %11, ptr noundef nonnull @FreeMatShaper, ptr noundef nonnull @DupMatShaper) #10
+  br label %96
+
+96:                                               ; preds = %6, %95
   ret void
 }
 

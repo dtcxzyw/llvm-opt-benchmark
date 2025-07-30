@@ -463,7 +463,7 @@ _ZN15AttachOperation7set_argEiPc.exit:            ; preds = %83
   %spec.select.idx.i68.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %strchr.i67, i64 %spec.select.idx.i68.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %88 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %73, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull align 1 %.sroa.0.099, i64 %84, i1 false)
-  %89 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %73, i64 0, i64 %indvars.iv, i64 %84
+  %89 = getelementptr inbounds nuw [1025 x i8], ptr %88, i64 0, i64 %84
   store i8 0, ptr %89, align 1
   br label %90
 

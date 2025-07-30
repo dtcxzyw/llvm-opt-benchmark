@@ -95,7 +95,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 19:                                               ; preds = %13
   call void @av_frame_free(ptr noundef nonnull %3) #10
-  br label %39
+  br label %41
 
 20:                                               ; preds = %13
   %21 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %18, ptr noundef %1) #10
@@ -110,28 +110,30 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 396
   %25 = load i32, ptr %24, align 4, !tbaa !39
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !41
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr @filter_frame.funcs, i64 0, i64 %26, i64 %.021, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !42
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %33 = load i32, ptr %32, align 4, !tbaa !35
-  %34 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #11
-  %. = tail call i32 @llvm.smin.i32(i32 %33, i32 %34)
-  %35 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %31, ptr noundef nonnull %4, ptr noundef null, i32 noundef %.) #10
-  br i1 %.not, label %36, label %37
+  %27 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr @filter_frame.funcs, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %27, i64 0, i64 %.021
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %30 = load i32, ptr %29, align 8, !tbaa !41
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !42
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %35 = load i32, ptr %34, align 4, !tbaa !35
+  %36 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #11
+  %. = tail call i32 @llvm.smin.i32(i32 %35, i32 %36)
+  %37 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %33, ptr noundef nonnull %4, ptr noundef null, i32 noundef %.) #10
+  br i1 %.not, label %38, label %39
 
-36:                                               ; preds = %22
+38:                                               ; preds = %22
   call void @av_frame_free(ptr noundef nonnull %3) #10
-  br label %37
-
-37:                                               ; preds = %36, %22
-  %38 = call i32 @ff_filter_frame(ptr noundef %9, ptr noundef %.020) #10
   br label %39
 
-39:                                               ; preds = %37, %19
-  %.0 = phi i32 [ %38, %37 ], [ -12, %19 ]
+39:                                               ; preds = %38, %22
+  %40 = call i32 @ff_filter_frame(ptr noundef %9, ptr noundef %.020) #10
+  br label %41
+
+41:                                               ; preds = %39, %19
+  %.0 = phi i32 [ %40, %39 ], [ -12, %19 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   ret i32 %.0
 }
@@ -174,7 +176,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
 .preheader:                                       ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  br label %86
+  br label %87
 
 30:                                               ; preds = %25
   %.val = load ptr, ptr %6, align 8, !tbaa !33
@@ -261,124 +263,125 @@ thread-pre-split.i:                               ; preds = %67
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %.preheader4.i, label %thread-pre-split.i, !llvm.loop !52
 
-.preheader.i:                                     ; preds = %80, %.preheader4.i
-  %indvars.iv18.i = phi i64 [ 0, %.preheader4.i ], [ %indvars.iv.next19.i, %80 ]
+.preheader.i:                                     ; preds = %81, %.preheader4.i
+  %indvars.iv18.i = phi i64 [ 0, %.preheader4.i ], [ %indvars.iv.next19.i, %81 ]
   %.promoted.i = load i64, ptr %3, align 8, !tbaa !48
   %.promoted8.i = load ptr, ptr %2, align 8
-  br label %68
+  %68 = getelementptr inbounds nuw [9 x [4 x float]], ptr %54, i64 0, i64 %indvars.iv18.i
+  br label %69
 
-68:                                               ; preds = %72, %.preheader.i
-  %indvars.iv14.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next15.i, %72 ]
-  %69 = phi i64 [ %.promoted.i, %.preheader.i ], [ %76, %72 ]
-  %70 = phi ptr [ %.promoted8.i, %.preheader.i ], [ %75, %72 ]
-  %71 = icmp ult i64 %69, 2
-  br i1 %71, label %parse_psfile.exit.thread65, label %72
+69:                                               ; preds = %73, %.preheader.i
+  %indvars.iv14.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next15.i, %73 ]
+  %70 = phi i64 [ %.promoted.i, %.preheader.i ], [ %77, %73 ]
+  %71 = phi ptr [ %.promoted8.i, %.preheader.i ], [ %76, %73 ]
+  %72 = icmp ult i64 %70, 2
+  br i1 %72, label %parse_psfile.exit.thread65, label %73
 
-72:                                               ; preds = %68
-  %73 = load i16, ptr %70, align 1, !tbaa !51
-  %74 = call i16 @llvm.bswap.i16(i16 %73)
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 2
-  store ptr %75, ptr %2, align 8, !tbaa !50
-  %76 = add i64 %69, -2
-  store i64 %76, ptr %3, align 8, !tbaa !48
-  %77 = sitofp i16 %74 to float
-  %78 = fdiv nsz float %77, 1.000000e+02
-  %79 = getelementptr inbounds nuw [9 x [4 x float]], ptr %54, i64 0, i64 %indvars.iv18.i, i64 %indvars.iv14.i
-  store float %78, ptr %79, align 4, !tbaa !54
+73:                                               ; preds = %69
+  %74 = load i16, ptr %71, align 1, !tbaa !51
+  %75 = call i16 @llvm.bswap.i16(i16 %74)
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 2
+  store ptr %76, ptr %2, align 8, !tbaa !50
+  %77 = add i64 %70, -2
+  store i64 %77, ptr %3, align 8, !tbaa !48
+  %78 = sitofp i16 %75 to float
+  %79 = fdiv nsz float %78, 1.000000e+02
+  %80 = getelementptr inbounds nuw [4 x float], ptr %68, i64 0, i64 %indvars.iv14.i
+  store float %79, ptr %80, align 4, !tbaa !54
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next15.i, 4
-  br i1 %exitcond17.not.i, label %80, label %68, !llvm.loop !56
+  br i1 %exitcond17.not.i, label %81, label %69, !llvm.loop !56
 
-80:                                               ; preds = %72
-  %81 = trunc nuw nsw i64 %indvars.iv18.i to i32
-  %82 = call fastcc i32 @register_range(ptr noundef nonnull %.val, i32 noundef %81)
-  %83 = icmp slt i32 %82, 0
+81:                                               ; preds = %73
+  %82 = trunc nuw nsw i64 %indvars.iv18.i to i32
+  %83 = call fastcc i32 @register_range(ptr noundef nonnull %.val, i32 noundef %82)
+  %84 = icmp slt i32 %83, 0
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next19.i, 9
-  %or.cond.i = select i1 %83, i1 true, i1 %exitcond21.not.i
+  %or.cond.i = select i1 %84, i1 true, i1 %exitcond21.not.i
   br i1 %or.cond.i, label %parse_psfile.exit, label %.preheader.i, !llvm.loop !57
 
 parse_psfile.exit.thread65.loopexit83:            ; preds = %thread-pre-split.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !50
   br label %parse_psfile.exit.thread65
 
-parse_psfile.exit.thread65:                       ; preds = %68, %parse_psfile.exit.thread65.loopexit83, %46, %33, %43
-  %84 = phi ptr [ %.pre92, %43 ], [ %.pre91, %33 ], [ %51, %46 ], [ %.pre, %parse_psfile.exit.thread65.loopexit83 ], [ %70, %68 ]
-  %.ph = phi i64 [ %44, %43 ], [ %34, %33 ], [ %52, %46 ], [ %.pr22.i, %parse_psfile.exit.thread65.loopexit83 ], [ %69, %68 ]
-  call void @av_file_unmap(ptr noundef %84, i64 noundef %.ph) #10
+parse_psfile.exit.thread65:                       ; preds = %69, %parse_psfile.exit.thread65.loopexit83, %46, %33, %43
+  %85 = phi ptr [ %.pre92, %43 ], [ %.pre91, %33 ], [ %51, %46 ], [ %.pre, %parse_psfile.exit.thread65.loopexit83 ], [ %71, %69 ]
+  %.ph = phi i64 [ %44, %43 ], [ %34, %33 ], [ %52, %46 ], [ %.pr22.i, %parse_psfile.exit.thread65.loopexit83 ], [ %70, %69 ]
+  call void @av_file_unmap(ptr noundef %85, i64 noundef %.ph) #10
   br label %.loopexit.sink.split
 
-parse_psfile.exit:                                ; preds = %80
+parse_psfile.exit:                                ; preds = %81
   %.pre.i = load i64, ptr %3, align 8, !tbaa !48
-  %85 = load ptr, ptr %2, align 8, !tbaa !50
-  call void @av_file_unmap(ptr noundef %85, i64 noundef %.pre.i) #10
+  %86 = load ptr, ptr %2, align 8, !tbaa !50
+  call void @av_file_unmap(ptr noundef %86, i64 noundef %.pre.i) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  br i1 %83, label %.loopexit, label %.loopexit70
+  br i1 %84, label %.loopexit, label %.loopexit70
 
-86:                                               ; preds = %.preheader, %.thread
+87:                                               ; preds = %.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread ]
-  %87 = getelementptr inbounds nuw [9 x ptr], ptr %28, i64 0, i64 %indvars.iv
-  %88 = load ptr, ptr %87, align 8, !tbaa !50
-  %.not62 = icmp eq ptr %88, null
-  br i1 %.not62, label %.thread, label %89
+  %88 = getelementptr inbounds nuw [9 x ptr], ptr %28, i64 0, i64 %indvars.iv
+  %89 = load ptr, ptr %88, align 8, !tbaa !50
+  %.not62 = icmp eq ptr %89, null
+  br i1 %.not62, label %.thread, label %90
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds nuw [9 x [4 x float]], ptr %29, i64 0, i64 %indvars.iv
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  %94 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %88, ptr noundef nonnull @.str.3, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %93) #10
-  %95 = trunc nuw nsw i64 %indvars.iv to i32
-  %96 = tail call fastcc i32 @register_range(ptr noundef nonnull %7, i32 noundef %95)
-  %97 = icmp sgt i32 %96, -1
-  br i1 %97, label %.thread, label %.loopexit
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw [9 x [4 x float]], ptr %29, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 12
+  %95 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %89, ptr noundef nonnull @.str.3, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %94) #10
+  %96 = trunc nuw nsw i64 %indvars.iv to i32
+  %97 = tail call fastcc i32 @register_range(ptr noundef nonnull %7, i32 noundef %96)
+  %98 = icmp sgt i32 %97, -1
+  br i1 %98, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %86, %89
+.thread:                                          ; preds = %87, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.loopexit70, label %86, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit70, label %87, !llvm.loop !58
 
 .loopexit70:                                      ; preds = %.thread, %parse_psfile.exit
-  %98 = getelementptr inbounds nuw i8, ptr %7, i64 376
-  %99 = load i32, ptr %98, align 8, !tbaa !59
-  %.not63 = icmp eq i32 %99, 0
-  %100 = select i1 %.not63, ptr @.str.6, ptr @.str.5
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 40, ptr noundef nonnull @.str.4, ptr noundef nonnull %100) #10
-  %101 = load i32, ptr %98, align 8, !tbaa !59
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.lr.ph81, label %.loopexit
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 376
+  %100 = load i32, ptr %99, align 8, !tbaa !59
+  %.not63 = icmp eq i32 %100, 0
+  %101 = select i1 %.not63, ptr @.str.6, ptr @.str.5
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 40, ptr noundef nonnull @.str.4, ptr noundef nonnull %101) #10
+  %102 = load i32, ptr %99, align 8, !tbaa !59
+  %103 = icmp sgt i32 %102, 0
+  br i1 %103, label %.lr.ph81, label %.loopexit
 
 .lr.ph81:                                         ; preds = %.loopexit70
-  %103 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %104 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  br label %105
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 232
+  %105 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  br label %106
 
-105:                                              ; preds = %.lr.ph81, %105
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next89, %105 ]
-  %106 = getelementptr inbounds nuw [9 x %struct.process_range], ptr %103, i64 0, i64 %indvars.iv88
-  %107 = load i32, ptr %106, align 8, !tbaa !60
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [9 x [4 x float]], ptr %104, i64 0, i64 %108
-  %110 = getelementptr inbounds [9 x ptr], ptr @color_names, i64 0, i64 %108
-  %111 = load ptr, ptr %110, align 8, !tbaa !50
-  %112 = load float, ptr %109, align 4, !tbaa !54
-  %113 = fpext nsz float %112 to double
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  %115 = load float, ptr %114, align 4, !tbaa !54
-  %116 = fpext nsz float %115 to double
-  %117 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %118 = load float, ptr %117, align 4, !tbaa !54
-  %119 = fpext nsz float %118 to double
-  %120 = getelementptr inbounds nuw i8, ptr %109, i64 12
-  %121 = load float, ptr %120, align 4, !tbaa !54
-  %122 = fpext nsz float %121 to double
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 40, ptr noundef nonnull @.str.7, ptr noundef %111, double noundef %113, double noundef %116, double noundef %119, double noundef %122) #10
+106:                                              ; preds = %.lr.ph81, %106
+  %indvars.iv88 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next89, %106 ]
+  %107 = getelementptr inbounds nuw [9 x %struct.process_range], ptr %104, i64 0, i64 %indvars.iv88
+  %108 = load i32, ptr %107, align 8, !tbaa !60
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds [9 x [4 x float]], ptr %105, i64 0, i64 %109
+  %111 = getelementptr inbounds [9 x ptr], ptr @color_names, i64 0, i64 %109
+  %112 = load ptr, ptr %111, align 8, !tbaa !50
+  %113 = load float, ptr %110, align 4, !tbaa !54
+  %114 = fpext nsz float %113 to double
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  %116 = load float, ptr %115, align 4, !tbaa !54
+  %117 = fpext nsz float %116 to double
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %119 = load float, ptr %118, align 4, !tbaa !54
+  %120 = fpext nsz float %119 to double
+  %121 = getelementptr inbounds nuw i8, ptr %110, i64 12
+  %122 = load float, ptr %121, align 4, !tbaa !54
+  %123 = fpext nsz float %122 to double
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 40, ptr noundef nonnull @.str.7, ptr noundef %112, double noundef %114, double noundef %117, double noundef %120, double noundef %123) #10
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %123 = load i32, ptr %98, align 8, !tbaa !59
-  %124 = sext i32 %123 to i64
-  %125 = icmp slt i64 %indvars.iv.next89, %124
-  br i1 %125, label %105, label %.loopexit, !llvm.loop !62
+  %124 = load i32, ptr %99, align 8, !tbaa !59
+  %125 = sext i32 %124 to i64
+  %126 = icmp slt i64 %indvars.iv.next89, %125
+  br i1 %126, label %106, label %.loopexit, !llvm.loop !62
 
 .loopexit.sink.split:                             ; preds = %30, %parse_psfile.exit.thread65
   %.0.ph = phi i32 [ -1094995529, %parse_psfile.exit.thread65 ], [ %31, %30 ]
@@ -386,8 +389,8 @@ parse_psfile.exit:                                ; preds = %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %89, %105, %.loopexit.sink.split, %.loopexit70, %parse_psfile.exit, %1
-  %.0 = phi i32 [ %23, %1 ], [ %82, %parse_psfile.exit ], [ 0, %.loopexit70 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %105 ], [ %96, %89 ]
+.loopexit:                                        ; preds = %90, %106, %.loopexit.sink.split, %.loopexit70, %parse_psfile.exit, %1
+  %.0 = phi i32 [ %23, %1 ], [ %83, %parse_psfile.exit ], [ 0, %.loopexit70 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %106 ], [ %97, %90 ]
   ret i32 %.0
 }
 

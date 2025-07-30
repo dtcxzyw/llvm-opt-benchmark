@@ -909,45 +909,47 @@ _xy2matrix.exit:                                  ; preds = %45
   %exitcond.not = icmp eq i64 %122, 3
   br i1 %exitcond.not, label %113, label %116
 
-.preheader:                                       ; preds = %_xy2matrix.exit, %133
-  %indvars.iv86 = phi i64 [ 0, %_xy2matrix.exit ], [ %indvars.iv.next87, %133 ]
-  br label %134
+.preheader:                                       ; preds = %_xy2matrix.exit, %134
+  %indvars.iv86 = phi i64 [ 0, %_xy2matrix.exit ], [ %indvars.iv.next87, %134 ]
+  %invariant.gep = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv86
+  %123 = getelementptr inbounds nuw [3 x [3 x float]], ptr %7, i64 0, i64 %indvars.iv86
+  br label %135
 
-123:                                              ; preds = %133
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1616
-  %125 = call i32 @mat3inv(ptr noundef nonnull %124, ptr noundef nonnull %7) #15
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  store i32 2, ptr %126, align 16, !tbaa !45
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  store i32 0, ptr %127, align 8, !tbaa !46
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  %129 = load i32, ptr %128, align 4, !tbaa !47
-  %130 = and i32 %129, -131297
-  %131 = or disjoint i32 %130, 128
-  store i32 %131, ptr %128, align 4, !tbaa !47
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 6, ptr %132, align 16, !tbaa !48
+124:                                              ; preds = %134
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 1616
+  %126 = call i32 @mat3inv(ptr noundef nonnull %125, ptr noundef nonnull %7) #15
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 1600
+  store i32 2, ptr %127, align 16, !tbaa !45
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1496
+  store i32 0, ptr %128, align 8, !tbaa !46
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 1420
+  %130 = load i32, ptr %129, align 4, !tbaa !47
+  %131 = and i32 %130, -131297
+  %132 = or disjoint i32 %131, 128
+  store i32 %132, ptr %129, align 4, !tbaa !47
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  store i32 6, ptr %133, align 16, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
   br label %138
 
-133:                                              ; preds = %134
+134:                                              ; preds = %135
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 3
-  br i1 %exitcond89.not, label %123, label %.preheader
+  br i1 %exitcond89.not, label %124, label %.preheader
 
-134:                                              ; preds = %.preheader, %134
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %134 ]
-  %135 = getelementptr inbounds nuw [4 x [4 x float]], ptr %6, i64 0, i64 %indvars.iv, i64 %indvars.iv86
-  %136 = load float, ptr %135, align 4, !tbaa !25
-  %137 = getelementptr inbounds nuw [3 x [3 x float]], ptr %7, i64 0, i64 %indvars.iv86, i64 %indvars.iv
+135:                                              ; preds = %.preheader, %135
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %135 ]
+  %gep = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %136 = load float, ptr %gep, align 4, !tbaa !25
+  %137 = getelementptr inbounds nuw [3 x float], ptr %123, i64 0, i64 %indvars.iv
   store float %136, ptr %137, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond85.not, label %133, label %134
+  br i1 %exitcond85.not, label %134, label %135
 
-138:                                              ; preds = %23, %29, %31, %123, %13
-  %.1 = phi i32 [ 2, %13 ], [ 6, %29 ], [ 2, %23 ], [ 0, %123 ], [ 8, %31 ]
+138:                                              ; preds = %23, %29, %31, %124, %13
+  %.1 = phi i32 [ 2, %13 ], [ 6, %29 ], [ 2, %23 ], [ 0, %124 ], [ 8, %31 ]
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %4) #15
   br label %139
 

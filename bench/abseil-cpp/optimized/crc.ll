@@ -54,7 +54,7 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
   %10 = icmp eq i32 %.04754.us, 128
   %11 = shl nuw nsw i32 %.04754.us, 1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 %indvars.iv61, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %12
   %.046.in.us = select i1 %10, ptr %8, ptr %13
   %.046.us = load i32, ptr %.046.in.us, align 4, !tbaa !4
   %14 = and i32 %.046.us, 1
@@ -63,7 +63,7 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
   %16 = select i1 %.not53.us, i32 0, i32 %0
   %.sink = xor i32 %15, %16
   %17 = zext nneg i32 %.04754.us to i64
-  %18 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 %indvars.iv61, i64 %17
+  %18 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %17
   store i32 %.sink, ptr %18, align 4, !tbaa !4
   %19 = lshr i32 %.04754.us, 1
   %.not50.us = icmp samesign ult i32 %.04754.us, 2
@@ -81,7 +81,7 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
 22:                                               ; preds = %.split
   %23 = shl nuw nsw i32 %.04754, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %24
   %.046 = load i32, ptr %25, align 4, !tbaa !4
   %26 = and i32 %.046, 1
   %.not53 = icmp eq i32 %26, 0
@@ -91,13 +91,13 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
 28:                                               ; preds = %22
   %29 = xor i32 %27, %0
   %30 = zext nneg i32 %.04754 to i64
-  %31 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %30
   store i32 %29, ptr %31, align 4, !tbaa !4
   br label %35
 
 32:                                               ; preds = %22
   %33 = zext nneg i32 %.04754 to i64
-  %34 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %33
   store i32 %27, ptr %34, align 4, !tbaa !4
   br label %35
 
@@ -122,7 +122,7 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
   %.04556 = phi i32 [ %38, %.loopexit ], [ 2, %.preheader.preheader ]
   %38 = shl i32 %.04556, 1
   %39 = sext i32 %.04556 to i64
-  %40 = getelementptr inbounds [256 x i32], ptr %3, i64 %indvars.iv61, i64 %39
+  %40 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %39
   %41 = or disjoint i32 %.04556, 1
   %42 = zext i32 %41 to i64
   %43 = zext i32 %38 to i64
@@ -132,10 +132,10 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
   %indvars.iv = phi i64 [ %42, %.preheader ], [ %indvars.iv.next, %44 ]
   %45 = load i32, ptr %40, align 4, !tbaa !4
   %46 = sub nuw nsw i64 %indvars.iv, %39
-  %47 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 %indvars.iv61, i64 %46
+  %47 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = xor i32 %48, %45
-  %50 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 %indvars.iv61, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv
   store i32 %49, ptr %50, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not52 = icmp eq i64 %indvars.iv.next, %43
@@ -367,7 +367,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds
   %38 = icmp eq i32 %.04754.us.i42, 128
   %39 = shl nuw nsw i32 %.04754.us.i42, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 %indvars.iv61.i40, i64 %40
+  %41 = getelementptr inbounds nuw [256 x i32], ptr %34, i64 0, i64 %40
   %.046.in.us.i43 = select i1 %38, ptr %36, ptr %41
   %.046.us.i44 = load i32, ptr %.046.in.us.i43, align 4, !tbaa !4
   %42 = and i32 %.046.us.i44, 1
@@ -376,7 +376,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds
   %44 = select i1 %.not53.us.i45, i32 0, i32 -2097792136
   %.sink.i46 = xor i32 %44, %43
   %45 = zext nneg i32 %.04754.us.i42 to i64
-  %46 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 %indvars.iv61.i40, i64 %45
+  %46 = getelementptr inbounds nuw [256 x i32], ptr %34, i64 0, i64 %45
   store i32 %.sink.i46, ptr %46, align 4, !tbaa !4
   %47 = lshr i32 %.04754.us.i42, 1
   %.not50.us.i47 = icmp samesign ult i32 %.04754.us.i42, 2
@@ -394,7 +394,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds
 50:                                               ; preds = %.split.i57
   %51 = shl nuw nsw i32 %.04754.i58, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [256 x i32], ptr %34, i64 0, i64 %52
   %.046.i59 = load i32, ptr %53, align 4, !tbaa !4
   %54 = and i32 %.046.i59, 1
   %.not53.i60 = icmp eq i32 %54, 0
@@ -404,13 +404,13 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds
 56:                                               ; preds = %50
   %57 = xor i32 %55, -2097792136
   %58 = zext nneg i32 %.04754.i58 to i64
-  %59 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [256 x i32], ptr %34, i64 0, i64 %58
   store i32 %57, ptr %59, align 4, !tbaa !4
   br label %63
 
 60:                                               ; preds = %50
   %61 = zext nneg i32 %.04754.i58 to i64
-  %62 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [256 x i32], ptr %34, i64 0, i64 %61
   store i32 %55, ptr %62, align 4, !tbaa !4
   br label %63
 
@@ -440,7 +440,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader: ; pre
   %.04556.i49 = phi i32 [ %66, %.loopexit.i53 ], [ 2, %.preheader.i48.preheader ]
   %66 = shl i32 %.04556.i49, 1
   %67 = sext i32 %.04556.i49 to i64
-  %68 = getelementptr inbounds [256 x i32], ptr %1, i64 %indvars.iv61.i40, i64 %67
+  %68 = getelementptr inbounds [256 x i32], ptr %34, i64 0, i64 %67
   %69 = or disjoint i32 %.04556.i49, 1
   %70 = zext i32 %69 to i64
   %71 = zext i32 %66 to i64
@@ -450,10 +450,10 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader: ; pre
   %indvars.iv.i50 = phi i64 [ %70, %.preheader.i48 ], [ %indvars.iv.next.i51, %72 ]
   %73 = load i32, ptr %68, align 4, !tbaa !4
   %74 = sub nuw nsw i64 %indvars.iv.i50, %67
-  %75 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 %indvars.iv61.i40, i64 %74
+  %75 = getelementptr inbounds nuw [256 x i32], ptr %34, i64 0, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !4
   %77 = xor i32 %76, %73
-  %78 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 %indvars.iv61.i40, i64 %indvars.iv.i50
+  %78 = getelementptr inbounds nuw [256 x i32], ptr %34, i64 0, i64 %indvars.iv.i50
   store i32 %77, ptr %78, align 4, !tbaa !4
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %.not52.i52 = icmp eq i64 %indvars.iv.next.i51, %71

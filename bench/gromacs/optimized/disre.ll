@@ -1546,47 +1546,50 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   %.0181 = phi float [ %228, %218 ], [ %217, %216 ], [ %209, %202 ]
   %230 = fmul float %.5, %.0181
   %231 = sext i32 %178 to i64
-  %232 = sext i32 %180 to i64
+  %232 = getelementptr inbounds [4 x float], ptr %4, i64 %231
+  %233 = sext i32 %180 to i64
+  %234 = getelementptr inbounds [4 x float], ptr %4, i64 %233
+  %235 = getelementptr inbounds [3 x float], ptr %5, i64 %.0180
   br i1 %.not224, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %229, %.split.us
   %indvars.iv264 = phi i64 [ %indvars.iv.next265, %.split.us ], [ 0, %229 ]
-  %233 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv264
-  %234 = load float, ptr %233, align 4, !tbaa !159
-  %235 = fmul float %230, %234
-  %236 = getelementptr inbounds [4 x float], ptr %4, i64 %231, i64 %indvars.iv264
+  %236 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv264
   %237 = load float, ptr %236, align 4, !tbaa !159
-  %238 = fadd float %237, %235
-  store float %238, ptr %236, align 4, !tbaa !159
-  %239 = getelementptr inbounds [4 x float], ptr %4, i64 %232, i64 %indvars.iv264
+  %238 = fmul float %230, %237
+  %239 = getelementptr inbounds nuw [4 x float], ptr %232, i64 0, i64 %indvars.iv264
   %240 = load float, ptr %239, align 4, !tbaa !159
-  %241 = fsub float %240, %235
+  %241 = fadd float %240, %238
   store float %241, ptr %239, align 4, !tbaa !159
+  %242 = getelementptr inbounds nuw [4 x float], ptr %234, i64 0, i64 %indvars.iv264
+  %243 = load float, ptr %242, align 4, !tbaa !159
+  %244 = fsub float %243, %238
+  store float %244, ptr %242, align 4, !tbaa !159
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond267.not = icmp eq i64 %indvars.iv.next265, 3
   br i1 %exitcond267.not, label %.thread238, label %.split.us, !llvm.loop !189
 
 .split:                                           ; preds = %229, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %229 ]
-  %242 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv
-  %243 = load float, ptr %242, align 4, !tbaa !159
-  %244 = fmul float %230, %243
-  %245 = getelementptr inbounds [4 x float], ptr %4, i64 %231, i64 %indvars.iv
+  %245 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv
   %246 = load float, ptr %245, align 4, !tbaa !159
-  %247 = fadd float %246, %244
-  store float %247, ptr %245, align 4, !tbaa !159
-  %248 = getelementptr inbounds [4 x float], ptr %4, i64 %232, i64 %indvars.iv
+  %247 = fmul float %230, %246
+  %248 = getelementptr inbounds nuw [4 x float], ptr %232, i64 0, i64 %indvars.iv
   %249 = load float, ptr %248, align 4, !tbaa !159
-  %250 = fsub float %249, %244
+  %250 = fadd float %249, %247
   store float %250, ptr %248, align 4, !tbaa !159
-  %251 = getelementptr inbounds [3 x float], ptr %5, i64 %.0180, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [4 x float], ptr %234, i64 0, i64 %indvars.iv
   %252 = load float, ptr %251, align 4, !tbaa !159
-  %253 = fadd float %244, %252
+  %253 = fsub float %252, %247
   store float %253, ptr %251, align 4, !tbaa !159
-  %254 = getelementptr inbounds nuw [3 x float], ptr %53, i64 0, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw [3 x float], ptr %235, i64 0, i64 %indvars.iv
   %255 = load float, ptr %254, align 4, !tbaa !159
-  %256 = fsub float %255, %244
+  %256 = fadd float %247, %255
   store float %256, ptr %254, align 4, !tbaa !159
+  %257 = getelementptr inbounds nuw [3 x float], ptr %53, i64 0, i64 %indvars.iv
+  %258 = load float, ptr %257, align 4, !tbaa !159
+  %259 = fsub float %258, %247
+  store float %259, ptr %257, align 4, !tbaa !159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.thread238, label %.split, !llvm.loop !190
@@ -1599,9 +1602,9 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   %.1212 = phi float [ %.0211252, %98 ], [ %.0211252, %126 ], [ %.0211252, %128 ], [ %.2213, %.split.us ], [ %.2213, %.split ]
   %.1209 = phi float [ %.0208254, %98 ], [ %.0208254, %126 ], [ %.0208254, %128 ], [ %.2210, %.split.us ], [ %.2210, %.split ]
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 3
-  %257 = trunc nuw i64 %indvars.iv.next269 to i32
-  %258 = icmp sgt i32 %0, %257
-  br i1 %258, label %56, label %._crit_edge, !llvm.loop !191
+  %260 = trunc nuw i64 %indvars.iv.next269 to i32
+  %261 = icmp sgt i32 %0, %260
+  br i1 %261, label %56, label %._crit_edge, !llvm.loop !191
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

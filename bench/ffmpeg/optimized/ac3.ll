@@ -366,6 +366,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %155 = load i32, ptr %154, align 4, !tbaa !23
   %156 = load i32, ptr %0, align 4, !tbaa !24
   %157 = sext i32 %156 to i64
+  %invariant.gep = getelementptr [3 x i16], ptr @ac3_hearing_threshold_tab, i64 0, i64 %157
   %158 = zext i8 %18 to i64
   %159 = add nuw nsw i32 %24, 1
   %wide.trip.count268 = zext nneg i32 %159 to i64
@@ -420,29 +421,29 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %186 = trunc nuw nsw i64 %indvars.iv265 to i32
   %187 = lshr i32 %186, %155
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds [50 x [3 x i16]], ptr @ac3_hearing_threshold_tab, i64 0, i64 %188, i64 %157
-  %190 = load i16, ptr %189, align 2, !tbaa !7
-  %191 = zext i16 %190 to i32
-  %192 = sext i16 %185 to i32
-  %193 = icmp sgt i32 %191, %192
-  %.213 = select i1 %193, i16 %190, i16 %185
-  %194 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv265
-  store i16 %.213, ptr %194, align 2, !tbaa !7
+  %gep = getelementptr [50 x [3 x i16]], ptr %invariant.gep, i64 0, i64 %188
+  %189 = load i16, ptr %gep, align 2, !tbaa !7
+  %190 = zext i16 %189 to i32
+  %191 = sext i16 %185 to i32
+  %192 = icmp sgt i32 %190, %191
+  %.213 = select i1 %192, i16 %189, i16 %185
+  %193 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv265
+  store i16 %.213, ptr %193, align 2, !tbaa !7
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
   br i1 %exitcond269.not, label %._crit_edge, label %172, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %184, %.preheader222
   %or.cond7 = icmp ult i32 %6, 2
-  br i1 %or.cond7, label %195, label %.critedge
+  br i1 %or.cond7, label %194, label %.critedge
 
-195:                                              ; preds = %._crit_edge
-  %196 = icmp sgt i32 %7, 8
-  br i1 %196, label %.critedge, label %.preheader
+194:                                              ; preds = %._crit_edge
+  %195 = icmp sgt i32 %7, 8
+  br i1 %195, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %195
-  %197 = icmp sgt i32 %7, 0
-  br i1 %197, label %.lr.ph247.preheader, label %.critedge
+.preheader:                                       ; preds = %194
+  %196 = icmp sgt i32 %7, 0
+  br i1 %196, label %.lr.ph247.preheader, label %.critedge
 
 .lr.ph247.preheader:                              ; preds = %.preheader
   %wide.trip.count276 = zext nneg i32 %7 to i64
@@ -451,65 +452,65 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
 .lr.ph247:                                        ; preds = %.lr.ph247.preheader, %._crit_edge243
   %indvars.iv273 = phi i64 [ 0, %.lr.ph247.preheader ], [ %indvars.iv.next274, %._crit_edge243 ]
   %.4189245 = phi i32 [ %19, %.lr.ph247.preheader ], [ %.5.lcssa, %._crit_edge243 ]
-  %198 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv273
-  %199 = load i8, ptr %198, align 1, !tbaa !4
-  %200 = zext i8 %199 to i32
-  %201 = add nsw i32 %.4189245, %200
-  %202 = icmp sgt i32 %201, 49
-  br i1 %202, label %.critedge, label %203
+  %197 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv273
+  %198 = load i8, ptr %197, align 1, !tbaa !4
+  %199 = zext i8 %198 to i32
+  %200 = add nsw i32 %.4189245, %199
+  %201 = icmp sgt i32 %200, 49
+  br i1 %201, label %.critedge, label %202
 
-203:                                              ; preds = %.lr.ph247
-  %204 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv273
-  %205 = load i8, ptr %204, align 1, !tbaa !4
-  %206 = zext i8 %205 to i32
-  %207 = sub nsw i32 50, %201
-  %208 = icmp samesign ult i32 %207, %206
-  br i1 %208, label %.critedge, label %209
+202:                                              ; preds = %.lr.ph247
+  %203 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv273
+  %204 = load i8, ptr %203, align 1, !tbaa !4
+  %205 = zext i8 %204 to i32
+  %206 = sub nsw i32 50, %200
+  %207 = icmp samesign ult i32 %206, %205
+  br i1 %207, label %.critedge, label %208
 
-209:                                              ; preds = %203
-  %210 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv273
-  %211 = load i8, ptr %210, align 1, !tbaa !4
-  %212 = zext i8 %211 to i16
-  %213 = icmp ugt i8 %211, 3
-  %214 = shl nuw nsw i16 %212, 7
-  %215 = add nsw i16 %214, -384
-  %216 = or i16 %214, -512
-  %.0 = select i1 %213, i16 %215, i16 %216
-  %.not253 = icmp eq i8 %205, 0
+208:                                              ; preds = %202
+  %209 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv273
+  %210 = load i8, ptr %209, align 1, !tbaa !4
+  %211 = zext i8 %210 to i16
+  %212 = icmp ugt i8 %210, 3
+  %213 = shl nuw nsw i16 %211, 7
+  %214 = add nsw i16 %213, -384
+  %215 = or i16 %213, -512
+  %.0 = select i1 %212, i16 %214, i16 %215
+  %.not253 = icmp eq i8 %204, 0
   br i1 %.not253, label %._crit_edge243, label %.lr.ph242.preheader
 
-.lr.ph242.preheader:                              ; preds = %209
-  %217 = sext i32 %.4189245 to i64
-  %218 = zext i8 %199 to i64
-  %219 = add nsw i64 %217, %218
+.lr.ph242.preheader:                              ; preds = %208
+  %216 = sext i32 %.4189245 to i64
+  %217 = zext i8 %198 to i64
+  %218 = add nsw i64 %216, %217
   br label %.lr.ph242
 
 .lr.ph242:                                        ; preds = %.lr.ph242.preheader, %.lr.ph242
-  %indvars.iv270 = phi i64 [ %219, %.lr.ph242.preheader ], [ %indvars.iv.next271, %.lr.ph242 ]
-  %.0170240 = phi i32 [ 0, %.lr.ph242.preheader ], [ %223, %.lr.ph242 ]
+  %indvars.iv270 = phi i64 [ %218, %.lr.ph242.preheader ], [ %indvars.iv.next271, %.lr.ph242 ]
+  %.0170240 = phi i32 [ 0, %.lr.ph242.preheader ], [ %222, %.lr.ph242 ]
   %indvars.iv.next271 = add nsw i64 %indvars.iv270, 1
-  %220 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv270
-  %221 = load i16, ptr %220, align 2, !tbaa !7
-  %222 = add i16 %221, %.0
-  store i16 %222, ptr %220, align 2, !tbaa !7
-  %223 = add nuw nsw i32 %.0170240, 1
-  %224 = load i8, ptr %204, align 1, !tbaa !4
-  %225 = zext i8 %224 to i32
-  %226 = icmp samesign ult i32 %223, %225
-  br i1 %226, label %.lr.ph242, label %._crit_edge243.loopexit, !llvm.loop !27
+  %219 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv270
+  %220 = load i16, ptr %219, align 2, !tbaa !7
+  %221 = add i16 %220, %.0
+  store i16 %221, ptr %219, align 2, !tbaa !7
+  %222 = add nuw nsw i32 %.0170240, 1
+  %223 = load i8, ptr %203, align 1, !tbaa !4
+  %224 = zext i8 %223 to i32
+  %225 = icmp samesign ult i32 %222, %224
+  br i1 %225, label %.lr.ph242, label %._crit_edge243.loopexit, !llvm.loop !27
 
 ._crit_edge243.loopexit:                          ; preds = %.lr.ph242
-  %227 = trunc nsw i64 %indvars.iv.next271 to i32
+  %226 = trunc nsw i64 %indvars.iv.next271 to i32
   br label %._crit_edge243
 
-._crit_edge243:                                   ; preds = %._crit_edge243.loopexit, %209
-  %.5.lcssa = phi i32 [ %201, %209 ], [ %227, %._crit_edge243.loopexit ]
+._crit_edge243:                                   ; preds = %._crit_edge243.loopexit, %208
+  %.5.lcssa = phi i32 [ %200, %208 ], [ %226, %._crit_edge243.loopexit ]
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
   br i1 %exitcond277.not, label %.critedge, label %.lr.ph247, !llvm.loop !28
 
-.critedge:                                        ; preds = %._crit_edge243, %.lr.ph247, %203, %.preheader, %195, %._crit_edge, %12
-  %.0171 = phi i32 [ -1094995529, %12 ], [ 0, %._crit_edge ], [ -1, %195 ], [ 0, %.preheader ], [ 0, %._crit_edge243 ], [ -1, %.lr.ph247 ], [ -1, %203 ]
+.critedge:                                        ; preds = %._crit_edge243, %.lr.ph247, %202, %.preheader, %194, %._crit_edge, %12
+  %.0171 = phi i32 [ -1094995529, %12 ], [ 0, %._crit_edge ], [ -1, %194 ], [ 0, %.preheader ], [ 0, %._crit_edge243 ], [ -1, %.lr.ph247 ], [ -1, %202 ]
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %13) #3
   ret i32 %.0171
 }

@@ -2167,7 +2167,7 @@ define noundef i32 @_Z13copy_nbparamsPP9t_nbparamiP18InteractionsOfTypei(ptr nou
 
 .preheader38.lr.ph:                               ; preds = %4
   %.not37 = icmp eq ptr %0, null
-  br i1 %.not37, label %43, label %.preheader38.lr.ph.split
+  br i1 %.not37, label %45, label %.preheader38.lr.ph.split
 
 .preheader38.lr.ph.split:                         ; preds = %.preheader38.lr.ph
   %12 = icmp sgt i32 %.fr48, 0
@@ -2196,7 +2196,7 @@ define noundef i32 @_Z13copy_nbparamsPP9t_nbparamiP18InteractionsOfTypei(ptr nou
   br i1 %20, label %.preheader.us.us, label %21
 
 21:                                               ; preds = %._crit_edge.us.us, %16
-  %.2.us.us = phi i32 [ %37, %._crit_edge.us.us ], [ %.142.us.us, %16 ]
+  %.2.us.us = phi i32 [ %39, %._crit_edge.us.us ], [ %.142.us.us, %16 ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next67, %indvars.iv73
   br i1 %exitcond72.not, label %.split.us.us, label %16, !llvm.loop !90
@@ -2207,27 +2207,29 @@ define noundef i32 @_Z13copy_nbparamsPP9t_nbparamiP18InteractionsOfTypei(ptr nou
   %24 = getelementptr inbounds nuw %class.InteractionOfType, ptr %23, i64 %indvars.iv66
   %25 = getelementptr inbounds nuw %class.InteractionOfType, ptr %24, i64 %15
   %26 = load ptr, ptr %14, align 8, !tbaa !86
-  %27 = getelementptr inbounds nuw %struct.t_nbparam, ptr %26, i64 %indvars.iv66, i32 1, i64 %indvars.iv62
-  %28 = load float, ptr %27, align 4, !tbaa !42
-  %29 = trunc nuw nsw i64 %indvars.iv62 to i32
-  tail call void @_ZN17InteractionOfType17setForceParameterEif(ptr noundef nonnull align 8 dereferenceable(105) %25, i32 noundef %29, float noundef %28)
-  %30 = load ptr, ptr %2, align 8, !tbaa !20
-  %31 = getelementptr inbounds nuw %class.InteractionOfType, ptr %30, i64 %36
-  %32 = getelementptr inbounds nuw %class.InteractionOfType, ptr %31, i64 %indvars.iv75
-  %33 = load ptr, ptr %14, align 8, !tbaa !86
-  %34 = getelementptr inbounds nuw %struct.t_nbparam, ptr %33, i64 %indvars.iv66, i32 1, i64 %indvars.iv62
-  %35 = load float, ptr %34, align 4, !tbaa !42
-  tail call void @_ZN17InteractionOfType17setForceParameterEif(ptr noundef nonnull align 8 dereferenceable(105) %32, i32 noundef %29, float noundef %35)
+  %27 = getelementptr inbounds nuw %struct.t_nbparam, ptr %26, i64 %indvars.iv66, i32 1
+  %28 = getelementptr inbounds nuw [4 x float], ptr %27, i64 0, i64 %indvars.iv62
+  %29 = load float, ptr %28, align 4, !tbaa !42
+  %30 = trunc nuw nsw i64 %indvars.iv62 to i32
+  tail call void @_ZN17InteractionOfType17setForceParameterEif(ptr noundef nonnull align 8 dereferenceable(105) %25, i32 noundef %30, float noundef %29)
+  %31 = load ptr, ptr %2, align 8, !tbaa !20
+  %32 = getelementptr inbounds nuw %class.InteractionOfType, ptr %31, i64 %38
+  %33 = getelementptr inbounds nuw %class.InteractionOfType, ptr %32, i64 %indvars.iv75
+  %34 = load ptr, ptr %14, align 8, !tbaa !86
+  %35 = getelementptr inbounds nuw %struct.t_nbparam, ptr %34, i64 %indvars.iv66, i32 1
+  %36 = getelementptr inbounds nuw [4 x float], ptr %35, i64 0, i64 %indvars.iv62
+  %37 = load float, ptr %36, align 4, !tbaa !42
+  tail call void @_ZN17InteractionOfType17setForceParameterEif(ptr noundef nonnull align 8 dereferenceable(105) %33, i32 noundef %30, float noundef %37)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
   br i1 %exitcond65.not, label %._crit_edge.us.us, label %22, !llvm.loop !91
 
 .preheader.us.us:                                 ; preds = %16
-  %36 = mul nuw nsw i64 %indvars.iv66, %13
+  %38 = mul nuw nsw i64 %indvars.iv66, %13
   br label %22
 
 ._crit_edge.us.us:                                ; preds = %22
-  %37 = add nsw i32 %.142.us.us, 1
+  %39 = add nsw i32 %.142.us.us, 1
   br label %21
 
 .split.us.us:                                     ; preds = %21
@@ -2240,8 +2242,8 @@ define noundef i32 @_Z13copy_nbparamsPP9t_nbparamiP18InteractionsOfTypei(ptr nou
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.split ], [ 0, %.preheader38.lr.ph.split ]
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.split ], [ 1, %.preheader38.lr.ph.split ]
   %.03545 = phi i32 [ %spec.select, %.split ], [ 0, %.preheader38.lr.ph.split ]
-  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv55
-  %39 = load ptr, ptr %38, align 8, !tbaa !86
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv55
+  %41 = load ptr, ptr %40, align 8, !tbaa !86
   br label %.preheader
 
 ._crit_edge:                                      ; preds = %.split, %.split.us.us, %4
@@ -2257,15 +2259,15 @@ define noundef i32 @_Z13copy_nbparamsPP9t_nbparamiP18InteractionsOfTypei(ptr nou
 .preheader:                                       ; preds = %.preheader38, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next, %.preheader ]
   %.142 = phi i32 [ %.03545, %.preheader38 ], [ %spec.select, %.preheader ]
-  %40 = getelementptr inbounds nuw %struct.t_nbparam, ptr %39, i64 %indvars.iv
-  %41 = load i8, ptr %40, align 4, !tbaa !88, !range !69, !noundef !70
-  %42 = zext nneg i8 %41 to i32
-  %spec.select = add nsw i32 %.142, %42
+  %42 = getelementptr inbounds nuw %struct.t_nbparam, ptr %41, i64 %indvars.iv
+  %43 = load i8, ptr %42, align 4, !tbaa !88, !range !69, !noundef !70
+  %44 = zext nneg i8 %43 to i32
+  %spec.select = add nsw i32 %.142, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv53
   br i1 %exitcond.not, label %.split, label %.preheader, !llvm.loop !94
 
-43:                                               ; preds = %.preheader38.lr.ph
+45:                                               ; preds = %.preheader38.lr.ph
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ13copy_nbparamsPP9t_nbparamiP18InteractionsOfTypeiENK3$_0clEv", ptr noundef nonnull @.str.9, i32 noundef 261) #30
   unreachable
 }

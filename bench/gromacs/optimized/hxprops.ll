@@ -384,46 +384,47 @@ define noundef float @_Z3dipiPKiPA3_KfPK6t_atom(i32 noundef %0, ptr noundef read
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %indvars.iv17 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next18, %20 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
+  %indvars.iv17 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next18, %21 ]
   %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv17
   %10 = load i32, ptr %9, align 4, !tbaa !20
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds %struct.t_atom, ptr %3, i64 %11, i32 1
   %13 = load float, ptr %12, align 4, !tbaa !27
-  br label %14
+  %14 = getelementptr inbounds [3 x float], ptr %2, i64 %11
+  br label %15
 
-14:                                               ; preds = %.lr.ph, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds [3 x float], ptr %2, i64 %11, i64 %indvars.iv
-  %16 = load float, ptr %15, align 4, !tbaa !21
-  %17 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
-  %18 = load float, ptr %17, align 4, !tbaa !21
-  %19 = tail call float @llvm.fmuladd.f32(float %16, float %13, float %18)
-  store float %19, ptr %17, align 4, !tbaa !21
+15:                                               ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+  %16 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv
+  %17 = load float, ptr %16, align 4, !tbaa !21
+  %18 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
+  %19 = load float, ptr %18, align 4, !tbaa !21
+  %20 = tail call float @llvm.fmuladd.f32(float %17, float %13, float %19)
+  store float %20, ptr %18, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %20, label %14, !llvm.loop !31
+  br i1 %exitcond.not, label %21, label %15, !llvm.loop !31
 
-20:                                               ; preds = %14
+21:                                               ; preds = %15
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count
   br i1 %exitcond20.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
 
-._crit_edge.loopexit:                             ; preds = %20
+._crit_edge.loopexit:                             ; preds = %21
   %.pre = load float, ptr %5, align 4, !tbaa !21
   %.pre21 = load float, ptr %6, align 4, !tbaa !21
   %.pre22 = load float, ptr %7, align 4, !tbaa !21
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %21 = phi float [ %.pre22, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
-  %22 = phi float [ %.pre21, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
-  %23 = phi float [ %.pre, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
-  %24 = fmul float %22, %22
-  %25 = tail call float @llvm.fmuladd.f32(float %23, float %23, float %24)
-  %26 = tail call noundef float @llvm.fmuladd.f32(float %21, float %21, float %25)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %26)
+  %22 = phi float [ %.pre22, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
+  %23 = phi float [ %.pre21, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
+  %24 = phi float [ %.pre, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
+  %25 = fmul float %23, %23
+  %26 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %25)
+  %27 = tail call noundef float @llvm.fmuladd.f32(float %22, float %22, float %26)
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %27)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #21
   ret float %sqrt.i
 }

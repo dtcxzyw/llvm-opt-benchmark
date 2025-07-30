@@ -853,11 +853,12 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
 
 82:                                               ; preds = %76, %58
   %83 = getelementptr inbounds nuw i8, ptr %42, i64 20
+  %.split = getelementptr [2 x [3 x i8]], ptr %83, i64 0, i64 %33
   br label %84
 
 84:                                               ; preds = %94, %82
   %85 = phi i64 [ 0, %82 ], [ %95, %94 ]
-  %86 = getelementptr [2 x [3 x i8]], ptr %83, i64 0, i64 %33, i64 %85
+  %86 = getelementptr [3 x i8], ptr %.split, i64 0, i64 %85
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, -1
   br i1 %88, label %94, label %89

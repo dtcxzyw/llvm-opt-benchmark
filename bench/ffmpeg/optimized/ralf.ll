@@ -121,8 +121,8 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %44
 
-44:                                               ; preds = %40, %81
-  %indvars.iv137 = phi i64 [ 0, %40 ], [ %indvars.iv.next138, %81 ]
+44:                                               ; preds = %40, %86
+  %indvars.iv137 = phi i64 [ 0, %40 ], [ %indvars.iv.next138, %86 ]
   %45 = getelementptr inbounds nuw [3 x %struct.VLCSet], ptr %43, i64 0, i64 %indvars.iv137
   %46 = getelementptr inbounds nuw [3 x [324 x i8]], ptr @filter_param_def, i64 0, i64 %indvars.iv137
   %47 = tail call fastcc i32 @init_ralf_vlc(ptr noundef nonnull %45, ptr noundef nonnull %46, i32 noundef 643) #11
@@ -145,71 +145,76 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 .preheader107:                                    ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 72
+  %60 = getelementptr inbounds nuw [3 x [10 x [11 x [24 x i8]]]], ptr @filter_coeffs_def, i64 0, i64 %indvars.iv137
   br label %.preheader
 
-.preheader105:                                    ; preds = %67
-  %60 = getelementptr inbounds nuw i8, ptr %45, i64 2712
-  br label %70
+.preheader105:                                    ; preds = %71
+  %61 = getelementptr inbounds nuw i8, ptr %45, i64 2712
+  %62 = getelementptr inbounds nuw [3 x [15 x [88 x i8]]], ptr @short_codes_def, i64 0, i64 %indvars.iv137
+  br label %75
 
-.preheader:                                       ; preds = %.preheader107, %67
-  %indvars.iv125 = phi i64 [ 0, %.preheader107 ], [ %indvars.iv.next126, %67 ]
-  br label %62
+.preheader:                                       ; preds = %.preheader107, %71
+  %indvars.iv125 = phi i64 [ 0, %.preheader107 ], [ %indvars.iv.next126, %71 ]
+  %63 = getelementptr inbounds nuw [10 x [11 x %struct.VLC]], ptr %59, i64 0, i64 %indvars.iv125
+  %64 = getelementptr inbounds nuw [10 x [11 x [24 x i8]]], ptr %60, i64 0, i64 %indvars.iv125
+  br label %66
 
-61:                                               ; preds = %62
+65:                                               ; preds = %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %67, label %62, !llvm.loop !35
+  br i1 %exitcond.not, label %71, label %66, !llvm.loop !35
 
-62:                                               ; preds = %.preheader, %61
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %61 ]
-  %63 = getelementptr inbounds nuw [10 x [11 x %struct.VLC]], ptr %59, i64 0, i64 %indvars.iv125, i64 %indvars.iv
-  %64 = getelementptr inbounds nuw [3 x [10 x [11 x [24 x i8]]]], ptr @filter_coeffs_def, i64 0, i64 %indvars.iv137, i64 %indvars.iv125, i64 %indvars.iv
-  %65 = tail call fastcc i32 @init_ralf_vlc(ptr noundef nonnull %63, ptr noundef nonnull %64, i32 noundef 43) #11
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.loopexit, label %61
+66:                                               ; preds = %.preheader, %65
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %65 ]
+  %67 = getelementptr inbounds nuw [11 x %struct.VLC], ptr %63, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [11 x [24 x i8]], ptr %64, i64 0, i64 %indvars.iv
+  %69 = tail call fastcc i32 @init_ralf_vlc(ptr noundef nonnull %67, ptr noundef nonnull %68, i32 noundef 43) #11
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %.loopexit, label %65
 
-67:                                               ; preds = %61
+71:                                               ; preds = %65
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next126, 10
   br i1 %exitcond128.not, label %.preheader105, label %.preheader, !llvm.loop !37
 
-68:                                               ; preds = %70
+72:                                               ; preds = %75
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next130, 15
-  br i1 %exitcond132.not, label %.preheader103, label %70, !llvm.loop !38
+  br i1 %exitcond132.not, label %.preheader103, label %75, !llvm.loop !38
 
-.preheader103:                                    ; preds = %68
-  %69 = getelementptr inbounds nuw i8, ptr %45, i64 3072
-  br label %76
+.preheader103:                                    ; preds = %72
+  %73 = getelementptr inbounds nuw i8, ptr %45, i64 3072
+  %74 = getelementptr inbounds nuw [3 x [125 x [224 x i8]]], ptr @long_codes_def, i64 0, i64 %indvars.iv137
+  br label %81
 
-70:                                               ; preds = %.preheader105, %68
-  %indvars.iv129 = phi i64 [ 0, %.preheader105 ], [ %indvars.iv.next130, %68 ]
-  %71 = getelementptr inbounds nuw [15 x %struct.VLC], ptr %60, i64 0, i64 %indvars.iv129
-  %72 = getelementptr inbounds nuw [3 x [15 x [88 x i8]]], ptr @short_codes_def, i64 0, i64 %indvars.iv137, i64 %indvars.iv129
-  %73 = tail call fastcc i32 @init_ralf_vlc(ptr noundef nonnull %71, ptr noundef nonnull %72, i32 noundef 169) #11
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %.loopexit, label %68
+75:                                               ; preds = %.preheader105, %72
+  %indvars.iv129 = phi i64 [ 0, %.preheader105 ], [ %indvars.iv.next130, %72 ]
+  %76 = getelementptr inbounds nuw [15 x %struct.VLC], ptr %61, i64 0, i64 %indvars.iv129
+  %77 = getelementptr inbounds nuw [15 x [88 x i8]], ptr %62, i64 0, i64 %indvars.iv129
+  %78 = tail call fastcc i32 @init_ralf_vlc(ptr noundef nonnull %76, ptr noundef nonnull %77, i32 noundef 169) #11
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %.loopexit, label %72
 
-75:                                               ; preds = %76
+80:                                               ; preds = %81
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next134, 125
-  br i1 %exitcond136.not, label %81, label %76, !llvm.loop !39
+  br i1 %exitcond136.not, label %86, label %81, !llvm.loop !39
 
-76:                                               ; preds = %.preheader103, %75
-  %indvars.iv133 = phi i64 [ 0, %.preheader103 ], [ %indvars.iv.next134, %75 ]
-  %77 = getelementptr inbounds nuw [125 x %struct.VLC], ptr %69, i64 0, i64 %indvars.iv133
-  %78 = getelementptr inbounds nuw [3 x [125 x [224 x i8]]], ptr @long_codes_def, i64 0, i64 %indvars.iv137, i64 %indvars.iv133
-  %79 = tail call fastcc i32 @init_ralf_vlc(ptr noundef nonnull %77, ptr noundef nonnull %78, i32 noundef 441) #11
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %.loopexit, label %75
+81:                                               ; preds = %.preheader103, %80
+  %indvars.iv133 = phi i64 [ 0, %.preheader103 ], [ %indvars.iv.next134, %80 ]
+  %82 = getelementptr inbounds nuw [125 x %struct.VLC], ptr %73, i64 0, i64 %indvars.iv133
+  %83 = getelementptr inbounds nuw [125 x [224 x i8]], ptr %74, i64 0, i64 %indvars.iv133
+  %84 = tail call fastcc i32 @init_ralf_vlc(ptr noundef nonnull %82, ptr noundef nonnull %83, i32 noundef 441) #11
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %.loopexit, label %80
 
-81:                                               ; preds = %75
+86:                                               ; preds = %80
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next138, 3
   br i1 %exitcond140.not, label %.loopexit, label %44, !llvm.loop !40
 
-.loopexit:                                        ; preds = %81, %54, %49, %44, %70, %76, %62, %29, %16, %10
-  %.0 = phi i32 [ -1094995529, %10 ], [ -1163346256, %16 ], [ -1094995529, %29 ], [ %65, %62 ], [ %79, %76 ], [ %73, %70 ], [ 0, %81 ], [ %57, %54 ], [ %52, %49 ], [ %47, %44 ]
+.loopexit:                                        ; preds = %86, %54, %49, %44, %75, %81, %66, %29, %16, %10
+  %.0 = phi i32 [ -1094995529, %10 ], [ -1163346256, %16 ], [ -1094995529, %29 ], [ %69, %66 ], [ %84, %81 ], [ %78, %75 ], [ 0, %86 ], [ %57, %54 ], [ %52, %49 ], [ %47, %44 ]
   ret i32 %.0
 }
 
@@ -1621,8 +1626,8 @@ define internal noundef i32 @decode_close(ptr noundef readonly captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %5
 
-5:                                                ; preds = %1, %19
-  %indvars.iv48 = phi i64 [ 0, %1 ], [ %indvars.iv.next49, %19 ]
+5:                                                ; preds = %1, %20
+  %indvars.iv48 = phi i64 [ 0, %1 ], [ %indvars.iv.next49, %20 ]
   %6 = getelementptr inbounds nuw [3 x %struct.VLCSet], ptr %4, i64 0, i64 %indvars.iv48
   tail call void @ff_vlc_free(ptr noundef nonnull %6) #10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1632,53 +1637,54 @@ define internal noundef i32 @decode_close(ptr noundef readonly captures(none) %0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
   br label %.preheader
 
-.preheader29:                                     ; preds = %13
+.preheader29:                                     ; preds = %14
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 2712
-  br label %15
+  br label %16
 
-.preheader:                                       ; preds = %5, %13
-  %indvars.iv36 = phi i64 [ 0, %5 ], [ %indvars.iv.next37, %13 ]
-  br label %11
+.preheader:                                       ; preds = %5, %14
+  %indvars.iv36 = phi i64 [ 0, %5 ], [ %indvars.iv.next37, %14 ]
+  %11 = getelementptr inbounds nuw [10 x [11 x %struct.VLC]], ptr %9, i64 0, i64 %indvars.iv36
+  br label %12
 
-11:                                               ; preds = %.preheader, %11
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [10 x [11 x %struct.VLC]], ptr %9, i64 0, i64 %indvars.iv36, i64 %indvars.iv
-  tail call void @ff_vlc_free(ptr noundef nonnull %12) #10
+12:                                               ; preds = %.preheader, %12
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds nuw [11 x %struct.VLC], ptr %11, i64 0, i64 %indvars.iv
+  tail call void @ff_vlc_free(ptr noundef nonnull %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %13, label %11, !llvm.loop !88
+  br i1 %exitcond.not, label %14, label %12, !llvm.loop !88
 
-13:                                               ; preds = %11
+14:                                               ; preds = %12
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 10
   br i1 %exitcond39.not, label %.preheader29, label %.preheader, !llvm.loop !89
 
-.preheader28:                                     ; preds = %15
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 3072
-  br label %17
+.preheader28:                                     ; preds = %16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 3072
+  br label %18
 
-15:                                               ; preds = %.preheader29, %15
-  %indvars.iv40 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next41, %15 ]
-  %16 = getelementptr inbounds nuw [15 x %struct.VLC], ptr %10, i64 0, i64 %indvars.iv40
-  tail call void @ff_vlc_free(ptr noundef nonnull %16) #10
+16:                                               ; preds = %.preheader29, %16
+  %indvars.iv40 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next41, %16 ]
+  %17 = getelementptr inbounds nuw [15 x %struct.VLC], ptr %10, i64 0, i64 %indvars.iv40
+  tail call void @ff_vlc_free(ptr noundef nonnull %17) #10
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 15
-  br i1 %exitcond43.not, label %.preheader28, label %15, !llvm.loop !90
+  br i1 %exitcond43.not, label %.preheader28, label %16, !llvm.loop !90
 
-17:                                               ; preds = %.preheader28, %17
-  %indvars.iv44 = phi i64 [ 0, %.preheader28 ], [ %indvars.iv.next45, %17 ]
-  %18 = getelementptr inbounds nuw [125 x %struct.VLC], ptr %14, i64 0, i64 %indvars.iv44
-  tail call void @ff_vlc_free(ptr noundef nonnull %18) #10
+18:                                               ; preds = %.preheader28, %18
+  %indvars.iv44 = phi i64 [ 0, %.preheader28 ], [ %indvars.iv.next45, %18 ]
+  %19 = getelementptr inbounds nuw [125 x %struct.VLC], ptr %15, i64 0, i64 %indvars.iv44
+  tail call void @ff_vlc_free(ptr noundef nonnull %19) #10
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 125
-  br i1 %exitcond47.not, label %19, label %17, !llvm.loop !91
+  br i1 %exitcond47.not, label %20, label %18, !llvm.loop !91
 
-19:                                               ; preds = %17
+20:                                               ; preds = %18
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 3
-  br i1 %exitcond51.not, label %20, label %5, !llvm.loop !92
+  br i1 %exitcond51.not, label %21, label %5, !llvm.loop !92
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   ret i32 0
 }
 

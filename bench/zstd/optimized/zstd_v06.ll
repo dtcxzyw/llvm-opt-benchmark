@@ -5477,11 +5477,11 @@ define i64 @HUFv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %5 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
   %6 = icmp eq i64 %1, 0
-  br i1 %6, label %41, label %7
+  br i1 %6, label %42, label %7
 
 7:                                                ; preds = %4
   %8 = icmp ugt i64 %3, %1
-  br i1 %8, label %41, label %9
+  br i1 %8, label %42, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq i64 %3, %1
@@ -5489,7 +5489,7 @@ define i64 @HUFv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 
 11:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %2, i64 %1, i1 false)
-  br label %41
+  br label %42
 
 12:                                               ; preds = %9
   %13 = icmp eq i64 %3, 1
@@ -5498,7 +5498,7 @@ define i64 @HUFv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 14:                                               ; preds = %12
   %15 = load i8, ptr %2, align 1, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 %15, i64 %1, i1 false)
-  br label %41
+  br label %42
 
 16:                                               ; preds = %12
   %17 = shl i64 %3, 4
@@ -5506,37 +5506,38 @@ define i64 @HUFv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %19 = lshr i64 %1, 8
   %20 = trunc i64 %19 to i32
   %21 = and i64 %18, 4294967295
-  br label %22
+  %22 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %21
+  br label %23
 
-22:                                               ; preds = %16, %22
-  %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %21, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 8, !tbaa !65
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !67
-  %27 = mul i32 %26, %20
-  %28 = add i32 %27, %24
-  %29 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
-  store i32 %28, ptr %29, align 4, !tbaa !3
+23:                                               ; preds = %16, %23
+  %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %23 ]
+  %24 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr %22, i64 0, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 8, !tbaa !65
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !67
+  %28 = mul i32 %27, %20
+  %29 = add i32 %28, %25
+  %30 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
+  store i32 %29, ptr %30, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %30, label %22, !llvm.loop !68
+  br i1 %exitcond.not, label %31, label %23, !llvm.loop !68
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !3
-  %33 = lshr i32 %32, 4
-  %34 = add i32 %33, %32
-  %35 = load i32, ptr %5, align 4, !tbaa !3
-  %36 = icmp ult i32 %34, %35
-  %37 = zext i1 %36 to i64
-  %38 = getelementptr inbounds nuw [3 x ptr], ptr @HUFv06_decompress.decompress, i64 0, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !69
-  %40 = tail call i64 %39(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #28
-  br label %41
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !3
+  %34 = lshr i32 %33, 4
+  %35 = add i32 %34, %33
+  %36 = load i32, ptr %5, align 4, !tbaa !3
+  %37 = icmp ult i32 %35, %36
+  %38 = zext i1 %37 to i64
+  %39 = getelementptr inbounds nuw [3 x ptr], ptr @HUFv06_decompress.decompress, i64 0, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !69
+  %41 = tail call i64 %40(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #28
+  br label %42
 
-41:                                               ; preds = %7, %4, %30, %14, %11
-  %.0 = phi i64 [ %1, %11 ], [ %1, %14 ], [ %40, %30 ], [ -70, %4 ], [ -20, %7 ]
+42:                                               ; preds = %7, %4, %31, %14, %11
+  %.0 = phi i64 [ %1, %11 ], [ %1, %14 ], [ %41, %31 ], [ -70, %4 ], [ -20, %7 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
   ret i64 %.0
 }

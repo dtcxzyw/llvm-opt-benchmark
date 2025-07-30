@@ -5538,11 +5538,11 @@ define i64 @HUFv05_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %7 = trunc i64 %6 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #27
   %8 = icmp eq i64 %1, 0
-  br i1 %8, label %36, label %9
+  br i1 %8, label %37, label %9
 
 9:                                                ; preds = %4
   %.not = icmp ult i64 %3, %1
-  br i1 %.not, label %10, label %36
+  br i1 %.not, label %10, label %37
 
 10:                                               ; preds = %9
   %11 = icmp eq i64 %3, 1
@@ -5551,43 +5551,44 @@ define i64 @HUFv05_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 12:                                               ; preds = %10
   %13 = load i8, ptr %2, align 1, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 %13, i64 %1, i1 false)
-  br label %36
+  br label %37
 
 14:                                               ; preds = %10
   %15 = shl i64 %3, 4
   %16 = udiv i64 %15, %1
   %17 = and i64 %16, 4294967295
-  br label %18
+  %18 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %17
+  br label %19
 
-18:                                               ; preds = %14, %18
-  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %17, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 8, !tbaa !65
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !67
-  %23 = mul i32 %22, %7
-  %24 = add i32 %23, %20
-  %25 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
-  store i32 %24, ptr %25, align 4, !tbaa !17
+19:                                               ; preds = %14, %19
+  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %19 ]
+  %20 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr %18, i64 0, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 8, !tbaa !65
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !67
+  %24 = mul i32 %23, %7
+  %25 = add i32 %24, %21
+  %26 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
+  store i32 %25, ptr %26, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %26, label %18, !llvm.loop !68
+  br i1 %exitcond.not, label %27, label %19, !llvm.loop !68
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !17
-  %29 = lshr i32 %28, 4
-  %30 = add i32 %29, %28
-  %31 = load i32, ptr %5, align 4, !tbaa !17
-  %32 = icmp ult i32 %30, %31
-  %spec.select = zext i1 %32 to i64
-  %33 = getelementptr inbounds nuw [3 x ptr], ptr @HUFv05_decompress.decompress, i64 0, i64 %spec.select
-  %34 = load ptr, ptr %33, align 8, !tbaa !69
-  %35 = tail call i64 %34(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #27
-  br label %36
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !17
+  %30 = lshr i32 %29, 4
+  %31 = add i32 %30, %29
+  %32 = load i32, ptr %5, align 4, !tbaa !17
+  %33 = icmp ult i32 %31, %32
+  %spec.select = zext i1 %33 to i64
+  %34 = getelementptr inbounds nuw [3 x ptr], ptr @HUFv05_decompress.decompress, i64 0, i64 %spec.select
+  %35 = load ptr, ptr %34, align 8, !tbaa !69
+  %36 = tail call i64 %35(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #27
+  br label %37
 
-36:                                               ; preds = %9, %4, %26, %12
-  %.025 = phi i64 [ %1, %12 ], [ %35, %26 ], [ -70, %4 ], [ -20, %9 ]
+37:                                               ; preds = %9, %4, %27, %12
+  %.025 = phi i64 [ %1, %12 ], [ %36, %27 ], [ -70, %4 ], [ -20, %9 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #27
   ret i64 %.025
 }

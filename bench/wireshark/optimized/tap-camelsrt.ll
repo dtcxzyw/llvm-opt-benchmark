@@ -106,30 +106,30 @@ define internal noundef i32 @camelsrt_packet(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 768
   br label %11
 
-11:                                               ; preds = %5, %36
-  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %36 ]
+11:                                               ; preds = %5, %37
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %37 ]
   %12 = getelementptr [10 x i8], ptr %6, i64 0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %36, label %14
+  br i1 %.not, label %37, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %7, i64 0, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 2, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %36
+  br i1 %18, label %19, label %37
 
 19:                                               ; preds = %14
   %20 = load i8, ptr %15, align 8, !range !7, !noundef !8
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %36
+  br i1 %21, label %22, label %37
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %24 = load i8, ptr %23, align 1, !range !7, !noundef !8
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %36, label %26
+  br i1 %25, label %37, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr [10 x %struct._timestat_t], ptr %8, i64 0, i64 %indvars.iv
@@ -138,22 +138,23 @@ define internal noundef i32 @camelsrt_packet(ptr noundef %0, ptr noundef %1, ptr
   %29 = getelementptr [10 x i32], ptr %9, i64 0, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = icmp ult i32 %30, 500000
-  br i1 %31, label %32, label %36
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %26
-  %33 = add nuw nsw i32 %30, 1
-  store i32 %33, ptr %29, align 4
-  %34 = zext nneg i32 %30 to i64
-  %35 = getelementptr [10 x [500000 x %struct.nstime_t]], ptr %10, i64 0, i64 %indvars.iv, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
-  br label %36
+  %33 = getelementptr [10 x [500000 x %struct.nstime_t]], ptr %10, i64 0, i64 %indvars.iv
+  %34 = add nuw nsw i32 %30, 1
+  store i32 %34, ptr %29, align 4
+  %35 = zext nneg i32 %30 to i64
+  %36 = getelementptr [500000 x %struct.nstime_t], ptr %33, i64 0, i64 %35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
+  br label %37
 
-36:                                               ; preds = %11, %14, %19, %22, %32, %26
+37:                                               ; preds = %11, %14, %19, %22, %32, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %37, label %11, !llvm.loop !9
+  br i1 %exitcond.not, label %38, label %11, !llvm.loop !9
 
-37:                                               ; preds = %36
+38:                                               ; preds = %37
   ret i32 1
 }
 
@@ -286,7 +287,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %82 = getelementptr [10 x i32], ptr %79, i64 0, i64 %indvars.iv169
   %83 = load i32, ptr %82, align 4
   %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %144, label %.preheader
+  br i1 %.not, label %145, label %.preheader
 
 .preheader:                                       ; preds = %81
   %84 = getelementptr [10 x %struct._timestat_t], ptr %9, i64 0, i64 %indvars.iv169
@@ -308,7 +309,8 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %100 = tail call double @llvm.fmuladd.f64(double %95, double 1.000000e+03, double %99)
   %101 = fsub double %92, %100
   %102 = fcmp ogt double %101, 1.000000e-03
-  %103 = uitofp i32 %83 to double
+  %103 = getelementptr [10 x [500000 x %struct.nstime_t]], ptr %80, i64 0, i64 %indvars.iv169
+  %104 = uitofp i32 %83 to double
   br i1 %102, label %.lr.ph.us.preheader, label %.preheader.split
 
 .lr.ph.us.preheader:                              ; preds = %.preheader
@@ -317,130 +319,130 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv160 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next161, %._crit_edge.us ]
-  %104 = getelementptr [7 x double], ptr @__const.camelsrt_draw.criteria, i64 0, i64 %indvars.iv160
-  %105 = load double, ptr %104, align 8
-  %106 = fmul double %105, %103
-  br label %107
+  %105 = getelementptr [7 x double], ptr @__const.camelsrt_draw.criteria, i64 0, i64 %indvars.iv160
+  %106 = load double, ptr %105, align 8
+  %107 = fmul double %106, %104
+  br label %108
 
-107:                                              ; preds = %.lr.ph.us, %117
-  %.0115139.us = phi double [ %100, %.lr.ph.us ], [ %.1116.us, %117 ]
-  %.0117138.us = phi double [ %92, %.lr.ph.us ], [ %.1118.us, %117 ]
-  %.0119137.us = phi double [ %100, %.lr.ph.us ], [ %.1120.us, %117 ]
-  %.0125136.us = phi i32 [ 0, %.lr.ph.us ], [ %109, %117 ]
-  br label %121
+108:                                              ; preds = %.lr.ph.us, %118
+  %.0115139.us = phi double [ %100, %.lr.ph.us ], [ %.1116.us, %118 ]
+  %.0117138.us = phi double [ %92, %.lr.ph.us ], [ %.1118.us, %118 ]
+  %.0119137.us = phi double [ %100, %.lr.ph.us ], [ %.1120.us, %118 ]
+  %.0125136.us = phi i32 [ 0, %.lr.ph.us ], [ %110, %118 ]
+  br label %122
 
-108:                                              ; preds = %121
-  %109 = add nuw nsw i32 %.0125136.us, 1
-  %110 = mul i32 %.1127.us, 100
-  %111 = sitofp i32 %110 to double
-  %112 = fcmp olt double %106, %111
-  br i1 %112, label %115, label %113
+109:                                              ; preds = %122
+  %110 = add nuw nsw i32 %.0125136.us, 1
+  %111 = mul i32 %.1127.us, 100
+  %112 = sitofp i32 %111 to double
+  %113 = fcmp olt double %107, %112
+  br i1 %113, label %116, label %114
 
-113:                                              ; preds = %108
-  %114 = fsub double %.0117138.us, %.0119137.us
-  br label %117
+114:                                              ; preds = %109
+  %115 = fsub double %.0117138.us, %.0119137.us
+  br label %118
 
-115:                                              ; preds = %108
-  %116 = fsub double %.0119137.us, %.0115139.us
-  br label %117
+116:                                              ; preds = %109
+  %117 = fsub double %.0119137.us, %.0115139.us
+  br label %118
 
-117:                                              ; preds = %115, %113
-  %.0115139.us.pn = phi double [ %.0115139.us, %115 ], [ %.0117138.us, %113 ]
-  %.1118.us = phi double [ %.0119137.us, %115 ], [ %.0117138.us, %113 ]
-  %.1116.us = phi double [ %.0115139.us, %115 ], [ %.0119137.us, %113 ]
-  %.1.us = phi double [ %116, %115 ], [ %114, %113 ]
+118:                                              ; preds = %116, %114
+  %.0115139.us.pn = phi double [ %.0115139.us, %116 ], [ %.0117138.us, %114 ]
+  %.1118.us = phi double [ %.0119137.us, %116 ], [ %.0117138.us, %114 ]
+  %.1116.us = phi double [ %.0115139.us, %116 ], [ %.0119137.us, %114 ]
+  %.1.us = phi double [ %117, %116 ], [ %115, %114 ]
   %.1120.in.us = fadd double %.0119137.us, %.0115139.us.pn
   %.1120.us = fmul double %.1120.in.us, 5.000000e-01
-  %118 = fcmp ogt double %.1.us, 1.000000e-03
-  %119 = icmp samesign ult i32 %.0125136.us, 9999
-  %120 = select i1 %118, i1 %119, i1 false
-  br i1 %120, label %107, label %._crit_edge.us, !llvm.loop !14
+  %119 = fcmp ogt double %.1.us, 1.000000e-03
+  %120 = icmp samesign ult i32 %.0125136.us, 9999
+  %121 = select i1 %119, i1 %120, i1 false
+  br i1 %121, label %108, label %._crit_edge.us, !llvm.loop !14
 
-121:                                              ; preds = %121, %107
-  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %121 ], [ 0, %107 ]
-  %.0126135.us = phi i32 [ %.1127.us, %121 ], [ 0, %107 ]
-  %122 = getelementptr [10 x [500000 x %struct.nstime_t]], ptr %80, i64 0, i64 %indvars.iv169, i64 %indvars.iv156
-  %123 = load i64, ptr %122, align 8
-  %124 = mul i64 %123, 1000
-  %125 = sitofp i64 %124 to double
-  %126 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %127 = load i32, ptr %126, align 8
-  %128 = sitofp i32 %127 to double
-  %129 = fdiv double %128, 1.000000e+06
-  %130 = fadd double %129, %125
-  %131 = fcmp ole double %130, %.0119137.us
-  %132 = zext i1 %131 to i32
-  %.1127.us = add i32 %.0126135.us, %132
+122:                                              ; preds = %122, %108
+  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %122 ], [ 0, %108 ]
+  %.0126135.us = phi i32 [ %.1127.us, %122 ], [ 0, %108 ]
+  %123 = getelementptr [500000 x %struct.nstime_t], ptr %103, i64 0, i64 %indvars.iv156
+  %124 = load i64, ptr %123, align 8
+  %125 = mul i64 %124, 1000
+  %126 = sitofp i64 %125 to double
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %128 = load i32, ptr %127, align 8
+  %129 = sitofp i32 %128 to double
+  %130 = fdiv double %129, 1.000000e+06
+  %131 = fadd double %130, %126
+  %132 = fcmp ole double %131, %.0119137.us
+  %133 = zext i1 %132 to i32
+  %.1127.us = add i32 %.0126135.us, %133
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count
-  br i1 %exitcond159.not, label %108, label %121, !llvm.loop !15
+  br i1 %exitcond159.not, label %109, label %122, !llvm.loop !15
 
-._crit_edge.us:                                   ; preds = %117
-  %133 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv160
-  store double %.1120.us, ptr %133, align 8
+._crit_edge.us:                                   ; preds = %118
+  %134 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv160
+  store double %.1120.us, ptr %134, align 8
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 7
   br i1 %exitcond163.not, label %.split.us, label %.lr.ph.us, !llvm.loop !16
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.preheader.split ], [ 0, %.preheader ]
-  %134 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv152
-  store double %100, ptr %134, align 8
+  %135 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv152
+  store double %100, ptr %135, align 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 7
   br i1 %exitcond155.not, label %.split.us, label %.preheader.split, !llvm.loop !18
 
 .split.us:                                        ; preds = %.preheader.split, %._crit_edge.us
-  %135 = trunc nuw nsw i64 %indvars.iv169 to i32
-  %136 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %135, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.10)
-  %137 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %136)
-  tail call void @wmem_free(ptr noundef null, ptr noundef %136)
-  br label %138
+  %136 = trunc nuw nsw i64 %indvars.iv169 to i32
+  %137 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %136, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.10)
+  %138 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %137)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %137)
+  br label %139
 
-138:                                              ; preds = %.split.us, %138
-  %indvars.iv164 = phi i64 [ 0, %.split.us ], [ %indvars.iv.next165, %138 ]
-  %139 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv164
-  %140 = load double, ptr %139, align 8
-  %141 = fcmp ogt double %140, 9.999000e+03
-  %142 = select i1 %141, double 9.999000e+03, double %140
-  %143 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18, double noundef %142)
+139:                                              ; preds = %.split.us, %139
+  %indvars.iv164 = phi i64 [ 0, %.split.us ], [ %indvars.iv.next165, %139 ]
+  %140 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv164
+  %141 = load double, ptr %140, align 8
+  %142 = fcmp ogt double %141, 9.999000e+03
+  %143 = select i1 %142, double 9.999000e+03, double %141
+  %144 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18, double noundef %143)
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 7
-  br i1 %exitcond167.not, label %.loopexit, label %138, !llvm.loop !19
+  br i1 %exitcond167.not, label %.loopexit, label %139, !llvm.loop !19
 
-144:                                              ; preds = %81
-  %145 = trunc nuw nsw i64 %indvars.iv169 to i32
-  %146 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %145, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.10)
-  %147 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %146)
-  tail call void @wmem_free(ptr noundef null, ptr noundef %146)
-  br label %148
+145:                                              ; preds = %81
+  %146 = trunc nuw nsw i64 %indvars.iv169 to i32
+  %147 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %146, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.10)
+  %148 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %147)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %147)
+  br label %149
 
-148:                                              ; preds = %144, %148
-  %.4142 = phi i32 [ 0, %144 ], [ %150, %148 ]
-  %149 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18, double noundef 0.000000e+00)
-  %150 = add nuw nsw i32 %.4142, 1
-  %exitcond168.not = icmp eq i32 %150, 7
-  br i1 %exitcond168.not, label %.loopexit, label %148, !llvm.loop !20
+149:                                              ; preds = %145, %149
+  %.4142 = phi i32 [ 0, %145 ], [ %151, %149 ]
+  %150 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18, double noundef 0.000000e+00)
+  %151 = add nuw nsw i32 %.4142, 1
+  %exitcond168.not = icmp eq i32 %151, 7
+  br i1 %exitcond168.not, label %.loopexit, label %149, !llvm.loop !20
 
-.loopexit:                                        ; preds = %138, %148
-  %151 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
+.loopexit:                                        ; preds = %139, %149
+  %152 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 10
-  br i1 %exitcond172.not, label %152, label %81, !llvm.loop !21
+  br i1 %exitcond172.not, label %153, label %81, !llvm.loop !21
 
-152:                                              ; preds = %.loopexit
-  %153 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.19)
-  br label %154
+153:                                              ; preds = %.loopexit
+  %154 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.19)
+  br label %155
 
-154:                                              ; preds = %152, %154
-  %.5144 = phi i32 [ 0, %152 ], [ %156, %154 ]
-  %155 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.20)
-  %156 = add nuw nsw i32 %.5144, 1
-  %exitcond173.not = icmp eq i32 %156, 7
-  br i1 %exitcond173.not, label %157, label %154, !llvm.loop !22
+155:                                              ; preds = %153, %155
+  %.5144 = phi i32 [ 0, %153 ], [ %157, %155 ]
+  %156 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.20)
+  %157 = add nuw nsw i32 %.5144, 1
+  %exitcond173.not = icmp eq i32 %157, 7
+  br i1 %exitcond173.not, label %158, label %155, !llvm.loop !22
 
-157:                                              ; preds = %154
-  %158 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
+158:                                              ; preds = %155
+  %159 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #10
   ret void
 }

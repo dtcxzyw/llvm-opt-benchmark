@@ -65,115 +65,119 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = sext i32 %3 to i64
-  %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds [3 x [11 x i8]], ptr %5, i64 %6, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !15
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !16
-  %12 = getelementptr inbounds [3 x ptr], ptr %11, i64 %6, i64 %7
-  %13 = load ptr, ptr %12, align 8, !tbaa !17
-  %14 = icmp eq i32 %0, 0
-  br i1 %14, label %15, label %17
+  %7 = getelementptr inbounds [3 x [11 x i8]], ptr %5, i64 %6
+  %8 = sext i32 %0 to i64
+  %9 = getelementptr inbounds [3 x [11 x i8]], ptr %7, i64 0, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !15
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
+  %13 = getelementptr inbounds [3 x ptr], ptr %12, i64 %6
+  %14 = getelementptr inbounds [3 x ptr], ptr %13, i64 0, i64 %8
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  %16 = icmp eq i32 %0, 0
+  br i1 %16, label %17, label %19
 
-15:                                               ; preds = %2
-  %.pn.in.i = xor i8 %9, -1
+17:                                               ; preds = %2
+  %.pn.in.i = xor i8 %10, -1
   %.pn.i = zext i8 %.pn.in.i to i64
   %.in.in.i = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i
   %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !18
-  %16 = zext i16 %.in.i to i32
-  br label %17
+  %18 = zext i16 %.in.i to i32
+  br label %19
 
-17:                                               ; preds = %2, %15
-  %18 = phi i32 [ %16, %15 ], [ 0, %2 ]
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !20
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %25, label %.preheader
+19:                                               ; preds = %2, %17
+  %20 = phi i32 [ %18, %17 ], [ 0, %2 ]
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %22 = load i32, ptr %21, align 4, !tbaa !20
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %27, label %.preheader
 
-.preheader:                                       ; preds = %17
-  %22 = icmp slt i32 %3, %20
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !21
-  br i1 %22, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %19
+  %24 = icmp slt i32 %3, %22
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
+  br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %20 to i64
-  br label %27
+  %wide.trip.count = zext nneg i32 %22 to i64
+  br label %29
 
-25:                                               ; preds = %17
-  %.pn.i43 = zext i8 %9 to i64
+27:                                               ; preds = %19
+  %.pn.i43 = zext i8 %10 to i64
   %.in.in.i44 = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i43
   %.in.i45 = load i16, ptr %.in.in.i44, align 2, !tbaa !18
-  %26 = zext i16 %.in.i45 to i32
-  br label %72
+  %28 = zext i16 %.in.i45 to i32
+  br label %76
 
-27:                                               ; preds = %.lr.ph, %27
-  %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %.04051 = phi ptr [ %13, %.lr.ph ], [ %44, %27 ]
-  %.04150 = phi i32 [ %18, %.lr.ph ], [ %41, %27 ]
-  %28 = getelementptr inbounds i16, ptr %24, i64 %indvars.iv
-  %29 = load i16, ptr %28, align 2, !tbaa !18
-  %30 = tail call i16 @llvm.abs.i16(i16 %29, i1 false)
-  %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds nuw [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !18
-  %34 = zext i16 %33 to i32
-  %35 = tail call i16 @llvm.umin.i16(i16 %30, i16 67)
-  %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %.04051, i64 %36
-  %38 = load i16, ptr %37, align 2, !tbaa !18
-  %39 = zext i16 %38 to i32
-  %40 = add nuw nsw i32 %.04150, %34
-  %41 = add nuw nsw i32 %40, %39
+29:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %.04051 = phi ptr [ %15, %.lr.ph ], [ %47, %29 ]
+  %.04150 = phi i32 [ %20, %.lr.ph ], [ %43, %29 ]
+  %30 = getelementptr inbounds i16, ptr %26, i64 %indvars.iv
+  %31 = load i16, ptr %30, align 2, !tbaa !18
+  %32 = tail call i16 @llvm.abs.i16(i16 %31, i1 false)
+  %33 = zext i16 %32 to i64
+  %34 = getelementptr inbounds nuw [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %33
+  %35 = load i16, ptr %34, align 2, !tbaa !18
+  %36 = zext i16 %35 to i32
+  %37 = tail call i16 @llvm.umin.i16(i16 %32, i16 67)
+  %38 = zext nneg i16 %37 to i64
+  %39 = getelementptr inbounds nuw i16, ptr %.04051, i64 %38
+  %40 = load i16, ptr %39, align 2, !tbaa !18
+  %41 = zext i16 %40 to i32
+  %42 = add nuw nsw i32 %.04150, %36
+  %43 = add nuw nsw i32 %42, %41
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %narrow = tail call i16 @llvm.umin.i16(i16 %30, i16 2)
-  %42 = zext nneg i16 %narrow to i64
-  %43 = getelementptr inbounds [3 x ptr], ptr %11, i64 %indvars.iv.next, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !17
+  %44 = getelementptr inbounds [3 x ptr], ptr %12, i64 %indvars.iv.next
+  %narrow = tail call i16 @llvm.umin.i16(i16 %32, i16 2)
+  %45 = zext nneg i16 %narrow to i64
+  %46 = getelementptr inbounds nuw [3 x ptr], ptr %44, i64 0, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %27, %.preheader
-  %.pre-phi = phi i64 [ %6, %.preheader ], [ %wide.trip.count, %27 ]
-  %.041.lcssa = phi i32 [ %18, %.preheader ], [ %41, %27 ]
-  %.040.lcssa = phi ptr [ %13, %.preheader ], [ %44, %27 ]
-  %.039.lcssa = phi i32 [ %3, %.preheader ], [ %20, %27 ]
-  %45 = getelementptr inbounds i16, ptr %24, i64 %.pre-phi
-  %46 = load i16, ptr %45, align 2, !tbaa !18
-  %47 = tail call i16 @llvm.abs.i16(i16 %46, i1 false)
-  %48 = zext i16 %47 to i64
-  %49 = getelementptr inbounds nuw [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !18
-  %51 = zext i16 %50 to i32
-  %52 = tail call i16 @llvm.umin.i16(i16 %47, i16 67)
-  %53 = zext nneg i16 %52 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %.040.lcssa, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !18
-  %56 = zext i16 %55 to i32
-  %57 = add nuw nsw i32 %.041.lcssa, %51
-  %58 = add nuw nsw i32 %57, %56
-  %59 = icmp samesign ult i32 %.039.lcssa, 15
-  br i1 %59, label %60, label %72
+._crit_edge:                                      ; preds = %29, %.preheader
+  %.pre-phi = phi i64 [ %6, %.preheader ], [ %wide.trip.count, %29 ]
+  %.041.lcssa = phi i32 [ %20, %.preheader ], [ %43, %29 ]
+  %.040.lcssa = phi ptr [ %15, %.preheader ], [ %47, %29 ]
+  %.039.lcssa = phi i32 [ %3, %.preheader ], [ %22, %29 ]
+  %48 = getelementptr inbounds i16, ptr %26, i64 %.pre-phi
+  %49 = load i16, ptr %48, align 2, !tbaa !18
+  %50 = tail call i16 @llvm.abs.i16(i16 %49, i1 false)
+  %51 = zext i16 %50 to i64
+  %52 = getelementptr inbounds nuw [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %51
+  %53 = load i16, ptr %52, align 2, !tbaa !18
+  %54 = zext i16 %53 to i32
+  %55 = tail call i16 @llvm.umin.i16(i16 %50, i16 67)
+  %56 = zext nneg i16 %55 to i64
+  %57 = getelementptr inbounds nuw i16, ptr %.040.lcssa, i64 %56
+  %58 = load i16, ptr %57, align 2, !tbaa !18
+  %59 = zext i16 %58 to i32
+  %60 = add nuw nsw i32 %.041.lcssa, %54
+  %61 = add nuw nsw i32 %60, %59
+  %62 = icmp samesign ult i32 %.039.lcssa, 15
+  br i1 %62, label %63, label %76
 
-60:                                               ; preds = %._crit_edge
-  %61 = add nuw nsw i32 %.039.lcssa, 1
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !15
-  %65 = icmp eq i16 %47, 1
-  %66 = zext i8 %64 to i64
-  %67 = select i1 %65, i64 1, i64 2
-  %68 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %5, i64 %66, i64 %67
-  %69 = load i8, ptr %68, align 1, !tbaa !15
-  %.pn.i47 = zext i8 %69 to i64
+63:                                               ; preds = %._crit_edge
+  %64 = add nuw nsw i32 %.039.lcssa, 1
+  %65 = zext nneg i32 %64 to i64
+  %66 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %65
+  %67 = load i8, ptr %66, align 1, !tbaa !15
+  %68 = icmp eq i16 %50, 1
+  %69 = zext i8 %67 to i64
+  %70 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %5, i64 %69
+  %71 = select i1 %68, i64 1, i64 2
+  %72 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %70, i64 0, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !15
+  %.pn.i47 = zext i8 %73 to i64
   %.in.in.i48 = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i47
   %.in.i49 = load i16, ptr %.in.in.i48, align 2, !tbaa !18
-  %70 = zext i16 %.in.i49 to i32
-  %71 = add nuw nsw i32 %58, %70
-  br label %72
+  %74 = zext i16 %.in.i49 to i32
+  %75 = add nuw nsw i32 %61, %74
+  br label %76
 
-72:                                               ; preds = %._crit_edge, %60, %25
-  %.0 = phi i32 [ %26, %25 ], [ %71, %60 ], [ %58, %._crit_edge ]
+76:                                               ; preds = %._crit_edge, %63, %27
+  %.0 = phi i32 [ %28, %27 ], [ %75, %63 ], [ %61, %._crit_edge ]
   ret i32 %.0
 }
 

@@ -19574,18 +19574,18 @@ define internal fastcc void @tcg_out_cmp_vec(ptr noundef captures(none) %0, i32 
 10:                                               ; preds = %7
   %11 = and i32 %9, 14336
   %or.cond35.not = icmp eq i32 %11, 14336
-  br i1 %or.cond35.not, label %14, label %47
+  br i1 %or.cond35.not, label %14, label %48
 
 12:                                               ; preds = %7
   %13 = and i32 %9, 22528
   %or.cond37.not = icmp eq i32 %13, 22528
-  br i1 %or.cond37.not, label %14, label %47
+  br i1 %or.cond37.not, label %14, label %48
 
 14:                                               ; preds = %12, %10
   switch i32 %6, label %27 [
-    i32 8, label %47
-    i32 6, label %47
-    i32 2, label %47
+    i32 8, label %48
+    i32 6, label %48
+    i32 2, label %48
     i32 13, label %15
     i32 12, label %21
   ]
@@ -19614,47 +19614,48 @@ define internal fastcc void @tcg_out_cmp_vec(ptr noundef captures(none) %0, i32 
   %28 = and i32 %6, 10
   %29 = icmp eq i32 %28, 10
   %30 = zext i1 %29 to i64
-  %31 = zext nneg i32 %2 to i64
-  %32 = getelementptr inbounds nuw [2 x [4 x i32]], ptr @tcg_out_cmp_vec_k1.cmpm_insn, i64 0, i64 %30, i64 %31
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %1, 5
-  %35 = or i32 %33, 524288
-  %spec.select.i19.i = select i1 %34, i32 %35, i32 %33
+  %31 = getelementptr inbounds nuw [2 x [4 x i32]], ptr @tcg_out_cmp_vec_k1.cmpm_insn, i64 0, i64 %30
+  %32 = zext nneg i32 %2 to i64
+  %33 = getelementptr inbounds nuw [4 x i32], ptr %31, i64 0, i64 %32
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %1, 5
+  %36 = or i32 %34, 524288
+  %spec.select.i19.i = select i1 %35, i32 %36, i32 %34
   tail call fastcc void @tcg_out_vex_modrm(ptr noundef %0, i32 noundef %spec.select.i19.i, i32 noundef 1, i32 noundef %4, i32 noundef %5)
-  %36 = zext i32 %6 to i64
-  %37 = getelementptr inbounds nuw [16 x i32], ptr @tcg_out_cmp_vec_k1.cond_ext, i64 0, i64 %36
-  %38 = load i32, ptr %37, align 4
-  %39 = trunc i32 %38 to i8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store ptr %42, ptr %40, align 8
-  store i8 %39, ptr %41, align 1
+  %37 = zext i32 %6 to i64
+  %38 = getelementptr inbounds nuw [16 x i32], ptr @tcg_out_cmp_vec_k1.cond_ext, i64 0, i64 %37
+  %39 = load i32, ptr %38, align 4
+  %40 = trunc i32 %39 to i8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  store ptr %43, ptr %41, align 8
+  store i8 %40, ptr %42, align 1
   br label %tcg_out_cmp_vec_k1.exit
 
 tcg_out_cmp_vec_k1.exit:                          ; preds = %15, %21, %27
-  %.pre-phi = phi i64 [ %16, %15 ], [ %22, %21 ], [ %31, %27 ]
-  %43 = getelementptr inbounds nuw [4 x i32], ptr @tcg_out_k1_to_vec.movm_insn, i64 0, i64 %.pre-phi
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %1, 5
-  %46 = or i32 %44, 524288
-  %spec.select.i.i38 = select i1 %45, i32 %46, i32 %44
+  %.pre-phi = phi i64 [ %16, %15 ], [ %22, %21 ], [ %32, %27 ]
+  %44 = getelementptr inbounds nuw [4 x i32], ptr @tcg_out_k1_to_vec.movm_insn, i64 0, i64 %.pre-phi
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %1, 5
+  %47 = or i32 %45, 524288
+  %spec.select.i.i38 = select i1 %46, i32 %47, i32 %45
   tail call fastcc void @tcg_out_vex_modrm(ptr noundef %0, i32 noundef %spec.select.i.i38, i32 noundef %3, i32 noundef 0, i32 noundef 1)
-  br label %52
+  br label %53
 
-47:                                               ; preds = %14, %14, %14, %12, %10
-  %48 = tail call fastcc zeroext i1 @tcg_out_cmp_vec_noinv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6)
-  br i1 %48, label %49, label %52
+48:                                               ; preds = %14, %14, %14, %12, %10
+  %49 = tail call fastcc zeroext i1 @tcg_out_cmp_vec_noinv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6)
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %47
-  %50 = icmp eq i32 %1, 5
-  %51 = select i1 %50, i32 525684, i32 1396
-  tail call fastcc void @tcg_out_vex_modrm(ptr noundef %0, i32 noundef %51, i32 noundef 21, i32 noundef 21, i32 noundef 21)
-  %spec.select.i = select i1 %50, i32 525807, i32 1519
+50:                                               ; preds = %48
+  %51 = icmp eq i32 %1, 5
+  %52 = select i1 %51, i32 525684, i32 1396
+  tail call fastcc void @tcg_out_vex_modrm(ptr noundef %0, i32 noundef %52, i32 noundef 21, i32 noundef 21, i32 noundef 21)
+  %spec.select.i = select i1 %51, i32 525807, i32 1519
   tail call fastcc void @tcg_out_vex_modrm(ptr noundef %0, i32 noundef %spec.select.i, i32 noundef %3, i32 noundef %3, i32 noundef 21)
-  br label %52
+  br label %53
 
-52:                                               ; preds = %49, %47, %tcg_out_cmp_vec_k1.exit
+53:                                               ; preds = %50, %48, %tcg_out_cmp_vec_k1.exit
   ret void
 }
 
@@ -19667,12 +19668,12 @@ define internal fastcc void @tcg_out_cmpsel_vec(ptr noundef captures(none) %0, i
 12:                                               ; preds = %9
   %13 = and i32 %11, 14336
   %or.cond42.not = icmp eq i32 %13, 14336
-  br i1 %or.cond42.not, label %16, label %96
+  br i1 %or.cond42.not, label %16, label %97
 
 14:                                               ; preds = %9
   %15 = and i32 %11, 6144
   %or.cond43.not = icmp eq i32 %15, 6144
-  br i1 %or.cond43.not, label %16, label %96
+  br i1 %or.cond43.not, label %16, label %97
 
 16:                                               ; preds = %14, %12
   %.not.i = icmp eq i32 %6, 0
@@ -19707,147 +19708,148 @@ define internal fastcc void @tcg_out_cmpsel_vec(ptr noundef captures(none) %0, i
   %31 = and i32 %8, 10
   %32 = icmp eq i32 %31, 10
   %33 = zext i1 %32 to i64
-  %34 = zext nneg i32 %2 to i64
-  %35 = getelementptr inbounds nuw [2 x [4 x i32]], ptr @tcg_out_cmp_vec_k1.cmpm_insn, i64 0, i64 %33, i64 %34
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %1, 5
-  %38 = or i32 %36, 524288
-  %spec.select.i19.i.i = select i1 %37, i32 %38, i32 %36
+  %34 = getelementptr inbounds nuw [2 x [4 x i32]], ptr @tcg_out_cmp_vec_k1.cmpm_insn, i64 0, i64 %33
+  %35 = zext nneg i32 %2 to i64
+  %36 = getelementptr inbounds nuw [4 x i32], ptr %34, i64 0, i64 %35
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %1, 5
+  %39 = or i32 %37, 524288
+  %spec.select.i19.i.i = select i1 %38, i32 %39, i32 %37
   tail call fastcc void @tcg_out_vex_modrm(ptr noundef %0, i32 noundef %spec.select.i19.i.i, i32 noundef 1, i32 noundef %4, i32 noundef %5)
-  %39 = zext i32 %spec.select18.i to i64
-  %40 = getelementptr inbounds nuw [16 x i32], ptr @tcg_out_cmp_vec_k1.cond_ext, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = trunc i32 %41 to i8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  store ptr %45, ptr %43, align 8
-  store i8 %42, ptr %44, align 1
+  %40 = zext i32 %spec.select18.i to i64
+  %41 = getelementptr inbounds nuw [16 x i32], ptr @tcg_out_cmp_vec_k1.cond_ext, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %43 = trunc i32 %42 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  store ptr %46, ptr %44, align 8
+  store i8 %43, ptr %45, align 1
   br label %tcg_out_cmp_vec_k1.exit.i
 
 tcg_out_cmp_vec_k1.exit.i:                        ; preds = %30, %24, %18
-  %.pre-phi.i = phi i64 [ %19, %18 ], [ %25, %24 ], [ %34, %30 ]
-  %46 = getelementptr inbounds nuw [4 x i32], ptr @tcg_out_cmpsel_vec_k1.vpblendm_insn, i64 0, i64 %.pre-phi.i
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp eq i32 %1, 5
-  %49 = or i32 %47, 524288
-  %spec.select.i.i = select i1 %48, i32 %49, i32 %47
-  %50 = load i32, ptr @cpuinfo, align 4
-  %51 = and i32 %50, 4096
-  %52 = icmp ne i32 %51, 0
-  tail call void @llvm.assume(i1 %52)
-  %53 = and i32 %50, 2048
-  %54 = icmp ne i32 %53, 0
-  tail call void @llvm.assume(i1 %54)
-  %55 = and i32 %spec.select.i.i, 65536
-  %.not.i.i.i = icmp eq i32 %55, 0
-  br i1 %.not.i.i.i, label %56, label %61
+  %.pre-phi.i = phi i64 [ %19, %18 ], [ %25, %24 ], [ %35, %30 ]
+  %47 = getelementptr inbounds nuw [4 x i32], ptr @tcg_out_cmpsel_vec_k1.vpblendm_insn, i64 0, i64 %.pre-phi.i
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp eq i32 %1, 5
+  %50 = or i32 %48, 524288
+  %spec.select.i.i = select i1 %49, i32 %50, i32 %48
+  %51 = load i32, ptr @cpuinfo, align 4
+  %52 = and i32 %51, 4096
+  %53 = icmp ne i32 %52, 0
+  tail call void @llvm.assume(i1 %53)
+  %54 = and i32 %51, 2048
+  %55 = icmp ne i32 %54, 0
+  tail call void @llvm.assume(i1 %55)
+  %56 = and i32 %spec.select.i.i, 65536
+  %.not.i.i.i = icmp eq i32 %56, 0
+  br i1 %.not.i.i.i, label %57, label %62
 
-56:                                               ; preds = %tcg_out_cmp_vec_k1.exit.i
-  %57 = and i32 %spec.select.i.i, 512
-  %.not30.i.i.i = icmp eq i32 %57, 0
-  br i1 %.not30.i.i.i, label %58, label %61
+57:                                               ; preds = %tcg_out_cmp_vec_k1.exit.i
+  %58 = and i32 %spec.select.i.i, 512
+  %.not30.i.i.i = icmp eq i32 %58, 0
+  br i1 %.not30.i.i.i, label %59, label %62
 
-58:                                               ; preds = %56
-  %59 = and i32 %spec.select.i.i, 256
-  %.not31.i.i.i = icmp eq i32 %59, 0
-  br i1 %.not31.i.i.i, label %60, label %61
+59:                                               ; preds = %57
+  %60 = and i32 %spec.select.i.i, 256
+  %.not31.i.i.i = icmp eq i32 %60, 0
+  br i1 %.not31.i.i.i, label %61, label %62
 
-60:                                               ; preds = %58
+61:                                               ; preds = %59
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 722, ptr noundef nonnull @__func__.tcg_out_evex_opc, ptr noundef null) #31
   unreachable
 
-61:                                               ; preds = %58, %56, %tcg_out_cmp_vec_k1.exit.i
-  %.029.i.i.i = phi i32 [ 134484834, %tcg_out_cmp_vec_k1.exit.i ], [ 134484578, %56 ], [ 134484322, %58 ]
-  %62 = and i32 %spec.select.i.i, 1024
-  %.not32.i.i.i = icmp eq i32 %62, 0
-  br i1 %.not32.i.i.i, label %63, label %tcg_out_cmpsel_vec_k1.exit
+62:                                               ; preds = %59, %57, %tcg_out_cmp_vec_k1.exit.i
+  %.029.i.i.i = phi i32 [ 134484834, %tcg_out_cmp_vec_k1.exit.i ], [ 134484578, %57 ], [ 134484322, %59 ]
+  %63 = and i32 %spec.select.i.i, 1024
+  %.not32.i.i.i = icmp eq i32 %63, 0
+  br i1 %.not32.i.i.i, label %64, label %tcg_out_cmpsel_vec_k1.exit
 
-63:                                               ; preds = %61
-  %64 = and i32 %spec.select.i.i, 131072
-  %.not33.i.i.i = icmp eq i32 %64, 0
-  br i1 %.not33.i.i.i, label %65, label %tcg_out_cmpsel_vec_k1.exit
+64:                                               ; preds = %62
+  %65 = and i32 %spec.select.i.i, 131072
+  %.not33.i.i.i = icmp eq i32 %65, 0
+  br i1 %.not33.i.i.i, label %66, label %tcg_out_cmpsel_vec_k1.exit
 
-65:                                               ; preds = %63
-  %66 = and i32 %spec.select.i.i, 262144
-  %.not34.i.i.i = icmp eq i32 %66, 0
+66:                                               ; preds = %64
+  %67 = and i32 %spec.select.i.i, 262144
+  %.not34.i.i.i = icmp eq i32 %67, 0
   %..i.i.i = select i1 %.not34.i.i.i, i32 0, i32 196608
   br label %tcg_out_cmpsel_vec_k1.exit
 
-tcg_out_cmpsel_vec_k1.exit:                       ; preds = %61, %63, %65
-  %.0.i.i.i = phi i32 [ 65536, %61 ], [ 131072, %63 ], [ %..i.i.i, %65 ]
+tcg_out_cmpsel_vec_k1.exit:                       ; preds = %62, %64, %66
+  %.0.i.i.i = phi i32 [ 65536, %62 ], [ 131072, %64 ], [ %..i.i.i, %66 ]
   %spec.select.i = select i1 %.not.i, i32 %7, i32 %6
-  %67 = shl i32 %spec.select.i, 10
-  %68 = and i32 %67, 8192
-  %69 = shl i32 %3, 12
-  %70 = and i32 %69, 32768
-  %71 = shl i32 %7, 19
-  %72 = and i32 %71, 7864320
-  %73 = shl i32 %spec.select.i.i, 11
-  %74 = and i32 %73, 8388608
-  %75 = shl i32 %spec.select.i.i, 10
-  %76 = and i32 %75, 536870912
-  %77 = select i1 %.not.i, i32 -2147483648, i32 0
-  %78 = or disjoint i32 %77, %70
-  %79 = or disjoint i32 %78, %72
-  %.masked.i.i.i = or disjoint i32 %79, %68
-  %80 = or disjoint i32 %.masked.i.i.i, %74
-  %81 = or disjoint i32 %80, %76
-  %.masked.i.i = or i32 %81, %.029.i.i.i
-  %82 = or i32 %.masked.i.i, %.0.i.i.i
-  %83 = xor i32 %82, 24698880
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %85 = load ptr, ptr %84, align 8
-  store i32 %83, ptr %85, align 1
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %87 = trunc i32 %spec.select.i.i to i8
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 5
-  store ptr %88, ptr %84, align 8
-  store i8 %87, ptr %86, align 1
-  %89 = shl i32 %3, 3
-  %90 = and i32 %spec.select.i, 7
-  %91 = or disjoint i32 %90, %89
-  %92 = trunc i32 %91 to i8
-  %93 = or i8 %92, -64
-  %94 = load ptr, ptr %84, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  store ptr %95, ptr %84, align 8
-  store i8 %93, ptr %94, align 1
-  br label %107
+  %68 = shl i32 %spec.select.i, 10
+  %69 = and i32 %68, 8192
+  %70 = shl i32 %3, 12
+  %71 = and i32 %70, 32768
+  %72 = shl i32 %7, 19
+  %73 = and i32 %72, 7864320
+  %74 = shl i32 %spec.select.i.i, 11
+  %75 = and i32 %74, 8388608
+  %76 = shl i32 %spec.select.i.i, 10
+  %77 = and i32 %76, 536870912
+  %78 = select i1 %.not.i, i32 -2147483648, i32 0
+  %79 = or disjoint i32 %78, %71
+  %80 = or disjoint i32 %79, %73
+  %.masked.i.i.i = or disjoint i32 %80, %69
+  %81 = or disjoint i32 %.masked.i.i.i, %75
+  %82 = or disjoint i32 %81, %77
+  %.masked.i.i = or i32 %82, %.029.i.i.i
+  %83 = or i32 %.masked.i.i, %.0.i.i.i
+  %84 = xor i32 %83, 24698880
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %86 = load ptr, ptr %85, align 8
+  store i32 %84, ptr %86, align 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %88 = trunc i32 %spec.select.i.i to i8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 5
+  store ptr %89, ptr %85, align 8
+  store i8 %88, ptr %87, align 1
+  %90 = shl i32 %3, 3
+  %91 = and i32 %spec.select.i, 7
+  %92 = or disjoint i32 %91, %90
+  %93 = trunc i32 %92 to i8
+  %94 = or i8 %93, -64
+  %95 = load ptr, ptr %85, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
+  store ptr %96, ptr %85, align 8
+  store i8 %94, ptr %95, align 1
+  br label %108
 
-96:                                               ; preds = %14, %12
-  %97 = tail call fastcc zeroext i1 @tcg_out_cmp_vec_noinv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 21, i32 noundef %4, i32 noundef %5, i32 noundef %8)
+97:                                               ; preds = %14, %12
+  %98 = tail call fastcc zeroext i1 @tcg_out_cmp_vec_noinv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 21, i32 noundef %4, i32 noundef %5, i32 noundef %8)
   %.not41 = icmp eq i32 %6, 0
-  br i1 %.not41, label %98, label %102
+  br i1 %.not41, label %99, label %103
 
-98:                                               ; preds = %96
-  %99 = icmp eq i32 %1, 5
-  br i1 %97, label %100, label %101
+99:                                               ; preds = %97
+  %100 = icmp eq i32 %1, 5
+  br i1 %98, label %101, label %102
 
-100:                                              ; preds = %98
-  %spec.select.i45 = select i1 %99, i32 525787, i32 1499
+101:                                              ; preds = %99
+  %spec.select.i45 = select i1 %100, i32 525787, i32 1499
   tail call fastcc void @tcg_out_vex_modrm(ptr noundef %0, i32 noundef %spec.select.i45, i32 noundef %3, i32 noundef 21, i32 noundef %7)
-  br label %107
+  br label %108
 
-101:                                              ; preds = %98
-  %spec.select.i46 = select i1 %99, i32 525791, i32 1503
+102:                                              ; preds = %99
+  %spec.select.i46 = select i1 %100, i32 525791, i32 1503
   tail call fastcc void @tcg_out_vex_modrm(ptr noundef %0, i32 noundef %spec.select.i46, i32 noundef %3, i32 noundef 21, i32 noundef %7)
-  br label %107
+  br label %108
 
-102:                                              ; preds = %96
-  %spec.select = select i1 %97, i32 %6, i32 %7
-  %spec.select44 = select i1 %97, i32 %7, i32 %6
-  %103 = icmp eq i32 %1, 5
-  %spec.select.i47 = select i1 %103, i32 590924, i32 66636
+103:                                              ; preds = %97
+  %spec.select = select i1 %98, i32 %6, i32 %7
+  %spec.select44 = select i1 %98, i32 %7, i32 %6
+  %104 = icmp eq i32 %1, 5
+  %spec.select.i47 = select i1 %104, i32 590924, i32 66636
   tail call fastcc void @tcg_out_vex_modrm(ptr noundef %0, i32 noundef %spec.select.i47, i32 noundef %3, i32 noundef %spec.select, i32 noundef %spec.select44)
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
-  store ptr %106, ptr %104, align 8
-  store i8 80, ptr %105, align 1
-  br label %107
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
+  store ptr %107, ptr %105, align 8
+  store i8 80, ptr %106, align 1
+  br label %108
 
-107:                                              ; preds = %102, %101, %100, %tcg_out_cmpsel_vec_k1.exit
+108:                                              ; preds = %103, %102, %101, %tcg_out_cmpsel_vec_k1.exit
   ret void
 }
 

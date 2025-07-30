@@ -247,66 +247,67 @@ define void @arrangeQuoters_superFast_lessThen5(ptr noundef captures(none) %0, i
 .lr.ph:                                           ; preds = %10
   %12 = shl nuw i32 1, %6
   %13 = sext i32 %6 to i64
-  %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %13, i64 %14
-  %16 = load i64, ptr %15, align 8, !tbaa !11
-  %17 = shl i32 %2, %6
-  %18 = zext nneg i32 %17 to i64
-  %19 = sext i32 %3 to i64
-  %20 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %13, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !11
-  %22 = shl i32 %3, %6
-  %23 = zext nneg i32 %22 to i64
-  %24 = zext nneg i32 %12 to i64
-  %25 = sext i32 %4 to i64
-  %26 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %13, i64 %25
-  %27 = load i64, ptr %26, align 8, !tbaa !11
-  %28 = shl i32 %4, %6
-  %29 = zext nneg i32 %28 to i64
-  %30 = shl i32 2, %6
-  %31 = zext nneg i32 %30 to i64
-  %32 = sext i32 %5 to i64
-  %33 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %13, i64 %32
-  %34 = load i64, ptr %33, align 8, !tbaa !11
-  %35 = shl i32 %5, %6
-  %36 = zext nneg i32 %35 to i64
-  %37 = shl i32 3, %6
-  %38 = zext nneg i32 %37 to i64
-  %39 = zext nneg i32 %1 to i64
-  br label %40
+  %14 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %13
+  %15 = sext i32 %2 to i64
+  %16 = getelementptr inbounds [4 x i64], ptr %14, i64 0, i64 %15
+  %17 = load i64, ptr %16, align 8, !tbaa !11
+  %18 = shl i32 %2, %6
+  %19 = zext nneg i32 %18 to i64
+  %20 = sext i32 %3 to i64
+  %21 = getelementptr inbounds [4 x i64], ptr %14, i64 0, i64 %20
+  %22 = load i64, ptr %21, align 8, !tbaa !11
+  %23 = shl i32 %3, %6
+  %24 = zext nneg i32 %23 to i64
+  %25 = zext nneg i32 %12 to i64
+  %26 = sext i32 %4 to i64
+  %27 = getelementptr inbounds [4 x i64], ptr %14, i64 0, i64 %26
+  %28 = load i64, ptr %27, align 8, !tbaa !11
+  %29 = shl i32 %4, %6
+  %30 = zext nneg i32 %29 to i64
+  %31 = shl i32 2, %6
+  %32 = zext nneg i32 %31 to i64
+  %33 = sext i32 %5 to i64
+  %34 = getelementptr inbounds [4 x i64], ptr %14, i64 0, i64 %33
+  %35 = load i64, ptr %34, align 8, !tbaa !11
+  %36 = shl i32 %5, %6
+  %37 = zext nneg i32 %36 to i64
+  %38 = shl i32 3, %6
+  %39 = zext nneg i32 %38 to i64
+  %40 = zext nneg i32 %1 to i64
+  br label %41
 
-40:                                               ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ %39, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
-  %42 = load i64, ptr %41, align 8, !tbaa !11
-  %43 = and i64 %16, %42
-  %44 = shl i64 %43, %18
-  %45 = and i64 %21, %42
-  %46 = shl i64 %45, %23
-  %47 = lshr i64 %46, %24
-  %48 = or i64 %47, %44
-  %49 = and i64 %27, %42
-  %50 = shl i64 %49, %29
-  %51 = lshr i64 %50, %31
-  %52 = or i64 %48, %51
-  %53 = and i64 %34, %42
-  %54 = shl i64 %53, %36
-  %55 = lshr i64 %54, %38
-  %56 = or i64 %52, %55
-  store i64 %56, ptr %41, align 8, !tbaa !11
+41:                                               ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ %40, %.lr.ph ], [ %indvars.iv.next, %41 ]
+  %42 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %43 = load i64, ptr %42, align 8, !tbaa !11
+  %44 = and i64 %17, %43
+  %45 = shl i64 %44, %19
+  %46 = and i64 %22, %43
+  %47 = shl i64 %46, %24
+  %48 = lshr i64 %47, %25
+  %49 = or i64 %48, %45
+  %50 = and i64 %28, %43
+  %51 = shl i64 %50, %30
+  %52 = lshr i64 %51, %32
+  %53 = or i64 %49, %52
+  %54 = and i64 %35, %43
+  %55 = shl i64 %54, %37
+  %56 = lshr i64 %55, %39
+  %57 = or i64 %53, %56
+  store i64 %57, ptr %42, align 8, !tbaa !11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %40, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %41, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %40, %10
-  %57 = load i32, ptr %9, align 4, !tbaa !6
-  %58 = sub nsw i32 %2, %3
-  %59 = tail call i32 @llvm.abs.i32(i32 %58, i1 true)
-  %60 = shl i32 %59, 2
-  %61 = add i32 %2, -4
-  %62 = add i32 %61, %60
-  %63 = tail call i32 @adjustInfoAfterSwap(ptr noundef %8, i32 noundef %57, i32 noundef %6, i32 noundef %62) #9
-  store i32 %63, ptr %9, align 4, !tbaa !6
+._crit_edge:                                      ; preds = %41, %10
+  %58 = load i32, ptr %9, align 4, !tbaa !6
+  %59 = sub nsw i32 %2, %3
+  %60 = tail call i32 @llvm.abs.i32(i32 %59, i1 true)
+  %61 = shl i32 %60, 2
+  %62 = add i32 %2, -4
+  %63 = add i32 %62, %61
+  %64 = tail call i32 @adjustInfoAfterSwap(ptr noundef %8, i32 noundef %58, i32 noundef %6, i32 noundef %63) #9
+  store i32 %64, ptr %9, align 4, !tbaa !6
   ret void
 }
 
@@ -521,107 +522,108 @@ firstShiftWithOneBit.exit:                        ; preds = %28, %37, %45, %53, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @minTemp2_fast(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 {
   %7 = sext i32 %1 to i64
-  %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %8
-  %10 = shl i32 %2, %1
-  %11 = zext nneg i32 %10 to i64
-  %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %12
-  %14 = shl i32 %3, %1
-  %15 = zext nneg i32 %14 to i64
-  %16 = zext i32 %4 to i64
-  br label %17
+  %8 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7
+  %9 = sext i32 %2 to i64
+  %10 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %9
+  %11 = shl i32 %2, %1
+  %12 = zext nneg i32 %11 to i64
+  %13 = sext i32 %3 to i64
+  %14 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %13
+  %15 = shl i32 %3, %1
+  %16 = zext nneg i32 %15 to i64
+  %17 = zext i32 %4 to i64
+  br label %18
 
-17:                                               ; preds = %20, %6
-  %indvars.iv = phi i64 [ %21, %20 ], [ %16, %6 ]
-  %18 = trunc nuw i64 %indvars.iv to i32
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %66
+18:                                               ; preds = %21, %6
+  %indvars.iv = phi i64 [ %22, %21 ], [ %17, %6 ]
+  %19 = trunc nuw i64 %indvars.iv to i32
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %21, label %67
 
-20:                                               ; preds = %17
-  %21 = add nsw i64 %indvars.iv, -1
-  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %21
-  %23 = load i64, ptr %22, align 8, !tbaa !11
-  %24 = load i64, ptr %9, align 8, !tbaa !11
-  %25 = and i64 %24, %23
-  %26 = shl i64 %25, %11
-  %27 = load i64, ptr %13, align 8, !tbaa !11
-  %28 = and i64 %27, %23
-  %29 = shl i64 %28, %15
-  %30 = icmp eq i64 %26, %29
-  br i1 %30, label %17, label %31, !llvm.loop !16
+21:                                               ; preds = %18
+  %22 = add nsw i64 %indvars.iv, -1
+  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %22
+  %24 = load i64, ptr %23, align 8, !tbaa !11
+  %25 = load i64, ptr %10, align 8, !tbaa !11
+  %26 = and i64 %25, %24
+  %27 = shl i64 %26, %12
+  %28 = load i64, ptr %14, align 8, !tbaa !11
+  %29 = and i64 %28, %24
+  %30 = shl i64 %29, %16
+  %31 = icmp eq i64 %27, %30
+  br i1 %31, label %18, label %32, !llvm.loop !16
 
-31:                                               ; preds = %20
-  %32 = trunc i64 %21 to i32
-  %33 = xor i64 %29, %26
-  %34 = mul nsw i32 %32, 100
-  %35 = add nuw nsw i32 %34, 20
-  %36 = icmp eq i32 %1, 4
-  br i1 %36, label %firstShiftWithOneBit.exit, label %37
+32:                                               ; preds = %21
+  %33 = trunc i64 %22 to i32
+  %34 = xor i64 %30, %27
+  %35 = mul nsw i32 %33, 100
+  %36 = add nuw nsw i32 %35, 20
+  %37 = icmp eq i32 %1, 4
+  br i1 %37, label %firstShiftWithOneBit.exit, label %38
 
-37:                                               ; preds = %31
-  %38 = icmp ugt i64 %33, 4294967295
-  %spec.select28.i = select i1 %38, i32 32, i32 0
-  %39 = icmp eq i32 %1, 3
-  br i1 %39, label %40, label %43
+38:                                               ; preds = %32
+  %39 = icmp ugt i64 %34, 4294967295
+  %spec.select28.i = select i1 %39, i32 32, i32 0
+  %40 = icmp eq i32 %1, 3
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %37
-  %41 = sub nuw nsw i32 64, %spec.select28.i
-  %42 = lshr exact i32 %41, 5
+41:                                               ; preds = %38
+  %42 = sub nuw nsw i32 64, %spec.select28.i
+  %43 = lshr exact i32 %42, 5
   br label %firstShiftWithOneBit.exit
 
-43:                                               ; preds = %37
-  %44 = lshr i64 %33, 32
-  %spec.select.i = select i1 %38, i64 %44, i64 %33
-  %45 = icmp samesign ugt i64 %spec.select.i, 65535
-  %46 = or disjoint i32 %spec.select28.i, 16
-  %.1.i = select i1 %45, i32 %46, i32 %spec.select28.i
-  %47 = icmp eq i32 %1, 2
-  br i1 %47, label %48, label %51
+44:                                               ; preds = %38
+  %45 = lshr i64 %34, 32
+  %spec.select.i = select i1 %39, i64 %45, i64 %34
+  %46 = icmp samesign ugt i64 %spec.select.i, 65535
+  %47 = or disjoint i32 %spec.select28.i, 16
+  %.1.i = select i1 %46, i32 %47, i32 %spec.select28.i
+  %48 = icmp eq i32 %1, 2
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %43
-  %49 = sub nuw nsw i32 64, %.1.i
-  %50 = lshr exact i32 %49, 4
+49:                                               ; preds = %44
+  %50 = sub nuw nsw i32 64, %.1.i
+  %51 = lshr exact i32 %50, 4
   br label %firstShiftWithOneBit.exit
 
-51:                                               ; preds = %43
-  %52 = lshr i64 %spec.select.i, 16
-  %.123.i = select i1 %45, i64 %52, i64 %spec.select.i
-  %53 = icmp samesign ugt i64 %.123.i, 255
-  %54 = or disjoint i32 %.1.i, 8
-  %.2.i = select i1 %53, i32 %54, i32 %.1.i
-  %55 = icmp eq i32 %1, 1
-  br i1 %55, label %56, label %59
+52:                                               ; preds = %44
+  %53 = lshr i64 %spec.select.i, 16
+  %.123.i = select i1 %46, i64 %53, i64 %spec.select.i
+  %54 = icmp samesign ugt i64 %.123.i, 255
+  %55 = or disjoint i32 %.1.i, 8
+  %.2.i = select i1 %54, i32 %55, i32 %.1.i
+  %56 = icmp eq i32 %1, 1
+  br i1 %56, label %57, label %60
 
-56:                                               ; preds = %51
-  %57 = sub nuw nsw i32 64, %.2.i
-  %58 = lshr exact i32 %57, 3
+57:                                               ; preds = %52
+  %58 = sub nuw nsw i32 64, %.2.i
+  %59 = lshr exact i32 %58, 3
   br label %firstShiftWithOneBit.exit
 
-59:                                               ; preds = %51
-  %60 = lshr i64 %.123.i, 8
-  %.224.i = select i1 %53, i64 %60, i64 %.123.i
-  %61 = icmp samesign ugt i64 %.224.i, 15
-  %62 = or disjoint i32 %.2.i, 4
-  %spec.select29.i = select i1 %61, i32 %62, i32 %.2.i
-  %63 = sub nuw nsw i32 64, %spec.select29.i
-  %64 = lshr i32 %63, 2
+60:                                               ; preds = %52
+  %61 = lshr i64 %.123.i, 8
+  %.224.i = select i1 %54, i64 %61, i64 %.123.i
+  %62 = icmp samesign ugt i64 %.224.i, 15
+  %63 = or disjoint i32 %.2.i, 4
+  %spec.select29.i = select i1 %62, i32 %63, i32 %.2.i
+  %64 = sub nuw nsw i32 64, %spec.select29.i
+  %65 = lshr i32 %64, 2
   br label %firstShiftWithOneBit.exit
 
-firstShiftWithOneBit.exit:                        ; preds = %31, %40, %48, %56, %59
-  %.021.i = phi i32 [ %42, %40 ], [ %50, %48 ], [ %58, %56 ], [ %64, %59 ], [ 0, %31 ]
-  %65 = sub nuw i32 %35, %.021.i
-  store i32 %65, ptr %5, align 4, !tbaa !6
-  %.not = icmp ugt i64 %26, %29
+firstShiftWithOneBit.exit:                        ; preds = %32, %41, %49, %57, %60
+  %.021.i = phi i32 [ %43, %41 ], [ %51, %49 ], [ %59, %57 ], [ %65, %60 ], [ 0, %32 ]
+  %66 = sub nuw i32 %36, %.021.i
+  store i32 %66, ptr %5, align 4, !tbaa !6
+  %.not = icmp ugt i64 %27, %30
   %. = zext i1 %.not to i32
-  br label %67
+  br label %68
 
-66:                                               ; preds = %17
+67:                                               ; preds = %18
   store i32 0, ptr %5, align 4, !tbaa !6
-  br label %67
+  br label %68
 
-67:                                               ; preds = %firstShiftWithOneBit.exit, %66
-  %.0 = phi i32 [ 0, %66 ], [ %., %firstShiftWithOneBit.exit ]
+68:                                               ; preds = %firstShiftWithOneBit.exit, %67
+  %.0 = phi i32 [ 0, %67 ], [ %., %firstShiftWithOneBit.exit ]
   ret i32 %.0
 }
 
@@ -632,106 +634,107 @@ define range(i32 0, 2) i32 @minTemp3_fast(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %7
   %8 = sext i32 %1 to i64
-  %9 = sext i32 %4 to i64
-  %10 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %8, i64 %9
-  %11 = load i64, ptr %10, align 8, !tbaa !11
-  %12 = shl i32 %4, %1
-  %13 = zext nneg i32 %12 to i64
-  %14 = sext i32 %5 to i64
-  %15 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %8, i64 %14
-  %16 = load i64, ptr %15, align 8, !tbaa !11
-  %17 = shl i32 %5, %1
-  %18 = zext nneg i32 %17 to i64
-  %19 = sext i32 %2 to i64
-  %20 = sext i32 %3 to i64
-  br label %21
+  %9 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %8
+  %10 = sext i32 %4 to i64
+  %11 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %10
+  %12 = load i64, ptr %11, align 8, !tbaa !11
+  %13 = shl i32 %4, %1
+  %14 = zext nneg i32 %13 to i64
+  %15 = sext i32 %5 to i64
+  %16 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %15
+  %17 = load i64, ptr %16, align 8, !tbaa !11
+  %18 = shl i32 %5, %1
+  %19 = zext nneg i32 %18 to i64
+  %20 = sext i32 %2 to i64
+  %21 = sext i32 %3 to i64
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %64
-  %indvars.iv = phi i64 [ %19, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %22 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8, !tbaa !11
-  %24 = and i64 %11, %23
-  %25 = shl i64 %24, %13
-  %26 = and i64 %16, %23
-  %27 = shl i64 %26, %18
-  %28 = icmp eq i64 %25, %27
-  br i1 %28, label %64, label %29
+22:                                               ; preds = %.lr.ph, %65
+  %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %65 ]
+  %23 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %24 = load i64, ptr %23, align 8, !tbaa !11
+  %25 = and i64 %12, %24
+  %26 = shl i64 %25, %14
+  %27 = and i64 %17, %24
+  %28 = shl i64 %27, %19
+  %29 = icmp eq i64 %26, %28
+  br i1 %29, label %65, label %30
 
-29:                                               ; preds = %21
-  %30 = trunc nsw i64 %indvars.iv to i32
-  %31 = xor i64 %27, %25
-  %32 = mul nsw i32 %30, 100
-  %33 = add nsw i32 %32, 20
-  %34 = icmp eq i32 %1, 4
-  br i1 %34, label %firstShiftWithOneBit.exit, label %35
+30:                                               ; preds = %22
+  %31 = trunc nsw i64 %indvars.iv to i32
+  %32 = xor i64 %28, %26
+  %33 = mul nsw i32 %31, 100
+  %34 = add nsw i32 %33, 20
+  %35 = icmp eq i32 %1, 4
+  br i1 %35, label %firstShiftWithOneBit.exit, label %36
 
-35:                                               ; preds = %29
-  %36 = icmp ugt i64 %31, 4294967295
-  %spec.select28.i = select i1 %36, i32 32, i32 0
-  %37 = icmp eq i32 %1, 3
-  br i1 %37, label %38, label %41
+36:                                               ; preds = %30
+  %37 = icmp ugt i64 %32, 4294967295
+  %spec.select28.i = select i1 %37, i32 32, i32 0
+  %38 = icmp eq i32 %1, 3
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %35
-  %39 = sub nuw nsw i32 64, %spec.select28.i
-  %40 = lshr exact i32 %39, 5
+39:                                               ; preds = %36
+  %40 = sub nuw nsw i32 64, %spec.select28.i
+  %41 = lshr exact i32 %40, 5
   br label %firstShiftWithOneBit.exit
 
-41:                                               ; preds = %35
-  %42 = lshr i64 %31, 32
-  %spec.select.i = select i1 %36, i64 %42, i64 %31
-  %43 = icmp samesign ugt i64 %spec.select.i, 65535
-  %44 = or disjoint i32 %spec.select28.i, 16
-  %.1.i = select i1 %43, i32 %44, i32 %spec.select28.i
-  %45 = icmp eq i32 %1, 2
-  br i1 %45, label %46, label %49
+42:                                               ; preds = %36
+  %43 = lshr i64 %32, 32
+  %spec.select.i = select i1 %37, i64 %43, i64 %32
+  %44 = icmp samesign ugt i64 %spec.select.i, 65535
+  %45 = or disjoint i32 %spec.select28.i, 16
+  %.1.i = select i1 %44, i32 %45, i32 %spec.select28.i
+  %46 = icmp eq i32 %1, 2
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %41
-  %47 = sub nuw nsw i32 64, %.1.i
-  %48 = lshr exact i32 %47, 4
+47:                                               ; preds = %42
+  %48 = sub nuw nsw i32 64, %.1.i
+  %49 = lshr exact i32 %48, 4
   br label %firstShiftWithOneBit.exit
 
-49:                                               ; preds = %41
-  %50 = lshr i64 %spec.select.i, 16
-  %.123.i = select i1 %43, i64 %50, i64 %spec.select.i
-  %51 = icmp samesign ugt i64 %.123.i, 255
-  %52 = or disjoint i32 %.1.i, 8
-  %.2.i = select i1 %51, i32 %52, i32 %.1.i
-  %53 = icmp eq i32 %1, 1
-  br i1 %53, label %54, label %57
+50:                                               ; preds = %42
+  %51 = lshr i64 %spec.select.i, 16
+  %.123.i = select i1 %44, i64 %51, i64 %spec.select.i
+  %52 = icmp samesign ugt i64 %.123.i, 255
+  %53 = or disjoint i32 %.1.i, 8
+  %.2.i = select i1 %52, i32 %53, i32 %.1.i
+  %54 = icmp eq i32 %1, 1
+  br i1 %54, label %55, label %58
 
-54:                                               ; preds = %49
-  %55 = sub nuw nsw i32 64, %.2.i
-  %56 = lshr exact i32 %55, 3
+55:                                               ; preds = %50
+  %56 = sub nuw nsw i32 64, %.2.i
+  %57 = lshr exact i32 %56, 3
   br label %firstShiftWithOneBit.exit
 
-57:                                               ; preds = %49
-  %58 = lshr i64 %.123.i, 8
-  %.224.i = select i1 %51, i64 %58, i64 %.123.i
-  %59 = icmp samesign ugt i64 %.224.i, 15
-  %60 = or disjoint i32 %.2.i, 4
-  %spec.select29.i = select i1 %59, i32 %60, i32 %.2.i
-  %61 = sub nuw nsw i32 64, %spec.select29.i
-  %62 = lshr i32 %61, 2
+58:                                               ; preds = %50
+  %59 = lshr i64 %.123.i, 8
+  %.224.i = select i1 %52, i64 %59, i64 %.123.i
+  %60 = icmp samesign ugt i64 %.224.i, 15
+  %61 = or disjoint i32 %.2.i, 4
+  %spec.select29.i = select i1 %60, i32 %61, i32 %.2.i
+  %62 = sub nuw nsw i32 64, %spec.select29.i
+  %63 = lshr i32 %62, 2
   br label %firstShiftWithOneBit.exit
 
-firstShiftWithOneBit.exit:                        ; preds = %29, %38, %46, %54, %57
-  %.021.i = phi i32 [ %40, %38 ], [ %48, %46 ], [ %56, %54 ], [ %62, %57 ], [ 0, %29 ]
-  %63 = sub nsw i32 %33, %.021.i
-  store i32 %63, ptr %6, align 4, !tbaa !6
-  %.not37 = icmp ugt i64 %25, %27
+firstShiftWithOneBit.exit:                        ; preds = %30, %39, %47, %55, %58
+  %.021.i = phi i32 [ %41, %39 ], [ %49, %47 ], [ %57, %55 ], [ %63, %58 ], [ 0, %30 ]
+  %64 = sub nsw i32 %34, %.021.i
+  store i32 %64, ptr %6, align 4, !tbaa !6
+  %.not37 = icmp ugt i64 %26, %28
   %. = zext i1 %.not37 to i32
-  br label %65
+  br label %66
 
-64:                                               ; preds = %21
+65:                                               ; preds = %22
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not.not = icmp sgt i64 %indvars.iv, %20
-  br i1 %.not.not, label %21, label %._crit_edge, !llvm.loop !17
+  %.not.not = icmp sgt i64 %indvars.iv, %21
+  br i1 %.not.not, label %22, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %64, %7
+._crit_edge:                                      ; preds = %65, %7
   store i32 0, ptr %6, align 4, !tbaa !6
-  br label %65
+  br label %66
 
-65:                                               ; preds = %firstShiftWithOneBit.exit, %._crit_edge
+66:                                               ; preds = %firstShiftWithOneBit.exit, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ %., %firstShiftWithOneBit.exit ]
   ret i32 %.0
 }
@@ -934,11 +937,11 @@ minTemp1_fast.exit:                               ; preds = %68, %firstShiftWith
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.0.i66, ptr %118, align 4, !tbaa !6
   %119 = zext nneg i32 %.0.i to i64
-  %120 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %119
   %121 = shl i32 %.0.i, %1
   %122 = zext nneg i32 %121 to i64
   %123 = zext nneg i32 %.0.i66 to i64
-  %124 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %123
   br label %125
 
 125:                                              ; preds = %128, %minTemp1_fast.exit
@@ -1052,22 +1055,22 @@ minTemp2_fast.exit:                               ; preds = %125, %firstShiftWit
   %185 = sub nsw i32 3, %178
   %186 = sub nsw i32 3, %182
   %187 = sext i32 %178 to i64
-  %188 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %187
+  %188 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %187
   %189 = load i64, ptr %188, align 8, !tbaa !11
   %190 = shl i32 %178, %1
   %191 = zext nneg i32 %190 to i64
   %192 = sext i32 %182 to i64
-  %193 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %192
+  %193 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %192
   %194 = load i64, ptr %193, align 8, !tbaa !11
   %195 = shl i32 %182, %1
   %196 = zext nneg i32 %195 to i64
   %197 = sext i32 %186 to i64
-  %198 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %197
+  %198 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %197
   %199 = load i64, ptr %198, align 8, !tbaa !11
   %200 = shl i32 %186, %1
   %201 = zext nneg i32 %200 to i64
   %202 = sext i32 %185 to i64
-  %203 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %202
+  %203 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %202
   %204 = load i64, ptr %203, align 8, !tbaa !11
   %205 = shl i32 %185, %1
   %206 = zext nneg i32 %205 to i64
@@ -1124,12 +1127,12 @@ arrangeQuoters_superFast_lessThen5.exit:          ; preds = %208, %175
   %241 = load i64, ptr %120, align 8, !tbaa !11
   %242 = load i64, ptr %124, align 8, !tbaa !11
   %243 = zext nneg i32 %240 to i64
-  %244 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %243
+  %244 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %243
   %245 = load i64, ptr %244, align 8, !tbaa !11
   %246 = shl i32 %240, %1
   %247 = zext nneg i32 %246 to i64
   %248 = zext nneg i32 %239 to i64
-  %249 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %248
+  %249 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %248
   %250 = load i64, ptr %249, align 8, !tbaa !11
   %251 = shl i32 %239, %1
   %252 = zext nneg i32 %251 to i64
@@ -1181,12 +1184,12 @@ arrangeQuoters_superFast_lessThen5.exit95:        ; preds = %254, %235
   %284 = load i64, ptr %124, align 8, !tbaa !11
   %285 = load i64, ptr %120, align 8, !tbaa !11
   %286 = zext nneg i32 %283 to i64
-  %287 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %286
+  %287 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %286
   %288 = load i64, ptr %287, align 8, !tbaa !11
   %289 = shl i32 %283, %1
   %290 = zext nneg i32 %289 to i64
   %291 = zext nneg i32 %282 to i64
-  %292 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %291
+  %292 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %291
   %293 = load i64, ptr %292, align 8, !tbaa !11
   %294 = shl i32 %282, %1
   %295 = zext nneg i32 %294 to i64
@@ -1246,22 +1249,22 @@ arrangeQuoters_superFast_lessThen5.exit100:       ; preds = %297, %278
   %332 = sub nsw i32 3, %325
   %333 = sub nsw i32 3, %329
   %334 = sext i32 %325 to i64
-  %335 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %334
+  %335 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %334
   %336 = load i64, ptr %335, align 8, !tbaa !11
   %337 = shl i32 %325, %1
   %338 = zext nneg i32 %337 to i64
   %339 = sext i32 %329 to i64
-  %340 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %339
+  %340 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %339
   %341 = load i64, ptr %340, align 8, !tbaa !11
   %342 = shl i32 %329, %1
   %343 = zext nneg i32 %342 to i64
   %344 = sext i32 %333 to i64
-  %345 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %344
+  %345 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %344
   %346 = load i64, ptr %345, align 8, !tbaa !11
   %347 = shl i32 %333, %1
   %348 = zext nneg i32 %347 to i64
   %349 = sext i32 %332 to i64
-  %350 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %349
+  %350 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %349
   %351 = load i64, ptr %350, align 8, !tbaa !11
   %352 = shl i32 %332, %1
   %353 = zext nneg i32 %352 to i64
@@ -1311,12 +1314,12 @@ arrangeQuoters_superFast_lessThen5.exit105:       ; preds = %355, %322
   %382 = xor i32 %.0.i66, 3
   %383 = xor i32 %.0.i, 3
   %384 = zext nneg i32 %383 to i64
-  %385 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %384
+  %385 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %384
   %386 = load i64, ptr %385, align 8, !tbaa !11
   %387 = shl i32 %383, %1
   %388 = zext nneg i32 %387 to i64
   %389 = zext nneg i32 %382 to i64
-  %390 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %389
+  %390 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %389
   %391 = load i64, ptr %390, align 8, !tbaa !11
   %392 = shl i32 %382, %1
   %393 = zext nneg i32 %392 to i64
@@ -1425,22 +1428,22 @@ minTemp3_fast.exit:                               ; preds = %439, %379, %firstSh
   %450 = sub nsw i32 3, %446
   %451 = sub nsw i32 3, %449
   %452 = sext i32 %446 to i64
-  %453 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %452
+  %453 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %452
   %454 = load i64, ptr %453, align 8, !tbaa !11
   %455 = shl i32 %446, %1
   %456 = zext nneg i32 %455 to i64
   %457 = sext i32 %449 to i64
-  %458 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %457
+  %458 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %457
   %459 = load i64, ptr %458, align 8, !tbaa !11
   %460 = shl i32 %449, %1
   %461 = zext nneg i32 %460 to i64
   %462 = sext i32 %451 to i64
-  %463 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %462
+  %463 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %462
   %464 = load i64, ptr %463, align 8, !tbaa !11
   %465 = shl i32 %451, %1
   %466 = zext nneg i32 %465 to i64
   %467 = sext i32 %450 to i64
-  %468 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %467
+  %468 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %467
   %469 = load i64, ptr %468, align 8, !tbaa !11
   %470 = shl i32 %450, %1
   %471 = zext nneg i32 %470 to i64
@@ -1494,22 +1497,22 @@ arrangeQuoters_superFast_lessThen5.exit125:       ; preds = %473, %442
   %505 = sub nsw i32 3, %500
   %506 = sub nsw i32 3, %504
   %507 = sext i32 %500 to i64
-  %508 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %507
+  %508 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %507
   %509 = load i64, ptr %508, align 8, !tbaa !11
   %510 = shl i32 %500, %1
   %511 = zext nneg i32 %510 to i64
   %512 = sext i32 %504 to i64
-  %513 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %512
+  %513 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %512
   %514 = load i64, ptr %513, align 8, !tbaa !11
   %515 = shl i32 %504, %1
   %516 = zext nneg i32 %515 to i64
   %517 = sext i32 %506 to i64
-  %518 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %517
+  %518 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %517
   %519 = load i64, ptr %518, align 8, !tbaa !11
   %520 = shl i32 %506, %1
   %521 = zext nneg i32 %520 to i64
   %522 = sext i32 %505 to i64
-  %523 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %522
+  %523 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %522
   %524 = load i64, ptr %523, align 8, !tbaa !11
   %525 = shl i32 %505, %1
   %526 = zext nneg i32 %525 to i64
@@ -1658,7 +1661,7 @@ minTemp1_fast.exit:                               ; preds = %firstShiftWithOneBi
 .lr.ph.i:                                         ; preds = %minTemp1_fast.exit
   %66 = sdiv i32 %64, 100
   %67 = load i64, ptr %8, align 16, !tbaa !11
-  %68 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 3
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %69 = load i64, ptr %68, align 8, !tbaa !11
   %70 = shl i32 3, %1
   %71 = zext nneg i32 %70 to i64

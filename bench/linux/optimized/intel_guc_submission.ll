@@ -2236,7 +2236,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_submission_setup(ptr n
 
 147:                                              ; preds = %.preheader
   %148 = add nuw nsw i64 %174, 1
-  %149 = getelementptr [6 x [9 x ptr]], ptr %141, i64 0, i64 %143, i64 %148
+  %149 = getelementptr [9 x ptr], ptr %144, i64 0, i64 %148
   %150 = load ptr, ptr %149, align 8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %.preheader, label %.loopexit, !llvm.loop !48
@@ -5511,7 +5511,8 @@ define dso_local ptr @intel_guc_lookup_engine(ptr noundef readonly captures(none
   %7 = getelementptr i8, ptr %0, i64 3624
   %8 = zext i8 %6 to i64
   %9 = zext i8 %2 to i64
-  %10 = getelementptr [6 x [9 x ptr]], ptr %7, i64 0, i64 %8, i64 %9
+  %.split = getelementptr [6 x [9 x ptr]], ptr %7, i64 0, i64 %8
+  %10 = getelementptr [9 x ptr], ptr %.split, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
 }
@@ -5553,7 +5554,8 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_engine_failure_process
   %27 = zext i8 %25 to i64
   %28 = and i32 %19, 255
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr [6 x [9 x ptr]], ptr %26, i64 0, i64 %27, i64 %29
+  %.split = getelementptr [6 x [9 x ptr]], ptr %26, i64 0, i64 %27
+  %30 = getelementptr [9 x ptr], ptr %.split, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %33 = getelementptr i8, ptr %0, i64 -632

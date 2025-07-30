@@ -724,25 +724,27 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal void @init_vlcs() #0 {
   br label %.preheader
 
-.preheader:                                       ; preds = %0, %6
-  %1 = phi i1 [ true, %0 ], [ false, %6 ]
-  %indvars.iv14 = phi i64 [ 0, %0 ], [ 1, %6 ]
-  br label %2
+.preheader:                                       ; preds = %0, %8
+  %1 = phi i1 [ true, %0 ], [ false, %8 ]
+  %indvars.iv14 = phi i64 [ 0, %0 ], [ 1, %8 ]
+  %2 = getelementptr inbounds nuw [2 x [4 x [32 x %struct.VLCElem]]], ptr @block_type_vlc, i64 0, i64 %indvars.iv14
+  %3 = getelementptr inbounds nuw [2 x [4 x [8 x [2 x i8]]]], ptr @block_type_tab, i64 0, i64 %indvars.iv14
+  br label %4
 
-2:                                                ; preds = %.preheader, %2
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw [2 x [4 x [32 x %struct.VLCElem]]], ptr @block_type_vlc, i64 0, i64 %indvars.iv14, i64 %indvars.iv
-  %4 = getelementptr inbounds nuw [2 x [4 x [8 x [2 x i8]]]], ptr @block_type_tab, i64 0, i64 %indvars.iv14, i64 %indvars.iv
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  tail call void @ff_vlc_init_table_sparse(ptr noundef nonnull %3, i32 noundef 32, i32 noundef 5, i32 noundef 7, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+4:                                                ; preds = %.preheader, %4
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
+  %5 = getelementptr inbounds nuw [4 x [32 x %struct.VLCElem]], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x [8 x [2 x i8]]], ptr %3, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  tail call void @ff_vlc_init_table_sparse(ptr noundef nonnull %5, i32 noundef 32, i32 noundef 5, i32 noundef 7, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 2, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !81
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !81
 
-6:                                                ; preds = %2
-  br i1 %1, label %.preheader, label %7, !llvm.loop !82
+8:                                                ; preds = %4
+  br i1 %1, label %.preheader, label %9, !llvm.loop !82
 
-7:                                                ; preds = %6
+9:                                                ; preds = %8
   ret void
 }
 
@@ -2083,6 +2085,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_p_block(ptr noundef
   %.tr127.ph193 = phi ptr [ %2, %.lr.ph.lr.ph ], [ %63, %tailrecurse.outer ]
   %.tr126.ph192 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %62, %tailrecurse.outer ]
   %14 = zext nneg i32 %.tr128.ph194 to i64
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr @size2index, i64 0, i64 %14
   br label %15
 
 tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, %tailrecurse, %6
@@ -2101,13 +2104,14 @@ tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, 
 
 16:                                               ; preds = %15
   %17 = zext nneg i32 %.tr129190 to i64
-  %18 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @size2index, i64 0, i64 %17, i64 %14
-  %19 = load i8, ptr %18, align 1, !tbaa !41
-  %20 = load i32, ptr %11, align 4, !tbaa !42
-  %21 = icmp slt i32 %20, 2
-  %22 = zext i1 %21 to i64
-  %23 = zext i8 %19 to i64
-  %24 = getelementptr inbounds nuw [2 x [4 x [32 x %struct.VLCElem]]], ptr @block_type_vlc, i64 0, i64 %22, i64 %23
+  %gep = getelementptr inbounds nuw [4 x [4 x i8]], ptr %invariant.gep, i64 0, i64 %17
+  %18 = load i8, ptr %gep, align 1, !tbaa !41
+  %19 = load i32, ptr %11, align 4, !tbaa !42
+  %20 = icmp slt i32 %19, 2
+  %21 = zext i1 %20 to i64
+  %22 = getelementptr inbounds nuw [2 x [4 x [32 x %struct.VLCElem]]], ptr @block_type_vlc, i64 0, i64 %21
+  %23 = zext i8 %18 to i64
+  %24 = getelementptr inbounds nuw [4 x [32 x %struct.VLCElem]], ptr %22, i64 0, i64 %23
   %25 = load i32, ptr %12, align 8, !tbaa !65
   %26 = load ptr, ptr %10, align 8, !tbaa !63
   %27 = lshr i32 %.val, 3
@@ -2285,7 +2289,7 @@ bytestream2_get_byte.exit:                        ; preds = %122, %123
   br label %bytestream2_get_le16.exit
 
 131:                                              ; preds = %111
-  %132 = icmp sgt i32 %20, 1
+  %132 = icmp sgt i32 %19, 1
   br i1 %132, label %mcdc.exit, label %bytestream2_get_le16.exit
 
 133:                                              ; preds = %111

@@ -112,12 +112,12 @@ tf_get_section.exit:                              ; preds = %12, %.thread.i
 tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit, %22, %.thread.i.i
   %.0.i34 = phi ptr [ null, %tf_get_section.exit ], [ null, %.thread.i.i ], [ %26, %22 ]
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %69, label %27
+  br i1 %.not, label %70, label %27
 
 27:                                               ; preds = %tf_get_parent_section.exit
   tail call void @av_bprint_clear(ptr noundef nonnull %9) #8
   %.not29 = icmp eq ptr %.0.i34, null
-  br i1 %.not29, label %69, label %28
+  br i1 %.not29, label %70, label %28
 
 28:                                               ; preds = %27
   %29 = load i32, ptr %6, align 4, !tbaa !20
@@ -136,7 +136,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %38 = load i32, ptr %37, align 8, !tbaa !25
   %39 = and i32 %38, 3
   %.not31 = icmp eq i32 %39, 0
-  br i1 %.not31, label %40, label %69
+  br i1 %.not31, label %40, label %70
 
 40:                                               ; preds = %36, %28
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4904
@@ -153,7 +153,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %51 = load i32, ptr %50, align 8, !tbaa !25
   %52 = and i32 %51, 2
   %.not32 = icmp eq i32 %52, 0
-  br i1 %.not32, label %69, label %53
+  br i1 %.not32, label %70, label %53
 
 53:                                               ; preds = %40
   %54 = and i32 %51, 16
@@ -161,28 +161,29 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %55 = load i32, ptr %6, align 4, !tbaa !20
   %56 = add nsw i32 %55, -1
   %57 = sext i32 %56 to i64
-  br i1 %.not33, label %63, label %58
+  br i1 %.not33, label %64, label %58
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %60 = load i32, ptr %.0.i, align 8, !tbaa !29
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds [12 x [100 x i32]], ptr %59, i64 0, i64 %57, i64 %61
-  br label %66
+  %60 = getelementptr inbounds [12 x [100 x i32]], ptr %59, i64 0, i64 %57
+  %61 = load i32, ptr %.0.i, align 8, !tbaa !29
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds [100 x i32], ptr %60, i64 0, i64 %62
+  br label %67
 
-63:                                               ; preds = %53
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %65 = getelementptr inbounds [12 x i32], ptr %64, i64 0, i64 %57
-  br label %66
+64:                                               ; preds = %53
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %66 = getelementptr inbounds [12 x i32], ptr %65, i64 0, i64 %57
+  br label %67
 
-66:                                               ; preds = %63, %58
-  %.in = phi ptr [ %62, %58 ], [ %65, %63 ]
-  %67 = load i32, ptr %.in, align 4, !tbaa !30
-  %68 = load ptr, ptr %48, align 8, !tbaa !16
-  tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, i32 noundef %67, ptr noundef %68) #8
-  br label %69
+67:                                               ; preds = %64, %58
+  %.in = phi ptr [ %63, %58 ], [ %66, %64 ]
+  %68 = load i32, ptr %.in, align 4, !tbaa !30
+  %69 = load ptr, ptr %48, align 8, !tbaa !16
+  tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, i32 noundef %68, ptr noundef %69) #8
+  br label %70
 
-69:                                               ; preds = %36, %66, %40, %27, %tf_get_parent_section.exit
+70:                                               ; preds = %36, %67, %40, %27, %tf_get_parent_section.exit
   ret void
 }
 

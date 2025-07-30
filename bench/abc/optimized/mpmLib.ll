@@ -18,26 +18,27 @@ define noalias noundef ptr @Mpm_LibLutSetSimple(i32 noundef %0) local_unnamed_ad
   %wide.trip.count21 = zext i32 %6 to i64
   br label %7
 
-7:                                                ; preds = %.lr.ph, %11
-  %indvars.iv18 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next19, %11 ]
+7:                                                ; preds = %.lr.ph, %12
+  %indvars.iv18 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next19, %12 ]
   %8 = getelementptr inbounds nuw [13 x i32], ptr %4, i64 0, i64 %indvars.iv18
   store i32 20, ptr %8, align 4, !tbaa !10
-  br label %9
+  %9 = getelementptr inbounds nuw [13 x [13 x i32]], ptr %5, i64 0, i64 %indvars.iv18
+  br label %10
 
-9:                                                ; preds = %7, %9
-  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [13 x [13 x i32]], ptr %5, i64 0, i64 %indvars.iv18, i64 %indvars.iv
-  store i32 1, ptr %10, align 4, !tbaa !10
+10:                                               ; preds = %7, %10
+  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds nuw [13 x i32], ptr %9, i64 0, i64 %indvars.iv
+  store i32 1, ptr %11, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv18
-  br i1 %exitcond.not, label %11, label %9, !llvm.loop !11
+  br i1 %exitcond.not, label %12, label %10, !llvm.loop !11
 
-11:                                               ; preds = %9
+12:                                               ; preds = %10
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
   br i1 %exitcond22.not, label %._crit_edge, label %7, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %11, %1
+._crit_edge:                                      ; preds = %12, %1
   ret ptr %2
 }
 

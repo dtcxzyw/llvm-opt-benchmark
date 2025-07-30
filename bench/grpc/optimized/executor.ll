@@ -2265,50 +2265,51 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
 define void @_ZN9grpc_core8Executor3RunEP12grpc_closureN4absl12lts_202407226StatusENS_12ExecutorTypeENS_15ExecutorJobTypeE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::lts_20240722::Status", align 8
   %6 = sext i32 %2 to i64
-  %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr @_ZN9grpc_core12_GLOBAL__N_121executor_enqueue_fns_E, i64 0, i64 %6, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
-  %10 = load i64, ptr %1, align 8, !tbaa !56
-  store i64 %10, ptr %5, align 8, !tbaa !56
-  %11 = and i64 %10, 1
-  %.not.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i, label %12, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %7 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr @_ZN9grpc_core12_GLOBAL__N_121executor_enqueue_fns_E, i64 0, i64 %6
+  %8 = sext i32 %3 to i64
+  %9 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !91
+  %11 = load i64, ptr %1, align 8, !tbaa !56
+  store i64 %11, ptr %5, align 8, !tbaa !56
+  %12 = and i64 %11, 1
+  %.not.i.i = icmp eq i64 %12, 0
+  br i1 %.not.i.i, label %13, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
 
-12:                                               ; preds = %4
-  %13 = inttoptr i64 %10 to ptr
-  %14 = atomicrmw add ptr %13, i32 1 monotonic, align 4
+13:                                               ; preds = %4
+  %14 = inttoptr i64 %11 to ptr
+  %15 = atomicrmw add ptr %14, i32 1 monotonic, align 4
   br label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
 
-_ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %4, %12
-  invoke void %9(ptr noundef %0, ptr noundef nonnull %5)
-          to label %15 unwind label %23
+_ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %4, %13
+  invoke void %10(ptr noundef %0, ptr noundef nonnull %5)
+          to label %16 unwind label %24
 
-15:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
-  %16 = load i64, ptr %5, align 8, !tbaa !56
-  %17 = and i64 %16, 1
-  %.not.i.i4 = icmp eq i64 %17, 0
-  br i1 %.not.i.i4, label %18, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+16:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %17 = load i64, ptr %5, align 8, !tbaa !56
+  %18 = and i64 %17, 1
+  %.not.i.i4 = icmp eq i64 %18, 0
+  br i1 %.not.i.i4, label %19, label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
-18:                                               ; preds = %15
-  %19 = inttoptr i64 %16 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit unwind label %20
+19:                                               ; preds = %16
+  %20 = inttoptr i64 %17 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %20)
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit unwind label %21
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #29
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #29
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %15, %18
+_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %16, %19
   ret void
 
-23:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress uwtable

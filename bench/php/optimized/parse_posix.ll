@@ -1215,54 +1215,56 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
 
 .lr.ph:                                           ; preds = %26
   %57 = zext i1 %11 to i64
-  %58 = add i32 %28, -1
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [2 x [12 x i32]], ptr @month_lengths, i64 0, i64 %57, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !39
-  %62 = mul i32 %55, 7
-  %63 = add i32 %.046, %62
-  %64 = add i32 %63, -7
-  br label %67
+  %58 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @month_lengths, i64 0, i64 %57
+  %59 = add i32 %28, -1
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds [12 x i32], ptr %58, i64 0, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !39
+  %63 = mul i32 %55, 7
+  %64 = add i32 %.046, %63
+  %65 = add i32 %64, -7
+  br label %68
 
-65:                                               ; preds = %67
-  %66 = add nuw nsw i32 %.04558, 1
-  %exitcond.not = icmp eq i32 %66, %55
-  br i1 %exitcond.not, label %._crit_edge, label %67
+66:                                               ; preds = %68
+  %67 = add nuw nsw i32 %.04558, 1
+  %exitcond.not = icmp eq i32 %67, %55
+  br i1 %exitcond.not, label %._crit_edge, label %68
 
-67:                                               ; preds = %.lr.ph, %65
-  %.04558 = phi i32 [ 1, %.lr.ph ], [ %66, %65 ]
-  %.14757 = phi i32 [ %.046, %.lr.ph ], [ %68, %65 ]
-  %68 = add i32 %.14757, 7
-  %.not54 = icmp slt i32 %68, %61
-  br i1 %.not54, label %65, label %._crit_edge
+68:                                               ; preds = %.lr.ph, %66
+  %.04558 = phi i32 [ 1, %.lr.ph ], [ %67, %66 ]
+  %.14757 = phi i32 [ %.046, %.lr.ph ], [ %69, %66 ]
+  %69 = add i32 %.14757, 7
+  %.not54 = icmp slt i32 %69, %62
+  br i1 %.not54, label %66, label %._crit_edge
 
-._crit_edge:                                      ; preds = %65, %67, %.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %58, %67 ], [ %58, %65 ]
-  %.147.lcssa = phi i32 [ %.046, %.._crit_edge_crit_edge ], [ %64, %65 ], [ %.14757, %67 ]
-  %69 = mul i32 %.147.lcssa, 86400
-  %70 = sext i32 %69 to i64
-  %71 = icmp sgt i32 %.pre-phi, 0
-  br i1 %71, label %.lr.ph64, label %.loopexit
+._crit_edge:                                      ; preds = %66, %68, %.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %59, %68 ], [ %59, %66 ]
+  %.147.lcssa = phi i32 [ %.046, %.._crit_edge_crit_edge ], [ %65, %66 ], [ %.14757, %68 ]
+  %70 = mul i32 %.147.lcssa, 86400
+  %71 = sext i32 %70 to i64
+  %72 = icmp sgt i32 %.pre-phi, 0
+  br i1 %72, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %._crit_edge
-  %72 = zext i1 %11 to i64
+  %73 = zext i1 %11 to i64
+  %74 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @month_lengths, i64 0, i64 %73
   %wide.trip.count = zext nneg i32 %.pre-phi to i64
-  br label %73
+  br label %75
 
-73:                                               ; preds = %.lr.ph64, %73
-  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %73 ]
-  %.062 = phi i64 [ %70, %.lr.ph64 ], [ %78, %73 ]
-  %74 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @month_lengths, i64 0, i64 %72, i64 %indvars.iv
-  %75 = load i32, ptr %74, align 4, !tbaa !39
-  %76 = mul i32 %75, 86400
-  %77 = sext i32 %76 to i64
-  %78 = add i64 %.062, %77
+75:                                               ; preds = %.lr.ph64, %75
+  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %75 ]
+  %.062 = phi i64 [ %71, %.lr.ph64 ], [ %80, %75 ]
+  %76 = getelementptr inbounds nuw [12 x i32], ptr %74, i64 0, i64 %indvars.iv
+  %77 = load i32, ptr %76, align 4, !tbaa !39
+  %78 = mul i32 %77, 86400
+  %79 = sext i32 %78 to i64
+  %80 = add i64 %.062, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond67.not, label %.loopexit, label %73
+  br i1 %exitcond67.not, label %.loopexit, label %75
 
-.loopexit:                                        ; preds = %73, %._crit_edge, %10, %21, %13
-  %.043 = phi i64 [ %20, %13 ], [ %25, %21 ], [ 0, %10 ], [ %70, %._crit_edge ], [ %78, %73 ]
+.loopexit:                                        ; preds = %75, %._crit_edge, %10, %21, %13
+  %.043 = phi i64 [ %20, %13 ], [ %25, %21 ], [ 0, %10 ], [ %71, %._crit_edge ], [ %80, %75 ]
   ret i64 %.043
 }
 

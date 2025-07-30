@@ -8033,12 +8033,12 @@ _ZNSt6vectorISt4pairIsjESaIS1_EE5clearEv.exit:    ; preds = %214, %219
   invoke void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr null, i64 noundef %232, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit unwind label %.loopexit.split-lp
 
-.loopexit610:                                     ; preds = %723, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347, %749, %754, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351, %781, %786, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355, %813, %818, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359, %845, %850, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363, %877, %882, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367, %909, %914, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371, %941
+.loopexit610:                                     ; preds = %724, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347, %750, %755, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351, %782, %787, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355, %814, %819, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359, %846, %851, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363, %878, %883, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367, %910, %915, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371, %942
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %233
 
-.loopexit.split-lp:                               ; preds = %986, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373, %1010, %231
+.loopexit.split-lp:                               ; preds = %987, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373, %1011, %231
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %233
@@ -8083,12 +8083,12 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   %sext = sext i32 %239 to i64
   br label %244
 
-244:                                              ; preds = %.lr.ph669, %965
-  %indvars.iv681 = phi i64 [ 0, %.lr.ph669 ], [ %indvars.iv.next682, %965 ]
-  %.0201668 = phi i64 [ 0, %.lr.ph669 ], [ %.1202.lcssa, %965 ]
-  %.0207666 = phi i32 [ 0, %.lr.ph669 ], [ %.1208.lcssa, %965 ]
-  %.sroa.0434.0665 = phi ptr [ %237, %.lr.ph669 ], [ %966, %965 ]
-  %.0664 = phi i32 [ 0, %.lr.ph669 ], [ %.1.lcssa, %965 ]
+244:                                              ; preds = %.lr.ph669, %966
+  %indvars.iv681 = phi i64 [ 0, %.lr.ph669 ], [ %indvars.iv.next682, %966 ]
+  %.0201668 = phi i64 [ 0, %.lr.ph669 ], [ %.1202.lcssa, %966 ]
+  %.0207666 = phi i32 [ 0, %.lr.ph669 ], [ %.1208.lcssa, %966 ]
+  %.sroa.0434.0665 = phi ptr [ %237, %.lr.ph669 ], [ %967, %966 ]
+  %.0664 = phi i32 [ 0, %.lr.ph669 ], [ %.1.lcssa, %966 ]
   %245 = getelementptr inbounds nuw i8, ptr %.sroa.0434.0665, i64 32
   %246 = getelementptr inbounds nuw i8, ptr %.sroa.0434.0665, i64 40
   %247 = load ptr, ptr %246, align 8
@@ -8098,11 +8098,11 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   br i1 %.not598652, label %._crit_edge659, label %.lr.ph658
 
 .lr.ph658:                                        ; preds = %244, %._crit_edge
-  %250 = phi ptr [ %950, %._crit_edge ], [ %249, %244 ]
+  %250 = phi ptr [ %951, %._crit_edge ], [ %249, %244 ]
   %.1202656 = phi i64 [ %.2203.lcssa, %._crit_edge ], [ %.0201668, %244 ]
   %.1208655 = phi i32 [ %.2209.lcssa, %._crit_edge ], [ %.0207666, %244 ]
-  %.sroa.0425.0654 = phi ptr [ %955, %._crit_edge ], [ %247, %244 ]
-  %.1653 = phi i32 [ %954, %._crit_edge ], [ %.0664, %244 ]
+  %.sroa.0425.0654 = phi ptr [ %956, %._crit_edge ], [ %247, %244 ]
+  %.1653 = phi i32 [ %955, %._crit_edge ], [ %.0664, %244 ]
   %251 = load i32, ptr %.sroa.0425.0654, align 4
   %252 = getelementptr inbounds nuw i8, ptr %.sroa.0425.0654, i64 4
   %253 = load i32, ptr %252, align 4
@@ -8114,10 +8114,10 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   %255 = sext i32 %.1208655 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %945
-  %indvars.iv678 = phi i64 [ %255, %.lr.ph.preheader ], [ %indvars.iv.next679, %945 ]
-  %.2203649 = phi i64 [ %.1202656, %.lr.ph.preheader ], [ %.3204, %945 ]
-  %.0210647 = phi i64 [ %254, %.lr.ph.preheader ], [ %946, %945 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %946
+  %indvars.iv678 = phi i64 [ %255, %.lr.ph.preheader ], [ %indvars.iv.next679, %946 ]
+  %.2203649 = phi i64 [ %.1202656, %.lr.ph.preheader ], [ %.3204, %946 ]
+  %.0210647 = phi i64 [ %254, %.lr.ph.preheader ], [ %947, %946 ]
   %256 = urem i64 %indvars.iv678, %.sroa.speculated
   %257 = load i8, ptr %1, align 1
   %258 = trunc i8 %257 to i1
@@ -8714,800 +8714,801 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %445, %425
   %696 = mul nsw i64 %indvars.iv678, 3
   br label %697
 
-697:                                              ; preds = %.preheader609, %716
-  %indvars.iv = phi i64 [ 0, %.preheader609 ], [ %indvars.iv.next, %716 ]
+697:                                              ; preds = %.preheader609, %717
+  %indvars.iv = phi i64 [ 0, %.preheader609 ], [ %indvars.iv.next, %717 ]
   %698 = load ptr, ptr %0, align 8
   %699 = getelementptr inbounds nuw i8, ptr %698, i64 304
   %700 = load ptr, ptr %699, align 8
-  %701 = getelementptr inbounds nuw %class.CFaceO, ptr %700, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 %indvars.iv
-  %702 = load ptr, ptr %701, align 8
-  %703 = getelementptr inbounds nuw i8, ptr %698, i64 8
-  %704 = load ptr, ptr %703, align 8
-  %705 = ptrtoint ptr %702 to i64
-  %706 = ptrtoint ptr %704 to i64
-  %707 = sub i64 %705, %706
-  %708 = load ptr, ptr %9, align 8
-  %709 = sdiv exact i64 %707, 12
-  %710 = getelementptr inbounds i8, ptr %708, i64 %709
-  %711 = load i32, ptr %710, align 4
-  %712 = icmp eq i32 %711, -1
-  br i1 %712, label %713, label %716
+  %701 = getelementptr inbounds nuw %class.CFaceO, ptr %700, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %702 = getelementptr inbounds nuw [3 x ptr], ptr %701, i64 0, i64 %indvars.iv
+  %703 = load ptr, ptr %702, align 8
+  %704 = getelementptr inbounds nuw i8, ptr %698, i64 8
+  %705 = load ptr, ptr %704, align 8
+  %706 = ptrtoint ptr %703 to i64
+  %707 = ptrtoint ptr %705 to i64
+  %708 = sub i64 %706, %707
+  %709 = load ptr, ptr %9, align 8
+  %710 = sdiv exact i64 %708, 12
+  %711 = getelementptr inbounds i8, ptr %709, i64 %710
+  %712 = load i32, ptr %711, align 4
+  %713 = icmp eq i32 %712, -1
+  br i1 %713, label %714, label %717
 
-713:                                              ; preds = %697
-  %714 = add nsw i64 %indvars.iv, %696
-  %715 = trunc nsw i64 %714 to i32
-  store i32 %715, ptr %710, align 4
-  br label %716
+714:                                              ; preds = %697
+  %715 = add nsw i64 %indvars.iv, %696
+  %716 = trunc nsw i64 %715 to i32
+  store i32 %716, ptr %711, align 4
+  br label %717
 
-716:                                              ; preds = %697, %713
+717:                                              ; preds = %697, %714
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %697, !llvm.loop !116
 
-.loopexit:                                        ; preds = %716, %693
-  %717 = icmp eq i64 %indvars.iv678, %sext
-  %718 = icmp eq i64 %256, %240
-  %or.cond = select i1 %717, i1 true, i1 %718
-  br i1 %or.cond, label %719, label %945
+.loopexit:                                        ; preds = %717, %693
+  %718 = icmp eq i64 %indvars.iv678, %sext
+  %719 = icmp eq i64 %256, %240
+  %or.cond = select i1 %718, i1 true, i1 %719
+  br i1 %or.cond, label %720, label %946
 
-719:                                              ; preds = %.loopexit
-  %720 = add nuw i64 %256, 1
-  %spec.select = select i1 %717, i64 %720, i64 %.sroa.speculated
-  %721 = load i8, ptr %1, align 1
-  %722 = trunc i8 %721 to i1
-  br i1 %722, label %723, label %751
+720:                                              ; preds = %.loopexit
+  %721 = add nuw i64 %256, 1
+  %spec.select = select i1 %718, i64 %721, i64 %.sroa.speculated
+  %722 = load i8, ptr %1, align 1
+  %723 = trunc i8 %722 to i1
+  br i1 %723, label %724, label %752
 
-723:                                              ; preds = %719
-  %724 = load ptr, ptr %241, align 8
-  %725 = load ptr, ptr %724, align 8
-  %726 = load ptr, ptr @__glewBindBuffer, align 8
-  %727 = getelementptr inbounds nuw i8, ptr %725, i64 32
-  %728 = load i32, ptr %727, align 8
-  invoke void %726(i32 noundef 34962, i32 noundef %728)
-          to label %729 unwind label %.loopexit610
+724:                                              ; preds = %720
+  %725 = load ptr, ptr %241, align 8
+  %726 = load ptr, ptr %725, align 8
+  %727 = load ptr, ptr @__glewBindBuffer, align 8
+  %728 = getelementptr inbounds nuw i8, ptr %726, i64 32
+  %729 = load i32, ptr %728, align 8
+  invoke void %727(i32 noundef 34962, i32 noundef %729)
+          to label %730 unwind label %.loopexit610
 
-729:                                              ; preds = %723
-  %730 = load ptr, ptr @__glewBufferSubData, align 8
-  %731 = getelementptr inbounds nuw i8, ptr %725, i64 8
-  %732 = load i64, ptr %731, align 8
-  %733 = mul i64 %242, %.2203649
-  %734 = mul i64 %733, %732
-  %735 = getelementptr inbounds nuw i8, ptr %725, i64 20
-  %736 = load i32, ptr %735, align 4
-  switch i32 %736, label %738 [
+730:                                              ; preds = %724
+  %731 = load ptr, ptr @__glewBufferSubData, align 8
+  %732 = getelementptr inbounds nuw i8, ptr %726, i64 8
+  %733 = load i64, ptr %732, align 8
+  %734 = mul i64 %242, %.2203649
+  %735 = mul i64 %734, %733
+  %736 = getelementptr inbounds nuw i8, ptr %726, i64 20
+  %737 = load i32, ptr %736, align 4
+  switch i32 %737, label %739 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread: ; preds = %729
-  %737 = mul i64 %732, 3
-  br label %741
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread: ; preds = %730
+  %738 = mul i64 %733, 3
+  br label %742
 
-738:                                              ; preds = %729
+739:                                              ; preds = %730
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit: ; preds = %729, %729, %729, %738
-  %.0.i = phi i64 [ 0, %738 ], [ 4, %729 ], [ 4, %729 ], [ 4, %729 ]
-  %739 = mul i64 %.0.i, %734
-  %740 = mul i64 %732, 3
-  switch i32 %736, label %744 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit: ; preds = %730, %730, %730, %739
+  %.0.i = phi i64 [ 0, %739 ], [ 4, %730 ], [ 4, %730 ], [ 4, %730 ]
+  %740 = mul i64 %.0.i, %735
+  %741 = mul i64 %733, 3
+  switch i32 %737, label %745 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
-    i32 5121, label %741
+    i32 5121, label %742
   ]
 
-741:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
-  %742 = phi i64 [ %737, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
-  %743 = phi i64 [ %734, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread ], [ %739, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+742:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
+  %743 = phi i64 [ %738, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread ], [ %741, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+  %744 = phi i64 [ %735, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
 
-744:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
+745:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %741, %744
-  %745 = phi i64 [ %740, %744 ], [ %742, %741 ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
-  %746 = phi i64 [ %739, %744 ], [ %743, %741 ], [ %739, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %739, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %739, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
-  %.0.i346 = phi i64 [ 0, %744 ], [ 1, %741 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
-  %747 = mul i64 %745, %spec.select
-  %748 = mul i64 %747, %.0.i346
-  invoke void %730(i32 noundef 34962, i64 noundef %746, i64 noundef %748, ptr noundef nonnull %.sroa.0530.0)
-          to label %749 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %742, %745
+  %746 = phi i64 [ %741, %745 ], [ %743, %742 ], [ %741, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %741, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %741, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+  %747 = phi i64 [ %740, %745 ], [ %744, %742 ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+  %.0.i346 = phi i64 [ 0, %745 ], [ 1, %742 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+  %748 = mul i64 %746, %spec.select
+  %749 = mul i64 %748, %.0.i346
+  invoke void %731(i32 noundef 34962, i64 noundef %747, i64 noundef %749, ptr noundef nonnull %.sroa.0530.0)
+          to label %750 unwind label %.loopexit610
 
-749:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
-  %750 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %750(i32 noundef 34962, i32 noundef 0)
-          to label %751 unwind label %.loopexit610
+750:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
+  %751 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %751(i32 noundef 34962, i32 noundef 0)
+          to label %752 unwind label %.loopexit610
 
-751:                                              ; preds = %719, %749
-  %752 = load i8, ptr %25, align 1
-  %753 = trunc i8 %752 to i1
-  br i1 %753, label %754, label %783
+752:                                              ; preds = %720, %750
+  %753 = load i8, ptr %25, align 1
+  %754 = trunc i8 %753 to i1
+  br i1 %754, label %755, label %784
 
-754:                                              ; preds = %751
-  %755 = load ptr, ptr %241, align 8
-  %756 = getelementptr inbounds nuw i8, ptr %755, i64 8
-  %757 = load ptr, ptr %756, align 8
-  %758 = load ptr, ptr @__glewBindBuffer, align 8
-  %759 = getelementptr inbounds nuw i8, ptr %757, i64 32
-  %760 = load i32, ptr %759, align 8
-  invoke void %758(i32 noundef 34962, i32 noundef %760)
-          to label %761 unwind label %.loopexit610
+755:                                              ; preds = %752
+  %756 = load ptr, ptr %241, align 8
+  %757 = getelementptr inbounds nuw i8, ptr %756, i64 8
+  %758 = load ptr, ptr %757, align 8
+  %759 = load ptr, ptr @__glewBindBuffer, align 8
+  %760 = getelementptr inbounds nuw i8, ptr %758, i64 32
+  %761 = load i32, ptr %760, align 8
+  invoke void %759(i32 noundef 34962, i32 noundef %761)
+          to label %762 unwind label %.loopexit610
 
-761:                                              ; preds = %754
-  %762 = load ptr, ptr @__glewBufferSubData, align 8
-  %763 = getelementptr inbounds nuw i8, ptr %757, i64 8
-  %764 = load i64, ptr %763, align 8
-  %765 = mul i64 %242, %.2203649
-  %766 = mul i64 %765, %764
-  %767 = getelementptr inbounds nuw i8, ptr %757, i64 20
-  %768 = load i32, ptr %767, align 4
-  switch i32 %768, label %770 [
+762:                                              ; preds = %755
+  %763 = load ptr, ptr @__glewBufferSubData, align 8
+  %764 = getelementptr inbounds nuw i8, ptr %758, i64 8
+  %765 = load i64, ptr %764, align 8
+  %766 = mul i64 %242, %.2203649
+  %767 = mul i64 %766, %765
+  %768 = getelementptr inbounds nuw i8, ptr %758, i64 20
+  %769 = load i32, ptr %768, align 4
+  switch i32 %769, label %771 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread: ; preds = %761
-  %769 = mul i64 %764, 3
-  br label %773
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread: ; preds = %762
+  %770 = mul i64 %765, 3
+  br label %774
 
-770:                                              ; preds = %761
+771:                                              ; preds = %762
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349: ; preds = %761, %761, %761, %770
-  %.0.i348 = phi i64 [ 0, %770 ], [ 4, %761 ], [ 4, %761 ], [ 4, %761 ]
-  %771 = mul i64 %.0.i348, %766
-  %772 = mul i64 %764, 3
-  switch i32 %768, label %776 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349: ; preds = %762, %762, %762, %771
+  %.0.i348 = phi i64 [ 0, %771 ], [ 4, %762 ], [ 4, %762 ], [ 4, %762 ]
+  %772 = mul i64 %.0.i348, %767
+  %773 = mul i64 %765, 3
+  switch i32 %769, label %777 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
-    i32 5121, label %773
+    i32 5121, label %774
   ]
 
-773:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
-  %774 = phi i64 [ %769, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
-  %775 = phi i64 [ %766, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread ], [ %771, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+774:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
+  %775 = phi i64 [ %770, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread ], [ %773, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+  %776 = phi i64 [ %767, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
 
-776:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
+777:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %773, %776
-  %777 = phi i64 [ %772, %776 ], [ %774, %773 ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
-  %778 = phi i64 [ %771, %776 ], [ %775, %773 ], [ %771, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %771, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %771, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
-  %.0.i350 = phi i64 [ 0, %776 ], [ 1, %773 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
-  %779 = mul i64 %777, %spec.select
-  %780 = mul i64 %779, %.0.i350
-  invoke void %762(i32 noundef 34962, i64 noundef %778, i64 noundef %780, ptr noundef nonnull %.sroa.0521.0)
-          to label %781 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %774, %777
+  %778 = phi i64 [ %773, %777 ], [ %775, %774 ], [ %773, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %773, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %773, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+  %779 = phi i64 [ %772, %777 ], [ %776, %774 ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+  %.0.i350 = phi i64 [ 0, %777 ], [ 1, %774 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+  %780 = mul i64 %778, %spec.select
+  %781 = mul i64 %780, %.0.i350
+  invoke void %763(i32 noundef 34962, i64 noundef %779, i64 noundef %781, ptr noundef nonnull %.sroa.0521.0)
+          to label %782 unwind label %.loopexit610
 
-781:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
-  %782 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %782(i32 noundef 34962, i32 noundef 0)
-          to label %783 unwind label %.loopexit610
+782:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
+  %783 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %783(i32 noundef 34962, i32 noundef 0)
+          to label %784 unwind label %.loopexit610
 
-783:                                              ; preds = %751, %781
-  %784 = load i8, ptr %36, align 1
-  %785 = trunc i8 %784 to i1
-  br i1 %785, label %786, label %815
+784:                                              ; preds = %752, %782
+  %785 = load i8, ptr %36, align 1
+  %786 = trunc i8 %785 to i1
+  br i1 %786, label %787, label %816
 
-786:                                              ; preds = %783
-  %787 = load ptr, ptr %241, align 8
-  %788 = getelementptr inbounds nuw i8, ptr %787, i64 16
-  %789 = load ptr, ptr %788, align 8
-  %790 = load ptr, ptr @__glewBindBuffer, align 8
-  %791 = getelementptr inbounds nuw i8, ptr %789, i64 32
-  %792 = load i32, ptr %791, align 8
-  invoke void %790(i32 noundef 34962, i32 noundef %792)
-          to label %793 unwind label %.loopexit610
+787:                                              ; preds = %784
+  %788 = load ptr, ptr %241, align 8
+  %789 = getelementptr inbounds nuw i8, ptr %788, i64 16
+  %790 = load ptr, ptr %789, align 8
+  %791 = load ptr, ptr @__glewBindBuffer, align 8
+  %792 = getelementptr inbounds nuw i8, ptr %790, i64 32
+  %793 = load i32, ptr %792, align 8
+  invoke void %791(i32 noundef 34962, i32 noundef %793)
+          to label %794 unwind label %.loopexit610
 
-793:                                              ; preds = %786
-  %794 = load ptr, ptr @__glewBufferSubData, align 8
-  %795 = getelementptr inbounds nuw i8, ptr %789, i64 8
-  %796 = load i64, ptr %795, align 8
-  %797 = mul i64 %242, %.2203649
-  %798 = mul i64 %797, %796
-  %799 = getelementptr inbounds nuw i8, ptr %789, i64 20
-  %800 = load i32, ptr %799, align 4
-  switch i32 %800, label %802 [
+794:                                              ; preds = %787
+  %795 = load ptr, ptr @__glewBufferSubData, align 8
+  %796 = getelementptr inbounds nuw i8, ptr %790, i64 8
+  %797 = load i64, ptr %796, align 8
+  %798 = mul i64 %242, %.2203649
+  %799 = mul i64 %798, %797
+  %800 = getelementptr inbounds nuw i8, ptr %790, i64 20
+  %801 = load i32, ptr %800, align 4
+  switch i32 %801, label %803 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread: ; preds = %793
-  %801 = mul i64 %796, 3
-  br label %805
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread: ; preds = %794
+  %802 = mul i64 %797, 3
+  br label %806
 
-802:                                              ; preds = %793
+803:                                              ; preds = %794
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353: ; preds = %793, %793, %793, %802
-  %.0.i352 = phi i64 [ 0, %802 ], [ 4, %793 ], [ 4, %793 ], [ 4, %793 ]
-  %803 = mul i64 %.0.i352, %798
-  %804 = mul i64 %796, 3
-  switch i32 %800, label %808 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353: ; preds = %794, %794, %794, %803
+  %.0.i352 = phi i64 [ 0, %803 ], [ 4, %794 ], [ 4, %794 ], [ 4, %794 ]
+  %804 = mul i64 %.0.i352, %799
+  %805 = mul i64 %797, 3
+  switch i32 %801, label %809 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
-    i32 5121, label %805
+    i32 5121, label %806
   ]
 
-805:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
-  %806 = phi i64 [ %801, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
-  %807 = phi i64 [ %798, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread ], [ %803, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+806:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
+  %807 = phi i64 [ %802, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread ], [ %805, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+  %808 = phi i64 [ %799, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
 
-808:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
+809:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %805, %808
-  %809 = phi i64 [ %804, %808 ], [ %806, %805 ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
-  %810 = phi i64 [ %803, %808 ], [ %807, %805 ], [ %803, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %803, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %803, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
-  %.0.i354 = phi i64 [ 0, %808 ], [ 1, %805 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
-  %811 = mul i64 %809, %spec.select
-  %812 = mul i64 %811, %.0.i354
-  invoke void %794(i32 noundef 34962, i64 noundef %810, i64 noundef %812, ptr noundef nonnull %.sroa.0512.0)
-          to label %813 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %806, %809
+  %810 = phi i64 [ %805, %809 ], [ %807, %806 ], [ %805, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %805, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %805, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+  %811 = phi i64 [ %804, %809 ], [ %808, %806 ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+  %.0.i354 = phi i64 [ 0, %809 ], [ 1, %806 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+  %812 = mul i64 %810, %spec.select
+  %813 = mul i64 %812, %.0.i354
+  invoke void %795(i32 noundef 34962, i64 noundef %811, i64 noundef %813, ptr noundef nonnull %.sroa.0512.0)
+          to label %814 unwind label %.loopexit610
 
-813:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
-  %814 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %814(i32 noundef 34962, i32 noundef 0)
-          to label %815 unwind label %.loopexit610
+814:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
+  %815 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %815(i32 noundef 34962, i32 noundef 0)
+          to label %816 unwind label %.loopexit610
 
-815:                                              ; preds = %783, %813
-  %816 = load i8, ptr %47, align 1
-  %817 = trunc i8 %816 to i1
-  br i1 %817, label %818, label %847
+816:                                              ; preds = %784, %814
+  %817 = load i8, ptr %47, align 1
+  %818 = trunc i8 %817 to i1
+  br i1 %818, label %819, label %848
 
-818:                                              ; preds = %815
-  %819 = load ptr, ptr %241, align 8
-  %820 = getelementptr inbounds nuw i8, ptr %819, i64 24
-  %821 = load ptr, ptr %820, align 8
-  %822 = load ptr, ptr @__glewBindBuffer, align 8
-  %823 = getelementptr inbounds nuw i8, ptr %821, i64 32
-  %824 = load i32, ptr %823, align 8
-  invoke void %822(i32 noundef 34962, i32 noundef %824)
-          to label %825 unwind label %.loopexit610
+819:                                              ; preds = %816
+  %820 = load ptr, ptr %241, align 8
+  %821 = getelementptr inbounds nuw i8, ptr %820, i64 24
+  %822 = load ptr, ptr %821, align 8
+  %823 = load ptr, ptr @__glewBindBuffer, align 8
+  %824 = getelementptr inbounds nuw i8, ptr %822, i64 32
+  %825 = load i32, ptr %824, align 8
+  invoke void %823(i32 noundef 34962, i32 noundef %825)
+          to label %826 unwind label %.loopexit610
 
-825:                                              ; preds = %818
-  %826 = load ptr, ptr @__glewBufferSubData, align 8
-  %827 = getelementptr inbounds nuw i8, ptr %821, i64 8
-  %828 = load i64, ptr %827, align 8
-  %829 = mul i64 %242, %.2203649
-  %830 = mul i64 %829, %828
-  %831 = getelementptr inbounds nuw i8, ptr %821, i64 20
-  %832 = load i32, ptr %831, align 4
-  switch i32 %832, label %834 [
+826:                                              ; preds = %819
+  %827 = load ptr, ptr @__glewBufferSubData, align 8
+  %828 = getelementptr inbounds nuw i8, ptr %822, i64 8
+  %829 = load i64, ptr %828, align 8
+  %830 = mul i64 %242, %.2203649
+  %831 = mul i64 %830, %829
+  %832 = getelementptr inbounds nuw i8, ptr %822, i64 20
+  %833 = load i32, ptr %832, align 4
+  switch i32 %833, label %835 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread: ; preds = %825
-  %833 = mul i64 %828, 3
-  br label %837
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread: ; preds = %826
+  %834 = mul i64 %829, 3
+  br label %838
 
-834:                                              ; preds = %825
+835:                                              ; preds = %826
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357: ; preds = %825, %825, %825, %834
-  %.0.i356 = phi i64 [ 0, %834 ], [ 4, %825 ], [ 4, %825 ], [ 4, %825 ]
-  %835 = mul i64 %.0.i356, %830
-  %836 = mul i64 %828, 3
-  switch i32 %832, label %840 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357: ; preds = %826, %826, %826, %835
+  %.0.i356 = phi i64 [ 0, %835 ], [ 4, %826 ], [ 4, %826 ], [ 4, %826 ]
+  %836 = mul i64 %.0.i356, %831
+  %837 = mul i64 %829, 3
+  switch i32 %833, label %841 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
-    i32 5121, label %837
+    i32 5121, label %838
   ]
 
-837:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
-  %838 = phi i64 [ %833, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
-  %839 = phi i64 [ %830, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread ], [ %835, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+838:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
+  %839 = phi i64 [ %834, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread ], [ %837, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+  %840 = phi i64 [ %831, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
 
-840:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
+841:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %837, %840
-  %841 = phi i64 [ %836, %840 ], [ %838, %837 ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
-  %842 = phi i64 [ %835, %840 ], [ %839, %837 ], [ %835, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %835, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %835, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
-  %.0.i358 = phi i64 [ 0, %840 ], [ 1, %837 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
-  %843 = mul i64 %841, %spec.select
-  %844 = mul i64 %843, %.0.i358
-  invoke void %826(i32 noundef 34962, i64 noundef %842, i64 noundef %844, ptr noundef nonnull %.sroa.0503.0)
-          to label %845 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %838, %841
+  %842 = phi i64 [ %837, %841 ], [ %839, %838 ], [ %837, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %837, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %837, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+  %843 = phi i64 [ %836, %841 ], [ %840, %838 ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+  %.0.i358 = phi i64 [ 0, %841 ], [ 1, %838 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+  %844 = mul i64 %842, %spec.select
+  %845 = mul i64 %844, %.0.i358
+  invoke void %827(i32 noundef 34962, i64 noundef %843, i64 noundef %845, ptr noundef nonnull %.sroa.0503.0)
+          to label %846 unwind label %.loopexit610
 
-845:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
-  %846 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %846(i32 noundef 34962, i32 noundef 0)
-          to label %847 unwind label %.loopexit610
+846:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
+  %847 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %847(i32 noundef 34962, i32 noundef 0)
+          to label %848 unwind label %.loopexit610
 
-847:                                              ; preds = %815, %845
-  %848 = load i8, ptr %58, align 1
-  %849 = trunc i8 %848 to i1
-  br i1 %849, label %850, label %879
+848:                                              ; preds = %816, %846
+  %849 = load i8, ptr %58, align 1
+  %850 = trunc i8 %849 to i1
+  br i1 %850, label %851, label %880
 
-850:                                              ; preds = %847
-  %851 = load ptr, ptr %241, align 8
-  %852 = getelementptr inbounds nuw i8, ptr %851, i64 32
-  %853 = load ptr, ptr %852, align 8
-  %854 = load ptr, ptr @__glewBindBuffer, align 8
-  %855 = getelementptr inbounds nuw i8, ptr %853, i64 32
-  %856 = load i32, ptr %855, align 8
-  invoke void %854(i32 noundef 34962, i32 noundef %856)
-          to label %857 unwind label %.loopexit610
+851:                                              ; preds = %848
+  %852 = load ptr, ptr %241, align 8
+  %853 = getelementptr inbounds nuw i8, ptr %852, i64 32
+  %854 = load ptr, ptr %853, align 8
+  %855 = load ptr, ptr @__glewBindBuffer, align 8
+  %856 = getelementptr inbounds nuw i8, ptr %854, i64 32
+  %857 = load i32, ptr %856, align 8
+  invoke void %855(i32 noundef 34962, i32 noundef %857)
+          to label %858 unwind label %.loopexit610
 
-857:                                              ; preds = %850
-  %858 = load ptr, ptr @__glewBufferSubData, align 8
-  %859 = getelementptr inbounds nuw i8, ptr %853, i64 8
-  %860 = load i64, ptr %859, align 8
-  %861 = mul i64 %242, %.2203649
-  %862 = mul i64 %861, %860
-  %863 = getelementptr inbounds nuw i8, ptr %853, i64 20
-  %864 = load i32, ptr %863, align 4
-  switch i32 %864, label %866 [
+858:                                              ; preds = %851
+  %859 = load ptr, ptr @__glewBufferSubData, align 8
+  %860 = getelementptr inbounds nuw i8, ptr %854, i64 8
+  %861 = load i64, ptr %860, align 8
+  %862 = mul i64 %242, %.2203649
+  %863 = mul i64 %862, %861
+  %864 = getelementptr inbounds nuw i8, ptr %854, i64 20
+  %865 = load i32, ptr %864, align 4
+  switch i32 %865, label %867 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread: ; preds = %857
-  %865 = mul i64 %860, 3
-  br label %869
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread: ; preds = %858
+  %866 = mul i64 %861, 3
+  br label %870
 
-866:                                              ; preds = %857
+867:                                              ; preds = %858
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361: ; preds = %857, %857, %857, %866
-  %.0.i360 = phi i64 [ 0, %866 ], [ 4, %857 ], [ 4, %857 ], [ 4, %857 ]
-  %867 = mul i64 %.0.i360, %862
-  %868 = mul i64 %860, 3
-  switch i32 %864, label %872 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361: ; preds = %858, %858, %858, %867
+  %.0.i360 = phi i64 [ 0, %867 ], [ 4, %858 ], [ 4, %858 ], [ 4, %858 ]
+  %868 = mul i64 %.0.i360, %863
+  %869 = mul i64 %861, 3
+  switch i32 %865, label %873 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
-    i32 5121, label %869
+    i32 5121, label %870
   ]
 
-869:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
-  %870 = phi i64 [ %865, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
-  %871 = phi i64 [ %862, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread ], [ %867, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+870:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
+  %871 = phi i64 [ %866, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread ], [ %869, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+  %872 = phi i64 [ %863, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
 
-872:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
+873:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %869, %872
-  %873 = phi i64 [ %868, %872 ], [ %870, %869 ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
-  %874 = phi i64 [ %867, %872 ], [ %871, %869 ], [ %867, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %867, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %867, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
-  %.0.i362 = phi i64 [ 0, %872 ], [ 1, %869 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
-  %875 = mul i64 %873, %spec.select
-  %876 = mul i64 %875, %.0.i362
-  invoke void %858(i32 noundef 34962, i64 noundef %874, i64 noundef %876, ptr noundef nonnull %.sroa.0495.0)
-          to label %877 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %870, %873
+  %874 = phi i64 [ %869, %873 ], [ %871, %870 ], [ %869, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %869, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %869, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+  %875 = phi i64 [ %868, %873 ], [ %872, %870 ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+  %.0.i362 = phi i64 [ 0, %873 ], [ 1, %870 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+  %876 = mul i64 %874, %spec.select
+  %877 = mul i64 %876, %.0.i362
+  invoke void %859(i32 noundef 34962, i64 noundef %875, i64 noundef %877, ptr noundef nonnull %.sroa.0495.0)
+          to label %878 unwind label %.loopexit610
 
-877:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
-  %878 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %878(i32 noundef 34962, i32 noundef 0)
-          to label %879 unwind label %.loopexit610
+878:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
+  %879 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %879(i32 noundef 34962, i32 noundef 0)
+          to label %880 unwind label %.loopexit610
 
-879:                                              ; preds = %847, %877
-  %880 = load i8, ptr %69, align 1
-  %881 = trunc i8 %880 to i1
-  br i1 %881, label %882, label %911
+880:                                              ; preds = %848, %878
+  %881 = load i8, ptr %69, align 1
+  %882 = trunc i8 %881 to i1
+  br i1 %882, label %883, label %912
 
-882:                                              ; preds = %879
-  %883 = load ptr, ptr %241, align 8
-  %884 = getelementptr inbounds nuw i8, ptr %883, i64 40
-  %885 = load ptr, ptr %884, align 8
-  %886 = load ptr, ptr @__glewBindBuffer, align 8
-  %887 = getelementptr inbounds nuw i8, ptr %885, i64 32
-  %888 = load i32, ptr %887, align 8
-  invoke void %886(i32 noundef 34962, i32 noundef %888)
-          to label %889 unwind label %.loopexit610
+883:                                              ; preds = %880
+  %884 = load ptr, ptr %241, align 8
+  %885 = getelementptr inbounds nuw i8, ptr %884, i64 40
+  %886 = load ptr, ptr %885, align 8
+  %887 = load ptr, ptr @__glewBindBuffer, align 8
+  %888 = getelementptr inbounds nuw i8, ptr %886, i64 32
+  %889 = load i32, ptr %888, align 8
+  invoke void %887(i32 noundef 34962, i32 noundef %889)
+          to label %890 unwind label %.loopexit610
 
-889:                                              ; preds = %882
-  %890 = load ptr, ptr @__glewBufferSubData, align 8
-  %891 = getelementptr inbounds nuw i8, ptr %885, i64 8
-  %892 = load i64, ptr %891, align 8
-  %893 = mul i64 %242, %.2203649
-  %894 = mul i64 %893, %892
-  %895 = getelementptr inbounds nuw i8, ptr %885, i64 20
-  %896 = load i32, ptr %895, align 4
-  switch i32 %896, label %898 [
+890:                                              ; preds = %883
+  %891 = load ptr, ptr @__glewBufferSubData, align 8
+  %892 = getelementptr inbounds nuw i8, ptr %886, i64 8
+  %893 = load i64, ptr %892, align 8
+  %894 = mul i64 %242, %.2203649
+  %895 = mul i64 %894, %893
+  %896 = getelementptr inbounds nuw i8, ptr %886, i64 20
+  %897 = load i32, ptr %896, align 4
+  switch i32 %897, label %899 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread: ; preds = %889
-  %897 = mul i64 %892, 3
-  br label %901
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread: ; preds = %890
+  %898 = mul i64 %893, 3
+  br label %902
 
-898:                                              ; preds = %889
+899:                                              ; preds = %890
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365: ; preds = %889, %889, %889, %898
-  %.0.i364 = phi i64 [ 0, %898 ], [ 4, %889 ], [ 4, %889 ], [ 4, %889 ]
-  %899 = mul i64 %.0.i364, %894
-  %900 = mul i64 %892, 3
-  switch i32 %896, label %904 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365: ; preds = %890, %890, %890, %899
+  %.0.i364 = phi i64 [ 0, %899 ], [ 4, %890 ], [ 4, %890 ], [ 4, %890 ]
+  %900 = mul i64 %.0.i364, %895
+  %901 = mul i64 %893, 3
+  switch i32 %897, label %905 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
-    i32 5121, label %901
+    i32 5121, label %902
   ]
 
-901:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
-  %902 = phi i64 [ %897, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
-  %903 = phi i64 [ %894, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread ], [ %899, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+902:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
+  %903 = phi i64 [ %898, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread ], [ %901, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+  %904 = phi i64 [ %895, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
 
-904:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
+905:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %901, %904
-  %905 = phi i64 [ %900, %904 ], [ %902, %901 ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
-  %906 = phi i64 [ %899, %904 ], [ %903, %901 ], [ %899, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %899, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %899, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
-  %.0.i366 = phi i64 [ 0, %904 ], [ 1, %901 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
-  %907 = mul i64 %905, %spec.select
-  %908 = mul i64 %907, %.0.i366
-  invoke void %890(i32 noundef 34962, i64 noundef %906, i64 noundef %908, ptr noundef nonnull %.sroa.0481.0)
-          to label %909 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %902, %905
+  %906 = phi i64 [ %901, %905 ], [ %903, %902 ], [ %901, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %901, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %901, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+  %907 = phi i64 [ %900, %905 ], [ %904, %902 ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+  %.0.i366 = phi i64 [ 0, %905 ], [ 1, %902 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+  %908 = mul i64 %906, %spec.select
+  %909 = mul i64 %908, %.0.i366
+  invoke void %891(i32 noundef 34962, i64 noundef %907, i64 noundef %909, ptr noundef nonnull %.sroa.0481.0)
+          to label %910 unwind label %.loopexit610
 
-909:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
-  %910 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %910(i32 noundef 34962, i32 noundef 0)
-          to label %911 unwind label %.loopexit610
+910:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
+  %911 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %911(i32 noundef 34962, i32 noundef 0)
+          to label %912 unwind label %.loopexit610
 
-911:                                              ; preds = %879, %909
-  %912 = load i8, ptr %83, align 1
-  %913 = trunc i8 %912 to i1
-  br i1 %913, label %914, label %943
+912:                                              ; preds = %880, %910
+  %913 = load i8, ptr %83, align 1
+  %914 = trunc i8 %913 to i1
+  br i1 %914, label %915, label %944
 
-914:                                              ; preds = %911
-  %915 = load ptr, ptr %241, align 8
-  %916 = getelementptr inbounds nuw i8, ptr %915, i64 48
-  %917 = load ptr, ptr %916, align 8
-  %918 = load ptr, ptr @__glewBindBuffer, align 8
-  %919 = getelementptr inbounds nuw i8, ptr %917, i64 32
-  %920 = load i32, ptr %919, align 8
-  invoke void %918(i32 noundef 34962, i32 noundef %920)
-          to label %921 unwind label %.loopexit610
+915:                                              ; preds = %912
+  %916 = load ptr, ptr %241, align 8
+  %917 = getelementptr inbounds nuw i8, ptr %916, i64 48
+  %918 = load ptr, ptr %917, align 8
+  %919 = load ptr, ptr @__glewBindBuffer, align 8
+  %920 = getelementptr inbounds nuw i8, ptr %918, i64 32
+  %921 = load i32, ptr %920, align 8
+  invoke void %919(i32 noundef 34962, i32 noundef %921)
+          to label %922 unwind label %.loopexit610
 
-921:                                              ; preds = %914
-  %922 = load ptr, ptr @__glewBufferSubData, align 8
-  %923 = getelementptr inbounds nuw i8, ptr %917, i64 8
-  %924 = load i64, ptr %923, align 8
-  %925 = mul i64 %242, %.2203649
-  %926 = mul i64 %925, %924
-  %927 = getelementptr inbounds nuw i8, ptr %917, i64 20
-  %928 = load i32, ptr %927, align 4
-  switch i32 %928, label %930 [
+922:                                              ; preds = %915
+  %923 = load ptr, ptr @__glewBufferSubData, align 8
+  %924 = getelementptr inbounds nuw i8, ptr %918, i64 8
+  %925 = load i64, ptr %924, align 8
+  %926 = mul i64 %242, %.2203649
+  %927 = mul i64 %926, %925
+  %928 = getelementptr inbounds nuw i8, ptr %918, i64 20
+  %929 = load i32, ptr %928, align 4
+  switch i32 %929, label %931 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread: ; preds = %921
-  %929 = mul i64 %924, 3
-  br label %933
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread: ; preds = %922
+  %930 = mul i64 %925, 3
+  br label %934
 
-930:                                              ; preds = %921
+931:                                              ; preds = %922
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369: ; preds = %921, %921, %921, %930
-  %.0.i368 = phi i64 [ 0, %930 ], [ 4, %921 ], [ 4, %921 ], [ 4, %921 ]
-  %931 = mul i64 %.0.i368, %926
-  %932 = mul i64 %924, 3
-  switch i32 %928, label %936 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369: ; preds = %922, %922, %922, %931
+  %.0.i368 = phi i64 [ 0, %931 ], [ 4, %922 ], [ 4, %922 ], [ 4, %922 ]
+  %932 = mul i64 %.0.i368, %927
+  %933 = mul i64 %925, 3
+  switch i32 %929, label %937 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
-    i32 5121, label %933
+    i32 5121, label %934
   ]
 
-933:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
-  %934 = phi i64 [ %929, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
-  %935 = phi i64 [ %926, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread ], [ %931, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+934:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
+  %935 = phi i64 [ %930, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread ], [ %933, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+  %936 = phi i64 [ %927, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
 
-936:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
+937:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %933, %936
-  %937 = phi i64 [ %932, %936 ], [ %934, %933 ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
-  %938 = phi i64 [ %931, %936 ], [ %935, %933 ], [ %931, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %931, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %931, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
-  %.0.i370 = phi i64 [ 0, %936 ], [ 1, %933 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
-  %939 = mul i64 %937, %spec.select
-  %940 = mul i64 %939, %.0.i370
-  invoke void %922(i32 noundef 34962, i64 noundef %938, i64 noundef %940, ptr noundef nonnull %.sroa.0469.1)
-          to label %941 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %934, %937
+  %938 = phi i64 [ %933, %937 ], [ %935, %934 ], [ %933, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %933, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %933, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+  %939 = phi i64 [ %932, %937 ], [ %936, %934 ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+  %.0.i370 = phi i64 [ 0, %937 ], [ 1, %934 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+  %940 = mul i64 %938, %spec.select
+  %941 = mul i64 %940, %.0.i370
+  invoke void %923(i32 noundef 34962, i64 noundef %939, i64 noundef %941, ptr noundef nonnull %.sroa.0469.1)
+          to label %942 unwind label %.loopexit610
 
-941:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
-  %942 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %942(i32 noundef 34962, i32 noundef 0)
-          to label %943 unwind label %.loopexit610
+942:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
+  %943 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %943(i32 noundef 34962, i32 noundef 0)
+          to label %944 unwind label %.loopexit610
 
-943:                                              ; preds = %941, %911
-  %944 = add i64 %.2203649, 1
-  br label %945
+944:                                              ; preds = %942, %912
+  %945 = add i64 %.2203649, 1
+  br label %946
 
-945:                                              ; preds = %.loopexit, %943
-  %.3204 = phi i64 [ %944, %943 ], [ %.2203649, %.loopexit ]
+946:                                              ; preds = %.loopexit, %944
+  %.3204 = phi i64 [ %945, %944 ], [ %.2203649, %.loopexit ]
   %indvars.iv.next679 = add nsw i64 %indvars.iv678, 1
-  %946 = add nuw nsw i64 %.0210647, 1
-  %947 = load i32, ptr %252, align 4
-  %948 = zext i32 %947 to i64
-  %.not213.not = icmp samesign ult i64 %.0210647, %948
+  %947 = add nuw nsw i64 %.0210647, 1
+  %948 = load i32, ptr %252, align 4
+  %949 = zext i32 %948 to i64
+  %.not213.not = icmp samesign ult i64 %.0210647, %949
   br i1 %.not213.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !117
 
-._crit_edge.loopexit:                             ; preds = %945
-  %949 = trunc nsw i64 %indvars.iv.next679 to i32
+._crit_edge.loopexit:                             ; preds = %946
+  %950 = trunc nsw i64 %indvars.iv.next679 to i32
   %.pre687 = load i32, ptr %.sroa.0425.0654, align 4
   %.pre688 = load ptr, ptr %248, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph658
-  %950 = phi ptr [ %250, %.lr.ph658 ], [ %.pre688, %._crit_edge.loopexit ]
-  %951 = phi i32 [ %251, %.lr.ph658 ], [ %.pre687, %._crit_edge.loopexit ]
-  %.2209.lcssa = phi i32 [ %.1208655, %.lr.ph658 ], [ %949, %._crit_edge.loopexit ]
+  %951 = phi ptr [ %250, %.lr.ph658 ], [ %.pre688, %._crit_edge.loopexit ]
+  %952 = phi i32 [ %251, %.lr.ph658 ], [ %.pre687, %._crit_edge.loopexit ]
+  %.2209.lcssa = phi i32 [ %.1208655, %.lr.ph658 ], [ %950, %._crit_edge.loopexit ]
   %.2203.lcssa = phi i64 [ %.1202656, %.lr.ph658 ], [ %.3204, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ %253, %.lr.ph658 ], [ %947, %._crit_edge.loopexit ]
-  %952 = add i32 %.1653, 1
-  %953 = add i32 %952, %.lcssa
-  %954 = sub i32 %953, %951
-  %955 = getelementptr inbounds nuw i8, ptr %.sroa.0425.0654, i64 8
-  %.not598 = icmp eq ptr %955, %950
+  %.lcssa = phi i32 [ %253, %.lr.ph658 ], [ %948, %._crit_edge.loopexit ]
+  %953 = add i32 %.1653, 1
+  %954 = add i32 %953, %.lcssa
+  %955 = sub i32 %954, %952
+  %956 = getelementptr inbounds nuw i8, ptr %.sroa.0425.0654, i64 8
+  %.not598 = icmp eq ptr %956, %951
   br i1 %.not598, label %._crit_edge659, label %.lr.ph658, !llvm.loop !118
 
 ._crit_edge659:                                   ; preds = %._crit_edge, %244
-  %.1.lcssa = phi i32 [ %.0664, %244 ], [ %954, %._crit_edge ]
+  %.1.lcssa = phi i32 [ %.0664, %244 ], [ %955, %._crit_edge ]
   %.1208.lcssa = phi i32 [ %.0207666, %244 ], [ %.2209.lcssa, %._crit_edge ]
   %.1202.lcssa = phi i64 [ %.0201668, %244 ], [ %.2203.lcssa, %._crit_edge ]
-  %956 = load i8, ptr %83, align 1
-  %957 = trunc i8 %956 to i1
-  %958 = load i8, ptr %69, align 1
-  %959 = trunc i8 %958 to i1
-  %or.cond588 = select i1 %957, i1 true, i1 %959
-  br i1 %or.cond588, label %960, label %965
+  %957 = load i8, ptr %83, align 1
+  %958 = trunc i8 %957 to i1
+  %959 = load i8, ptr %69, align 1
+  %960 = trunc i8 %959 to i1
+  %or.cond588 = select i1 %958, i1 true, i1 %960
+  br i1 %or.cond588, label %961, label %966
 
-960:                                              ; preds = %._crit_edge659
-  %961 = load i16, ptr %245, align 2
-  %962 = load ptr, ptr %243, align 8
-  %963 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %962, i64 %indvars.iv681
-  store i16 %961, ptr %963, align 4
-  %964 = getelementptr inbounds nuw i8, ptr %963, i64 4
-  store i32 %.1.lcssa, ptr %964, align 4
-  br label %965
+961:                                              ; preds = %._crit_edge659
+  %962 = load i16, ptr %245, align 2
+  %963 = load ptr, ptr %243, align 8
+  %964 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %963, i64 %indvars.iv681
+  store i16 %962, ptr %964, align 4
+  %965 = getelementptr inbounds nuw i8, ptr %964, i64 4
+  store i32 %.1.lcssa, ptr %965, align 4
+  br label %966
 
-965:                                              ; preds = %._crit_edge659, %960
+966:                                              ; preds = %._crit_edge659, %961
   %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
-  %966 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0434.0665) #29
-  %.not596 = icmp eq ptr %966, %238
+  %967 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0434.0665) #29
+  %.not596 = icmp eq ptr %967, %238
   br i1 %.not596, label %._crit_edge670, label %244, !llvm.loop !119
 
-._crit_edge670:                                   ; preds = %965, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
-  %967 = load i8, ptr %224, align 1
-  %968 = trunc i8 %967 to i1
-  br i1 %968, label %969, label %1012
+._crit_edge670:                                   ; preds = %966, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
+  %968 = load i8, ptr %224, align 1
+  %969 = trunc i8 %968 to i1
+  br i1 %969, label %970, label %1013
 
-969:                                              ; preds = %._crit_edge670
-  %970 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %971 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %972 = load ptr, ptr %971, align 8
-  %973 = load ptr, ptr %970, align 8
-  %.not = icmp eq ptr %972, %973
-  br i1 %.not, label %1012, label %.preheader
+970:                                              ; preds = %._crit_edge670
+  %971 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %972 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %973 = load ptr, ptr %972, align 8
+  %974 = load ptr, ptr %971, align 8
+  %.not = icmp eq ptr %973, %974
+  br i1 %.not, label %1013, label %.preheader
 
-.preheader:                                       ; preds = %969, %.preheader
-  %.sroa.0419.0671 = phi ptr [ %985, %.preheader ], [ %973, %969 ]
-  %974 = load i32, ptr %.sroa.0419.0671, align 4
-  %975 = zext i32 %974 to i64
-  %976 = load ptr, ptr %9, align 8
-  %977 = getelementptr inbounds nuw i32, ptr %976, i64 %975
-  %978 = load i32, ptr %977, align 4
-  store i32 %978, ptr %.sroa.0419.0671, align 4
-  %979 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0671, i64 4
-  %980 = load i32, ptr %979, align 4
-  %981 = zext i32 %980 to i64
-  %982 = load ptr, ptr %9, align 8
-  %983 = getelementptr inbounds nuw i32, ptr %982, i64 %981
-  %984 = load i32, ptr %983, align 4
-  store i32 %984, ptr %979, align 4
-  %985 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0671, i64 8
-  %.not597 = icmp eq ptr %985, %972
-  br i1 %.not597, label %986, label %.preheader
+.preheader:                                       ; preds = %970, %.preheader
+  %.sroa.0419.0671 = phi ptr [ %986, %.preheader ], [ %974, %970 ]
+  %975 = load i32, ptr %.sroa.0419.0671, align 4
+  %976 = zext i32 %975 to i64
+  %977 = load ptr, ptr %9, align 8
+  %978 = getelementptr inbounds nuw i32, ptr %977, i64 %976
+  %979 = load i32, ptr %978, align 4
+  store i32 %979, ptr %.sroa.0419.0671, align 4
+  %980 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0671, i64 4
+  %981 = load i32, ptr %980, align 4
+  %982 = zext i32 %981 to i64
+  %983 = load ptr, ptr %9, align 8
+  %984 = getelementptr inbounds nuw i32, ptr %983, i64 %982
+  %985 = load i32, ptr %984, align 4
+  store i32 %985, ptr %980, align 4
+  %986 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0671, i64 8
+  %.not597 = icmp eq ptr %986, %973
+  br i1 %.not597, label %987, label %.preheader
 
-986:                                              ; preds = %.preheader
-  %987 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %988 = load ptr, ptr %987, align 8
-  %989 = getelementptr inbounds nuw i8, ptr %988, i64 64
-  %990 = load ptr, ptr %989, align 8
-  %991 = load ptr, ptr @__glewBindBuffer, align 8
-  %992 = getelementptr inbounds nuw i8, ptr %990, i64 32
-  %993 = load i32, ptr %992, align 8
-  invoke void %991(i32 noundef 34963, i32 noundef %993)
-          to label %994 unwind label %.loopexit.split-lp
+987:                                              ; preds = %.preheader
+  %988 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %989 = load ptr, ptr %988, align 8
+  %990 = getelementptr inbounds nuw i8, ptr %989, i64 64
+  %991 = load ptr, ptr %990, align 8
+  %992 = load ptr, ptr @__glewBindBuffer, align 8
+  %993 = getelementptr inbounds nuw i8, ptr %991, i64 32
+  %994 = load i32, ptr %993, align 8
+  invoke void %992(i32 noundef 34963, i32 noundef %994)
+          to label %995 unwind label %.loopexit.split-lp
 
-994:                                              ; preds = %986
-  %995 = load ptr, ptr @__glewBufferSubData, align 8
-  %996 = getelementptr inbounds nuw i8, ptr %990, i64 8
-  %997 = load i64, ptr %996, align 8
-  %998 = getelementptr inbounds nuw i8, ptr %990, i64 20
-  %999 = load i32, ptr %998, align 4
-  %switch.tableidx = add i32 %999, -5121
-  %1000 = icmp ult i32 %switch.tableidx, 6
-  br i1 %1000, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
+995:                                              ; preds = %987
+  %996 = load ptr, ptr @__glewBufferSubData, align 8
+  %997 = getelementptr inbounds nuw i8, ptr %991, i64 8
+  %998 = load i64, ptr %997, align 8
+  %999 = getelementptr inbounds nuw i8, ptr %991, i64 20
+  %1000 = load i32, ptr %999, align 4
+  %switch.tableidx = add i32 %1000, -5121
+  %1001 = icmp ult i32 %switch.tableidx, 6
+  br i1 %1001, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
 
-switch.lookup:                                    ; preds = %994
-  %1001 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 0, i64 %1001
+switch.lookup:                                    ; preds = %995
+  %1002 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 0, i64 %1002
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373: ; preds = %994, %switch.lookup
-  %.0.i372 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %994 ]
-  %1002 = mul i64 %.0.i372, %997
-  %1003 = load ptr, ptr %971, align 8
-  %1004 = load ptr, ptr %970, align 8
-  %1005 = ptrtoint ptr %1003 to i64
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373: ; preds = %995, %switch.lookup
+  %.0.i372 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %995 ]
+  %1003 = mul i64 %.0.i372, %998
+  %1004 = load ptr, ptr %972, align 8
+  %1005 = load ptr, ptr %971, align 8
   %1006 = ptrtoint ptr %1004 to i64
-  %1007 = sub i64 %1005, %1006
-  %1008 = ashr exact i64 %1007, 3
-  %1009 = mul i64 %1002, %1008
-  invoke void %995(i32 noundef 34963, i64 noundef 0, i64 noundef %1009, ptr noundef nonnull %1004)
-          to label %1010 unwind label %.loopexit.split-lp
+  %1007 = ptrtoint ptr %1005 to i64
+  %1008 = sub i64 %1006, %1007
+  %1009 = ashr exact i64 %1008, 3
+  %1010 = mul i64 %1003, %1009
+  invoke void %996(i32 noundef 34963, i64 noundef 0, i64 noundef %1010, ptr noundef nonnull %1005)
+          to label %1011 unwind label %.loopexit.split-lp
 
-1010:                                             ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
-  %1011 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %1011(i32 noundef 34963, i32 noundef 0)
-          to label %1012 unwind label %.loopexit.split-lp
+1011:                                             ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
+  %1012 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %1012(i32 noundef 34963, i32 noundef 0)
+          to label %1013 unwind label %.loopexit.split-lp
 
-1012:                                             ; preds = %1010, %969, %._crit_edge670
-  %1013 = load ptr, ptr %9, align 8
-  %.not.i.i.i374 = icmp eq ptr %1013, null
-  br i1 %.not.i.i.i374, label %_ZNSt6vectorIjSaIjEED2Ev.exit375, label %1014
+1013:                                             ; preds = %1011, %970, %._crit_edge670
+  %1014 = load ptr, ptr %9, align 8
+  %.not.i.i.i374 = icmp eq ptr %1014, null
+  br i1 %.not.i.i.i374, label %_ZNSt6vectorIjSaIjEED2Ev.exit375, label %1015
 
-1014:                                             ; preds = %1012
-  call void @_ZdlPv(ptr noundef nonnull %1013) #26
+1015:                                             ; preds = %1013
+  call void @_ZdlPv(ptr noundef nonnull %1014) #26
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit375
 
-_ZNSt6vectorIjSaIjEED2Ev.exit375:                 ; preds = %1012, %1014
+_ZNSt6vectorIjSaIjEED2Ev.exit375:                 ; preds = %1013, %1015
   %.not.i.i.i376 = icmp eq ptr %.sroa.0469.1, null
-  br i1 %.not.i.i.i376, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %1015
+  br i1 %.not.i.i.i376, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %1016
 
-1015:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit375
+1016:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit375
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0469.1) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit375, %1015
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit375, %1016
   %.not.i.i.i377 = icmp eq ptr %.sroa.0481.0, null
-  br i1 %.not.i.i.i377, label %_ZNSt6vectorIfSaIfEED2Ev.exit378, label %1016
+  br i1 %.not.i.i.i377, label %_ZNSt6vectorIfSaIfEED2Ev.exit378, label %1017
 
-1016:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
+1017:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0481.0) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit378
 
-_ZNSt6vectorIfSaIfEED2Ev.exit378:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %1016
+_ZNSt6vectorIfSaIfEED2Ev.exit378:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %1017
   %.not.i.i.i379 = icmp eq ptr %.sroa.0495.0, null
-  br i1 %.not.i.i.i379, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, label %1017
+  br i1 %.not.i.i.i379, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, label %1018
 
-1017:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit378
+1018:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit378
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0495.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit378, %1017
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit378, %1018
   %.not.i.i.i380 = icmp eq ptr %.sroa.0503.0, null
-  br i1 %.not.i.i.i380, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381, label %1018
+  br i1 %.not.i.i.i380, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381, label %1019
 
-1018:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit
+1019:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0503.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, %1018
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, %1019
   %.not.i.i.i382 = icmp eq ptr %.sroa.0512.0, null
-  br i1 %.not.i.i.i382, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, label %1019
+  br i1 %.not.i.i.i382, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, label %1020
 
-1019:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381
+1020:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0512.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381, %1019
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381, %1020
   %.not.i.i.i383 = icmp eq ptr %.sroa.0521.0, null
-  br i1 %.not.i.i.i383, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384, label %1020
+  br i1 %.not.i.i.i383, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384, label %1021
 
-1020:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
+1021:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0521.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %1020
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %1021
   %.not.i.i.i385 = icmp eq ptr %.sroa.0530.0, null
-  br i1 %.not.i.i.i385, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386, label %1021
+  br i1 %.not.i.i.i385, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386, label %1022
 
-1021:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384
+1022:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0530.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384, %1021
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384, %1022
   ret i1 true
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %235, %233, %95
   %.sroa.0469.2 = phi ptr [ %.sroa.0469.0, %95 ], [ %.sroa.0469.1, %233 ], [ %.sroa.0469.1, %235 ]
   %.pn = phi { ptr, i32 } [ %96, %95 ], [ %lpad.phi, %233 ], [ %lpad.phi, %235 ]
   %.not.i.i.i387 = icmp eq ptr %.sroa.0469.2, null
-  br i1 %.not.i.i.i387, label %_ZNSt6vectorIfSaIfEED2Ev.exit388, label %1022
+  br i1 %.not.i.i.i387, label %_ZNSt6vectorIfSaIfEED2Ev.exit388, label %1023
 
-1022:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
+1023:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0469.2) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit388
 
-_ZNSt6vectorIfSaIfEED2Ev.exit388:                 ; preds = %1022, %_ZNSt6vectorIjSaIjEED2Ev.exit
+_ZNSt6vectorIfSaIfEED2Ev.exit388:                 ; preds = %1023, %_ZNSt6vectorIjSaIjEED2Ev.exit
   %.not.i.i.i389 = icmp eq ptr %.sroa.0481.0, null
-  br i1 %.not.i.i.i389, label %_ZNSt6vectorIfSaIfEED2Ev.exit390, label %1023
+  br i1 %.not.i.i.i389, label %_ZNSt6vectorIfSaIfEED2Ev.exit390, label %1024
 
-1023:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit388
+1024:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit388
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0481.0) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit390
 
-_ZNSt6vectorIfSaIfEED2Ev.exit390:                 ; preds = %1023, %_ZNSt6vectorIfSaIfEED2Ev.exit388, %_ZNSt6vectorIfSaIfEED2Ev.exit388.thread
-  %.pn.pn.pn = phi { ptr, i32 } [ %81, %_ZNSt6vectorIfSaIfEED2Ev.exit388.thread ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit388 ], [ %.pn, %1023 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit390:                 ; preds = %1024, %_ZNSt6vectorIfSaIfEED2Ev.exit388, %_ZNSt6vectorIfSaIfEED2Ev.exit388.thread
+  %.pn.pn.pn = phi { ptr, i32 } [ %81, %_ZNSt6vectorIfSaIfEED2Ev.exit388.thread ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit388 ], [ %.pn, %1024 ]
   %.not.i.i.i391 = icmp eq ptr %.sroa.0495.0, null
-  br i1 %.not.i.i.i391, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392, label %1024
+  br i1 %.not.i.i.i391, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392, label %1025
 
-1024:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit390
+1025:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit390
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0495.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392: ; preds = %1024, %_ZNSt6vectorIfSaIfEED2Ev.exit390, %_ZNSt6vectorIfSaIfEED2Ev.exit390.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %67, %_ZNSt6vectorIfSaIfEED2Ev.exit390.thread ], [ %.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit390 ], [ %.pn.pn.pn, %1024 ]
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392: ; preds = %1025, %_ZNSt6vectorIfSaIfEED2Ev.exit390, %_ZNSt6vectorIfSaIfEED2Ev.exit390.thread
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %67, %_ZNSt6vectorIfSaIfEED2Ev.exit390.thread ], [ %.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit390 ], [ %.pn.pn.pn, %1025 ]
   %.not.i.i.i393 = icmp eq ptr %.sroa.0503.0, null
-  br i1 %.not.i.i.i393, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394, label %1025
+  br i1 %.not.i.i.i393, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394, label %1026
 
-1025:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392
+1026:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0503.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394: ; preds = %1025, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392.thread
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %56, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392.thread ], [ %.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392 ], [ %.pn.pn.pn.pn, %1025 ]
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394: ; preds = %1026, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392.thread
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %56, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392.thread ], [ %.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392 ], [ %.pn.pn.pn.pn, %1026 ]
   %.not.i.i.i395 = icmp eq ptr %.sroa.0512.0, null
-  br i1 %.not.i.i.i395, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396, label %1026
+  br i1 %.not.i.i.i395, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396, label %1027
 
-1026:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394
+1027:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0512.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396: ; preds = %1026, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394.thread
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %45, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394.thread ], [ %.pn.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394 ], [ %.pn.pn.pn.pn.pn, %1026 ]
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396: ; preds = %1027, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394.thread
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %45, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394.thread ], [ %.pn.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394 ], [ %.pn.pn.pn.pn.pn, %1027 ]
   %.not.i.i.i397 = icmp eq ptr %.sroa.0521.0, null
-  br i1 %.not.i.i.i397, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398, label %1027
+  br i1 %.not.i.i.i397, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398, label %1028
 
-1027:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396
+1028:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0521.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398: ; preds = %1027, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396.thread
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396.thread ], [ %.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396 ], [ %.pn.pn.pn.pn.pn.pn, %1027 ]
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398: ; preds = %1028, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396.thread
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396.thread ], [ %.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396 ], [ %.pn.pn.pn.pn.pn.pn, %1028 ]
   %.not.i.i.i399 = icmp eq ptr %.sroa.0530.0, null
-  br i1 %.not.i.i.i399, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400, label %1028
+  br i1 %.not.i.i.i399, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400, label %1029
 
-1028:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398
+1029:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0530.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398, %1028
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398, %1029
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 

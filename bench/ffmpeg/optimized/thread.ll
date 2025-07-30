@@ -2037,8 +2037,8 @@ schedule_next_parse.exit:                         ; preds = %is_first_row.exit44
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %133
-  %141 = phi ptr [ %129, %133 ], [ %147, %._crit_edge.i ]
-  %142 = phi ptr [ %129, %133 ], [ %148, %._crit_edge.i ]
+  %141 = phi ptr [ %129, %133 ], [ %149, %._crit_edge.i ]
+  %142 = phi ptr [ %129, %133 ], [ %150, %._crit_edge.i ]
   %143 = phi i1 [ true, %133 ], [ false, %._crit_edge.i ]
   %indvars.iv37.i = phi i64 [ 0, %133 ], [ 1, %._crit_edge.i ]
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 18816
@@ -2047,70 +2047,75 @@ schedule_next_parse.exit:                         ; preds = %is_first_row.exit44
   %.not35.i = icmp eq i8 %146, 0
   br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %179, %.preheader.i
-  %147 = phi ptr [ %141, %.preheader.i ], [ %180, %179 ]
-  %148 = phi ptr [ %142, %.preheader.i ], [ %180, %179 ]
+.lr.ph.i:                                         ; preds = %.preheader.i
+  %147 = getelementptr inbounds nuw [2 x [29 x i32]], ptr %136, i64 0, i64 %indvars.iv37.i
+  %148 = getelementptr inbounds nuw [2 x [29 x %struct.ProgressListener]], ptr %138, i64 0, i64 %indvars.iv37.i
+  br label %151
+
+._crit_edge.i:                                    ; preds = %182, %.preheader.i
+  %149 = phi ptr [ %141, %.preheader.i ], [ %183, %182 ]
+  %150 = phi ptr [ %142, %.preheader.i ], [ %183, %182 ]
   br i1 %143, label %.preheader.i, label %schedule_inter.exit, !llvm.loop !193
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %179
-  %149 = phi ptr [ %180, %179 ], [ %141, %.preheader.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %179 ], [ 0, %.preheader.i ]
-  %150 = getelementptr inbounds nuw [2 x [29 x i32]], ptr %136, i64 0, i64 %indvars.iv37.i, i64 %indvars.iv.i
-  %151 = load i32, ptr %150, align 4, !tbaa !128
-  %152 = load ptr, ptr %137, align 8, !tbaa !194
-  %153 = getelementptr inbounds nuw %struct.RefPicList, ptr %152, i64 %indvars.iv37.i
-  %154 = getelementptr inbounds nuw %struct.VVCRefPic, ptr %153, i64 %indvars.iv.i
-  %155 = load ptr, ptr %154, align 8, !tbaa !195
-  %156 = icmp ne ptr %155, null
-  %157 = icmp sgt i32 %151, -1
-  %or.cond.i = select i1 %156, i1 %157, i1 false
-  br i1 %or.cond.i, label %158, label %179
+151:                                              ; preds = %182, %.lr.ph.i
+  %152 = phi ptr [ %141, %.lr.ph.i ], [ %183, %182 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %182 ]
+  %153 = getelementptr inbounds nuw [29 x i32], ptr %147, i64 0, i64 %indvars.iv.i
+  %154 = load i32, ptr %153, align 4, !tbaa !128
+  %155 = load ptr, ptr %137, align 8, !tbaa !194
+  %156 = getelementptr inbounds nuw %struct.RefPicList, ptr %155, i64 %indvars.iv37.i
+  %157 = getelementptr inbounds nuw %struct.VVCRefPic, ptr %156, i64 %indvars.iv.i
+  %158 = load ptr, ptr %157, align 8, !tbaa !195
+  %159 = icmp ne ptr %158, null
+  %160 = icmp sgt i32 %154, -1
+  %or.cond.i = select i1 %159, i1 %160, i1 false
+  br i1 %or.cond.i, label %161, label %182
 
-158:                                              ; preds = %.lr.ph.i
-  %159 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %160 = load i32, ptr %159, align 8, !tbaa !197
-  %.not.i18 = icmp eq i32 %160, 0
-  br i1 %.not.i18, label %166, label %161
+161:                                              ; preds = %151
+  %162 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %163 = load i32, ptr %162, align 8, !tbaa !197
+  %.not.i18 = icmp eq i32 %163, 0
+  br i1 %.not.i18, label %169, label %164
 
-161:                                              ; preds = %158
-  %162 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %163 = load i32, ptr %162, align 4, !tbaa !128
-  %164 = mul nsw i32 %163, %151
-  %165 = ashr i32 %164, 14
-  br label %166
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds nuw i8, ptr %157, i64 24
+  %166 = load i32, ptr %165, align 4, !tbaa !128
+  %167 = mul nsw i32 %166, %154
+  %168 = ashr i32 %167, 14
+  br label %169
 
-166:                                              ; preds = %161, %158
-  %.029.i = phi i32 [ %165, %161 ], [ %151, %158 ]
-  %167 = getelementptr inbounds nuw [2 x [29 x %struct.ProgressListener]], ptr %138, i64 0, i64 %indvars.iv37.i, i64 %indvars.iv.i
-  %168 = add nsw i32 %.029.i, 4
-  %169 = load ptr, ptr %139, align 8, !tbaa !13
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 21288
-  %171 = load ptr, ptr %170, align 8, !tbaa !23
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 44
-  %173 = atomicrmw add ptr %172, i32 1 seq_cst, align 4
-  %174 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  store ptr %18, ptr %174, align 8, !tbaa !172
-  %175 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  store ptr %0, ptr %175, align 8, !tbaa !173
-  store i32 1, ptr %167, align 8, !tbaa !174
-  %176 = getelementptr inbounds nuw i8, ptr %167, i64 4
-  store i32 %168, ptr %176, align 4, !tbaa !175
-  %177 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store ptr @pixel_done, ptr %177, align 8, !tbaa !176
-  %178 = atomicrmw add ptr %140, i8 1 seq_cst, align 2
-  tail call void @ff_vvc_add_progress_listener(ptr noundef nonnull %155, ptr noundef nonnull %167) #7
+169:                                              ; preds = %164, %161
+  %.029.i = phi i32 [ %168, %164 ], [ %154, %161 ]
+  %170 = getelementptr inbounds nuw [29 x %struct.ProgressListener], ptr %148, i64 0, i64 %indvars.iv.i
+  %171 = add nsw i32 %.029.i, 4
+  %172 = load ptr, ptr %139, align 8, !tbaa !13
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 21288
+  %174 = load ptr, ptr %173, align 8, !tbaa !23
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 44
+  %176 = atomicrmw add ptr %175, i32 1 seq_cst, align 4
+  %177 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  store ptr %18, ptr %177, align 8, !tbaa !172
+  %178 = getelementptr inbounds nuw i8, ptr %170, i64 32
+  store ptr %0, ptr %178, align 8, !tbaa !173
+  store i32 1, ptr %170, align 8, !tbaa !174
+  %179 = getelementptr inbounds nuw i8, ptr %170, i64 4
+  store i32 %171, ptr %179, align 4, !tbaa !175
+  %180 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  store ptr @pixel_done, ptr %180, align 8, !tbaa !176
+  %181 = atomicrmw add ptr %140, i8 1 seq_cst, align 2
+  tail call void @ff_vvc_add_progress_listener(ptr noundef nonnull %158, ptr noundef nonnull %170) #7
   %.pre.i = load ptr, ptr %128, align 8, !tbaa !190
-  br label %179
+  br label %182
 
-179:                                              ; preds = %166, %.lr.ph.i
-  %180 = phi ptr [ %.pre.i, %166 ], [ %149, %.lr.ph.i ]
+182:                                              ; preds = %169, %151
+  %183 = phi ptr [ %.pre.i, %169 ], [ %152, %151 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 18816
-  %182 = getelementptr inbounds nuw [2 x i8], ptr %181, i64 0, i64 %indvars.iv37.i
-  %183 = load i8, ptr %182, align 1, !tbaa !192
-  %184 = zext i8 %183 to i64
-  %185 = icmp samesign ult i64 %indvars.iv.next.i, %184
-  br i1 %185, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !198
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 18816
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %184, i64 0, i64 %indvars.iv37.i
+  %186 = load i8, ptr %185, align 1, !tbaa !192
+  %187 = zext i8 %186 to i64
+  %188 = icmp samesign ult i64 %indvars.iv.next.i, %187
+  br i1 %188, label %151, label %._crit_edge.i, !llvm.loop !198
 
 schedule_inter.exit:                              ; preds = %._crit_edge.i, %schedule_next_parse.exit
   ret void

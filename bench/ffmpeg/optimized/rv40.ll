@@ -1109,9 +1109,9 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %95 = sext i32 %57 to i64
   br label %96
 
-96:                                               ; preds = %.lr.ph357, %571
-  %indvars.iv378 = phi i64 [ 0, %.lr.ph357 ], [ %indvars.iv.next379, %571 ]
-  %indvars.iv376 = phi i64 [ %95, %.lr.ph357 ], [ %indvars.iv.next377, %571 ]
+96:                                               ; preds = %.lr.ph357, %570
+  %indvars.iv378 = phi i64 [ 0, %.lr.ph357 ], [ %indvars.iv.next379, %570 ]
+  %indvars.iv376 = phi i64 [ %95, %.lr.ph357 ], [ %indvars.iv.next377, %570 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0400)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4401)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0394)
@@ -1138,6 +1138,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %110 = icmp slt i32 %1, %109
   %111 = zext i1 %110 to i32
   store i32 %111, ptr %65, align 4, !tbaa !71
+  %invariant.gep = getelementptr [32 x i8], ptr @rv40_filter_clip_tbl, i64 0, i64 %100
   %112 = trunc nsw i64 %indvars.iv376 to i32
   br label %113
 
@@ -1210,784 +1211,784 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %161 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv360
   store i32 %160, ptr %161, align 4, !tbaa !71
   %162 = select i1 %159, i64 2, i64 1
-  %163 = getelementptr inbounds [3 x [32 x i8]], ptr @rv40_filter_clip_tbl, i64 0, i64 %162, i64 %100
-  %164 = load i8, ptr %163, align 1, !tbaa !65
-  %165 = zext i8 %164 to i32
-  %166 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv360
-  store i32 %165, ptr %166, align 4, !tbaa !71
+  %gep = getelementptr [3 x [32 x i8]], ptr %invariant.gep, i64 0, i64 %162
+  %163 = load i8, ptr %gep, align 1, !tbaa !65
+  %164 = zext i8 %163 to i32
+  %165 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv360
+  store i32 %164, ptr %165, align 4, !tbaa !71
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next361, 4
-  br i1 %exitcond.not, label %167, label %113, !llvm.loop !107
+  br i1 %exitcond.not, label %166, label %113, !llvm.loop !107
 
-167:                                              ; preds = %156
-  %168 = zext i8 %102 to i32
-  %169 = zext i8 %104 to i32
-  %170 = mul nuw nsw i32 %169, 3
-  %171 = mul nsw i32 %106, %105
-  %172 = icmp slt i32 %171, 25345
-  %173 = shl nuw nsw i32 %169, 2
-  %spec.select = select i1 %172, i32 %173, i32 %170
-  %174 = load i32, ptr %24, align 16, !tbaa !71
-  %175 = load i32, ptr %70, align 4, !tbaa !71
-  %176 = shl i32 %175, 16
-  %177 = or i32 %176, %174
-  %178 = load i32, ptr %22, align 16, !tbaa !71
-  %179 = shl i32 %178, 4
-  %180 = load i32, ptr %71, align 4, !tbaa !71
-  %181 = lshr i32 %180, 12
-  %182 = and i32 %181, 15
-  %183 = or disjoint i32 %182, %179
-  %184 = or i32 %183, %177
-  %185 = shl i32 %178, 1
-  %186 = and i32 %185, -4370
-  %187 = load i32, ptr %72, align 8, !tbaa !71
-  %188 = lshr i32 %187, 3
-  %189 = and i32 %188, 4369
-  %190 = or disjoint i32 %186, %189
-  %191 = or i32 %190, %177
+166:                                              ; preds = %156
+  %167 = zext i8 %102 to i32
+  %168 = zext i8 %104 to i32
+  %169 = mul nuw nsw i32 %168, 3
+  %170 = mul nsw i32 %106, %105
+  %171 = icmp slt i32 %170, 25345
+  %172 = shl nuw nsw i32 %168, 2
+  %spec.select = select i1 %171, i32 %172, i32 %169
+  %173 = load i32, ptr %24, align 16, !tbaa !71
+  %174 = load i32, ptr %70, align 4, !tbaa !71
+  %175 = shl i32 %174, 16
+  %176 = or i32 %175, %173
+  %177 = load i32, ptr %22, align 16, !tbaa !71
+  %178 = shl i32 %177, 4
+  %179 = load i32, ptr %71, align 4, !tbaa !71
+  %180 = lshr i32 %179, 12
+  %181 = and i32 %180, 15
+  %182 = or disjoint i32 %181, %178
+  %183 = or i32 %182, %176
+  %184 = shl i32 %177, 1
+  %185 = and i32 %184, -4370
+  %186 = load i32, ptr %72, align 8, !tbaa !71
+  %187 = lshr i32 %186, 3
+  %188 = and i32 %187, 4369
+  %189 = or disjoint i32 %185, %188
+  %190 = or i32 %189, %176
   %.not = icmp eq i64 %indvars.iv378, 0
-  %192 = and i32 %191, 61166
-  %spec.select299 = select i1 %.not, i32 %192, i32 %191
-  %193 = and i32 %184, -16
-  %.0258 = select i1 %.not263.not, i32 %193, i32 %184
-  %194 = icmp eq i32 %1, %109
+  %191 = and i32 %190, 61166
+  %spec.select299 = select i1 %.not, i32 %191, i32 %190
+  %192 = and i32 %183, -16
+  %.0258 = select i1 %.not263.not, i32 %192, i32 %183
+  %193 = icmp eq i32 %1, %109
   %.pre383.pre = load i32, ptr %20, align 16
   %.pre384.pre = load i32, ptr %73, align 4
   %.pre387 = or i32 %.pre384.pre, %.pre383.pre
-  br i1 %194, label %._crit_edge386, label %196
+  br i1 %193, label %._crit_edge386, label %195
 
-._crit_edge386:                                   ; preds = %167
-  %195 = icmp ne i32 %.pre387, 0
-  br label %197
+._crit_edge386:                                   ; preds = %166
+  %194 = icmp ne i32 %.pre387, 0
+  br label %196
 
-196:                                              ; preds = %167
+195:                                              ; preds = %166
   %.not264 = icmp eq i32 %.pre387, 0
-  br i1 %.not264, label %199, label %197
+  br i1 %.not264, label %198, label %196
 
-197:                                              ; preds = %._crit_edge386, %196
-  %.pre385.pre-phi = phi i1 [ %195, %._crit_edge386 ], [ true, %196 ]
-  %198 = and i32 %.0258, -983041
-  br label %199
+196:                                              ; preds = %._crit_edge386, %195
+  %.pre385.pre-phi = phi i1 [ %194, %._crit_edge386 ], [ true, %195 ]
+  %197 = and i32 %.0258, -983041
+  br label %198
 
-199:                                              ; preds = %197, %196
-  %.pre-phi = phi i1 [ %.pre385.pre-phi, %197 ], [ false, %196 ]
-  %.1259 = phi i32 [ %198, %197 ], [ %.0258, %196 ]
-  %brmerge = select i1 %194, i1 true, i1 %.pre-phi
-  %200 = or i1 %.not263.not, %brmerge
-  br label %208
+198:                                              ; preds = %196, %195
+  %.pre-phi = phi i1 [ %.pre385.pre-phi, %196 ], [ false, %195 ]
+  %.1259 = phi i32 [ %197, %196 ], [ %.0258, %195 ]
+  %brmerge = select i1 %193, i1 true, i1 %.pre-phi
+  %199 = or i1 %.not263.not, %brmerge
+  br label %207
 
-.preheader339:                                    ; preds = %237
-  %201 = shl nsw i64 %indvars.iv378, 4
-  %202 = load i32, ptr %82, align 8
-  %203 = load i32, ptr %83, align 8
-  %204 = load i32, ptr %84, align 8
-  %205 = load i32, ptr %88, align 4
-  %206 = load i32, ptr %89, align 4
-  %207 = load i32, ptr %90, align 4
-  br label %243
+.preheader339:                                    ; preds = %236
+  %200 = shl nsw i64 %indvars.iv378, 4
+  %201 = load i32, ptr %82, align 8
+  %202 = load i32, ptr %83, align 8
+  %203 = load i32, ptr %84, align 8
+  %204 = load i32, ptr %88, align 4
+  %205 = load i32, ptr %89, align 4
+  %206 = load i32, ptr %90, align 4
+  br label %242
 
-208:                                              ; preds = %199, %237
-  %209 = phi i1 [ true, %199 ], [ false, %237 ]
-  %indvars.iv363.sroa.phi = phi ptr [ %.sroa.0, %199 ], [ %.sroa.4, %237 ]
-  %indvars.iv363.sroa.phi390 = phi ptr [ %.sroa.0394, %199 ], [ %.sroa.4395, %237 ]
-  %indvars.iv363.sroa.phi396 = phi ptr [ %.sroa.0400, %199 ], [ %.sroa.4401, %237 ]
-  %indvars.iv363.sroa.phi402 = phi ptr [ %23, %199 ], [ %indvars.iv363.sroa.gep403, %237 ]
-  %indvars.iv363 = phi i64 [ 0, %199 ], [ 1, %237 ]
-  %210 = getelementptr inbounds nuw [2 x i32], ptr %74, i64 0, i64 %indvars.iv363
-  %211 = load i32, ptr %210, align 4, !tbaa !71
-  %212 = shl i32 %211, 4
-  %213 = load i32, ptr %indvars.iv363.sroa.phi402, align 4, !tbaa !71
-  %214 = or i32 %212, %213
-  store i32 %214, ptr %indvars.iv363.sroa.phi, align 4, !tbaa !71
-  %215 = shl i32 %213, 1
-  %216 = and i32 %215, -6
-  %217 = getelementptr inbounds nuw [2 x i32], ptr %75, i64 0, i64 %indvars.iv363
-  %218 = load i32, ptr %217, align 4, !tbaa !71
-  %219 = lshr i32 %218, 1
-  %220 = and i32 %219, 5
-  %221 = or disjoint i32 %216, %220
-  %222 = or i32 %221, %214
-  store i32 %222, ptr %indvars.iv363.sroa.phi396, align 4, !tbaa !71
-  %223 = getelementptr inbounds nuw [2 x i32], ptr %76, i64 0, i64 %indvars.iv363
-  %224 = load i32, ptr %223, align 4, !tbaa !71
-  %225 = lshr i32 %224, 2
-  %226 = and i32 %225, 3
-  %227 = shl i32 %213, 2
-  %228 = or disjoint i32 %226, %227
-  %229 = or i32 %228, %214
-  store i32 %229, ptr %indvars.iv363.sroa.phi390, align 4, !tbaa !71
-  br i1 %.not, label %230, label %232
+207:                                              ; preds = %198, %236
+  %208 = phi i1 [ true, %198 ], [ false, %236 ]
+  %indvars.iv363.sroa.phi = phi ptr [ %.sroa.0, %198 ], [ %.sroa.4, %236 ]
+  %indvars.iv363.sroa.phi390 = phi ptr [ %.sroa.0394, %198 ], [ %.sroa.4395, %236 ]
+  %indvars.iv363.sroa.phi396 = phi ptr [ %.sroa.0400, %198 ], [ %.sroa.4401, %236 ]
+  %indvars.iv363.sroa.phi402 = phi ptr [ %23, %198 ], [ %indvars.iv363.sroa.gep403, %236 ]
+  %indvars.iv363 = phi i64 [ 0, %198 ], [ 1, %236 ]
+  %209 = getelementptr inbounds nuw [2 x i32], ptr %74, i64 0, i64 %indvars.iv363
+  %210 = load i32, ptr %209, align 4, !tbaa !71
+  %211 = shl i32 %210, 4
+  %212 = load i32, ptr %indvars.iv363.sroa.phi402, align 4, !tbaa !71
+  %213 = or i32 %211, %212
+  store i32 %213, ptr %indvars.iv363.sroa.phi, align 4, !tbaa !71
+  %214 = shl i32 %212, 1
+  %215 = and i32 %214, -6
+  %216 = getelementptr inbounds nuw [2 x i32], ptr %75, i64 0, i64 %indvars.iv363
+  %217 = load i32, ptr %216, align 4, !tbaa !71
+  %218 = lshr i32 %217, 1
+  %219 = and i32 %218, 5
+  %220 = or disjoint i32 %215, %219
+  %221 = or i32 %220, %213
+  store i32 %221, ptr %indvars.iv363.sroa.phi396, align 4, !tbaa !71
+  %222 = getelementptr inbounds nuw [2 x i32], ptr %76, i64 0, i64 %indvars.iv363
+  %223 = load i32, ptr %222, align 4, !tbaa !71
+  %224 = lshr i32 %223, 2
+  %225 = and i32 %224, 3
+  %226 = shl i32 %212, 2
+  %227 = or disjoint i32 %225, %226
+  %228 = or i32 %227, %213
+  store i32 %228, ptr %indvars.iv363.sroa.phi390, align 4, !tbaa !71
+  br i1 %.not, label %229, label %231
 
-230:                                              ; preds = %208
-  %231 = and i32 %222, -6
-  store i32 %231, ptr %indvars.iv363.sroa.phi396, align 4, !tbaa !71
-  br label %232
+229:                                              ; preds = %207
+  %230 = and i32 %221, -6
+  store i32 %230, ptr %indvars.iv363.sroa.phi396, align 4, !tbaa !71
+  br label %231
 
-232:                                              ; preds = %230, %208
-  br i1 %200, label %233, label %237
+231:                                              ; preds = %229, %207
+  br i1 %199, label %232, label %236
 
-233:                                              ; preds = %232
-  %234 = and i32 %229, -4
-  %235 = select i1 %.not263.not, i32 %234, i32 %229
-  %236 = and i32 %235, -49
-  %simplifycfg.merge = select i1 %brmerge, i32 %236, i32 %235
+232:                                              ; preds = %231
+  %233 = and i32 %228, -4
+  %234 = select i1 %.not263.not, i32 %233, i32 %228
+  %235 = and i32 %234, -49
+  %simplifycfg.merge = select i1 %brmerge, i32 %235, i32 %234
   store i32 %simplifycfg.merge, ptr %indvars.iv363.sroa.phi390, align 4, !tbaa !71
-  br label %237
+  br label %236
 
-237:                                              ; preds = %232, %233
-  br i1 %209, label %208, label %.preheader339, !llvm.loop !108
+236:                                              ; preds = %231, %232
+  br i1 %208, label %207, label %.preheader339, !llvm.loop !108
 
-.preheader338:                                    ; preds = %399
-  %238 = shl nsw i64 %indvars.iv378, 3
-  %239 = load i32, ptr %82, align 8
-  %240 = load i32, ptr %84, align 8
-  %241 = load i32, ptr %88, align 4
-  %242 = load i32, ptr %90, align 4
+.preheader338:                                    ; preds = %398
+  %237 = shl nsw i64 %indvars.iv378, 3
+  %238 = load i32, ptr %82, align 8
+  %239 = load i32, ptr %84, align 8
+  %240 = load i32, ptr %88, align 4
+  %241 = load i32, ptr %90, align 4
   br label %.preheader
 
-243:                                              ; preds = %.preheader339, %399
-  %indvars.iv367 = phi i64 [ 0, %.preheader339 ], [ %indvars.iv.next368, %399 ]
-  %244 = load ptr, ptr %58, align 8, !tbaa !109
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 %201
-  %246 = add nuw nsw i64 %indvars.iv367, %93
-  %247 = load i64, ptr %78, align 8, !tbaa !110
-  %248 = mul nsw i64 %247, %246
-  %249 = getelementptr inbounds i8, ptr %245, i64 %248
+242:                                              ; preds = %.preheader339, %398
+  %indvars.iv367 = phi i64 [ 0, %.preheader339 ], [ %indvars.iv.next368, %398 ]
+  %243 = load ptr, ptr %58, align 8, !tbaa !109
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 %200
+  %245 = add nuw nsw i64 %indvars.iv367, %93
+  %246 = load i64, ptr %78, align 8, !tbaa !110
+  %247 = mul nsw i64 %246, %245
+  %248 = getelementptr inbounds i8, ptr %244, i64 %247
   %.not280 = icmp eq i64 %indvars.iv367, 0
-  %250 = trunc nuw nsw i64 %indvars.iv367 to i32
-  %251 = shl nuw nsw i32 8, %250
-  %252 = and i32 %203, %251
-  %.not286 = icmp eq i32 %252, 0
-  %253 = select i1 %.not286, i32 0, i32 %204
-  %254 = and i32 %203, %251
-  %.not292 = icmp eq i32 %254, 0
-  %255 = select i1 %.not292, i32 0, i32 %204
-  %256 = ashr i32 %255, 1
-  br label %257
+  %249 = trunc nuw nsw i64 %indvars.iv367 to i32
+  %250 = shl nuw nsw i32 8, %249
+  %251 = and i32 %202, %250
+  %.not286 = icmp eq i32 %251, 0
+  %252 = select i1 %.not286, i32 0, i32 %203
+  %253 = and i32 %202, %250
+  %.not292 = icmp eq i32 %253, 0
+  %254 = select i1 %.not292, i32 0, i32 %203
+  %255 = ashr i32 %254, 1
+  br label %256
 
-257:                                              ; preds = %243, %396
-  %.2346 = phi i32 [ 0, %243 ], [ %397, %396 ]
-  %.0255344 = phi ptr [ %249, %243 ], [ %398, %396 ]
-  %258 = or disjoint i32 %.2346, %250
-  %259 = shl nuw nsw i32 1, %258
-  %260 = and i32 %259, %174
-  %.not279 = icmp eq i32 %260, 0
-  %261 = load i32, ptr %21, align 16
-  %262 = select i1 %.not279, i32 0, i32 %261
-  %263 = shl nuw nsw i32 %.2346, 2
-  %264 = select i1 %.not280, i32 %263, i32 %258
-  %265 = shl nuw nsw i32 16, %258
-  %266 = and i32 %265, %.1259
-  %.not281 = icmp eq i32 %266, 0
-  br i1 %.not281, label %296, label %267
+256:                                              ; preds = %242, %395
+  %.2346 = phi i32 [ 0, %242 ], [ %396, %395 ]
+  %.0255344 = phi ptr [ %248, %242 ], [ %397, %395 ]
+  %257 = or disjoint i32 %.2346, %249
+  %258 = shl nuw nsw i32 1, %257
+  %259 = and i32 %258, %173
+  %.not279 = icmp eq i32 %259, 0
+  %260 = load i32, ptr %21, align 16
+  %261 = select i1 %.not279, i32 0, i32 %260
+  %262 = shl nuw nsw i32 %.2346, 2
+  %263 = select i1 %.not280, i32 %262, i32 %257
+  %264 = shl nuw nsw i32 16, %257
+  %265 = and i32 %264, %.1259
+  %.not281 = icmp eq i32 %265, 0
+  br i1 %.not281, label %295, label %266
 
-267:                                              ; preds = %257
-  %268 = load i64, ptr %78, align 8, !tbaa !110
-  %269 = shl nsw i64 %268, 2
-  %270 = getelementptr inbounds i8, ptr %.0255344, i64 %269
-  %271 = and i32 %265, %177
-  %.not282 = icmp eq i32 %271, 0
-  %272 = select i1 %.not282, i32 0, i32 %261
+266:                                              ; preds = %256
+  %267 = load i64, ptr %78, align 8, !tbaa !110
+  %268 = shl nsw i64 %267, 2
+  %269 = getelementptr inbounds i8, ptr %.0255344, i64 %268
+  %270 = and i32 %264, %176
+  %.not282 = icmp eq i32 %270, 0
+  %271 = select i1 %.not282, i32 0, i32 %260
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #8
-  %273 = load ptr, ptr %79, align 8, !tbaa !111
-  %sext334 = shl i64 %268, 32
-  %274 = ashr exact i64 %sext334, 32
-  %275 = call i32 %273(ptr noundef %270, i64 noundef %274, i32 noundef range(i32 0, 256) %169, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 0, ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %276 = load i32, ptr %17, align 4, !tbaa !71
-  %277 = load i32, ptr %18, align 4, !tbaa !71
-  %278 = add nsw i32 %262, %272
-  %279 = ashr i32 %278, 1
-  %280 = add nsw i32 %279, 1
+  %272 = load ptr, ptr %79, align 8, !tbaa !111
+  %sext334 = shl i64 %267, 32
+  %273 = ashr exact i64 %sext334, 32
+  %274 = call i32 %272(ptr noundef %269, i64 noundef %273, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 0, ptr noundef nonnull %17, ptr noundef nonnull %18) #8
+  %275 = load i32, ptr %17, align 4, !tbaa !71
+  %276 = load i32, ptr %18, align 4, !tbaa !71
+  %277 = add nsw i32 %261, %271
+  %278 = ashr i32 %277, 1
+  %279 = add nsw i32 %278, 1
+  %280 = add i32 %279, %275
   %281 = add i32 %280, %276
-  %282 = add i32 %281, %277
-  %.not.i = icmp eq i32 %275, 0
-  br i1 %.not.i, label %285, label %283
+  %.not.i = icmp eq i32 %274, 0
+  br i1 %.not.i, label %284, label %282
 
-283:                                              ; preds = %267
-  %284 = load ptr, ptr %80, align 8, !tbaa !111
-  call void %284(ptr noundef %270, i64 noundef %274, i32 noundef range(i32 0, 256) %168, i32 noundef %282, i32 noundef range(i32 -2147483648, 19) %264, i32 noundef 0) #8
+282:                                              ; preds = %266
+  %283 = load ptr, ptr %80, align 8, !tbaa !111
+  call void %283(ptr noundef %269, i64 noundef %273, i32 noundef range(i32 0, 256) %167, i32 noundef %281, i32 noundef range(i32 -2147483648, 19) %263, i32 noundef 0) #8
   br label %rv40_adaptive_loop_filter.exit
 
-285:                                              ; preds = %267
-  %286 = and i32 %277, %276
-  %.not35.i = icmp eq i32 %286, 0
-  br i1 %.not35.i, label %289, label %287
+284:                                              ; preds = %266
+  %285 = and i32 %276, %275
+  %.not35.i = icmp eq i32 %285, 0
+  br i1 %.not35.i, label %288, label %286
 
-287:                                              ; preds = %285
-  %288 = load ptr, ptr %81, align 8, !tbaa !111
-  call void %288(ptr noundef %270, i64 noundef %274, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %282, i32 noundef %272, i32 noundef %262) #8
+286:                                              ; preds = %284
+  %287 = load ptr, ptr %81, align 8, !tbaa !111
+  call void %287(ptr noundef %269, i64 noundef %273, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %281, i32 noundef %271, i32 noundef %261) #8
   br label %rv40_adaptive_loop_filter.exit
 
-289:                                              ; preds = %285
-  %290 = or i32 %277, %276
-  %.not36.i = icmp eq i32 %290, 0
-  br i1 %.not36.i, label %rv40_adaptive_loop_filter.exit, label %291
+288:                                              ; preds = %284
+  %289 = or i32 %276, %275
+  %.not36.i = icmp eq i32 %289, 0
+  br i1 %.not36.i, label %rv40_adaptive_loop_filter.exit, label %290
 
-291:                                              ; preds = %289
-  %292 = load ptr, ptr %81, align 8, !tbaa !111
-  %293 = ashr i32 %282, 1
-  %294 = ashr i32 %272, 1
-  %295 = ashr i32 %262, 1
-  call void %292(ptr noundef %270, i64 noundef %274, i32 noundef %276, i32 noundef %277, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %293, i32 noundef %294, i32 noundef %295) #8
+290:                                              ; preds = %288
+  %291 = load ptr, ptr %81, align 8, !tbaa !111
+  %292 = ashr i32 %281, 1
+  %293 = ashr i32 %271, 1
+  %294 = ashr i32 %261, 1
+  call void %291(ptr noundef %269, i64 noundef %273, i32 noundef %275, i32 noundef %276, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %292, i32 noundef %293, i32 noundef %294) #8
   br label %rv40_adaptive_loop_filter.exit
 
-rv40_adaptive_loop_filter.exit:                   ; preds = %283, %287, %289, %291
+rv40_adaptive_loop_filter.exit:                   ; preds = %282, %286, %288, %290
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #8
-  br label %296
+  br label %295
 
-296:                                              ; preds = %rv40_adaptive_loop_filter.exit, %257
-  %297 = and i32 %259, %spec.select299
-  %.not283 = icmp eq i32 %297, 0
-  br i1 %.not283, label %332, label %298
+295:                                              ; preds = %rv40_adaptive_loop_filter.exit, %256
+  %296 = and i32 %258, %spec.select299
+  %.not283 = icmp eq i32 %296, 0
+  br i1 %.not283, label %331, label %297
 
-298:                                              ; preds = %296
+297:                                              ; preds = %295
   %.not284 = icmp eq i32 %.2346, 0
-  br i1 %.not284, label %299, label %.critedge
+  br i1 %.not284, label %298, label %.critedge
 
-299:                                              ; preds = %298
-  %300 = load i32, ptr %20, align 16, !tbaa !71
-  %301 = or i32 %202, %300
-  %.not285 = icmp eq i32 %301, 0
-  br i1 %.not285, label %307, label %332
+298:                                              ; preds = %297
+  %299 = load i32, ptr %20, align 16, !tbaa !71
+  %300 = or i32 %201, %299
+  %.not285 = icmp eq i32 %300, 0
+  br i1 %.not285, label %306, label %331
 
-.critedge:                                        ; preds = %298
-  %302 = add nsw i32 %258, -1
-  %303 = shl nuw nsw i32 1, %302
-  %304 = and i32 %303, %177
-  %.not287 = icmp eq i32 %304, 0
-  %305 = load i32, ptr %21, align 16
-  %306 = select i1 %.not287, i32 0, i32 %305
-  br label %307
+.critedge:                                        ; preds = %297
+  %301 = add nsw i32 %257, -1
+  %302 = shl nuw nsw i32 1, %301
+  %303 = and i32 %302, %176
+  %.not287 = icmp eq i32 %303, 0
+  %304 = load i32, ptr %21, align 16
+  %305 = select i1 %.not287, i32 0, i32 %304
+  br label %306
 
-307:                                              ; preds = %299, %.critedge
-  %.0260 = phi i32 [ %306, %.critedge ], [ %253, %299 ]
-  %308 = load i64, ptr %78, align 8, !tbaa !110
+306:                                              ; preds = %298, %.critedge
+  %.0260 = phi i32 [ %305, %.critedge ], [ %252, %298 ]
+  %307 = load i64, ptr %78, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #8
-  %309 = load ptr, ptr %85, align 8, !tbaa !111
-  %sext335 = shl i64 %308, 32
-  %310 = ashr exact i64 %sext335, 32
-  %311 = call i32 %309(ptr noundef %.0255344, i64 noundef %310, i32 noundef range(i32 0, 256) %169, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 0, ptr noundef nonnull %15, ptr noundef nonnull %16) #8
-  %312 = load i32, ptr %15, align 4, !tbaa !71
-  %313 = load i32, ptr %16, align 4, !tbaa !71
-  %314 = add nsw i32 %.0260, %262
-  %315 = ashr i32 %314, 1
-  %316 = add nsw i32 %315, 1
+  %308 = load ptr, ptr %85, align 8, !tbaa !111
+  %sext335 = shl i64 %307, 32
+  %309 = ashr exact i64 %sext335, 32
+  %310 = call i32 %308(ptr noundef %.0255344, i64 noundef %309, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 0, ptr noundef nonnull %15, ptr noundef nonnull %16) #8
+  %311 = load i32, ptr %15, align 4, !tbaa !71
+  %312 = load i32, ptr %16, align 4, !tbaa !71
+  %313 = add nsw i32 %.0260, %261
+  %314 = ashr i32 %313, 1
+  %315 = add nsw i32 %314, 1
+  %316 = add i32 %315, %311
   %317 = add i32 %316, %312
-  %318 = add i32 %317, %313
-  %.not.i302 = icmp eq i32 %311, 0
-  br i1 %.not.i302, label %321, label %319
+  %.not.i302 = icmp eq i32 %310, 0
+  br i1 %.not.i302, label %320, label %318
 
-319:                                              ; preds = %307
-  %320 = load ptr, ptr %86, align 8, !tbaa !111
-  call void %320(ptr noundef %.0255344, i64 noundef %310, i32 noundef range(i32 0, 256) %168, i32 noundef %318, i32 noundef range(i32 -2147483648, 19) %264, i32 noundef 0) #8
+318:                                              ; preds = %306
+  %319 = load ptr, ptr %86, align 8, !tbaa !111
+  call void %319(ptr noundef %.0255344, i64 noundef %309, i32 noundef range(i32 0, 256) %167, i32 noundef %317, i32 noundef range(i32 -2147483648, 19) %263, i32 noundef 0) #8
   br label %rv40_adaptive_loop_filter.exit305
 
-321:                                              ; preds = %307
-  %322 = and i32 %313, %312
-  %.not35.i303 = icmp eq i32 %322, 0
-  br i1 %.not35.i303, label %325, label %323
+320:                                              ; preds = %306
+  %321 = and i32 %312, %311
+  %.not35.i303 = icmp eq i32 %321, 0
+  br i1 %.not35.i303, label %324, label %322
 
-323:                                              ; preds = %321
-  %324 = load ptr, ptr %87, align 8, !tbaa !111
-  call void %324(ptr noundef %.0255344, i64 noundef %310, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %318, i32 noundef %262, i32 noundef %.0260) #8
+322:                                              ; preds = %320
+  %323 = load ptr, ptr %87, align 8, !tbaa !111
+  call void %323(ptr noundef %.0255344, i64 noundef %309, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %317, i32 noundef %261, i32 noundef %.0260) #8
   br label %rv40_adaptive_loop_filter.exit305
 
-325:                                              ; preds = %321
-  %326 = or i32 %313, %312
-  %.not36.i304 = icmp eq i32 %326, 0
-  br i1 %.not36.i304, label %rv40_adaptive_loop_filter.exit305, label %327
+324:                                              ; preds = %320
+  %325 = or i32 %312, %311
+  %.not36.i304 = icmp eq i32 %325, 0
+  br i1 %.not36.i304, label %rv40_adaptive_loop_filter.exit305, label %326
 
-327:                                              ; preds = %325
-  %328 = load ptr, ptr %87, align 8, !tbaa !111
-  %329 = ashr i32 %318, 1
-  %330 = ashr i32 %262, 1
-  %331 = ashr i32 %.0260, 1
-  call void %328(ptr noundef %.0255344, i64 noundef %310, i32 noundef %312, i32 noundef %313, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %329, i32 noundef %330, i32 noundef %331) #8
+326:                                              ; preds = %324
+  %327 = load ptr, ptr %87, align 8, !tbaa !111
+  %328 = ashr i32 %317, 1
+  %329 = ashr i32 %261, 1
+  %330 = ashr i32 %.0260, 1
+  call void %327(ptr noundef %.0255344, i64 noundef %309, i32 noundef %311, i32 noundef %312, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %328, i32 noundef %329, i32 noundef %330) #8
   br label %rv40_adaptive_loop_filter.exit305
 
-rv40_adaptive_loop_filter.exit305:                ; preds = %319, %323, %325, %327
+rv40_adaptive_loop_filter.exit305:                ; preds = %318, %322, %324, %326
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #8
-  br label %332
+  br label %331
 
-332:                                              ; preds = %rv40_adaptive_loop_filter.exit305, %299, %296
-  br i1 %.not280, label %333, label %367
+331:                                              ; preds = %rv40_adaptive_loop_filter.exit305, %298, %295
+  br i1 %.not280, label %332, label %366
 
-333:                                              ; preds = %332
-  %334 = shl nuw nsw i32 1, %.2346
-  %335 = and i32 %334, %.1259
-  %.not288 = icmp eq i32 %335, 0
-  br i1 %.not288, label %367, label %336
+332:                                              ; preds = %331
+  %333 = shl nuw nsw i32 1, %.2346
+  %334 = and i32 %333, %.1259
+  %.not288 = icmp eq i32 %334, 0
+  br i1 %.not288, label %366, label %335
 
-336:                                              ; preds = %333
-  %337 = load i32, ptr %20, align 16, !tbaa !71
-  %338 = or i32 %205, %337
-  %.not289 = icmp eq i32 %338, 0
-  br i1 %.not289, label %367, label %339
+335:                                              ; preds = %332
+  %336 = load i32, ptr %20, align 16, !tbaa !71
+  %337 = or i32 %204, %336
+  %.not289 = icmp eq i32 %337, 0
+  br i1 %.not289, label %366, label %338
 
-339:                                              ; preds = %336
-  %340 = load i64, ptr %78, align 8, !tbaa !110
-  %341 = shl nuw nsw i32 4096, %.2346
-  %342 = and i32 %206, %341
-  %.not290 = icmp eq i32 %342, 0
-  %343 = select i1 %.not290, i32 0, i32 %207
+338:                                              ; preds = %335
+  %339 = load i64, ptr %78, align 8, !tbaa !110
+  %340 = shl nuw nsw i32 4096, %.2346
+  %341 = and i32 %205, %340
+  %.not290 = icmp eq i32 %341, 0
+  %342 = select i1 %.not290, i32 0, i32 %206
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
-  %344 = load ptr, ptr %79, align 8, !tbaa !111
-  %sext336 = shl i64 %340, 32
-  %345 = ashr exact i64 %sext336, 32
-  %346 = call i32 %344(ptr noundef %.0255344, i64 noundef %345, i32 noundef range(i32 0, 256) %169, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %14) #8
-  %347 = load i32, ptr %13, align 4, !tbaa !71
-  %348 = load i32, ptr %14, align 4, !tbaa !71
-  %349 = add nsw i32 %343, %262
-  %350 = ashr i32 %349, 1
-  %351 = add nsw i32 %350, 1
+  %343 = load ptr, ptr %79, align 8, !tbaa !111
+  %sext336 = shl i64 %339, 32
+  %344 = ashr exact i64 %sext336, 32
+  %345 = call i32 %343(ptr noundef %.0255344, i64 noundef %344, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %14) #8
+  %346 = load i32, ptr %13, align 4, !tbaa !71
+  %347 = load i32, ptr %14, align 4, !tbaa !71
+  %348 = add nsw i32 %342, %261
+  %349 = ashr i32 %348, 1
+  %350 = add nsw i32 %349, 1
+  %351 = add i32 %350, %346
   %352 = add i32 %351, %347
-  %353 = add i32 %352, %348
-  %.not.i306 = icmp eq i32 %346, 0
-  br i1 %.not.i306, label %356, label %354
+  %.not.i306 = icmp eq i32 %345, 0
+  br i1 %.not.i306, label %355, label %353
 
-354:                                              ; preds = %339
-  %355 = load ptr, ptr %80, align 8, !tbaa !111
-  call void %355(ptr noundef %.0255344, i64 noundef %345, i32 noundef range(i32 0, 256) %168, i32 noundef %353, i32 noundef range(i32 -2147483648, 19) %263, i32 noundef 0) #8
+353:                                              ; preds = %338
+  %354 = load ptr, ptr %80, align 8, !tbaa !111
+  call void %354(ptr noundef %.0255344, i64 noundef %344, i32 noundef range(i32 0, 256) %167, i32 noundef %352, i32 noundef range(i32 -2147483648, 19) %262, i32 noundef 0) #8
   br label %rv40_adaptive_loop_filter.exit309
 
-356:                                              ; preds = %339
-  %357 = and i32 %348, %347
-  %.not35.i307 = icmp eq i32 %357, 0
-  br i1 %.not35.i307, label %360, label %358
+355:                                              ; preds = %338
+  %356 = and i32 %347, %346
+  %.not35.i307 = icmp eq i32 %356, 0
+  br i1 %.not35.i307, label %359, label %357
 
-358:                                              ; preds = %356
-  %359 = load ptr, ptr %81, align 8, !tbaa !111
-  call void %359(ptr noundef %.0255344, i64 noundef %345, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %353, i32 noundef %262, i32 noundef %343) #8
+357:                                              ; preds = %355
+  %358 = load ptr, ptr %81, align 8, !tbaa !111
+  call void %358(ptr noundef %.0255344, i64 noundef %344, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %352, i32 noundef %261, i32 noundef %342) #8
   br label %rv40_adaptive_loop_filter.exit309
 
-360:                                              ; preds = %356
-  %361 = or i32 %348, %347
-  %.not36.i308 = icmp eq i32 %361, 0
-  br i1 %.not36.i308, label %rv40_adaptive_loop_filter.exit309, label %362
+359:                                              ; preds = %355
+  %360 = or i32 %347, %346
+  %.not36.i308 = icmp eq i32 %360, 0
+  br i1 %.not36.i308, label %rv40_adaptive_loop_filter.exit309, label %361
 
-362:                                              ; preds = %360
-  %363 = load ptr, ptr %81, align 8, !tbaa !111
-  %364 = ashr i32 %353, 1
-  %365 = ashr i32 %262, 1
-  %366 = ashr i32 %343, 1
-  call void %363(ptr noundef %.0255344, i64 noundef %345, i32 noundef %347, i32 noundef %348, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %364, i32 noundef %365, i32 noundef %366) #8
+361:                                              ; preds = %359
+  %362 = load ptr, ptr %81, align 8, !tbaa !111
+  %363 = ashr i32 %352, 1
+  %364 = ashr i32 %261, 1
+  %365 = ashr i32 %342, 1
+  call void %362(ptr noundef %.0255344, i64 noundef %344, i32 noundef %346, i32 noundef %347, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %363, i32 noundef %364, i32 noundef %365) #8
   br label %rv40_adaptive_loop_filter.exit309
 
-rv40_adaptive_loop_filter.exit309:                ; preds = %354, %358, %360, %362
+rv40_adaptive_loop_filter.exit309:                ; preds = %353, %357, %359, %361
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
-  br label %367
+  br label %366
 
-367:                                              ; preds = %rv40_adaptive_loop_filter.exit309, %336, %333, %332
-  %368 = icmp ne i32 %.2346, 0
-  %or.cond = or i1 %368, %.not283
-  br i1 %or.cond, label %396, label %369
+366:                                              ; preds = %rv40_adaptive_loop_filter.exit309, %335, %332, %331
+  %367 = icmp ne i32 %.2346, 0
+  %or.cond = or i1 %367, %.not283
+  br i1 %or.cond, label %395, label %368
 
-369:                                              ; preds = %367
-  %370 = load i32, ptr %20, align 16, !tbaa !71
-  %371 = or i32 %202, %370
-  %.not291 = icmp eq i32 %371, 0
-  br i1 %.not291, label %396, label %372
+368:                                              ; preds = %366
+  %369 = load i32, ptr %20, align 16, !tbaa !71
+  %370 = or i32 %201, %369
+  %.not291 = icmp eq i32 %370, 0
+  br i1 %.not291, label %395, label %371
 
-372:                                              ; preds = %369
-  %373 = load i64, ptr %78, align 8, !tbaa !110
+371:                                              ; preds = %368
+  %372 = load i64, ptr %78, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #8
-  %374 = load ptr, ptr %85, align 8, !tbaa !111
-  %sext337 = shl i64 %373, 32
-  %375 = ashr exact i64 %sext337, 32
-  %376 = call i32 %374(ptr noundef %.0255344, i64 noundef %375, i32 noundef range(i32 0, 256) %169, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %12) #8
-  %377 = load i32, ptr %11, align 4, !tbaa !71
-  %378 = load i32, ptr %12, align 4, !tbaa !71
-  %379 = add nsw i32 %255, %262
-  %380 = ashr i32 %379, 1
-  %381 = add nsw i32 %380, 1
+  %373 = load ptr, ptr %85, align 8, !tbaa !111
+  %sext337 = shl i64 %372, 32
+  %374 = ashr exact i64 %sext337, 32
+  %375 = call i32 %373(ptr noundef %.0255344, i64 noundef %374, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %12) #8
+  %376 = load i32, ptr %11, align 4, !tbaa !71
+  %377 = load i32, ptr %12, align 4, !tbaa !71
+  %378 = add nsw i32 %254, %261
+  %379 = ashr i32 %378, 1
+  %380 = add nsw i32 %379, 1
+  %381 = add i32 %380, %376
   %382 = add i32 %381, %377
-  %383 = add i32 %382, %378
-  %.not.i310 = icmp eq i32 %376, 0
-  br i1 %.not.i310, label %386, label %384
+  %.not.i310 = icmp eq i32 %375, 0
+  br i1 %.not.i310, label %385, label %383
 
-384:                                              ; preds = %372
-  %385 = load ptr, ptr %86, align 8, !tbaa !111
-  call void %385(ptr noundef %.0255344, i64 noundef %375, i32 noundef range(i32 0, 256) %168, i32 noundef %383, i32 noundef range(i32 -2147483648, 19) %264, i32 noundef 0) #8
+383:                                              ; preds = %371
+  %384 = load ptr, ptr %86, align 8, !tbaa !111
+  call void %384(ptr noundef %.0255344, i64 noundef %374, i32 noundef range(i32 0, 256) %167, i32 noundef %382, i32 noundef range(i32 -2147483648, 19) %263, i32 noundef 0) #8
   br label %rv40_adaptive_loop_filter.exit313
 
-386:                                              ; preds = %372
-  %387 = and i32 %378, %377
-  %.not35.i311 = icmp eq i32 %387, 0
-  br i1 %.not35.i311, label %390, label %388
+385:                                              ; preds = %371
+  %386 = and i32 %377, %376
+  %.not35.i311 = icmp eq i32 %386, 0
+  br i1 %.not35.i311, label %389, label %387
 
-388:                                              ; preds = %386
-  %389 = load ptr, ptr %87, align 8, !tbaa !111
-  call void %389(ptr noundef %.0255344, i64 noundef %375, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %383, i32 noundef %262, i32 noundef %255) #8
+387:                                              ; preds = %385
+  %388 = load ptr, ptr %87, align 8, !tbaa !111
+  call void %388(ptr noundef %.0255344, i64 noundef %374, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %382, i32 noundef %261, i32 noundef %254) #8
   br label %rv40_adaptive_loop_filter.exit313
 
-390:                                              ; preds = %386
-  %391 = or i32 %378, %377
-  %.not36.i312 = icmp eq i32 %391, 0
-  br i1 %.not36.i312, label %rv40_adaptive_loop_filter.exit313, label %392
+389:                                              ; preds = %385
+  %390 = or i32 %377, %376
+  %.not36.i312 = icmp eq i32 %390, 0
+  br i1 %.not36.i312, label %rv40_adaptive_loop_filter.exit313, label %391
 
-392:                                              ; preds = %390
-  %393 = load ptr, ptr %87, align 8, !tbaa !111
-  %394 = ashr i32 %383, 1
-  %395 = ashr i32 %262, 1
-  call void %393(ptr noundef %.0255344, i64 noundef %375, i32 noundef %377, i32 noundef %378, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %394, i32 noundef %395, i32 noundef %256) #8
+391:                                              ; preds = %389
+  %392 = load ptr, ptr %87, align 8, !tbaa !111
+  %393 = ashr i32 %382, 1
+  %394 = ashr i32 %261, 1
+  call void %392(ptr noundef %.0255344, i64 noundef %374, i32 noundef %376, i32 noundef %377, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %393, i32 noundef %394, i32 noundef %255) #8
   br label %rv40_adaptive_loop_filter.exit313
 
-rv40_adaptive_loop_filter.exit313:                ; preds = %384, %388, %390, %392
+rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %391
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
-  br label %396
+  br label %395
 
-396:                                              ; preds = %rv40_adaptive_loop_filter.exit313, %369, %367
-  %397 = add nuw nsw i32 %.2346, 1
-  %398 = getelementptr inbounds nuw i8, ptr %.0255344, i64 4
-  %exitcond366.not = icmp eq i32 %397, 4
-  br i1 %exitcond366.not, label %399, label %257, !llvm.loop !112
+395:                                              ; preds = %rv40_adaptive_loop_filter.exit313, %368, %366
+  %396 = add nuw nsw i32 %.2346, 1
+  %397 = getelementptr inbounds nuw i8, ptr %.0255344, i64 4
+  %exitcond366.not = icmp eq i32 %396, 4
+  br i1 %exitcond366.not, label %398, label %256, !llvm.loop !112
 
-399:                                              ; preds = %396
+398:                                              ; preds = %395
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 4
-  %400 = icmp samesign ult i64 %indvars.iv367, 12
-  br i1 %400, label %243, label %.preheader338, !llvm.loop !113
+  %399 = icmp samesign ult i64 %indvars.iv367, 12
+  br i1 %399, label %242, label %.preheader338, !llvm.loop !113
 
-.preheader:                                       ; preds = %.preheader338, %570
-  %401 = phi i1 [ true, %.preheader338 ], [ false, %570 ]
-  %indvars.iv373.sroa.phi = phi ptr [ %.sroa.0, %.preheader338 ], [ %.sroa.4, %570 ]
-  %indvars.iv373.sroa.phi392 = phi ptr [ %.sroa.0394, %.preheader338 ], [ %.sroa.4395, %570 ]
-  %indvars.iv373.sroa.phi398 = phi ptr [ %.sroa.0400, %.preheader338 ], [ %.sroa.4401, %570 ]
-  %indvars.iv373 = phi i64 [ 0, %.preheader338 ], [ 1, %570 ]
+.preheader:                                       ; preds = %.preheader338, %569
+  %400 = phi i1 [ true, %.preheader338 ], [ false, %569 ]
+  %indvars.iv373.sroa.phi = phi ptr [ %.sroa.0, %.preheader338 ], [ %.sroa.4, %569 ]
+  %indvars.iv373.sroa.phi392 = phi ptr [ %.sroa.0394, %.preheader338 ], [ %.sroa.4395, %569 ]
+  %indvars.iv373.sroa.phi398 = phi ptr [ %.sroa.0400, %.preheader338 ], [ %.sroa.4401, %569 ]
+  %indvars.iv373 = phi i64 [ 0, %.preheader338 ], [ 1, %569 ]
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
-  %402 = getelementptr inbounds nuw [3 x ptr], ptr %58, i64 0, i64 %indvars.iv.next374
-  %403 = load i32, ptr %indvars.iv373.sroa.phi, align 4, !tbaa !71
-  %404 = load i32, ptr %indvars.iv373.sroa.phi392, align 4, !tbaa !71
-  %405 = getelementptr inbounds nuw [2 x i32], ptr %75, i64 0, i64 %indvars.iv373
-  %406 = getelementptr inbounds nuw [2 x i32], ptr %76, i64 0, i64 %indvars.iv373
-  br label %407
+  %401 = getelementptr inbounds nuw [3 x ptr], ptr %58, i64 0, i64 %indvars.iv.next374
+  %402 = load i32, ptr %indvars.iv373.sroa.phi, align 4, !tbaa !71
+  %403 = load i32, ptr %indvars.iv373.sroa.phi392, align 4, !tbaa !71
+  %404 = getelementptr inbounds nuw [2 x i32], ptr %75, i64 0, i64 %indvars.iv373
+  %405 = getelementptr inbounds nuw [2 x i32], ptr %76, i64 0, i64 %indvars.iv373
+  br label %406
 
-407:                                              ; preds = %.preheader, %569
-  %.not273 = phi i1 [ false, %.preheader ], [ true, %569 ]
-  %408 = phi i1 [ true, %.preheader ], [ false, %569 ]
-  %indvars.iv370 = phi i64 [ 0, %.preheader ], [ 1, %569 ]
-  %409 = load ptr, ptr %402, align 8, !tbaa !109
-  %410 = getelementptr inbounds nuw i8, ptr %409, i64 %238
-  %411 = shl nuw nsw i64 %indvars.iv370, 2
-  %412 = or disjoint i64 %411, %94
-  %413 = load i64, ptr %92, align 8, !tbaa !114
-  %414 = mul nsw i64 %413, %412
-  %415 = getelementptr inbounds i8, ptr %410, i64 %414
+406:                                              ; preds = %.preheader, %568
+  %.not273 = phi i1 [ false, %.preheader ], [ true, %568 ]
+  %407 = phi i1 [ true, %.preheader ], [ false, %568 ]
+  %indvars.iv370 = phi i64 [ 0, %.preheader ], [ 1, %568 ]
+  %408 = load ptr, ptr %401, align 8, !tbaa !109
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 %237
+  %410 = shl nuw nsw i64 %indvars.iv370, 2
+  %411 = or disjoint i64 %410, %94
+  %412 = load i64, ptr %92, align 8, !tbaa !114
+  %413 = mul nsw i64 %412, %411
+  %414 = getelementptr inbounds i8, ptr %409, i64 %413
   %indvars.iv370.tr = trunc nuw nsw i64 %indvars.iv370 to i32
-  %416 = shl nuw nsw i32 %indvars.iv370.tr, 1
-  %417 = shl nuw nsw i32 2, %416
-  %418 = shl nuw nsw i64 %indvars.iv370, 3
-  %419 = trunc nuw nsw i64 %418 to i32
-  %420 = trunc nuw nsw i64 %418 to i32
-  br label %421
+  %415 = shl nuw nsw i32 %indvars.iv370.tr, 1
+  %416 = shl nuw nsw i32 2, %415
+  %417 = shl nuw nsw i64 %indvars.iv370, 3
+  %418 = trunc nuw nsw i64 %417 to i32
+  %419 = trunc nuw nsw i64 %417 to i32
+  br label %420
 
-421:                                              ; preds = %407, %567
-  %.not269 = phi i1 [ true, %407 ], [ false, %567 ]
-  %422 = phi i1 [ false, %407 ], [ true, %567 ]
-  %.3350 = phi i32 [ 0, %407 ], [ 1, %567 ]
-  %.0256348 = phi ptr [ %415, %407 ], [ %568, %567 ]
-  %423 = or disjoint i32 %.3350, %416
-  %424 = shl nuw nsw i32 1, %423
-  %425 = and i32 %403, %424
-  %.not265 = icmp eq i32 %425, 0
-  %426 = load i32, ptr %21, align 16
-  %427 = select i1 %.not265, i32 0, i32 %426
-  %428 = shl nuw nsw i32 4, %423
-  %429 = and i32 %404, %428
-  %.not266 = icmp eq i32 %429, 0
-  br i1 %.not266, label %460, label %430
+420:                                              ; preds = %406, %566
+  %.not269 = phi i1 [ true, %406 ], [ false, %566 ]
+  %421 = phi i1 [ false, %406 ], [ true, %566 ]
+  %.3350 = phi i32 [ 0, %406 ], [ 1, %566 ]
+  %.0256348 = phi ptr [ %414, %406 ], [ %567, %566 ]
+  %422 = or disjoint i32 %.3350, %415
+  %423 = shl nuw nsw i32 1, %422
+  %424 = and i32 %402, %423
+  %.not265 = icmp eq i32 %424, 0
+  %425 = load i32, ptr %21, align 16
+  %426 = select i1 %.not265, i32 0, i32 %425
+  %427 = shl nuw nsw i32 4, %422
+  %428 = and i32 %403, %427
+  %.not266 = icmp eq i32 %428, 0
+  br i1 %.not266, label %459, label %429
 
-430:                                              ; preds = %421
-  %431 = and i32 %403, %428
-  %.not267 = icmp eq i32 %431, 0
-  %432 = select i1 %.not267, i32 0, i32 %426
-  %433 = load i64, ptr %92, align 8, !tbaa !114
-  %434 = shl nsw i64 %433, 2
-  %435 = getelementptr inbounds i8, ptr %.0256348, i64 %434
+429:                                              ; preds = %420
+  %430 = and i32 %402, %427
+  %.not267 = icmp eq i32 %430, 0
+  %431 = select i1 %.not267, i32 0, i32 %425
+  %432 = load i64, ptr %92, align 8, !tbaa !114
+  %433 = shl nsw i64 %432, 2
+  %434 = getelementptr inbounds i8, ptr %.0256348, i64 %433
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
-  %436 = load ptr, ptr %79, align 8, !tbaa !111
-  %sext = shl i64 %433, 32
-  %437 = ashr exact i64 %sext, 32
-  %438 = call i32 %436(ptr noundef %435, i64 noundef %437, i32 noundef range(i32 0, 256) %169, i32 noundef range(i32 0, 1021) %170, i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
-  %439 = load i32, ptr %9, align 4, !tbaa !71
-  %440 = load i32, ptr %10, align 4, !tbaa !71
-  %441 = add nsw i32 %427, %432
-  %442 = ashr i32 %441, 1
-  %443 = add nsw i32 %442, 1
+  %435 = load ptr, ptr %79, align 8, !tbaa !111
+  %sext = shl i64 %432, 32
+  %436 = ashr exact i64 %sext, 32
+  %437 = call i32 %435(ptr noundef %434, i64 noundef %436, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %169, i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
+  %438 = load i32, ptr %9, align 4, !tbaa !71
+  %439 = load i32, ptr %10, align 4, !tbaa !71
+  %440 = add nsw i32 %426, %431
+  %441 = ashr i32 %440, 1
+  %442 = add nsw i32 %441, 1
+  %443 = add i32 %442, %438
   %444 = add i32 %443, %439
-  %445 = add i32 %444, %440
-  %.not.i314 = icmp eq i32 %438, 0
-  br i1 %.not.i314, label %449, label %446
+  %.not.i314 = icmp eq i32 %437, 0
+  br i1 %.not.i314, label %448, label %445
 
-446:                                              ; preds = %430
-  %447 = shl nuw nsw i32 %.3350, 3
-  %448 = load ptr, ptr %80, align 8, !tbaa !111
-  call void %448(ptr noundef %435, i64 noundef %437, i32 noundef range(i32 0, 256) %168, i32 noundef %445, i32 noundef range(i32 -2147483648, 19) %447, i32 noundef 1) #8
+445:                                              ; preds = %429
+  %446 = shl nuw nsw i32 %.3350, 3
+  %447 = load ptr, ptr %80, align 8, !tbaa !111
+  call void %447(ptr noundef %434, i64 noundef %436, i32 noundef range(i32 0, 256) %167, i32 noundef %444, i32 noundef range(i32 -2147483648, 19) %446, i32 noundef 1) #8
   br label %rv40_adaptive_loop_filter.exit317
 
-449:                                              ; preds = %430
-  %450 = and i32 %440, %439
-  %.not35.i315 = icmp eq i32 %450, 0
-  br i1 %.not35.i315, label %453, label %451
+448:                                              ; preds = %429
+  %449 = and i32 %439, %438
+  %.not35.i315 = icmp eq i32 %449, 0
+  br i1 %.not35.i315, label %452, label %450
 
-451:                                              ; preds = %449
-  %452 = load ptr, ptr %81, align 8, !tbaa !111
-  call void %452(ptr noundef %435, i64 noundef %437, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %445, i32 noundef %432, i32 noundef %427) #8
+450:                                              ; preds = %448
+  %451 = load ptr, ptr %81, align 8, !tbaa !111
+  call void %451(ptr noundef %434, i64 noundef %436, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %444, i32 noundef %431, i32 noundef %426) #8
   br label %rv40_adaptive_loop_filter.exit317
 
-453:                                              ; preds = %449
-  %454 = or i32 %440, %439
-  %.not36.i316 = icmp eq i32 %454, 0
-  br i1 %.not36.i316, label %rv40_adaptive_loop_filter.exit317, label %455
+452:                                              ; preds = %448
+  %453 = or i32 %439, %438
+  %.not36.i316 = icmp eq i32 %453, 0
+  br i1 %.not36.i316, label %rv40_adaptive_loop_filter.exit317, label %454
 
-455:                                              ; preds = %453
-  %456 = load ptr, ptr %81, align 8, !tbaa !111
-  %457 = ashr i32 %445, 1
-  %458 = ashr i32 %432, 1
-  %459 = ashr i32 %427, 1
-  call void %456(ptr noundef %435, i64 noundef %437, i32 noundef %439, i32 noundef %440, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %457, i32 noundef %458, i32 noundef %459) #8
+454:                                              ; preds = %452
+  %455 = load ptr, ptr %81, align 8, !tbaa !111
+  %456 = ashr i32 %444, 1
+  %457 = ashr i32 %431, 1
+  %458 = ashr i32 %426, 1
+  call void %455(ptr noundef %434, i64 noundef %436, i32 noundef %438, i32 noundef %439, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %456, i32 noundef %457, i32 noundef %458) #8
   br label %rv40_adaptive_loop_filter.exit317
 
-rv40_adaptive_loop_filter.exit317:                ; preds = %446, %451, %453, %455
+rv40_adaptive_loop_filter.exit317:                ; preds = %445, %450, %452, %454
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  br label %460
+  br label %459
 
-460:                                              ; preds = %rv40_adaptive_loop_filter.exit317, %421
-  %461 = load i32, ptr %indvars.iv373.sroa.phi398, align 4, !tbaa !71
-  %462 = and i32 %461, %424
-  %.not268 = icmp eq i32 %462, 0
-  br i1 %.not268, label %501, label %463
+459:                                              ; preds = %rv40_adaptive_loop_filter.exit317, %420
+  %460 = load i32, ptr %indvars.iv373.sroa.phi398, align 4, !tbaa !71
+  %461 = and i32 %460, %423
+  %.not268 = icmp eq i32 %461, 0
+  br i1 %.not268, label %500, label %462
 
-463:                                              ; preds = %460
-  br i1 %.not269, label %464, label %.critedge301
+462:                                              ; preds = %459
+  br i1 %.not269, label %463, label %.critedge301
 
-464:                                              ; preds = %463
-  %465 = load i32, ptr %20, align 16, !tbaa !71
-  %466 = or i32 %239, %465
-  %.not270 = icmp eq i32 %466, 0
-  br i1 %.not270, label %467, label %501
+463:                                              ; preds = %462
+  %464 = load i32, ptr %20, align 16, !tbaa !71
+  %465 = or i32 %238, %464
+  %.not270 = icmp eq i32 %465, 0
+  br i1 %.not270, label %466, label %500
 
-467:                                              ; preds = %464
-  %468 = load i32, ptr %405, align 4, !tbaa !71
-  %469 = and i32 %468, %417
-  %.not271 = icmp eq i32 %469, 0
-  %470 = select i1 %.not271, i32 0, i32 %240
-  br label %476
+466:                                              ; preds = %463
+  %467 = load i32, ptr %404, align 4, !tbaa !71
+  %468 = and i32 %467, %416
+  %.not271 = icmp eq i32 %468, 0
+  %469 = select i1 %.not271, i32 0, i32 %239
+  br label %475
 
-.critedge301:                                     ; preds = %463
-  %471 = add nsw i32 %423, -1
-  %472 = shl nuw nsw i32 1, %471
-  %473 = and i32 %403, %472
-  %.not272 = icmp eq i32 %473, 0
-  %474 = load i32, ptr %21, align 16
-  %475 = select i1 %.not272, i32 0, i32 %474
-  br label %476
+.critedge301:                                     ; preds = %462
+  %470 = add nsw i32 %422, -1
+  %471 = shl nuw nsw i32 1, %470
+  %472 = and i32 %402, %471
+  %.not272 = icmp eq i32 %472, 0
+  %473 = load i32, ptr %21, align 16
+  %474 = select i1 %.not272, i32 0, i32 %473
+  br label %475
 
-476:                                              ; preds = %.critedge301, %467
-  %.1261 = phi i32 [ %475, %.critedge301 ], [ %470, %467 ]
-  %477 = load i64, ptr %92, align 8, !tbaa !114
+475:                                              ; preds = %.critedge301, %466
+  %.1261 = phi i32 [ %474, %.critedge301 ], [ %469, %466 ]
+  %476 = load i64, ptr %92, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  %478 = load ptr, ptr %85, align 8, !tbaa !111
-  %sext331 = shl i64 %477, 32
-  %479 = ashr exact i64 %sext331, 32
-  %480 = call i32 %478(ptr noundef %.0256348, i64 noundef %479, i32 noundef range(i32 0, 256) %169, i32 noundef range(i32 0, 1021) %170, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
-  %481 = load i32, ptr %7, align 4, !tbaa !71
-  %482 = load i32, ptr %8, align 4, !tbaa !71
-  %483 = add nsw i32 %.1261, %427
-  %484 = ashr i32 %483, 1
-  %485 = add nsw i32 %484, 1
+  %477 = load ptr, ptr %85, align 8, !tbaa !111
+  %sext331 = shl i64 %476, 32
+  %478 = ashr exact i64 %sext331, 32
+  %479 = call i32 %477(ptr noundef %.0256348, i64 noundef %478, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %169, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  %480 = load i32, ptr %7, align 4, !tbaa !71
+  %481 = load i32, ptr %8, align 4, !tbaa !71
+  %482 = add nsw i32 %.1261, %426
+  %483 = ashr i32 %482, 1
+  %484 = add nsw i32 %483, 1
+  %485 = add i32 %484, %480
   %486 = add i32 %485, %481
-  %487 = add i32 %486, %482
-  %.not.i318 = icmp eq i32 %480, 0
-  br i1 %.not.i318, label %490, label %488
+  %.not.i318 = icmp eq i32 %479, 0
+  br i1 %.not.i318, label %489, label %487
 
-488:                                              ; preds = %476
-  %489 = load ptr, ptr %86, align 8, !tbaa !111
-  call void %489(ptr noundef %.0256348, i64 noundef %479, i32 noundef range(i32 0, 256) %168, i32 noundef %487, i32 noundef range(i32 -2147483648, 19) %419, i32 noundef 1) #8
+487:                                              ; preds = %475
+  %488 = load ptr, ptr %86, align 8, !tbaa !111
+  call void %488(ptr noundef %.0256348, i64 noundef %478, i32 noundef range(i32 0, 256) %167, i32 noundef %486, i32 noundef range(i32 -2147483648, 19) %418, i32 noundef 1) #8
   br label %rv40_adaptive_loop_filter.exit321
 
-490:                                              ; preds = %476
-  %491 = and i32 %482, %481
-  %.not35.i319 = icmp eq i32 %491, 0
-  br i1 %.not35.i319, label %494, label %492
+489:                                              ; preds = %475
+  %490 = and i32 %481, %480
+  %.not35.i319 = icmp eq i32 %490, 0
+  br i1 %.not35.i319, label %493, label %491
 
-492:                                              ; preds = %490
-  %493 = load ptr, ptr %87, align 8, !tbaa !111
-  call void %493(ptr noundef %.0256348, i64 noundef %479, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %487, i32 noundef %427, i32 noundef %.1261) #8
+491:                                              ; preds = %489
+  %492 = load ptr, ptr %87, align 8, !tbaa !111
+  call void %492(ptr noundef %.0256348, i64 noundef %478, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %486, i32 noundef %426, i32 noundef %.1261) #8
   br label %rv40_adaptive_loop_filter.exit321
 
-494:                                              ; preds = %490
-  %495 = or i32 %482, %481
-  %.not36.i320 = icmp eq i32 %495, 0
-  br i1 %.not36.i320, label %rv40_adaptive_loop_filter.exit321, label %496
+493:                                              ; preds = %489
+  %494 = or i32 %481, %480
+  %.not36.i320 = icmp eq i32 %494, 0
+  br i1 %.not36.i320, label %rv40_adaptive_loop_filter.exit321, label %495
 
-496:                                              ; preds = %494
-  %497 = load ptr, ptr %87, align 8, !tbaa !111
-  %498 = ashr i32 %487, 1
-  %499 = ashr i32 %427, 1
-  %500 = ashr i32 %.1261, 1
-  call void %497(ptr noundef %.0256348, i64 noundef %479, i32 noundef %481, i32 noundef %482, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %498, i32 noundef %499, i32 noundef %500) #8
+495:                                              ; preds = %493
+  %496 = load ptr, ptr %87, align 8, !tbaa !111
+  %497 = ashr i32 %486, 1
+  %498 = ashr i32 %426, 1
+  %499 = ashr i32 %.1261, 1
+  call void %496(ptr noundef %.0256348, i64 noundef %478, i32 noundef %480, i32 noundef %481, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %497, i32 noundef %498, i32 noundef %499) #8
   br label %rv40_adaptive_loop_filter.exit321
 
-rv40_adaptive_loop_filter.exit321:                ; preds = %488, %492, %494, %496
+rv40_adaptive_loop_filter.exit321:                ; preds = %487, %491, %493, %495
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  br label %501
+  br label %500
 
-501:                                              ; preds = %rv40_adaptive_loop_filter.exit321, %464, %460
-  %502 = and i32 %404, %424
-  %.not274 = icmp eq i32 %502, 0
+500:                                              ; preds = %rv40_adaptive_loop_filter.exit321, %463, %459
+  %501 = and i32 %403, %423
+  %.not274 = icmp eq i32 %501, 0
   %or.cond330 = select i1 %.not273, i1 true, i1 %.not274
-  br i1 %or.cond330, label %535, label %503
+  br i1 %or.cond330, label %534, label %502
 
-503:                                              ; preds = %501
-  %504 = load i32, ptr %20, align 16, !tbaa !71
-  %505 = or i32 %241, %504
-  %.not275 = icmp eq i32 %505, 0
-  br i1 %.not275, label %535, label %506
+502:                                              ; preds = %500
+  %503 = load i32, ptr %20, align 16, !tbaa !71
+  %504 = or i32 %240, %503
+  %.not275 = icmp eq i32 %504, 0
+  br i1 %.not275, label %534, label %505
 
-506:                                              ; preds = %503
-  %507 = load i32, ptr %406, align 4, !tbaa !71
-  %508 = and i32 %507, %428
-  %.not276 = icmp eq i32 %508, 0
-  %509 = select i1 %.not276, i32 0, i32 %242
-  %510 = load i64, ptr %92, align 8, !tbaa !114
+505:                                              ; preds = %502
+  %506 = load i32, ptr %405, align 4, !tbaa !71
+  %507 = and i32 %506, %427
+  %.not276 = icmp eq i32 %507, 0
+  %508 = select i1 %.not276, i32 0, i32 %241
+  %509 = load i64, ptr %92, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  %511 = load ptr, ptr %79, align 8, !tbaa !111
-  %sext332 = shl i64 %510, 32
-  %512 = ashr exact i64 %sext332, 32
-  %513 = call i32 %511(ptr noundef %.0256348, i64 noundef %512, i32 noundef range(i32 0, 256) %169, i32 noundef range(i32 0, 1021) %170, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %514 = load i32, ptr %5, align 4, !tbaa !71
-  %515 = load i32, ptr %6, align 4, !tbaa !71
-  %516 = add nsw i32 %509, %427
-  %517 = ashr i32 %516, 1
-  %518 = add nsw i32 %517, 1
+  %510 = load ptr, ptr %79, align 8, !tbaa !111
+  %sext332 = shl i64 %509, 32
+  %511 = ashr exact i64 %sext332, 32
+  %512 = call i32 %510(ptr noundef %.0256348, i64 noundef %511, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %169, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %513 = load i32, ptr %5, align 4, !tbaa !71
+  %514 = load i32, ptr %6, align 4, !tbaa !71
+  %515 = add nsw i32 %508, %426
+  %516 = ashr i32 %515, 1
+  %517 = add nsw i32 %516, 1
+  %518 = add i32 %517, %513
   %519 = add i32 %518, %514
-  %520 = add i32 %519, %515
-  %.not.i322 = icmp eq i32 %513, 0
-  br i1 %.not.i322, label %524, label %521
+  %.not.i322 = icmp eq i32 %512, 0
+  br i1 %.not.i322, label %523, label %520
 
-521:                                              ; preds = %506
-  %522 = shl nuw nsw i32 %.3350, 3
-  %523 = load ptr, ptr %80, align 8, !tbaa !111
-  call void %523(ptr noundef %.0256348, i64 noundef %512, i32 noundef range(i32 0, 256) %168, i32 noundef %520, i32 noundef range(i32 -2147483648, 19) %522, i32 noundef 1) #8
+520:                                              ; preds = %505
+  %521 = shl nuw nsw i32 %.3350, 3
+  %522 = load ptr, ptr %80, align 8, !tbaa !111
+  call void %522(ptr noundef %.0256348, i64 noundef %511, i32 noundef range(i32 0, 256) %167, i32 noundef %519, i32 noundef range(i32 -2147483648, 19) %521, i32 noundef 1) #8
   br label %rv40_adaptive_loop_filter.exit325
 
-524:                                              ; preds = %506
-  %525 = and i32 %515, %514
-  %.not35.i323 = icmp eq i32 %525, 0
-  br i1 %.not35.i323, label %528, label %526
+523:                                              ; preds = %505
+  %524 = and i32 %514, %513
+  %.not35.i323 = icmp eq i32 %524, 0
+  br i1 %.not35.i323, label %527, label %525
 
-526:                                              ; preds = %524
-  %527 = load ptr, ptr %81, align 8, !tbaa !111
-  call void %527(ptr noundef %.0256348, i64 noundef %512, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %520, i32 noundef %427, i32 noundef %509) #8
+525:                                              ; preds = %523
+  %526 = load ptr, ptr %81, align 8, !tbaa !111
+  call void %526(ptr noundef %.0256348, i64 noundef %511, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %519, i32 noundef %426, i32 noundef %508) #8
   br label %rv40_adaptive_loop_filter.exit325
 
-528:                                              ; preds = %524
-  %529 = or i32 %515, %514
-  %.not36.i324 = icmp eq i32 %529, 0
-  br i1 %.not36.i324, label %rv40_adaptive_loop_filter.exit325, label %530
+527:                                              ; preds = %523
+  %528 = or i32 %514, %513
+  %.not36.i324 = icmp eq i32 %528, 0
+  br i1 %.not36.i324, label %rv40_adaptive_loop_filter.exit325, label %529
 
-530:                                              ; preds = %528
-  %531 = load ptr, ptr %81, align 8, !tbaa !111
-  %532 = ashr i32 %520, 1
-  %533 = ashr i32 %427, 1
-  %534 = ashr i32 %509, 1
-  call void %531(ptr noundef %.0256348, i64 noundef %512, i32 noundef %514, i32 noundef %515, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %532, i32 noundef %533, i32 noundef %534) #8
+529:                                              ; preds = %527
+  %530 = load ptr, ptr %81, align 8, !tbaa !111
+  %531 = ashr i32 %519, 1
+  %532 = ashr i32 %426, 1
+  %533 = ashr i32 %508, 1
+  call void %530(ptr noundef %.0256348, i64 noundef %511, i32 noundef %513, i32 noundef %514, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %531, i32 noundef %532, i32 noundef %533) #8
   br label %rv40_adaptive_loop_filter.exit325
 
-rv40_adaptive_loop_filter.exit325:                ; preds = %521, %526, %528, %530
+rv40_adaptive_loop_filter.exit325:                ; preds = %520, %525, %527, %529
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  br label %535
+  br label %534
 
-535:                                              ; preds = %rv40_adaptive_loop_filter.exit325, %503, %501
-  %or.cond3 = or i1 %422, %.not268
-  br i1 %or.cond3, label %567, label %536
+534:                                              ; preds = %rv40_adaptive_loop_filter.exit325, %502, %500
+  %or.cond3 = or i1 %421, %.not268
+  br i1 %or.cond3, label %566, label %535
 
-536:                                              ; preds = %535
-  %537 = load i32, ptr %20, align 16, !tbaa !71
-  %538 = or i32 %239, %537
-  %.not277 = icmp eq i32 %538, 0
-  br i1 %.not277, label %567, label %539
+535:                                              ; preds = %534
+  %536 = load i32, ptr %20, align 16, !tbaa !71
+  %537 = or i32 %238, %536
+  %.not277 = icmp eq i32 %537, 0
+  br i1 %.not277, label %566, label %538
 
-539:                                              ; preds = %536
-  %540 = load i32, ptr %405, align 4, !tbaa !71
-  %541 = and i32 %540, %417
-  %.not278 = icmp eq i32 %541, 0
-  %542 = select i1 %.not278, i32 0, i32 %240
-  %543 = load i64, ptr %92, align 8, !tbaa !114
+538:                                              ; preds = %535
+  %539 = load i32, ptr %404, align 4, !tbaa !71
+  %540 = and i32 %539, %416
+  %.not278 = icmp eq i32 %540, 0
+  %541 = select i1 %.not278, i32 0, i32 %239
+  %542 = load i64, ptr %92, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  %544 = load ptr, ptr %85, align 8, !tbaa !111
-  %sext333 = shl i64 %543, 32
-  %545 = ashr exact i64 %sext333, 32
-  %546 = call i32 %544(ptr noundef %.0256348, i64 noundef %545, i32 noundef range(i32 0, 256) %169, i32 noundef range(i32 0, 1021) %170, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
-  %547 = load i32, ptr %3, align 4, !tbaa !71
-  %548 = load i32, ptr %4, align 4, !tbaa !71
-  %549 = add nsw i32 %542, %427
-  %550 = ashr i32 %549, 1
-  %551 = add nsw i32 %550, 1
+  %543 = load ptr, ptr %85, align 8, !tbaa !111
+  %sext333 = shl i64 %542, 32
+  %544 = ashr exact i64 %sext333, 32
+  %545 = call i32 %543(ptr noundef %.0256348, i64 noundef %544, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %169, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  %546 = load i32, ptr %3, align 4, !tbaa !71
+  %547 = load i32, ptr %4, align 4, !tbaa !71
+  %548 = add nsw i32 %541, %426
+  %549 = ashr i32 %548, 1
+  %550 = add nsw i32 %549, 1
+  %551 = add i32 %550, %546
   %552 = add i32 %551, %547
-  %553 = add i32 %552, %548
-  %.not.i326 = icmp eq i32 %546, 0
-  br i1 %.not.i326, label %556, label %554
+  %.not.i326 = icmp eq i32 %545, 0
+  br i1 %.not.i326, label %555, label %553
 
-554:                                              ; preds = %539
-  %555 = load ptr, ptr %86, align 8, !tbaa !111
-  call void %555(ptr noundef %.0256348, i64 noundef %545, i32 noundef range(i32 0, 256) %168, i32 noundef %553, i32 noundef range(i32 -2147483648, 19) %420, i32 noundef 1) #8
+553:                                              ; preds = %538
+  %554 = load ptr, ptr %86, align 8, !tbaa !111
+  call void %554(ptr noundef %.0256348, i64 noundef %544, i32 noundef range(i32 0, 256) %167, i32 noundef %552, i32 noundef range(i32 -2147483648, 19) %419, i32 noundef 1) #8
   br label %rv40_adaptive_loop_filter.exit329
 
-556:                                              ; preds = %539
-  %557 = and i32 %548, %547
-  %.not35.i327 = icmp eq i32 %557, 0
-  br i1 %.not35.i327, label %560, label %558
+555:                                              ; preds = %538
+  %556 = and i32 %547, %546
+  %.not35.i327 = icmp eq i32 %556, 0
+  br i1 %.not35.i327, label %559, label %557
 
-558:                                              ; preds = %556
-  %559 = load ptr, ptr %87, align 8, !tbaa !111
-  call void %559(ptr noundef %.0256348, i64 noundef %545, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %553, i32 noundef %427, i32 noundef %542) #8
+557:                                              ; preds = %555
+  %558 = load ptr, ptr %87, align 8, !tbaa !111
+  call void %558(ptr noundef %.0256348, i64 noundef %544, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %552, i32 noundef %426, i32 noundef %541) #8
   br label %rv40_adaptive_loop_filter.exit329
 
-560:                                              ; preds = %556
-  %561 = or i32 %548, %547
-  %.not36.i328 = icmp eq i32 %561, 0
-  br i1 %.not36.i328, label %rv40_adaptive_loop_filter.exit329, label %562
+559:                                              ; preds = %555
+  %560 = or i32 %547, %546
+  %.not36.i328 = icmp eq i32 %560, 0
+  br i1 %.not36.i328, label %rv40_adaptive_loop_filter.exit329, label %561
 
-562:                                              ; preds = %560
-  %563 = load ptr, ptr %87, align 8, !tbaa !111
-  %564 = ashr i32 %553, 1
-  %565 = ashr i32 %427, 1
-  %566 = ashr i32 %542, 1
-  call void %563(ptr noundef %.0256348, i64 noundef %545, i32 noundef %547, i32 noundef %548, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 256) %169, i32 noundef %564, i32 noundef %565, i32 noundef %566) #8
+561:                                              ; preds = %559
+  %562 = load ptr, ptr %87, align 8, !tbaa !111
+  %563 = ashr i32 %552, 1
+  %564 = ashr i32 %426, 1
+  %565 = ashr i32 %541, 1
+  call void %562(ptr noundef %.0256348, i64 noundef %544, i32 noundef %546, i32 noundef %547, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %563, i32 noundef %564, i32 noundef %565) #8
   br label %rv40_adaptive_loop_filter.exit329
 
-rv40_adaptive_loop_filter.exit329:                ; preds = %554, %558, %560, %562
+rv40_adaptive_loop_filter.exit329:                ; preds = %553, %557, %559, %561
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  br label %567
+  br label %566
 
-567:                                              ; preds = %rv40_adaptive_loop_filter.exit329, %536, %535
-  %568 = getelementptr inbounds nuw i8, ptr %.0256348, i64 4
-  br i1 %.not269, label %421, label %569, !llvm.loop !115
+566:                                              ; preds = %rv40_adaptive_loop_filter.exit329, %535, %534
+  %567 = getelementptr inbounds nuw i8, ptr %.0256348, i64 4
+  br i1 %.not269, label %420, label %568, !llvm.loop !115
 
-569:                                              ; preds = %567
-  br i1 %408, label %407, label %570, !llvm.loop !116
+568:                                              ; preds = %566
+  br i1 %407, label %406, label %569, !llvm.loop !116
+
+569:                                              ; preds = %568
+  br i1 %400, label %.preheader, label %570, !llvm.loop !117
 
 570:                                              ; preds = %569
-  br i1 %401, label %.preheader, label %571, !llvm.loop !117
-
-571:                                              ; preds = %570
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #8
@@ -1997,12 +1998,12 @@ rv40_adaptive_loop_filter.exit329:                ; preds = %554, %558, %560, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4401)
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %indvars.iv.next377 = add nsw i64 %indvars.iv376, 1
-  %572 = load i32, ptr %27, align 4, !tbaa !97
-  %573 = sext i32 %572 to i64
-  %574 = icmp slt i64 %indvars.iv.next379, %573
-  br i1 %574, label %96, label %._crit_edge358, !llvm.loop !118
+  %571 = load i32, ptr %27, align 4, !tbaa !97
+  %572 = sext i32 %571 to i64
+  %573 = icmp slt i64 %indvars.iv.next379, %572
+  br i1 %573, label %96, label %._crit_edge358, !llvm.loop !118
 
-._crit_edge358:                                   ; preds = %571, %2, %._crit_edge
+._crit_edge358:                                   ; preds = %570, %2, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #8
@@ -2045,59 +2046,60 @@ define internal void @rv40_init_tables() #1 {
   %exitcond.not = icmp eq i64 %indvars.iv.next, 90
   br i1 %exitcond.not, label %.preheader29, label %4, !llvm.loop !119
 
-.preheader29:                                     ; preds = %12, %13
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %13 ], [ 0, %12 ]
+.preheader29:                                     ; preds = %12, %14
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %14 ], [ 0, %12 ]
   call void @llvm.lifetime.start.p0(i64 162, ptr nonnull %2) #8
-  br label %17
+  %13 = getelementptr inbounds nuw [20 x [81 x i8]], ptr @aic_mode2_vlc_syms, i64 0, i64 %indvars.iv40
+  br label %18
 
-13:                                               ; preds = %17
-  %14 = getelementptr inbounds nuw [20 x [81 x i8]], ptr @aic_mode2_vlc_bits, i64 0, i64 %indvars.iv40
-  %15 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef 81, ptr noundef nonnull %14, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #8
-  %16 = getelementptr inbounds nuw [20 x ptr], ptr @aic_mode2_vlc, i64 0, i64 %indvars.iv40
-  store ptr %15, ptr %16, align 8, !tbaa !83
+14:                                               ; preds = %18
+  %15 = getelementptr inbounds nuw [20 x [81 x i8]], ptr @aic_mode2_vlc_bits, i64 0, i64 %indvars.iv40
+  %16 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef 81, ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #8
+  %17 = getelementptr inbounds nuw [20 x ptr], ptr @aic_mode2_vlc, i64 0, i64 %indvars.iv40
+  store ptr %16, ptr %17, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 162, ptr nonnull %2) #8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 20
   br i1 %exitcond43.not, label %.preheader28, label %.preheader29, !llvm.loop !120
 
-17:                                               ; preds = %.preheader29, %17
-  %indvars.iv36 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next37, %17 ]
-  %18 = getelementptr inbounds nuw [20 x [81 x i8]], ptr @aic_mode2_vlc_syms, i64 0, i64 %indvars.iv40, i64 %indvars.iv36
-  %19 = load i8, ptr %18, align 1, !tbaa !65
-  %20 = zext i8 %19 to i16
-  %21 = lshr i16 %20, 4
-  %22 = shl nuw i16 %20, 8
-  %23 = and i16 %22, 3840
-  %24 = or disjoint i16 %23, %21
-  %25 = getelementptr inbounds nuw [81 x i16], ptr %2, i64 0, i64 %indvars.iv36
-  store i16 %24, ptr %25, align 2, !tbaa !81
+18:                                               ; preds = %.preheader29, %18
+  %indvars.iv36 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next37, %18 ]
+  %19 = getelementptr inbounds nuw [81 x i8], ptr %13, i64 0, i64 %indvars.iv36
+  %20 = load i8, ptr %19, align 1, !tbaa !65
+  %21 = zext i8 %20 to i16
+  %22 = lshr i16 %21, 4
+  %23 = shl nuw i16 %21, 8
+  %24 = and i16 %23, 3840
+  %25 = or disjoint i16 %24, %22
+  %26 = getelementptr inbounds nuw [81 x i16], ptr %2, i64 0, i64 %indvars.iv36
+  store i16 %25, ptr %26, align 2, !tbaa !81
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 81
-  br i1 %exitcond39.not, label %13, label %17, !llvm.loop !121
+  br i1 %exitcond39.not, label %14, label %18, !llvm.loop !121
 
-.preheader28:                                     ; preds = %13, %.preheader28
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader28 ], [ 0, %13 ]
-  %26 = getelementptr inbounds nuw [7 x [8 x [2 x i8]]], ptr @ptype_vlc_tabs, i64 0, i64 %indvars.iv44
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %28 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 7, i32 noundef 8, ptr noundef nonnull %27, i32 noundef 2, ptr noundef nonnull %26, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
-  %29 = getelementptr inbounds nuw [7 x ptr], ptr @ptype_vlc, i64 0, i64 %indvars.iv44
-  store ptr %28, ptr %29, align 8, !tbaa !83
+.preheader28:                                     ; preds = %14, %.preheader28
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader28 ], [ 0, %14 ]
+  %27 = getelementptr inbounds nuw [7 x [8 x [2 x i8]]], ptr @ptype_vlc_tabs, i64 0, i64 %indvars.iv44
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %29 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 7, i32 noundef 8, ptr noundef nonnull %28, i32 noundef 2, ptr noundef nonnull %27, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
+  %30 = getelementptr inbounds nuw [7 x ptr], ptr @ptype_vlc, i64 0, i64 %indvars.iv44
+  store ptr %29, ptr %30, align 8, !tbaa !83
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 7
   br i1 %exitcond47.not, label %.preheader, label %.preheader28, !llvm.loop !122
 
 .preheader:                                       ; preds = %.preheader28, %.preheader
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 0, %.preheader28 ]
-  %30 = getelementptr inbounds nuw [6 x [7 x [2 x i8]]], ptr @btype_vlc_tabs, i64 0, i64 %indvars.iv48
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %32 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 6, i32 noundef 7, ptr noundef nonnull %31, i32 noundef 2, ptr noundef nonnull %30, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
-  %33 = getelementptr inbounds nuw [6 x ptr], ptr @btype_vlc, i64 0, i64 %indvars.iv48
-  store ptr %32, ptr %33, align 8, !tbaa !83
+  %31 = getelementptr inbounds nuw [6 x [7 x [2 x i8]]], ptr @btype_vlc_tabs, i64 0, i64 %indvars.iv48
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  %33 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 6, i32 noundef 7, ptr noundef nonnull %32, i32 noundef 2, ptr noundef nonnull %31, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
+  %34 = getelementptr inbounds nuw [6 x ptr], ptr @btype_vlc, i64 0, i64 %indvars.iv48
+  store ptr %33, ptr %34, align 8, !tbaa !83
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 6
-  br i1 %exitcond51.not, label %34, label %.preheader, !llvm.loop !123
+  br i1 %exitcond51.not, label %35, label %.preheader, !llvm.loop !123
 
-34:                                               ; preds = %.preheader
+35:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #8
   ret void
 }

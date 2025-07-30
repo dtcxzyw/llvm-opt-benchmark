@@ -2891,7 +2891,7 @@ define linkonce_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE15re
   br i1 %81, label %.preheader.i.us.i, label %_ZN3gmx12_GLOBAL__N_116reduceVirialDataINS_11BasicVectorIfEEEEvPNS_15ForceWithVirialENS_8ArrayRefIKSt10unique_ptrINS_17ThreadForceBufferIT_EESt14default_deleteISA_EEEE.exit
 
 .preheader.i.us.i:                                ; preds = %.lr.ph.i, %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i
-  %.sroa.0.013.us.i = phi ptr [ %91, %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i ], [ %76, %.lr.ph.i ]
+  %.sroa.0.013.us.i = phi ptr [ %92, %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i ], [ %76, %.lr.ph.i ]
   %83 = load ptr, ptr %.sroa.0.013.us.i, align 8, !tbaa !99
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 104
   %.sroa.01.0.copyload.us.i = load <2 x float>, ptr %84, align 4
@@ -2906,26 +2906,27 @@ define linkonce_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE15re
   %indvars.iv.i.us.i = phi i64 [ 0, %.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %85 ]
   %86 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv.i.us.i
   %87 = load float, ptr %86, align 4, !tbaa !50
-  %88 = getelementptr inbounds nuw [3 x [3 x float]], ptr %82, i64 0, i64 %indvars.iv.i.us.i, i64 %indvars.iv.i.us.i
-  %89 = load float, ptr %88, align 4, !tbaa !50
-  %90 = fadd float %87, %89
-  store float %90, ptr %88, align 4, !tbaa !50
+  %88 = getelementptr inbounds nuw [3 x [3 x float]], ptr %82, i64 0, i64 %indvars.iv.i.us.i
+  %89 = getelementptr inbounds nuw [3 x float], ptr %88, i64 0, i64 %indvars.iv.i.us.i
+  %90 = load float, ptr %89, align 4, !tbaa !50
+  %91 = fadd float %87, %90
+  store float %91, ptr %89, align 4, !tbaa !50
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, 3
   br i1 %exitcond.not.i.us.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i, label %85, !llvm.loop !153
 
 _ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i: ; preds = %85
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.us.i, i64 8
-  %.not.us.i = icmp eq ptr %91, %78
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.us.i, i64 8
+  %.not.us.i = icmp eq ptr %92, %78
   br i1 %.not.us.i, label %_ZN3gmx12_GLOBAL__N_116reduceVirialDataINS_11BasicVectorIfEEEEvPNS_15ForceWithVirialENS_8ArrayRefIKSt10unique_ptrINS_17ThreadForceBufferIT_EESt14default_deleteISA_EEEE.exit, label %.preheader.i.us.i, !llvm.loop !154
 
 _ZN3gmx12_GLOBAL__N_116reduceVirialDataINS_11BasicVectorIfEEEEvPNS_15ForceWithVirialENS_8ArrayRefIKSt10unique_ptrINS_17ThreadForceBufferIT_EESt14default_deleteISA_EEEE.exit: ; preds = %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i, %.lr.ph.i, %74, %60
-  %92 = ptrtoint ptr %5 to i64
-  %93 = ptrtoint ptr %4 to i64
-  %94 = sub i64 %92, %93
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 %94
-  call void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE21reduceEnergiesAndDvdlEPfP17gmx_grppairener_tNS_8ArrayRefIfEERKNS_12StepWorkloadEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2, ptr noundef %3, ptr %4, ptr %95, ptr noundef nonnull align 1 dereferenceable(20) %6, i32 noundef %7)
+  %93 = ptrtoint ptr %5 to i64
+  %94 = ptrtoint ptr %4 to i64
+  %95 = sub i64 %93, %94
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 %95
+  call void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE21reduceEnergiesAndDvdlEPfP17gmx_grppairener_tNS_8ArrayRefIfEERKNS_12StepWorkloadEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2, ptr noundef %3, ptr %4, ptr %96, ptr noundef nonnull align 1 dereferenceable(20) %6, i32 noundef %7)
   ret void
 }
 
@@ -5060,7 +5061,7 @@ define linkonce_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE15reduceTemplatedINS
   br i1 %81, label %.preheader.i.us.i, label %_ZN3gmx12_GLOBAL__N_116reduceVirialDataIA4_fEEvPNS_15ForceWithVirialENS_8ArrayRefIKSt10unique_ptrINS_17ThreadForceBufferIT_EESt14default_deleteIS9_EEEE.exit
 
 .preheader.i.us.i:                                ; preds = %.lr.ph.i, %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i
-  %.sroa.0.013.us.i = phi ptr [ %91, %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i ], [ %76, %.lr.ph.i ]
+  %.sroa.0.013.us.i = phi ptr [ %92, %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i ], [ %76, %.lr.ph.i ]
   %83 = load ptr, ptr %.sroa.0.013.us.i, align 8, !tbaa !176
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 104
   %.sroa.01.0.copyload.us.i = load <2 x float>, ptr %84, align 4
@@ -5075,26 +5076,27 @@ define linkonce_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE15reduceTemplatedINS
   %indvars.iv.i.us.i = phi i64 [ 0, %.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %85 ]
   %86 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv.i.us.i
   %87 = load float, ptr %86, align 4, !tbaa !50
-  %88 = getelementptr inbounds nuw [3 x [3 x float]], ptr %82, i64 0, i64 %indvars.iv.i.us.i, i64 %indvars.iv.i.us.i
-  %89 = load float, ptr %88, align 4, !tbaa !50
-  %90 = fadd float %87, %89
-  store float %90, ptr %88, align 4, !tbaa !50
+  %88 = getelementptr inbounds nuw [3 x [3 x float]], ptr %82, i64 0, i64 %indvars.iv.i.us.i
+  %89 = getelementptr inbounds nuw [3 x float], ptr %88, i64 0, i64 %indvars.iv.i.us.i
+  %90 = load float, ptr %89, align 4, !tbaa !50
+  %91 = fadd float %87, %90
+  store float %91, ptr %89, align 4, !tbaa !50
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, 3
   br i1 %exitcond.not.i.us.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i, label %85, !llvm.loop !153
 
 _ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i: ; preds = %85
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.us.i, i64 8
-  %.not.us.i = icmp eq ptr %91, %78
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.us.i, i64 8
+  %.not.us.i = icmp eq ptr %92, %78
   br i1 %.not.us.i, label %_ZN3gmx12_GLOBAL__N_116reduceVirialDataIA4_fEEvPNS_15ForceWithVirialENS_8ArrayRefIKSt10unique_ptrINS_17ThreadForceBufferIT_EESt14default_deleteIS9_EEEE.exit, label %.preheader.i.us.i, !llvm.loop !207
 
 _ZN3gmx12_GLOBAL__N_116reduceVirialDataIA4_fEEvPNS_15ForceWithVirialENS_8ArrayRefIKSt10unique_ptrINS_17ThreadForceBufferIT_EESt14default_deleteIS9_EEEE.exit: ; preds = %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit.loopexit.us.i, %.lr.ph.i, %74, %60
-  %92 = ptrtoint ptr %5 to i64
-  %93 = ptrtoint ptr %4 to i64
-  %94 = sub i64 %92, %93
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 %94
-  call void @_ZN3gmx19ThreadedForceBufferIA4_fE21reduceEnergiesAndDvdlEPfP17gmx_grppairener_tNS_8ArrayRefIfEERKNS_12StepWorkloadEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2, ptr noundef %3, ptr %4, ptr %95, ptr noundef nonnull align 1 dereferenceable(20) %6, i32 noundef %7)
+  %93 = ptrtoint ptr %5 to i64
+  %94 = ptrtoint ptr %4 to i64
+  %95 = sub i64 %93, %94
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 %95
+  call void @_ZN3gmx19ThreadedForceBufferIA4_fE21reduceEnergiesAndDvdlEPfP17gmx_grppairener_tNS_8ArrayRefIfEERKNS_12StepWorkloadEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2, ptr noundef %3, ptr %4, ptr %96, ptr noundef nonnull align 1 dereferenceable(20) %6, i32 noundef %7)
   ret void
 }
 

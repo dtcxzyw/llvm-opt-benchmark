@@ -1565,11 +1565,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys7Process15ColorNeedsFlushEv() l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm3sys7Process11OutputColorEcbb(i8 noundef signext %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 {
   %4 = zext i1 %2 to i64
-  %5 = zext i1 %1 to i64
-  %6 = and i8 %0, 15
-  %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds nuw [2 x [2 x [16 x [11 x i8]]]], ptr @_ZL10colorcodes, i64 0, i64 %4, i64 %5, i64 %7
-  ret ptr %8
+  %5 = getelementptr inbounds nuw [2 x [2 x [16 x [11 x i8]]]], ptr @_ZL10colorcodes, i64 0, i64 %4
+  %6 = zext i1 %1 to i64
+  %7 = getelementptr inbounds nuw [2 x [16 x [11 x i8]]], ptr %5, i64 0, i64 %6
+  %8 = and i8 %0, 15
+  %9 = zext nneg i8 %8 to i64
+  %10 = getelementptr inbounds nuw [16 x [11 x i8]], ptr %7, i64 0, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

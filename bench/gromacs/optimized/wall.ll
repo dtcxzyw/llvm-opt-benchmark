@@ -1039,7 +1039,7 @@ _ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us: ; preds = %193, %182
   %270 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %271 = load i8, ptr %270, align 8, !tbaa !273, !range !276, !noundef !277
   %272 = trunc nuw i8 %271 to i1
-  br i1 %272, label %.preheader.i, label %288
+  br i1 %272, label %.preheader.i, label %289
 
 .split.split:                                     ; preds = %.split, %.split.split
   %273 = phi double [ %278, %.split.split ], [ %.promoted, %.split ]
@@ -1071,19 +1071,20 @@ _ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us: ; preds = %193, %182
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %282 ]
   %283 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i
   %284 = load float, ptr %283, align 4, !tbaa !233
-  %285 = getelementptr inbounds nuw [3 x [3 x float]], ptr %281, i64 0, i64 %indvars.iv.i, i64 %indvars.iv.i
-  %286 = load float, ptr %285, align 4, !tbaa !233
-  %287 = fadd float %284, %286
-  store float %287, ptr %285, align 4, !tbaa !233
+  %285 = getelementptr inbounds nuw [3 x [3 x float]], ptr %281, i64 0, i64 %indvars.iv.i
+  %286 = getelementptr inbounds nuw [3 x float], ptr %285, i64 0, i64 %indvars.iv.i
+  %287 = load float, ptr %286, align 4, !tbaa !233
+  %288 = fadd float %284, %287
+  store float %288, ptr %286, align 4, !tbaa !233
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit, label %282, !llvm.loop !279
 
 _ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit: ; preds = %282
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15)
-  br label %288
+  br label %289
 
-288:                                              ; preds = %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit, %.split225.us
+289:                                              ; preds = %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit, %.split225.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #18

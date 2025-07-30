@@ -8471,19 +8471,20 @@ if.then9:                                         ; preds = %_ZN3irr5video13COpe
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %texcoordData) #24
   %idxprom = zext i32 %layer to i64
   %idxprom13 = select i1 %flip, i64 3, i64 0
-  %arrayidx14 = getelementptr inbounds nuw [6 x [4 x %"class.irr::core::vector3d"]], ptr @constinit.18, i64 0, i64 %idxprom, i64 %idxprom13
+  %arrayidx14.split = getelementptr inbounds nuw [6 x [4 x %"class.irr::core::vector3d"]], ptr @constinit.18, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds nuw [4 x %"class.irr::core::vector3d"], ptr %arrayidx14.split, i64 0, i64 %idxprom13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %texcoordData, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx14, i64 12, i1 false), !tbaa.struct !352
   %arrayinit.element = getelementptr inbounds nuw i8, ptr %texcoordData, i64 12
   %idxprom19 = select i1 %flip, i64 2, i64 1
-  %arrayidx20 = getelementptr inbounds nuw [6 x [4 x %"class.irr::core::vector3d"]], ptr @constinit.18, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds nuw [4 x %"class.irr::core::vector3d"], ptr %arrayidx14.split, i64 0, i64 %idxprom19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayinit.element, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx20, i64 12, i1 false), !tbaa.struct !352
   %arrayinit.element21 = getelementptr inbounds nuw i8, ptr %texcoordData, i64 24
   %idxprom26 = select i1 %flip, i64 1, i64 2
-  %arrayidx27 = getelementptr inbounds nuw [6 x [4 x %"class.irr::core::vector3d"]], ptr @constinit.18, i64 0, i64 %idxprom, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds nuw [4 x %"class.irr::core::vector3d"], ptr %arrayidx14.split, i64 0, i64 %idxprom26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayinit.element21, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx27, i64 12, i1 false), !tbaa.struct !352
   %arrayinit.element28 = getelementptr inbounds nuw i8, ptr %texcoordData, i64 36
   %idxprom33 = select i1 %flip, i64 0, i64 3
-  %arrayidx34 = getelementptr inbounds nuw [6 x [4 x %"class.irr::core::vector3d"]], ptr @constinit.18, i64 0, i64 %idxprom, i64 %idxprom33
+  %arrayidx34 = getelementptr inbounds nuw [4 x %"class.irr::core::vector3d"], ptr %arrayidx14.split, i64 0, i64 %idxprom33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayinit.element28, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx34, i64 12, i1 false), !tbaa.struct !352
   call void @glTexCoordPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 12, ptr noundef nonnull %texcoordData) #24
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %texcoordData) #24

@@ -20428,7 +20428,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6object23WasmSectionOrderChecker19i
   %14 = phi i32 [ 0, %9 ], [ %49, %43 ]
   %.017 = phi i32 [ %7, %9 ], [ %48, %43 ]
   %15 = sext i32 %.017 to i64
-  %16 = getelementptr inbounds [20 x [20 x i32]], ptr @_ZN4llvm6object23WasmSectionOrderChecker22DisallowedPredecessorsE, i64 0, i64 %15, i64 0
+  %16 = getelementptr inbounds [20 x [20 x i32]], ptr @_ZN4llvm6object23WasmSectionOrderChecker22DisallowedPredecessorsE, i64 0, i64 %15
   %17 = load i32, ptr %16, align 16, !tbaa !224
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
@@ -20470,7 +20470,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %25, %27
 36:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %.lr.ph
   %37 = phi i32 [ %35, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %19, %.lr.ph ]
   %38 = add i64 %.01624, 1
-  %39 = getelementptr inbounds [20 x [20 x i32]], ptr @_ZN4llvm6object23WasmSectionOrderChecker22DisallowedPredecessorsE, i64 0, i64 %15, i64 %38
+  %39 = getelementptr inbounds nuw [20 x i32], ptr %16, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !224
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !1407

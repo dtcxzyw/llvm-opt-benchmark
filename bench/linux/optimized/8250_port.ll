@@ -6394,7 +6394,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_trig_bytes_show(ptr n
   %22 = load i8, ptr %21, align 1
   %23 = lshr i8 %22, 6
   %24 = zext nneg i8 %23 to i64
-  %25 = getelementptr [122 x %struct.serial8250_config], ptr @uart_config, i64 0, i64 %20, i32 4, i64 %24
+  %.split = getelementptr [122 x %struct.serial8250_config], ptr @uart_config, i64 0, i64 %20, i32 4
+  %25 = getelementptr [4 x i8], ptr %.split, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.thread, label %28
@@ -6464,7 +6465,7 @@ define internal i64 @rx_trig_bytes_store(ptr noundef readonly captures(none) %0,
 
 .preheader:                                       ; preds = %27, %38
   %34 = phi i64 [ %39, %38 ], [ 1, %27 ]
-  %35 = getelementptr [122 x %struct.serial8250_config], ptr @uart_config, i64 0, i64 %30, i32 4, i64 %34
+  %35 = getelementptr [4 x i8], ptr %31, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = icmp ugt i8 %36, %15
   br i1 %37, label %41, label %38

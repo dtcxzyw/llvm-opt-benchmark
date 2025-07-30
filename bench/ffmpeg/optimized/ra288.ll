@@ -74,7 +74,7 @@ define internal i32 @ra288_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 13:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %7, i32 noundef %11) #7
-  br label %105
+  br label %106
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -87,14 +87,14 @@ define internal i32 @ra288_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %or.cond3.i.i = and i1 %or.cond.i.i, %19
   %20 = add nuw nsw i32 %18, 8
   %21 = select i1 %or.cond3.i.i, i32 %20, i32 8
-  br i1 %or.cond3.i.i, label %22, label %105
+  br i1 %or.cond3.i.i, label %22, label %106
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 160, ptr %23, align 8, !tbaa !40
   %24 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #7
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %105, label %26
+  br i1 %25, label %106, label %26
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %1, align 8, !tbaa !45
@@ -112,10 +112,10 @@ define internal i32 @ra288_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 1016
   br label %40
 
-40:                                               ; preds = %26, %101
-  %.03748 = phi ptr [ %27, %26 ], [ %97, %101 ]
-  %.03847 = phi i32 [ 0, %26 ], [ %102, %101 ]
-  %.sroa.6.046 = phi i32 [ 0, %26 ], [ %90, %101 ]
+40:                                               ; preds = %26, %102
+  %.03748 = phi ptr [ %27, %26 ], [ %98, %102 ]
+  %.03847 = phi i32 [ 0, %26 ], [ %103, %102 ]
+  %.sroa.6.046 = phi i32 [ 0, %26 ], [ %91, %102 ]
   %41 = lshr i32 %.sroa.6.046, 3
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 %42
@@ -169,58 +169,59 @@ define internal i32 @ra288_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %79 = fmul nsz double %77, %78
   %80 = fmul nsz double %79, 0x3E80000000000000
   %81 = zext nneg i32 %71 to i64
-  br label %82
+  %82 = getelementptr inbounds nuw [128 x [5 x i16]], ptr @codetable, i64 0, i64 %81
+  br label %83
 
-82:                                               ; preds = %82, %65
-  %indvars.iv32.i = phi i64 [ 0, %65 ], [ %indvars.iv.next33.i, %82 ]
-  %83 = getelementptr inbounds nuw [128 x [5 x i16]], ptr @codetable, i64 0, i64 %81, i64 %indvars.iv32.i
-  %84 = load i16, ptr %83, align 2, !tbaa !49
-  %85 = sitofp i16 %84 to double
-  %86 = fmul nsz double %80, %85
-  %87 = fptrunc nsz double %86 to float
-  %88 = getelementptr inbounds nuw [5 x float], ptr %5, i64 0, i64 %indvars.iv32.i
-  store float %87, ptr %88, align 4, !tbaa !46
+83:                                               ; preds = %83, %65
+  %indvars.iv32.i = phi i64 [ 0, %65 ], [ %indvars.iv.next33.i, %83 ]
+  %84 = getelementptr inbounds nuw [5 x i16], ptr %82, i64 0, i64 %indvars.iv32.i
+  %85 = load i16, ptr %84, align 2, !tbaa !49
+  %86 = sitofp i16 %85 to double
+  %87 = fmul nsz double %80, %86
+  %88 = fptrunc nsz double %87 to float
+  %89 = getelementptr inbounds nuw [5 x float], ptr %5, i64 0, i64 %indvars.iv32.i
+  store float %88, ptr %89, align 4, !tbaa !46
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next33.i, 5
-  br i1 %exitcond35.not.i, label %decode.exit, label %82, !llvm.loop !51
+  br i1 %exitcond35.not.i, label %decode.exit, label %83, !llvm.loop !51
 
-decode.exit:                                      ; preds = %82
-  %89 = add nuw i32 %67, %49
-  %90 = call i32 @llvm.umin.i32(i32 %21, i32 %89)
-  %91 = call nsz float @ff_scalarproduct_float_c(ptr noundef nonnull %5, ptr noundef nonnull %5, i32 noundef 5) #7
-  %92 = fcmp nsz ogt float %91, 0x3E94000000000000
-  %narrow.sel.i = select nsz i1 %92, float %91, float 0x3E94000000000000
+decode.exit:                                      ; preds = %83
+  %90 = add nuw i32 %67, %49
+  %91 = call i32 @llvm.umin.i32(i32 %21, i32 %90)
+  %92 = call nsz float @ff_scalarproduct_float_c(ptr noundef nonnull %5, ptr noundef nonnull %5, i32 noundef 5) #7
+  %93 = fcmp nsz ogt float %92, 0x3E94000000000000
+  %narrow.sel.i = select nsz i1 %93, float %92, float 0x3E94000000000000
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %29, ptr noundef nonnull align 4 dereferenceable(36) %33, i64 36, i1 false)
-  %93 = fpext nsz float %narrow.sel.i to double
-  %94 = call nsz double @llvm.log10.f64(double %93)
-  %95 = call nsz double @llvm.fmuladd.f64(double %94, double 1.000000e+01, double 0x4040A0F5B9777A46)
-  %96 = fptrunc nsz double %95 to float
-  store float %96, ptr %34, align 4, !tbaa !46
+  %94 = fpext nsz float %narrow.sel.i to double
+  %95 = call nsz double @llvm.log10.f64(double %94)
+  %96 = call nsz double @llvm.fmuladd.f64(double %95, double 1.000000e+01, double 0x4040A0F5B9777A46)
+  %97 = fptrunc nsz double %96 to float
+  store float %97, ptr %34, align 4, !tbaa !46
   call void @ff_celp_lp_synthesis_filterf(ptr noundef nonnull %32, ptr noundef nonnull %35, ptr noundef nonnull %5, i32 noundef 5, i32 noundef 36) #7
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.03748, ptr noundef nonnull align 8 dereferenceable(20) %32, i64 20, i1 false)
-  %97 = getelementptr inbounds nuw i8, ptr %.03748, i64 20
-  %98 = and i32 %.03847, 7
-  %99 = icmp eq i32 %98, 3
-  br i1 %99, label %100, label %101
+  %98 = getelementptr inbounds nuw i8, ptr %.03748, i64 20
+  %99 = and i32 %.03847, 7
+  %100 = icmp eq i32 %99, 3
+  br i1 %100, label %101, label %102
 
-100:                                              ; preds = %decode.exit
+101:                                              ; preds = %decode.exit
   call fastcc void @backward_filter(ptr noundef nonnull %9, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull @syn_window, ptr noundef nonnull %35, ptr noundef nonnull @syn_bw_tab, i32 noundef 36, i32 noundef 40, i32 noundef 35, i32 noundef 70)
   call fastcc void @backward_filter(ptr noundef nonnull %9, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull @gain_window, ptr noundef nonnull %31, ptr noundef nonnull @gain_bw_tab, i32 noundef 10, i32 noundef 8, i32 noundef 20, i32 noundef 28)
-  br label %101
+  br label %102
 
-101:                                              ; preds = %100, %decode.exit
-  %102 = add nuw nsw i32 %.03847, 1
-  %exitcond.not = icmp eq i32 %102, 32
-  br i1 %exitcond.not, label %103, label %40, !llvm.loop !52
+102:                                              ; preds = %101, %decode.exit
+  %103 = add nuw nsw i32 %.03847, 1
+  %exitcond.not = icmp eq i32 %103, 32
+  br i1 %exitcond.not, label %104, label %40, !llvm.loop !52
 
-103:                                              ; preds = %101
+104:                                              ; preds = %102
   store i32 1, ptr %2, align 4, !tbaa !27
-  %104 = load i32, ptr %10, align 4, !tbaa !31
-  br label %105
+  %105 = load i32, ptr %10, align 4, !tbaa !31
+  br label %106
 
-105:                                              ; preds = %22, %14, %103, %13
-  %.0 = phi i32 [ -1094995529, %13 ], [ %104, %103 ], [ -1094995529, %14 ], [ %24, %22 ]
+106:                                              ; preds = %22, %14, %104, %13
+  %.0 = phi i32 [ -1094995529, %13 ], [ %105, %104 ], [ -1094995529, %14 ], [ %24, %22 ]
   ret i32 %.0
 }
 

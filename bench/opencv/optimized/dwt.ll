@@ -2966,9 +2966,10 @@ define hidden double @opj_dwt_getnorm(i32 noundef %0, i32 noundef %1) local_unna
   %6 = zext i32 %spec.store.select to i64
   %.0 = select i1 %or.cond, i64 9, i64 %6
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms, i64 0, i64 %7, i64 %.0
-  %9 = load double, ptr %8, align 8, !tbaa !160
-  ret double %9
+  %8 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw [10 x double], ptr %8, i64 0, i64 %.0
+  %10 = load double, ptr %9, align 8, !tbaa !160
+  ret double %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4199,9 +4200,10 @@ define hidden double @opj_dwt_getnorm_real(i32 noundef %0, i32 noundef %1) local
   %6 = zext i32 %spec.store.select to i64
   %.0 = select i1 %or.cond, i64 9, i64 %6
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms_real, i64 0, i64 %7, i64 %.0
-  %9 = load double, ptr %8, align 8, !tbaa !160
-  ret double %9
+  %8 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms_real, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw [10 x double], ptr %8, i64 0, i64 %.0
+  %10 = load double, ptr %9, align 8, !tbaa !160
+  ret double %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -4248,7 +4250,7 @@ define hidden void @opj_dwt_calc_explicit_stepsizes(ptr noundef captures(none) %
   %26 = icmp ult i32 %25, 2
   %27 = select i1 %26, i32 1, i32 2
   %28 = select i1 %or.cond, i32 0, i32 %27
-  br i1 %12, label %41, label %29
+  br i1 %12, label %42, label %29
 
 29:                                               ; preds = %.thread
   %30 = add i32 %13, %.neg2628
@@ -4259,57 +4261,58 @@ define hidden void @opj_dwt_calc_explicit_stepsizes(ptr noundef captures(none) %
   %33 = zext i32 %spec.store.select.i to i64
   %.0.i = select i1 %or.cond.i, i64 9, i64 %33
   %34 = zext nneg i32 %23 to i64
-  %35 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms_real, i64 0, i64 %34, i64 %.0.i
-  %36 = load double, ptr %35, align 8, !tbaa !160
-  %37 = shl nuw nsw i32 1, %28
-  %38 = uitofp nneg i32 %37 to double
-  %39 = fdiv double %38, %36
-  %40 = fmul double %39, 8.192000e+03
-  br label %41
+  %35 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms_real, i64 0, i64 %34
+  %36 = getelementptr inbounds nuw [10 x double], ptr %35, i64 0, i64 %.0.i
+  %37 = load double, ptr %36, align 8, !tbaa !160
+  %38 = shl nuw nsw i32 1, %28
+  %39 = uitofp nneg i32 %38 to double
+  %40 = fdiv double %39, %37
+  %41 = fmul double %40, 8.192000e+03
+  br label %42
 
-41:                                               ; preds = %.thread, %29
-  %.024 = phi double [ %40, %29 ], [ 8.192000e+03, %.thread ]
-  %42 = tail call double @llvm.floor.f64(double %.024)
-  %43 = fptosi double %42 to i32
-  %44 = add i32 %28, %1
-  %45 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %14, i64 0, i64 %indvars.iv
-  %46 = icmp sgt i32 %43, 1
-  br i1 %46, label %.lr.ph.i.i, label %opj_dwt_encode_stepsize.exit
+42:                                               ; preds = %.thread, %29
+  %.024 = phi double [ %41, %29 ], [ 8.192000e+03, %.thread ]
+  %43 = tail call double @llvm.floor.f64(double %.024)
+  %44 = fptosi double %43 to i32
+  %45 = add i32 %28, %1
+  %46 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %14, i64 0, i64 %indvars.iv
+  %47 = icmp sgt i32 %44, 1
+  br i1 %47, label %.lr.ph.i.i, label %opj_dwt_encode_stepsize.exit
 
-.lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
-  %.06.i.i = phi i32 [ %48, %.lr.ph.i.i ], [ 0, %41 ]
-  %.045.i.i = phi i32 [ %47, %.lr.ph.i.i ], [ %43, %41 ]
-  %47 = lshr i32 %.045.i.i, 1
-  %48 = add nuw nsw i32 %.06.i.i, 1
-  %49 = icmp samesign ugt i32 %.045.i.i, 3
-  br i1 %49, label %.lr.ph.i.i, label %.lr.ph.i11.i, !llvm.loop !190
+.lr.ph.i.i:                                       ; preds = %42, %.lr.ph.i.i
+  %.06.i.i = phi i32 [ %49, %.lr.ph.i.i ], [ 0, %42 ]
+  %.045.i.i = phi i32 [ %48, %.lr.ph.i.i ], [ %44, %42 ]
+  %48 = lshr i32 %.045.i.i, 1
+  %49 = add nuw nsw i32 %.06.i.i, 1
+  %50 = icmp samesign ugt i32 %.045.i.i, 3
+  br i1 %50, label %.lr.ph.i.i, label %.lr.ph.i11.i, !llvm.loop !190
 
 .lr.ph.i11.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph.i11.i
-  %.06.i12.i = phi i32 [ %51, %.lr.ph.i11.i ], [ 0, %.lr.ph.i.i ]
-  %.045.i13.i = phi i32 [ %50, %.lr.ph.i11.i ], [ %43, %.lr.ph.i.i ]
-  %50 = lshr i32 %.045.i13.i, 1
-  %51 = add nuw nsw i32 %.06.i12.i, 1
-  %52 = icmp samesign ugt i32 %.045.i13.i, 3
-  br i1 %52, label %.lr.ph.i11.i, label %opj_int_floorlog2.exit14.i, !llvm.loop !190
+  %.06.i12.i = phi i32 [ %52, %.lr.ph.i11.i ], [ 0, %.lr.ph.i.i ]
+  %.045.i13.i = phi i32 [ %51, %.lr.ph.i11.i ], [ %44, %.lr.ph.i.i ]
+  %51 = lshr i32 %.045.i13.i, 1
+  %52 = add nuw nsw i32 %.06.i12.i, 1
+  %53 = icmp samesign ugt i32 %.045.i13.i, 3
+  br i1 %53, label %.lr.ph.i11.i, label %opj_int_floorlog2.exit14.i, !llvm.loop !190
 
 opj_int_floorlog2.exit14.i:                       ; preds = %.lr.ph.i11.i
-  %53 = icmp samesign ugt i32 %.06.i12.i, 10
+  %54 = icmp samesign ugt i32 %.06.i12.i, 10
   %.neg.i = add nsw i32 %.06.i12.i, -10
-  %54 = lshr i32 %43, %.neg.i
-  %55 = sub nsw i32 10, %.06.i12.i
-  %56 = shl i32 %43, %55
-  %spec.select.i = select i1 %53, i32 %54, i32 %56
+  %55 = lshr i32 %44, %.neg.i
+  %56 = sub nsw i32 10, %.06.i12.i
+  %57 = shl i32 %44, %56
+  %spec.select.i = select i1 %54, i32 %55, i32 %57
   %.neg30 = sub nsw i32 12, %.06.i.i
-  %57 = and i32 %spec.select.i, 2047
+  %58 = and i32 %spec.select.i, 2047
   br label %opj_dwt_encode_stepsize.exit
 
-opj_dwt_encode_stepsize.exit:                     ; preds = %41, %opj_int_floorlog2.exit14.i
-  %.0.lcssa.i1621.i.neg31 = phi i32 [ %.neg30, %opj_int_floorlog2.exit14.i ], [ 13, %41 ]
-  %58 = phi i32 [ %57, %opj_int_floorlog2.exit14.i ], [ 0, %41 ]
-  %59 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i32 %58, ptr %59, align 4, !tbaa !191
-  %60 = add i32 %44, %.0.lcssa.i1621.i.neg31
-  store i32 %60, ptr %45, align 4, !tbaa !193
+opj_dwt_encode_stepsize.exit:                     ; preds = %42, %opj_int_floorlog2.exit14.i
+  %.0.lcssa.i1621.i.neg31 = phi i32 [ %.neg30, %opj_int_floorlog2.exit14.i ], [ 13, %42 ]
+  %59 = phi i32 [ %58, %opj_int_floorlog2.exit14.i ], [ 0, %42 ]
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  store i32 %59, ptr %60, align 4, !tbaa !191
+  %61 = add i32 %45, %.0.lcssa.i1621.i.neg31
+  store i32 %61, ptr %46, align 4, !tbaa !193
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !194

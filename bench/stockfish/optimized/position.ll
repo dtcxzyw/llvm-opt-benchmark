@@ -791,145 +791,148 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %141 = or disjoint i32 %140, %.pre-phi
   %142 = select i1 %.not.i36, i32 3, i32 5
   %143 = or disjoint i32 %142, %.pre-phi
-  %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %133, i64 %144
-  %146 = load i64, ptr %145, align 8
-  %147 = zext nneg i32 %141 to i64
-  %148 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %120, i64 %147
-  %149 = load i64, ptr %148, align 16
-  %150 = or i64 %149, %146
-  %151 = shl nuw i64 1, %120
-  %152 = zext nneg i32 %.150 to i64
-  %153 = shl nuw i64 1, %152
-  %154 = or i64 %151, %153
-  %155 = xor i64 %154, -1
-  %156 = and i64 %150, %155
-  %157 = getelementptr inbounds nuw [16 x i64], ptr %86, i64 0, i64 %137
-  store i64 %156, ptr %157, align 8
+  %144 = getelementptr inbounds [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %133
+  %145 = zext nneg i32 %143 to i64
+  %146 = getelementptr inbounds nuw [64 x i64], ptr %144, i64 0, i64 %145
+  %147 = load i64, ptr %146, align 8
+  %148 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %120
+  %149 = zext nneg i32 %141 to i64
+  %150 = getelementptr inbounds nuw [64 x i64], ptr %148, i64 0, i64 %149
+  %151 = load i64, ptr %150, align 16
+  %152 = or i64 %151, %147
+  %153 = shl nuw i64 1, %120
+  %154 = zext nneg i32 %.150 to i64
+  %155 = shl nuw i64 1, %154
+  %156 = or i64 %153, %155
+  %157 = xor i64 %156, -1
+  %158 = and i64 %152, %157
+  %159 = getelementptr inbounds nuw [16 x i64], ptr %86, i64 0, i64 %137
+  store i64 %158, ptr %159, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.loopexit, %107
-  %158 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsISt11char_traitsIcEERSt13basic_istreamIcT_ES5_Rh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr i8, ptr %159, i64 -24
-  %161 = load i64, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %158, i64 %161
-  %163 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %162) #18
-  br i1 %163, label %87, label %.critedge2, !llvm.loop !21
+  %160 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsISt11char_traitsIcEERSt13basic_istreamIcT_ES5_Rh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr i8, ptr %161, i64 -24
+  %163 = load i64, ptr %162, align 8
+  %164 = getelementptr inbounds i8, ptr %160, i64 %163
+  %165 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %164) #18
+  br i1 %165, label %87, label %.critedge2, !llvm.loop !21
 
 .critedge2:                                       ; preds = %87, %.backedge, %.critedge
-  %164 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsISt11char_traitsIcEERSt13basic_istreamIcT_ES5_Rh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr i8, ptr %165, i64 -24
-  %167 = load i64, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %164, i64 %167
-  %169 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %168) #18
-  %170 = load i8, ptr %5, align 1
-  %171 = add i8 %170, -97
-  %172 = icmp ult i8 %171, 8
-  %or.cond10 = select i1 %169, i1 %172, i1 false
-  br i1 %or.cond10, label %173, label %.critedge35
+  %166 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsISt11char_traitsIcEERSt13basic_istreamIcT_ES5_Rh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr i8, ptr %167, i64 -24
+  %169 = load i64, ptr %168, align 8
+  %170 = getelementptr inbounds i8, ptr %166, i64 %169
+  %171 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %170) #18
+  %172 = load i8, ptr %5, align 1
+  %173 = add i8 %172, -97
+  %174 = icmp ult i8 %173, 8
+  %or.cond10 = select i1 %171, i1 %174, i1 false
+  br i1 %or.cond10, label %175, label %.critedge35
 
-173:                                              ; preds = %.critedge2
-  %174 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsISt11char_traitsIcEERSt13basic_istreamIcT_ES5_Rh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr i8, ptr %175, i64 -24
-  %177 = load i64, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %174, i64 %177
-  %179 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %178) #18
-  br i1 %179, label %180, label %.critedge35
+175:                                              ; preds = %.critedge2
+  %176 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsISt11char_traitsIcEERSt13basic_istreamIcT_ES5_Rh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr i8, ptr %177, i64 -24
+  %179 = load i64, ptr %178, align 8
+  %180 = getelementptr inbounds i8, ptr %176, i64 %179
+  %181 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %180) #18
+  br i1 %181, label %182, label %.critedge35
 
-180:                                              ; preds = %173
-  %181 = load i8, ptr %6, align 1
-  %182 = zext i8 %181 to i32
-  %183 = load i32, ptr %74, align 4
-  %184 = icmp eq i32 %183, 0
-  %185 = select i1 %184, i32 54, i32 51
-  %186 = icmp eq i32 %185, %182
-  br i1 %186, label %187, label %.critedge35
+182:                                              ; preds = %175
+  %183 = load i8, ptr %6, align 1
+  %184 = zext i8 %183 to i32
+  %185 = load i32, ptr %74, align 4
+  %186 = icmp eq i32 %185, 0
+  %187 = select i1 %186, i32 54, i32 51
+  %188 = icmp eq i32 %187, %184
+  br i1 %188, label %189, label %.critedge35
 
-187:                                              ; preds = %180
-  %188 = load i8, ptr %5, align 1
-  %189 = zext i8 %188 to i32
-  %190 = shl nuw nsw i32 %182, 3
-  %191 = add nuw nsw i32 %190, -489
-  %192 = add nsw i32 %191, %189
-  %193 = load ptr, ptr %9, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 36
-  store i32 %192, ptr %194, align 4
-  %195 = load i32, ptr %74, align 4
-  %196 = xor i32 %195, 1
-  %197 = load ptr, ptr %9, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 36
-  %199 = load i32, ptr %198, align 4
-  %200 = zext i32 %196 to i64
-  %201 = sext i32 %199 to i64
-  %202 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %200, i64 %201
-  %203 = load i64, ptr %202, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %205 = zext i32 %195 to i64
-  %206 = getelementptr inbounds nuw [2 x i64], ptr %204, i64 0, i64 %205
-  %207 = load i64, ptr %206, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 264
+189:                                              ; preds = %182
+  %190 = load i8, ptr %5, align 1
+  %191 = zext i8 %190 to i32
+  %192 = shl nuw nsw i32 %184, 3
+  %193 = add nuw nsw i32 %192, -489
+  %194 = add nsw i32 %193, %191
+  %195 = load ptr, ptr %9, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 36
+  store i32 %194, ptr %196, align 4
+  %197 = load i32, ptr %74, align 4
+  %198 = xor i32 %197, 1
+  %199 = load ptr, ptr %9, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 36
+  %201 = load i32, ptr %200, align 4
+  %202 = zext i32 %198 to i64
+  %203 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %202
+  %204 = sext i32 %201 to i64
+  %205 = getelementptr inbounds [64 x i64], ptr %203, i64 0, i64 %204
+  %206 = load i64, ptr %205, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %208 = zext i32 %197 to i64
+  %209 = getelementptr inbounds nuw [2 x i64], ptr %207, i64 0, i64 %208
   %210 = load i64, ptr %209, align 8
-  %211 = and i64 %207, %203
-  %212 = and i64 %211, %210
-  %.not27 = icmp eq i64 %212, 0
-  br i1 %.not27, label %.critedge35, label %213
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %213 = load i64, ptr %212, align 8
+  %214 = and i64 %210, %206
+  %215 = and i64 %214, %213
+  %.not27 = icmp eq i64 %215, 0
+  br i1 %.not27, label %.critedge35, label %216
 
-213:                                              ; preds = %187
-  %214 = getelementptr inbounds nuw [2 x i64], ptr %204, i64 0, i64 %200
-  %215 = load i64, ptr %214, align 8
-  %216 = icmp eq i32 %195, 1
-  %217 = select i1 %216, i32 8, i32 -8
-  %218 = add nsw i32 %217, %199
-  %219 = zext nneg i32 %218 to i64
-  %220 = shl nuw i64 1, %219
-  %221 = and i64 %220, %215
-  %222 = and i64 %221, %210
-  %.not28 = icmp eq i64 %222, 0
-  br i1 %.not28, label %.critedge35, label %223
+216:                                              ; preds = %189
+  %217 = getelementptr inbounds nuw [2 x i64], ptr %207, i64 0, i64 %202
+  %218 = load i64, ptr %217, align 8
+  %219 = icmp eq i32 %197, 1
+  %220 = select i1 %219, i32 8, i32 -8
+  %221 = add nsw i32 %220, %201
+  %222 = zext nneg i32 %221 to i64
+  %223 = shl nuw i64 1, %222
+  %224 = and i64 %223, %218
+  %225 = and i64 %224, %213
+  %.not28 = icmp eq i64 %225, 0
+  br i1 %.not28, label %.critedge35, label %226
 
-223:                                              ; preds = %213
-  %224 = load i64, ptr %208, align 8
-  %225 = icmp eq i32 %195, 0
-  %226 = select i1 %225, i32 8, i32 -8
-  %227 = add nsw i32 %226, %199
-  %228 = zext nneg i32 %199 to i64
-  %229 = shl nuw i64 1, %228
-  %230 = zext nneg i32 %227 to i64
-  %231 = shl nuw i64 1, %230
-  %232 = or i64 %231, %229
-  %233 = and i64 %224, %232
-  %.not29 = icmp eq i64 %233, 0
-  br i1 %.not29, label %236, label %.critedge35
+226:                                              ; preds = %216
+  %227 = load i64, ptr %211, align 8
+  %228 = icmp eq i32 %197, 0
+  %229 = select i1 %228, i32 8, i32 -8
+  %230 = add nsw i32 %229, %201
+  %231 = zext nneg i32 %201 to i64
+  %232 = shl nuw i64 1, %231
+  %233 = zext nneg i32 %230 to i64
+  %234 = shl nuw i64 1, %233
+  %235 = or i64 %234, %232
+  %236 = and i64 %227, %235
+  %.not29 = icmp eq i64 %236, 0
+  br i1 %.not29, label %239, label %.critedge35
 
-.critedge35:                                      ; preds = %180, %173, %.critedge2, %213, %187, %223
-  %234 = load ptr, ptr %9, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 36
-  store i32 64, ptr %235, align 4
-  br label %236
+.critedge35:                                      ; preds = %182, %175, %.critedge2, %216, %189, %226
+  %237 = load ptr, ptr %9, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 36
+  store i32 64, ptr %238, align 4
+  br label %239
 
-236:                                              ; preds = %.critedge35, %223
-  %237 = zext i1 %2 to i8
-  %238 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @_ZSt6skipwsRSt8ios_base) #18
-  %239 = load ptr, ptr %9, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 28
-  %241 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %238, ptr noundef nonnull align 4 dereferenceable(4) %240) #18
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %243 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %241, ptr noundef nonnull align 4 dereferenceable(4) %242) #18
-  %244 = load i32, ptr %242, align 8
-  %245 = shl i32 %244, 1
-  %246 = add i32 %245, -2
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %246, i32 0)
-  %247 = load i32, ptr %74, align 4
-  %248 = icmp eq i32 %247, 1
-  %249 = zext i1 %248 to i32
-  %250 = or disjoint i32 %.sroa.speculated, %249
-  store i32 %250, ptr %242, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  store i8 %237, ptr %251, align 8
+239:                                              ; preds = %.critedge35, %226
+  %240 = zext i1 %2 to i8
+  %241 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @_ZSt6skipwsRSt8ios_base) #18
+  %242 = load ptr, ptr %9, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 28
+  %244 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %241, ptr noundef nonnull align 4 dereferenceable(4) %243) #18
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %246 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %244, ptr noundef nonnull align 4 dereferenceable(4) %245) #18
+  %247 = load i32, ptr %245, align 8
+  %248 = shl i32 %247, 1
+  %249 = add i32 %248, -2
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %249, i32 0)
+  %250 = load i32, ptr %74, align 4
+  %251 = icmp eq i32 %250, 1
+  %252 = zext i1 %251 to i32
+  %253 = or disjoint i32 %.sroa.speculated, %252
+  store i32 %253, ptr %245, align 8
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  store i8 %240, ptr %254, align 8
   call void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull align 8 dereferenceable(865) %0)
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %8) #18
   ret ptr %0
@@ -943,84 +946,85 @@ declare noundef i32 @_ZN9Stockfish10Tablebases9probe_dtzERNS_8PositionEPNS0_10Pr
 define dso_local void @_ZN9Stockfish8Position4initEv() local_unnamed_addr #4 align 2 {
   br label %1
 
-1:                                                ; preds = %0, %13
-  %.019.idx69 = phi i64 [ 0, %0 ], [ %.019.add, %13 ]
-  %.sroa.055.068 = phi i64 [ 1070372, %0 ], [ %10, %13 ]
+1:                                                ; preds = %0, %14
+  %.019.idx69 = phi i64 [ 0, %0 ], [ %.019.add, %14 ]
+  %.sroa.055.068 = phi i64 [ 1070372, %0 ], [ %11, %14 ]
   %.019.ptr = getelementptr inbounds nuw i8, ptr @_ZN9Stockfish12_GLOBAL__N_16PiecesE, i64 %.019.idx69
   %2 = load i32, ptr %.019.ptr, align 4
   %3 = zext i32 %2 to i64
-  br label %4
+  %4 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %3
+  br label %5
 
-4:                                                ; preds = %1, %4
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %.sroa.055.167 = phi i64 [ %.sroa.055.068, %1 ], [ %10, %4 ]
-  %5 = lshr i64 %.sroa.055.167, 12
-  %6 = xor i64 %5, %.sroa.055.167
-  %7 = shl i64 %6, 25
-  %8 = xor i64 %7, %6
-  %9 = lshr i64 %8, 27
-  %10 = xor i64 %9, %8
-  %11 = mul i64 %10, 2685821657736338717
-  %12 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %3, i64 %indvars.iv
-  store i64 %11, ptr %12, align 8
+5:                                                ; preds = %1, %5
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
+  %.sroa.055.167 = phi i64 [ %.sroa.055.068, %1 ], [ %11, %5 ]
+  %6 = lshr i64 %.sroa.055.167, 12
+  %7 = xor i64 %6, %.sroa.055.167
+  %8 = shl i64 %7, 25
+  %9 = xor i64 %8, %7
+  %10 = lshr i64 %9, 27
+  %11 = xor i64 %10, %9
+  %12 = mul i64 %11, 2685821657736338717
+  %13 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %indvars.iv
+  store i64 %12, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %13, label %4, !llvm.loop !22
+  br i1 %exitcond.not, label %14, label %5, !llvm.loop !22
 
-13:                                               ; preds = %4
+14:                                               ; preds = %5
   %.019.add = add nuw nsw i64 %.019.idx69, 4
   %.not = icmp eq i64 %.019.add, 48
   br i1 %.not, label %.preheader65, label %1
 
-.preheader65:                                     ; preds = %13, %.preheader65
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader65 ], [ 0, %13 ]
-  %.sroa.055.271 = phi i64 [ %19, %.preheader65 ], [ %10, %13 ]
-  %14 = lshr i64 %.sroa.055.271, 12
-  %15 = xor i64 %14, %.sroa.055.271
-  %16 = shl i64 %15, 25
-  %17 = xor i64 %16, %15
-  %18 = lshr i64 %17, 27
-  %19 = xor i64 %18, %17
-  %20 = mul i64 %19, 2685821657736338717
-  %21 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %indvars.iv88
-  store i64 %20, ptr %21, align 8
+.preheader65:                                     ; preds = %14, %.preheader65
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader65 ], [ 0, %14 ]
+  %.sroa.055.271 = phi i64 [ %20, %.preheader65 ], [ %11, %14 ]
+  %15 = lshr i64 %.sroa.055.271, 12
+  %16 = xor i64 %15, %.sroa.055.271
+  %17 = shl i64 %16, 25
+  %18 = xor i64 %17, %16
+  %19 = lshr i64 %18, 27
+  %20 = xor i64 %19, %18
+  %21 = mul i64 %20, 2685821657736338717
+  %22 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %indvars.iv88
+  store i64 %21, ptr %22, align 8
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 8
   br i1 %exitcond91.not, label %.preheader, label %.preheader65, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader65, %.preheader
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.preheader ], [ 0, %.preheader65 ]
-  %.sroa.055.372 = phi i64 [ %27, %.preheader ], [ %19, %.preheader65 ]
-  %22 = lshr i64 %.sroa.055.372, 12
-  %23 = xor i64 %22, %.sroa.055.372
-  %24 = shl i64 %23, 25
-  %25 = xor i64 %24, %23
-  %26 = lshr i64 %25, 27
-  %27 = xor i64 %26, %25
-  %28 = mul i64 %27, 2685821657736338717
-  %29 = getelementptr inbounds nuw [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %indvars.iv92
-  store i64 %28, ptr %29, align 8
+  %.sroa.055.372 = phi i64 [ %28, %.preheader ], [ %20, %.preheader65 ]
+  %23 = lshr i64 %.sroa.055.372, 12
+  %24 = xor i64 %23, %.sroa.055.372
+  %25 = shl i64 %24, 25
+  %26 = xor i64 %25, %24
+  %27 = lshr i64 %26, 27
+  %28 = xor i64 %27, %26
+  %29 = mul i64 %28, 2685821657736338717
+  %30 = getelementptr inbounds nuw [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %indvars.iv92
+  store i64 %29, ptr %30, align 8
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 16
   br i1 %exitcond95.not, label %.lr.ph.i.i.i.i.i27.preheader, label %.preheader, !llvm.loop !24
 
 .lr.ph.i.i.i.i.i27.preheader:                     ; preds = %.preheader
-  %30 = lshr i64 %27, 12
-  %31 = xor i64 %30, %27
-  %32 = shl i64 %31, 25
-  %33 = xor i64 %32, %31
-  %34 = lshr i64 %33, 27
-  %35 = xor i64 %34, %33
-  %36 = mul i64 %35, 2685821657736338717
-  store i64 %36, ptr @_ZN9Stockfish7Zobrist4sideE, align 8
-  %37 = lshr i64 %35, 12
-  %38 = xor i64 %37, %35
-  %39 = shl i64 %38, 25
-  %40 = xor i64 %39, %38
-  %41 = lshr i64 %40, 27
-  %42 = xor i64 %41, %40
-  %43 = mul i64 %42, 2685821657736338717
-  store i64 %43, ptr @_ZN9Stockfish7Zobrist7noPawnsE, align 8
+  %31 = lshr i64 %28, 12
+  %32 = xor i64 %31, %28
+  %33 = shl i64 %32, 25
+  %34 = xor i64 %33, %32
+  %35 = lshr i64 %34, 27
+  %36 = xor i64 %35, %34
+  %37 = mul i64 %36, 2685821657736338717
+  store i64 %37, ptr @_ZN9Stockfish7Zobrist4sideE, align 8
+  %38 = lshr i64 %36, 12
+  %39 = xor i64 %38, %36
+  %40 = shl i64 %39, 25
+  %41 = xor i64 %40, %39
+  %42 = lshr i64 %41, 27
+  %43 = xor i64 %42, %41
+  %44 = mul i64 %43, 2685821657736338717
+  store i64 %44, ptr @_ZN9Stockfish7Zobrist7noPawnsE, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65536) @_ZN9Stockfish6cuckooE, i8 0, i64 65536, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16384) @_ZN9Stockfish10cuckooMoveE, i8 0, i64 16384, i1 false)
   br label %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader
@@ -1028,124 +1032,126 @@ define dso_local void @_ZN9Stockfish8Position4initEv() local_unnamed_addr #4 ali
 _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader: ; preds = %.lr.ph.i.i.i.i.i27.preheader, %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit
   %.021.idx84 = phi i64 [ %.021.add, %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit ], [ 0, %.lr.ph.i.i.i.i.i27.preheader ]
   %.021.ptr = getelementptr inbounds nuw i8, ptr @_ZN9Stockfish12_GLOBAL__N_16PiecesE, i64 %.021.idx84
-  %44 = load i32, ptr %.021.ptr, align 4
-  %45 = and i32 %44, 7
-  %46 = zext nneg i32 %45 to i64
-  %47 = zext i32 %44 to i64
-  br label %48
+  %45 = load i32, ptr %.021.ptr, align 4
+  %46 = and i32 %45, 7
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 %47
+  %49 = zext i32 %45 to i64
+  %50 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %49
+  br label %51
 
-.loopexit:                                        ; preds = %._crit_edge, %48
+.loopexit:                                        ; preds = %._crit_edge, %51
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 64
-  br i1 %exitcond105.not, label %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit, label %48, !llvm.loop !25
+  br i1 %exitcond105.not, label %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit, label %51, !llvm.loop !25
 
-48:                                               ; preds = %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader, %.loopexit
+51:                                               ; preds = %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader, %.loopexit
   %indvars.iv102 = phi i64 [ 0, %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader ], [ %indvars.iv.next103, %.loopexit ]
   %indvars.iv96 = phi i64 [ 1, %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader ], [ %indvars.iv.next97, %.loopexit ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %49 = icmp samesign ult i64 %indvars.iv102, 63
-  br i1 %49, label %.lr.ph80, label %.loopexit
+  %52 = icmp samesign ult i64 %indvars.iv102, 63
+  br i1 %52, label %.lr.ph80, label %.loopexit
 
-.lr.ph80:                                         ; preds = %48
-  %50 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %indvars.iv102, i32 2
-  %51 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %indvars.iv102, i32 2
-  %52 = getelementptr inbounds nuw [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 %46, i64 %indvars.iv102
-  %53 = shl nuw nsw i64 %indvars.iv102, 6
-  %54 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %47, i64 %indvars.iv102
-  br label %55
+.lr.ph80:                                         ; preds = %51
+  %53 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %indvars.iv102, i32 2
+  %54 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %indvars.iv102, i32 2
+  %55 = getelementptr inbounds nuw [64 x i64], ptr %48, i64 0, i64 %indvars.iv102
+  %56 = shl nuw nsw i64 %indvars.iv102, 6
+  %57 = getelementptr inbounds nuw [64 x i64], ptr %50, i64 0, i64 %indvars.iv102
+  br label %58
 
-55:                                               ; preds = %.lr.ph80, %._crit_edge
+58:                                               ; preds = %.lr.ph80, %._crit_edge
   %indvars.iv98 = phi i64 [ %indvars.iv96, %.lr.ph80 ], [ %indvars.iv.next99, %._crit_edge ]
-  switch i32 %45, label %68 [
+  switch i32 %46, label %71 [
     i32 1, label %._crit_edge
-    i32 3, label %56
-    i32 4, label %59
-    i32 5, label %62
+    i32 3, label %59
+    i32 4, label %62
+    i32 5, label %65
   ]
 
-56:                                               ; preds = %55
-  %57 = load ptr, ptr %50, align 16
-  %58 = load i64, ptr %57, align 8
-  br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
-
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %51, align 16
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %53, align 16
   %61 = load i64, ptr %60, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-62:                                               ; preds = %55
-  %63 = load ptr, ptr %50, align 16
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %54, align 16
   %64 = load i64, ptr %63, align 8
-  %65 = load ptr, ptr %51, align 16
-  %66 = load i64, ptr %65, align 8
-  %67 = or i64 %66, %64
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-68:                                               ; preds = %55
-  %69 = load i64, ptr %52, align 8
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %53, align 16
+  %67 = load i64, ptr %66, align 8
+  %68 = load ptr, ptr %54, align 16
+  %69 = load i64, ptr %68, align 8
+  %70 = or i64 %69, %67
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %56, %59, %62, %68
-  %.0.i = phi i64 [ %69, %68 ], [ %58, %56 ], [ %61, %59 ], [ %67, %62 ]
-  %70 = shl nuw i64 1, %indvars.iv98
-  %71 = and i64 %.0.i, %70
-  %.not26 = icmp eq i64 %71, 0
-  br i1 %.not26, label %._crit_edge, label %72
+71:                                               ; preds = %58
+  %72 = load i64, ptr %55, align 8
+  br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-72:                                               ; preds = %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
-  %73 = add nuw nsw i64 %indvars.iv98, %53
-  %74 = trunc i64 %73 to i16
-  %75 = load i64, ptr %54, align 8
-  %76 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %47, i64 %indvars.iv98
-  %77 = load i64, ptr %76, align 8
-  %78 = xor i64 %75, %77
-  %79 = xor i64 %78, %36
-  %80 = and i64 %79, 8191
-  %81 = getelementptr inbounds nuw [8192 x i64], ptr @_ZN9Stockfish6cuckooE, i64 0, i64 %80
-  %82 = load i64, ptr %81, align 8
-  store i64 %79, ptr %81, align 8
-  %83 = getelementptr inbounds nuw [8192 x %"class.Stockfish::Move"], ptr @_ZN9Stockfish10cuckooMoveE, i64 0, i64 %80
-  %.sroa.0.0.copyload.i74 = load i16, ptr %83, align 2
-  store i16 %74, ptr %83, align 2
-  %84 = icmp eq i16 %.sroa.0.0.copyload.i74, 0
-  br i1 %84, label %._crit_edge, label %.lr.ph.preheader
+_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %59, %62, %65, %71
+  %.0.i = phi i64 [ %72, %71 ], [ %61, %59 ], [ %64, %62 ], [ %70, %65 ]
+  %73 = shl nuw i64 1, %indvars.iv98
+  %74 = and i64 %.0.i, %73
+  %.not26 = icmp eq i64 %74, 0
+  br i1 %.not26, label %._crit_edge, label %75
 
-.lr.ph.preheader:                                 ; preds = %72
-  %85 = trunc i64 %79 to i32
-  %86 = and i32 %85, 8191
+75:                                               ; preds = %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
+  %76 = add nuw nsw i64 %indvars.iv98, %56
+  %77 = trunc i64 %76 to i16
+  %78 = load i64, ptr %57, align 8
+  %79 = getelementptr inbounds nuw [64 x i64], ptr %50, i64 0, i64 %indvars.iv98
+  %80 = load i64, ptr %79, align 8
+  %81 = xor i64 %78, %80
+  %82 = xor i64 %81, %37
+  %83 = and i64 %82, 8191
+  %84 = getelementptr inbounds nuw [8192 x i64], ptr @_ZN9Stockfish6cuckooE, i64 0, i64 %83
+  %85 = load i64, ptr %84, align 8
+  store i64 %82, ptr %84, align 8
+  %86 = getelementptr inbounds nuw [8192 x %"class.Stockfish::Move"], ptr @_ZN9Stockfish10cuckooMoveE, i64 0, i64 %83
+  %.sroa.0.0.copyload.i74 = load i16, ptr %86, align 2
+  store i16 %77, ptr %86, align 2
+  %87 = icmp eq i16 %.sroa.0.0.copyload.i74, 0
+  br i1 %87, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %75
+  %88 = trunc i64 %82 to i32
+  %89 = and i32 %88, 8191
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.sroa.0.0.copyload.i76 = phi i16 [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.0.0.copyload.i74, %.lr.ph.preheader ]
-  %87 = phi i64 [ %96, %.lr.ph ], [ %82, %.lr.ph.preheader ]
-  %.075 = phi i32 [ %93, %.lr.ph ], [ %86, %.lr.ph.preheader ]
-  %88 = trunc i64 %87 to i32
-  %89 = and i32 %88, 8191
-  %90 = icmp eq i32 %.075, %89
-  %91 = lshr i32 %88, 16
+  %90 = phi i64 [ %99, %.lr.ph ], [ %85, %.lr.ph.preheader ]
+  %.075 = phi i32 [ %96, %.lr.ph ], [ %89, %.lr.ph.preheader ]
+  %91 = trunc i64 %90 to i32
   %92 = and i32 %91, 8191
-  %93 = select i1 %90, i32 %92, i32 %89
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw [8192 x i64], ptr @_ZN9Stockfish6cuckooE, i64 0, i64 %94
-  %96 = load i64, ptr %95, align 8
-  store i64 %87, ptr %95, align 8
-  %97 = getelementptr inbounds nuw [8192 x %"class.Stockfish::Move"], ptr @_ZN9Stockfish10cuckooMoveE, i64 0, i64 %94
-  %.sroa.0.0.copyload.i = load i16, ptr %97, align 2
-  store i16 %.sroa.0.0.copyload.i76, ptr %97, align 2
-  %98 = icmp eq i16 %.sroa.0.0.copyload.i, 0
-  br i1 %98, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  %93 = icmp eq i32 %.075, %92
+  %94 = lshr i32 %91, 16
+  %95 = and i32 %94, 8191
+  %96 = select i1 %93, i32 %95, i32 %92
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds nuw [8192 x i64], ptr @_ZN9Stockfish6cuckooE, i64 0, i64 %97
+  %99 = load i64, ptr %98, align 8
+  store i64 %90, ptr %98, align 8
+  %100 = getelementptr inbounds nuw [8192 x %"class.Stockfish::Move"], ptr @_ZN9Stockfish10cuckooMoveE, i64 0, i64 %97
+  %.sroa.0.0.copyload.i = load i16, ptr %100, align 2
+  store i16 %.sroa.0.0.copyload.i76, ptr %100, align 2
+  %101 = icmp eq i16 %.sroa.0.0.copyload.i, 0
+  br i1 %101, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %.lr.ph, %72, %55, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
+._crit_edge:                                      ; preds = %.lr.ph, %75, %58, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, 64
-  br i1 %exitcond101.not, label %.loopexit, label %55, !llvm.loop !27
+  br i1 %exitcond101.not, label %.loopexit, label %58, !llvm.loop !27
 
 _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit: ; preds = %.loopexit
   %.021.add = add nuw nsw i64 %.021.idx84, 4
   %.not24 = icmp eq i64 %.021.add, 48
-  br i1 %.not24, label %99, label %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader
+  br i1 %.not24, label %102, label %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader
 
-99:                                               ; preds = %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit
+102:                                              ; preds = %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit
   ret void
 }
 
@@ -1221,22 +1227,24 @@ define dso_local void @_ZN9Stockfish8Position18set_castling_rightENS_5ColorENS_6
   %37 = or disjoint i32 %35, %36
   %38 = select i1 %.not, i32 3, i32 5
   %39 = or disjoint i32 %38, %36
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %27, i64 %40
-  %42 = load i64, ptr %41, align 8
-  %43 = sext i32 %37 to i64
-  %44 = getelementptr inbounds [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %11, i64 %43
-  %45 = load i64, ptr %44, align 16
-  %46 = or i64 %45, %42
-  %47 = shl nuw i64 1, %11
-  %48 = zext nneg i32 %2 to i64
-  %49 = shl nuw i64 1, %48
-  %50 = or i64 %47, %49
-  %51 = xor i64 %50, -1
-  %52 = and i64 %46, %51
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %54 = getelementptr inbounds nuw [16 x i64], ptr %53, i64 0, i64 %32
-  store i64 %52, ptr %54, align 8
+  %40 = getelementptr inbounds [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %27
+  %41 = sext i32 %39 to i64
+  %42 = getelementptr inbounds [64 x i64], ptr %40, i64 0, i64 %41
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %11
+  %45 = sext i32 %37 to i64
+  %46 = getelementptr inbounds [64 x i64], ptr %44, i64 0, i64 %45
+  %47 = load i64, ptr %46, align 16
+  %48 = or i64 %47, %43
+  %49 = shl nuw i64 1, %11
+  %50 = zext nneg i32 %2 to i64
+  %51 = shl nuw i64 1, %50
+  %52 = or i64 %49, %51
+  %53 = xor i64 %52, -1
+  %54 = and i64 %48, %53
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %56 = getelementptr inbounds nuw [16 x i64], ptr %55, i64 0, i64 %32
+  store i64 %54, ptr %56, align 8
   ret void
 }
 
@@ -1281,13 +1289,13 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %21, i1 true)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 1, i64 %22
+  %25 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %22
   %26 = load i64, ptr %25, align 8
   %27 = load i64, ptr %15, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %27, %26
-  %31 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %22
+  %31 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %22
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %34 = load i64, ptr %33, align 8
@@ -1359,131 +1367,136 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   %.not25 = icmp eq i64 %97, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %127
-  %.02426 = phi i64 [ %100, %127 ], [ %97, %1 ]
+.lr.ph:                                           ; preds = %1, %128
+  %.02426 = phi i64 [ %100, %128 ], [ %97, %1 ]
   %98 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.02426, i1 true)
   %99 = add i64 %.02426, -1
   %100 = and i64 %99, %.02426
   %101 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %98
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %103, i64 %98
-  %105 = load i64, ptr %104, align 8
-  %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
-  %108 = load i64, ptr %107, align 8
-  %109 = xor i64 %108, %105
-  store i64 %109, ptr %107, align 8
-  %110 = and i32 %102, 7
-  switch i32 %110, label %117 [
-    i32 1, label %111
-    i32 6, label %127
+  %104 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %103
+  %105 = getelementptr inbounds nuw [64 x i64], ptr %104, i64 0, i64 %98
+  %106 = load i64, ptr %105, align 8
+  %107 = load ptr, ptr %2, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
+  %109 = load i64, ptr %108, align 8
+  %110 = xor i64 %109, %106
+  store i64 %110, ptr %108, align 8
+  %111 = and i32 %102, 7
+  switch i32 %111, label %118 [
+    i32 1, label %112
+    i32 6, label %128
   ]
 
-111:                                              ; preds = %.lr.ph
-  %112 = load i64, ptr %104, align 8
-  %113 = load ptr, ptr %2, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %115 = load i64, ptr %114, align 8
-  %116 = xor i64 %115, %112
-  store i64 %116, ptr %114, align 8
-  br label %127
+112:                                              ; preds = %.lr.ph
+  %113 = load i64, ptr %105, align 8
+  %114 = load ptr, ptr %2, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %116 = load i64, ptr %115, align 8
+  %117 = xor i64 %116, %113
+  store i64 %117, ptr %115, align 8
+  br label %128
 
-117:                                              ; preds = %.lr.ph
-  %118 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %103
-  %119 = load i32, ptr %118, align 4
-  %120 = load ptr, ptr %2, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %122 = ashr i32 %102, 3
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw [2 x i32], ptr %121, i64 0, i64 %123
-  %125 = load i32, ptr %124, align 4
-  %126 = add nsw i32 %125, %119
-  store i32 %126, ptr %124, align 4
-  br label %127
+118:                                              ; preds = %.lr.ph
+  %119 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %103
+  %120 = load i32, ptr %119, align 4
+  %121 = load ptr, ptr %2, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %123 = ashr i32 %102, 3
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds nuw [2 x i32], ptr %122, i64 0, i64 %124
+  %126 = load i32, ptr %125, align 4
+  %127 = add nsw i32 %126, %120
+  store i32 %127, ptr %125, align 4
+  br label %128
 
-127:                                              ; preds = %.lr.ph, %117, %111
+128:                                              ; preds = %.lr.ph, %118, %112
   %.not = icmp eq i64 %100, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %127, %1
-  %128 = load ptr, ptr %2, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 36
-  %130 = load i32, ptr %129, align 4
-  %.not20 = icmp eq i32 %130, 64
-  br i1 %.not20, label %139, label %131
+._crit_edge:                                      ; preds = %128, %1
+  %129 = load ptr, ptr %2, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 36
+  %131 = load i32, ptr %130, align 4
+  %.not20 = icmp eq i32 %131, 64
+  br i1 %.not20, label %140, label %132
 
-131:                                              ; preds = %._crit_edge
-  %132 = and i32 %130, 7
-  %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %133
-  %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %128, i64 40
-  %137 = load i64, ptr %136, align 8
-  %138 = xor i64 %137, %135
-  store i64 %138, ptr %136, align 8
+132:                                              ; preds = %._crit_edge
+  %133 = and i32 %131, 7
+  %134 = zext nneg i32 %133 to i64
+  %135 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %134
+  %136 = load i64, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %129, i64 40
+  %138 = load i64, ptr %137, align 8
+  %139 = xor i64 %138, %136
+  store i64 %139, ptr %137, align 8
   %.pre33.pre = load ptr, ptr %2, align 8
-  br label %139
+  br label %140
 
-139:                                              ; preds = %131, %._crit_edge
-  %.pre33 = phi ptr [ %.pre33.pre, %131 ], [ %128, %._crit_edge ]
-  %140 = load i32, ptr %13, align 4
-  %141 = icmp eq i32 %140, 1
-  br i1 %141, label %142, label %147
+140:                                              ; preds = %132, %._crit_edge
+  %.pre33 = phi ptr [ %.pre33.pre, %132 ], [ %129, %._crit_edge ]
+  %141 = load i32, ptr %13, align 4
+  %142 = icmp eq i32 %141, 1
+  br i1 %142, label %143, label %148
 
-142:                                              ; preds = %139
-  %143 = load i64, ptr @_ZN9Stockfish7Zobrist4sideE, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %.pre33, i64 40
-  %145 = load i64, ptr %144, align 8
-  %146 = xor i64 %145, %143
-  store i64 %146, ptr %144, align 8
+143:                                              ; preds = %140
+  %144 = load i64, ptr @_ZN9Stockfish7Zobrist4sideE, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %.pre33, i64 40
+  %146 = load i64, ptr %145, align 8
+  %147 = xor i64 %146, %144
+  store i64 %147, ptr %145, align 8
   %.pre = load ptr, ptr %2, align 8
-  br label %147
+  br label %148
 
-147:                                              ; preds = %142, %139
-  %148 = phi ptr [ %.pre, %142 ], [ %.pre33, %139 ]
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %150 = load i32, ptr %149, align 8
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %151
-  %153 = load i64, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %148, i64 40
-  %155 = load i64, ptr %154, align 8
-  %156 = xor i64 %155, %153
-  store i64 %156, ptr %154, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  br label %158
+148:                                              ; preds = %143, %140
+  %149 = phi ptr [ %.pre, %143 ], [ %.pre33, %140 ]
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %151 = load i32, ptr %150, align 8
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %152
+  %154 = load i64, ptr %153, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %149, i64 40
+  %156 = load i64, ptr %155, align 8
+  %157 = xor i64 %156, %154
+  store i64 %157, ptr %155, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  br label %159
 
-158:                                              ; preds = %147, %._crit_edge30
-  %.018.idx31 = phi i64 [ 0, %147 ], [ %.018.add, %._crit_edge30 ]
+159:                                              ; preds = %148, %._crit_edge30
+  %.018.idx31 = phi i64 [ 0, %148 ], [ %.018.add, %._crit_edge30 ]
   %.018.ptr = getelementptr inbounds nuw i8, ptr @_ZN9Stockfish12_GLOBAL__N_16PiecesE, i64 %.018.idx31
-  %159 = load i32, ptr %.018.ptr, align 4
-  %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw [16 x i32], ptr %157, i64 0, i64 %160
-  %162 = load i32, ptr %161, align 4
-  %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %.lr.ph29, label %._crit_edge30
+  %160 = load i32, ptr %.018.ptr, align 4
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds nuw [16 x i32], ptr %158, i64 0, i64 %161
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp sgt i32 %163, 0
+  br i1 %164, label %.lr.ph29, label %._crit_edge30
 
-.lr.ph29:                                         ; preds = %158, %.lr.ph29
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph29 ], [ 0, %158 ]
-  %164 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %160, i64 %indvars.iv
-  %165 = load i64, ptr %164, align 8
-  %166 = load ptr, ptr %2, align 8
-  %167 = load i64, ptr %166, align 64
-  %168 = xor i64 %167, %165
-  store i64 %168, ptr %166, align 64
+.lr.ph29:                                         ; preds = %159
+  %165 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %161
+  br label %166
+
+166:                                              ; preds = %.lr.ph29, %166
+  %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %166 ]
+  %167 = getelementptr inbounds nuw [64 x i64], ptr %165, i64 0, i64 %indvars.iv
+  %168 = load i64, ptr %167, align 8
+  %169 = load ptr, ptr %2, align 8
+  %170 = load i64, ptr %169, align 64
+  %171 = xor i64 %170, %168
+  store i64 %171, ptr %169, align 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %169 = load i32, ptr %161, align 4
-  %170 = sext i32 %169 to i64
-  %171 = icmp slt i64 %indvars.iv.next, %170
-  br i1 %171, label %.lr.ph29, label %._crit_edge30, !llvm.loop !29
+  %172 = load i32, ptr %162, align 4
+  %173 = sext i32 %172 to i64
+  %174 = icmp slt i64 %indvars.iv.next, %173
+  br i1 %174, label %166, label %._crit_edge30, !llvm.loop !29
 
-._crit_edge30:                                    ; preds = %.lr.ph29, %158
+._crit_edge30:                                    ; preds = %166, %159
   %.018.add = add nuw nsw i64 %.018.idx31, 4
   %.not21 = icmp eq i64 %.018.add, 48
-  br i1 %.not21, label %172, label %158
+  br i1 %.not21, label %175, label %159
 
-172:                                              ; preds = %._crit_edge30
+175:                                              ; preds = %._crit_edge30
   ret void
 }
 
@@ -1529,181 +1542,190 @@ define dso_local void @_ZNK9Stockfish8Position14set_check_infoEv(ptr noundef non
   %.not22.i = icmp eq i64 %31, 0
   br i1 %.not22.i, label %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1, %54
-  %.023.i = phi i64 [ %36, %54 ], [ %31, %1 ]
-  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023.i, i1 true)
-  %35 = add i64 %.023.i, -1
-  %36 = and i64 %35, %.023.i
-  %37 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %7, i64 %34
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, %33
-  %40 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39)
-  %or.cond.not.i = icmp eq i64 %40, 1
-  br i1 %or.cond.not.i, label %41, label %54
+.lr.ph.i:                                         ; preds = %1
+  %34 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %7
+  br label %35
 
-41:                                               ; preds = %.lr.ph.i
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %44 = load i64, ptr %43, align 8
-  %45 = or i64 %44, %39
-  store i64 %45, ptr %43, align 8
-  %46 = load i64, ptr %2, align 8
-  %47 = and i64 %46, %39
-  %.not18.i = icmp eq i64 %47, 0
-  br i1 %.not18.i, label %54, label %48
+35:                                               ; preds = %56, %.lr.ph.i
+  %.023.i = phi i64 [ %31, %.lr.ph.i ], [ %38, %56 ]
+  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023.i, i1 true)
+  %37 = add i64 %.023.i, -1
+  %38 = and i64 %37, %.023.i
+  %39 = getelementptr inbounds nuw [64 x i64], ptr %34, i64 0, i64 %36
+  %40 = load i64, ptr %39, align 8
+  %41 = and i64 %40, %33
+  %42 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %41)
+  %or.cond.not.i = icmp eq i64 %42, 1
+  br i1 %or.cond.not.i, label %43, label %56
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
-  %51 = shl nuw i64 1, %34
-  %52 = load i64, ptr %50, align 8
-  %53 = or i64 %52, %51
-  store i64 %53, ptr %50, align 8
-  br label %54
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
+  %46 = load i64, ptr %45, align 8
+  %47 = or i64 %46, %41
+  store i64 %47, ptr %45, align 8
+  %48 = load i64, ptr %2, align 8
+  %49 = and i64 %48, %41
+  %.not18.i = icmp eq i64 %49, 0
+  br i1 %.not18.i, label %56, label %50
 
-54:                                               ; preds = %48, %41, %.lr.ph.i
-  %.not.i = icmp eq i64 %36, 0
-  br i1 %.not.i, label %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit.loopexit, label %.lr.ph.i, !llvm.loop !30
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 88
+  %53 = shl nuw i64 1, %36
+  %54 = load i64, ptr %52, align 8
+  %55 = or i64 %54, %53
+  store i64 %55, ptr %52, align 8
+  br label %56
 
-_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit.loopexit: ; preds = %54
+56:                                               ; preds = %50, %43, %35
+  %.not.i = icmp eq i64 %38, 0
+  br i1 %.not.i, label %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit.loopexit, label %35, !llvm.loop !30
+
+_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit.loopexit: ; preds = %56
   %.pre = load i64, ptr %29, align 8
   br label %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit
 
 _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit: ; preds = %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit.loopexit, %1
-  %55 = phi i64 [ %.pre, %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit.loopexit ], [ %30, %1 ]
-  %56 = load i64, ptr %4, align 8
-  %57 = and i64 %56, %55
-  %58 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %57, i1 true)
-  %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 72
-  store i64 0, ptr %60, align 8
+  %57 = phi i64 [ %.pre, %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit.loopexit ], [ %30, %1 ]
+  %58 = load i64, ptr %4, align 8
+  %59 = and i64 %58, %57
+  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %59, i1 true)
   %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 72
   store i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 0, i64 %58
-  %64 = load i64, ptr %63, align 8
-  %65 = load i64, ptr %16, align 8
-  %66 = load i64, ptr %18, align 8
-  %67 = or i64 %66, %65
-  %68 = and i64 %67, %64
-  %69 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 0, i64 %58
-  %70 = load i64, ptr %69, align 8
-  %71 = load i64, ptr %24, align 8
-  %72 = or i64 %71, %65
-  %73 = and i64 %72, %70
-  %74 = or i64 %73, %68
-  %75 = load i64, ptr %2, align 8
-  %76 = and i64 %74, %75
-  %77 = load i64, ptr %15, align 8
-  %78 = xor i64 %76, %77
-  %.not22.i4 = icmp eq i64 %76, 0
+  %63 = load ptr, ptr %8, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 80
+  store i64 0, ptr %64, align 8
+  %65 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 0, i64 %60
+  %66 = load i64, ptr %65, align 8
+  %67 = load i64, ptr %16, align 8
+  %68 = load i64, ptr %18, align 8
+  %69 = or i64 %68, %67
+  %70 = and i64 %69, %66
+  %71 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 0, i64 %60
+  %72 = load i64, ptr %71, align 8
+  %73 = load i64, ptr %24, align 8
+  %74 = or i64 %73, %67
+  %75 = and i64 %74, %72
+  %76 = or i64 %75, %70
+  %77 = load i64, ptr %2, align 8
+  %78 = and i64 %76, %77
+  %79 = load i64, ptr %15, align 8
+  %80 = xor i64 %78, %79
+  %.not22.i4 = icmp eq i64 %78, 0
   br i1 %.not22.i4, label %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10, label %.lr.ph.i5
 
-.lr.ph.i5:                                        ; preds = %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit, %99
-  %.023.i6 = phi i64 [ %81, %99 ], [ %76, %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit ]
-  %79 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023.i6, i1 true)
-  %80 = add i64 %.023.i6, -1
-  %81 = and i64 %80, %.023.i6
-  %82 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %58, i64 %79
-  %83 = load i64, ptr %82, align 8
-  %84 = and i64 %83, %78
-  %85 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %84)
-  %or.cond.not.i7 = icmp eq i64 %85, 1
-  br i1 %or.cond.not.i7, label %86, label %99
+.lr.ph.i5:                                        ; preds = %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit
+  %81 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %60
+  br label %82
 
-86:                                               ; preds = %.lr.ph.i5
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 72
-  %89 = load i64, ptr %88, align 8
-  %90 = or i64 %89, %84
-  store i64 %90, ptr %88, align 8
-  %91 = load i64, ptr %29, align 8
-  %92 = and i64 %91, %84
-  %.not18.i9 = icmp eq i64 %92, 0
-  br i1 %.not18.i9, label %99, label %93
+82:                                               ; preds = %103, %.lr.ph.i5
+  %.023.i6 = phi i64 [ %78, %.lr.ph.i5 ], [ %85, %103 ]
+  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023.i6, i1 true)
+  %84 = add i64 %.023.i6, -1
+  %85 = and i64 %84, %.023.i6
+  %86 = getelementptr inbounds nuw [64 x i64], ptr %81, i64 0, i64 %83
+  %87 = load i64, ptr %86, align 8
+  %88 = and i64 %87, %80
+  %89 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %88)
+  %or.cond.not.i7 = icmp eq i64 %89, 1
+  br i1 %or.cond.not.i7, label %90, label %103
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 80
-  %96 = shl nuw i64 1, %79
-  %97 = load i64, ptr %95, align 8
-  %98 = or i64 %97, %96
-  store i64 %98, ptr %95, align 8
-  br label %99
+90:                                               ; preds = %82
+  %91 = load ptr, ptr %8, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 72
+  %93 = load i64, ptr %92, align 8
+  %94 = or i64 %93, %88
+  store i64 %94, ptr %92, align 8
+  %95 = load i64, ptr %29, align 8
+  %96 = and i64 %95, %88
+  %.not18.i9 = icmp eq i64 %96, 0
+  br i1 %.not18.i9, label %103, label %97
 
-99:                                               ; preds = %93, %86, %.lr.ph.i5
-  %.not.i8 = icmp eq i64 %81, 0
-  br i1 %.not.i8, label %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10, label %.lr.ph.i5, !llvm.loop !30
+97:                                               ; preds = %90
+  %98 = load ptr, ptr %8, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 80
+  %100 = shl nuw i64 1, %83
+  %101 = load i64, ptr %99, align 8
+  %102 = or i64 %101, %100
+  store i64 %102, ptr %99, align 8
+  br label %103
 
-_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10: ; preds = %99, %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 860
-  %101 = load i32, ptr %100, align 4
-  %102 = xor i32 %101, 1
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %103
-  %105 = load i64, ptr %104, align 8
-  %106 = load i64, ptr %4, align 8
-  %107 = and i64 %106, %105
-  %108 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %107, i1 true)
-  %109 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %103, i64 %108
-  %110 = load i64, ptr %109, align 8
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 104
-  store i64 %110, ptr %112, align 8
-  %113 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %108
-  %114 = load i64, ptr %113, align 8
-  %115 = load ptr, ptr %8, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 112
-  store i64 %114, ptr %116, align 16
-  %117 = load i64, ptr %15, align 8
-  %118 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %108
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %120 = load ptr, ptr %119, align 16
-  %121 = load i64, ptr %118, align 16
-  %122 = and i64 %121, %117
-  %123 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %124 = load i64, ptr %123, align 8
-  %125 = mul i64 %122, %124
-  %126 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  %127 = load i32, ptr %126, align 8
-  %128 = zext nneg i32 %127 to i64
-  %129 = lshr i64 %125, %128
-  %130 = and i64 %129, 4294967295
-  %131 = getelementptr inbounds nuw i64, ptr %120, i64 %130
-  %132 = load i64, ptr %131, align 8
-  %133 = load ptr, ptr %8, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 120
-  store i64 %132, ptr %134, align 8
-  %135 = load i64, ptr %15, align 8
-  %136 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %108
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %138 = load ptr, ptr %137, align 16
-  %139 = load i64, ptr %136, align 16
-  %140 = and i64 %139, %135
-  %141 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %142 = load i64, ptr %141, align 8
-  %143 = mul i64 %140, %142
-  %144 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %145 = load i32, ptr %144, align 8
-  %146 = zext nneg i32 %145 to i64
-  %147 = lshr i64 %143, %146
-  %148 = and i64 %147, 4294967295
-  %149 = getelementptr inbounds nuw i64, ptr %138, i64 %148
-  %150 = load i64, ptr %149, align 8
-  %151 = load ptr, ptr %8, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 128
-  store i64 %150, ptr %152, align 32
-  %153 = load ptr, ptr %8, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 120
+103:                                              ; preds = %97, %90, %82
+  %.not.i8 = icmp eq i64 %85, 0
+  br i1 %.not.i8, label %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10, label %82, !llvm.loop !30
+
+_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10: ; preds = %103, %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 860
+  %105 = load i32, ptr %104, align 4
+  %106 = xor i32 %105, 1
+  %107 = zext i32 %106 to i64
+  %108 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %107
+  %109 = load i64, ptr %108, align 8
+  %110 = load i64, ptr %4, align 8
+  %111 = and i64 %110, %109
+  %112 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %111, i1 true)
+  %113 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %107
+  %114 = getelementptr inbounds nuw [64 x i64], ptr %113, i64 0, i64 %112
+  %115 = load i64, ptr %114, align 8
+  %116 = load ptr, ptr %8, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 104
+  store i64 %115, ptr %117, align 8
+  %118 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %112
+  %119 = load i64, ptr %118, align 8
+  %120 = load ptr, ptr %8, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 112
+  store i64 %119, ptr %121, align 16
+  %122 = load i64, ptr %15, align 8
+  %123 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %112
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %125 = load ptr, ptr %124, align 16
+  %126 = load i64, ptr %123, align 16
+  %127 = and i64 %126, %122
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %129 = load i64, ptr %128, align 8
+  %130 = mul i64 %127, %129
+  %131 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %132 = load i32, ptr %131, align 8
+  %133 = zext nneg i32 %132 to i64
+  %134 = lshr i64 %130, %133
+  %135 = and i64 %134, 4294967295
+  %136 = getelementptr inbounds nuw i64, ptr %125, i64 %135
+  %137 = load i64, ptr %136, align 8
+  %138 = load ptr, ptr %8, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 120
+  store i64 %137, ptr %139, align 8
+  %140 = load i64, ptr %15, align 8
+  %141 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %112
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %143 = load ptr, ptr %142, align 16
+  %144 = load i64, ptr %141, align 16
+  %145 = and i64 %144, %140
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %147 = load i64, ptr %146, align 8
+  %148 = mul i64 %145, %147
+  %149 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  %150 = load i32, ptr %149, align 8
+  %151 = zext nneg i32 %150 to i64
+  %152 = lshr i64 %148, %151
+  %153 = and i64 %152, 4294967295
+  %154 = getelementptr inbounds nuw i64, ptr %143, i64 %153
   %155 = load i64, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 128
-  %157 = load i64, ptr %156, align 32
-  %158 = or i64 %157, %155
-  %159 = getelementptr inbounds nuw i8, ptr %153, i64 136
-  store i64 %158, ptr %159, align 8
-  %160 = load ptr, ptr %8, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 144
-  store i64 0, ptr %161, align 16
+  %156 = load ptr, ptr %8, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 128
+  store i64 %155, ptr %157, align 32
+  %158 = load ptr, ptr %8, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 120
+  %160 = load i64, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 128
+  %162 = load i64, ptr %161, align 32
+  %163 = or i64 %162, %160
+  %164 = getelementptr inbounds nuw i8, ptr %158, i64 136
+  store i64 %163, ptr %164, align 8
+  %165 = load ptr, ptr %8, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 144
+  store i64 0, ptr %166, align 16
   ret void
 }
 
@@ -1752,45 +1774,49 @@ define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5Color
   %.not22 = icmp eq i64 %38, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %63
-  %.023 = phi i64 [ %43, %63 ], [ %38, %2 ]
-  %41 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023, i1 true)
-  %42 = add i64 %.023, -1
-  %43 = and i64 %42, %.023
-  %44 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %10, i64 %41
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %45, %40
-  %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %46)
-  %or.cond.not = icmp eq i64 %47, 1
-  br i1 %or.cond.not, label %48, label %63
+.lr.ph:                                           ; preds = %2
+  %41 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %10
+  br label %42
 
-48:                                               ; preds = %.lr.ph
-  %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %51 = getelementptr inbounds nuw [2 x i64], ptr %50, i64 0, i64 %4
-  %52 = load i64, ptr %51, align 8
-  %53 = or i64 %52, %46
-  store i64 %53, ptr %51, align 8
-  %54 = load i64, ptr %5, align 8
-  %55 = and i64 %54, %46
-  %.not18 = icmp eq i64 %55, 0
-  br i1 %.not18, label %63, label %56
+42:                                               ; preds = %.lr.ph, %65
+  %.023 = phi i64 [ %38, %.lr.ph ], [ %45, %65 ]
+  %43 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023, i1 true)
+  %44 = add i64 %.023, -1
+  %45 = and i64 %44, %.023
+  %46 = getelementptr inbounds nuw [64 x i64], ptr %41, i64 0, i64 %43
+  %47 = load i64, ptr %46, align 8
+  %48 = and i64 %47, %40
+  %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %48)
+  %or.cond.not = icmp eq i64 %49, 1
+  br i1 %or.cond.not, label %50, label %65
 
-56:                                               ; preds = %48
-  %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  %59 = getelementptr inbounds nuw [2 x i64], ptr %58, i64 0, i64 %18
-  %60 = shl nuw i64 1, %41
-  %61 = load i64, ptr %59, align 8
-  %62 = or i64 %61, %60
-  store i64 %62, ptr %59, align 8
-  br label %63
+50:                                               ; preds = %42
+  %51 = load ptr, ptr %11, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %53 = getelementptr inbounds nuw [2 x i64], ptr %52, i64 0, i64 %4
+  %54 = load i64, ptr %53, align 8
+  %55 = or i64 %54, %48
+  store i64 %55, ptr %53, align 8
+  %56 = load i64, ptr %5, align 8
+  %57 = and i64 %56, %48
+  %.not18 = icmp eq i64 %57, 0
+  br i1 %.not18, label %65, label %58
 
-63:                                               ; preds = %48, %56, %.lr.ph
-  %.not = icmp eq i64 %43, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+58:                                               ; preds = %50
+  %59 = load ptr, ptr %11, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 80
+  %61 = getelementptr inbounds nuw [2 x i64], ptr %60, i64 0, i64 %18
+  %62 = shl nuw i64 1, %43
+  %63 = load i64, ptr %61, align 8
+  %64 = or i64 %63, %62
+  store i64 %64, ptr %61, align 8
+  br label %65
 
-._crit_edge:                                      ; preds = %63, %2
+65:                                               ; preds = %50, %58, %42
+  %.not = icmp eq i64 %45, 0
+  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !30
+
+._crit_edge:                                      ; preds = %65, %2
   ret void
 }
 
@@ -1918,14 +1944,14 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 1, i64 %4
+  %5 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %8, %6
-  %12 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %4
+  %12 = getelementptr inbounds [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %4
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %15 = load i64, ptr %14, align 8
@@ -2125,10 +2151,10 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
 
 113:                                              ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ %110, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %114 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 1, i64 %indvars.iv
+  %114 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %indvars.iv
   %115 = load i64, ptr %114, align 8
   %116 = and i64 %89, %115
-  %117 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %indvars.iv
+  %117 = getelementptr inbounds [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %indvars.iv
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %93, %118
   %120 = or i64 %119, %116
@@ -2212,14 +2238,14 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %187 = shl nuw i64 1, %179
   %188 = xor i64 %186, %187
   %189 = zext nneg i16 %8 to i64
-  %190 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 1, i64 %189
+  %190 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %189
   %191 = load i64, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %193 = load i64, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %195 = load i64, ptr %194, align 8
   %196 = and i64 %193, %191
-  %197 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %189
+  %197 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %189
   %198 = load i64, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %200 = load i64, ptr %199, align 8
@@ -2307,17 +2333,18 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %277 = load i64, ptr %276, align 8
   %278 = and i64 %277, %275
-  %279 = zext nneg i16 %8 to i64
-  %280 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish6LineBBE, i64 0, i64 %179, i64 %279
-  %281 = load i64, ptr %280, align 8
+  %279 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish6LineBBE, i64 0, i64 %179
+  %280 = zext nneg i16 %8 to i64
+  %281 = getelementptr inbounds nuw [64 x i64], ptr %279, i64 0, i64 %280
+  %282 = load i64, ptr %281, align 8
   %neg = sub i64 0, %278
-  %282 = and i64 %281, %neg
-  %283 = and i64 %282, %278
-  %284 = icmp ne i64 %283, 0
+  %283 = and i64 %282, %neg
+  %284 = and i64 %283, %278
+  %285 = icmp ne i64 %284, 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %113, %263, %272, %._crit_edge, %168, %10, %58, %184
-  %.0 = phi i1 [ %.not33, %184 ], [ false, %10 ], [ %.not38, %58 ], [ true, %._crit_edge ], [ %.not35, %168 ], [ true, %263 ], [ %284, %272 ], [ false, %113 ]
+  %.0 = phi i1 [ %.not33, %184 ], [ false, %10 ], [ %.not38, %58 ], [ true, %._crit_edge ], [ %.not35, %168 ], [ true, %263 ], [ %285, %272 ], [ false, %113 ]
   ret i1 %.0
 }
 
@@ -2451,7 +2478,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.
 _ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit: ; preds = %29, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97, %49, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %60
   %.028.i.i.i.i = phi ptr [ %22, %60 ], [ %.029.lcssa.i.i.i.i, %49 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %61, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %62, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95 ], [ %63, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97 ], [ %.02946.i.i.i.i, %29 ]
   %64 = icmp ne ptr %.028.i.i.i.i, %22
-  br label %265
+  br label %268
 
 65:                                               ; preds = %15
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 2048
@@ -2558,14 +2585,14 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.
 _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105, %94, %._crit_edge._crit_edge.i.i.i.i54, %._crit_edge._crit_edge52.i.i.i.i51, %105
   %.028.i.i.i.i53 = phi ptr [ %67, %105 ], [ %.029.lcssa.i.i.i.i50, %94 ], [ %.1.i.i.i.i55, %._crit_edge._crit_edge.i.i.i.i54 ], [ %.2.i.i.i.i52, %._crit_edge._crit_edge52.i.i.i.i51 ], [ %106, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %107, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103 ], [ %108, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105 ], [ %.02946.i.i.i.i59, %74 ]
   %109 = icmp ne ptr %.028.i.i.i.i53, %67
-  br label %265
+  br label %268
 
 110:                                              ; preds = %2
   %111 = icmp ne i32 %14, 0
   %112 = ashr i32 %14, 3
   %.not38 = icmp eq i32 %112, %6
   %or.cond = select i1 %111, i1 %.not38, i1 false
-  br i1 %or.cond, label %113, label %265
+  br i1 %or.cond, label %113, label %268
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -2576,209 +2603,212 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   %119 = shl nuw i64 1, %118
   %120 = and i64 %117, %119
   %.not39 = icmp eq i64 %120, 0
-  br i1 %.not39, label %121, label %265
+  br i1 %.not39, label %121, label %268
 
 121:                                              ; preds = %113
   %122 = and i32 %14, 7
   %123 = icmp eq i32 %122, 1
-  br i1 %123, label %124, label %163
+  br i1 %123, label %124, label %164
 
 124:                                              ; preds = %121
   %125 = and i64 %119, -72057594037927681
   %.not41 = icmp eq i64 %125, 0
-  br i1 %.not41, label %126, label %265
+  br i1 %.not41, label %126, label %268
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %115, i64 %12
-  %128 = load i64, ptr %127, align 8
-  %129 = xor i32 %6, 1
-  %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw [2 x i64], ptr %114, i64 0, i64 %130
-  %132 = load i64, ptr %131, align 8
-  %133 = and i64 %128, %132
-  %134 = and i64 %133, %119
-  %.not42 = icmp eq i64 %134, 0
-  br i1 %.not42, label %135, label %235
+  %127 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %115
+  %128 = getelementptr inbounds nuw [64 x i64], ptr %127, i64 0, i64 %12
+  %129 = load i64, ptr %128, align 8
+  %130 = xor i32 %6, 1
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr inbounds nuw [2 x i64], ptr %114, i64 0, i64 %131
+  %133 = load i64, ptr %132, align 8
+  %134 = and i64 %129, %133
+  %135 = and i64 %134, %119
+  %.not42 = icmp eq i64 %135, 0
+  br i1 %.not42, label %136, label %237
 
-135:                                              ; preds = %126
-  %136 = icmp eq i32 %6, 0
-  %137 = select i1 %136, i32 8, i32 -8
-  %138 = add nsw i32 %137, %9
-  %139 = icmp eq i32 %138, %11
-  br i1 %139, label %140, label %144
+136:                                              ; preds = %126
+  %137 = icmp eq i32 %6, 0
+  %138 = select i1 %137, i32 8, i32 -8
+  %139 = add nsw i32 %138, %9
+  %140 = icmp eq i32 %139, %11
+  br i1 %140, label %141, label %145
 
-140:                                              ; preds = %135
-  %141 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %118
-  %142 = load i32, ptr %141, align 4
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %235, label %144
+141:                                              ; preds = %136
+  %142 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %118
+  %143 = load i32, ptr %142, align 4
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %237, label %145
 
-144:                                              ; preds = %140, %135
-  %145 = shl nsw i32 %137, 1
-  %146 = add nsw i32 %145, %9
-  %147 = icmp eq i32 %146, %11
-  br i1 %147, label %148, label %265
+145:                                              ; preds = %141, %136
+  %146 = shl nsw i32 %138, 1
+  %147 = add nsw i32 %146, %9
+  %148 = icmp eq i32 %147, %11
+  br i1 %148, label %149, label %268
 
-148:                                              ; preds = %144
-  %149 = lshr i32 %9, 3
-  %150 = mul nsw i32 %6, 7
-  %151 = xor i32 %150, %149
-  %152 = icmp eq i32 %151, 1
-  br i1 %152, label %153, label %265
+149:                                              ; preds = %145
+  %150 = lshr i32 %9, 3
+  %151 = mul nsw i32 %6, 7
+  %152 = xor i32 %151, %150
+  %153 = icmp eq i32 %152, 1
+  br i1 %153, label %154, label %268
 
-153:                                              ; preds = %148
-  %154 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %118
-  %155 = load i32, ptr %154, align 4
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %265
+154:                                              ; preds = %149
+  %155 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %118
+  %156 = load i32, ptr %155, align 4
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %158, label %268
 
-157:                                              ; preds = %153
-  %158 = sub nsw i32 %11, %137
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %159
-  %161 = load i32, ptr %160, align 4
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %235, label %265
+158:                                              ; preds = %154
+  %159 = sub nsw i32 %11, %138
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %160
+  %162 = load i32, ptr %161, align 4
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %237, label %268
 
-163:                                              ; preds = %121
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %165 = load i64, ptr %164, align 8
-  switch i32 %122, label %230 [
-    i32 3, label %166
-    i32 4, label %182
-    i32 5, label %198
+164:                                              ; preds = %121
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %166 = load i64, ptr %165, align 8
+  switch i32 %122, label %231 [
+    i32 3, label %167
+    i32 4, label %183
+    i32 5, label %199
   ]
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %169 = load ptr, ptr %168, align 16
-  %170 = load i64, ptr %167, align 16
-  %171 = and i64 %170, %165
-  %172 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %173 = load i64, ptr %172, align 8
-  %174 = mul i64 %171, %173
-  %175 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  %176 = load i32, ptr %175, align 8
-  %177 = zext nneg i32 %176 to i64
-  %178 = lshr i64 %174, %177
-  %179 = and i64 %178, 4294967295
-  %180 = getelementptr inbounds nuw i64, ptr %169, i64 %179
-  %181 = load i64, ptr %180, align 8
+167:                                              ; preds = %164
+  %168 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
+  %170 = load ptr, ptr %169, align 16
+  %171 = load i64, ptr %168, align 16
+  %172 = and i64 %171, %166
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %174 = load i64, ptr %173, align 8
+  %175 = mul i64 %172, %174
+  %176 = getelementptr inbounds nuw i8, ptr %168, i64 24
+  %177 = load i32, ptr %176, align 8
+  %178 = zext nneg i32 %177 to i64
+  %179 = lshr i64 %175, %178
+  %180 = and i64 %179, 4294967295
+  %181 = getelementptr inbounds nuw i64, ptr %170, i64 %180
+  %182 = load i64, ptr %181, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-182:                                              ; preds = %163
-  %183 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %185 = load ptr, ptr %184, align 16
-  %186 = load i64, ptr %183, align 16
-  %187 = and i64 %186, %165
-  %188 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %189 = load i64, ptr %188, align 8
-  %190 = mul i64 %187, %189
-  %191 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %192 = load i32, ptr %191, align 8
-  %193 = zext nneg i32 %192 to i64
-  %194 = lshr i64 %190, %193
-  %195 = and i64 %194, 4294967295
-  %196 = getelementptr inbounds nuw i64, ptr %185, i64 %195
-  %197 = load i64, ptr %196, align 8
+183:                                              ; preds = %164
+  %184 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
+  %186 = load ptr, ptr %185, align 16
+  %187 = load i64, ptr %184, align 16
+  %188 = and i64 %187, %166
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %190 = load i64, ptr %189, align 8
+  %191 = mul i64 %188, %190
+  %192 = getelementptr inbounds nuw i8, ptr %184, i64 24
+  %193 = load i32, ptr %192, align 8
+  %194 = zext nneg i32 %193 to i64
+  %195 = lshr i64 %191, %194
+  %196 = and i64 %195, 4294967295
+  %197 = getelementptr inbounds nuw i64, ptr %186, i64 %196
+  %198 = load i64, ptr %197, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-198:                                              ; preds = %163
-  %199 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  %201 = load ptr, ptr %200, align 16
-  %202 = load i64, ptr %199, align 16
-  %203 = and i64 %202, %165
-  %204 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %205 = load i64, ptr %204, align 8
-  %206 = mul i64 %203, %205
-  %207 = getelementptr inbounds nuw i8, ptr %199, i64 24
-  %208 = load i32, ptr %207, align 8
-  %209 = zext nneg i32 %208 to i64
-  %210 = lshr i64 %206, %209
-  %211 = and i64 %210, 4294967295
-  %212 = getelementptr inbounds nuw i64, ptr %201, i64 %211
-  %213 = load i64, ptr %212, align 8
-  %214 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  %216 = load ptr, ptr %215, align 16
-  %217 = load i64, ptr %214, align 16
-  %218 = and i64 %217, %165
-  %219 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %220 = load i64, ptr %219, align 8
-  %221 = mul i64 %218, %220
-  %222 = getelementptr inbounds nuw i8, ptr %214, i64 24
-  %223 = load i32, ptr %222, align 8
-  %224 = zext nneg i32 %223 to i64
-  %225 = lshr i64 %221, %224
-  %226 = and i64 %225, 4294967295
-  %227 = getelementptr inbounds nuw i64, ptr %216, i64 %226
-  %228 = load i64, ptr %227, align 8
-  %229 = or i64 %228, %213
+199:                                              ; preds = %164
+  %200 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  %202 = load ptr, ptr %201, align 16
+  %203 = load i64, ptr %200, align 16
+  %204 = and i64 %203, %166
+  %205 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %206 = load i64, ptr %205, align 8
+  %207 = mul i64 %204, %206
+  %208 = getelementptr inbounds nuw i8, ptr %200, i64 24
+  %209 = load i32, ptr %208, align 8
+  %210 = zext nneg i32 %209 to i64
+  %211 = lshr i64 %207, %210
+  %212 = and i64 %211, 4294967295
+  %213 = getelementptr inbounds nuw i64, ptr %202, i64 %212
+  %214 = load i64, ptr %213, align 8
+  %215 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %217 = load ptr, ptr %216, align 16
+  %218 = load i64, ptr %215, align 16
+  %219 = and i64 %218, %166
+  %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %221 = load i64, ptr %220, align 8
+  %222 = mul i64 %219, %221
+  %223 = getelementptr inbounds nuw i8, ptr %215, i64 24
+  %224 = load i32, ptr %223, align 8
+  %225 = zext nneg i32 %224 to i64
+  %226 = lshr i64 %222, %225
+  %227 = and i64 %226, 4294967295
+  %228 = getelementptr inbounds nuw i64, ptr %217, i64 %227
+  %229 = load i64, ptr %228, align 8
+  %230 = or i64 %229, %214
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-230:                                              ; preds = %163
-  %231 = zext nneg i32 %122 to i64
-  %232 = getelementptr inbounds nuw [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 %231, i64 %12
-  %233 = load i64, ptr %232, align 8
+231:                                              ; preds = %164
+  %232 = zext nneg i32 %122 to i64
+  %233 = getelementptr inbounds nuw [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 %232
+  %234 = getelementptr inbounds nuw [64 x i64], ptr %233, i64 0, i64 %12
+  %235 = load i64, ptr %234, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %166, %182, %198, %230
-  %.0.i = phi i64 [ %233, %230 ], [ %181, %166 ], [ %197, %182 ], [ %229, %198 ]
-  %234 = and i64 %.0.i, %119
-  %.not40 = icmp eq i64 %234, 0
-  br i1 %.not40, label %265, label %235
+_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %167, %183, %199, %231
+  %.0.i = phi i64 [ %235, %231 ], [ %182, %167 ], [ %198, %183 ], [ %230, %199 ]
+  %236 = and i64 %.0.i, %119
+  %.not40 = icmp eq i64 %236, 0
+  br i1 %.not40, label %268, label %237
 
-235:                                              ; preds = %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit, %126, %140, %157
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 48
-  %239 = load i64, ptr %238, align 16
-  %.not43 = icmp eq i64 %239, 0
-  br i1 %.not43, label %264, label %240
+237:                                              ; preds = %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit, %126, %141, %158
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %239 = load ptr, ptr %238, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 48
+  %241 = load i64, ptr %240, align 16
+  %.not43 = icmp eq i64 %241, 0
+  br i1 %.not43, label %267, label %242
 
-240:                                              ; preds = %235
+242:                                              ; preds = %237
   %.not44 = icmp eq i32 %122, 6
-  br i1 %.not44, label %253, label %241
+  br i1 %.not44, label %256, label %243
 
-241:                                              ; preds = %240
-  %242 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %239)
-  %243 = icmp samesign ugt i64 %242, 1
-  br i1 %243, label %265, label %244
+243:                                              ; preds = %242
+  %244 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %241)
+  %245 = icmp samesign ugt i64 %244, 1
+  br i1 %245, label %268, label %246
 
-244:                                              ; preds = %241
-  %245 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %246 = load i64, ptr %245, align 8
-  %247 = and i64 %246, %117
-  %248 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %247, i1 true)
-  %249 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %239, i1 true)
-  %250 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %248, i64 %249
-  %251 = load i64, ptr %250, align 8
-  %252 = and i64 %251, %119
-  %.not46 = icmp eq i64 %252, 0
-  br i1 %.not46, label %265, label %264
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %248 = load i64, ptr %247, align 8
+  %249 = and i64 %248, %117
+  %250 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %249, i1 true)
+  %251 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %241, i1 true)
+  %252 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %250
+  %253 = getelementptr inbounds nuw [64 x i64], ptr %252, i64 0, i64 %251
+  %254 = load i64, ptr %253, align 8
+  %255 = and i64 %254, %119
+  %.not46 = icmp eq i64 %255, 0
+  br i1 %.not46, label %268, label %267
 
-253:                                              ; preds = %240
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %255 = load i64, ptr %254, align 8
-  %256 = shl nuw i64 1, %12
-  %257 = xor i64 %255, %256
-  %258 = tail call noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %11, i64 noundef %257)
-  %259 = xor i32 %6, 1
-  %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds nuw [2 x i64], ptr %114, i64 0, i64 %260
-  %262 = load i64, ptr %261, align 8
-  %263 = and i64 %262, %258
-  %.not45 = icmp eq i64 %263, 0
-  br i1 %.not45, label %264, label %265
+256:                                              ; preds = %242
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %258 = load i64, ptr %257, align 8
+  %259 = shl nuw i64 1, %12
+  %260 = xor i64 %258, %259
+  %261 = tail call noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %11, i64 noundef %260)
+  %262 = xor i32 %6, 1
+  %263 = zext i32 %262 to i64
+  %264 = getelementptr inbounds nuw [2 x i64], ptr %114, i64 0, i64 %263
+  %265 = load i64, ptr %264, align 8
+  %266 = and i64 %265, %261
+  %.not45 = icmp eq i64 %266, 0
+  br i1 %.not45, label %267, label %268
 
-264:                                              ; preds = %244, %253, %235
-  br label %265
+267:                                              ; preds = %246, %256, %237
+  br label %268
 
-265:                                              ; preds = %253, %244, %241, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit, %144, %148, %153, %157, %124, %113, %110, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, %264
-  %.0 = phi i1 [ true, %264 ], [ %64, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit ], [ %109, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit ], [ false, %110 ], [ false, %113 ], [ false, %124 ], [ false, %157 ], [ false, %153 ], [ false, %148 ], [ false, %144 ], [ false, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ false, %241 ], [ false, %244 ], [ false, %253 ]
+268:                                              ; preds = %256, %246, %243, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit, %145, %149, %154, %158, %124, %113, %110, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, %267
+  %.0 = phi i1 [ true, %267 ], [ %64, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit ], [ %109, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit ], [ false, %110 ], [ false, %113 ], [ false, %124 ], [ false, %158 ], [ false, %154 ], [ false, %149 ], [ false, %145 ], [ false, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ false, %243 ], [ false, %246 ], [ false, %256 ]
   ret i1 %.0
 }
 
@@ -2804,7 +2834,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   %17 = shl nuw i64 1, %16
   %18 = and i64 %15, %17
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %200
+  br i1 %.not, label %19, label %201
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 860
@@ -2817,7 +2847,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   %27 = shl nuw i64 1, %6
   %28 = and i64 %26, %27
   %.not18 = icmp eq i64 %28, 0
-  br i1 %.not18, label %41, label %29
+  br i1 %.not18, label %42, label %29
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -2826,211 +2856,212 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, %32
-  %36 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish6LineBBE, i64 0, i64 %6, i64 %16
-  %37 = load i64, ptr %36, align 8
+  %36 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish6LineBBE, i64 0, i64 %6
+  %37 = getelementptr inbounds nuw [64 x i64], ptr %36, i64 0, i64 %16
+  %38 = load i64, ptr %37, align 8
   %neg = sub i64 0, %35
-  %38 = and i64 %37, %neg
-  %39 = and i64 %38, %35
-  %.not23 = icmp eq i64 %39, 0
-  %40 = icmp ugt i16 %1, -16385
-  %spec.select = or i1 %.not23, %40
-  br label %200
+  %39 = and i64 %38, %neg
+  %40 = and i64 %39, %35
+  %.not23 = icmp eq i64 %40, 0
+  %41 = icmp ugt i16 %1, -16385
+  %spec.select = or i1 %.not23, %41
+  br label %201
 
-41:                                               ; preds = %19
-  %42 = lshr i16 %1, 14
-  switch i16 %42, label %default.unreachable [
-    i16 0, label %200
-    i16 1, label %43
-    i16 2, label %125
-    i16 3, label %189
+42:                                               ; preds = %19
+  %43 = lshr i16 %1, 14
+  switch i16 %43, label %default.unreachable [
+    i16 0, label %201
+    i16 1, label %44
+    i16 2, label %126
+    i16 3, label %190
   ]
 
-43:                                               ; preds = %41
-  %44 = lshr i16 %1, 12
-  %45 = and i16 %44, 3
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %47 = load i64, ptr %46, align 8
-  %48 = xor i64 %47, %27
-  switch i16 %45, label %default.unreachable [
-    i16 1, label %49
-    i16 2, label %65
-    i16 3, label %81
-    i16 0, label %113
+44:                                               ; preds = %42
+  %45 = lshr i16 %1, 12
+  %46 = and i16 %45, 3
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %48 = load i64, ptr %47, align 8
+  %49 = xor i64 %48, %27
+  switch i16 %46, label %default.unreachable [
+    i16 1, label %50
+    i16 2, label %66
+    i16 3, label %82
+    i16 0, label %114
   ]
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %16
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 16
-  %53 = load i64, ptr %50, align 16
-  %54 = and i64 %53, %48
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %56 = load i64, ptr %55, align 8
-  %57 = mul i64 %54, %56
-  %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %59 = load i32, ptr %58, align 8
-  %60 = zext nneg i32 %59 to i64
-  %61 = lshr i64 %57, %60
-  %62 = and i64 %61, 4294967295
-  %63 = getelementptr inbounds nuw i64, ptr %52, i64 %62
-  %64 = load i64, ptr %63, align 8
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load ptr, ptr %52, align 16
+  %54 = load i64, ptr %51, align 16
+  %55 = and i64 %54, %49
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %57 = load i64, ptr %56, align 8
+  %58 = mul i64 %55, %57
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %60 = load i32, ptr %59, align 8
+  %61 = zext nneg i32 %60 to i64
+  %62 = lshr i64 %58, %61
+  %63 = and i64 %62, 4294967295
+  %64 = getelementptr inbounds nuw i64, ptr %53, i64 %63
+  %65 = load i64, ptr %64, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-65:                                               ; preds = %43
-  %66 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %16
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 16
-  %69 = load i64, ptr %66, align 16
-  %70 = and i64 %69, %48
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %72 = load i64, ptr %71, align 8
-  %73 = mul i64 %70, %72
-  %74 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %75 = load i32, ptr %74, align 8
-  %76 = zext nneg i32 %75 to i64
-  %77 = lshr i64 %73, %76
-  %78 = and i64 %77, 4294967295
-  %79 = getelementptr inbounds nuw i64, ptr %68, i64 %78
-  %80 = load i64, ptr %79, align 8
+66:                                               ; preds = %44
+  %67 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 16
+  %70 = load i64, ptr %67, align 16
+  %71 = and i64 %70, %49
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %73 = load i64, ptr %72, align 8
+  %74 = mul i64 %71, %73
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %76 = load i32, ptr %75, align 8
+  %77 = zext nneg i32 %76 to i64
+  %78 = lshr i64 %74, %77
+  %79 = and i64 %78, 4294967295
+  %80 = getelementptr inbounds nuw i64, ptr %69, i64 %79
+  %81 = load i64, ptr %80, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-81:                                               ; preds = %43
-  %82 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %16
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 16
-  %85 = load i64, ptr %82, align 16
-  %86 = and i64 %85, %48
-  %87 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %88 = load i64, ptr %87, align 8
-  %89 = mul i64 %86, %88
-  %90 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %91 = load i32, ptr %90, align 8
-  %92 = zext nneg i32 %91 to i64
-  %93 = lshr i64 %89, %92
-  %94 = and i64 %93, 4294967295
-  %95 = getelementptr inbounds nuw i64, ptr %84, i64 %94
-  %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %16
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %99 = load ptr, ptr %98, align 16
-  %100 = load i64, ptr %97, align 16
-  %101 = and i64 %100, %48
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %103 = load i64, ptr %102, align 8
-  %104 = mul i64 %101, %103
-  %105 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %106 = load i32, ptr %105, align 8
-  %107 = zext nneg i32 %106 to i64
-  %108 = lshr i64 %104, %107
-  %109 = and i64 %108, 4294967295
-  %110 = getelementptr inbounds nuw i64, ptr %99, i64 %109
-  %111 = load i64, ptr %110, align 8
-  %112 = or i64 %111, %96
+82:                                               ; preds = %44
+  %83 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %85 = load ptr, ptr %84, align 16
+  %86 = load i64, ptr %83, align 16
+  %87 = and i64 %86, %49
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %89 = load i64, ptr %88, align 8
+  %90 = mul i64 %87, %89
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %92 = load i32, ptr %91, align 8
+  %93 = zext nneg i32 %92 to i64
+  %94 = lshr i64 %90, %93
+  %95 = and i64 %94, 4294967295
+  %96 = getelementptr inbounds nuw i64, ptr %85, i64 %95
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %16
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = load ptr, ptr %99, align 16
+  %101 = load i64, ptr %98, align 16
+  %102 = and i64 %101, %49
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %104 = load i64, ptr %103, align 8
+  %105 = mul i64 %102, %104
+  %106 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  %107 = load i32, ptr %106, align 8
+  %108 = zext nneg i32 %107 to i64
+  %109 = lshr i64 %105, %108
+  %110 = and i64 %109, 4294967295
+  %111 = getelementptr inbounds nuw i64, ptr %100, i64 %110
+  %112 = load i64, ptr %111, align 8
+  %113 = or i64 %112, %97
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-113:                                              ; preds = %43
-  %114 = getelementptr inbounds nuw [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %16
-  %115 = load i64, ptr %114, align 8
+114:                                              ; preds = %44
+  %115 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %16
+  %116 = load i64, ptr %115, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %49, %65, %81, %113
-  %.0.i = phi i64 [ %115, %113 ], [ %64, %49 ], [ %80, %65 ], [ %112, %81 ]
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %117 = getelementptr inbounds nuw [2 x i64], ptr %116, i64 0, i64 %24
-  %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %120 = load i64, ptr %119, align 8
-  %121 = and i64 %120, %118
-  %neg24 = sub i64 0, %121
-  %122 = and i64 %.0.i, %neg24
-  %123 = and i64 %122, %121
-  %124 = icmp ne i64 %123, 0
-  br label %200
+_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %50, %66, %82, %114
+  %.0.i = phi i64 [ %116, %114 ], [ %65, %50 ], [ %81, %66 ], [ %113, %82 ]
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %118 = getelementptr inbounds nuw [2 x i64], ptr %117, i64 0, i64 %24
+  %119 = load i64, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %121 = load i64, ptr %120, align 8
+  %122 = and i64 %121, %119
+  %neg24 = sub i64 0, %122
+  %123 = and i64 %.0.i, %neg24
+  %124 = and i64 %123, %122
+  %125 = icmp ne i64 %124, 0
+  br label %201
 
-125:                                              ; preds = %41
-  %126 = and i16 %1, 7
-  %127 = and i16 %3, 56
-  %128 = or disjoint i16 %127, %126
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %130 = load i64, ptr %129, align 8
-  %131 = zext nneg i16 %128 to i64
-  %132 = shl nuw i64 1, %131
-  %133 = xor i64 %132, %130
-  %134 = xor i64 %133, %27
-  %135 = or i64 %134, %17
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %137 = getelementptr inbounds nuw [2 x i64], ptr %136, i64 0, i64 %24
-  %138 = load i64, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %140 = load i64, ptr %139, align 8
-  %141 = and i64 %140, %138
-  %142 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %141, i1 true)
-  %143 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %142
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %145 = load ptr, ptr %144, align 16
-  %146 = load i64, ptr %143, align 16
-  %147 = and i64 %146, %135
-  %148 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %149 = load i64, ptr %148, align 8
-  %150 = mul i64 %147, %149
-  %151 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %152 = load i32, ptr %151, align 8
-  %153 = zext nneg i32 %152 to i64
-  %154 = lshr i64 %150, %153
-  %155 = and i64 %154, 4294967295
-  %156 = getelementptr inbounds nuw i64, ptr %145, i64 %155
-  %157 = load i64, ptr %156, align 8
-  %158 = zext i32 %21 to i64
-  %159 = getelementptr inbounds nuw [2 x i64], ptr %136, i64 0, i64 %158
-  %160 = load i64, ptr %159, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %162 = load i64, ptr %161, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %164 = load i64, ptr %163, align 8
-  %165 = or i64 %164, %162
-  %166 = and i64 %165, %157
-  %167 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %142
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %169 = load ptr, ptr %168, align 16
-  %170 = load i64, ptr %167, align 16
-  %171 = and i64 %170, %135
-  %172 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %173 = load i64, ptr %172, align 8
-  %174 = mul i64 %171, %173
-  %175 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  %176 = load i32, ptr %175, align 8
-  %177 = zext nneg i32 %176 to i64
-  %178 = lshr i64 %174, %177
-  %179 = and i64 %178, 4294967295
-  %180 = getelementptr inbounds nuw i64, ptr %169, i64 %179
-  %181 = load i64, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %183 = load i64, ptr %182, align 8
-  %184 = or i64 %183, %162
-  %185 = and i64 %184, %181
-  %186 = or i64 %185, %166
-  %187 = and i64 %186, %160
-  %188 = icmp ne i64 %187, 0
-  br label %200
+126:                                              ; preds = %42
+  %127 = and i16 %1, 7
+  %128 = and i16 %3, 56
+  %129 = or disjoint i16 %128, %127
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %131 = load i64, ptr %130, align 8
+  %132 = zext nneg i16 %129 to i64
+  %133 = shl nuw i64 1, %132
+  %134 = xor i64 %133, %131
+  %135 = xor i64 %134, %27
+  %136 = or i64 %135, %17
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %138 = getelementptr inbounds nuw [2 x i64], ptr %137, i64 0, i64 %24
+  %139 = load i64, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %141 = load i64, ptr %140, align 8
+  %142 = and i64 %141, %139
+  %143 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %142, i1 true)
+  %144 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %143
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  %146 = load ptr, ptr %145, align 16
+  %147 = load i64, ptr %144, align 16
+  %148 = and i64 %147, %136
+  %149 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %150 = load i64, ptr %149, align 8
+  %151 = mul i64 %148, %150
+  %152 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  %153 = load i32, ptr %152, align 8
+  %154 = zext nneg i32 %153 to i64
+  %155 = lshr i64 %151, %154
+  %156 = and i64 %155, 4294967295
+  %157 = getelementptr inbounds nuw i64, ptr %146, i64 %156
+  %158 = load i64, ptr %157, align 8
+  %159 = zext i32 %21 to i64
+  %160 = getelementptr inbounds nuw [2 x i64], ptr %137, i64 0, i64 %159
+  %161 = load i64, ptr %160, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %163 = load i64, ptr %162, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %165 = load i64, ptr %164, align 8
+  %166 = or i64 %165, %163
+  %167 = and i64 %166, %158
+  %168 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %143
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
+  %170 = load ptr, ptr %169, align 16
+  %171 = load i64, ptr %168, align 16
+  %172 = and i64 %171, %136
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %174 = load i64, ptr %173, align 8
+  %175 = mul i64 %172, %174
+  %176 = getelementptr inbounds nuw i8, ptr %168, i64 24
+  %177 = load i32, ptr %176, align 8
+  %178 = zext nneg i32 %177 to i64
+  %179 = lshr i64 %175, %178
+  %180 = and i64 %179, 4294967295
+  %181 = getelementptr inbounds nuw i64, ptr %170, i64 %180
+  %182 = load i64, ptr %181, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %184 = load i64, ptr %183, align 8
+  %185 = or i64 %184, %163
+  %186 = and i64 %185, %182
+  %187 = or i64 %186, %167
+  %188 = and i64 %187, %161
+  %189 = icmp ne i64 %188, 0
+  br label %201
 
-default.unreachable:                              ; preds = %43, %41
+default.unreachable:                              ; preds = %44, %42
   unreachable
 
-189:                                              ; preds = %41
-  %190 = icmp samesign ugt i16 %5, %4
-  %191 = select i1 %190, i32 5, i32 3
-  %192 = mul nsw i32 %21, 56
-  %193 = or disjoint i32 %192, %191
-  %194 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %195 = load i64, ptr %194, align 8
-  %196 = zext nneg i32 %193 to i64
-  %197 = shl nuw i64 1, %196
-  %198 = and i64 %195, %197
-  %199 = icmp ne i64 %198, 0
-  br label %200
+190:                                              ; preds = %42
+  %191 = icmp samesign ugt i16 %5, %4
+  %192 = select i1 %191, i32 5, i32 3
+  %193 = mul nsw i32 %21, 56
+  %194 = or disjoint i32 %193, %192
+  %195 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %196 = load i64, ptr %195, align 8
+  %197 = zext nneg i32 %194 to i64
+  %198 = shl nuw i64 1, %197
+  %199 = and i64 %196, %198
+  %200 = icmp ne i64 %199, 0
+  br label %201
 
-200:                                              ; preds = %29, %41, %2, %189, %125, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
-  %.0 = phi i1 [ %199, %189 ], [ %124, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ %188, %125 ], [ true, %2 ], [ false, %41 ], [ %spec.select, %29 ]
+201:                                              ; preds = %29, %42, %2, %190, %126, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
+  %.0 = phi i1 [ %200, %190 ], [ %125, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ %189, %126 ], [ true, %2 ], [ false, %42 ], [ %spec.select, %29 ]
   ret i1 %.0
 }
 
@@ -3104,578 +3135,584 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %54 = load i32, ptr %53, align 4
   %55 = and i16 %1, -16384
   %56 = icmp slt i16 %1, -16384
-  br i1 %56, label %76, label %57
+  br i1 %56, label %77, label %57
 
 57:                                               ; preds = %4
   %58 = zext nneg i16 %50 to i64
   %59 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = icmp ugt i16 %1, -16385
-  br i1 %61, label %.thread113, label %73
+  br i1 %61, label %.thread113, label %74
 
 .thread113:                                       ; preds = %57
   call void @_ZN9Stockfish8Position11do_castlingILb1EEEvNS_5ColorENS_6SquareERS3_S4_S4_(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %45, i32 noundef %49, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %62 = zext i32 %60 to i64
-  %63 = load i32, ptr %6, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %62, i64 %64
-  %66 = load i64, ptr %65, align 8
-  %67 = load i32, ptr %7, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %62, i64 %68
-  %70 = load i64, ptr %69, align 8
-  %71 = xor i64 %66, %70
-  %72 = xor i64 %71, %13
+  %63 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %62
+  %64 = load i32, ptr %6, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds [64 x i64], ptr %63, i64 0, i64 %65
+  %67 = load i64, ptr %66, align 8
+  %68 = load i32, ptr %7, align 4
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds [64 x i64], ptr %63, i64 0, i64 %69
+  %71 = load i64, ptr %70, align 8
+  %72 = xor i64 %67, %71
+  %73 = xor i64 %72, %13
   %.pre = load i32, ptr %5, align 4
-  br label %144
+  br label %147
 
-73:                                               ; preds = %57
+74:                                               ; preds = %57
   %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %144, label %.thread124
+  br i1 %.not, label %147, label %.thread124
 
-.thread124:                                       ; preds = %73
-  %74 = and i32 %60, 7
-  %75 = icmp eq i32 %74, 1
-  br i1 %75, label %.thread133, label %89
+.thread124:                                       ; preds = %74
+  %75 = and i32 %60, 7
+  %76 = icmp eq i32 %75, 1
+  br i1 %76, label %.thread133, label %91
 
-76:                                               ; preds = %4
-  %77 = shl i32 %46, 3
-  %78 = or disjoint i32 %77, 1
-  %79 = icmp eq i32 %45, 0
-  %.neg = select i1 %79, i32 -8, i32 8
-  %80 = add nsw i32 %.neg, %51
+77:                                               ; preds = %4
+  %78 = shl i32 %46, 3
+  %79 = or disjoint i32 %78, 1
+  %80 = icmp eq i32 %45, 0
+  %.neg = select i1 %80, i32 -8, i32 8
+  %81 = add nsw i32 %.neg, %51
   br label %.thread133
 
-.thread133:                                       ; preds = %.thread124, %76
-  %.089122132136 = phi i32 [ %78, %76 ], [ %60, %.thread124 ]
-  %.0111 = phi i32 [ %80, %76 ], [ %51, %.thread124 ]
-  %81 = zext i32 %.089122132136 to i64
-  %82 = sext i32 %.0111 to i64
-  %83 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %81, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = load i64, ptr %86, align 8
-  %88 = xor i64 %87, %84
-  store i64 %88, ptr %86, align 8
-  br label %99
+.thread133:                                       ; preds = %.thread124, %77
+  %.089122132136 = phi i32 [ %79, %77 ], [ %60, %.thread124 ]
+  %.0111 = phi i32 [ %81, %77 ], [ %51, %.thread124 ]
+  %82 = zext i32 %.089122132136 to i64
+  %83 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %82
+  %84 = sext i32 %.0111 to i64
+  %85 = getelementptr inbounds [64 x i64], ptr %83, i64 0, i64 %84
+  %86 = load i64, ptr %85, align 8
+  %87 = load ptr, ptr %8, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load i64, ptr %88, align 8
+  %90 = xor i64 %89, %86
+  store i64 %90, ptr %88, align 8
+  br label %101
 
-89:                                               ; preds = %.thread124
-  %90 = zext i32 %60 to i64
-  %91 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %95 = zext i32 %46 to i64
-  %96 = getelementptr inbounds nuw [2 x i32], ptr %94, i64 0, i64 %95
-  %97 = load i32, ptr %96, align 4
-  %98 = sub nsw i32 %97, %92
-  store i32 %98, ptr %96, align 4
+91:                                               ; preds = %.thread124
+  %92 = zext i32 %60 to i64
+  %93 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %92
+  %94 = load i32, ptr %93, align 4
+  %95 = load ptr, ptr %8, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %97 = zext i32 %46 to i64
+  %98 = getelementptr inbounds nuw [2 x i32], ptr %96, i64 0, i64 %97
+  %99 = load i32, ptr %98, align 4
+  %100 = sub nsw i32 %99, %94
+  store i32 %100, ptr %98, align 4
   %.pre148 = zext nneg i16 %50 to i64
-  br label %99
+  br label %101
 
-99:                                               ; preds = %89, %.thread133
-  %.pre-phi150 = phi i64 [ %90, %89 ], [ %81, %.thread133 ]
-  %.pre-phi149 = phi i64 [ %.pre148, %89 ], [ %82, %.thread133 ]
-  %.089122130 = phi i32 [ %60, %89 ], [ %.089122132136, %.thread133 ]
-  %.1112 = phi i32 [ %51, %89 ], [ %.0111, %.thread133 ]
+101:                                              ; preds = %91, %.thread133
+  %.pre-phi150 = phi i64 [ %92, %91 ], [ %82, %.thread133 ]
+  %.pre-phi149 = phi i64 [ %.pre148, %91 ], [ %84, %.thread133 ]
+  %.089122130 = phi i32 [ %60, %91 ], [ %.089122132136, %.thread133 ]
+  %.1112 = phi i32 [ %51, %91 ], [ %.0111, %.thread133 ]
   store i32 2, ptr %43, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %42, i64 11208
-  store i32 %.089122130, ptr %100, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %42, i64 11220
-  store i32 %.1112, ptr %101, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %42, i64 11232
-  store i32 64, ptr %102, align 4
-  %103 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %.pre-phi149
-  %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %106 = zext nneg i32 %.1112 to i64
-  %107 = shl nuw i64 1, %106
-  %108 = load i64, ptr %105, align 8
-  %109 = xor i64 %108, %107
-  store i64 %109, ptr %105, align 8
-  %110 = and i32 %104, 7
-  %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [8 x i64], ptr %105, i64 0, i64 %111
-  %113 = load i64, ptr %112, align 8
-  %114 = xor i64 %113, %107
-  store i64 %114, ptr %112, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %116 = ashr i32 %104, 3
-  %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw [2 x i64], ptr %115, i64 0, i64 %117
-  %119 = load i64, ptr %118, align 8
-  %120 = xor i64 %119, %107
-  store i64 %120, ptr %118, align 8
-  store i32 0, ptr %103, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %122 = zext i32 %104 to i64
-  %123 = getelementptr inbounds nuw [16 x i32], ptr %121, i64 0, i64 %122
-  %124 = load i32, ptr %123, align 4
-  %125 = add nsw i32 %124, -1
-  store i32 %125, ptr %123, align 4
-  %126 = and i32 %104, -8
-  %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw [16 x i32], ptr %121, i64 0, i64 %127
-  %129 = load i32, ptr %128, align 8
-  %130 = add nsw i32 %129, -1
-  store i32 %130, ptr %128, align 8
-  %131 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %.pre-phi150, i64 %.pre-phi149
-  %132 = load i64, ptr %131, align 8
-  %133 = xor i64 %132, %13
-  %134 = getelementptr inbounds nuw [16 x i32], ptr %121, i64 0, i64 %.pre-phi150
-  %135 = load i32, ptr %134, align 4
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %.pre-phi150, i64 %136
-  %138 = load i64, ptr %137, align 8
-  %139 = load ptr, ptr %8, align 8
-  %140 = load i64, ptr %139, align 64
-  %141 = xor i64 %140, %138
-  store i64 %141, ptr %139, align 64
+  %102 = getelementptr inbounds nuw i8, ptr %42, i64 11208
+  store i32 %.089122130, ptr %102, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %42, i64 11220
+  store i32 %.1112, ptr %103, align 4
+  %104 = getelementptr inbounds nuw i8, ptr %42, i64 11232
+  store i32 64, ptr %104, align 4
+  %105 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %.pre-phi149
+  %106 = load i32, ptr %105, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %108 = zext nneg i32 %.1112 to i64
+  %109 = shl nuw i64 1, %108
+  %110 = load i64, ptr %107, align 8
+  %111 = xor i64 %110, %109
+  store i64 %111, ptr %107, align 8
+  %112 = and i32 %106, 7
+  %113 = zext nneg i32 %112 to i64
+  %114 = getelementptr inbounds nuw [8 x i64], ptr %107, i64 0, i64 %113
+  %115 = load i64, ptr %114, align 8
+  %116 = xor i64 %115, %109
+  store i64 %116, ptr %114, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %118 = ashr i32 %106, 3
+  %119 = zext i32 %118 to i64
+  %120 = getelementptr inbounds nuw [2 x i64], ptr %117, i64 0, i64 %119
+  %121 = load i64, ptr %120, align 8
+  %122 = xor i64 %121, %109
+  store i64 %122, ptr %120, align 8
+  store i32 0, ptr %105, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %124 = zext i32 %106 to i64
+  %125 = getelementptr inbounds nuw [16 x i32], ptr %123, i64 0, i64 %124
+  %126 = load i32, ptr %125, align 4
+  %127 = add nsw i32 %126, -1
+  store i32 %127, ptr %125, align 4
+  %128 = and i32 %106, -8
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds nuw [16 x i32], ptr %123, i64 0, i64 %129
+  %131 = load i32, ptr %130, align 8
+  %132 = add nsw i32 %131, -1
+  store i32 %132, ptr %130, align 8
+  %133 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %.pre-phi150
+  %134 = getelementptr inbounds [64 x i64], ptr %133, i64 0, i64 %.pre-phi149
+  %135 = load i64, ptr %134, align 8
+  %136 = xor i64 %135, %13
+  %137 = getelementptr inbounds nuw [16 x i32], ptr %123, i64 0, i64 %.pre-phi150
+  %138 = load i32, ptr %137, align 4
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds [64 x i64], ptr %133, i64 0, i64 %139
+  %141 = load i64, ptr %140, align 8
   %142 = load ptr, ptr %8, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 28
-  store i32 0, ptr %143, align 4
-  br label %144
+  %143 = load i64, ptr %142, align 64
+  %144 = xor i64 %143, %141
+  store i64 %144, ptr %142, align 64
+  %145 = load ptr, ptr %8, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 28
+  store i32 0, ptr %146, align 4
+  br label %147
 
-144:                                              ; preds = %.thread113, %99, %73
-  %145 = phi i32 [ %51, %99 ], [ %51, %73 ], [ %.pre, %.thread113 ]
-  %.089117 = phi i32 [ %.089122130, %99 ], [ 0, %73 ], [ 0, %.thread113 ]
-  %146 = phi i1 [ false, %99 ], [ false, %73 ], [ true, %.thread113 ]
-  %.1 = phi i64 [ %133, %99 ], [ %13, %73 ], [ %72, %.thread113 ]
-  %147 = zext i32 %54 to i64
-  %148 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %147, i64 %52
-  %149 = load i64, ptr %148, align 8
-  %150 = sext i32 %145 to i64
-  %151 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %147, i64 %150
-  %152 = load i64, ptr %151, align 8
-  %153 = xor i64 %149, %.1
-  %154 = xor i64 %153, %152
-  %155 = load ptr, ptr %8, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 36
-  %157 = load i32, ptr %156, align 4
-  %.not94 = icmp eq i32 %157, 64
-  br i1 %.not94, label %164, label %158
+147:                                              ; preds = %.thread113, %101, %74
+  %148 = phi i32 [ %51, %101 ], [ %51, %74 ], [ %.pre, %.thread113 ]
+  %.089117 = phi i32 [ %.089122130, %101 ], [ 0, %74 ], [ 0, %.thread113 ]
+  %149 = phi i1 [ false, %101 ], [ false, %74 ], [ true, %.thread113 ]
+  %.1 = phi i64 [ %136, %101 ], [ %13, %74 ], [ %73, %.thread113 ]
+  %150 = zext i32 %54 to i64
+  %151 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %150
+  %152 = getelementptr inbounds nuw [64 x i64], ptr %151, i64 0, i64 %52
+  %153 = load i64, ptr %152, align 8
+  %154 = sext i32 %148 to i64
+  %155 = getelementptr inbounds [64 x i64], ptr %151, i64 0, i64 %154
+  %156 = load i64, ptr %155, align 8
+  %157 = xor i64 %153, %.1
+  %158 = xor i64 %157, %156
+  %159 = load ptr, ptr %8, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 36
+  %161 = load i32, ptr %160, align 4
+  %.not94 = icmp eq i32 %161, 64
+  br i1 %.not94, label %168, label %162
 
-158:                                              ; preds = %144
-  %159 = and i32 %157, 7
-  %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %160
-  %162 = load i64, ptr %161, align 8
-  %163 = xor i64 %162, %154
-  store i32 64, ptr %156, align 4
+162:                                              ; preds = %147
+  %163 = and i32 %161, 7
+  %164 = zext nneg i32 %163 to i64
+  %165 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %164
+  %166 = load i64, ptr %165, align 8
+  %167 = xor i64 %166, %158
+  store i32 64, ptr %160, align 4
   %.pre145 = load ptr, ptr %8, align 8
-  br label %164
+  br label %168
 
-164:                                              ; preds = %158, %144
-  %165 = phi ptr [ %.pre145, %158 ], [ %155, %144 ]
-  %.2 = phi i64 [ %163, %158 ], [ %154, %144 ]
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  %167 = load i32, ptr %166, align 8
-  %.not95 = icmp eq i32 %167, 0
-  br i1 %.not95, label %189, label %168
+168:                                              ; preds = %162, %147
+  %169 = phi ptr [ %.pre145, %162 ], [ %159, %147 ]
+  %.2 = phi i64 [ %167, %162 ], [ %158, %147 ]
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  %171 = load i32, ptr %170, align 8
+  %.not95 = icmp eq i32 %171, 0
+  br i1 %.not95, label %193, label %172
 
-168:                                              ; preds = %164
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %170 = getelementptr inbounds nuw [64 x i32], ptr %169, i64 0, i64 %52
-  %171 = load i32, ptr %170, align 4
-  %172 = getelementptr inbounds [64 x i32], ptr %169, i64 0, i64 %150
-  %173 = load i32, ptr %172, align 4
-  %174 = or i32 %173, %171
-  %.not96 = icmp eq i32 %174, 0
-  br i1 %.not96, label %189, label %175
+172:                                              ; preds = %168
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %174 = getelementptr inbounds nuw [64 x i32], ptr %173, i64 0, i64 %52
+  %175 = load i32, ptr %174, align 4
+  %176 = getelementptr inbounds [64 x i32], ptr %173, i64 0, i64 %154
+  %177 = load i32, ptr %176, align 4
+  %178 = or i32 %177, %175
+  %.not96 = icmp eq i32 %178, 0
+  br i1 %.not96, label %193, label %179
 
-175:                                              ; preds = %168
-  %176 = sext i32 %167 to i64
-  %177 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %176
-  %178 = load i64, ptr %177, align 8
-  %179 = xor i32 %174, -1
-  %180 = and i32 %167, %179
-  store i32 %180, ptr %166, align 8
-  %181 = load ptr, ptr %8, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
-  %183 = load i32, ptr %182, align 8
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %184
-  %186 = load i64, ptr %185, align 8
-  %187 = xor i64 %178, %186
-  %188 = xor i64 %187, %.2
-  br label %189
+179:                                              ; preds = %172
+  %180 = sext i32 %171 to i64
+  %181 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %180
+  %182 = load i64, ptr %181, align 8
+  %183 = xor i32 %178, -1
+  %184 = and i32 %171, %183
+  store i32 %184, ptr %170, align 8
+  %185 = load ptr, ptr %8, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  %187 = load i32, ptr %186, align 8
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %188
+  %190 = load i64, ptr %189, align 8
+  %191 = xor i64 %182, %190
+  %192 = xor i64 %191, %.2
+  br label %193
 
-189:                                              ; preds = %175, %168, %164
-  %.3 = phi i64 [ %188, %175 ], [ %.2, %168 ], [ %.2, %164 ]
-  br i1 %146, label %214, label %190
+193:                                              ; preds = %179, %172, %168
+  %.3 = phi i64 [ %192, %179 ], [ %.2, %172 ], [ %.2, %168 ]
+  br i1 %149, label %218, label %194
 
-190:                                              ; preds = %189
-  %191 = getelementptr inbounds nuw i8, ptr %42, i64 11204
-  store i32 %54, ptr %191, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %42, i64 11216
-  store i32 %49, ptr %192, align 4
-  %193 = getelementptr inbounds nuw i8, ptr %42, i64 11228
-  store i32 %145, ptr %193, align 4
-  %194 = load i32, ptr %53, align 4
-  %195 = shl nuw i64 1, %52
-  %196 = zext nneg i32 %145 to i64
-  %197 = shl nuw i64 1, %196
-  %198 = or i64 %197, %195
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %200 = load i64, ptr %199, align 8
-  %201 = xor i64 %200, %198
-  store i64 %201, ptr %199, align 8
-  %202 = and i32 %194, 7
-  %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr inbounds nuw [8 x i64], ptr %199, i64 0, i64 %203
-  %205 = load i64, ptr %204, align 8
-  %206 = xor i64 %205, %198
-  store i64 %206, ptr %204, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %208 = ashr i32 %194, 3
-  %209 = zext i32 %208 to i64
-  %210 = getelementptr inbounds nuw [2 x i64], ptr %207, i64 0, i64 %209
-  %211 = load i64, ptr %210, align 8
-  %212 = xor i64 %211, %198
-  store i64 %212, ptr %210, align 8
+194:                                              ; preds = %193
+  %195 = getelementptr inbounds nuw i8, ptr %42, i64 11204
+  store i32 %54, ptr %195, align 4
+  %196 = getelementptr inbounds nuw i8, ptr %42, i64 11216
+  store i32 %49, ptr %196, align 4
+  %197 = getelementptr inbounds nuw i8, ptr %42, i64 11228
+  store i32 %148, ptr %197, align 4
+  %198 = load i32, ptr %53, align 4
+  %199 = shl nuw i64 1, %52
+  %200 = zext nneg i32 %148 to i64
+  %201 = shl nuw i64 1, %200
+  %202 = or i64 %201, %199
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %204 = load i64, ptr %203, align 8
+  %205 = xor i64 %204, %202
+  store i64 %205, ptr %203, align 8
+  %206 = and i32 %198, 7
+  %207 = zext nneg i32 %206 to i64
+  %208 = getelementptr inbounds nuw [8 x i64], ptr %203, i64 0, i64 %207
+  %209 = load i64, ptr %208, align 8
+  %210 = xor i64 %209, %202
+  store i64 %210, ptr %208, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %212 = ashr i32 %198, 3
+  %213 = zext i32 %212 to i64
+  %214 = getelementptr inbounds nuw [2 x i64], ptr %211, i64 0, i64 %213
+  %215 = load i64, ptr %214, align 8
+  %216 = xor i64 %215, %202
+  store i64 %216, ptr %214, align 8
   store i32 0, ptr %53, align 4
-  %213 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %150
-  store i32 %194, ptr %213, align 4
-  br label %214
+  %217 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %154
+  store i32 %198, ptr %217, align 4
+  br label %218
 
-214:                                              ; preds = %190, %189
-  %215 = and i32 %54, 7
-  %216 = icmp eq i32 %215, 1
-  br i1 %216, label %217, label %357
+218:                                              ; preds = %194, %193
+  %219 = and i32 %54, 7
+  %220 = icmp eq i32 %219, 1
+  br i1 %220, label %221, label %363
 
-217:                                              ; preds = %214
-  %218 = xor i32 %145, %49
-  %219 = icmp eq i32 %218, 16
-  br i1 %219, label %220, label %246
+221:                                              ; preds = %218
+  %222 = xor i32 %148, %49
+  %223 = icmp eq i32 %222, 16
+  br i1 %223, label %224, label %251
 
-220:                                              ; preds = %217
-  %221 = icmp eq i32 %45, 0
-  %.neg138 = select i1 %221, i32 -8, i32 8
-  %222 = add i32 %145, %.neg138
-  %223 = zext i32 %45 to i64
-  %224 = sext i32 %222 to i64
-  %225 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %223, i64 %224
-  %226 = load i64, ptr %225, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %228 = zext i32 %46 to i64
-  %229 = getelementptr inbounds nuw [2 x i64], ptr %227, i64 0, i64 %228
-  %230 = load i64, ptr %229, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %232 = load i64, ptr %231, align 8
-  %233 = and i64 %230, %226
-  %234 = and i64 %233, %232
-  %.not98 = icmp eq i64 %234, 0
-  br i1 %.not98, label %246, label %235
+224:                                              ; preds = %221
+  %225 = icmp eq i32 %45, 0
+  %.neg138 = select i1 %225, i32 -8, i32 8
+  %226 = add i32 %148, %.neg138
+  %227 = zext i32 %45 to i64
+  %228 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %227
+  %229 = sext i32 %226 to i64
+  %230 = getelementptr inbounds [64 x i64], ptr %228, i64 0, i64 %229
+  %231 = load i64, ptr %230, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %233 = zext i32 %46 to i64
+  %234 = getelementptr inbounds nuw [2 x i64], ptr %232, i64 0, i64 %233
+  %235 = load i64, ptr %234, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %237 = load i64, ptr %236, align 8
+  %238 = and i64 %235, %231
+  %239 = and i64 %238, %237
+  %.not98 = icmp eq i64 %239, 0
+  br i1 %.not98, label %251, label %240
 
-235:                                              ; preds = %220
-  %236 = load ptr, ptr %8, align 8
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 36
-  store i32 %222, ptr %237, align 4
-  %238 = load ptr, ptr %8, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 36
-  %240 = load i32, ptr %239, align 4
-  %241 = and i32 %240, 7
-  %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %242
-  %244 = load i64, ptr %243, align 8
-  %245 = xor i64 %244, %.3
-  br label %346
+240:                                              ; preds = %224
+  %241 = load ptr, ptr %8, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 36
+  store i32 %226, ptr %242, align 4
+  %243 = load ptr, ptr %8, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 36
+  %245 = load i32, ptr %244, align 4
+  %246 = and i32 %245, 7
+  %247 = zext nneg i32 %246 to i64
+  %248 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %247
+  %249 = load i64, ptr %248, align 8
+  %250 = xor i64 %249, %.3
+  br label %352
 
-246:                                              ; preds = %220, %217
-  %247 = icmp eq i16 %55, 16384
-  br i1 %247, label %248, label %346
+251:                                              ; preds = %224, %221
+  %252 = icmp eq i16 %55, 16384
+  br i1 %252, label %253, label %352
 
-248:                                              ; preds = %246
-  %249 = lshr i16 %1, 12
-  %250 = and i16 %249, 3
-  %narrow.i = add nuw nsw i16 %250, 2
-  %251 = zext nneg i16 %narrow.i to i32
-  %252 = shl i32 %45, 3
-  %253 = or disjoint i32 %252, %251
-  %254 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %150
-  %255 = load i32, ptr %254, align 4
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %257 = zext nneg i32 %145 to i64
-  %258 = shl nuw i64 1, %257
-  %259 = load i64, ptr %256, align 8
-  %260 = xor i64 %259, %258
-  store i64 %260, ptr %256, align 8
-  %261 = and i32 %255, 7
-  %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw [8 x i64], ptr %256, i64 0, i64 %262
-  %264 = load i64, ptr %263, align 8
-  %265 = xor i64 %264, %258
-  store i64 %265, ptr %263, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %267 = ashr i32 %255, 3
-  %268 = zext i32 %267 to i64
-  %269 = getelementptr inbounds nuw [2 x i64], ptr %266, i64 0, i64 %268
-  %270 = load i64, ptr %269, align 8
-  %271 = xor i64 %270, %258
-  store i64 %271, ptr %269, align 8
-  store i32 0, ptr %254, align 4
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %273 = zext i32 %255 to i64
-  %274 = getelementptr inbounds nuw [16 x i32], ptr %272, i64 0, i64 %273
-  %275 = load i32, ptr %274, align 4
-  %276 = add nsw i32 %275, -1
-  store i32 %276, ptr %274, align 4
-  %277 = and i32 %255, -8
-  %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds nuw [16 x i32], ptr %272, i64 0, i64 %278
-  %280 = load i32, ptr %279, align 8
+253:                                              ; preds = %251
+  %254 = lshr i16 %1, 12
+  %255 = and i16 %254, 3
+  %narrow.i = add nuw nsw i16 %255, 2
+  %256 = zext nneg i16 %narrow.i to i32
+  %257 = shl i32 %45, 3
+  %258 = or disjoint i32 %257, %256
+  %259 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %154
+  %260 = load i32, ptr %259, align 4
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %262 = zext nneg i32 %148 to i64
+  %263 = shl nuw i64 1, %262
+  %264 = load i64, ptr %261, align 8
+  %265 = xor i64 %264, %263
+  store i64 %265, ptr %261, align 8
+  %266 = and i32 %260, 7
+  %267 = zext nneg i32 %266 to i64
+  %268 = getelementptr inbounds nuw [8 x i64], ptr %261, i64 0, i64 %267
+  %269 = load i64, ptr %268, align 8
+  %270 = xor i64 %269, %263
+  store i64 %270, ptr %268, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %272 = ashr i32 %260, 3
+  %273 = zext i32 %272 to i64
+  %274 = getelementptr inbounds nuw [2 x i64], ptr %271, i64 0, i64 %273
+  %275 = load i64, ptr %274, align 8
+  %276 = xor i64 %275, %263
+  store i64 %276, ptr %274, align 8
+  store i32 0, ptr %259, align 4
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %278 = zext i32 %260 to i64
+  %279 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %278
+  %280 = load i32, ptr %279, align 4
   %281 = add nsw i32 %280, -1
-  store i32 %281, ptr %279, align 8
-  store i32 %253, ptr %254, align 4
-  %282 = zext nneg i16 %narrow.i to i64
-  %283 = getelementptr inbounds nuw [8 x i64], ptr %256, i64 0, i64 %282
-  %284 = load i64, ptr %283, align 8
-  %285 = or i64 %284, %258
-  store i64 %285, ptr %283, align 8
-  %286 = load i64, ptr %256, align 8
-  %287 = or i64 %286, %285
-  store i64 %287, ptr %256, align 8
-  %288 = ashr exact i32 %252, 3
-  %289 = zext i32 %288 to i64
-  %290 = getelementptr inbounds nuw [2 x i64], ptr %266, i64 0, i64 %289
-  %291 = load i64, ptr %290, align 8
-  %292 = or i64 %291, %258
-  store i64 %292, ptr %290, align 8
-  %293 = zext i32 %253 to i64
-  %294 = getelementptr inbounds nuw [16 x i32], ptr %272, i64 0, i64 %293
-  %295 = load i32, ptr %294, align 4
-  %296 = add nsw i32 %295, 1
-  store i32 %296, ptr %294, align 4
-  %297 = zext i32 %252 to i64
-  %298 = getelementptr inbounds nuw [16 x i32], ptr %272, i64 0, i64 %297
-  %299 = load i32, ptr %298, align 8
-  %300 = add nsw i32 %299, 1
-  store i32 %300, ptr %298, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %42, i64 11228
-  store i32 64, ptr %301, align 4
-  %302 = getelementptr inbounds nuw i8, ptr %42, i64 11204
-  %303 = load i32, ptr %43, align 4
-  %304 = sext i32 %303 to i64
-  %305 = getelementptr inbounds [3 x i32], ptr %302, i64 0, i64 %304
-  store i32 %253, ptr %305, align 4
-  %306 = getelementptr inbounds nuw i8, ptr %42, i64 11216
-  %307 = load i32, ptr %43, align 4
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds [3 x i32], ptr %306, i64 0, i64 %308
-  store i32 64, ptr %309, align 4
-  %310 = load i32, ptr %43, align 4
-  %311 = sext i32 %310 to i64
-  %312 = getelementptr inbounds [3 x i32], ptr %301, i64 0, i64 %311
-  store i32 %145, ptr %312, align 4
-  %313 = load i32, ptr %43, align 4
-  %314 = add nsw i32 %313, 1
-  store i32 %314, ptr %43, align 4
-  %315 = load i64, ptr %151, align 8
-  %316 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %293, i64 %150
-  %317 = load i64, ptr %316, align 8
-  %318 = xor i64 %.3, %317
-  %319 = xor i64 %318, %315
-  %320 = load ptr, ptr %8, align 8
-  %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
-  %322 = load i64, ptr %321, align 8
-  %323 = xor i64 %322, %315
-  store i64 %323, ptr %321, align 8
-  %324 = load i32, ptr %294, align 4
-  %325 = add nsw i32 %324, -1
-  %326 = sext i32 %325 to i64
-  %327 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %293, i64 %326
+  store i32 %281, ptr %279, align 4
+  %282 = and i32 %260, -8
+  %283 = zext i32 %282 to i64
+  %284 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %283
+  %285 = load i32, ptr %284, align 8
+  %286 = add nsw i32 %285, -1
+  store i32 %286, ptr %284, align 8
+  store i32 %258, ptr %259, align 4
+  %287 = zext nneg i16 %narrow.i to i64
+  %288 = getelementptr inbounds nuw [8 x i64], ptr %261, i64 0, i64 %287
+  %289 = load i64, ptr %288, align 8
+  %290 = or i64 %289, %263
+  store i64 %290, ptr %288, align 8
+  %291 = load i64, ptr %261, align 8
+  %292 = or i64 %291, %290
+  store i64 %292, ptr %261, align 8
+  %293 = ashr exact i32 %257, 3
+  %294 = zext i32 %293 to i64
+  %295 = getelementptr inbounds nuw [2 x i64], ptr %271, i64 0, i64 %294
+  %296 = load i64, ptr %295, align 8
+  %297 = or i64 %296, %263
+  store i64 %297, ptr %295, align 8
+  %298 = zext i32 %258 to i64
+  %299 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %298
+  %300 = load i32, ptr %299, align 4
+  %301 = add nsw i32 %300, 1
+  store i32 %301, ptr %299, align 4
+  %302 = zext i32 %257 to i64
+  %303 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %302
+  %304 = load i32, ptr %303, align 8
+  %305 = add nsw i32 %304, 1
+  store i32 %305, ptr %303, align 8
+  %306 = getelementptr inbounds nuw i8, ptr %42, i64 11228
+  store i32 64, ptr %306, align 4
+  %307 = getelementptr inbounds nuw i8, ptr %42, i64 11204
+  %308 = load i32, ptr %43, align 4
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr inbounds [3 x i32], ptr %307, i64 0, i64 %309
+  store i32 %258, ptr %310, align 4
+  %311 = getelementptr inbounds nuw i8, ptr %42, i64 11216
+  %312 = load i32, ptr %43, align 4
+  %313 = sext i32 %312 to i64
+  %314 = getelementptr inbounds [3 x i32], ptr %311, i64 0, i64 %313
+  store i32 64, ptr %314, align 4
+  %315 = load i32, ptr %43, align 4
+  %316 = sext i32 %315 to i64
+  %317 = getelementptr inbounds [3 x i32], ptr %306, i64 0, i64 %316
+  store i32 %148, ptr %317, align 4
+  %318 = load i32, ptr %43, align 4
+  %319 = add nsw i32 %318, 1
+  store i32 %319, ptr %43, align 4
+  %320 = load i64, ptr %155, align 8
+  %321 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %298
+  %322 = getelementptr inbounds [64 x i64], ptr %321, i64 0, i64 %154
+  %323 = load i64, ptr %322, align 8
+  %324 = xor i64 %.3, %323
+  %325 = xor i64 %324, %320
+  %326 = load ptr, ptr %8, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %328 = load i64, ptr %327, align 8
-  %329 = getelementptr inbounds nuw [16 x i32], ptr %272, i64 0, i64 %147
-  %330 = load i32, ptr %329, align 4
-  %331 = sext i32 %330 to i64
-  %332 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %147, i64 %331
-  %333 = load i64, ptr %332, align 8
-  %334 = xor i64 %333, %328
-  %335 = load ptr, ptr %8, align 8
-  %336 = load i64, ptr %335, align 64
-  %337 = xor i64 %334, %336
-  store i64 %337, ptr %335, align 64
-  %338 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %293
-  %339 = load i32, ptr %338, align 4
-  %340 = load ptr, ptr %8, align 8
-  %341 = getelementptr inbounds nuw i8, ptr %340, i64 16
-  %342 = zext i32 %45 to i64
-  %343 = getelementptr inbounds nuw [2 x i32], ptr %341, i64 0, i64 %342
-  %344 = load i32, ptr %343, align 4
-  %345 = add nsw i32 %344, %339
-  store i32 %345, ptr %343, align 4
+  %329 = xor i64 %328, %320
+  store i64 %329, ptr %327, align 8
+  %330 = load i32, ptr %299, align 4
+  %331 = add nsw i32 %330, -1
+  %332 = sext i32 %331 to i64
+  %333 = getelementptr inbounds [64 x i64], ptr %321, i64 0, i64 %332
+  %334 = load i64, ptr %333, align 8
+  %335 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %150
+  %336 = load i32, ptr %335, align 4
+  %337 = sext i32 %336 to i64
+  %338 = getelementptr inbounds [64 x i64], ptr %151, i64 0, i64 %337
+  %339 = load i64, ptr %338, align 8
+  %340 = xor i64 %339, %334
+  %341 = load ptr, ptr %8, align 8
+  %342 = load i64, ptr %341, align 64
+  %343 = xor i64 %340, %342
+  store i64 %343, ptr %341, align 64
+  %344 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %298
+  %345 = load i32, ptr %344, align 4
+  %346 = load ptr, ptr %8, align 8
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 16
+  %348 = zext i32 %45 to i64
+  %349 = getelementptr inbounds nuw [2 x i32], ptr %347, i64 0, i64 %348
+  %350 = load i32, ptr %349, align 4
+  %351 = add nsw i32 %350, %345
+  store i32 %351, ptr %349, align 4
   %.pre146 = load i32, ptr %5, align 4
   %.pre147 = sext i32 %.pre146 to i64
-  br label %346
+  br label %352
 
-346:                                              ; preds = %246, %248, %235
-  %.pre-phi = phi i64 [ %150, %246 ], [ %.pre147, %248 ], [ %150, %235 ]
-  %.5 = phi i64 [ %.3, %246 ], [ %319, %248 ], [ %245, %235 ]
-  %347 = load i64, ptr %148, align 8
-  %348 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %147, i64 %.pre-phi
-  %349 = load i64, ptr %348, align 8
-  %350 = xor i64 %349, %347
-  %351 = load ptr, ptr %8, align 8
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
-  %353 = load i64, ptr %352, align 8
-  %354 = xor i64 %350, %353
-  store i64 %354, ptr %352, align 8
-  %355 = load ptr, ptr %8, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 28
-  store i32 0, ptr %356, align 4
-  br label %357
+352:                                              ; preds = %251, %253, %240
+  %.pre-phi = phi i64 [ %154, %251 ], [ %.pre147, %253 ], [ %154, %240 ]
+  %.5 = phi i64 [ %.3, %251 ], [ %325, %253 ], [ %250, %240 ]
+  %353 = load i64, ptr %152, align 8
+  %354 = getelementptr inbounds [64 x i64], ptr %151, i64 0, i64 %.pre-phi
+  %355 = load i64, ptr %354, align 8
+  %356 = xor i64 %355, %353
+  %357 = load ptr, ptr %8, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
+  %359 = load i64, ptr %358, align 8
+  %360 = xor i64 %356, %359
+  store i64 %360, ptr %358, align 8
+  %361 = load ptr, ptr %8, align 8
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 28
+  store i32 0, ptr %362, align 4
+  br label %363
 
-357:                                              ; preds = %346, %214
-  %.4 = phi i64 [ %.5, %346 ], [ %.3, %214 ]
-  %358 = load ptr, ptr %8, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 160
-  store i32 %.089117, ptr %359, align 32
-  %360 = load ptr, ptr %8, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %360, i64 40
-  store i64 %.4, ptr %361, align 8
-  br i1 %3, label %362, label %442
+363:                                              ; preds = %352, %218
+  %.4 = phi i64 [ %.5, %352 ], [ %.3, %218 ]
+  %364 = load ptr, ptr %8, align 8
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 160
+  store i32 %.089117, ptr %365, align 32
+  %366 = load ptr, ptr %8, align 8
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 40
+  store i64 %.4, ptr %367, align 8
+  br i1 %3, label %368, label %448
 
-362:                                              ; preds = %357
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %364 = zext i32 %46 to i64
-  %365 = getelementptr inbounds nuw [2 x i64], ptr %363, i64 0, i64 %364
-  %366 = load i64, ptr %365, align 8
-  %367 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %368 = load i64, ptr %367, align 8
-  %369 = and i64 %368, %366
-  %370 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %369, i1 true)
-  %371 = getelementptr inbounds nuw i8, ptr %0, i64 256
+368:                                              ; preds = %363
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %370 = zext i32 %46 to i64
+  %371 = getelementptr inbounds nuw [2 x i64], ptr %369, i64 0, i64 %370
   %372 = load i64, ptr %371, align 8
-  %373 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 1, i64 %370
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %374 = load i64, ptr %373, align 8
-  %375 = load i64, ptr %363, align 8
-  %376 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %377 = load i64, ptr %376, align 8
-  %378 = and i64 %375, %374
-  %379 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %370
+  %375 = and i64 %374, %372
+  %376 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %375, i1 true)
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %378 = load i64, ptr %377, align 8
+  %379 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %376
   %380 = load i64, ptr %379, align 8
-  %381 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %382 = load i64, ptr %381, align 8
-  %383 = and i64 %382, %380
-  %384 = or i64 %383, %378
-  %385 = and i64 %384, %377
-  %386 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %370
-  %387 = load i64, ptr %386, align 8
-  %388 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %389 = load i64, ptr %388, align 8
-  %390 = and i64 %389, %387
-  %391 = or i64 %385, %390
-  %392 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %370
-  %393 = getelementptr inbounds nuw i8, ptr %392, i64 16
-  %394 = load ptr, ptr %393, align 16
-  %395 = load i64, ptr %392, align 16
-  %396 = and i64 %395, %372
-  %397 = getelementptr inbounds nuw i8, ptr %392, i64 8
-  %398 = load i64, ptr %397, align 8
-  %399 = mul i64 %396, %398
-  %400 = getelementptr inbounds nuw i8, ptr %392, i64 24
-  %401 = load i32, ptr %400, align 8
-  %402 = zext nneg i32 %401 to i64
-  %403 = lshr i64 %399, %402
-  %404 = and i64 %403, 4294967295
-  %405 = getelementptr inbounds nuw i64, ptr %394, i64 %404
-  %406 = load i64, ptr %405, align 8
-  %407 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %408 = load i64, ptr %407, align 8
-  %409 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %410 = load i64, ptr %409, align 8
-  %411 = or i64 %410, %408
-  %412 = and i64 %411, %406
-  %413 = or i64 %391, %412
-  %414 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %370
-  %415 = getelementptr inbounds nuw i8, ptr %414, i64 16
-  %416 = load ptr, ptr %415, align 16
-  %417 = load i64, ptr %414, align 16
-  %418 = and i64 %417, %372
-  %419 = getelementptr inbounds nuw i8, ptr %414, i64 8
-  %420 = load i64, ptr %419, align 8
-  %421 = mul i64 %418, %420
-  %422 = getelementptr inbounds nuw i8, ptr %414, i64 24
-  %423 = load i32, ptr %422, align 8
-  %424 = zext nneg i32 %423 to i64
-  %425 = lshr i64 %421, %424
-  %426 = and i64 %425, 4294967295
-  %427 = getelementptr inbounds nuw i64, ptr %416, i64 %426
-  %428 = load i64, ptr %427, align 8
-  %429 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %430 = load i64, ptr %429, align 8
-  %431 = or i64 %430, %410
-  %432 = and i64 %431, %428
-  %433 = or i64 %413, %432
-  %434 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %370
-  %435 = load i64, ptr %434, align 8
-  %436 = and i64 %435, %368
-  %437 = or i64 %433, %436
-  %438 = zext i32 %45 to i64
-  %439 = getelementptr inbounds nuw [2 x i64], ptr %363, i64 0, i64 %438
-  %440 = load i64, ptr %439, align 8
-  %441 = and i64 %437, %440
-  br label %442
+  %381 = load i64, ptr %369, align 8
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %383 = load i64, ptr %382, align 8
+  %384 = and i64 %381, %380
+  %385 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %376
+  %386 = load i64, ptr %385, align 8
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %388 = load i64, ptr %387, align 8
+  %389 = and i64 %388, %386
+  %390 = or i64 %389, %384
+  %391 = and i64 %390, %383
+  %392 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %376
+  %393 = load i64, ptr %392, align 8
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %395 = load i64, ptr %394, align 8
+  %396 = and i64 %395, %393
+  %397 = or i64 %391, %396
+  %398 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %376
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 16
+  %400 = load ptr, ptr %399, align 16
+  %401 = load i64, ptr %398, align 16
+  %402 = and i64 %401, %378
+  %403 = getelementptr inbounds nuw i8, ptr %398, i64 8
+  %404 = load i64, ptr %403, align 8
+  %405 = mul i64 %402, %404
+  %406 = getelementptr inbounds nuw i8, ptr %398, i64 24
+  %407 = load i32, ptr %406, align 8
+  %408 = zext nneg i32 %407 to i64
+  %409 = lshr i64 %405, %408
+  %410 = and i64 %409, 4294967295
+  %411 = getelementptr inbounds nuw i64, ptr %400, i64 %410
+  %412 = load i64, ptr %411, align 8
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %414 = load i64, ptr %413, align 8
+  %415 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %416 = load i64, ptr %415, align 8
+  %417 = or i64 %416, %414
+  %418 = and i64 %417, %412
+  %419 = or i64 %397, %418
+  %420 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %376
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 16
+  %422 = load ptr, ptr %421, align 16
+  %423 = load i64, ptr %420, align 16
+  %424 = and i64 %423, %378
+  %425 = getelementptr inbounds nuw i8, ptr %420, i64 8
+  %426 = load i64, ptr %425, align 8
+  %427 = mul i64 %424, %426
+  %428 = getelementptr inbounds nuw i8, ptr %420, i64 24
+  %429 = load i32, ptr %428, align 8
+  %430 = zext nneg i32 %429 to i64
+  %431 = lshr i64 %427, %430
+  %432 = and i64 %431, 4294967295
+  %433 = getelementptr inbounds nuw i64, ptr %422, i64 %432
+  %434 = load i64, ptr %433, align 8
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %436 = load i64, ptr %435, align 8
+  %437 = or i64 %436, %416
+  %438 = and i64 %437, %434
+  %439 = or i64 %419, %438
+  %440 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %376
+  %441 = load i64, ptr %440, align 8
+  %442 = and i64 %441, %374
+  %443 = or i64 %439, %442
+  %444 = zext i32 %45 to i64
+  %445 = getelementptr inbounds nuw [2 x i64], ptr %369, i64 0, i64 %444
+  %446 = load i64, ptr %445, align 8
+  %447 = and i64 %443, %446
+  br label %448
 
-442:                                              ; preds = %357, %362
-  %443 = phi i64 [ %441, %362 ], [ 0, %357 ]
-  %444 = load ptr, ptr %8, align 8
-  %445 = getelementptr inbounds nuw i8, ptr %444, i64 48
-  store i64 %443, ptr %445, align 16
-  %446 = load i32, ptr %44, align 4
-  %447 = xor i32 %446, 1
-  store i32 %447, ptr %44, align 4
-  call void @_ZNK9Stockfish8Position14set_check_infoEv(ptr noundef nonnull align 8 dereferenceable(865) %0)
-  %448 = load ptr, ptr %8, align 8
-  %449 = getelementptr inbounds nuw i8, ptr %448, i64 164
-  store i32 0, ptr %449, align 4
+448:                                              ; preds = %363, %368
+  %449 = phi i64 [ %447, %368 ], [ 0, %363 ]
   %450 = load ptr, ptr %8, align 8
-  %451 = getelementptr inbounds nuw i8, ptr %450, i64 28
-  %452 = getelementptr inbounds nuw i8, ptr %450, i64 32
-  %453 = load i32, ptr %452, align 4
-  %454 = load i32, ptr %451, align 4
-  %455 = call i32 @llvm.smin.i32(i32 %453, i32 %454)
-  %456 = icmp sgt i32 %455, 3
-  br i1 %456, label %457, label %.loopexit
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 48
+  store i64 %449, ptr %451, align 16
+  %452 = load i32, ptr %44, align 4
+  %453 = xor i32 %452, 1
+  store i32 %453, ptr %44, align 4
+  call void @_ZNK9Stockfish8Position14set_check_infoEv(ptr noundef nonnull align 8 dereferenceable(865) %0)
+  %454 = load ptr, ptr %8, align 8
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 164
+  store i32 0, ptr %455, align 4
+  %456 = load ptr, ptr %8, align 8
+  %457 = getelementptr inbounds nuw i8, ptr %456, i64 28
+  %458 = getelementptr inbounds nuw i8, ptr %456, i64 32
+  %459 = load i32, ptr %458, align 4
+  %460 = load i32, ptr %457, align 4
+  %461 = call i32 @llvm.smin.i32(i32 %459, i32 %460)
+  %462 = icmp sgt i32 %461, 3
+  br i1 %462, label %463, label %.loopexit
 
-457:                                              ; preds = %442
-  %458 = getelementptr inbounds nuw i8, ptr %450, i64 56
-  %459 = load ptr, ptr %458, align 8
-  %460 = getelementptr inbounds nuw i8, ptr %459, i64 56
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds nuw i8, ptr %450, i64 40
-  %463 = load i64, ptr %462, align 8
-  br label %464
+463:                                              ; preds = %448
+  %464 = getelementptr inbounds nuw i8, ptr %456, i64 56
+  %465 = load ptr, ptr %464, align 8
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 56
+  %467 = load ptr, ptr %466, align 8
+  %468 = getelementptr inbounds nuw i8, ptr %456, i64 40
+  %469 = load i64, ptr %468, align 8
+  br label %470
 
-464:                                              ; preds = %457, %478
-  %.0142 = phi i32 [ 4, %457 ], [ %479, %478 ]
-  %.087141 = phi ptr [ %461, %457 ], [ %468, %478 ]
-  %465 = getelementptr inbounds nuw i8, ptr %.087141, i64 56
-  %466 = load ptr, ptr %465, align 8
-  %467 = getelementptr inbounds nuw i8, ptr %466, i64 56
-  %468 = load ptr, ptr %467, align 8
-  %469 = getelementptr inbounds nuw i8, ptr %468, i64 40
-  %470 = load i64, ptr %469, align 8
-  %471 = icmp eq i64 %470, %463
-  br i1 %471, label %472, label %478
+470:                                              ; preds = %463, %484
+  %.0142 = phi i32 [ 4, %463 ], [ %485, %484 ]
+  %.087141 = phi ptr [ %467, %463 ], [ %474, %484 ]
+  %471 = getelementptr inbounds nuw i8, ptr %.087141, i64 56
+  %472 = load ptr, ptr %471, align 8
+  %473 = getelementptr inbounds nuw i8, ptr %472, i64 56
+  %474 = load ptr, ptr %473, align 8
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 40
+  %476 = load i64, ptr %475, align 8
+  %477 = icmp eq i64 %476, %469
+  br i1 %477, label %478, label %484
 
-472:                                              ; preds = %464
-  %473 = getelementptr inbounds nuw i8, ptr %468, i64 164
-  %474 = load i32, ptr %473, align 4
-  %.not100 = icmp eq i32 %474, 0
-  %475 = sub nsw i32 0, %.0142
-  %476 = select i1 %.not100, i32 %.0142, i32 %475
-  %477 = getelementptr inbounds nuw i8, ptr %450, i64 164
-  store i32 %476, ptr %477, align 4
+478:                                              ; preds = %470
+  %479 = getelementptr inbounds nuw i8, ptr %474, i64 164
+  %480 = load i32, ptr %479, align 4
+  %.not100 = icmp eq i32 %480, 0
+  %481 = sub nsw i32 0, %.0142
+  %482 = select i1 %.not100, i32 %.0142, i32 %481
+  %483 = getelementptr inbounds nuw i8, ptr %456, i64 164
+  store i32 %482, ptr %483, align 4
   br label %.loopexit
 
-478:                                              ; preds = %464
-  %479 = add nuw nsw i32 %.0142, 2
-  %.not99 = icmp sgt i32 %479, %455
-  br i1 %.not99, label %.loopexit, label %464, !llvm.loop !52
+484:                                              ; preds = %470
+  %485 = add nuw nsw i32 %.0142, 2
+  %.not99 = icmp sgt i32 %485, %461
+  br i1 %.not99, label %.loopexit, label %470, !llvm.loop !52
 
-.loopexit:                                        ; preds = %478, %472, %442
+.loopexit:                                        ; preds = %484, %478, %448
   ret void
 }
 
@@ -4314,52 +4351,55 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position9key_afterENS_4MoveE(ptr no
   %16 = load i64, ptr @_ZN9Stockfish7Zobrist4sideE, align 8
   %17 = xor i64 %16, %15
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %30, label %18
+  br i1 %.not, label %32, label %18
 
 18:                                               ; preds = %2
   %19 = zext i32 %11 to i64
-  %20 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %19, i64 %9
-  %21 = load i64, ptr %20, align 8
-  %22 = zext i32 %8 to i64
-  %23 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %22, i64 %9
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %22, i64 %6
+  %20 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw [64 x i64], ptr %20, i64 0, i64 %9
+  %22 = load i64, ptr %21, align 8
+  %23 = zext i32 %8 to i64
+  %24 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %23
+  %25 = getelementptr inbounds nuw [64 x i64], ptr %24, i64 0, i64 %9
   %26 = load i64, ptr %25, align 8
-  %27 = xor i64 %21, %24
-  %28 = xor i64 %27, %26
-  %29 = xor i64 %28, %17
+  %27 = getelementptr inbounds nuw [64 x i64], ptr %24, i64 0, i64 %6
+  %28 = load i64, ptr %27, align 8
+  %29 = xor i64 %22, %26
+  %30 = xor i64 %29, %28
+  %31 = xor i64 %30, %17
   br label %_ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit
 
-30:                                               ; preds = %2
-  %31 = zext i32 %8 to i64
-  %32 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %31, i64 %9
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %31, i64 %6
-  %35 = load i64, ptr %34, align 8
-  %36 = xor i64 %33, %35
-  %37 = xor i64 %36, %17
-  %38 = and i32 %8, 7
-  %39 = icmp eq i32 %38, 1
-  br i1 %39, label %_ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit, label %40
+32:                                               ; preds = %2
+  %33 = zext i32 %8 to i64
+  %34 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %33
+  %35 = getelementptr inbounds nuw [64 x i64], ptr %34, i64 0, i64 %9
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds nuw [64 x i64], ptr %34, i64 0, i64 %6
+  %38 = load i64, ptr %37, align 8
+  %39 = xor i64 %36, %38
+  %40 = xor i64 %39, %17
+  %41 = and i32 %8, 7
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %_ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit, label %43
 
-40:                                               ; preds = %30
-  %41 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp slt i32 %42, 13
-  br i1 %43, label %_ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit, label %44
+43:                                               ; preds = %32
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 28
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp slt i32 %45, 13
+  br i1 %46, label %_ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit, label %47
 
-44:                                               ; preds = %40
-  %45 = add nsw i32 %42, -13
-  %46 = lshr i32 %45, 3
-  %47 = zext nneg i32 %46 to i64
-  %48 = mul i64 %47, 6364136223846793005
-  %49 = add i64 %48, 1442695040888963407
-  %50 = xor i64 %49, %37
+47:                                               ; preds = %43
+  %48 = add nsw i32 %45, -13
+  %49 = lshr i32 %48, 3
+  %50 = zext nneg i32 %49 to i64
+  %51 = mul i64 %50, 6364136223846793005
+  %52 = add i64 %51, 1442695040888963407
+  %53 = xor i64 %52, %40
   br label %_ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit
 
-_ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit: ; preds = %44, %40, %18, %30
-  %51 = phi i64 [ %37, %30 ], [ %29, %18 ], [ %50, %44 ], [ %37, %40 ]
-  ret i64 %51
+_ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit: ; preds = %47, %43, %18, %32
+  %54 = phi i64 [ %40, %32 ], [ %31, %18 ], [ %53, %47 ], [ %40, %43 ]
+  ret i64 %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -4405,14 +4445,14 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %33 = xor i64 %32, %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 1, i64 %8
+  %36 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %8
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %39, %37
-  %43 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %8
+  %43 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %8
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %46 = load i64, ptr %45, align 8
@@ -4763,9 +4803,9 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   %19 = load i32, ptr %18, align 4
   br label %20
 
-20:                                               ; preds = %11, %64
-  %.02535 = phi ptr [ %15, %11 ], [ %24, %64 ]
-  %.02634 = phi i32 [ 3, %11 ], [ %65, %64 ]
+20:                                               ; preds = %11, %65
+  %.02535 = phi ptr [ %15, %11 ], [ %24, %65 ]
+  %.02634 = phi i32 [ 3, %11 ], [ %66, %65 ]
   %21 = getelementptr inbounds nuw i8, ptr %.02535, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
@@ -4789,7 +4829,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   %35 = getelementptr inbounds nuw [8192 x i64], ptr @_ZN9Stockfish6cuckooE, i64 0, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, %27
-  br i1 %37, label %38, label %64
+  br i1 %37, label %38, label %65
 
 38:                                               ; preds = %._crit_edge, %32
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %34, %32 ]
@@ -4799,44 +4839,45 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   %42 = and i16 %41, 63
   %43 = and i16 %40, 63
   %44 = zext nneg i16 %42 to i64
-  %45 = zext nneg i16 %43 to i64
-  %46 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %44, i64 %45
-  %47 = load i64, ptr %46, align 8
-  %48 = shl nuw i64 1, %45
-  %49 = xor i64 %48, %47
-  %50 = and i64 %49, %17
-  %.not29 = icmp eq i64 %50, 0
-  br i1 %.not29, label %51, label %64
+  %45 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %44
+  %46 = zext nneg i16 %43 to i64
+  %47 = getelementptr inbounds nuw [64 x i64], ptr %45, i64 0, i64 %46
+  %48 = load i64, ptr %47, align 8
+  %49 = shl nuw i64 1, %46
+  %50 = xor i64 %49, %48
+  %51 = and i64 %50, %17
+  %.not29 = icmp eq i64 %51, 0
+  br i1 %.not29, label %52, label %65
 
-51:                                               ; preds = %38
-  %52 = icmp sgt i32 %1, %.02634
-  br i1 %52, label %.loopexit, label %53
+52:                                               ; preds = %38
+  %53 = icmp sgt i32 %1, %.02634
+  br i1 %53, label %.loopexit, label %54
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %44
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  %.v = select i1 %56, i16 %43, i16 %42
-  %57 = zext nneg i16 %.v to i64
-  %58 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %57
-  %59 = load i32, ptr %58, align 4
-  %60 = ashr i32 %59, 3
-  %.not30 = icmp eq i32 %60, %19
-  br i1 %.not30, label %61, label %64
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %44
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %56, 0
+  %.v = select i1 %57, i16 %43, i16 %42
+  %58 = zext nneg i16 %.v to i64
+  %59 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %58
+  %60 = load i32, ptr %59, align 4
+  %61 = ashr i32 %60, 3
+  %.not30 = icmp eq i32 %61, %19
+  br i1 %.not30, label %62, label %65
 
-61:                                               ; preds = %53
-  %62 = getelementptr inbounds nuw i8, ptr %24, i64 164
-  %63 = load i32, ptr %62, align 4
-  %.not31 = icmp eq i32 %63, 0
-  br i1 %.not31, label %64, label %.loopexit
+62:                                               ; preds = %54
+  %63 = getelementptr inbounds nuw i8, ptr %24, i64 164
+  %64 = load i32, ptr %63, align 4
+  %.not31 = icmp eq i32 %64, 0
+  br i1 %.not31, label %65, label %.loopexit
 
-64:                                               ; preds = %32, %61, %38, %53
-  %65 = add nuw nsw i32 %.02634, 2
-  %.not = icmp sgt i32 %65, %9
+65:                                               ; preds = %32, %62, %38, %54
+  %66 = add nuw nsw i32 %.02634, 2
+  %.not = icmp sgt i32 %66, %9
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !55
 
-.loopexit:                                        ; preds = %64, %61, %51, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %64 ], [ true, %61 ], [ true, %51 ]
+.loopexit:                                        ; preds = %65, %62, %52, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %65 ], [ true, %62 ], [ true, %52 ]
   ret i1 %.0
 }
 

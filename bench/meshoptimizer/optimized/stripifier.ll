@@ -119,7 +119,7 @@ define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %0, 
   %47 = load i32, ptr %46, align 4, !tbaa !8
   %48 = and i32 %.0191298, 3
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [8 x [3 x i32]], ptr %7, i64 0, i64 %41, i64 %49
+  %50 = getelementptr inbounds nuw [3 x i32], ptr %42, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !8
   %52 = add nuw nsw i32 %40, 1
   %53 = zext nneg i32 %52 to i64

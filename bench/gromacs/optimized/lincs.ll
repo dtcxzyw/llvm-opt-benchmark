@@ -8242,7 +8242,7 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %24 = alloca %"class.gmx::ArrayRef.335", align 8
   %25 = alloca %"class.gmx::ArrayRef.335", align 8
   %26 = invoke noundef i32 @_Z22gmx_omp_get_thread_numv()
-          to label %27 unwind label %753
+          to label %27 unwind label %754
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %2, align 8, !tbaa !109
@@ -8338,7 +8338,7 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %105 = load ptr, ptr %104, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %23) #20
   invoke void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef %37, ptr noundef nonnull %23)
-          to label %.noexc unwind label %753
+          to label %.noexc unwind label %754
 
 .noexc:                                           ; preds = %61
   call void @llvm.experimental.noalias.scope.decl(metadata !408)
@@ -8909,7 +8909,7 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
 
 517:                                              ; preds = %516
   invoke void @_Z21dd_move_x_constraintsP12gmx_domdec_tPA3_KfN3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_b(ptr noundef nonnull %.val173.i, ptr noundef %36, ptr %33, ptr %35, ptr null, ptr null, i1 noundef zeroext false)
-          to label %518 unwind label %750
+          to label %518 unwind label %751
 
 518:                                              ; preds = %517, %516
   call void @__kmpc_end_master(ptr nonnull @2, i32 %63)
@@ -9287,41 +9287,42 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   %736 = getelementptr inbounds %"class.gmx::BasicVector", ptr %71, i64 %indvars.iv160.i
   br label %738
 
-737:                                              ; preds = %743
+737:                                              ; preds = %744
   %indvars.iv.next161.i = add nsw i64 %indvars.iv160.i, 1
   %exitcond164.not.i = icmp eq i64 %indvars.iv.next161.i, %wide.trip.count163.i
   br i1 %exitcond164.not.i, label %.loopexit, label %.lr.ph127.i, !llvm.loop !462
 
-738:                                              ; preds = %743, %.lr.ph127.i
-  %indvars.iv156.i = phi i64 [ 0, %.lr.ph127.i ], [ %indvars.iv.next157.i, %743 ]
+738:                                              ; preds = %744, %.lr.ph127.i
+  %indvars.iv156.i = phi i64 [ 0, %.lr.ph127.i ], [ %indvars.iv.next157.i, %744 ]
   %739 = getelementptr inbounds nuw [3 x float], ptr %736, i64 0, i64 %indvars.iv156.i
   %740 = load float, ptr %739, align 4, !tbaa !201
-  %741 = fneg float %740
-  %742 = fmul float %735, %741
-  br label %744
+  %741 = getelementptr inbounds nuw [3 x float], ptr %62, i64 %indvars.iv156.i
+  %742 = fneg float %740
+  %743 = fmul float %735, %742
+  br label %745
 
-743:                                              ; preds = %744
+744:                                              ; preds = %745
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 1
   %exitcond159.not.i = icmp eq i64 %indvars.iv.next157.i, 3
   br i1 %exitcond159.not.i, label %737, label %738, !llvm.loop !463
 
-744:                                              ; preds = %744, %738
-  %indvars.iv152.i = phi i64 [ 0, %738 ], [ %indvars.iv.next153.i, %744 ]
-  %745 = getelementptr inbounds nuw [3 x float], ptr %736, i64 0, i64 %indvars.iv152.i
-  %746 = load float, ptr %745, align 4, !tbaa !201
-  %747 = getelementptr inbounds nuw [3 x float], ptr %62, i64 %indvars.iv156.i, i64 %indvars.iv152.i
-  %748 = load float, ptr %747, align 4, !tbaa !201
-  %749 = call float @llvm.fmuladd.f32(float %742, float %746, float %748)
-  store float %749, ptr %747, align 4, !tbaa !201
+745:                                              ; preds = %745, %738
+  %indvars.iv152.i = phi i64 [ 0, %738 ], [ %indvars.iv.next153.i, %745 ]
+  %746 = getelementptr inbounds nuw [3 x float], ptr %736, i64 0, i64 %indvars.iv152.i
+  %747 = load float, ptr %746, align 4, !tbaa !201
+  %748 = getelementptr inbounds nuw [3 x float], ptr %741, i64 0, i64 %indvars.iv152.i
+  %749 = load float, ptr %748, align 4, !tbaa !201
+  %750 = call float @llvm.fmuladd.f32(float %743, float %747, float %749)
+  store float %750, ptr %748, align 4, !tbaa !201
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %exitcond155.not.i = icmp eq i64 %indvars.iv.next153.i, 3
-  br i1 %exitcond155.not.i, label %743, label %744, !llvm.loop !464
+  br i1 %exitcond155.not.i, label %744, label %745, !llvm.loop !464
 
-750:                                              ; preds = %517
-  %751 = landingpad { ptr, i32 }
+751:                                              ; preds = %517
+  %752 = landingpad { ptr, i32 }
           catch ptr null
-  %752 = extractvalue { ptr, i32 } %751, 0
-  call void @__clang_call_terminate(ptr %752) #39
+  %753 = extractvalue { ptr, i32 } %752, 0
+  call void @__clang_call_terminate(ptr %753) #39
   unreachable
 
 .loopexit:                                        ; preds = %737, %728, %.loopexit100.thread.i
@@ -9330,33 +9331,33 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
   ret void
 
-753:                                              ; preds = %61, %17
-  %754 = landingpad { ptr, i32 }
+754:                                              ; preds = %61, %17
+  %755 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %755 = extractvalue { ptr, i32 } %754, 0
-  %756 = extractvalue { ptr, i32 } %754, 1
-  %757 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
-  %758 = icmp eq i32 %756, %757
-  br i1 %758, label %759, label %765
+  %756 = extractvalue { ptr, i32 } %755, 0
+  %757 = extractvalue { ptr, i32 } %755, 1
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
+  %759 = icmp eq i32 %757, %758
+  br i1 %759, label %760, label %766
 
-759:                                              ; preds = %753
-  %760 = call ptr @__cxa_begin_catch(ptr %755) #20
-  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %760) #40
-          to label %761 unwind label %762
+760:                                              ; preds = %754
+  %761 = call ptr @__cxa_begin_catch(ptr %756) #20
+  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %761) #40
+          to label %762 unwind label %763
 
-761:                                              ; preds = %759
+762:                                              ; preds = %760
   unreachable
 
-762:                                              ; preds = %759
-  %763 = landingpad { ptr, i32 }
+763:                                              ; preds = %760
+  %764 = landingpad { ptr, i32 }
           catch ptr null
-  %764 = extractvalue { ptr, i32 } %763, 0
-  call void @__clang_call_terminate(ptr %764) #39
+  %765 = extractvalue { ptr, i32 } %764, 0
+  call void @__clang_call_terminate(ptr %765) #39
   unreachable
 
-765:                                              ; preds = %753
-  call void @__clang_call_terminate(ptr %755) #39
+766:                                              ; preds = %754
+  call void @__clang_call_terminate(ptr %756) #39
   unreachable
 }
 
@@ -9551,7 +9552,7 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %16 = alloca [72 x float], align 32
   %17 = alloca %"class.gmx::ArrayRef.335", align 8
   %18 = invoke noundef i32 @_Z22gmx_omp_get_thread_numv()
-          to label %19 unwind label %470
+          to label %19 unwind label %471
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !380, !noalias !466
@@ -9627,7 +9628,7 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %72 = load ptr, ptr %71, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %16) #20
   invoke void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef %23, ptr noundef nonnull %16)
-          to label %.noexc unwind label %470
+          to label %.noexc unwind label %471
 
 .noexc:                                           ; preds = %44
   call void @llvm.experimental.noalias.scope.decl(metadata !469)
@@ -10184,67 +10185,68 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
   %457 = getelementptr inbounds %"class.gmx::BasicVector", ptr %54, i64 %indvars.iv106.i
   br label %459
 
-458:                                              ; preds = %463
+458:                                              ; preds = %464
   %indvars.iv.next107.i = add nsw i64 %indvars.iv106.i, 1
   %exitcond110.not.i = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count109.i
   br i1 %exitcond110.not.i, label %.thread, label %451, !llvm.loop !497
 
-459:                                              ; preds = %463, %451
-  %indvars.iv102.i = phi i64 [ 0, %451 ], [ %indvars.iv.next103.i, %463 ]
+459:                                              ; preds = %464, %451
+  %indvars.iv102.i = phi i64 [ 0, %451 ], [ %indvars.iv.next103.i, %464 ]
   %460 = getelementptr inbounds nuw [3 x float], ptr %457, i64 0, i64 %indvars.iv102.i
   %461 = load float, ptr %460, align 4, !tbaa !201
   %462 = fmul float %456, %461
-  br label %464
+  %463 = getelementptr inbounds nuw [3 x float], ptr %45, i64 %indvars.iv102.i
+  br label %465
 
-463:                                              ; preds = %464
+464:                                              ; preds = %465
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next103.i, 3
   br i1 %exitcond105.not.i, label %458, label %459, !llvm.loop !498
 
-464:                                              ; preds = %464, %459
-  %indvars.iv98.i = phi i64 [ 0, %459 ], [ %indvars.iv.next99.i, %464 ]
-  %465 = getelementptr inbounds nuw [3 x float], ptr %457, i64 0, i64 %indvars.iv98.i
-  %466 = load float, ptr %465, align 4, !tbaa !201
-  %467 = getelementptr inbounds nuw [3 x float], ptr %45, i64 %indvars.iv102.i, i64 %indvars.iv98.i
-  %468 = load float, ptr %467, align 4, !tbaa !201
-  %469 = call float @llvm.fmuladd.f32(float %462, float %466, float %468)
-  store float %469, ptr %467, align 4, !tbaa !201
+465:                                              ; preds = %465, %459
+  %indvars.iv98.i = phi i64 [ 0, %459 ], [ %indvars.iv.next99.i, %465 ]
+  %466 = getelementptr inbounds nuw [3 x float], ptr %457, i64 0, i64 %indvars.iv98.i
+  %467 = load float, ptr %466, align 4, !tbaa !201
+  %468 = getelementptr inbounds nuw [3 x float], ptr %463, i64 0, i64 %indvars.iv98.i
+  %469 = load float, ptr %468, align 4, !tbaa !201
+  %470 = call float @llvm.fmuladd.f32(float %462, float %467, float %469)
+  store float %470, ptr %468, align 4, !tbaa !201
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next99.i, 3
-  br i1 %exitcond101.not.i, label %463, label %464, !llvm.loop !499
+  br i1 %exitcond101.not.i, label %464, label %465, !llvm.loop !499
 
 .thread:                                          ; preds = %458, %._crit_edge67.i.thread, %447
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %16) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   ret void
 
-470:                                              ; preds = %44, %12
-  %471 = landingpad { ptr, i32 }
+471:                                              ; preds = %44, %12
+  %472 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %472 = extractvalue { ptr, i32 } %471, 0
-  %473 = extractvalue { ptr, i32 } %471, 1
-  %474 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
-  %475 = icmp eq i32 %473, %474
-  br i1 %475, label %476, label %482
+  %473 = extractvalue { ptr, i32 } %472, 0
+  %474 = extractvalue { ptr, i32 } %472, 1
+  %475 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
+  %476 = icmp eq i32 %474, %475
+  br i1 %476, label %477, label %483
 
-476:                                              ; preds = %470
-  %477 = call ptr @__cxa_begin_catch(ptr %472) #20
-  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %477) #40
-          to label %478 unwind label %479
+477:                                              ; preds = %471
+  %478 = call ptr @__cxa_begin_catch(ptr %473) #20
+  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %478) #40
+          to label %479 unwind label %480
 
-478:                                              ; preds = %476
+479:                                              ; preds = %477
   unreachable
 
-479:                                              ; preds = %476
-  %480 = landingpad { ptr, i32 }
+480:                                              ; preds = %477
+  %481 = landingpad { ptr, i32 }
           catch ptr null
-  %481 = extractvalue { ptr, i32 } %480, 0
-  call void @__clang_call_terminate(ptr %481) #39
+  %482 = extractvalue { ptr, i32 } %481, 0
+  call void @__clang_call_terminate(ptr %482) #39
   unreachable
 
-482:                                              ; preds = %470
-  call void @__clang_call_terminate(ptr %472) #39
+483:                                              ; preds = %471
+  call void @__clang_call_terminate(ptr %473) #39
   unreachable
 }
 

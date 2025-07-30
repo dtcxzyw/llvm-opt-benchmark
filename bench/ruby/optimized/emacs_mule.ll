@@ -39,7 +39,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef
 11:                                               ; preds = %3
   %12 = icmp eq i8 %8, -1
   %13 = select i1 %12, i32 1, i32 -1
-  br label %61
+  br label %64
 
 14:                                               ; preds = %3
   %15 = icmp eq ptr %4, %1
@@ -49,69 +49,72 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef
   %17 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EmacsMule, i64 0, i64 %6
   %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = sub nsw i32 0, %18
-  br label %61
+  br label %64
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %22 = load i8, ptr %4, align 1, !tbaa !6
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !6
-  %26 = sext i8 %25 to i64
-  %27 = icmp slt i8 %25, 0
-  br i1 %27, label %28, label %31
+  %21 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %9
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %23 = load i8, ptr %4, align 1, !tbaa !6
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr inbounds nuw [256 x i8], ptr %21, i64 0, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !6
+  %27 = sext i8 %26 to i64
+  %28 = icmp slt i8 %26, 0
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %20
-  %29 = icmp eq i8 %25, -1
-  %30 = select i1 %29, i32 2, i32 -1
-  br label %61
+29:                                               ; preds = %20
+  %30 = icmp eq i8 %26, -1
+  %31 = select i1 %30, i32 2, i32 -1
+  br label %64
 
-31:                                               ; preds = %20
-  %32 = icmp eq ptr %21, %1
-  br i1 %32, label %33, label %37
+32:                                               ; preds = %20
+  %33 = icmp eq ptr %22, %1
+  br i1 %33, label %34, label %38
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EmacsMule, i64 0, i64 %6
-  %35 = load i32, ptr %34, align 4, !tbaa !9
-  %36 = sub nsw i32 1, %35
-  br label %61
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EmacsMule, i64 0, i64 %6
+  %36 = load i32, ptr %35, align 4, !tbaa !9
+  %37 = sub nsw i32 1, %36
+  br label %64
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %39 = load i8, ptr %21, align 1, !tbaa !6
-  %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %26, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !6
-  %43 = sext i8 %42 to i64
-  %44 = icmp slt i8 %42, 0
-  br i1 %44, label %45, label %48
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %27
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %41 = load i8, ptr %22, align 1, !tbaa !6
+  %42 = zext i8 %41 to i64
+  %43 = getelementptr inbounds nuw [256 x i8], ptr %39, i64 0, i64 %42
+  %44 = load i8, ptr %43, align 1, !tbaa !6
+  %45 = sext i8 %44 to i64
+  %46 = icmp slt i8 %44, 0
+  br i1 %46, label %47, label %50
 
-45:                                               ; preds = %37
-  %46 = icmp eq i8 %42, -1
-  %47 = select i1 %46, i32 3, i32 -1
-  br label %61
+47:                                               ; preds = %38
+  %48 = icmp eq i8 %44, -1
+  %49 = select i1 %48, i32 3, i32 -1
+  br label %64
 
-48:                                               ; preds = %37
-  %49 = icmp eq ptr %38, %1
-  br i1 %49, label %50, label %54
+50:                                               ; preds = %38
+  %51 = icmp eq ptr %40, %1
+  br i1 %51, label %52, label %56
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EmacsMule, i64 0, i64 %6
-  %52 = load i32, ptr %51, align 4, !tbaa !9
-  %53 = sub nsw i32 2, %52
-  br label %61
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EmacsMule, i64 0, i64 %6
+  %54 = load i32, ptr %53, align 4, !tbaa !9
+  %55 = sub nsw i32 2, %54
+  br label %64
 
-54:                                               ; preds = %48
-  %55 = load i8, ptr %38, align 1, !tbaa !6
-  %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %43, i64 %56
-  %58 = load i8, ptr %57, align 1, !tbaa !6
-  %59 = icmp eq i8 %58, -1
-  %60 = select i1 %59, i32 4, i32 -1
-  br label %61
+56:                                               ; preds = %50
+  %57 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %45
+  %58 = load i8, ptr %40, align 1, !tbaa !6
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr inbounds nuw [256 x i8], ptr %57, i64 0, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !6
+  %62 = icmp eq i8 %61, -1
+  %63 = select i1 %62, i32 4, i32 -1
+  br label %64
 
-61:                                               ; preds = %54, %50, %45, %33, %28, %16, %11
-  %.0 = phi i32 [ %13, %11 ], [ %19, %16 ], [ %30, %28 ], [ %36, %33 ], [ %47, %45 ], [ %53, %50 ], [ %60, %54 ]
+64:                                               ; preds = %56, %52, %47, %34, %29, %16, %11
+  %.0 = phi i32 [ %13, %11 ], [ %19, %16 ], [ %31, %29 ], [ %37, %34 ], [ %49, %47 ], [ %55, %52 ], [ %63, %56 ]
   ret i32 %.0
 }
 
@@ -283,7 +286,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_case_fold(i32 %0, p
   store i8 %12, ptr %3, align 1, !tbaa !6
   %13 = load ptr, ptr %1, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  br label %67
+  br label %70
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -303,86 +306,89 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_case_fold(i32 %0, p
   br i1 %25, label %mbc_enc_len.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %28 = load i8, ptr %16, align 1, !tbaa !6
-  %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %20, i64 %29
-  %31 = load i8, ptr %30, align 1, !tbaa !6
-  %32 = sext i8 %31 to i64
-  %33 = icmp slt i8 %31, 0
-  br i1 %33, label %34, label %36
+  %27 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %20
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %29 = load i8, ptr %16, align 1, !tbaa !6
+  %30 = zext i8 %29 to i64
+  %31 = getelementptr inbounds nuw [256 x i8], ptr %27, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !6
+  %33 = sext i8 %32 to i64
+  %34 = icmp slt i8 %32, 0
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %26
-  %35 = icmp eq i8 %31, -1
-  br i1 %35, label %.lr.ph.preheader, label %._crit_edge
+35:                                               ; preds = %26
+  %36 = icmp eq i8 %32, -1
+  br i1 %36, label %.lr.ph.preheader, label %._crit_edge
 
-36:                                               ; preds = %26
-  %37 = icmp eq ptr %27, %2
-  br i1 %37, label %mbc_enc_len.exit, label %38
+37:                                               ; preds = %26
+  %38 = icmp eq ptr %28, %2
+  br i1 %38, label %mbc_enc_len.exit, label %39
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %40 = load i8, ptr %27, align 1, !tbaa !6
-  %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %32, i64 %41
-  %43 = load i8, ptr %42, align 1, !tbaa !6
-  %44 = sext i8 %43 to i64
-  %45 = icmp slt i8 %43, 0
-  br i1 %45, label %46, label %48
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %42 = load i8, ptr %28, align 1, !tbaa !6
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds nuw [256 x i8], ptr %40, i64 0, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !6
+  %46 = sext i8 %45 to i64
+  %47 = icmp slt i8 %45, 0
+  br i1 %47, label %48, label %50
 
-46:                                               ; preds = %38
-  %47 = icmp eq i8 %43, -1
-  br i1 %47, label %.lr.ph.preheader, label %._crit_edge
+48:                                               ; preds = %39
+  %49 = icmp eq i8 %45, -1
+  br i1 %49, label %.lr.ph.preheader, label %._crit_edge
 
-48:                                               ; preds = %38
-  %49 = icmp eq ptr %39, %2
-  br i1 %49, label %mbc_enc_len.exit, label %50
+50:                                               ; preds = %39
+  %51 = icmp eq ptr %41, %2
+  br i1 %51, label %mbc_enc_len.exit, label %52
 
-50:                                               ; preds = %48
-  %51 = load i8, ptr %39, align 1, !tbaa !6
-  %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %44, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !6
-  %55 = icmp eq i8 %54, -1
-  br i1 %55, label %.lr.ph.preheader, label %._crit_edge
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw [7 x [256 x i8]], ptr @trans, i64 0, i64 %46
+  %54 = load i8, ptr %41, align 1, !tbaa !6
+  %55 = zext i8 %54 to i64
+  %56 = getelementptr inbounds nuw [256 x i8], ptr %53, i64 0, i64 %55
+  %57 = load i8, ptr %56, align 1, !tbaa !6
+  %58 = icmp eq i8 %57, -1
+  br i1 %58, label %.lr.ph.preheader, label %._crit_edge
 
-mbc_enc_len.exit:                                 ; preds = %48, %36, %24
-  %.sink = phi i32 [ 0, %24 ], [ 1, %36 ], [ 2, %48 ]
-  %56 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EmacsMule, i64 0, i64 %17
-  %57 = load i32, ptr %56, align 4, !tbaa !9
-  %58 = sub nsw i32 %.sink, %57
-  %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph.preheader, label %._crit_edge
+mbc_enc_len.exit:                                 ; preds = %50, %37, %24
+  %.sink = phi i32 [ 0, %24 ], [ 1, %37 ], [ 2, %50 ]
+  %59 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EmacsMule, i64 0, i64 %17
+  %60 = load i32, ptr %59, align 4, !tbaa !9
+  %61 = sub nsw i32 %.sink, %60
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %50, %46, %34, %22, %mbc_enc_len.exit
-  %.0.i28 = phi i32 [ %58, %mbc_enc_len.exit ], [ 1, %22 ], [ 2, %34 ], [ 3, %46 ], [ 4, %50 ]
+.lr.ph.preheader:                                 ; preds = %52, %48, %35, %22, %mbc_enc_len.exit
+  %.0.i28 = phi i32 [ %61, %mbc_enc_len.exit ], [ 1, %22 ], [ 2, %35 ], [ 3, %48 ], [ 4, %52 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.022 = phi i32 [ %63, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01621 = phi ptr [ %60, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %.01820 = phi ptr [ %62, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %60 = getelementptr inbounds nuw i8, ptr %.01621, i64 1
-  %61 = load i8, ptr %.01621, align 1, !tbaa !6
-  %62 = getelementptr inbounds nuw i8, ptr %.01820, i64 1
-  store i8 %61, ptr %.01820, align 1, !tbaa !6
-  %63 = add nuw nsw i32 %.022, 1
-  %exitcond.not = icmp eq i32 %63, %.0.i28
+  %.022 = phi i32 [ %66, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01621 = phi ptr [ %63, %.lr.ph ], [ %6, %.lr.ph.preheader ]
+  %.01820 = phi ptr [ %65, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %63 = getelementptr inbounds nuw i8, ptr %.01621, i64 1
+  %64 = load i8, ptr %.01621, align 1, !tbaa !6
+  %65 = getelementptr inbounds nuw i8, ptr %.01820, i64 1
+  store i8 %64, ptr %.01820, align 1, !tbaa !6
+  %66 = add nuw nsw i32 %.022, 1
+  %exitcond.not = icmp eq i32 %66, %.0.i28
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %1, align 8, !tbaa !18
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %50, %46, %34, %22, %._crit_edge.loopexit, %mbc_enc_len.exit
-  %.0.i27 = phi i32 [ %.0.i28, %._crit_edge.loopexit ], [ %58, %mbc_enc_len.exit ], [ -1, %22 ], [ -1, %34 ], [ -1, %46 ], [ -1, %50 ]
-  %64 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %6, %mbc_enc_len.exit ], [ %6, %22 ], [ %6, %34 ], [ %6, %46 ], [ %6, %50 ]
-  %65 = sext i32 %.0.i27 to i64
-  %66 = getelementptr inbounds i8, ptr %64, i64 %65
-  br label %67
+._crit_edge:                                      ; preds = %52, %48, %35, %22, %._crit_edge.loopexit, %mbc_enc_len.exit
+  %.0.i27 = phi i32 [ %.0.i28, %._crit_edge.loopexit ], [ %61, %mbc_enc_len.exit ], [ -1, %22 ], [ -1, %35 ], [ -1, %48 ], [ -1, %52 ]
+  %67 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %6, %mbc_enc_len.exit ], [ %6, %22 ], [ %6, %35 ], [ %6, %48 ], [ %6, %52 ]
+  %68 = sext i32 %.0.i27 to i64
+  %69 = getelementptr inbounds i8, ptr %67, i64 %68
+  br label %70
 
-67:                                               ; preds = %._crit_edge, %9
-  %storemerge = phi ptr [ %66, %._crit_edge ], [ %14, %9 ]
+70:                                               ; preds = %._crit_edge, %9
+  %storemerge = phi ptr [ %69, %._crit_edge ], [ %14, %9 ]
   %.017 = phi i32 [ %.0.i27, %._crit_edge ], [ 1, %9 ]
   store ptr %storemerge, ptr %1, align 8, !tbaa !18
   ret i32 %.017

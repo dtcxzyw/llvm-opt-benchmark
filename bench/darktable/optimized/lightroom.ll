@@ -297,12 +297,12 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
 
 20:                                               ; preds = %dt_get_lightroom_xmp.exit.thread, %dt_get_lightroom_xmp.exit
   %.not264 = icmp eq i32 %2, 0
-  br i1 %.not264, label %21, label %584
+  br i1 %.not264, label %21, label %585
 
 21:                                               ; preds = %20
   %22 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 5) #11
   call void (ptr, ...) @dt_control_log(ptr noundef %22) #11
-  br label %584
+  br label %585
 
 23:                                               ; preds = %dt_get_lightroom_xmp.exit
   %24 = call ptr @xmlReadFile(ptr noundef nonnull %19, ptr noundef null, i32 noundef 0) #11
@@ -311,7 +311,7 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
 
 26:                                               ; preds = %23
   call void @g_free(ptr noundef nonnull %19) #11
-  br label %584
+  br label %585
 
 27:                                               ; preds = %23
   %28 = call ptr @xmlDocGetRootElement(ptr noundef nonnull %24) #11
@@ -321,7 +321,7 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
 30:                                               ; preds = %27
   call void @g_free(ptr noundef nonnull %19) #11
   call void @xmlFreeDoc(ptr noundef nonnull %24) #11
-  br label %584
+  br label %585
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -341,7 +341,7 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
 
 38:                                               ; preds = %36, %35
   call void @g_free(ptr noundef nonnull %19) #11
-  br label %584
+  br label %585
 
 39:                                               ; preds = %31
   %40 = call ptr @xmlXPathNewContext(ptr noundef nonnull %24) #11
@@ -351,7 +351,7 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
 42:                                               ; preds = %39
   call void @g_free(ptr noundef nonnull %19) #11
   call void @xmlFreeDoc(ptr noundef nonnull %24) #11
-  br label %584
+  br label %585
 
 43:                                               ; preds = %39
   %44 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #11
@@ -372,7 +372,7 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
   call void @xmlXPathFreeContext(ptr noundef nonnull %40) #11
   call void @g_free(ptr noundef nonnull %19) #11
   call void @xmlFreeDoc(ptr noundef nonnull %24) #11
-  br label %584
+  br label %585
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -422,7 +422,7 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
 
 72:                                               ; preds = %67, %69
   call void @g_free(ptr noundef nonnull %19) #11
-  br label %584
+  br label %585
 
 73:                                               ; preds = %.thread, %54, %51
   %74 = phi i1 [ false, %54 ], [ false, %51 ], [ true, %.thread ]
@@ -1151,7 +1151,7 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
   %.7 = phi i32 [ 1, %473 ], [ %.6374, %337 ]
   %475 = load i32, ptr %83, align 4
   %.not315 = icmp eq i32 %475, 0
-  br i1 %.not315, label %487, label %476
+  br i1 %.not315, label %488, label %476
 
 476:                                              ; preds = %474
   %477 = getelementptr inbounds nuw i8, ptr %8, i64 1528
@@ -1159,239 +1159,240 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
   %478 = getelementptr inbounds nuw i8, ptr %8, i64 1532
   br label %.preheader
 
-.preheader:                                       ; preds = %476, %480
-  %indvars.iv362 = phi i64 [ 0, %476 ], [ %indvars.iv.next363, %480 ]
-  br label %481
-
-479:                                              ; preds = %480
-  call fastcc void @dt_add_hist(i32 noundef %0, ptr noundef nonnull @.str.33, ptr noundef %477, i32 noundef 196, ptr noundef %6, i32 noundef 2, ptr noundef %7)
-  br label %487
+.preheader:                                       ; preds = %476, %481
+  %indvars.iv362 = phi i64 [ 0, %476 ], [ %indvars.iv.next363, %481 ]
+  %479 = getelementptr inbounds nuw [3 x [8 x float]], ptr %478, i64 0, i64 %indvars.iv362
+  br label %482
 
 480:                                              ; preds = %481
+  call fastcc void @dt_add_hist(i32 noundef %0, ptr noundef nonnull @.str.33, ptr noundef %477, i32 noundef 196, ptr noundef %6, i32 noundef 2, ptr noundef %7)
+  br label %488
+
+481:                                              ; preds = %482
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next363, 3
-  br i1 %exitcond365.not, label %479, label %.preheader
+  br i1 %exitcond365.not, label %480, label %.preheader
 
-481:                                              ; preds = %.preheader, %481
-  %indvars.iv358 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next359, %481 ]
-  %482 = trunc nuw nsw i64 %indvars.iv358 to i32
-  %483 = uitofp nneg i32 %482 to double
-  %484 = fmul reassoc nsz arcp contract afn double %483, 0x3FC2492492492492
-  %485 = fptrunc reassoc nsz arcp contract afn double %484 to float
-  %486 = getelementptr inbounds nuw [3 x [8 x float]], ptr %478, i64 0, i64 %indvars.iv362, i64 %indvars.iv358
-  store float %485, ptr %486, align 4, !tbaa !77
+482:                                              ; preds = %.preheader, %482
+  %indvars.iv358 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next359, %482 ]
+  %483 = trunc nuw nsw i64 %indvars.iv358 to i32
+  %484 = uitofp nneg i32 %483 to double
+  %485 = fmul reassoc nsz arcp contract afn double %484, 0x3FC2492492492492
+  %486 = fptrunc reassoc nsz arcp contract afn double %485 to float
+  %487 = getelementptr inbounds nuw [8 x float], ptr %479, i64 0, i64 %indvars.iv358
+  store float %486, ptr %487, align 4, !tbaa !77
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next359, 8
-  br i1 %exitcond361.not, label %480, label %481
+  br i1 %exitcond361.not, label %481, label %482
 
-487:                                              ; preds = %479, %474
-  %.8 = phi i32 [ 1, %479 ], [ %.7, %474 ]
-  %488 = load i32, ptr %84, align 8
-  %.not316 = icmp eq i32 %488, 0
-  br i1 %.not316, label %492, label %489
+488:                                              ; preds = %480, %474
+  %.8 = phi i32 [ 1, %480 ], [ %.7, %474 ]
+  %489 = load i32, ptr %84, align 8
+  %.not316 = icmp eq i32 %489, 0
+  br i1 %.not316, label %493, label %490
 
-489:                                              ; preds = %487
-  %490 = getelementptr inbounds nuw i8, ptr %8, i64 1728
-  %491 = getelementptr inbounds nuw i8, ptr %8, i64 1748
-  store float 5.000000e+01, ptr %491, align 4, !tbaa !101
-  call fastcc void @dt_add_hist(i32 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %490, i32 noundef 24, ptr noundef %6, i32 noundef 1, ptr noundef %7)
-  br label %492
+490:                                              ; preds = %488
+  %491 = getelementptr inbounds nuw i8, ptr %8, i64 1728
+  %492 = getelementptr inbounds nuw i8, ptr %8, i64 1748
+  store float 5.000000e+01, ptr %492, align 4, !tbaa !101
+  call fastcc void @dt_add_hist(i32 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %491, i32 noundef 24, ptr noundef %6, i32 noundef 1, ptr noundef %7)
+  br label %493
 
-492:                                              ; preds = %489, %487
-  %.9 = phi i32 [ 1, %489 ], [ %.8, %487 ]
-  %493 = load i32, ptr %85, align 8
-  %.not317 = icmp eq i32 %493, 0
-  br i1 %.not317, label %.thread310, label %494
+493:                                              ; preds = %490, %488
+  %.9 = phi i32 [ 1, %490 ], [ %.8, %488 ]
+  %494 = load i32, ptr %85, align 8
+  %.not317 = icmp eq i32 %494, 0
+  br i1 %.not317, label %.thread310, label %495
 
-494:                                              ; preds = %492
-  %495 = getelementptr inbounds nuw i8, ptr %8, i64 1756
-  store float 1.000000e+02, ptr %495, align 4, !tbaa !102
-  %496 = getelementptr inbounds nuw i8, ptr %8, i64 1760
-  store float 1.000000e+02, ptr %496, align 8, !tbaa !103
-  call fastcc void @dt_add_hist(i32 noundef %0, ptr noundef nonnull @.str.35, ptr noundef %495, i32 noundef 12, ptr noundef %6, i32 noundef 1, ptr noundef %7)
+495:                                              ; preds = %493
+  %496 = getelementptr inbounds nuw i8, ptr %8, i64 1756
+  store float 1.000000e+02, ptr %496, align 4, !tbaa !102
+  %497 = getelementptr inbounds nuw i8, ptr %8, i64 1760
+  store float 1.000000e+02, ptr %497, align 8, !tbaa !103
+  call fastcc void @dt_add_hist(i32 noundef %0, ptr noundef nonnull @.str.35, ptr noundef %496, i32 noundef 12, ptr noundef %6, i32 noundef 1, ptr noundef %7)
   br label %.thread310
 
-.thread310:                                       ; preds = %336, %494, %492
-  %.10 = phi i32 [ 1, %494 ], [ %.9, %492 ], [ %.5245, %336 ]
-  %497 = load i32, ptr %86, align 4, !tbaa !104
-  %.not277 = icmp eq i32 %497, 0
-  br i1 %.not277, label %507, label %498
+.thread310:                                       ; preds = %336, %495, %493
+  %.10 = phi i32 [ 1, %495 ], [ %.9, %493 ], [ %.5245, %336 ]
+  %498 = load i32, ptr %86, align 4, !tbaa !104
+  %.not277 = icmp eq i32 %498, 0
+  br i1 %.not277, label %508, label %499
 
-498:                                              ; preds = %.thread310
-  %499 = load i8, ptr %6, align 16, !tbaa !105
-  %.not278 = icmp eq i8 %499, 0
-  br i1 %.not278, label %502, label %500
+499:                                              ; preds = %.thread310
+  %500 = load i8, ptr %6, align 16, !tbaa !105
+  %.not278 = icmp eq i8 %500, 0
+  br i1 %.not278, label %503, label %501
 
-500:                                              ; preds = %498
-  %501 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, i64 noundef 256) #11
-  br label %502
+501:                                              ; preds = %499
+  %502 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, i64 noundef 256) #11
+  br label %503
 
-502:                                              ; preds = %500, %498
-  %503 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #11
-  %504 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %503, i64 noundef 256) #11
-  %505 = load i32, ptr %7, align 4, !tbaa !6
-  %506 = add nsw i32 %505, 1
-  store i32 %506, ptr %7, align 4, !tbaa !6
-  br label %507
+503:                                              ; preds = %501, %499
+  %504 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #11
+  %505 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %504, i64 noundef 256) #11
+  %506 = load i32, ptr %7, align 4, !tbaa !6
+  %507 = add nsw i32 %506, 1
+  store i32 %507, ptr %7, align 4, !tbaa !6
+  br label %508
 
-507:                                              ; preds = %502, %.thread310
-  %508 = icmp eq ptr %1, null
-  %509 = load i32, ptr %88, align 4
-  %510 = icmp ne i32 %509, 0
-  %or.cond56 = select i1 %508, i1 %510, i1 false
-  br i1 %or.cond56, label %511, label %521
+508:                                              ; preds = %503, %.thread310
+  %509 = icmp eq ptr %1, null
+  %510 = load i32, ptr %88, align 4
+  %511 = icmp ne i32 %510, 0
+  %or.cond56 = select i1 %509, i1 %511, i1 false
+  br i1 %or.cond56, label %512, label %522
 
-511:                                              ; preds = %507
-  %512 = load i32, ptr %87, align 8, !tbaa !106
-  call void @dt_ratings_apply_on_image(i32 noundef %0, i32 noundef %512, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  %513 = load i8, ptr %6, align 16, !tbaa !105
-  %.not279 = icmp eq i8 %513, 0
-  br i1 %.not279, label %516, label %514
+512:                                              ; preds = %508
+  %513 = load i32, ptr %87, align 8, !tbaa !106
+  call void @dt_ratings_apply_on_image(i32 noundef %0, i32 noundef %513, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  %514 = load i8, ptr %6, align 16, !tbaa !105
+  %.not279 = icmp eq i8 %514, 0
+  br i1 %.not279, label %517, label %515
 
-514:                                              ; preds = %511
-  %515 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, i64 noundef 256) #11
-  br label %516
+515:                                              ; preds = %512
+  %516 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, i64 noundef 256) #11
+  br label %517
 
-516:                                              ; preds = %514, %511
-  %517 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef 5) #11
-  %518 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %517, i64 noundef 256) #11
-  %519 = load i32, ptr %7, align 4, !tbaa !6
-  %520 = add nsw i32 %519, 1
-  store i32 %520, ptr %7, align 4, !tbaa !6
-  br label %521
+517:                                              ; preds = %515, %512
+  %518 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef 5) #11
+  %519 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %518, i64 noundef 256) #11
+  %520 = load i32, ptr %7, align 4, !tbaa !6
+  %521 = add nsw i32 %520, 1
+  store i32 %521, ptr %7, align 4, !tbaa !6
+  br label %522
 
-521:                                              ; preds = %516, %507
-  %522 = load i32, ptr %93, align 8
-  %523 = icmp ne i32 %522, 0
-  %or.cond59 = select i1 %508, i1 %523, i1 false
-  br i1 %or.cond59, label %524, label %551
+522:                                              ; preds = %517, %508
+  %523 = load i32, ptr %93, align 8
+  %524 = icmp ne i32 %523, 0
+  %or.cond59 = select i1 %509, i1 %524, i1 false
+  br i1 %or.cond59, label %525, label %552
 
-524:                                              ; preds = %521
+525:                                              ; preds = %522
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #11
-  %525 = load double, ptr %90, align 8, !tbaa !44
-  store double %525, ptr %11, align 8, !tbaa !107
-  %526 = load double, ptr %89, align 8, !tbaa !30
-  %527 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store double %526, ptr %527, align 8, !tbaa !109
-  %528 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store double 0x7FF8000000000000, ptr %528, align 8, !tbaa !110
+  %526 = load double, ptr %90, align 8, !tbaa !44
+  store double %526, ptr %11, align 8, !tbaa !107
+  %527 = load double, ptr %89, align 8, !tbaa !30
+  %528 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store double %527, ptr %528, align 8, !tbaa !109
+  %529 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store double 0x7FF8000000000000, ptr %529, align 8, !tbaa !110
   call void @dt_image_set_location(i32 noundef %0, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 0) #11
-  %529 = sext i32 %0 to i64
-  %530 = inttoptr i64 %529 to ptr
-  %531 = call ptr @g_list_prepend(ptr noundef null, ptr noundef %530) #11
-  %532 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !111
-  %533 = and i32 %532, 1
-  %534 = icmp ne i32 %533, 0
-  %535 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3172), align 4
-  %536 = icmp ne i32 %535, 0
-  %or.cond61 = select i1 %534, i1 %536, i1 false
-  br i1 %or.cond61, label %537, label %541
+  %530 = sext i32 %0 to i64
+  %531 = inttoptr i64 %530 to ptr
+  %532 = call ptr @g_list_prepend(ptr noundef null, ptr noundef %531) #11
+  %533 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !111
+  %534 = and i32 %533, 1
+  %535 = icmp ne i32 %534, 0
+  %536 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3172), align 4
+  %537 = icmp ne i32 %536, 0
+  %or.cond61 = select i1 %535, i1 %537, i1 false
+  br i1 %or.cond61, label %538, label %542
 
-537:                                              ; preds = %524
-  %538 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !147
-  %539 = and i32 %538, 1048576
-  %.not280 = icmp eq i32 %539, 0
-  br i1 %.not280, label %541, label %540
+538:                                              ; preds = %525
+  %539 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !147
+  %540 = and i32 %539, 1048576
+  %.not280 = icmp eq i32 %540, 0
+  br i1 %.not280, label %542, label %541
 
-540:                                              ; preds = %537
+541:                                              ; preds = %538
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 1595, ptr noundef nonnull @__FUNCTION__.dt_lightroom_import) #11
-  br label %541
+  br label %542
 
-541:                                              ; preds = %537, %540, %524
-  %542 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !148
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %542, i32 noundef 10, ptr noundef %531, i32 noundef 0) #11
-  %543 = load i8, ptr %6, align 16, !tbaa !105
-  %.not281 = icmp eq i8 %543, 0
-  br i1 %.not281, label %546, label %544
+542:                                              ; preds = %538, %541, %525
+  %543 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !148
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %543, i32 noundef 10, ptr noundef %532, i32 noundef 0) #11
+  %544 = load i8, ptr %6, align 16, !tbaa !105
+  %.not281 = icmp eq i8 %544, 0
+  br i1 %.not281, label %547, label %545
 
-544:                                              ; preds = %541
-  %545 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, i64 noundef 256) #11
-  br label %546
+545:                                              ; preds = %542
+  %546 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, i64 noundef 256) #11
+  br label %547
 
-546:                                              ; preds = %544, %541
-  %547 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #11
-  %548 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %547, i64 noundef 256) #11
-  %549 = load i32, ptr %7, align 4, !tbaa !6
-  %550 = add nsw i32 %549, 1
-  store i32 %550, ptr %7, align 4, !tbaa !6
+547:                                              ; preds = %545, %542
+  %548 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #11
+  %549 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %548, i64 noundef 256) #11
+  %550 = load i32, ptr %7, align 4, !tbaa !6
+  %551 = add nsw i32 %550, 1
+  store i32 %551, ptr %7, align 4, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #11
-  br label %551
+  br label %552
 
-551:                                              ; preds = %546, %521
-  %552 = load i32, ptr %95, align 8
-  %553 = icmp ne i32 %552, 0
-  %or.cond64 = select i1 %508, i1 %553, i1 false
-  br i1 %or.cond64, label %554, label %561
+552:                                              ; preds = %547, %522
+  %553 = load i32, ptr %95, align 8
+  %554 = icmp ne i32 %553, 0
+  %or.cond64 = select i1 %509, i1 %554, i1 false
+  br i1 %or.cond64, label %555, label %562
 
-554:                                              ; preds = %551
-  %555 = load i32, ptr %94, align 4, !tbaa !48
-  call void @dt_colorlabels_set_label(i32 noundef %0, i32 noundef %555) #11
-  %556 = load i8, ptr %6, align 16, !tbaa !105
-  %.not282 = icmp eq i8 %556, 0
-  br i1 %.not282, label %.thread313, label %557
+555:                                              ; preds = %552
+  %556 = load i32, ptr %94, align 4, !tbaa !48
+  call void @dt_colorlabels_set_label(i32 noundef %0, i32 noundef %556) #11
+  %557 = load i8, ptr %6, align 16, !tbaa !105
+  %.not282 = icmp eq i8 %557, 0
+  br i1 %.not282, label %.thread313, label %558
 
-557:                                              ; preds = %554
-  %558 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, i64 noundef 256) #11
+558:                                              ; preds = %555
+  %559 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, i64 noundef 256) #11
   br label %.thread313
 
-.thread313:                                       ; preds = %554, %557
-  %559 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #11
-  %560 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %559, i64 noundef 256) #11
-  br label %583
-
-561:                                              ; preds = %551
-  %562 = icmp ne i32 %.10, 0
-  %or.cond66 = select i1 %109, i1 %562, i1 false
-  br i1 %or.cond66, label %563, label %583
-
-563:                                              ; preds = %561
-  %564 = load i32, ptr %1, align 16, !tbaa !149
-  %.not283 = icmp eq i32 %564, 0
-  br i1 %.not283, label %583, label %565
-
-565:                                              ; preds = %563
-  %566 = load i32, ptr %7, align 4, !tbaa !6
-  %567 = sext i32 %566 to i64
-  %568 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i64 noundef %567, i32 noundef 5) #11
-  call void (ptr, ...) @dt_control_log(ptr noundef %568, ptr noundef nonnull %6) #11
-  %.not284 = icmp eq i32 %2, 0
-  br i1 %.not284, label %569, label %583
-
-569:                                              ; preds = %565
-  call void @dt_dev_reload_history_items(ptr noundef nonnull %1) #11
-  %570 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !176
-  %571 = call i32 @dt_dev_modulegroups_get(ptr noundef %570) #11
-  call void @dt_dev_modulegroups_set(ptr noundef %570, i32 noundef %571) #11
-  call void @dt_image_synch_xmp(i32 noundef %0) #11
-  %572 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !111
-  %573 = and i32 %572, 1
-  %574 = icmp ne i32 %573, 0
-  %575 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3232), align 8
-  %576 = icmp ne i32 %575, 0
-  %or.cond68 = select i1 %574, i1 %576, i1 false
-  br i1 %or.cond68, label %577, label %581
-
-577:                                              ; preds = %569
-  %578 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !147
-  %579 = and i32 %578, 1048576
-  %.not285 = icmp eq i32 %579, 0
-  br i1 %.not285, label %581, label %580
-
-580:                                              ; preds = %577
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.41, i32 noundef 1622, ptr noundef nonnull @__FUNCTION__.dt_lightroom_import) #11
-  br label %581
-
-581:                                              ; preds = %577, %580, %569
-  %582 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !148
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %582, i32 noundef 25) #11
-  br label %583
-
-583:                                              ; preds = %.thread313, %565, %581, %563, %561
-  call void @llvm.lifetime.end.p0(i64 1848, ptr nonnull %8) #11
+.thread313:                                       ; preds = %555, %558
+  %560 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #11
+  %561 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %560, i64 noundef 256) #11
   br label %584
 
-584:                                              ; preds = %72, %26, %30, %38, %50, %583, %42, %20, %21
-  %.0239 = phi i32 [ 0, %21 ], [ 0, %20 ], [ 0, %26 ], [ 0, %30 ], [ 0, %38 ], [ 0, %42 ], [ 0, %50 ], [ 1, %583 ], [ 0, %72 ]
+562:                                              ; preds = %552
+  %563 = icmp ne i32 %.10, 0
+  %or.cond66 = select i1 %109, i1 %563, i1 false
+  br i1 %or.cond66, label %564, label %584
+
+564:                                              ; preds = %562
+  %565 = load i32, ptr %1, align 16, !tbaa !149
+  %.not283 = icmp eq i32 %565, 0
+  br i1 %.not283, label %584, label %566
+
+566:                                              ; preds = %564
+  %567 = load i32, ptr %7, align 4, !tbaa !6
+  %568 = sext i32 %567 to i64
+  %569 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i64 noundef %568, i32 noundef 5) #11
+  call void (ptr, ...) @dt_control_log(ptr noundef %569, ptr noundef nonnull %6) #11
+  %.not284 = icmp eq i32 %2, 0
+  br i1 %.not284, label %570, label %584
+
+570:                                              ; preds = %566
+  call void @dt_dev_reload_history_items(ptr noundef nonnull %1) #11
+  %571 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !176
+  %572 = call i32 @dt_dev_modulegroups_get(ptr noundef %571) #11
+  call void @dt_dev_modulegroups_set(ptr noundef %571, i32 noundef %572) #11
+  call void @dt_image_synch_xmp(i32 noundef %0) #11
+  %573 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !111
+  %574 = and i32 %573, 1
+  %575 = icmp ne i32 %574, 0
+  %576 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3232), align 8
+  %577 = icmp ne i32 %576, 0
+  %or.cond68 = select i1 %575, i1 %577, i1 false
+  br i1 %or.cond68, label %578, label %582
+
+578:                                              ; preds = %570
+  %579 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !147
+  %580 = and i32 %579, 1048576
+  %.not285 = icmp eq i32 %580, 0
+  br i1 %.not285, label %582, label %581
+
+581:                                              ; preds = %578
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.41, i32 noundef 1622, ptr noundef nonnull @__FUNCTION__.dt_lightroom_import) #11
+  br label %582
+
+582:                                              ; preds = %578, %581, %570
+  %583 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !148
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %583, i32 noundef 25) #11
+  br label %584
+
+584:                                              ; preds = %.thread313, %566, %582, %564, %562
+  call void @llvm.lifetime.end.p0(i64 1848, ptr nonnull %8) #11
+  br label %585
+
+585:                                              ; preds = %72, %26, %30, %38, %50, %584, %42, %20, %21
+  %.0239 = phi i32 [ 0, %21 ], [ 0, %20 ], [ 0, %26 ], [ 0, %30 ], [ 0, %38 ], [ 0, %42 ], [ 0, %50 ], [ 1, %584 ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
   ret i32 %.0239

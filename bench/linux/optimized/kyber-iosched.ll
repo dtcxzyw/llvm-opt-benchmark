@@ -1576,7 +1576,8 @@ define internal void @kyber_completed_request(ptr noundef readonly captures(none
 
 33:                                               ; preds = %24, %13
   %34 = phi i64 [ %32, %24 ], [ 0, %13 ]
-  %35 = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %17, i64 0, i64 %.ph, i64 0, i64 %34
+  %.split = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %17, i64 0, i64 %.ph, i64 0
+  %35 = getelementptr [8 x %struct.atomic_t], ptr %.split, i64 0, i64 %34
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, ptr elementtype(i32) %35) #18, !srcloc !42
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = load i64, ptr %36, align 8
@@ -1596,7 +1597,8 @@ define internal void @kyber_completed_request(ptr noundef readonly captures(none
 
 48:                                               ; preds = %39, %33
   %49 = phi i64 [ %47, %39 ], [ 0, %33 ]
-  %50 = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %17, i64 0, i64 %.ph, i64 1, i64 %49
+  %.split3 = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %17, i64 0, i64 %.ph, i64 1
+  %50 = getelementptr [8 x %struct.atomic_t], ptr %.split3, i64 0, i64 %49
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50, ptr elementtype(i32) %50) #18, !srcloc !42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !43
   %51 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !33
@@ -1856,7 +1858,8 @@ define internal fastcc i32 @calculate_percentile(ptr noundef captures(none) %0, 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = zext nneg i32 %1 to i64
   %7 = zext nneg i32 %2 to i64
-  %8 = getelementptr [3 x [2 x [8 x i32]]], ptr %5, i64 0, i64 %6, i64 %7
+  %.split = getelementptr [3 x [2 x [8 x i32]]], ptr %5, i64 0, i64 %6
+  %8 = getelementptr [2 x [8 x i32]], ptr %.split, i64 0, i64 %7
   br label %9
 
 9:                                                ; preds = %9, %4

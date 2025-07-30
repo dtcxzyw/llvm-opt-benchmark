@@ -62982,19 +62982,25 @@ _ZNK4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_ba
   %.0.i.i = phi i64 [ 0, %37 ], [ 1, %44 ], [ %52, %48 ]
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 64
   store i8 0, ptr %53, align 1
-  %54 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %.0.i.i, i64 0
+  %54 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %.0.i.i
   %55 = load i32, ptr %54, align 4
+  %or.cond.i = icmp ult i32 %55, 4
+  tail call void @llvm.assume(i1 %or.cond.i)
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 32
   %57 = zext nneg i32 %55 to i64
   %58 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %56, i64 0, i64 %57
   %.sroa.0.0.copyload.i = load ptr, ptr %58, align 8
-  %59 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %.0.i.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %60 = load i32, ptr %59, align 4
+  %or.cond.i67 = icmp ult i32 %60, 4
+  tail call void @llvm.assume(i1 %or.cond.i67)
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %56, i64 0, i64 %61
   %.sroa.0.0.copyload.i68 = load ptr, ptr %62, align 8
-  %63 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %.0.i.i, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %64 = load i32, ptr %63, align 4
+  %or.cond.i69 = icmp ult i32 %64, 4
+  tail call void @llvm.assume(i1 %or.cond.i69)
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %56, i64 0, i64 %65
   %.sroa.0.0.copyload.i70 = load ptr, ptr %66, align 8
@@ -63833,33 +63839,35 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
   store ptr %.sroa.0.0.copyload.i58, ptr %66, align 8
   %67 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i58, i64 0, i64 %.0.i
   store ptr %21, ptr %67, align 8
-  %68 = add nsw i32 %5, 1
-  %69 = zext i32 %4 to i64
-  br label %70
+  %invariant.gep = getelementptr [4 x i8], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %52
+  %68 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %52
+  %69 = add nsw i32 %5, 1
+  %70 = zext i32 %4 to i64
+  br label %71
 
-70:                                               ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit, %.critedge
+71:                                               ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit, %.critedge
   %indvars.iv = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit ], [ %indvars.iv.next, %.critedge ]
-  %71 = icmp eq i64 %indvars.iv, %69
-  br i1 %71, label %.critedge, label %72
+  %72 = icmp eq i64 %indvars.iv, %70
+  br i1 %72, label %.critedge, label %73
 
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %21, i64 0, i64 %indvars.iv
-  %.sroa.0.0.copyload.i59 = load ptr, ptr %73, align 8
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %21, i64 0, i64 %indvars.iv
+  %.sroa.0.0.copyload.i59 = load ptr, ptr %74, align 8
   %.not = icmp eq ptr %.sroa.0.0.copyload.i59, null
-  br i1 %.not, label %74, label %.critedge
+  br i1 %.not, label %75, label %.critedge
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %26, i64 0, i64 %indvars.iv
-  %.sroa.0.0.copyload.i60 = load ptr, ptr %75, align 8
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %26, i64 0, i64 %indvars.iv
+  %.sroa.0.0.copyload.i60 = load ptr, ptr %76, align 8
   store ptr %21, ptr %.sroa.0.0.copyload.i60, align 8
-  %76 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %indvars.iv, i64 %52
-  %77 = load i8, ptr %76, align 1
+  %gep = getelementptr [4 x [4 x i8]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %77 = load i8, ptr %gep, align 1
   %78 = zext nneg i8 %77 to i64
   %or.cond.i61 = icmp ult i8 %77, 4
   tail call void @llvm.assume(i1 %or.cond.i61)
   %79 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %11, i64 0, i64 %78
   %.sroa.0.0.copyload.i62 = load ptr, ptr %79, align 8
-  %80 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %52, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 0, i64 %indvars.iv
   %81 = load i8, ptr %80, align 1
   %82 = zext nneg i8 %81 to i64
   %or.cond.i63 = icmp ult i8 %81, 4
@@ -63872,10 +63880,10 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
   %86 = load i8, ptr %85, align 1
   %87 = icmp eq i8 %86, 1
   %88 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %87, label %.lr.ph, label %119
+  br i1 %87, label %.lr.ph, label %120
 
-.lr.ph:                                           ; preds = %74, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit70
-  %storemerge113 = phi ptr [ %storemerge, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit70 ], [ %storemerge112, %74 ]
+.lr.ph:                                           ; preds = %75, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit70
+  %storemerge113 = phi ptr [ %storemerge, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit70 ], [ %storemerge112, %75 ]
   %89 = getelementptr inbounds nuw i8, ptr %storemerge113, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %.sroa.0.0.copyload.i62, %90
@@ -63914,115 +63922,118 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
 
 _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit70: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit, %102, %106
   %.0.i69 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit ], [ 1, %102 ], [ %110, %106 ]
-  %111 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i67, i64 %.0.i69
-  %112 = load i8, ptr %111, align 1
-  %113 = sext i8 %112 to i64
-  %114 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %storemerge113, i64 0, i64 %113
-  %storemerge = load ptr, ptr %114, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %storemerge, i64 64
-  %116 = load i8, ptr %115, align 1
-  %117 = icmp eq i8 %116, 1
-  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !1365
+  %111 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i67
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 0, i64 %.0.i69
+  %113 = load i8, ptr %112, align 1
+  %114 = sext i8 %113 to i64
+  %115 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %storemerge113, i64 0, i64 %114
+  %storemerge = load ptr, ptr %115, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %storemerge, i64 64
+  %117 = load i8, ptr %116, align 1
+  %118 = icmp eq i8 %117, 1
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !1365
 
 ._crit_edge:                                      ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit70
-  %118 = sext i8 %112 to i32
-  br label %119
+  %119 = sext i8 %113 to i32
+  br label %120
 
-119:                                              ; preds = %._crit_edge, %74
-  %storemerge.lcssa111 = phi ptr [ %storemerge, %._crit_edge ], [ %storemerge112, %74 ]
-  %.sroa.093.0.lcssa = phi ptr [ %storemerge113, %._crit_edge ], [ %2, %74 ]
-  %.053.lcssa = phi i32 [ %118, %._crit_edge ], [ %88, %74 ]
-  %120 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 64
-  store i8 0, ptr %120, align 1
-  %121 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 32
-  %122 = load ptr, ptr %121, align 8
-  %123 = icmp eq ptr %.sroa.0.0.copyload.i62, %122
-  br i1 %123, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74, label %124
+120:                                              ; preds = %._crit_edge, %75
+  %storemerge.lcssa111 = phi ptr [ %storemerge, %._crit_edge ], [ %storemerge112, %75 ]
+  %.sroa.093.0.lcssa = phi ptr [ %storemerge113, %._crit_edge ], [ %2, %75 ]
+  %.053.lcssa = phi i32 [ %119, %._crit_edge ], [ %88, %75 ]
+  %121 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 64
+  store i8 0, ptr %121, align 1
+  %122 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 32
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp eq ptr %.sroa.0.0.copyload.i62, %123
+  br i1 %124, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74, label %125
 
-124:                                              ; preds = %119
-  %125 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 40
-  %126 = load ptr, ptr %125, align 8
-  %127 = icmp eq ptr %.sroa.0.0.copyload.i62, %126
-  br i1 %127, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74, label %128
+125:                                              ; preds = %120
+  %126 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 40
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp eq ptr %.sroa.0.0.copyload.i62, %127
+  br i1 %128, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74, label %129
 
-128:                                              ; preds = %124
-  %129 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 48
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %.sroa.0.0.copyload.i62, %130
-  %132 = select i1 %131, i64 2, i64 3
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 48
+  %131 = load ptr, ptr %130, align 8
+  %132 = icmp eq ptr %.sroa.0.0.copyload.i62, %131
+  %133 = select i1 %132, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74: ; preds = %119, %124, %128
-  %.0.i73 = phi i64 [ 0, %119 ], [ 1, %124 ], [ %132, %128 ]
-  %133 = icmp eq ptr %.sroa.0.0.copyload.i64, %122
-  br i1 %133, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77, label %134
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74: ; preds = %120, %125, %129
+  %.0.i73 = phi i64 [ 0, %120 ], [ 1, %125 ], [ %133, %129 ]
+  %134 = icmp eq ptr %.sroa.0.0.copyload.i64, %123
+  br i1 %134, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77, label %135
 
-134:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74
-  %135 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 40
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp eq ptr %.sroa.0.0.copyload.i64, %136
-  br i1 %137, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77, label %138
+135:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74
+  %136 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 40
+  %137 = load ptr, ptr %136, align 8
+  %138 = icmp eq ptr %.sroa.0.0.copyload.i64, %137
+  br i1 %138, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77, label %139
 
-138:                                              ; preds = %134
-  %139 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 48
-  %140 = load ptr, ptr %139, align 8
-  %141 = icmp eq ptr %.sroa.0.0.copyload.i64, %140
-  %142 = select i1 %141, i64 2, i64 3
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa111, i64 48
+  %141 = load ptr, ptr %140, align 8
+  %142 = icmp eq ptr %.sroa.0.0.copyload.i64, %141
+  %143 = select i1 %142, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74, %134, %138
-  %.0.i76 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74 ], [ 1, %134 ], [ %142, %138 ]
-  %143 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i73, i64 %.0.i76
-  %144 = load i8, ptr %143, align 1
-  %145 = zext nneg i8 %144 to i64
-  %or.cond.i78 = icmp ult i8 %144, 4
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74, %135, %139
+  %.0.i76 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit74 ], [ 1, %135 ], [ %143, %139 ]
+  %144 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i73
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 0, i64 %.0.i76
+  %146 = load i8, ptr %145, align 1
+  %147 = zext nneg i8 %146 to i64
+  %or.cond.i78 = icmp ult i8 %146, 4
   tail call void @llvm.assume(i1 %or.cond.i78)
-  %146 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %121, i64 0, i64 %145
-  %.sroa.0.0.copyload.i79 = load ptr, ptr %146, align 8
-  %147 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i76, i64 %.0.i73
-  %148 = load i8, ptr %147, align 1
-  %149 = sext i8 %148 to i64
-  %150 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %storemerge.lcssa111, i64 0, i64 %149
-  %.sroa.0.0.copyload.i80 = load ptr, ptr %150, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i80, i64 32
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %.sroa.0.0.copyload.i79, %152
-  br i1 %153, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83, label %154
+  %148 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %122, i64 0, i64 %147
+  %.sroa.0.0.copyload.i79 = load ptr, ptr %148, align 8
+  %149 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i76
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 0, i64 %.0.i73
+  %151 = load i8, ptr %150, align 1
+  %152 = sext i8 %151 to i64
+  %153 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %storemerge.lcssa111, i64 0, i64 %152
+  %.sroa.0.0.copyload.i80 = load ptr, ptr %153, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i80, i64 32
+  %155 = load ptr, ptr %154, align 8
+  %156 = icmp eq ptr %.sroa.0.0.copyload.i79, %155
+  br i1 %156, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83, label %157
 
-154:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i80, i64 40
-  %156 = load ptr, ptr %155, align 8
-  %157 = icmp eq ptr %.sroa.0.0.copyload.i79, %156
-  br i1 %157, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83, label %158
+157:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i80, i64 40
+  %159 = load ptr, ptr %158, align 8
+  %160 = icmp eq ptr %.sroa.0.0.copyload.i79, %159
+  br i1 %160, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83, label %161
 
-158:                                              ; preds = %154
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i80, i64 48
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %.sroa.0.0.copyload.i79, %160
-  %..i81 = select i1 %161, i32 2, i32 3
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i80, i64 48
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp eq ptr %.sroa.0.0.copyload.i79, %163
+  %..i81 = select i1 %164, i32 2, i32 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77, %154, %158
-  %.0.i82 = phi i32 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77 ], [ 1, %154 ], [ %..i81, %158 ]
-  %162 = icmp eq ptr %.sroa.0.0.copyload.i80, %.sroa.093.0.lcssa
-  br i1 %162, label %163, label %165
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77, %157, %161
+  %.0.i82 = phi i32 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit77 ], [ 1, %157 ], [ %..i81, %161 ]
+  %165 = icmp eq ptr %.sroa.0.0.copyload.i80, %.sroa.093.0.lcssa
+  br i1 %165, label %166, label %168
 
-163:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83
-  %164 = tail call ptr @_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E23recursive_create_star_3ENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEENS15_INS16_INSK_INSL_ISM_SE_NSN_ISE_NSO_ISE_NSP_ISE_NSQ_IS13_EEEEEEEEEEEES1B_S1B_S1B_EELb0EEEiii(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %1, ptr nonnull %.sroa.0.0.copyload.i80, i32 noundef %.053.lcssa, i32 noundef %.0.i82, i32 noundef %68)
-  br label %165
+166:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83
+  %167 = tail call ptr @_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E23recursive_create_star_3ENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEENS15_INS16_INSK_INSL_ISM_SE_NSN_ISE_NSO_ISE_NSP_ISE_NSQ_IS13_EEEEEEEEEEEES1B_S1B_S1B_EELb0EEEiii(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %1, ptr nonnull %.sroa.0.0.copyload.i80, i32 noundef %.053.lcssa, i32 noundef %.0.i82, i32 noundef %69)
+  br label %168
 
-165:                                              ; preds = %163, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83
-  %.sroa.0.0 = phi ptr [ %164, %163 ], [ %.sroa.0.0.copyload.i80, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83 ]
-  %166 = zext nneg i32 %.0.i82 to i64
-  %167 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0, i64 0, i64 %166
-  store ptr %21, ptr %167, align 8
-  store ptr %.sroa.0.0, ptr %73, align 8
+168:                                              ; preds = %166, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83
+  %.sroa.0.0 = phi ptr [ %167, %166 ], [ %.sroa.0.0.copyload.i80, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit83 ]
+  %169 = zext nneg i32 %.0.i82 to i64
+  %170 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0, i64 0, i64 %169
+  store ptr %21, ptr %170, align 8
+  store ptr %.sroa.0.0, ptr %74, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %70, %72, %165
+.critedge:                                        ; preds = %71, %73, %168
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %70, !llvm.loop !1366
+  br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !1366
 
 .loopexit:                                        ; preds = %.critedge, %8
   %.sroa.0107.0 = phi ptr [ %9, %8 ], [ %21, %.critedge ]
@@ -64168,51 +64179,53 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
   %.sroa.0144.0.ph = phi ptr [ %18, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit ], [ %.sroa.0144.0.ph.be, %.loopexit.outer.backedge ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0144.0.ph, i64 32
   %77 = sext i32 %.0149.ph to i64
+  %invariant.gep = getelementptr [4 x i8], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %77
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0132.0.ph, i64 32
+  %79 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %77
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.outer, %.critedge
-  %.0153 = phi i32 [ %239, %.critedge ], [ %.0153.ph, %.loopexit.outer ]
-  %79 = icmp eq i32 %.0153, %.0150.ph
-  br i1 %79, label %.critedge, label %80
+  %.0153 = phi i32 [ %242, %.critedge ], [ %.0153.ph, %.loopexit.outer ]
+  %80 = icmp eq i32 %.0153, %.0150.ph
+  br i1 %80, label %.critedge, label %81
 
-80:                                               ; preds = %.loopexit
-  %81 = sext i32 %.0153 to i64
-  %82 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0144.0.ph, i64 0, i64 %81
-  %.sroa.0.0.copyload.i51 = load ptr, ptr %82, align 8
+81:                                               ; preds = %.loopexit
+  %82 = sext i32 %.0153 to i64
+  %83 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0144.0.ph, i64 0, i64 %82
+  %.sroa.0.0.copyload.i51 = load ptr, ptr %83, align 8
   %.not = icmp eq ptr %.sroa.0.0.copyload.i51, null
-  br i1 %.not, label %83, label %.critedge
+  br i1 %.not, label %84, label %.critedge
 
-83:                                               ; preds = %80
+84:                                               ; preds = %81
   %or.cond.i = icmp ult i32 %.0153, 4
   call void @llvm.assume(i1 %or.cond.i)
-  %84 = zext nneg i32 %.0153 to i64
-  %85 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %76, i64 0, i64 %84
-  %.sroa.0.0.copyload.i52 = load ptr, ptr %85, align 8
+  %85 = zext nneg i32 %.0153 to i64
+  %86 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %76, i64 0, i64 %85
+  %.sroa.0.0.copyload.i52 = load ptr, ptr %86, align 8
   store ptr %.sroa.0144.0.ph, ptr %.sroa.0.0.copyload.i52, align 8
-  %86 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %81, i64 %77
-  %87 = load i8, ptr %86, align 1
+  %gep = getelementptr [4 x [4 x i8]], ptr %invariant.gep, i64 0, i64 %82
+  %87 = load i8, ptr %gep, align 1
   %88 = zext nneg i8 %87 to i64
   %or.cond.i53 = icmp ult i8 %87, 4
   call void @llvm.assume(i1 %or.cond.i53)
   %89 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %78, i64 0, i64 %88
   %.sroa.0.0.copyload.i54 = load ptr, ptr %89, align 8
-  %90 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %77, i64 %81
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 0, i64 %82
   %91 = load i8, ptr %90, align 1
   %92 = zext nneg i8 %91 to i64
   %or.cond.i55 = icmp ult i8 %91, 4
   call void @llvm.assume(i1 %or.cond.i55)
   %93 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %78, i64 0, i64 %92
   %.sroa.0.0.copyload.i56 = load ptr, ptr %93, align 8
-  %94 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0132.0.ph, i64 0, i64 %81
+  %94 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0132.0.ph, i64 0, i64 %82
   %storemerge164 = load ptr, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %storemerge164, i64 64
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, 1
-  br i1 %97, label %.lr.ph, label %130
+  br i1 %97, label %.lr.ph, label %131
 
-.lr.ph:                                           ; preds = %83, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit62
-  %storemerge165 = phi ptr [ %storemerge, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit62 ], [ %storemerge164, %83 ]
+.lr.ph:                                           ; preds = %84, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit62
+  %storemerge165 = phi ptr [ %storemerge, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit62 ], [ %storemerge164, %84 ]
   %98 = getelementptr inbounds nuw i8, ptr %storemerge165, i64 32
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %.sroa.0.0.copyload.i54, %99
@@ -64251,372 +64264,375 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
 
 _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit62: ; preds = %115, %111, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit
   %.0.i61 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit ], [ 1, %111 ], [ %119, %115 ]
-  %120 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i59, i64 %.0.i61
-  %121 = load i8, ptr %120, align 1
-  %122 = sext i8 %121 to i64
-  %123 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %storemerge165, i64 0, i64 %122
-  %storemerge = load ptr, ptr %123, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %storemerge, i64 64
-  %125 = load i8, ptr %124, align 1
-  %126 = icmp eq i8 %125, 1
-  br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !1367
+  %120 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i59
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 0, i64 %.0.i61
+  %122 = load i8, ptr %121, align 1
+  %123 = sext i8 %122 to i64
+  %124 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %storemerge165, i64 0, i64 %123
+  %storemerge = load ptr, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %storemerge, i64 64
+  %126 = load i8, ptr %125, align 1
+  %127 = icmp eq i8 %126, 1
+  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !1367
 
-127:                                              ; preds = %188, %182
-  %128 = landingpad { ptr, i32 }
+128:                                              ; preds = %191, %185
+  %129 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #23
-  resume { ptr, i32 } %128
+  resume { ptr, i32 } %129
 
 ._crit_edge:                                      ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit62
-  %129 = sext i8 %121 to i32
-  br label %130
+  %130 = sext i8 %122 to i32
+  br label %131
 
-130:                                              ; preds = %._crit_edge, %83
-  %storemerge.lcssa163 = phi ptr [ %storemerge, %._crit_edge ], [ %storemerge164, %83 ]
-  %.sroa.0103.0.lcssa = phi ptr [ %storemerge165, %._crit_edge ], [ %.sroa.0132.0.ph, %83 ]
-  %.0.lcssa = phi i32 [ %129, %._crit_edge ], [ %.0153, %83 ]
-  %131 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 64
-  store i8 0, ptr %131, align 1
-  %132 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 32
-  %133 = load ptr, ptr %132, align 8
-  %134 = icmp eq ptr %.sroa.0.0.copyload.i54, %133
-  br i1 %134, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66, label %135
+131:                                              ; preds = %._crit_edge, %84
+  %storemerge.lcssa163 = phi ptr [ %storemerge, %._crit_edge ], [ %storemerge164, %84 ]
+  %.sroa.0103.0.lcssa = phi ptr [ %storemerge165, %._crit_edge ], [ %.sroa.0132.0.ph, %84 ]
+  %.0.lcssa = phi i32 [ %130, %._crit_edge ], [ %.0153, %84 ]
+  %132 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 64
+  store i8 0, ptr %132, align 1
+  %133 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 32
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp eq ptr %.sroa.0.0.copyload.i54, %134
+  br i1 %135, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66, label %136
 
-135:                                              ; preds = %130
-  %136 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 40
-  %137 = load ptr, ptr %136, align 8
-  %138 = icmp eq ptr %.sroa.0.0.copyload.i54, %137
-  br i1 %138, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66, label %139
+136:                                              ; preds = %131
+  %137 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 40
+  %138 = load ptr, ptr %137, align 8
+  %139 = icmp eq ptr %.sroa.0.0.copyload.i54, %138
+  br i1 %139, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66, label %140
 
-139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 48
-  %141 = load ptr, ptr %140, align 8
-  %142 = icmp eq ptr %.sroa.0.0.copyload.i54, %141
-  %143 = select i1 %142, i64 2, i64 3
+140:                                              ; preds = %136
+  %141 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 48
+  %142 = load ptr, ptr %141, align 8
+  %143 = icmp eq ptr %.sroa.0.0.copyload.i54, %142
+  %144 = select i1 %143, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66: ; preds = %139, %135, %130
-  %.0.i65 = phi i64 [ 0, %130 ], [ 1, %135 ], [ %143, %139 ]
-  %144 = icmp eq ptr %.sroa.0.0.copyload.i56, %133
-  br i1 %144, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69, label %145
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66: ; preds = %140, %136, %131
+  %.0.i65 = phi i64 [ 0, %131 ], [ 1, %136 ], [ %144, %140 ]
+  %145 = icmp eq ptr %.sroa.0.0.copyload.i56, %134
+  br i1 %145, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69, label %146
 
-145:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66
-  %146 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 40
-  %147 = load ptr, ptr %146, align 8
-  %148 = icmp eq ptr %.sroa.0.0.copyload.i56, %147
-  br i1 %148, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69, label %149
+146:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66
+  %147 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 40
+  %148 = load ptr, ptr %147, align 8
+  %149 = icmp eq ptr %.sroa.0.0.copyload.i56, %148
+  br i1 %149, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69, label %150
 
-149:                                              ; preds = %145
-  %150 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 48
-  %151 = load ptr, ptr %150, align 8
-  %152 = icmp eq ptr %.sroa.0.0.copyload.i56, %151
-  %153 = select i1 %152, i64 2, i64 3
+150:                                              ; preds = %146
+  %151 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa163, i64 48
+  %152 = load ptr, ptr %151, align 8
+  %153 = icmp eq ptr %.sroa.0.0.copyload.i56, %152
+  %154 = select i1 %153, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69: ; preds = %149, %145, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66
-  %.0.i68 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66 ], [ 1, %145 ], [ %153, %149 ]
-  %154 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i65, i64 %.0.i68
-  %155 = load i8, ptr %154, align 1
-  %156 = zext nneg i8 %155 to i64
-  %or.cond.i70 = icmp ult i8 %155, 4
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69: ; preds = %150, %146, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66
+  %.0.i68 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit66 ], [ 1, %146 ], [ %154, %150 ]
+  %155 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i65
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 0, i64 %.0.i68
+  %157 = load i8, ptr %156, align 1
+  %158 = zext nneg i8 %157 to i64
+  %or.cond.i70 = icmp ult i8 %157, 4
   call void @llvm.assume(i1 %or.cond.i70)
-  %157 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %132, i64 0, i64 %156
-  %.sroa.0.0.copyload.i71 = load ptr, ptr %157, align 8
-  %158 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i68, i64 %.0.i65
-  %159 = load i8, ptr %158, align 1
-  %160 = sext i8 %159 to i64
-  %161 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %storemerge.lcssa163, i64 0, i64 %160
-  %.sroa.0.0.copyload.i72 = load ptr, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 32
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp eq ptr %.sroa.0.0.copyload.i71, %163
-  br i1 %164, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75, label %165
+  %159 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %133, i64 0, i64 %158
+  %.sroa.0.0.copyload.i71 = load ptr, ptr %159, align 8
+  %160 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i68
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 0, i64 %.0.i65
+  %162 = load i8, ptr %161, align 1
+  %163 = sext i8 %162 to i64
+  %164 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %storemerge.lcssa163, i64 0, i64 %163
+  %.sroa.0.0.copyload.i72 = load ptr, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 32
+  %166 = load ptr, ptr %165, align 8
+  %167 = icmp eq ptr %.sroa.0.0.copyload.i71, %166
+  br i1 %167, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75, label %168
 
-165:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 40
-  %167 = load ptr, ptr %166, align 8
-  %168 = icmp eq ptr %.sroa.0.0.copyload.i71, %167
-  br i1 %168, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75, label %169
+168:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 40
+  %170 = load ptr, ptr %169, align 8
+  %171 = icmp eq ptr %.sroa.0.0.copyload.i71, %170
+  br i1 %171, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75, label %172
 
-169:                                              ; preds = %165
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 48
-  %171 = load ptr, ptr %170, align 8
-  %172 = icmp eq ptr %.sroa.0.0.copyload.i71, %171
-  %..i73 = select i1 %172, i32 2, i32 3
+172:                                              ; preds = %168
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 48
+  %174 = load ptr, ptr %173, align 8
+  %175 = icmp eq ptr %.sroa.0.0.copyload.i71, %174
+  %..i73 = select i1 %175, i32 2, i32 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75: ; preds = %169, %165, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69
-  %.0.i74 = phi i32 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69 ], [ 1, %165 ], [ %..i73, %169 ]
-  %173 = icmp eq ptr %.sroa.0.0.copyload.i72, %.sroa.0103.0.lcssa
-  br i1 %173, label %174, label %236
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75: ; preds = %172, %168, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69
+  %.0.i74 = phi i32 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit69 ], [ 1, %168 ], [ %..i73, %172 ]
+  %176 = icmp eq ptr %.sroa.0.0.copyload.i72, %.sroa.0103.0.lcssa
+  br i1 %176, label %177, label %239
 
-174:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75
-  %175 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 32
+177:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 32
   store i32 %.0.i74, ptr %7, align 8
   store ptr %.sroa.0144.0.ph, ptr %65, align 8
   store i32 %.0153, ptr %66, align 8
   store ptr %.sroa.0132.0.ph, ptr %67, align 8
   store i32 %.0149.ph, ptr %68, align 8
   store i32 %.0150.ph, ptr %69, align 4
-  %176 = load ptr, ptr %70, align 8
-  %177 = load ptr, ptr %71, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 -40
-  %.not.i.i.i76 = icmp eq ptr %176, %178
-  br i1 %.not.i.i.i76, label %182, label %179
+  %179 = load ptr, ptr %70, align 8
+  %180 = load ptr, ptr %71, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 -40
+  %.not.i.i.i76 = icmp eq ptr %179, %181
+  br i1 %.not.i.i.i76, label %185, label %182
 
-179:                                              ; preds = %174
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %176, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
-  %180 = load ptr, ptr %70, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  store ptr %181, ptr %70, align 8
+182:                                              ; preds = %177
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %179, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  %183 = load ptr, ptr %70, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 40
+  store ptr %184, ptr %70, align 8
   br label %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit
 
-182:                                              ; preds = %174
+185:                                              ; preds = %177
   invoke void @_ZNSt5dequeIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_push_back_auxIJS15_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(40) %7)
-          to label %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit unwind label %127
+          to label %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit unwind label %128
 
-_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit: ; preds = %179, %182
-  %.sroa.0.0.copyload.i77 = load ptr, ptr %175, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 40
-  %.sroa.0.0.copyload.i78 = load ptr, ptr %183, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 48
-  %.sroa.0.0.copyload.i79 = load ptr, ptr %184, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 56
-  %.sroa.0.0.copyload.i80 = load ptr, ptr %185, align 8
-  %186 = load ptr, ptr %12, align 8
-  %187 = icmp eq ptr %186, null
-  br i1 %187, label %188, label %189
+_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit: ; preds = %182, %185
+  %.sroa.0.0.copyload.i77 = load ptr, ptr %178, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 40
+  %.sroa.0.0.copyload.i78 = load ptr, ptr %186, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 48
+  %.sroa.0.0.copyload.i79 = load ptr, ptr %187, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i72, i64 56
+  %.sroa.0.0.copyload.i80 = load ptr, ptr %188, align 8
+  %189 = load ptr, ptr %12, align 8
+  %190 = icmp eq ptr %189, null
+  br i1 %190, label %191, label %192
 
-188:                                              ; preds = %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit
+191:                                              ; preds = %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit
   invoke void @_ZN4CGAL17Compact_containerINS_13Alpha_wraps_38internal24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS9_11Vertex_infoESE_NS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INSJ_INSL_ISM_SE_NSN_ISE_NSO_IvEEEEEENS3_INS4_ISA_SE_NSF_ISE_NSG_ISE_NSH_ISE_NSI_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEEEEEENS_7DefaultES1B_S1B_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %72)
-          to label %.noexc84 unwind label %127
+          to label %.noexc84 unwind label %128
 
-.noexc84:                                         ; preds = %188
+.noexc84:                                         ; preds = %191
   %.pre.i.i83 = load ptr, ptr %12, align 8
-  br label %189
+  br label %192
 
-189:                                              ; preds = %.noexc84, %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit
-  %190 = phi ptr [ %.pre.i.i83, %.noexc84 ], [ %186, %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit ]
-  %191 = load ptr, ptr %190, align 8
-  %192 = ptrtoint ptr %191 to i64
-  %193 = and i64 %192, -4
-  %194 = inttoptr i64 %193 to ptr
-  store ptr %194, ptr %12, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %190, i8 0, i64 32, i1 false)
-  %195 = getelementptr inbounds nuw i8, ptr %190, i64 32
-  store ptr %.sroa.0.0.copyload.i77, ptr %195, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %190, i64 40
-  store ptr %.sroa.0.0.copyload.i78, ptr %196, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %190, i64 48
-  store ptr %.sroa.0.0.copyload.i79, ptr %197, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %190, i64 56
-  store ptr %.sroa.0.0.copyload.i80, ptr %198, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %190, i64 64
-  store i8 0, ptr %199, align 1
-  %200 = getelementptr inbounds nuw i8, ptr %190, i64 72
-  store ptr null, ptr %200, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %190, i64 80
-  store i8 0, ptr %201, align 1
-  %202 = getelementptr inbounds nuw i8, ptr %190, i64 88
-  store i64 -1, ptr %202, align 8
-  %203 = load i64, ptr %31, align 8
-  %204 = add i64 %203, 1
-  store i64 %204, ptr %31, align 8
-  %205 = load i64, ptr %202, align 8
-  %206 = icmp eq i64 %205, -1
-  br i1 %206, label %207, label %209
+192:                                              ; preds = %.noexc84, %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit
+  %193 = phi ptr [ %.pre.i.i83, %.noexc84 ], [ %189, %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE4pushEOS15_.exit ]
+  %194 = load ptr, ptr %193, align 8
+  %195 = ptrtoint ptr %194 to i64
+  %196 = and i64 %195, -4
+  %197 = inttoptr i64 %196 to ptr
+  store ptr %197, ptr %12, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %193, i8 0, i64 32, i1 false)
+  %198 = getelementptr inbounds nuw i8, ptr %193, i64 32
+  store ptr %.sroa.0.0.copyload.i77, ptr %198, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %193, i64 40
+  store ptr %.sroa.0.0.copyload.i78, ptr %199, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %193, i64 48
+  store ptr %.sroa.0.0.copyload.i79, ptr %200, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %193, i64 56
+  store ptr %.sroa.0.0.copyload.i80, ptr %201, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %193, i64 64
+  store i8 0, ptr %202, align 1
+  %203 = getelementptr inbounds nuw i8, ptr %193, i64 72
+  store ptr null, ptr %203, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %193, i64 80
+  store i8 0, ptr %204, align 1
+  %205 = getelementptr inbounds nuw i8, ptr %193, i64 88
+  store i64 -1, ptr %205, align 8
+  %206 = load i64, ptr %31, align 8
+  %207 = add i64 %206, 1
+  store i64 %207, ptr %31, align 8
+  %208 = load i64, ptr %205, align 8
+  %209 = icmp eq i64 %208, -1
+  br i1 %209, label %210, label %212
 
-207:                                              ; preds = %189
-  %208 = atomicrmw add ptr %34, i64 1 seq_cst, align 8
-  store i64 %208, ptr %202, align 8
+210:                                              ; preds = %192
+  %211 = atomicrmw add ptr %34, i64 1 seq_cst, align 8
+  store i64 %211, ptr %205, align 8
   br label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85
 
-209:                                              ; preds = %189
-  %210 = add nuw i64 %205, 1
-  %211 = load atomic i64, ptr %34 seq_cst, align 8
-  br label %212
+212:                                              ; preds = %192
+  %213 = add nuw i64 %208, 1
+  %214 = load atomic i64, ptr %34 seq_cst, align 8
+  br label %215
 
-212:                                              ; preds = %213, %209
-  %.048.i.i.i81 = phi i64 [ %211, %209 ], [ %216, %213 ]
-  %.not.i.i.i82 = icmp ugt i64 %.048.i.i.i81, %205
-  br i1 %.not.i.i.i82, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85, label %213
+215:                                              ; preds = %216, %212
+  %.048.i.i.i81 = phi i64 [ %214, %212 ], [ %219, %216 ]
+  %.not.i.i.i82 = icmp ugt i64 %.048.i.i.i81, %208
+  br i1 %.not.i.i.i82, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85, label %216
 
-213:                                              ; preds = %212
-  %214 = cmpxchg weak ptr %34, i64 %.048.i.i.i81, i64 %210 seq_cst seq_cst, align 8
-  %215 = extractvalue { i64, i1 } %214, 1
-  %216 = extractvalue { i64, i1 } %214, 0
-  br i1 %215, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85, label %212, !llvm.loop !995
+216:                                              ; preds = %215
+  %217 = cmpxchg weak ptr %34, i64 %.048.i.i.i81, i64 %213 seq_cst seq_cst, align 8
+  %218 = extractvalue { i64, i1 } %217, 1
+  %219 = extractvalue { i64, i1 } %217, 0
+  br i1 %218, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85, label %215, !llvm.loop !995
 
-_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85: ; preds = %213, %212, %207
-  %217 = load ptr, ptr %200, align 8
-  %.not.i.i86 = icmp eq ptr %217, null
-  br i1 %.not.i.i86, label %219, label %218
+_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85: ; preds = %216, %215, %210
+  %220 = load ptr, ptr %203, align 8
+  %.not.i.i86 = icmp eq ptr %220, null
+  br i1 %.not.i.i86, label %222, label %221
 
-218:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85
-  call void @_ZdlPv(ptr noundef nonnull %217) #38
-  store ptr null, ptr %200, align 8
-  br label %219
+221:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85
+  call void @_ZdlPv(ptr noundef nonnull %220) #38
+  store ptr null, ptr %203, align 8
+  br label %222
 
-219:                                              ; preds = %218, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85
-  %220 = sext i32 %.0.lcssa to i64
-  %221 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %195, i64 0, i64 %220
-  store ptr %1, ptr %221, align 8
-  %222 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i72, i64 0, i64 %220
-  %.sroa.0.0.copyload.i88 = load ptr, ptr %222, align 8
-  %223 = load ptr, ptr %.sroa.0.0.copyload.i88, align 8
-  %224 = icmp eq ptr %.sroa.0103.0.lcssa, %223
-  br i1 %224, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91, label %225
+222:                                              ; preds = %221, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_S1D_.exit85
+  %223 = sext i32 %.0.lcssa to i64
+  %224 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %198, i64 0, i64 %223
+  store ptr %1, ptr %224, align 8
+  %225 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i72, i64 0, i64 %223
+  %.sroa.0.0.copyload.i88 = load ptr, ptr %225, align 8
+  %226 = load ptr, ptr %.sroa.0.0.copyload.i88, align 8
+  %227 = icmp eq ptr %.sroa.0103.0.lcssa, %226
+  br i1 %227, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91, label %228
 
-225:                                              ; preds = %219
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i88, i64 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = icmp eq ptr %.sroa.0103.0.lcssa, %227
-  br i1 %228, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91, label %229
+228:                                              ; preds = %222
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i88, i64 8
+  %230 = load ptr, ptr %229, align 8
+  %231 = icmp eq ptr %.sroa.0103.0.lcssa, %230
+  br i1 %231, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91, label %232
 
-229:                                              ; preds = %225
-  %230 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i88, i64 16
-  %231 = load ptr, ptr %230, align 8
-  %232 = icmp eq ptr %.sroa.0103.0.lcssa, %231
-  %233 = select i1 %232, i64 2, i64 3
+232:                                              ; preds = %228
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i88, i64 16
+  %234 = load ptr, ptr %233, align 8
+  %235 = icmp eq ptr %.sroa.0103.0.lcssa, %234
+  %236 = select i1 %235, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91: ; preds = %219, %225, %229
-  %.0.i90 = phi i64 [ 0, %219 ], [ 1, %225 ], [ %233, %229 ]
-  %234 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %190, i64 0, i64 %220
-  store ptr %.sroa.0.0.copyload.i88, ptr %234, align 8
-  %235 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i88, i64 0, i64 %.0.i90
-  store ptr %190, ptr %235, align 8
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91: ; preds = %222, %228, %232
+  %.0.i90 = phi i64 [ 0, %222 ], [ 1, %228 ], [ %236, %232 ]
+  %237 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %193, i64 0, i64 %223
+  store ptr %.sroa.0.0.copyload.i88, ptr %237, align 8
+  %238 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i88, i64 0, i64 %.0.i90
+  store ptr %193, ptr %238, align 8
   br label %.loopexit.outer.backedge
 
 .loopexit.outer.backedge:                         ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91, %..loopexit_crit_edge
-  %.0153.ph.be = phi i32 [ %302, %..loopexit_crit_edge ], [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
-  %.0150.ph.be = phi i32 [ %293, %..loopexit_crit_edge ], [ %.0.i74, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
-  %.0149.ph.be = phi i32 [ %294, %..loopexit_crit_edge ], [ %.0.lcssa, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
-  %.sroa.0132.0.ph.be = phi ptr [ %304, %..loopexit_crit_edge ], [ %.sroa.0.0.copyload.i72, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
-  %.sroa.0144.0.ph.be = phi ptr [ %297, %..loopexit_crit_edge ], [ %190, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
+  %.0153.ph.be = phi i32 [ %305, %..loopexit_crit_edge ], [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
+  %.0150.ph.be = phi i32 [ %296, %..loopexit_crit_edge ], [ %.0.i74, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
+  %.0149.ph.be = phi i32 [ %297, %..loopexit_crit_edge ], [ %.0.lcssa, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
+  %.sroa.0132.0.ph.be = phi ptr [ %307, %..loopexit_crit_edge ], [ %.sroa.0.0.copyload.i72, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
+  %.sroa.0144.0.ph.be = phi ptr [ %300, %..loopexit_crit_edge ], [ %193, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit91 ]
   br label %.loopexit.outer, !llvm.loop !1368
 
-236:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75
-  %237 = zext nneg i32 %.0.i74 to i64
-  %238 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i72, i64 0, i64 %237
-  store ptr %.sroa.0144.0.ph, ptr %238, align 8
-  store ptr %.sroa.0.0.copyload.i72, ptr %82, align 8
+239:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit75
+  %240 = zext nneg i32 %.0.i74 to i64
+  %241 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i72, i64 0, i64 %240
+  store ptr %.sroa.0144.0.ph, ptr %241, align 8
+  store ptr %.sroa.0.0.copyload.i72, ptr %83, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %236, %.loopexit, %80
-  %239 = add nsw i32 %.0153, 1
-  %240 = icmp eq i32 %239, 4
-  br i1 %240, label %.lr.ph170, label %.loopexit, !llvm.loop !1368
+.critedge:                                        ; preds = %239, %.loopexit, %81
+  %242 = add nsw i32 %.0153, 1
+  %243 = icmp eq i32 %242, 4
+  br i1 %243, label %.lr.ph170, label %.loopexit, !llvm.loop !1368
 
 .lr.ph170:                                        ; preds = %.critedge, %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE3popEv.exit
-  %.sroa.0144.2169 = phi ptr [ %297, %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE3popEv.exit ], [ %.sroa.0144.0.ph, %.critedge ]
-  %241 = load ptr, ptr %70, align 8
-  %242 = load ptr, ptr %73, align 8
-  %243 = icmp eq ptr %241, %242
-  br i1 %243, label %244, label %256
+  %.sroa.0144.2169 = phi ptr [ %300, %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE3popEv.exit ], [ %.sroa.0144.0.ph, %.critedge ]
+  %244 = load ptr, ptr %70, align 8
+  %245 = load ptr, ptr %73, align 8
+  %246 = icmp eq ptr %244, %245
+  br i1 %246, label %247, label %259
 
-244:                                              ; preds = %.lr.ph170
-  %245 = load ptr, ptr %6, align 8
-  %.not.i.i.i92 = icmp eq ptr %245, null
-  br i1 %.not.i.i.i92, label %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEED2Ev.exit, label %246
+247:                                              ; preds = %.lr.ph170
+  %248 = load ptr, ptr %6, align 8
+  %.not.i.i.i92 = icmp eq ptr %248, null
+  br i1 %.not.i.i.i92, label %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEED2Ev.exit, label %249
 
-246:                                              ; preds = %244
-  %247 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %248 = load ptr, ptr %247, align 8
-  %249 = load ptr, ptr %75, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  %251 = icmp ult ptr %248, %250
-  br i1 %251, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.i.i.i
+249:                                              ; preds = %247
+  %250 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %251 = load ptr, ptr %250, align 8
+  %252 = load ptr, ptr %75, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
+  %254 = icmp ult ptr %251, %253
+  br i1 %254, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %246, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %253, %.lr.ph.i.i.i.i ], [ %248, %246 ]
-  %252 = load ptr, ptr %.06.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %252) #38
-  %253 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %254 = icmp ult ptr %.06.i.i.i.i, %249
-  br i1 %254, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.loopexit.i.i.i, !llvm.loop !1369
+.lr.ph.i.i.i.i:                                   ; preds = %249, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %256, %.lr.ph.i.i.i.i ], [ %251, %249 ]
+  %255 = load ptr, ptr %.06.i.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %255) #38
+  %256 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %257 = icmp ult ptr %.06.i.i.i.i, %252
+  br i1 %257, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.loopexit.i.i.i, !llvm.loop !1369
 
 _ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %6, align 8
   br label %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.i.i.i
 
-_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.loopexit.i.i.i, %246
-  %255 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.loopexit.i.i.i ], [ %245, %246 ]
-  call void @_ZdlPv(ptr noundef %255) #38
+_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.loopexit.i.i.i, %249
+  %258 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.loopexit.i.i.i ], [ %248, %249 ]
+  call void @_ZdlPv(ptr noundef %258) #38
   br label %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEED2Ev.exit
 
-_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEED2Ev.exit: ; preds = %244, %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.i.i.i
+_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEED2Ev.exit: ; preds = %247, %_ZNSt11_Deque_baseIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESaIS15_EE16_M_destroy_nodesEPPS15_S19_.exit.i.i.i
   ret ptr %.sroa.0144.2169
 
-256:                                              ; preds = %.lr.ph170
-  %257 = load ptr, ptr %74, align 8, !noalias !1370
-  %258 = icmp eq ptr %241, %257
-  br i1 %258, label %272, label %259
+259:                                              ; preds = %.lr.ph170
+  %260 = load ptr, ptr %74, align 8, !noalias !1370
+  %261 = icmp eq ptr %244, %260
+  br i1 %261, label %275, label %262
 
-259:                                              ; preds = %256
-  %260 = getelementptr inbounds i8, ptr %241, i64 -40
-  %261 = load i32, ptr %260, align 8
-  %262 = getelementptr inbounds i8, ptr %241, i64 -32
-  %263 = load i64, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %241, i64 -24
-  %265 = load i32, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %241, i64 -16
-  %267 = load i64, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %241, i64 -8
-  %269 = load i32, ptr %268, align 8
-  %270 = getelementptr inbounds i8, ptr %241, i64 -4
-  %271 = load i32, ptr %270, align 4
+262:                                              ; preds = %259
+  %263 = getelementptr inbounds i8, ptr %244, i64 -40
+  %264 = load i32, ptr %263, align 8
+  %265 = getelementptr inbounds i8, ptr %244, i64 -32
+  %266 = load i64, ptr %265, align 8
+  %267 = getelementptr inbounds i8, ptr %244, i64 -24
+  %268 = load i32, ptr %267, align 8
+  %269 = getelementptr inbounds i8, ptr %244, i64 -16
+  %270 = load i64, ptr %269, align 8
+  %271 = getelementptr inbounds i8, ptr %244, i64 -8
+  %272 = load i32, ptr %271, align 8
+  %273 = getelementptr inbounds i8, ptr %244, i64 -4
+  %274 = load i32, ptr %273, align 4
   br label %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE3popEv.exit
 
-272:                                              ; preds = %256
-  %273 = load ptr, ptr %75, align 8, !noalias !1370
-  %274 = getelementptr inbounds i8, ptr %273, i64 -8
-  %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 440
-  %277 = load i32, ptr %276, align 8
-  %278 = getelementptr inbounds nuw i8, ptr %275, i64 448
-  %279 = load i64, ptr %278, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %275, i64 456
-  %281 = load i32, ptr %280, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %275, i64 464
-  %283 = load i64, ptr %282, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %275, i64 472
-  %285 = load i32, ptr %284, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %275, i64 476
-  %287 = load i32, ptr %286, align 4
-  call void @_ZdlPv(ptr noundef %257) #38
-  %288 = load ptr, ptr %75, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 -8
-  store ptr %289, ptr %75, align 8
-  %290 = load ptr, ptr %289, align 8
-  store ptr %290, ptr %74, align 8
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 480
-  store ptr %291, ptr %71, align 8
-  %292 = getelementptr inbounds nuw i8, ptr %290, i64 440
+275:                                              ; preds = %259
+  %276 = load ptr, ptr %75, align 8, !noalias !1370
+  %277 = getelementptr inbounds i8, ptr %276, i64 -8
+  %278 = load ptr, ptr %277, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 440
+  %280 = load i32, ptr %279, align 8
+  %281 = getelementptr inbounds nuw i8, ptr %278, i64 448
+  %282 = load i64, ptr %281, align 8
+  %283 = getelementptr inbounds nuw i8, ptr %278, i64 456
+  %284 = load i32, ptr %283, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %278, i64 464
+  %286 = load i64, ptr %285, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %278, i64 472
+  %288 = load i32, ptr %287, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %278, i64 476
+  %290 = load i32, ptr %289, align 4
+  call void @_ZdlPv(ptr noundef %260) #38
+  %291 = load ptr, ptr %75, align 8
+  %292 = getelementptr inbounds i8, ptr %291, i64 -8
+  store ptr %292, ptr %75, align 8
+  %293 = load ptr, ptr %292, align 8
+  store ptr %293, ptr %74, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 480
+  store ptr %294, ptr %71, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %293, i64 440
   br label %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE3popEv.exit
 
-_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE3popEv.exit: ; preds = %259, %272
-  %293 = phi i32 [ %271, %259 ], [ %287, %272 ]
-  %294 = phi i32 [ %269, %259 ], [ %285, %272 ]
-  %.in = phi i64 [ %267, %259 ], [ %283, %272 ]
-  %295 = phi i32 [ %265, %259 ], [ %281, %272 ]
-  %.in156 = phi i64 [ %263, %259 ], [ %279, %272 ]
-  %296 = phi i32 [ %261, %259 ], [ %277, %272 ]
-  %storemerge.i.i = phi ptr [ %260, %259 ], [ %292, %272 ]
-  %297 = inttoptr i64 %.in156 to ptr
+_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE3popEv.exit: ; preds = %262, %275
+  %296 = phi i32 [ %274, %262 ], [ %290, %275 ]
+  %297 = phi i32 [ %272, %262 ], [ %288, %275 ]
+  %.in = phi i64 [ %270, %262 ], [ %286, %275 ]
+  %298 = phi i32 [ %268, %262 ], [ %284, %275 ]
+  %.in156 = phi i64 [ %266, %262 ], [ %282, %275 ]
+  %299 = phi i32 [ %264, %262 ], [ %280, %275 ]
+  %storemerge.i.i = phi ptr [ %263, %262 ], [ %295, %275 ]
+  %300 = inttoptr i64 %.in156 to ptr
   store ptr %storemerge.i.i, ptr %70, align 8
-  %298 = sext i32 %296 to i64
-  %299 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0144.2169, i64 0, i64 %298
-  store ptr %297, ptr %299, align 8
-  %300 = sext i32 %295 to i64
-  %301 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %297, i64 0, i64 %300
-  store ptr %.sroa.0144.2169, ptr %301, align 8
-  %302 = add nsw i32 %295, 1
-  %303 = icmp eq i32 %302, 4
-  br i1 %303, label %.lr.ph170, label %..loopexit_crit_edge
+  %301 = sext i32 %299 to i64
+  %302 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0144.2169, i64 0, i64 %301
+  store ptr %300, ptr %302, align 8
+  %303 = sext i32 %298 to i64
+  %304 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %300, i64 0, i64 %303
+  store ptr %.sroa.0144.2169, ptr %304, align 8
+  %305 = add nsw i32 %298, 1
+  %306 = icmp eq i32 %305, 4
+  br i1 %306, label %.lr.ph170, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %_ZNSt5stackIN4CGAL30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS0_27Triangulation_vertex_base_3ISF_NS0_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS0_34Delaunay_triangulation_cell_base_3ISF_NS0_25Triangulation_cell_base_3ISF_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEESX_SY_E15iAdjacency_infoESt5dequeIS15_SaIS15_EEE3popEv.exit
-  %304 = inttoptr i64 %.in to ptr
+  %307 = inttoptr i64 %.in to ptr
   br label %.loopexit.outer.backedge
 }
 
@@ -66540,51 +66556,52 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
 
 74:                                               ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE10has_vertexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEERi.exit39
   %75 = zext nneg i32 %2 to i64
-  %76 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %75, i64 %75
-  %77 = load i8, ptr %76, align 1
-  %78 = zext nneg i8 %77 to i64
-  %or.cond.i46 = icmp ult i8 %77, 4
+  %76 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %75
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 0, i64 %75
+  %78 = load i8, ptr %77, align 1
+  %79 = zext nneg i8 %78 to i64
+  %or.cond.i46 = icmp ult i8 %78, 4
   tail call void @llvm.assume(i1 %or.cond.i46)
-  %79 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %13, i64 0, i64 %78
-  %.sroa.0.0.copyload.i47 = load ptr, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i47, i64 16
-  %81 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %13, i64 0, i64 %75
-  %.sroa.0.0.copyload.i51 = load ptr, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i51, i64 16
+  %80 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %13, i64 0, i64 %79
+  %.sroa.0.0.copyload.i47 = load ptr, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i47, i64 16
+  %82 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %13, i64 0, i64 %75
+  %.sroa.0.0.copyload.i51 = load ptr, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i51, i64 16
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %7)
-  %83 = call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianINS_4MpzfEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESN_EES5_NS_12NT_converterIdS4_EEEENSK_ISP_SE_NSQ_IdSD_EEEENSK_ISP_SI_NSQ_IdSH_EEEELb1EEclIJNS_7Point_3ISN_EES10_S10_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %82)
+  %84 = call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianINS_4MpzfEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESN_EES5_NS_12NT_converterIdS4_EEEENSK_ISP_SE_NSQ_IdSD_EEEENSK_ISP_SI_NSQ_IdSH_EEEELb1EEclIJNS_7Point_3ISN_EES10_S10_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %83)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6)
-  %84 = call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianINS_4MpzfEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESN_EES5_NS_12NT_converterIdS4_EEEENSK_ISP_SE_NSQ_IdSD_EEEENSK_ISP_SI_NSQ_IdSH_EEEELb1EEclIJNS_7Point_3ISN_EES10_S10_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %85 = call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianINS_4MpzfEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESN_EES5_NS_12NT_converterIdS4_EEEENSK_ISP_SE_NSQ_IdSD_EEEENSK_ISP_SI_NSQ_IdSH_EEEELb1EEclIJNS_7Point_3ISN_EES10_S10_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
-  %85 = mul nsw i32 %84, %83
-  %.not = icmp eq i32 %85, 0
-  br i1 %.not, label %88, label %86
+  %86 = mul nsw i32 %85, %84
+  %.not = icmp eq i32 %86, 0
+  br i1 %.not, label %89, label %87
 
-86:                                               ; preds = %74
-  %87 = sub nsw i32 0, %85
+87:                                               ; preds = %74
+  %88 = sub nsw i32 0, %86
   br label %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE15side_of_segmentERKNS_7Point_3IS5_EES1A_S1A_RNS16_11Locate_typeERi.exit
 
-88:                                               ; preds = %74
-  %89 = call noundef i32 @_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE18collinear_positionERKNS_7Point_3IS5_EES1A_S1A_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %80)
-  %switch.tableidx95 = add i32 %89, -1
-  %90 = icmp ult i32 %switch.tableidx95, 3
-  br i1 %90, label %switch.lookup94, label %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE15side_of_segmentERKNS_7Point_3IS5_EES1A_S1A_RNS16_11Locate_typeERi.exit
+89:                                               ; preds = %74
+  %90 = call noundef i32 @_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE18collinear_positionERKNS_7Point_3IS5_EES1A_S1A_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %81)
+  %switch.tableidx95 = add i32 %90, -1
+  %91 = icmp ult i32 %switch.tableidx95, 3
+  br i1 %91, label %switch.lookup94, label %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE15side_of_segmentERKNS_7Point_3IS5_EES1A_S1A_RNS16_11Locate_typeERi.exit
 
 switch.lookup:                                    ; preds = %44
-  %91 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4CGAL24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultES15_E14side_of_circleENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEEiRKNS_7Point_3IS5_EEb.2, i64 0, i64 %91
+  %92 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4CGAL24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultES15_E14side_of_circleENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEEiRKNS_7Point_3IS5_EEb.2, i64 0, i64 %92
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE15side_of_segmentERKNS_7Point_3IS5_EES1A_S1A_RNS16_11Locate_typeERi.exit
 
-switch.lookup94:                                  ; preds = %88
-  %92 = zext nneg i32 %switch.tableidx95 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4CGAL24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultES15_E14side_of_circleENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEEiRKNS_7Point_3IS5_EEb.2, i64 0, i64 %92
+switch.lookup94:                                  ; preds = %89
+  %93 = zext nneg i32 %switch.tableidx95 to i64
+  %switch.gep96 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4CGAL24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultES15_E14side_of_circleENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEEiRKNS_7Point_3IS5_EEb.2, i64 0, i64 %93
   %switch.load97 = load i32, ptr %switch.gep96, align 4
   br label %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE15side_of_segmentERKNS_7Point_3IS5_EES1A_S1A_RNS16_11Locate_typeERi.exit
 
-_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE15side_of_segmentERKNS_7Point_3IS5_EES1A_S1A_RNS16_11Locate_typeERi.exit: ; preds = %88, %switch.lookup94, %44, %switch.lookup, %.sink.split.i, %86, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE10has_vertexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEERi.exit39.thread, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE10has_vertexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEERi.exit
-  %.0 = phi i32 [ %32, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE10has_vertexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEERi.exit ], [ %73, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE10has_vertexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEERi.exit39.thread ], [ %87, %86 ], [ %43, %.sink.split.i ], [ %switch.load, %switch.lookup ], [ -1, %44 ], [ %switch.load97, %switch.lookup94 ], [ -1, %88 ]
+_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE15side_of_segmentERKNS_7Point_3IS5_EES1A_S1A_RNS16_11Locate_typeERi.exit: ; preds = %89, %switch.lookup94, %44, %switch.lookup, %.sink.split.i, %87, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE10has_vertexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEERi.exit39.thread, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE10has_vertexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEERi.exit
+  %.0 = phi i32 [ %32, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE10has_vertexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEERi.exit ], [ %73, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE10has_vertexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEERi.exit39.thread ], [ %88, %87 ], [ %43, %.sink.split.i ], [ %switch.load, %switch.lookup ], [ -1, %44 ], [ %switch.load97, %switch.lookup94 ], [ -1, %89 ]
   ret i32 %.0
 }
 
@@ -66682,9 +66699,9 @@ _ZN4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E14insert_in_edgeENS_8internal11CC_iteratorINS_17Compact_containerINSK_INSL_ISM_SE_NSN_ISE_NSO_ISE_NSP_ISE_NSQ_IS13_EEEEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEEii(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr %0, align 8
-  switch i32 %5, label %237 [
+  switch i32 %5, label %238 [
     i32 3, label %_ZNSt12_Vector_baseIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wraps_38internal24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE9Cell_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3INS0_30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS0_7DefaultES1E_S1E_EELb0EEESaIS1G_EE11_M_allocateEm.exit.i
-    i32 2, label %66
+    i32 2, label %67
   ]
 
 _ZNSt12_Vector_baseIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wraps_38internal24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE9Cell_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3INS0_30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS0_7DefaultES1E_S1E_EELb0EEESaIS1G_EE11_M_allocateEm.exit.i: ; preds = %4
@@ -66813,19 +66830,20 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
 
 58:                                               ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit.i, %49, %53
   %.0.i4.i = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit.i ], [ 1, %49 ], [ %57, %53 ]
-  %59 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i.i, i64 %.0.i4.i
-  %60 = load i8, ptr %59, align 1
-  %61 = sext i8 %60 to i64
-  %62 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.5.0, i64 0, i64 %61
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %62, align 8
+  %59 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 0, i64 %.0.i.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 0, i64 %.0.i4.i
+  %61 = load i8, ptr %60, align 1
+  %62 = sext i8 %61 to i64
+  %63 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.5.0, i64 0, i64 %62
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %63, align 8
   %.not = icmp eq ptr %1, %.sroa.0.0.copyload.i.i
-  br i1 %.not, label %63, label %13, !llvm.loop !1400
+  br i1 %.not, label %64, label %13, !llvm.loop !1400
 
-63:                                               ; preds = %58
-  %64 = invoke ptr @_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E15_insert_in_holeIN9__gnu_cxx17__normal_iteratorIPNS_8internal11CC_iteratorINS_17Compact_containerINSK_INSL_ISM_SE_NSN_ISE_NSO_ISE_NSP_ISE_NSQ_IS13_EEEEEEEEEEEENS_7DefaultES1G_S1G_EELb0EEESt6vectorIS1I_SaIS1I_EEEEEENS18_INS19_INS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEES1G_S1G_S1G_EELb0EEET_S1U_S1I_i(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %.sroa.0158.3, ptr nonnull %.sroa.8.2, ptr %1, i32 noundef %2)
-          to label %65 unwind label %.loopexit.split-lp
+64:                                               ; preds = %58
+  %65 = invoke ptr @_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E15_insert_in_holeIN9__gnu_cxx17__normal_iteratorIPNS_8internal11CC_iteratorINS_17Compact_containerINSK_INSL_ISM_SE_NSN_ISE_NSO_ISE_NSP_ISE_NSQ_IS13_EEEEEEEEEEEENS_7DefaultES1G_S1G_EELb0EEESt6vectorIS1I_SaIS1I_EEEEEENS18_INS19_INS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEES1G_S1G_S1G_EELb0EEET_S1U_S1I_i(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %.sroa.0158.3, ptr nonnull %.sroa.8.2, ptr %1, i32 noundef %2)
+          to label %66 unwind label %.loopexit.split-lp
 
-65:                                               ; preds = %63
+66:                                               ; preds = %64
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0158.3) #38
   br label %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wraps_38internal24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE9Cell_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3INS0_30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS0_7DefaultES1E_S1E_EELb0EEESaIS1G_EED2Ev.exit
 
@@ -66834,8 +66852,8 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
           cleanup
   br label %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wraps_38internal24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE9Cell_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3INS0_30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS0_7DefaultES1E_S1E_EELb0EEESaIS1G_EED2Ev.exit78
 
-.loopexit.split-lp:                               ; preds = %63, %21
-  %.sroa.0158.0.ph = phi ptr [ %.sroa.0158.3, %63 ], [ %.sroa.0158.1, %21 ]
+.loopexit.split-lp:                               ; preds = %64, %21
+  %.sroa.0158.0.ph = phi ptr [ %.sroa.0158.3, %64 ], [ %.sroa.0158.1, %21 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wraps_38internal24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE9Cell_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3INS0_30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS0_7DefaultES1E_S1E_EELb0EEESaIS1G_EED2Ev.exit78
@@ -66846,477 +66864,477 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wr
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0158.0) #38
   resume { ptr, i32 } %lpad.phi
 
-66:                                               ; preds = %4
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit
+67:                                               ; preds = %4
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZN4CGAL17Compact_containerINS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS_30Triangulation_data_structure_3INS1_INS2_ISA_SE_NSF_ISE_NSG_INSH_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEENS_7DefaultES19_S19_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %71)
-  %.pre.i.i = load ptr, ptr %67, align 8
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @_ZN4CGAL17Compact_containerINS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS_30Triangulation_data_structure_3INS1_INS2_ISA_SE_NSF_ISE_NSG_INSH_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEENS_7DefaultES19_S19_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %72)
+  %.pre.i.i = load ptr, ptr %68, align 8
   br label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit
 
-_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit: ; preds = %66, %70
-  %72 = phi ptr [ %.pre.i.i, %70 ], [ %68, %66 ]
-  %73 = load ptr, ptr %72, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %75 = and i64 %74, -4
-  %76 = inttoptr i64 %75 to ptr
-  store ptr %76, ptr %67, align 8
-  store ptr null, ptr %72, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i8 0, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %80 = load i64, ptr %79, align 8
-  %81 = add i64 %80, 1
-  store i64 %81, ptr %79, align 8
-  %82 = add i32 %2, %3
-  %83 = sub i32 3, %82
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %1, i64 0, i64 %84
-  %.sroa.0.0.copyload.i79 = load ptr, ptr %85, align 8
-  %86 = load ptr, ptr %.sroa.0.0.copyload.i79, align 8
-  %87 = icmp eq ptr %1, %86
-  br i1 %87, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit, label %88
+_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit: ; preds = %67, %71
+  %73 = phi ptr [ %.pre.i.i, %71 ], [ %69, %67 ]
+  %74 = load ptr, ptr %73, align 8
+  %75 = ptrtoint ptr %74 to i64
+  %76 = and i64 %75, -4
+  %77 = inttoptr i64 %76 to ptr
+  store ptr %77, ptr %68, align 8
+  store ptr null, ptr %73, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i8 0, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %81 = load i64, ptr %80, align 8
+  %82 = add i64 %81, 1
+  store i64 %82, ptr %80, align 8
+  %83 = add i32 %2, %3
+  %84 = sub i32 3, %83
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %1, i64 0, i64 %85
+  %.sroa.0.0.copyload.i79 = load ptr, ptr %86, align 8
+  %87 = load ptr, ptr %.sroa.0.0.copyload.i79, align 8
+  %88 = icmp eq ptr %1, %87
+  br i1 %88, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit, label %89
 
-88:                                               ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %1, %90
-  br i1 %91, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit, label %92
+89:                                               ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp eq ptr %1, %91
+  br i1 %92, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit, label %93
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 16
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %1, %94
-  %96 = select i1 %95, i64 2, i64 3
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp eq ptr %1, %95
+  %97 = select i1 %96, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit: ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit, %88, %92
-  %.0.i = phi i64 [ 0, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit ], [ 1, %88 ], [ %96, %92 ]
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit: ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit, %89, %93
+  %.0.i = phi i64 [ 0, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit ], [ 1, %89 ], [ %97, %93 ]
   %or.cond.i = icmp ult i32 %2, 4
   tail call void @llvm.assume(i1 %or.cond.i)
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %98 = zext nneg i32 %2 to i64
-  %99 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %97, i64 0, i64 %98
-  %.sroa.0.0.copyload.i80 = load ptr, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 32
-  %101 = load ptr, ptr %100, align 8
-  %102 = icmp eq ptr %.sroa.0.0.copyload.i80, %101
-  br i1 %102, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit, label %103
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %99 = zext nneg i32 %2 to i64
+  %100 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %98, i64 0, i64 %99
+  %.sroa.0.0.copyload.i80 = load ptr, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 32
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %.sroa.0.0.copyload.i80, %102
+  br i1 %103, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit, label %104
 
-103:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 40
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %.sroa.0.0.copyload.i80, %105
-  br i1 %106, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit, label %107
+104:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 40
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %.sroa.0.0.copyload.i80, %106
+  br i1 %107, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit, label %108
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 48
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %.sroa.0.0.copyload.i80, %109
-  %111 = select i1 %110, i64 2, i64 3
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 48
+  %110 = load ptr, ptr %109, align 8
+  %111 = icmp eq ptr %.sroa.0.0.copyload.i80, %110
+  %112 = select i1 %111, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit, %103, %107
-  %.0.i82 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit ], [ 1, %103 ], [ %111, %107 ]
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit, %104, %108
+  %.0.i82 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit ], [ 1, %104 ], [ %112, %108 ]
   %or.cond.i83 = icmp ult i32 %3, 4
   tail call void @llvm.assume(i1 %or.cond.i83)
-  %112 = zext nneg i32 %3 to i64
-  %113 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %97, i64 0, i64 %112
-  %.sroa.0.0.copyload.i84 = load ptr, ptr %113, align 8
-  %114 = icmp eq ptr %.sroa.0.0.copyload.i84, %101
-  br i1 %114, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87, label %115
+  %113 = zext nneg i32 %3 to i64
+  %114 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %98, i64 0, i64 %113
+  %.sroa.0.0.copyload.i84 = load ptr, ptr %114, align 8
+  %115 = icmp eq ptr %.sroa.0.0.copyload.i84, %102
+  br i1 %115, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87, label %116
 
-115:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 40
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %.sroa.0.0.copyload.i84, %117
-  br i1 %118, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87, label %119
+116:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 40
+  %118 = load ptr, ptr %117, align 8
+  %119 = icmp eq ptr %.sroa.0.0.copyload.i84, %118
+  br i1 %119, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87, label %120
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 48
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp eq ptr %.sroa.0.0.copyload.i84, %121
-  %123 = select i1 %122, i64 2, i64 3
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 48
+  %122 = load ptr, ptr %121, align 8
+  %123 = icmp eq ptr %.sroa.0.0.copyload.i84, %122
+  %124 = select i1 %123, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit, %115, %119
-  %.0.i86 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit ], [ 1, %115 ], [ %123, %119 ]
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %129
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit, %116, %120
+  %.0.i86 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit ], [ 1, %116 ], [ %124, %120 ]
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %128, label %130
 
-127:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4CGAL17Compact_containerINS_13Alpha_wraps_38internal24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS9_11Vertex_infoESE_NS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INSJ_INSL_ISM_SE_NSN_ISE_NSO_IvEEEEEENS3_INS4_ISA_SE_NSF_ISE_NSG_ISE_NSH_ISE_NSI_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEEEEEENS_7DefaultES1B_S1B_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %128)
-  %.pre.i.i89 = load ptr, ptr %124, align 8
-  br label %129
+128:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4CGAL17Compact_containerINS_13Alpha_wraps_38internal24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS9_11Vertex_infoESE_NS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INSJ_INSL_ISM_SE_NSN_ISE_NSO_IvEEEEEENS3_INS4_ISA_SE_NSF_ISE_NSG_ISE_NSH_ISE_NSI_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEEEEEENS_7DefaultES1B_S1B_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %129)
+  %.pre.i.i89 = load ptr, ptr %125, align 8
+  br label %130
 
-129:                                              ; preds = %127, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87
-  %130 = phi ptr [ %.pre.i.i89, %127 ], [ %125, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87 ]
-  %131 = load ptr, ptr %130, align 8
-  %132 = ptrtoint ptr %131 to i64
-  %133 = and i64 %132, -4
-  %134 = inttoptr i64 %133 to ptr
-  store ptr %134, ptr %124, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %130, i8 0, i64 65, i1 false)
-  %135 = getelementptr inbounds nuw i8, ptr %130, i64 72
-  store ptr null, ptr %135, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %130, i64 80
-  store i8 0, ptr %136, align 1
-  %137 = getelementptr inbounds nuw i8, ptr %130, i64 88
-  store i64 -1, ptr %137, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %139 = load i64, ptr %138, align 8
-  %140 = add i64 %139, 1
-  store i64 %140, ptr %138, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %142 = load i64, ptr %137, align 8
-  %143 = icmp eq i64 %142, -1
-  br i1 %143, label %144, label %146
+130:                                              ; preds = %128, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87
+  %131 = phi ptr [ %.pre.i.i89, %128 ], [ %126, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit87 ]
+  %132 = load ptr, ptr %131, align 8
+  %133 = ptrtoint ptr %132 to i64
+  %134 = and i64 %133, -4
+  %135 = inttoptr i64 %134 to ptr
+  store ptr %135, ptr %125, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %131, i8 0, i64 65, i1 false)
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 72
+  store ptr null, ptr %136, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 80
+  store i8 0, ptr %137, align 1
+  %138 = getelementptr inbounds nuw i8, ptr %131, i64 88
+  store i64 -1, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %140 = load i64, ptr %139, align 8
+  %141 = add i64 %140, 1
+  store i64 %141, ptr %139, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %143 = load i64, ptr %138, align 8
+  %144 = icmp eq i64 %143, -1
+  br i1 %144, label %145, label %147
 
-144:                                              ; preds = %129
-  %145 = atomicrmw add ptr %141, i64 1 seq_cst, align 8
-  store i64 %145, ptr %137, align 8
+145:                                              ; preds = %130
+  %146 = atomicrmw add ptr %142, i64 1 seq_cst, align 8
+  store i64 %146, ptr %138, align 8
   br label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit
 
-146:                                              ; preds = %129
-  %147 = add nuw i64 %142, 1
-  %148 = load atomic i64, ptr %141 seq_cst, align 8
-  br label %149
+147:                                              ; preds = %130
+  %148 = add nuw i64 %143, 1
+  %149 = load atomic i64, ptr %142 seq_cst, align 8
+  br label %150
 
-149:                                              ; preds = %150, %146
-  %.048.i.i.i = phi i64 [ %148, %146 ], [ %153, %150 ]
-  %.not.i.i.i88 = icmp ugt i64 %.048.i.i.i, %142
-  br i1 %.not.i.i.i88, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit, label %150
+150:                                              ; preds = %151, %147
+  %.048.i.i.i = phi i64 [ %149, %147 ], [ %154, %151 ]
+  %.not.i.i.i88 = icmp ugt i64 %.048.i.i.i, %143
+  br i1 %.not.i.i.i88, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit, label %151
 
-150:                                              ; preds = %149
-  %151 = cmpxchg weak ptr %141, i64 %.048.i.i.i, i64 %147 seq_cst seq_cst, align 8
-  %152 = extractvalue { i64, i1 } %151, 1
-  %153 = extractvalue { i64, i1 } %151, 0
-  br i1 %152, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit, label %149, !llvm.loop !995
+151:                                              ; preds = %150
+  %152 = cmpxchg weak ptr %142, i64 %.048.i.i.i, i64 %148 seq_cst seq_cst, align 8
+  %153 = extractvalue { i64, i1 } %152, 1
+  %154 = extractvalue { i64, i1 } %152, 0
+  br i1 %153, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit, label %150, !llvm.loop !995
 
-_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit: ; preds = %149, %150, %144
-  %.sroa.0.0.copyload.i91 = load ptr, ptr %99, align 8
-  %154 = load ptr, ptr %135, align 8
-  %.not.i.i = icmp eq ptr %154, null
-  br i1 %.not.i.i, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit, label %155
+_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit: ; preds = %150, %151, %145
+  %.sroa.0.0.copyload.i91 = load ptr, ptr %100, align 8
+  %155 = load ptr, ptr %136, align 8
+  %.not.i.i = icmp eq ptr %155, null
+  br i1 %.not.i.i, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit, label %156
 
-155:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %154) #38
-  store ptr null, ptr %135, align 8
+156:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %155) #38
+  store ptr null, ptr %136, align 8
   br label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit
 
-_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit: ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit, %155
-  %156 = getelementptr inbounds nuw i8, ptr %130, i64 32
-  %157 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %156, i64 0, i64 %98
-  store ptr %.sroa.0.0.copyload.i91, ptr %157, align 8
-  %.sroa.0.0.copyload.i93 = load ptr, ptr %99, align 8
-  store ptr %130, ptr %.sroa.0.0.copyload.i93, align 8
-  %158 = load ptr, ptr %135, align 8
-  %.not.i.i94 = icmp eq ptr %158, null
-  br i1 %.not.i.i94, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit99, label %159
+_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit: ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit, %156
+  %157 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %158 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %157, i64 0, i64 %99
+  store ptr %.sroa.0.0.copyload.i91, ptr %158, align 8
+  %.sroa.0.0.copyload.i93 = load ptr, ptr %100, align 8
+  store ptr %131, ptr %.sroa.0.0.copyload.i93, align 8
+  %159 = load ptr, ptr %136, align 8
+  %.not.i.i94 = icmp eq ptr %159, null
+  br i1 %.not.i.i94, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit99, label %160
 
-159:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %158) #38
-  store ptr null, ptr %135, align 8
+160:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %159) #38
+  store ptr null, ptr %136, align 8
   br label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit99
 
-_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit99: ; preds = %159, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit
-  %160 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %156, i64 0, i64 %112
-  store ptr %72, ptr %160, align 8
-  %or.cond.i96 = icmp ult i32 %83, 4
+_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit99: ; preds = %160, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit
+  %161 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %157, i64 0, i64 %113
+  store ptr %73, ptr %161, align 8
+  %or.cond.i96 = icmp ult i32 %84, 4
   tail call void @llvm.assume(i1 %or.cond.i96)
-  %161 = zext nneg i32 %83 to i64
-  %162 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %97, i64 0, i64 %161
-  %.sroa.0.0.copyload.i97 = load ptr, ptr %162, align 8
-  %163 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %156, i64 0, i64 %84
-  store ptr %.sroa.0.0.copyload.i97, ptr %163, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %165 = load ptr, ptr %164, align 8
-  %.not.i.i100 = icmp eq ptr %165, null
-  br i1 %.not.i.i100, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101, label %166
+  %162 = zext nneg i32 %84 to i64
+  %163 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %98, i64 0, i64 %162
+  %.sroa.0.0.copyload.i97 = load ptr, ptr %163, align 8
+  %164 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %157, i64 0, i64 %85
+  store ptr %.sroa.0.0.copyload.i97, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %166 = load ptr, ptr %165, align 8
+  %.not.i.i100 = icmp eq ptr %166, null
+  br i1 %.not.i.i100, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101, label %167
 
-166:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit99
-  tail call void @_ZdlPv(ptr noundef nonnull %165) #38
-  store ptr null, ptr %164, align 8
+167:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit99
+  tail call void @_ZdlPv(ptr noundef nonnull %166) #38
+  store ptr null, ptr %165, align 8
   br label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101
 
-_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101: ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit99, %166
-  store ptr %72, ptr %99, align 8
-  %167 = load ptr, ptr %124, align 8
-  %168 = icmp eq ptr %167, null
-  br i1 %168, label %169, label %171
+_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101: ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit99, %167
+  store ptr %73, ptr %100, align 8
+  %168 = load ptr, ptr %125, align 8
+  %169 = icmp eq ptr %168, null
+  br i1 %169, label %170, label %172
 
-169:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4CGAL17Compact_containerINS_13Alpha_wraps_38internal24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS9_11Vertex_infoESE_NS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INSJ_INSL_ISM_SE_NSN_ISE_NSO_IvEEEEEENS3_INS4_ISA_SE_NSF_ISE_NSG_ISE_NSH_ISE_NSI_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEEEEEENS_7DefaultES1B_S1B_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %170)
-  %.pre.i.i104 = load ptr, ptr %124, align 8
-  br label %171
+170:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4CGAL17Compact_containerINS_13Alpha_wraps_38internal24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS9_11Vertex_infoESE_NS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INSJ_INSL_ISM_SE_NSN_ISE_NSO_IvEEEEEENS3_INS4_ISA_SE_NSF_ISE_NSG_ISE_NSH_ISE_NSI_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEEEEEENS_7DefaultES1B_S1B_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %171)
+  %.pre.i.i104 = load ptr, ptr %125, align 8
+  br label %172
 
-171:                                              ; preds = %169, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101
-  %172 = phi ptr [ %.pre.i.i104, %169 ], [ %167, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101 ]
-  %173 = load ptr, ptr %172, align 8
-  %174 = ptrtoint ptr %173 to i64
-  %175 = and i64 %174, -4
-  %176 = inttoptr i64 %175 to ptr
-  store ptr %176, ptr %124, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %172, i8 0, i64 65, i1 false)
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 72
-  store ptr null, ptr %177, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %172, i64 80
-  store i8 0, ptr %178, align 1
-  %179 = getelementptr inbounds nuw i8, ptr %172, i64 88
-  store i64 -1, ptr %179, align 8
-  %180 = load i64, ptr %138, align 8
-  %181 = add i64 %180, 1
-  store i64 %181, ptr %138, align 8
-  %182 = load i64, ptr %179, align 8
-  %183 = icmp eq i64 %182, -1
-  br i1 %183, label %184, label %186
+172:                                              ; preds = %170, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101
+  %173 = phi ptr [ %.pre.i.i104, %170 ], [ %168, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit101 ]
+  %174 = load ptr, ptr %173, align 8
+  %175 = ptrtoint ptr %174 to i64
+  %176 = and i64 %175, -4
+  %177 = inttoptr i64 %176 to ptr
+  store ptr %177, ptr %125, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %173, i8 0, i64 65, i1 false)
+  %178 = getelementptr inbounds nuw i8, ptr %173, i64 72
+  store ptr null, ptr %178, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 80
+  store i8 0, ptr %179, align 1
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 88
+  store i64 -1, ptr %180, align 8
+  %181 = load i64, ptr %139, align 8
+  %182 = add i64 %181, 1
+  store i64 %182, ptr %139, align 8
+  %183 = load i64, ptr %180, align 8
+  %184 = icmp eq i64 %183, -1
+  br i1 %184, label %185, label %187
 
-184:                                              ; preds = %171
-  %185 = atomicrmw add ptr %141, i64 1 seq_cst, align 8
-  store i64 %185, ptr %179, align 8
+185:                                              ; preds = %172
+  %186 = atomicrmw add ptr %142, i64 1 seq_cst, align 8
+  store i64 %186, ptr %180, align 8
   br label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105
 
-186:                                              ; preds = %171
-  %187 = add nuw i64 %182, 1
-  %188 = load atomic i64, ptr %141 seq_cst, align 8
-  br label %189
+187:                                              ; preds = %172
+  %188 = add nuw i64 %183, 1
+  %189 = load atomic i64, ptr %142 seq_cst, align 8
+  br label %190
 
-189:                                              ; preds = %190, %186
-  %.048.i.i.i102 = phi i64 [ %188, %186 ], [ %193, %190 ]
-  %.not.i.i.i103 = icmp ugt i64 %.048.i.i.i102, %182
-  br i1 %.not.i.i.i103, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105, label %190
+190:                                              ; preds = %191, %187
+  %.048.i.i.i102 = phi i64 [ %189, %187 ], [ %194, %191 ]
+  %.not.i.i.i103 = icmp ugt i64 %.048.i.i.i102, %183
+  br i1 %.not.i.i.i103, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105, label %191
 
-190:                                              ; preds = %189
-  %191 = cmpxchg weak ptr %141, i64 %.048.i.i.i102, i64 %187 seq_cst seq_cst, align 8
-  %192 = extractvalue { i64, i1 } %191, 1
-  %193 = extractvalue { i64, i1 } %191, 0
-  br i1 %192, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105, label %189, !llvm.loop !995
+191:                                              ; preds = %190
+  %192 = cmpxchg weak ptr %142, i64 %.048.i.i.i102, i64 %188 seq_cst seq_cst, align 8
+  %193 = extractvalue { i64, i1 } %192, 1
+  %194 = extractvalue { i64, i1 } %192, 0
+  br i1 %193, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105, label %190, !llvm.loop !995
 
-_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105: ; preds = %189, %190, %184
-  %194 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %100, i64 0, i64 %.0.i82
-  %.sroa.0.0.copyload.i107 = load ptr, ptr %194, align 8
-  %195 = load ptr, ptr %177, align 8
-  %.not.i.i108 = icmp eq ptr %195, null
-  br i1 %.not.i.i108, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit115, label %196
+_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105: ; preds = %190, %191, %185
+  %195 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %101, i64 0, i64 %.0.i82
+  %.sroa.0.0.copyload.i107 = load ptr, ptr %195, align 8
+  %196 = load ptr, ptr %178, align 8
+  %.not.i.i108 = icmp eq ptr %196, null
+  br i1 %.not.i.i108, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit115, label %197
 
-196:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105
-  tail call void @_ZdlPv(ptr noundef nonnull %195) #38
-  store ptr null, ptr %177, align 8
+197:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105
+  tail call void @_ZdlPv(ptr noundef nonnull %196) #38
+  store ptr null, ptr %178, align 8
   br label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit115
 
-_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit115: ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105, %196
-  %197 = getelementptr inbounds nuw i8, ptr %172, i64 32
-  %198 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %197, i64 0, i64 %.0.i82
-  store ptr %.sroa.0.0.copyload.i107, ptr %198, align 8
-  %199 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %197, i64 0, i64 %.0.i86
-  store ptr %72, ptr %199, align 8
-  %200 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %100, i64 0, i64 %.0.i
-  %.sroa.0.0.copyload.i113 = load ptr, ptr %200, align 8
-  %201 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %197, i64 0, i64 %.0.i
-  store ptr %.sroa.0.0.copyload.i113, ptr %201, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 72
-  %203 = load ptr, ptr %202, align 8
-  %.not.i.i116 = icmp eq ptr %203, null
-  br i1 %.not.i.i116, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117, label %204
+_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit115: ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_cellEv.exit105, %197
+  %198 = getelementptr inbounds nuw i8, ptr %173, i64 32
+  %199 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %198, i64 0, i64 %.0.i82
+  store ptr %.sroa.0.0.copyload.i107, ptr %199, align 8
+  %200 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %198, i64 0, i64 %.0.i86
+  store ptr %73, ptr %200, align 8
+  %201 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %101, i64 0, i64 %.0.i
+  %.sroa.0.0.copyload.i113 = load ptr, ptr %201, align 8
+  %202 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %198, i64 0, i64 %.0.i
+  store ptr %.sroa.0.0.copyload.i113, ptr %202, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 72
+  %204 = load ptr, ptr %203, align 8
+  %.not.i.i116 = icmp eq ptr %204, null
+  br i1 %.not.i.i116, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117, label %205
 
-204:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit115
-  tail call void @_ZdlPv(ptr noundef nonnull %203) #38
-  store ptr null, ptr %202, align 8
+205:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit115
+  tail call void @_ZdlPv(ptr noundef nonnull %204) #38
+  store ptr null, ptr %203, align 8
   br label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117
 
-_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117: ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit115, %204
-  store ptr %72, ptr %194, align 8
-  %205 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %1, i64 0, i64 %112
-  %.sroa.0.0.copyload.i118 = load ptr, ptr %205, align 8
-  %206 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %130, i64 0, i64 %98
-  store ptr %1, ptr %206, align 8
-  store ptr %130, ptr %205, align 8
-  %207 = load ptr, ptr %.sroa.0.0.copyload.i118, align 8
-  %208 = icmp eq ptr %1, %207
-  br i1 %208, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121, label %209
+_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117: ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit115, %205
+  store ptr %73, ptr %195, align 8
+  %206 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %1, i64 0, i64 %113
+  %.sroa.0.0.copyload.i118 = load ptr, ptr %206, align 8
+  %207 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %131, i64 0, i64 %99
+  store ptr %1, ptr %207, align 8
+  store ptr %131, ptr %206, align 8
+  %208 = load ptr, ptr %.sroa.0.0.copyload.i118, align 8
+  %209 = icmp eq ptr %1, %208
+  br i1 %209, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121, label %210
 
-209:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i118, i64 8
-  %211 = load ptr, ptr %210, align 8
-  %212 = icmp eq ptr %1, %211
-  br i1 %212, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121, label %213
+210:                                              ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117
+  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i118, i64 8
+  %212 = load ptr, ptr %211, align 8
+  %213 = icmp eq ptr %1, %212
+  br i1 %213, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121, label %214
 
-213:                                              ; preds = %209
-  %214 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i118, i64 16
-  %215 = load ptr, ptr %214, align 8
-  %216 = icmp eq ptr %1, %215
-  %217 = select i1 %216, i64 2, i64 3
+214:                                              ; preds = %210
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i118, i64 16
+  %216 = load ptr, ptr %215, align 8
+  %217 = icmp eq ptr %1, %216
+  %218 = select i1 %217, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121: ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117, %209, %213
-  %.0.i120 = phi i64 [ 0, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117 ], [ 1, %209 ], [ %217, %213 ]
-  %218 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %130, i64 0, i64 %112
-  store ptr %.sroa.0.0.copyload.i118, ptr %218, align 8
-  %219 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i118, i64 0, i64 %.0.i120
-  store ptr %130, ptr %219, align 8
-  %220 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i79, i64 0, i64 %.0.i86
-  %.sroa.0.0.copyload.i122 = load ptr, ptr %220, align 8
-  %221 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %172, i64 0, i64 %.0.i82
-  store ptr %.sroa.0.0.copyload.i79, ptr %221, align 8
-  store ptr %172, ptr %220, align 8
-  %222 = load ptr, ptr %.sroa.0.0.copyload.i122, align 8
-  %223 = icmp eq ptr %.sroa.0.0.copyload.i79, %222
-  br i1 %223, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125, label %224
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121: ; preds = %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117, %210, %214
+  %.0.i120 = phi i64 [ 0, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit117 ], [ 1, %210 ], [ %218, %214 ]
+  %219 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %131, i64 0, i64 %113
+  store ptr %.sroa.0.0.copyload.i118, ptr %219, align 8
+  %220 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i118, i64 0, i64 %.0.i120
+  store ptr %131, ptr %220, align 8
+  %221 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i79, i64 0, i64 %.0.i86
+  %.sroa.0.0.copyload.i122 = load ptr, ptr %221, align 8
+  %222 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %173, i64 0, i64 %.0.i82
+  store ptr %.sroa.0.0.copyload.i79, ptr %222, align 8
+  store ptr %173, ptr %221, align 8
+  %223 = load ptr, ptr %.sroa.0.0.copyload.i122, align 8
+  %224 = icmp eq ptr %.sroa.0.0.copyload.i79, %223
+  br i1 %224, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125, label %225
 
-224:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121
-  %225 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i122, i64 8
-  %226 = load ptr, ptr %225, align 8
-  %227 = icmp eq ptr %.sroa.0.0.copyload.i79, %226
-  br i1 %227, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125, label %228
+225:                                              ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121
+  %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i122, i64 8
+  %227 = load ptr, ptr %226, align 8
+  %228 = icmp eq ptr %.sroa.0.0.copyload.i79, %227
+  br i1 %228, label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125, label %229
 
-228:                                              ; preds = %224
-  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i122, i64 16
-  %230 = load ptr, ptr %229, align 8
-  %231 = icmp eq ptr %.sroa.0.0.copyload.i79, %230
-  %232 = select i1 %231, i64 2, i64 3
+229:                                              ; preds = %225
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i122, i64 16
+  %231 = load ptr, ptr %230, align 8
+  %232 = icmp eq ptr %.sroa.0.0.copyload.i79, %231
+  %233 = select i1 %232, i64 2, i64 3
   br label %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125
 
-_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121, %224, %228
-  %.0.i124 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121 ], [ 1, %224 ], [ %232, %228 ]
-  %233 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %172, i64 0, i64 %.0.i86
-  store ptr %.sroa.0.0.copyload.i122, ptr %233, align 8
-  %234 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i122, i64 0, i64 %.0.i124
-  store ptr %172, ptr %234, align 8
-  %235 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %130, i64 0, i64 %84
-  store ptr %172, ptr %235, align 8
-  %236 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %172, i64 0, i64 %.0.i
-  store ptr %130, ptr %236, align 8
-  store ptr %130, ptr %72, align 8
+_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121, %225, %229
+  %.0.i124 = phi i64 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit121 ], [ 1, %225 ], [ %233, %229 ]
+  %234 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %173, i64 0, i64 %.0.i86
+  store ptr %.sroa.0.0.copyload.i122, ptr %234, align 8
+  %235 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i122, i64 0, i64 %.0.i124
+  store ptr %173, ptr %235, align 8
+  %236 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %131, i64 0, i64 %85
+  store ptr %173, ptr %236, align 8
+  %237 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %173, i64 0, i64 %.0.i
+  store ptr %131, ptr %237, align 8
+  store ptr %131, ptr %73, align 8
   br label %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wraps_38internal24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE9Cell_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3INS0_30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS0_7DefaultES1E_S1E_EELb0EEESaIS1G_EED2Ev.exit
 
-237:                                              ; preds = %4
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %239 = load ptr, ptr %238, align 8
-  %240 = icmp eq ptr %239, null
-  br i1 %240, label %241, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127
+238:                                              ; preds = %4
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %240 = load ptr, ptr %239, align 8
+  %241 = icmp eq ptr %240, null
+  br i1 %241, label %242, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127
 
-241:                                              ; preds = %237
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZN4CGAL17Compact_containerINS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS_30Triangulation_data_structure_3INS1_INS2_ISA_SE_NSF_ISE_NSG_INSH_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEENS_7DefaultES19_S19_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %242)
-  %.pre.i.i126 = load ptr, ptr %238, align 8
+242:                                              ; preds = %238
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @_ZN4CGAL17Compact_containerINS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS_30Triangulation_data_structure_3INS1_INS2_ISA_SE_NSF_ISE_NSG_INSH_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEENS_7DefaultES19_S19_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %243)
+  %.pre.i.i126 = load ptr, ptr %239, align 8
   br label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127
 
-_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127: ; preds = %237, %241
-  %243 = phi ptr [ %.pre.i.i126, %241 ], [ %239, %237 ]
-  %244 = load ptr, ptr %243, align 8
-  %245 = ptrtoint ptr %244 to i64
-  %246 = and i64 %245, -4
-  %247 = inttoptr i64 %246 to ptr
-  store ptr %247, ptr %238, align 8
-  store ptr null, ptr %243, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  store i8 0, ptr %248, align 8
-  %249 = getelementptr inbounds nuw i8, ptr %243, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %249, i8 0, i64 16, i1 false)
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %251 = load i64, ptr %250, align 8
-  %252 = add i64 %251, 1
-  store i64 %252, ptr %250, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i128 = load ptr, ptr %253, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %255 = load ptr, ptr %254, align 8
-  %256 = icmp eq ptr %255, null
-  br i1 %256, label %257, label %259
+_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127: ; preds = %238, %242
+  %244 = phi ptr [ %.pre.i.i126, %242 ], [ %240, %238 ]
+  %245 = load ptr, ptr %244, align 8
+  %246 = ptrtoint ptr %245 to i64
+  %247 = and i64 %246, -4
+  %248 = inttoptr i64 %247 to ptr
+  store ptr %248, ptr %239, align 8
+  store ptr null, ptr %244, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  store i8 0, ptr %249, align 8
+  %250 = getelementptr inbounds nuw i8, ptr %244, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %250, i8 0, i64 16, i1 false)
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %252 = load i64, ptr %251, align 8
+  %253 = add i64 %252, 1
+  store i64 %253, ptr %251, align 8
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload.i128 = load ptr, ptr %254, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %256 = load ptr, ptr %255, align 8
+  %257 = icmp eq ptr %256, null
+  br i1 %257, label %258, label %260
 
-257:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4CGAL17Compact_containerINS_13Alpha_wraps_38internal24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS9_11Vertex_infoESE_NS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INSJ_INSL_ISM_SE_NSN_ISE_NSO_IvEEEEEENS3_INS4_ISA_SE_NSF_ISE_NSG_ISE_NSH_ISE_NSI_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEEEEEENS_7DefaultES1B_S1B_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %258)
-  %.pre.i.i131 = load ptr, ptr %254, align 8
-  br label %259
+258:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4CGAL17Compact_containerINS_13Alpha_wraps_38internal24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS9_11Vertex_infoESE_NS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INSJ_INSL_ISM_SE_NSN_ISE_NSO_IvEEEEEENS3_INS4_ISA_SE_NSF_ISE_NSG_ISE_NSH_ISE_NSI_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EEEEEEEEEEEEEENS_7DefaultES1B_S1B_E18allocate_new_blockEv(ptr noundef nonnull align 8 dereferenceable(88) %259)
+  %.pre.i.i131 = load ptr, ptr %255, align 8
+  br label %260
 
-259:                                              ; preds = %257, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127
-  %260 = phi ptr [ %.pre.i.i131, %257 ], [ %255, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127 ]
-  %261 = load ptr, ptr %260, align 8
-  %262 = ptrtoint ptr %261 to i64
-  %263 = and i64 %262, -4
-  %264 = inttoptr i64 %263 to ptr
-  store ptr %264, ptr %254, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %260, i8 0, i64 32, i1 false)
-  %265 = getelementptr inbounds nuw i8, ptr %260, i64 32
-  store ptr %243, ptr %265, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %260, i64 40
-  store ptr %.sroa.0.0.copyload.i128, ptr %266, align 8
-  %267 = getelementptr inbounds nuw i8, ptr %260, i64 48
-  %268 = getelementptr inbounds nuw i8, ptr %260, i64 72
-  store ptr null, ptr %268, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %260, i64 80
-  store i8 0, ptr %269, align 1
-  %270 = getelementptr inbounds nuw i8, ptr %260, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %267, i8 0, i64 17, i1 false)
-  store i64 -1, ptr %270, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %272 = load i64, ptr %271, align 8
-  %273 = add i64 %272, 1
-  store i64 %273, ptr %271, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %275 = load i64, ptr %270, align 8
-  %276 = icmp eq i64 %275, -1
-  br i1 %276, label %277, label %279
+260:                                              ; preds = %258, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127
+  %261 = phi ptr [ %.pre.i.i131, %258 ], [ %256, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_vertexEv.exit127 ]
+  %262 = load ptr, ptr %261, align 8
+  %263 = ptrtoint ptr %262 to i64
+  %264 = and i64 %263, -4
+  %265 = inttoptr i64 %264 to ptr
+  store ptr %265, ptr %255, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %261, i8 0, i64 32, i1 false)
+  %266 = getelementptr inbounds nuw i8, ptr %261, i64 32
+  store ptr %244, ptr %266, align 8
+  %267 = getelementptr inbounds nuw i8, ptr %261, i64 40
+  store ptr %.sroa.0.0.copyload.i128, ptr %267, align 8
+  %268 = getelementptr inbounds nuw i8, ptr %261, i64 48
+  %269 = getelementptr inbounds nuw i8, ptr %261, i64 72
+  store ptr null, ptr %269, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %261, i64 80
+  store i8 0, ptr %270, align 1
+  %271 = getelementptr inbounds nuw i8, ptr %261, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %268, i8 0, i64 17, i1 false)
+  store i64 -1, ptr %271, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %273 = load i64, ptr %272, align 8
+  %274 = add i64 %273, 1
+  store i64 %274, ptr %272, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %276 = load i64, ptr %271, align 8
+  %277 = icmp eq i64 %276, -1
+  br i1 %277, label %278, label %280
 
-277:                                              ; preds = %259
-  %278 = atomicrmw add ptr %274, i64 1 seq_cst, align 8
-  store i64 %278, ptr %270, align 8
+278:                                              ; preds = %260
+  %279 = atomicrmw add ptr %275, i64 1 seq_cst, align 8
+  store i64 %279, ptr %271, align 8
   br label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit
 
-279:                                              ; preds = %259
-  %280 = add nuw i64 %275, 1
-  %281 = load atomic i64, ptr %274 seq_cst, align 8
-  br label %282
+280:                                              ; preds = %260
+  %281 = add nuw i64 %276, 1
+  %282 = load atomic i64, ptr %275 seq_cst, align 8
+  br label %283
 
-282:                                              ; preds = %283, %279
-  %.048.i.i.i129 = phi i64 [ %281, %279 ], [ %286, %283 ]
-  %.not.i.i.i130 = icmp ugt i64 %.048.i.i.i129, %275
-  br i1 %.not.i.i.i130, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit, label %283
+283:                                              ; preds = %284, %280
+  %.048.i.i.i129 = phi i64 [ %282, %280 ], [ %287, %284 ]
+  %.not.i.i.i130 = icmp ugt i64 %.048.i.i.i129, %276
+  br i1 %.not.i.i.i130, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit, label %284
 
-283:                                              ; preds = %282
-  %284 = cmpxchg weak ptr %274, i64 %.048.i.i.i129, i64 %280 seq_cst seq_cst, align 8
-  %285 = extractvalue { i64, i1 } %284, 1
-  %286 = extractvalue { i64, i1 } %284, 0
-  br i1 %285, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit, label %282, !llvm.loop !995
+284:                                              ; preds = %283
+  %285 = cmpxchg weak ptr %275, i64 %.048.i.i.i129, i64 %281 seq_cst seq_cst, align 8
+  %286 = extractvalue { i64, i1 } %285, 1
+  %287 = extractvalue { i64, i1 } %285, 0
+  br i1 %286, label %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit, label %283, !llvm.loop !995
 
-_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit: ; preds = %282, %283, %277
-  %.sroa.0.0.copyload.i132 = load ptr, ptr %253, align 8
-  store ptr %260, ptr %.sroa.0.0.copyload.i132, align 8
-  %287 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %288 = load ptr, ptr %287, align 8
-  %.not.i.i133 = icmp eq ptr %288, null
-  br i1 %.not.i.i133, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit134, label %289
+_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit: ; preds = %283, %284, %278
+  %.sroa.0.0.copyload.i132 = load ptr, ptr %254, align 8
+  store ptr %261, ptr %.sroa.0.0.copyload.i132, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %289 = load ptr, ptr %288, align 8
+  %.not.i.i133 = icmp eq ptr %289, null
+  br i1 %.not.i.i133, label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit134, label %290
 
-289:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %288) #38
-  store ptr null, ptr %287, align 8
+290:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %289) #38
+  store ptr null, ptr %288, align 8
   br label %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit134
 
-_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit134: ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit, %289
-  store ptr %243, ptr %253, align 8
+_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit134: ; preds = %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E11create_faceENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEES1D_S1D_.exit, %290
+  store ptr %244, ptr %254, align 8
   %.sroa.0.0.copyload.i135 = load ptr, ptr %1, align 8
-  store ptr %.sroa.0.0.copyload.i135, ptr %260, align 8
-  %290 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i135, i64 8
-  store ptr %260, ptr %290, align 8
-  %291 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  store ptr %1, ptr %291, align 8
-  store ptr %260, ptr %1, align 8
-  store ptr %260, ptr %243, align 8
+  store ptr %.sroa.0.0.copyload.i135, ptr %261, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i135, i64 8
+  store ptr %261, ptr %291, align 8
+  %292 = getelementptr inbounds nuw i8, ptr %261, i64 8
+  store ptr %1, ptr %292, align 8
+  store ptr %261, ptr %1, align 8
+  store ptr %261, ptr %244, align 8
   br label %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wraps_38internal24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE9Cell_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3INS0_30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS0_7DefaultES1E_S1E_EELb0EEESaIS1G_EED2Ev.exit
 
-_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wraps_38internal24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE9Cell_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3INS0_30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS0_7DefaultES1E_S1E_EELb0EEESaIS1G_EED2Ev.exit: ; preds = %65, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit134, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125
-  %.sroa.0179.0 = phi ptr [ %243, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit134 ], [ %72, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125 ], [ %64, %65 ]
+_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_13Alpha_wraps_38internal24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE9Cell_infoENS0_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3INS0_30Triangulation_data_structure_3INS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS0_7DefaultES1E_S1E_EELb0EEESaIS1G_EED2Ev.exit: ; preds = %66, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit134, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125
+  %.sroa.0179.0 = phi ptr [ %244, %_ZN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INSB_INSD_ISI_S7_NSJ_IS7_NSK_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSH_9Cell_infoES7_NS0_IS7_NS8_IS7_NS9_IS7_NSA_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEEEEEEEE10set_vertexEiNS_8internal11CC_iteratorINS_17Compact_containerINSC_INSD_ISI_S7_NSJ_IS7_NSK_IS13_EEEEEEEENS_7DefaultES1F_S1F_EELb0EEE.exit134 ], [ %73, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_SF_NSO_ISF_NSP_ISF_NSQ_ISF_S14_EEEEEEEEEENS_7DefaultES1D_S1D_EELb0EEE.exit125 ], [ %65, %66 ]
   ret ptr %.sroa.0179.0
 }
 
@@ -70131,149 +70149,150 @@ _ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha
   br i1 %38, label %_ZNK4CGAL13Alpha_wraps_38internal12Alpha_wrap_3INS1_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE12facet_statusERKSt4pairINS_8internal11CC_iteratorINS_17Compact_containerINS1_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS6_9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS1_27Alpha_wrap_AABB_geom_traitsIS4_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS6_11Vertex_infoESH_NS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENSB_INSC_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS_7DefaultES1E_S1E_EELb0EEEiE.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.copyload, i64 32
-  br label %41
+  %39 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.copyload, i64 32
+  br label %42
 
-40:                                               ; preds = %41
+41:                                               ; preds = %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %48, label %41, !llvm.loop !1425
+  br i1 %exitcond.not.i, label %49, label %42, !llvm.loop !1425
 
-41:                                               ; preds = %40, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %40 ]
-  %42 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %8, i64 %indvars.iv.i
-  %43 = load i32, ptr %42, align 4
-  %or.cond.i.i = icmp ult i32 %43, 4
+42:                                               ; preds = %41, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %41 ]
+  %43 = getelementptr inbounds nuw [3 x i32], ptr %39, i64 0, i64 %indvars.iv.i
+  %44 = load i32, ptr %43, align 4
+  %or.cond.i.i = icmp ult i32 %44, 4
   tail call void @llvm.assume(i1 %or.cond.i.i)
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %39, i64 0, i64 %44
-  %.sroa.0.0.copyload.i10.i = load ptr, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i10.i, i64 40
-  %47 = load i32, ptr %46, align 4
-  %.off.i = add i32 %47, -1
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %40, i64 0, i64 %45
+  %.sroa.0.0.copyload.i10.i = load ptr, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i10.i, i64 40
+  %48 = load i32, ptr %47, align 4
+  %.off.i = add i32 %48, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %select.unfold, label %40
+  br i1 %switch.i, label %select.unfold, label %41
 
-48:                                               ; preds = %40
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %50 = load double, ptr %49, align 8
-  %51 = tail call noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal39less_squared_radius_of_min_empty_sphereINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS1_12Alpha_wrap_3INS1_20Triangle_mesh_oracleIS6_iLb1EEEE11Vertex_infoES8_NS_27Triangulation_vertex_base_3IS8_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS1_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES8_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS8_NS_34Delaunay_triangulation_cell_base_3IS8_NS_25Triangulation_cell_base_3IS8_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEEbNT_11Geom_traits2FTERKNS15_5FacetERKS15_(double noundef %50, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(1128) %21)
-  br i1 %51, label %.select.unfold_crit_edge, label %_ZNK4CGAL13Alpha_wraps_38internal12Alpha_wrap_3INS1_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE12facet_statusERKSt4pairINS_8internal11CC_iteratorINS_17Compact_containerINS1_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS6_9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS1_27Alpha_wrap_AABB_geom_traitsIS4_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS6_11Vertex_infoESH_NS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENSB_INSC_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS_7DefaultES1E_S1E_EELb0EEEiE.exit
+49:                                               ; preds = %41
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %51 = load double, ptr %50, align 8
+  %52 = tail call noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal39less_squared_radius_of_min_empty_sphereINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS1_12Alpha_wrap_3INS1_20Triangle_mesh_oracleIS6_iLb1EEEE11Vertex_infoES8_NS_27Triangulation_vertex_base_3IS8_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS1_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES8_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS8_NS_34Delaunay_triangulation_cell_base_3IS8_NS_25Triangulation_cell_base_3IS8_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEEbNT_11Geom_traits2FTERKNS15_5FacetERKS15_(double noundef %51, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(1128) %21)
+  br i1 %52, label %.select.unfold_crit_edge, label %_ZNK4CGAL13Alpha_wraps_38internal12Alpha_wrap_3INS1_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE12facet_statusERKSt4pairINS_8internal11CC_iteratorINS_17Compact_containerINS1_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS6_9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS1_27Alpha_wrap_AABB_geom_traitsIS4_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS6_11Vertex_infoESH_NS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENSB_INSC_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS_7DefaultES1E_S1E_EELb0EEEiE.exit
 
-.select.unfold_crit_edge:                         ; preds = %48
+.select.unfold_crit_edge:                         ; preds = %49
   %.sroa.08.0.copyload.pre = load ptr, ptr %1, align 8
   %.pre = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   br label %select.unfold
 
-select.unfold:                                    ; preds = %41, %.select.unfold_crit_edge, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEE.exit.i, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit.thread
-  %52 = phi i32 [ %.sroa.2.0.copyload, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit.thread ], [ %.sroa.2.0.copyload, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEE.exit.i ], [ %.pre, %.select.unfold_crit_edge ], [ %.sroa.2.0.copyload, %41 ]
-  %.sroa.08.0.copyload = phi ptr [ %.sroa.025.0.copyload, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit.thread ], [ %.sroa.025.0.copyload, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEE.exit.i ], [ %.sroa.08.0.copyload.pre, %.select.unfold_crit_edge ], [ %.sroa.025.0.copyload, %41 ]
-  %53 = phi i8 [ 0, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit.thread ], [ 0, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEE.exit.i ], [ 0, %.select.unfold_crit_edge ], [ 1, %41 ]
-  %54 = add nsw i32 %52, 1
-  %55 = and i32 %54, 3
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.copyload, i64 32
-  %57 = zext nneg i32 %55 to i64
-  %58 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %56, i64 0, i64 %57
-  %.sroa.0.0.copyload.i.i20 = load ptr, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20, i64 16
-  %60 = and i32 %52, 3
-  %61 = xor i32 %60, 2
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %56, i64 0, i64 %62
-  %.sroa.0.0.copyload.i.i22 = load ptr, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i22, i64 16
-  %65 = add nsw i32 %52, 3
-  %66 = and i32 %65, 3
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %56, i64 0, i64 %67
-  %.sroa.0.0.copyload.i.i24 = load ptr, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i24, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20, i64 24
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20, i64 32
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i22, i64 24
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i22, i64 32
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i24, i64 24
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i24, i64 32
-  %76 = load double, ptr %59, align 8
-  %77 = load double, ptr %69, align 8
-  %78 = fsub double %76, %77
-  %79 = load double, ptr %70, align 8
-  %80 = load double, ptr %74, align 8
-  %81 = fsub double %79, %80
-  %82 = load double, ptr %71, align 8
-  %83 = load double, ptr %75, align 8
-  %84 = fsub double %82, %83
-  %85 = fmul double %78, %78
-  %86 = fmul double %81, %81
-  %87 = fadd double %85, %86
-  %88 = fmul double %84, %84
-  %89 = fadd double %87, %88
-  %90 = load double, ptr %64, align 8
-  %91 = fsub double %90, %77
-  %92 = load double, ptr %72, align 8
-  %93 = fsub double %92, %80
-  %94 = load double, ptr %73, align 8
-  %95 = fsub double %94, %83
-  %96 = fmul double %91, %91
-  %97 = fmul double %93, %93
-  %98 = fadd double %96, %97
-  %99 = fmul double %95, %95
-  %100 = fadd double %98, %99
-  %101 = fneg double %93
-  %102 = fmul double %84, %101
-  %103 = tail call double @llvm.fmuladd.f64(double %81, double %95, double %102)
-  %104 = fneg double %95
-  %105 = fmul double %78, %104
-  %106 = tail call double @llvm.fmuladd.f64(double %84, double %91, double %105)
-  %107 = fneg double %91
-  %108 = fmul double %81, %107
-  %109 = tail call double @llvm.fmuladd.f64(double %78, double %93, double %108)
-  %110 = fmul double %106, %104
-  %111 = tail call noundef double @llvm.fmuladd.f64(double %93, double %109, double %110)
-  %112 = fneg double %84
-  %113 = fmul double %106, %112
-  %114 = tail call noundef double @llvm.fmuladd.f64(double %81, double %109, double %113)
-  %115 = fneg double %114
-  %116 = fmul double %100, %115
-  %117 = tail call double @llvm.fmuladd.f64(double %89, double %111, double %116)
-  %118 = fmul double %103, %104
-  %119 = tail call noundef double @llvm.fmuladd.f64(double %91, double %109, double %118)
-  %120 = fmul double %103, %112
-  %121 = tail call noundef double @llvm.fmuladd.f64(double %78, double %109, double %120)
-  %122 = fneg double %121
-  %123 = fmul double %100, %122
-  %124 = tail call double @llvm.fmuladd.f64(double %89, double %119, double %123)
-  %125 = fmul double %103, %101
-  %126 = tail call double @llvm.fmuladd.f64(double %91, double %106, double %125)
-  %127 = fneg double %81
-  %128 = fmul double %103, %127
-  %129 = tail call double @llvm.fmuladd.f64(double %78, double %106, double %128)
-  %130 = fneg double %129
-  %131 = fmul double %100, %130
-  %132 = tail call double @llvm.fmuladd.f64(double %89, double %126, double %131)
-  %133 = fmul double %91, %127
-  %134 = tail call double @llvm.fmuladd.f64(double %78, double %93, double %133)
-  %135 = fmul double %129, %104
-  %136 = tail call double @llvm.fmuladd.f64(double %134, double %109, double %135)
-  %137 = tail call noundef double @llvm.fmuladd.f64(double %126, double %84, double %136)
-  %138 = fmul double %117, %117
-  %139 = fmul double %124, %124
-  %140 = fadd double %139, %138
-  %141 = fmul double %132, %132
-  %142 = fadd double %141, %140
-  %143 = fmul double %137, 2.000000e+00
-  %144 = fmul double %143, %143
-  %145 = fdiv double %142, %144
+select.unfold:                                    ; preds = %42, %.select.unfold_crit_edge, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEE.exit.i, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit.thread
+  %53 = phi i32 [ %.sroa.2.0.copyload, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit.thread ], [ %.sroa.2.0.copyload, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEE.exit.i ], [ %.pre, %.select.unfold_crit_edge ], [ %.sroa.2.0.copyload, %42 ]
+  %.sroa.08.0.copyload = phi ptr [ %.sroa.025.0.copyload, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit.thread ], [ %.sroa.025.0.copyload, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEE.exit.i ], [ %.sroa.08.0.copyload.pre, %.select.unfold_crit_edge ], [ %.sroa.025.0.copyload, %42 ]
+  %54 = phi i8 [ 0, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit.thread ], [ 0, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEE.exit.i ], [ 0, %.select.unfold_crit_edge ], [ 1, %42 ]
+  %55 = add nsw i32 %53, 1
+  %56 = and i32 %55, 3
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.copyload, i64 32
+  %58 = zext nneg i32 %56 to i64
+  %59 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %57, i64 0, i64 %58
+  %.sroa.0.0.copyload.i.i20 = load ptr, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20, i64 16
+  %61 = and i32 %53, 3
+  %62 = xor i32 %61, 2
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %57, i64 0, i64 %63
+  %.sroa.0.0.copyload.i.i22 = load ptr, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i22, i64 16
+  %66 = add nsw i32 %53, 3
+  %67 = and i32 %66, 3
+  %68 = zext nneg i32 %67 to i64
+  %69 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %57, i64 0, i64 %68
+  %.sroa.0.0.copyload.i.i24 = load ptr, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i24, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i22, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i22, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i24, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i24, i64 32
+  %77 = load double, ptr %60, align 8
+  %78 = load double, ptr %70, align 8
+  %79 = fsub double %77, %78
+  %80 = load double, ptr %71, align 8
+  %81 = load double, ptr %75, align 8
+  %82 = fsub double %80, %81
+  %83 = load double, ptr %72, align 8
+  %84 = load double, ptr %76, align 8
+  %85 = fsub double %83, %84
+  %86 = fmul double %79, %79
+  %87 = fmul double %82, %82
+  %88 = fadd double %86, %87
+  %89 = fmul double %85, %85
+  %90 = fadd double %88, %89
+  %91 = load double, ptr %65, align 8
+  %92 = fsub double %91, %78
+  %93 = load double, ptr %73, align 8
+  %94 = fsub double %93, %81
+  %95 = load double, ptr %74, align 8
+  %96 = fsub double %95, %84
+  %97 = fmul double %92, %92
+  %98 = fmul double %94, %94
+  %99 = fadd double %97, %98
+  %100 = fmul double %96, %96
+  %101 = fadd double %99, %100
+  %102 = fneg double %94
+  %103 = fmul double %85, %102
+  %104 = tail call double @llvm.fmuladd.f64(double %82, double %96, double %103)
+  %105 = fneg double %96
+  %106 = fmul double %79, %105
+  %107 = tail call double @llvm.fmuladd.f64(double %85, double %92, double %106)
+  %108 = fneg double %92
+  %109 = fmul double %82, %108
+  %110 = tail call double @llvm.fmuladd.f64(double %79, double %94, double %109)
+  %111 = fmul double %107, %105
+  %112 = tail call noundef double @llvm.fmuladd.f64(double %94, double %110, double %111)
+  %113 = fneg double %85
+  %114 = fmul double %107, %113
+  %115 = tail call noundef double @llvm.fmuladd.f64(double %82, double %110, double %114)
+  %116 = fneg double %115
+  %117 = fmul double %101, %116
+  %118 = tail call double @llvm.fmuladd.f64(double %90, double %112, double %117)
+  %119 = fmul double %104, %105
+  %120 = tail call noundef double @llvm.fmuladd.f64(double %92, double %110, double %119)
+  %121 = fmul double %104, %113
+  %122 = tail call noundef double @llvm.fmuladd.f64(double %79, double %110, double %121)
+  %123 = fneg double %122
+  %124 = fmul double %101, %123
+  %125 = tail call double @llvm.fmuladd.f64(double %90, double %120, double %124)
+  %126 = fmul double %104, %102
+  %127 = tail call double @llvm.fmuladd.f64(double %92, double %107, double %126)
+  %128 = fneg double %82
+  %129 = fmul double %104, %128
+  %130 = tail call double @llvm.fmuladd.f64(double %79, double %107, double %129)
+  %131 = fneg double %130
+  %132 = fmul double %101, %131
+  %133 = tail call double @llvm.fmuladd.f64(double %90, double %127, double %132)
+  %134 = fmul double %92, %128
+  %135 = tail call double @llvm.fmuladd.f64(double %79, double %94, double %134)
+  %136 = fmul double %130, %105
+  %137 = tail call double @llvm.fmuladd.f64(double %135, double %110, double %136)
+  %138 = tail call noundef double @llvm.fmuladd.f64(double %127, double %85, double %137)
+  %139 = fmul double %118, %118
+  %140 = fmul double %125, %125
+  %141 = fadd double %140, %139
+  %142 = fmul double %133, %133
+  %143 = fadd double %142, %141
+  %144 = fmul double %138, 2.000000e+00
+  %145 = fmul double %144, %144
+  %146 = fdiv double %143, %145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %146 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %145, ptr %146, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 %53, ptr %147, align 8
-  %148 = call ptr @_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE15resize_and_pushERKS16_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(25) %3)
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store double %146, ptr %147, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i8 %54, ptr %148, align 8
+  %149 = call ptr @_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE15resize_and_pushERKS16_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(25) %3)
   br label %_ZNK4CGAL13Alpha_wraps_38internal12Alpha_wrap_3INS1_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE12facet_statusERKSt4pairINS_8internal11CC_iteratorINS_17Compact_containerINS1_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS6_9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS1_27Alpha_wrap_AABB_geom_traitsIS4_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS6_11Vertex_infoESH_NS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENSB_INSC_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS_7DefaultES1E_S1E_EELb0EEEiE.exit
 
-_ZNK4CGAL13Alpha_wraps_38internal12Alpha_wrap_3INS1_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE12facet_statusERKSt4pairINS_8internal11CC_iteratorINS_17Compact_containerINS1_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS6_9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS1_27Alpha_wrap_AABB_geom_traitsIS4_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS6_11Vertex_infoESH_NS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENSB_INSC_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS_7DefaultES1E_S1E_EELb0EEEiE.exit: ; preds = %35, %48, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit, %select.unfold
-  %.0 = phi i1 [ true, %select.unfold ], [ false, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit ], [ false, %48 ], [ false, %35 ]
+_ZNK4CGAL13Alpha_wraps_38internal12Alpha_wrap_3INS1_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE12facet_statusERKSt4pairINS_8internal11CC_iteratorINS_17Compact_containerINS1_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS6_9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS1_27Alpha_wrap_AABB_geom_traitsIS4_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS6_11Vertex_infoESH_NS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENSB_INSC_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS_7DefaultES1E_S1E_EELb0EEEiE.exit: ; preds = %35, %49, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit, %select.unfold
+  %.0 = phi i1 [ true, %select.unfold ], [ false, %_ZN4CGAL25Modifiable_priority_queueINS_13Alpha_wraps_38internal4GateINS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS2_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_vertex_base_with_info_3INS2_12Alpha_wrap_3INS2_20Triangle_mesh_oracleIS7_iLb1EEEE11Vertex_infoES9_NS_27Triangulation_vertex_base_3IS9_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS2_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES9_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS9_NS_34Delaunay_triangulation_cell_base_3IS9_NS_25Triangulation_cell_base_3IS9_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEENS_15Location_policyINS_4FastEEENS_7DefaultEEEEENS2_9Less_gateENS2_10Gate_ID_PMIS15_EELNS_9Heap_typeE0EE26contains_with_bounds_checkERKS16_.exit ], [ false, %49 ], [ false, %35 ]
   ret i1 %.0
 }
 
@@ -70420,21 +70439,27 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal39less_s
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %14, i64 0, i64 %17
   %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %17, i64 0
+  %19 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %17
   %20 = load i32, ptr %19, align 4
+  %or.cond.i.i = icmp ult i32 %20, 4
+  tail call void @llvm.assume(i1 %or.cond.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %22 = zext nneg i32 %20 to i64
   %23 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %21, i64 0, i64 %22
   %.sroa.0.0.copyload.i.i = load ptr, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 16
-  %25 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %17, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %26 = load i32, ptr %25, align 4
+  %or.cond.i.i111 = icmp ult i32 %26, 4
+  tail call void @llvm.assume(i1 %or.cond.i.i111)
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %21, i64 0, i64 %27
   %.sroa.0.0.copyload.i.i112 = load ptr, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i112, i64 16
-  %30 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %17, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %31 = load i32, ptr %30, align 4
+  %or.cond.i.i113 = icmp ult i32 %31, 4
+  tail call void @llvm.assume(i1 %or.cond.i.i113)
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %21, i64 0, i64 %32
   %.sroa.0.0.copyload.i.i114 = load ptr, ptr %33, align 8
@@ -177303,9 +177328,9 @@ _ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha
   br label %46
 
 46:                                               ; preds = %35, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit
-  %47 = phi ptr [ null, %35 ], [ %257, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit ]
-  %48 = phi ptr [ null, %35 ], [ %258, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit ]
-  %49 = phi ptr [ null, %35 ], [ %259, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit ]
+  %47 = phi ptr [ null, %35 ], [ %258, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit ]
+  %48 = phi ptr [ null, %35 ], [ %259, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit ]
+  %49 = phi ptr [ null, %35 ], [ %260, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit ]
   %.078 = phi i64 [ 0, %35 ], [ %.1, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit ]
   %.sroa.03.0.copyload.i.i = load ptr, ptr %37, align 8
   %.sroa.24.0.copyload.i.i = load ptr, ptr %.sroa.24.0..sroa_idx.i.i, align 8
@@ -177315,7 +177340,7 @@ _ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha
   %.sroa.36.0.copyload.i.i = load i32, ptr %.sroa.36.0..sroa_idx.i.i, align 8
   %52 = icmp ne i32 %.sroa.36.0.copyload.i.i, %spec.select.i13
   %or.cond = select i1 %or.cond.i.i.not86, i1 true, i1 %52
-  br i1 %or.cond, label %_ZN4CGALneINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INS3_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESZ_S10_EEEENS_15Triangulation_3ISH_S16_NS_7DefaultEE15Infinite_testerEEEbRKNS_15Filter_iteratorIT_T0_EES1H_.exit.thread, label %261
+  br i1 %or.cond, label %_ZN4CGALneINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INS3_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESZ_S10_EEEENS_15Triangulation_3ISH_S16_NS_7DefaultEE15Infinite_testerEEEbRKNS_15Filter_iteratorIT_T0_EES1H_.exit.thread, label %262
 
 _ZN4CGALneINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INS3_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESZ_S10_EEEENS_15Triangulation_3ISH_S16_NS_7DefaultEE15Infinite_testerEEEbRKNS_15Filter_iteratorIT_T0_EES1H_.exit.thread: ; preds = %46
   %53 = ptrtoint ptr %.sroa.24.0.copyload.i.i to i64
@@ -177346,7 +177371,7 @@ _ZN4CGALneINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_da
   %..i.i.i = select i1 %69, i32 2, i32 3
   br label %74
 
-.loopexit93:                                      ; preds = %_ZNKSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %85
+.loopexit93:                                      ; preds = %_ZNKSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %86
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -177356,7 +177381,7 @@ _ZN4CGALneINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_da
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %266, %.noexc, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE12facets_beginEv.exit.i, %269, %263
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %267, %.noexc, %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE12facets_beginEv.exit.i, %270, %264
   %lpad.loopexit.split-lp100 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -177400,551 +177425,552 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vec
   br i1 %83, label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit, label %.preheader92
 
 .preheader92:                                     ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 32
-  br label %85
+  %84 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %75
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 32
+  br label %86
 
-85:                                               ; preds = %.preheader92, %226
-  %86 = phi ptr [ %47, %.preheader92 ], [ %227, %226 ]
-  %indvars.iv = phi i64 [ 0, %.preheader92 ], [ %indvars.iv.next, %226 ]
-  %.2120 = phi i64 [ %.078, %.preheader92 ], [ %.3, %226 ]
-  %87 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %75, i64 %indvars.iv
-  %88 = load i32, ptr %87, align 4
-  %or.cond.i = icmp ult i32 %88, 4
+86:                                               ; preds = %.preheader92, %227
+  %87 = phi ptr [ %47, %.preheader92 ], [ %228, %227 ]
+  %indvars.iv = phi i64 [ 0, %.preheader92 ], [ %indvars.iv.next, %227 ]
+  %.2120 = phi i64 [ %.078, %.preheader92 ], [ %.3, %227 ]
+  %88 = getelementptr inbounds nuw [3 x i32], ptr %84, i64 0, i64 %indvars.iv
+  %89 = load i32, ptr %88, align 4
+  %or.cond.i = icmp ult i32 %89, 4
   call void @llvm.assume(i1 %or.cond.i)
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %84, i64 0, i64 %89
-  %.sroa.0.0.copyload.i15 = load ptr, ptr %90, align 8
-  %91 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  %90 = zext nneg i32 %89 to i64
+  %91 = getelementptr inbounds nuw [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %85, i64 0, i64 %90
+  %.sroa.0.0.copyload.i15 = load ptr, ptr %91, align 8
+  %92 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
           to label %.noexc34 unwind label %.loopexit93
 
-.noexc34:                                         ; preds = %85
-  store ptr null, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = ptrtoint ptr %.sroa.0.0.copyload.i15 to i64
-  store i64 %93, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i64 %.2120, ptr %94, align 8
-  %95 = load i64, ptr %39, align 8
-  %.not.not.i = icmp eq i64 %95, 0
+.noexc34:                                         ; preds = %86
+  store ptr null, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = ptrtoint ptr %.sroa.0.0.copyload.i15 to i64
+  store i64 %94, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i64 %.2120, ptr %95, align 8
+  %96 = load i64, ptr %39, align 8
+  %.not.not.i = icmp eq i64 %96, 0
   br i1 %.not.not.i, label %.preheader, label %.thread.i
 
 .thread.i:                                        ; preds = %.noexc34
-  %96 = lshr i64 %93, 6
-  %97 = load i64, ptr %16, align 8
-  %98 = urem i64 %96, %97
-  %99 = load ptr, ptr %11, align 8
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %98
-  %101 = load ptr, ptr %100, align 8
-  %.not.i.i.i30 = icmp eq ptr %101, null
-  br i1 %.not.i.i.i30, label %_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33, label %111
+  %97 = lshr i64 %94, 6
+  %98 = load i64, ptr %16, align 8
+  %99 = urem i64 %97, %98
+  %100 = load ptr, ptr %11, align 8
+  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %99
+  %102 = load ptr, ptr %101, align 8
+  %.not.i.i.i30 = icmp eq ptr %102, null
+  br i1 %.not.i.i.i30, label %_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33, label %112
 
-.preheader:                                       ; preds = %.noexc34, %102
-  %.sroa.022.0.in.i = phi ptr [ %.sroa.022.0.i, %102 ], [ %17, %.noexc34 ]
+.preheader:                                       ; preds = %.noexc34, %103
+  %.sroa.022.0.in.i = phi ptr [ %.sroa.022.0.i, %103 ], [ %17, %.noexc34 ]
   %.sroa.022.0.i = load ptr, ptr %.sroa.022.0.in.i, align 8
   %.not.i33 = icmp eq ptr %.sroa.022.0.i, null
-  br i1 %.not.i33, label %107, label %102
+  br i1 %.not.i33, label %108, label %103
 
-102:                                              ; preds = %.preheader
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.022.0.i, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, %.sroa.0.0.copyload.i15
-  br i1 %105, label %.loopexit, label %.preheader, !llvm.loop !3511
+103:                                              ; preds = %.preheader
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.022.0.i, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %105, %.sroa.0.0.copyload.i15
+  br i1 %106, label %.loopexit, label %.preheader, !llvm.loop !3511
 
 _ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P32: ; preds = %_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33
-  %106 = landingpad { ptr, i32 }
+  %107 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P41
 
-_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P41: ; preds = %170, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P32
-  %eh.lpad-body42 = phi { ptr, i32 } [ %106, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P32 ], [ %171, %170 ]
-  call void @_ZdlPv(ptr noundef nonnull %91) #38
+_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P41: ; preds = %171, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P32
+  %eh.lpad-body42 = phi { ptr, i32 } [ %107, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P32 ], [ %172, %171 ]
+  call void @_ZdlPv(ptr noundef nonnull %92) #38
   br label %.body
 
-107:                                              ; preds = %.preheader
-  %108 = lshr i64 %93, 6
-  %109 = load i64, ptr %16, align 8
-  %110 = urem i64 %108, %109
+108:                                              ; preds = %.preheader
+  %109 = lshr i64 %94, 6
+  %110 = load i64, ptr %16, align 8
+  %111 = urem i64 %109, %110
   br label %_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33
 
-111:                                              ; preds = %.thread.i
-  %112 = load ptr, ptr %101, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %115 = load i64, ptr %114, align 8
-  %116 = icmp eq i64 %96, %115
-  %117 = load ptr, ptr %113, align 8
-  %118 = icmp eq ptr %117, %.sroa.0.0.copyload.i15
-  %119 = select i1 %116, i1 %118, i1 false
-  br i1 %119, label %.loopexit, label %.lr.ph.i.i.i
+112:                                              ; preds = %.thread.i
+  %113 = load ptr, ptr %102, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %116 = load i64, ptr %115, align 8
+  %117 = icmp eq i64 %97, %116
+  %118 = load ptr, ptr %114, align 8
+  %119 = icmp eq ptr %118, %.sroa.0.0.copyload.i15
+  %120 = select i1 %117, i1 %119, i1 false
+  br i1 %120, label %.loopexit, label %.lr.ph.i.i.i
 
-120:                                              ; preds = %127
-  %121 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %122 = icmp eq i64 %96, %129
-  %123 = load ptr, ptr %121, align 8
-  %124 = icmp eq ptr %123, %.sroa.0.0.copyload.i15
-  %125 = select i1 %122, i1 %124, i1 false
-  br i1 %125, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !3512
+121:                                              ; preds = %128
+  %122 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %123 = icmp eq i64 %97, %130
+  %124 = load ptr, ptr %122, align 8
+  %125 = icmp eq ptr %124, %.sroa.0.0.copyload.i15
+  %126 = select i1 %123, i1 %125, i1 false
+  br i1 %126, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !3512
 
-.lr.ph.i.i.i:                                     ; preds = %111, %120
-  %.018.i.i.i = phi ptr [ %126, %120 ], [ %112, %111 ]
-  %126 = load ptr, ptr %.018.i.i.i, align 8
-  %.not16.i.i.i = icmp eq ptr %126, null
-  br i1 %.not16.i.i.i, label %_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33, label %127
+.lr.ph.i.i.i:                                     ; preds = %112, %121
+  %.018.i.i.i = phi ptr [ %127, %121 ], [ %113, %112 ]
+  %127 = load ptr, ptr %.018.i.i.i, align 8
+  %.not16.i.i.i = icmp eq ptr %127, null
+  br i1 %.not16.i.i.i, label %_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33, label %128
 
-127:                                              ; preds = %.lr.ph.i.i.i
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %129 = load i64, ptr %128, align 8
-  %130 = urem i64 %129, %97
-  %.not17.i.i.i = icmp eq i64 %130, %98
-  br i1 %.not17.i.i.i, label %120, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !3512
+128:                                              ; preds = %.lr.ph.i.i.i
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %130 = load i64, ptr %129, align 8
+  %131 = urem i64 %130, %98
+  %.not17.i.i.i = icmp eq i64 %131, %99
+  br i1 %.not17.i.i.i, label %121, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !3512
 
-..loopexit_crit_edge21.i.i.i:                     ; preds = %127
+..loopexit_crit_edge21.i.i.i:                     ; preds = %128
   br label %_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33, !llvm.loop !3512
 
-_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33: ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %107, %.thread.i
-  %131 = phi i64 [ %109, %107 ], [ %97, %.thread.i ], [ %97, %..loopexit_crit_edge21.i.i.i ], [ %97, %.lr.ph.i.i.i ]
-  %132 = phi i64 [ %110, %107 ], [ %98, %.thread.i ], [ %98, %..loopexit_crit_edge21.i.i.i ], [ %98, %.lr.ph.i.i.i ]
-  %133 = phi i64 [ %108, %107 ], [ %96, %.thread.i ], [ %96, %..loopexit_crit_edge21.i.i.i ], [ %96, %.lr.ph.i.i.i ]
-  %134 = load i64, ptr %19, align 8
-  %135 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %131, i64 noundef %95, i64 noundef 1)
+_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33: ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %108, %.thread.i
+  %132 = phi i64 [ %110, %108 ], [ %98, %.thread.i ], [ %98, %..loopexit_crit_edge21.i.i.i ], [ %98, %.lr.ph.i.i.i ]
+  %133 = phi i64 [ %111, %108 ], [ %99, %.thread.i ], [ %99, %..loopexit_crit_edge21.i.i.i ], [ %99, %.lr.ph.i.i.i ]
+  %134 = phi i64 [ %109, %108 ], [ %97, %.thread.i ], [ %97, %..loopexit_crit_edge21.i.i.i ], [ %97, %.lr.ph.i.i.i ]
+  %135 = load i64, ptr %19, align 8
+  %136 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %132, i64 noundef %96, i64 noundef 1)
           to label %.noexc39 unwind label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P32
 
 .noexc39:                                         ; preds = %_ZNKSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_33
-  %136 = extractvalue { i8, i64 } %135, 0
-  %137 = trunc i8 %136 to i1
-  br i1 %137, label %138, label %.noexc39._crit_edge
+  %137 = extractvalue { i8, i64 } %136, 0
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %139, label %.noexc39._crit_edge
 
 .noexc39._crit_edge:                              ; preds = %.noexc39
   %.pre143 = load ptr, ptr %11, align 8
-  br label %177
+  br label %178
 
-138:                                              ; preds = %.noexc39
-  %139 = extractvalue { i8, i64 } %135, 1
-  %140 = icmp eq i64 %139, 1
-  br i1 %140, label %141, label %142
+139:                                              ; preds = %.noexc39
+  %140 = extractvalue { i8, i64 } %136, 1
+  %141 = icmp eq i64 %140, 1
+  br i1 %141, label %142, label %143
 
-141:                                              ; preds = %138
+142:                                              ; preds = %139
   store ptr null, ptr %15, align 8
   br label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46
 
-142:                                              ; preds = %138
-  %143 = icmp ugt i64 %139, 1152921504606846975
-  br i1 %143, label %144, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal11CC_iteratorINS3_17Compact_containerINS3_37Triangulation_hierarchy_vertex_base_3INS3_37Triangulation_vertex_base_with_info_3INS3_13Alpha_wraps_38internal12Alpha_wrap_3INSA_20Triangle_mesh_oracleINS3_5EpickEiLb1EEEE11Vertex_infoENS3_37Robust_circumcenter_filtered_traits_3INSA_27Alpha_wrap_AABB_geom_traitsISD_EEEENS3_27Triangulation_vertex_base_3ISK_NS3_30Triangulation_ds_vertex_base_3INS3_30Triangulation_data_structure_3INS7_INS8_ISG_SK_NSL_ISK_NSM_INSN_INS8_ISG_SK_NSL_ISK_NSM_IvEEEEEENSA_24Cell_base_with_timestampINS3_35Triangulation_cell_base_with_info_3INSF_9Cell_infoESK_NS3_52Delaunay_triangulation_cell_base_with_circumcenter_3ISK_NS3_34Delaunay_triangulation_cell_base_3ISK_NS3_25Triangulation_cell_base_3ISK_NS3_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS3_14Sequential_tagEEEEEEEEEEES13_S14_EEEEEEEEEENS3_7DefaultES1F_S1F_EELb0EEEmELb1EEEEE19_M_allocate_bucketsEm.exit.i.i
+143:                                              ; preds = %139
+  %144 = icmp ugt i64 %140, 1152921504606846975
+  br i1 %144, label %145, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal11CC_iteratorINS3_17Compact_containerINS3_37Triangulation_hierarchy_vertex_base_3INS3_37Triangulation_vertex_base_with_info_3INS3_13Alpha_wraps_38internal12Alpha_wrap_3INSA_20Triangle_mesh_oracleINS3_5EpickEiLb1EEEE11Vertex_infoENS3_37Robust_circumcenter_filtered_traits_3INSA_27Alpha_wrap_AABB_geom_traitsISD_EEEENS3_27Triangulation_vertex_base_3ISK_NS3_30Triangulation_ds_vertex_base_3INS3_30Triangulation_data_structure_3INS7_INS8_ISG_SK_NSL_ISK_NSM_INSN_INS8_ISG_SK_NSL_ISK_NSM_IvEEEEEENSA_24Cell_base_with_timestampINS3_35Triangulation_cell_base_with_info_3INSF_9Cell_infoESK_NS3_52Delaunay_triangulation_cell_base_with_circumcenter_3ISK_NS3_34Delaunay_triangulation_cell_base_3ISK_NS3_25Triangulation_cell_base_3ISK_NS3_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS3_14Sequential_tagEEEEEEEEEEES13_S14_EEEEEEEEEENS3_7DefaultES1F_S1F_EELb0EEEmELb1EEEEE19_M_allocate_bucketsEm.exit.i.i
 
-144:                                              ; preds = %142
-  %145 = icmp ugt i64 %139, 2305843009213693951
-  br i1 %145, label %.noexc.i.i.i, label %.noexc7.i.i.i
+145:                                              ; preds = %143
+  %146 = icmp ugt i64 %140, 2305843009213693951
+  br i1 %146, label %.noexc.i.i.i, label %.noexc7.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %144
+.noexc.i.i.i:                                     ; preds = %145
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #42
           to label %.noexc50 unwind label %.loopexit.split-lp95
 
 .noexc50:                                         ; preds = %.noexc.i.i.i
   unreachable
 
-.noexc7.i.i.i:                                    ; preds = %144
+.noexc7.i.i.i:                                    ; preds = %145
   invoke void @_ZSt17__throw_bad_allocv() #42
           to label %.noexc51 unwind label %.loopexit.split-lp95
 
 .noexc51:                                         ; preds = %.noexc7.i.i.i
   unreachable
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal11CC_iteratorINS3_17Compact_containerINS3_37Triangulation_hierarchy_vertex_base_3INS3_37Triangulation_vertex_base_with_info_3INS3_13Alpha_wraps_38internal12Alpha_wrap_3INSA_20Triangle_mesh_oracleINS3_5EpickEiLb1EEEE11Vertex_infoENS3_37Robust_circumcenter_filtered_traits_3INSA_27Alpha_wrap_AABB_geom_traitsISD_EEEENS3_27Triangulation_vertex_base_3ISK_NS3_30Triangulation_ds_vertex_base_3INS3_30Triangulation_data_structure_3INS7_INS8_ISG_SK_NSL_ISK_NSM_INSN_INS8_ISG_SK_NSL_ISK_NSM_IvEEEEEENSA_24Cell_base_with_timestampINS3_35Triangulation_cell_base_with_info_3INSF_9Cell_infoESK_NS3_52Delaunay_triangulation_cell_base_with_circumcenter_3ISK_NS3_34Delaunay_triangulation_cell_base_3ISK_NS3_25Triangulation_cell_base_3ISK_NS3_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS3_14Sequential_tagEEEEEEEEEEES13_S14_EEEEEEEEEENS3_7DefaultES1F_S1F_EELb0EEEmELb1EEEEE19_M_allocate_bucketsEm.exit.i.i: ; preds = %142
-  %146 = shl nuw nsw i64 %139, 3
-  %147 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #41
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal11CC_iteratorINS3_17Compact_containerINS3_37Triangulation_hierarchy_vertex_base_3INS3_37Triangulation_vertex_base_with_info_3INS3_13Alpha_wraps_38internal12Alpha_wrap_3INSA_20Triangle_mesh_oracleINS3_5EpickEiLb1EEEE11Vertex_infoENS3_37Robust_circumcenter_filtered_traits_3INSA_27Alpha_wrap_AABB_geom_traitsISD_EEEENS3_27Triangulation_vertex_base_3ISK_NS3_30Triangulation_ds_vertex_base_3INS3_30Triangulation_data_structure_3INS7_INS8_ISG_SK_NSL_ISK_NSM_INSN_INS8_ISG_SK_NSL_ISK_NSM_IvEEEEEENSA_24Cell_base_with_timestampINS3_35Triangulation_cell_base_with_info_3INSF_9Cell_infoESK_NS3_52Delaunay_triangulation_cell_base_with_circumcenter_3ISK_NS3_34Delaunay_triangulation_cell_base_3ISK_NS3_25Triangulation_cell_base_3ISK_NS3_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS3_14Sequential_tagEEEEEEEEEEES13_S14_EEEEEEEEEENS3_7DefaultES1F_S1F_EELb0EEEmELb1EEEEE19_M_allocate_bucketsEm.exit.i.i: ; preds = %143
+  %147 = shl nuw nsw i64 %140, 3
+  %148 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %147) #41
           to label %.noexc52 unwind label %.loopexit94
 
 .noexc52:                                         ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal11CC_iteratorINS3_17Compact_containerINS3_37Triangulation_hierarchy_vertex_base_3INS3_37Triangulation_vertex_base_with_info_3INS3_13Alpha_wraps_38internal12Alpha_wrap_3INSA_20Triangle_mesh_oracleINS3_5EpickEiLb1EEEE11Vertex_infoENS3_37Robust_circumcenter_filtered_traits_3INSA_27Alpha_wrap_AABB_geom_traitsISD_EEEENS3_27Triangulation_vertex_base_3ISK_NS3_30Triangulation_ds_vertex_base_3INS3_30Triangulation_data_structure_3INS7_INS8_ISG_SK_NSL_ISK_NSM_INSN_INS8_ISG_SK_NSL_ISK_NSM_IvEEEEEENSA_24Cell_base_with_timestampINS3_35Triangulation_cell_base_with_info_3INSF_9Cell_infoESK_NS3_52Delaunay_triangulation_cell_base_with_circumcenter_3ISK_NS3_34Delaunay_triangulation_cell_base_3ISK_NS3_25Triangulation_cell_base_3ISK_NS3_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS3_14Sequential_tagEEEEEEEEEEES13_S14_EEEEEEEEEENS3_7DefaultES1F_S1F_EELb0EEEmELb1EEEEE19_M_allocate_bucketsEm.exit.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %147, i8 0, i64 %146, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %148, i8 0, i64 %147, i1 false)
   br label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46
 
-_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46: ; preds = %.noexc52, %141
-  %.0.i.i = phi ptr [ %15, %141 ], [ %147, %.noexc52 ]
-  %148 = load ptr, ptr %17, align 8
+_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46: ; preds = %.noexc52, %142
+  %.0.i.i = phi ptr [ %15, %142 ], [ %148, %.noexc52 ]
+  %149 = load ptr, ptr %17, align 8
   store ptr null, ptr %17, align 8
-  %.not33.i = icmp eq ptr %148, null
+  %.not33.i = icmp eq ptr %149, null
   br i1 %.not33.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46, %163
-  %.035.i = phi ptr [ %149, %163 ], [ %148, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46 ]
-  %.02534.i = phi i64 [ %.1.i, %163 ], [ 0, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46 ]
-  %149 = load ptr, ptr %.035.i, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %.035.i, i64 24
-  %151 = load i64, ptr %150, align 8
-  %152 = urem i64 %151, %139
-  %153 = getelementptr inbounds ptr, ptr %.0.i.i, i64 %152
-  %154 = load ptr, ptr %153, align 8
-  %.not27.i = icmp eq ptr %154, null
-  br i1 %.not27.i, label %155, label %160
+.lr.ph.i:                                         ; preds = %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46, %164
+  %.035.i = phi ptr [ %150, %164 ], [ %149, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46 ]
+  %.02534.i = phi i64 [ %.1.i, %164 ], [ 0, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46 ]
+  %150 = load ptr, ptr %.035.i, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %.035.i, i64 24
+  %152 = load i64, ptr %151, align 8
+  %153 = urem i64 %152, %140
+  %154 = getelementptr inbounds ptr, ptr %.0.i.i, i64 %153
+  %155 = load ptr, ptr %154, align 8
+  %.not27.i = icmp eq ptr %155, null
+  br i1 %.not27.i, label %156, label %161
 
-155:                                              ; preds = %.lr.ph.i
-  %156 = load ptr, ptr %17, align 8
-  store ptr %156, ptr %.035.i, align 8
+156:                                              ; preds = %.lr.ph.i
+  %157 = load ptr, ptr %17, align 8
+  store ptr %157, ptr %.035.i, align 8
   store ptr %.035.i, ptr %17, align 8
-  store ptr %17, ptr %153, align 8
-  %157 = load ptr, ptr %.035.i, align 8
-  %.not28.i = icmp eq ptr %157, null
-  br i1 %.not28.i, label %163, label %158
+  store ptr %17, ptr %154, align 8
+  %158 = load ptr, ptr %.035.i, align 8
+  %.not28.i = icmp eq ptr %158, null
+  br i1 %.not28.i, label %164, label %159
 
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds ptr, ptr %.0.i.i, i64 %.02534.i
-  store ptr %.035.i, ptr %159, align 8
-  br label %163
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds ptr, ptr %.0.i.i, i64 %.02534.i
+  store ptr %.035.i, ptr %160, align 8
+  br label %164
 
-160:                                              ; preds = %.lr.ph.i
-  %161 = load ptr, ptr %154, align 8
-  store ptr %161, ptr %.035.i, align 8
-  %162 = load ptr, ptr %153, align 8
-  store ptr %.035.i, ptr %162, align 8
-  br label %163
+161:                                              ; preds = %.lr.ph.i
+  %162 = load ptr, ptr %155, align 8
+  store ptr %162, ptr %.035.i, align 8
+  %163 = load ptr, ptr %154, align 8
+  store ptr %.035.i, ptr %163, align 8
+  br label %164
 
-163:                                              ; preds = %160, %158, %155
-  %.1.i = phi i64 [ %.02534.i, %160 ], [ %152, %158 ], [ %152, %155 ]
-  %.not.i47 = icmp eq ptr %149, null
+164:                                              ; preds = %161, %159, %156
+  %.1.i = phi i64 [ %.02534.i, %161 ], [ %153, %159 ], [ %153, %156 ]
+  %.not.i47 = icmp eq ptr %150, null
   br i1 %.not.i47, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !3513
 
-._crit_edge.i:                                    ; preds = %163, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46
-  %164 = load ptr, ptr %11, align 8
-  %165 = icmp eq ptr %164, %15
-  br i1 %165, label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38, label %166
+._crit_edge.i:                                    ; preds = %164, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P46
+  %165 = load ptr, ptr %11, align 8
+  %166 = icmp eq ptr %165, %15
+  br i1 %166, label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38, label %167
 
-166:                                              ; preds = %._crit_edge.i
-  call void @_ZdlPv(ptr noundef %164) #38
+167:                                              ; preds = %._crit_edge.i
+  call void @_ZdlPv(ptr noundef %165) #38
   br label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38
 
 .loopexit94:                                      ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal11CC_iteratorINS3_17Compact_containerINS3_37Triangulation_hierarchy_vertex_base_3INS3_37Triangulation_vertex_base_with_info_3INS3_13Alpha_wraps_38internal12Alpha_wrap_3INSA_20Triangle_mesh_oracleINS3_5EpickEiLb1EEEE11Vertex_infoENS3_37Robust_circumcenter_filtered_traits_3INSA_27Alpha_wrap_AABB_geom_traitsISD_EEEENS3_27Triangulation_vertex_base_3ISK_NS3_30Triangulation_ds_vertex_base_3INS3_30Triangulation_data_structure_3INS7_INS8_ISG_SK_NSL_ISK_NSM_INSN_INS8_ISG_SK_NSL_ISK_NSM_IvEEEEEENSA_24Cell_base_with_timestampINS3_35Triangulation_cell_base_with_info_3INSF_9Cell_infoESK_NS3_52Delaunay_triangulation_cell_base_with_circumcenter_3ISK_NS3_34Delaunay_triangulation_cell_base_3ISK_NS3_25Triangulation_cell_base_3ISK_NS3_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS3_14Sequential_tagEEEEEEEEEEES13_S14_EEEEEEEEEENS3_7DefaultES1F_S1F_EELb0EEEmELb1EEEEE19_M_allocate_bucketsEm.exit.i.i
   %lpad.loopexit96 = landingpad { ptr, i32 }
           catch ptr null
-  br label %167
+  br label %168
 
 .loopexit.split-lp95:                             ; preds = %.noexc.i.i.i, %.noexc7.i.i.i
   %lpad.loopexit.split-lp97 = landingpad { ptr, i32 }
           catch ptr null
-  br label %167
+  br label %168
 
-167:                                              ; preds = %.loopexit.split-lp95, %.loopexit94
+168:                                              ; preds = %.loopexit.split-lp95, %.loopexit94
   %lpad.phi98 = phi { ptr, i32 } [ %lpad.loopexit96, %.loopexit94 ], [ %lpad.loopexit.split-lp97, %.loopexit.split-lp95 ]
-  %168 = extractvalue { ptr, i32 } %lpad.phi98, 0
-  %169 = call ptr @__cxa_begin_catch(ptr %168) #23
-  store i64 %134, ptr %19, align 8
+  %169 = extractvalue { ptr, i32 } %lpad.phi98, 0
+  %170 = call ptr @__cxa_begin_catch(ptr %169) #23
+  store i64 %135, ptr %19, align 8
   invoke void @__cxa_rethrow() #42
-          to label %175 unwind label %170
+          to label %176 unwind label %171
 
-170:                                              ; preds = %167
-  %171 = landingpad { ptr, i32 }
+171:                                              ; preds = %168
+  %172 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P41 unwind label %172
+          to label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P41 unwind label %173
 
-172:                                              ; preds = %170
-  %173 = landingpad { ptr, i32 }
+173:                                              ; preds = %171
+  %174 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #39
+  %175 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %175) #39
   unreachable
 
-175:                                              ; preds = %167
+176:                                              ; preds = %168
   unreachable
 
-_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38: ; preds = %166, %._crit_edge.i
-  store i64 %139, ptr %16, align 8
+_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38: ; preds = %167, %._crit_edge.i
+  store i64 %140, ptr %16, align 8
   store ptr %.0.i.i, ptr %11, align 8
-  %176 = urem i64 %133, %139
-  br label %177
+  %177 = urem i64 %134, %140
+  br label %178
 
-177:                                              ; preds = %.noexc39._crit_edge, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38
-  %178 = phi ptr [ %.0.i.i, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38 ], [ %.pre143, %.noexc39._crit_edge ]
-  %.0.i = phi i64 [ %176, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38 ], [ %132, %.noexc39._crit_edge ]
-  %179 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %133, ptr %179, align 8
-  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %.0.i
-  %181 = load ptr, ptr %180, align 8
-  %.not.i.i = icmp eq ptr %181, null
-  br i1 %.not.i.i, label %185, label %182
+178:                                              ; preds = %.noexc39._crit_edge, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38
+  %179 = phi ptr [ %.0.i.i, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38 ], [ %.pre143, %.noexc39._crit_edge ]
+  %.0.i = phi i64 [ %177, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38 ], [ %133, %.noexc39._crit_edge ]
+  %180 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 %134, ptr %180, align 8
+  %181 = getelementptr inbounds nuw ptr, ptr %179, i64 %.0.i
+  %182 = load ptr, ptr %181, align 8
+  %.not.i.i = icmp eq ptr %182, null
+  br i1 %.not.i.i, label %186, label %183
 
-182:                                              ; preds = %177
-  %183 = load ptr, ptr %181, align 8
-  store ptr %183, ptr %91, align 8
-  %184 = load ptr, ptr %180, align 8
-  store ptr %91, ptr %184, align 8
-  br label %196
+183:                                              ; preds = %178
+  %184 = load ptr, ptr %182, align 8
+  store ptr %184, ptr %92, align 8
+  %185 = load ptr, ptr %181, align 8
+  store ptr %92, ptr %185, align 8
+  br label %197
 
-185:                                              ; preds = %177
-  %186 = load ptr, ptr %17, align 8
-  store ptr %186, ptr %91, align 8
-  store ptr %91, ptr %17, align 8
-  %.not11.i.i = icmp eq ptr %186, null
-  br i1 %.not11.i.i, label %193, label %187
+186:                                              ; preds = %178
+  %187 = load ptr, ptr %17, align 8
+  store ptr %187, ptr %92, align 8
+  store ptr %92, ptr %17, align 8
+  %.not11.i.i = icmp eq ptr %187, null
+  br i1 %.not11.i.i, label %194, label %188
 
-187:                                              ; preds = %185
-  %188 = load i64, ptr %16, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  %190 = load i64, ptr %189, align 8
-  %191 = urem i64 %190, %188
-  %192 = getelementptr inbounds ptr, ptr %178, i64 %191
-  store ptr %91, ptr %192, align 8
+188:                                              ; preds = %186
+  %189 = load i64, ptr %16, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  %191 = load i64, ptr %190, align 8
+  %192 = urem i64 %191, %189
+  %193 = getelementptr inbounds ptr, ptr %179, i64 %192
+  store ptr %92, ptr %193, align 8
   %.pre144 = load ptr, ptr %11, align 8
-  br label %193
+  br label %194
 
-193:                                              ; preds = %187, %185
-  %194 = phi ptr [ %.pre144, %187 ], [ %178, %185 ]
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %.0.i
-  store ptr %17, ptr %195, align 8
+194:                                              ; preds = %188, %186
+  %195 = phi ptr [ %.pre144, %188 ], [ %179, %186 ]
+  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %.0.i
+  store ptr %17, ptr %196, align 8
   %.pre145 = load ptr, ptr %40, align 8
-  br label %196
+  br label %197
 
-.loopexit:                                        ; preds = %120, %102, %111
-  %.sroa.029.0.ph.i = phi ptr [ %112, %111 ], [ %.sroa.022.0.i, %102 ], [ %126, %120 ]
-  call void @_ZdlPv(ptr noundef nonnull %91) #38
-  br label %226
+.loopexit:                                        ; preds = %121, %103, %112
+  %.sroa.029.0.ph.i = phi ptr [ %113, %112 ], [ %.sroa.022.0.i, %103 ], [ %127, %121 ]
+  call void @_ZdlPv(ptr noundef nonnull %92) #38
+  br label %227
 
-196:                                              ; preds = %193, %182
-  %197 = phi ptr [ %.pre145, %193 ], [ %86, %182 ]
-  %198 = load i64, ptr %39, align 8
-  %199 = add i64 %198, 1
-  store i64 %199, ptr %39, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i15, i64 16
-  %201 = load ptr, ptr %41, align 8
-  %.not.i = icmp eq ptr %197, %201
-  br i1 %.not.i, label %205, label %202
+197:                                              ; preds = %194, %183
+  %198 = phi ptr [ %.pre145, %194 ], [ %87, %183 ]
+  %199 = load i64, ptr %39, align 8
+  %200 = add i64 %199, 1
+  store i64 %200, ptr %39, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i15, i64 16
+  %202 = load ptr, ptr %41, align 8
+  %.not.i = icmp eq ptr %198, %202
+  br i1 %.not.i, label %206, label %203
 
-202:                                              ; preds = %196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %197, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 24, i1 false)
-  %203 = load ptr, ptr %40, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 24
-  store ptr %204, ptr %40, align 8
+203:                                              ; preds = %197
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %198, ptr noundef nonnull align 8 dereferenceable(24) %201, i64 24, i1 false)
+  %204 = load ptr, ptr %40, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  store ptr %205, ptr %40, align 8
   br label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit
 
-205:                                              ; preds = %196
-  %206 = load ptr, ptr %9, align 8
-  %207 = ptrtoint ptr %197 to i64
-  %208 = ptrtoint ptr %206 to i64
-  %209 = sub i64 %207, %208
-  %210 = icmp eq i64 %209, 9223372036854775800
-  br i1 %210, label %.invoke, label %_ZNKSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+206:                                              ; preds = %197
+  %207 = load ptr, ptr %9, align 8
+  %208 = ptrtoint ptr %198 to i64
+  %209 = ptrtoint ptr %207 to i64
+  %210 = sub i64 %208, %209
+  %211 = icmp eq i64 %210, 9223372036854775800
+  br i1 %211, label %.invoke, label %_ZNKSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
-_ZNKSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %205
-  %211 = sdiv exact i64 %209, 24
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %211, i64 1)
-  %212 = add nsw i64 %.sroa.speculated.i.i.i, %211
-  %213 = icmp ult i64 %212, %211
-  %214 = call i64 @llvm.umin.i64(i64 %212, i64 384307168202282325)
-  %215 = select i1 %213, i64 384307168202282325, i64 %214
-  %.not.i.i.i17 = icmp ne i64 %215, 0
+_ZNKSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %206
+  %212 = sdiv exact i64 %210, 24
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %212, i64 1)
+  %213 = add nsw i64 %.sroa.speculated.i.i.i, %212
+  %214 = icmp ult i64 %213, %212
+  %215 = call i64 @llvm.umin.i64(i64 %213, i64 384307168202282325)
+  %216 = select i1 %214, i64 384307168202282325, i64 %215
+  %.not.i.i.i17 = icmp ne i64 %216, 0
   call void @llvm.assume(i1 %.not.i.i.i17)
-  %216 = mul nuw nsw i64 %215, 24
-  %217 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %216) #41
+  %217 = mul nuw nsw i64 %216, 24
+  %218 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %217) #41
           to label %.noexc19 unwind label %.loopexit93
 
 .noexc19:                                         ; preds = %_ZNKSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %218 = getelementptr inbounds i8, ptr %217, i64 %209
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %218, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 24, i1 false)
-  %.not10.i.i.i.i.i.i = icmp eq ptr %206, %197
+  %219 = getelementptr inbounds i8, ptr %218, i64 %210
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %219, ptr noundef nonnull align 8 dereferenceable(24) %201, i64 24, i1 false)
+  %.not10.i.i.i.i.i.i = icmp eq ptr %207, %198
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc19, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %220, %.lr.ph.i.i.i.i.i.i ], [ %217, %.noexc19 ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %219, %.lr.ph.i.i.i.i.i.i ], [ %206, %.noexc19 ]
+  %.012.i.i.i.i.i.i = phi ptr [ %221, %.lr.ph.i.i.i.i.i.i ], [ %218, %.noexc19 ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %220, %.lr.ph.i.i.i.i.i.i ], [ %207, %.noexc19 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !3514
-  %219 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 24
-  %220 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i = icmp eq ptr %219, %197
+  %220 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i = icmp eq ptr %220, %198
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !141
 
 _ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc19
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %217, %.noexc19 ], [ %220, %.lr.ph.i.i.i.i.i.i ]
-  %221 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
-  %.not.i23.i.i = icmp eq ptr %206, null
-  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %222
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %218, %.noexc19 ], [ %221, %.lr.ph.i.i.i.i.i.i ]
+  %222 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %.not.i23.i.i = icmp eq ptr %207, null
+  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %223
 
-222:                                              ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %206) #38
+223:                                              ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
+  call void @_ZdlPv(ptr noundef nonnull %207) #38
   br label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %222, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
-  store ptr %217, ptr %9, align 8
-  store ptr %221, ptr %40, align 8
-  %223 = getelementptr inbounds nuw %"class.CGAL::Point_3", ptr %217, i64 %215
-  store ptr %223, ptr %41, align 8
+_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %223, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
+  store ptr %218, ptr %9, align 8
+  store ptr %222, ptr %40, align 8
+  %224 = getelementptr inbounds nuw %"class.CGAL::Point_3", ptr %218, i64 %216
+  store ptr %224, ptr %41, align 8
   br label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit
 
-_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %202
-  %224 = phi ptr [ %221, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %204, %202 ]
-  %225 = add i64 %.2120, 1
-  br label %226
+_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %203
+  %225 = phi ptr [ %222, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %205, %203 ]
+  %226 = add i64 %.2120, 1
+  br label %227
 
-226:                                              ; preds = %.loopexit, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit
-  %227 = phi ptr [ %224, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit ], [ %86, %.loopexit ]
-  %.sroa.029.043.i83 = phi ptr [ %91, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.029.0.ph.i, %.loopexit ]
-  %.3 = phi i64 [ %225, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit ], [ %.2120, %.loopexit ]
-  %228 = getelementptr inbounds nuw i8, ptr %.sroa.029.043.i83, i64 16
-  %229 = load i64, ptr %228, align 8
-  %230 = getelementptr inbounds nuw [3 x i64], ptr %13, i64 0, i64 %indvars.iv
-  store i64 %229, ptr %230, align 8
+227:                                              ; preds = %.loopexit, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit
+  %228 = phi ptr [ %225, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit ], [ %87, %.loopexit ]
+  %.sroa.029.043.i83 = phi ptr [ %92, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.029.0.ph.i, %.loopexit ]
+  %.3 = phi i64 [ %226, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit ], [ %.2120, %.loopexit ]
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.029.043.i83, i64 16
+  %230 = load i64, ptr %229, align 8
+  %231 = getelementptr inbounds nuw [3 x i64], ptr %13, i64 0, i64 %indvars.iv
+  store i64 %230, ptr %231, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %231, label %85, !llvm.loop !3518
+  br i1 %exitcond.not, label %232, label %86, !llvm.loop !3518
 
-231:                                              ; preds = %226
-  %232 = load i64, ptr %13, align 8
-  %233 = load i64, ptr %42, align 8
-  %234 = load i64, ptr %43, align 8
-  %235 = load ptr, ptr %44, align 8
-  %236 = load ptr, ptr %45, align 8
-  %.not.i20 = icmp eq ptr %235, %236
-  br i1 %.not.i20, label %239, label %237
+232:                                              ; preds = %227
+  %233 = load i64, ptr %13, align 8
+  %234 = load i64, ptr %42, align 8
+  %235 = load i64, ptr %43, align 8
+  %236 = load ptr, ptr %44, align 8
+  %237 = load ptr, ptr %45, align 8
+  %.not.i20 = icmp eq ptr %236, %237
+  br i1 %.not.i20, label %240, label %238
 
-237:                                              ; preds = %231
-  store i64 %232, ptr %235, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store i64 %233, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 16
-  store i64 %234, ptr %.sroa.4.0..sroa_idx, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  store ptr %238, ptr %44, align 8
+238:                                              ; preds = %232
+  store i64 %233, ptr %236, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 8
+  store i64 %234, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 16
+  store i64 %235, ptr %.sroa.4.0..sroa_idx, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
+  store ptr %239, ptr %44, align 8
   br label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit
 
-239:                                              ; preds = %231
-  %240 = ptrtoint ptr %235 to i64
-  %241 = ptrtoint ptr %49 to i64
-  %242 = sub i64 %240, %241
-  %243 = icmp eq i64 %242, 9223372036854775800
-  br i1 %243, label %.invoke, label %_ZNKSt6vectorISt5arrayImLm3EESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+240:                                              ; preds = %232
+  %241 = ptrtoint ptr %236 to i64
+  %242 = ptrtoint ptr %49 to i64
+  %243 = sub i64 %241, %242
+  %244 = icmp eq i64 %243, 9223372036854775800
+  br i1 %244, label %.invoke, label %_ZNKSt6vectorISt5arrayImLm3EESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-.invoke:                                          ; preds = %239, %205
+.invoke:                                          ; preds = %240, %206
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.37) #42
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZNKSt6vectorISt5arrayImLm3EESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %239
-  %244 = sdiv exact i64 %242, 24
-  %.sroa.speculated.i.i.i21 = call i64 @llvm.umax.i64(i64 %244, i64 1)
-  %245 = add nsw i64 %.sroa.speculated.i.i.i21, %244
-  %246 = icmp ult i64 %245, %244
-  %247 = call i64 @llvm.umin.i64(i64 %245, i64 384307168202282325)
-  %248 = select i1 %246, i64 384307168202282325, i64 %247
-  %.not.i.i.i22 = icmp ne i64 %248, 0
+_ZNKSt6vectorISt5arrayImLm3EESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %240
+  %245 = sdiv exact i64 %243, 24
+  %.sroa.speculated.i.i.i21 = call i64 @llvm.umax.i64(i64 %245, i64 1)
+  %246 = add nsw i64 %.sroa.speculated.i.i.i21, %245
+  %247 = icmp ult i64 %246, %245
+  %248 = call i64 @llvm.umin.i64(i64 %246, i64 384307168202282325)
+  %249 = select i1 %247, i64 384307168202282325, i64 %248
+  %.not.i.i.i22 = icmp ne i64 %249, 0
   call void @llvm.assume(i1 %.not.i.i.i22)
-  %249 = mul nuw nsw i64 %248, 24
-  %250 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %249) #41
+  %250 = mul nuw nsw i64 %249, 24
+  %251 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %250) #41
           to label %.noexc24 unwind label %.loopexit.split-lp.loopexit
 
 .noexc24:                                         ; preds = %_ZNKSt6vectorISt5arrayImLm3EESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %251 = getelementptr inbounds i8, ptr %250, i64 %242
-  store i64 %232, ptr %251, align 8
-  %.sroa.3.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  store i64 %233, ptr %.sroa.3.0..sroa_idx58, align 8
-  %.sroa.4.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %251, i64 16
-  store i64 %234, ptr %.sroa.4.0..sroa_idx60, align 8
-  %252 = icmp sgt i64 %242, 0
-  br i1 %252, label %253, label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  %252 = getelementptr inbounds i8, ptr %251, i64 %243
+  store i64 %233, ptr %252, align 8
+  %.sroa.3.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %252, i64 8
+  store i64 %234, ptr %.sroa.3.0..sroa_idx58, align 8
+  %.sroa.4.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %252, i64 16
+  store i64 %235, ptr %.sroa.4.0..sroa_idx60, align 8
+  %253 = icmp sgt i64 %243, 0
+  br i1 %253, label %254, label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-253:                                              ; preds = %.noexc24
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %250, ptr align 8 %49, i64 %242, i1 false)
+254:                                              ; preds = %.noexc24
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr align 8 %49, i64 %243, i1 false)
   br label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-_ZNSt6vectorISt5arrayImLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %253, %.noexc24
-  %254 = getelementptr inbounds nuw i8, ptr %251, i64 24
+_ZNSt6vectorISt5arrayImLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %254, %.noexc24
+  %255 = getelementptr inbounds nuw i8, ptr %252, i64 24
   %.not.i17.i.i = icmp eq ptr %49, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %255
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %256
 
-255:                                              ; preds = %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+256:                                              ; preds = %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   call void @_ZdlPv(ptr noundef nonnull %49) #38
   br label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %255, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %250, ptr %10, align 8
-  store ptr %254, ptr %44, align 8
-  %256 = getelementptr inbounds nuw %"struct.std::array.1944", ptr %250, i64 %248
-  store ptr %256, ptr %45, align 8
+_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %256, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store ptr %251, ptr %10, align 8
+  store ptr %255, ptr %44, align 8
+  %257 = getelementptr inbounds nuw %"struct.std::array.1944", ptr %251, i64 %249
+  store ptr %257, ptr %45, align 8
   br label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit
 
-_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit: ; preds = %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %237, %74
-  %257 = phi ptr [ %47, %74 ], [ %227, %237 ], [ %227, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %258 = phi ptr [ %48, %74 ], [ %238, %237 ], [ %254, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %259 = phi ptr [ %49, %74 ], [ %49, %237 ], [ %250, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %.1 = phi i64 [ %.078, %74 ], [ %.3, %237 ], [ %.3, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %260 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INS3_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESZ_S10_EEEENS_15Triangulation_3ISH_S16_NS_7DefaultEE15Infinite_testerEEppEv(ptr noundef nonnull align 8 dereferenceable(72) %12)
+_ZNSt6vectorISt5arrayImLm3EESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit: ; preds = %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %238, %74
+  %258 = phi ptr [ %47, %74 ], [ %228, %238 ], [ %228, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %259 = phi ptr [ %48, %74 ], [ %239, %238 ], [ %255, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %260 = phi ptr [ %49, %74 ], [ %49, %238 ], [ %251, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.1 = phi i64 [ %.078, %74 ], [ %.3, %238 ], [ %.3, %_ZNSt6vectorISt5arrayImLm3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %261 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INS3_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESZ_S10_EEEENS_15Triangulation_3ISH_S16_NS_7DefaultEE15Infinite_testerEEppEv(ptr noundef nonnull align 8 dereferenceable(72) %12)
           to label %46 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !3519
 
-261:                                              ; preds = %46
-  %262 = icmp eq ptr %49, %48
-  br i1 %262, label %271, label %263
+262:                                              ; preds = %46
+  %263 = icmp eq ptr %49, %48
+  br i1 %263, label %272, label %264
 
-263:                                              ; preds = %261
-  %264 = invoke noundef zeroext i1 @_ZN4CGAL23Polygon_mesh_processing30is_polygon_soup_a_polygon_meshISt6vectorISt5arrayImLm3EESaIS4_EEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %265 unwind label %.loopexit.split-lp.loopexit.split-lp
+264:                                              ; preds = %262
+  %265 = invoke noundef zeroext i1 @_ZN4CGAL23Polygon_mesh_processing30is_polygon_soup_a_polygon_meshISt6vectorISt5arrayImLm3EESaIS4_EEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %266 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-265:                                              ; preds = %263
-  br i1 %264, label %266, label %271
+266:                                              ; preds = %264
+  br i1 %265, label %267, label %272
 
-266:                                              ; preds = %265
-  %267 = load ptr, ptr %2, align 8, !noalias !3520
+267:                                              ; preds = %266
+  %268 = load ptr, ptr %2, align 8, !noalias !3520
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %9, ptr %4, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %10, ptr %268, align 8
-  store ptr %267, ptr %5, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %10, ptr %269, align 8
+  store ptr %268, ptr %5, align 8
   invoke void @_ZN4CGAL23Polygon_mesh_processing8internal18PS_to_PM_converterISt6vectorINS_7Point_3INS_5EpickEEESaIS6_EES3_ISt5arrayImLm3EESaISA_EENS_21Identity_property_mapIKS6_EEEclINS_12Surface_meshIS6_EENSJ_12Property_mapINS_15SM_Vertex_indexES6_EENS_17Emptyset_iteratorESN_EEvRT_T0_T1_T2_b(ptr noundef nonnull align 8 dereferenceable(17) %4, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull %5, i1 noundef zeroext true)
-          to label %269 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %270 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-269:                                              ; preds = %266
+270:                                              ; preds = %267
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !3523)
-  %270 = load ptr, ptr %2, align 8, !noalias !3523
-  store ptr %270, ptr %14, align 8, !alias.scope !3523
+  %271 = load ptr, ptr %2, align 8, !noalias !3523
+  store ptr %271, ptr %14, align 8, !alias.scope !3523
   invoke void @_ZN4CGAL23Polygon_mesh_processing24orient_to_bound_a_volumeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_25Named_function_parametersINS6_12Property_mapINS_15SM_Vertex_indexES5_EENS_11internal_np14vertex_point_tENSB_11No_propertyEEEEEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %271 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %272 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-271:                                              ; preds = %269, %265, %261
-  %272 = load ptr, ptr %17, align 8
-  %.not5.i.i.i.i = icmp eq ptr %272, null
+272:                                              ; preds = %270, %266, %262
+  %273 = load ptr, ptr %17, align 8
+  %.not5.i.i.i.i = icmp eq ptr %273, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_Pri, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %271, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %273, %.lr.ph.i.i.i.i ], [ %272, %271 ]
-  %273 = load ptr, ptr %.06.i.i.i.i, align 8
+.lr.ph.i.i.i.i:                                   ; preds = %272, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %274, %.lr.ph.i.i.i.i ], [ %273, %272 ]
+  %274 = load ptr, ptr %.06.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i) #38
-  %.not.i.i.i.i = icmp eq ptr %273, null
+  %.not.i.i.i.i = icmp eq ptr %274, null
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_Pri, label %.lr.ph.i.i.i.i, !llvm.loop !3526
 
-_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_Pri: ; preds = %.lr.ph.i.i.i.i, %271
-  %274 = load ptr, ptr %11, align 8
-  %275 = load i64, ptr %16, align 8
-  %276 = shl i64 %275, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %274, i8 0, i64 %276, i1 false)
+_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_Pri: ; preds = %.lr.ph.i.i.i.i, %272
+  %275 = load ptr, ptr %11, align 8
+  %276 = load i64, ptr %16, align 8
+  %277 = shl i64 %276, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %275, i8 0, i64 %277, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  %277 = load ptr, ptr %11, align 8
-  %278 = icmp eq ptr %277, %15
-  br i1 %278, label %_ZNSt13unordered_mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEEmSt4hashIS1E_ESt8equal_toIS1E_ESaISt4pairIKS1E_mEEED2Ev.exit, label %279
+  %278 = load ptr, ptr %11, align 8
+  %279 = icmp eq ptr %278, %15
+  br i1 %279, label %_ZNSt13unordered_mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEEmSt4hashIS1E_ESt8equal_toIS1E_ESaISt4pairIKS1E_mEEED2Ev.exit, label %280
 
-279:                                              ; preds = %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_Pri
-  call void @_ZdlPv(ptr noundef %277) #38
+280:                                              ; preds = %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_Pri
+  call void @_ZdlPv(ptr noundef %278) #38
   br label %_ZNSt13unordered_mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEEmSt4hashIS1E_ESt8equal_toIS1E_ESaISt4pairIKS1E_mEEED2Ev.exit
 
-_ZNSt13unordered_mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEEmSt4hashIS1E_ESt8equal_toIS1E_ESaISt4pairIKS1E_mEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_Pri, %279
-  %280 = load ptr, ptr %10, align 8
-  %.not.i.i.i26 = icmp eq ptr %280, null
-  br i1 %.not.i.i.i26, label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EED2Ev.exit27, label %281
+_ZNSt13unordered_mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEEmSt4hashIS1E_ESt8equal_toIS1E_ESaISt4pairIKS1E_mEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_Pri, %280
+  %281 = load ptr, ptr %10, align 8
+  %.not.i.i.i26 = icmp eq ptr %281, null
+  br i1 %.not.i.i.i26, label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EED2Ev.exit27, label %282
 
-281:                                              ; preds = %_ZNSt13unordered_mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEEmSt4hashIS1E_ESt8equal_toIS1E_ESaISt4pairIKS1E_mEEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %280) #38
+282:                                              ; preds = %_ZNSt13unordered_mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEEmSt4hashIS1E_ESt8equal_toIS1E_ESaISt4pairIKS1E_mEEED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %281) #38
   br label %_ZNSt6vectorISt5arrayImLm3EESaIS1_EED2Ev.exit27
 
-_ZNSt6vectorISt5arrayImLm3EESaIS1_EED2Ev.exit27:  ; preds = %_ZNSt13unordered_mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEEmSt4hashIS1E_ESt8equal_toIS1E_ESaISt4pairIKS1E_mEEED2Ev.exit, %281
-  %282 = load ptr, ptr %9, align 8
-  %.not.i.i.i28 = icmp eq ptr %282, null
-  br i1 %.not.i.i.i28, label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit29, label %283
+_ZNSt6vectorISt5arrayImLm3EESaIS1_EED2Ev.exit27:  ; preds = %_ZNSt13unordered_mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEEmSt4hashIS1E_ESt8equal_toIS1E_ESaISt4pairIKS1E_mEEED2Ev.exit, %282
+  %283 = load ptr, ptr %9, align 8
+  %.not.i.i.i28 = icmp eq ptr %283, null
+  br i1 %.not.i.i.i28, label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit29, label %284
 
-283:                                              ; preds = %_ZNSt6vectorISt5arrayImLm3EESaIS1_EED2Ev.exit27
-  call void @_ZdlPv(ptr noundef nonnull %282) #38
+284:                                              ; preds = %_ZNSt6vectorISt5arrayImLm3EESaIS1_EED2Ev.exit27
+  call void @_ZdlPv(ptr noundef nonnull %283) #38
   br label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit29
 
-_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit29: ; preds = %_ZNSt6vectorISt5arrayImLm3EESaIS1_EED2Ev.exit27, %283
+_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit29: ; preds = %_ZNSt6vectorISt5arrayImLm3EESaIS1_EED2Ev.exit27, %284
   ret void
 }
 

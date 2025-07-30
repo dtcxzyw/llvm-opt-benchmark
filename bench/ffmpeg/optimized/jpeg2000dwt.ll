@@ -26,9 +26,6 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
   %. = tail call i32 @llvm.smax.i32(i32 %13, i32 %18)
   %19 = icmp sgt i32 %2, 0
   %indvars.iv60.sroa.gep66 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %indvars.iv60.sroa.gep69 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %indvars.iv60.sroa.gep71 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %indvars.iv60.sroa.gep72 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br i1 %19, label %.preheader.lr.ph, label %._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %4
@@ -43,73 +40,74 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %indvars.iv63 = phi i64 [ %21, %.preheader.lr.ph ], [ %indvars.iv.next64, %.loopexit ]
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, -1
+  %23 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %indvars.iv.next64
+  %24 = getelementptr inbounds nuw [32 x [2 x i8]], ptr %20, i64 0, i64 %indvars.iv.next64
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %.critedge
-  %23 = phi i1 [ true, %.preheader ], [ false, %.critedge ]
+  %25 = phi i1 [ true, %.preheader ], [ false, %.critedge ]
   %indvars.iv60.sroa.phi = phi ptr [ %5, %.preheader ], [ %indvars.iv60.sroa.gep66, %.critedge ]
-  %indvars.iv60.sroa.phi67 = phi ptr [ %5, %.preheader ], [ %indvars.iv60.sroa.gep69, %.critedge ]
-  %indvars.iv60.sroa.phi70 = phi ptr [ %indvars.iv60.sroa.gep71, %.preheader ], [ %indvars.iv60.sroa.gep72, %.critedge ]
   %indvars.iv60 = phi i64 [ 0, %.preheader ], [ 1, %.critedge ]
-  %24 = getelementptr inbounds nuw i8, ptr %indvars.iv60.sroa.phi, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !12
-  %26 = load i32, ptr %indvars.iv60.sroa.phi, align 8, !tbaa !12
-  %27 = sub nsw i32 %25, %26
-  %28 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %indvars.iv.next64, i64 %indvars.iv60
-  store i32 %27, ptr %28, align 4, !tbaa !12
-  %29 = trunc i32 %26 to i8
-  %30 = and i8 %29, 1
-  %31 = getelementptr inbounds nuw [32 x [2 x i8]], ptr %20, i64 0, i64 %indvars.iv.next64, i64 %indvars.iv60
-  store i8 %30, ptr %31, align 1, !tbaa !16
-  %32 = load i32, ptr %indvars.iv60.sroa.phi67, align 4, !tbaa !12
-  %33 = add nsw i32 %32, 1
-  %34 = ashr i32 %33, 1
-  store i32 %34, ptr %indvars.iv60.sroa.phi67, align 4, !tbaa !12
-  %35 = load i32, ptr %indvars.iv60.sroa.phi70, align 4, !tbaa !12
-  %36 = add nsw i32 %35, 1
-  %37 = ashr i32 %36, 1
-  store i32 %37, ptr %indvars.iv60.sroa.phi70, align 4, !tbaa !12
-  br i1 %23, label %.critedge, label %.loopexit, !llvm.loop !17
+  %26 = getelementptr inbounds nuw i8, ptr %indvars.iv60.sroa.phi, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !12
+  %28 = load i32, ptr %indvars.iv60.sroa.phi, align 8, !tbaa !12
+  %29 = sub nsw i32 %27, %28
+  %30 = getelementptr inbounds nuw [2 x i32], ptr %23, i64 0, i64 %indvars.iv60
+  store i32 %29, ptr %30, align 4, !tbaa !12
+  %31 = trunc i32 %28 to i8
+  %32 = and i8 %31, 1
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 0, i64 %indvars.iv60
+  store i8 %32, ptr %33, align 1, !tbaa !16
+  %34 = load i32, ptr %indvars.iv60.sroa.phi, align 4, !tbaa !12
+  %35 = add nsw i32 %34, 1
+  %36 = ashr i32 %35, 1
+  store i32 %36, ptr %indvars.iv60.sroa.phi, align 4, !tbaa !12
+  %37 = getelementptr inbounds nuw i8, ptr %indvars.iv60.sroa.phi, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !12
+  %39 = add nsw i32 %38, 1
+  %40 = ashr i32 %39, 1
+  store i32 %40, ptr %37, align 4, !tbaa !12
+  br i1 %25, label %.critedge, label %.loopexit, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
-  switch i32 %3, label %54 [
-    i32 0, label %38
-    i32 2, label %43
-    i32 1, label %48
+  switch i32 %3, label %57 [
+    i32 0, label %41
+    i32 2, label %46
+    i32 1, label %51
   ]
 
-38:                                               ; preds = %._crit_edge
-  %39 = add nsw i32 %., 12
-  %40 = sext i32 %39 to i64
-  %41 = tail call ptr @av_malloc_array(i64 noundef %40, i64 noundef 4) #8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr %41, ptr %42, align 8, !tbaa !18
-  %.not50 = icmp eq ptr %41, null
-  br i1 %.not50, label %54, label %53
+41:                                               ; preds = %._crit_edge
+  %42 = add nsw i32 %., 12
+  %43 = sext i32 %42 to i64
+  %44 = tail call ptr @av_malloc_array(i64 noundef %43, i64 noundef 4) #8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  store ptr %44, ptr %45, align 8, !tbaa !18
+  %.not50 = icmp eq ptr %44, null
+  br i1 %.not50, label %57, label %56
 
-43:                                               ; preds = %._crit_edge
-  %44 = add nsw i32 %., 12
-  %45 = sext i32 %44 to i64
-  %46 = tail call ptr @av_malloc_array(i64 noundef %45, i64 noundef 4) #8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr %46, ptr %47, align 8, !tbaa !19
-  %.not49 = icmp eq ptr %46, null
-  br i1 %.not49, label %54, label %53
+46:                                               ; preds = %._crit_edge
+  %47 = add nsw i32 %., 12
+  %48 = sext i32 %47 to i64
+  %49 = tail call ptr @av_malloc_array(i64 noundef %48, i64 noundef 4) #8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store ptr %49, ptr %50, align 8, !tbaa !19
+  %.not49 = icmp eq ptr %49, null
+  br i1 %.not49, label %57, label %56
 
-48:                                               ; preds = %._crit_edge
-  %49 = add nsw i32 %., 6
-  %50 = sext i32 %49 to i64
-  %51 = tail call ptr @av_malloc_array(i64 noundef %50, i64 noundef 4) #8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr %51, ptr %52, align 8, !tbaa !19
-  %.not = icmp eq ptr %51, null
-  br i1 %.not, label %54, label %53
+51:                                               ; preds = %._crit_edge
+  %52 = add nsw i32 %., 6
+  %53 = sext i32 %52 to i64
+  %54 = tail call ptr @av_malloc_array(i64 noundef %53, i64 noundef 4) #8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store ptr %54, ptr %55, align 8, !tbaa !19
+  %.not = icmp eq ptr %54, null
+  br i1 %.not, label %57, label %56
 
-53:                                               ; preds = %48, %43, %38
-  br label %54
+56:                                               ; preds = %51, %46, %41
+  br label %57
 
-54:                                               ; preds = %._crit_edge, %48, %43, %38, %53
-  %.0 = phi i32 [ 0, %53 ], [ -12, %38 ], [ -12, %43 ], [ -12, %48 ], [ -1, %._crit_edge ]
+57:                                               ; preds = %._crit_edge, %51, %46, %41, %56
+  %.0 = phi i32 [ 0, %56 ], [ -12, %41 ], [ -12, %46 ], [ -12, %51 ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   ret i32 %.0
 }

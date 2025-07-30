@@ -5579,7 +5579,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly14AccessSpreaderISt6atomicE10in
   br i1 %4, label %.split.us.i, label %.lr.ph.us63.i
 
 .split.us.i:                                      ; preds = %1, %..preheader_crit_edge.us.preheader.i
-  %storemerge55.us.i = phi i64 [ %9, %..preheader_crit_edge.us.preheader.i ], [ 0, %1 ]
+  %storemerge55.us.i = phi i64 [ %10, %..preheader_crit_edge.us.preheader.i ], [ 0, %1 ]
+  %6 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us.i
   %.sroa.speculated43.us.i = tail call i64 @llvm.umax.i64(i64 %storemerge55.us.i, i64 1)
   br i1 %.not.i, label %.preheader49.us.i.preheader, label %.lr.ph.us.i
 
@@ -5587,92 +5588,93 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly14AccessSpreaderISt6atomicE10in
   br label %.preheader49.us.i
 
 .preheader49.us.i:                                ; preds = %.preheader49.us.i.preheader, %._crit_edge.us.i
-  %storemerge3253.us.i = phi i64 [ %7, %._crit_edge.us.i ], [ %.fr.i, %.preheader49.us.i.preheader ]
-  %6 = sub nuw nsw i64 256, %storemerge3253.us.i
-  %.sroa.speculated.us.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %storemerge3253.us.i)
+  %storemerge3253.us.i = phi i64 [ %8, %._crit_edge.us.i ], [ %.fr.i, %.preheader49.us.i.preheader ]
+  %7 = sub nuw nsw i64 256, %storemerge3253.us.i
+  %.sroa.speculated.us.i = tail call i64 @llvm.umin.i64(i64 %7, i64 %storemerge3253.us.i)
   %.not65.i = icmp eq i64 %storemerge3253.us.i, 0
   br i1 %.not65.i, label %._crit_edge.us.i, label %.lr.ph52.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph52.us.i, %.preheader49.us.i
-  %7 = add nuw nsw i64 %.sroa.speculated.us.i, %storemerge3253.us.i
-  %8 = icmp ult i64 %7, 256
-  br i1 %8, label %.preheader49.us.i, label %..preheader_crit_edge.us.preheader.i, !llvm.loop !200
+  %8 = add nuw nsw i64 %.sroa.speculated.us.i, %storemerge3253.us.i
+  %9 = icmp ult i64 %8, 256
+  br i1 %9, label %.preheader49.us.i, label %..preheader_crit_edge.us.preheader.i, !llvm.loop !200
 
 ..preheader_crit_edge.us.preheader.i:             ; preds = %._crit_edge.us.i
-  %9 = add nuw nsw i64 %storemerge55.us.i, 1
-  %exitcond71.not.i = icmp eq i64 %9, 257
+  %10 = add nuw nsw i64 %storemerge55.us.i, 1
+  %exitcond71.not.i = icmp eq i64 %10, 257
   br i1 %exitcond71.not.i, label %_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE.exit, label %.split.us.i, !llvm.loop !201
 
 .lr.ph52.us.i:                                    ; preds = %.preheader49.us.i, %.lr.ph52.us.i
-  %.02751.us.i = phi i64 [ %14, %.lr.ph52.us.i ], [ 0, %.preheader49.us.i ]
-  %10 = add i64 %.02751.us.i, %storemerge3253.us.i
-  %11 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us.i, i64 %10
-  %12 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us.i, i64 %.02751.us.i
-  %13 = load atomic i8, ptr %12 monotonic, align 1
-  store atomic i8 %13, ptr %11 monotonic, align 1
-  %14 = add nuw i64 %.02751.us.i, 1
-  %exitcond70.not.i = icmp eq i64 %14, %.sroa.speculated.us.i
+  %.02751.us.i = phi i64 [ %15, %.lr.ph52.us.i ], [ 0, %.preheader49.us.i ]
+  %11 = add i64 %.02751.us.i, %storemerge3253.us.i
+  %12 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %.02751.us.i
+  %14 = load atomic i8, ptr %13 monotonic, align 1
+  store atomic i8 %14, ptr %12 monotonic, align 1
+  %15 = add nuw i64 %.02751.us.i, 1
+  %exitcond70.not.i = icmp eq i64 %15, %.sroa.speculated.us.i
   br i1 %exitcond70.not.i, label %._crit_edge.us.i, label %.lr.ph52.us.i, !llvm.loop !203
 
 .lr.ph.us.i:                                      ; preds = %.split.us.i, %.lr.ph.us.i
-  %.02850.us.i = phi i64 [ %22, %.lr.ph.us.i ], [ 0, %.split.us.i ]
-  %15 = load ptr, ptr %5, align 8, !tbaa !14
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %.02850.us.i
-  %17 = load i64, ptr %16, align 8, !tbaa !56
-  %18 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us.i, i64 %.02850.us.i
-  %19 = mul i64 %17, %.sroa.speculated43.us.i
-  %20 = udiv i64 %19, %.fr.i
-  %21 = trunc i64 %20 to i8
-  store atomic i8 %21, ptr %18 monotonic, align 1
-  %22 = add nuw nsw i64 %.02850.us.i, 1
-  %exitcond69.not.i = icmp eq i64 %22, %invariant.umin.i
+  %.02850.us.i = phi i64 [ %23, %.lr.ph.us.i ], [ 0, %.split.us.i ]
+  %16 = load ptr, ptr %5, align 8, !tbaa !14
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %.02850.us.i
+  %18 = load i64, ptr %17, align 8, !tbaa !56
+  %19 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %.02850.us.i
+  %20 = mul i64 %18, %.sroa.speculated43.us.i
+  %21 = udiv i64 %20, %.fr.i
+  %22 = trunc i64 %21 to i8
+  store atomic i8 %22, ptr %19 monotonic, align 1
+  %23 = add nuw nsw i64 %.02850.us.i, 1
+  %exitcond69.not.i = icmp eq i64 %23, %invariant.umin.i
   br i1 %exitcond69.not.i, label %.preheader49.us.i.preheader, label %.lr.ph.us.i, !llvm.loop !204
 
 .lr.ph.us63.i:                                    ; preds = %1, %..preheader49_crit_edge.us64.preheader.i
-  %storemerge55.us58.i = phi i64 [ %32, %..preheader49_crit_edge.us64.preheader.i ], [ 0, %1 ]
+  %storemerge55.us58.i = phi i64 [ %34, %..preheader49_crit_edge.us64.preheader.i ], [ 0, %1 ]
+  %24 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us58.i
   %.sroa.speculated43.us59.i = tail call i64 @llvm.umax.i64(i64 %storemerge55.us58.i, i64 1)
-  br label %23
+  br label %25
 
-23:                                               ; preds = %23, %.lr.ph.us63.i
-  %.02850.us61.i = phi i64 [ 0, %.lr.ph.us63.i ], [ %31, %23 ]
-  %24 = load ptr, ptr %5, align 8, !tbaa !14
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %.02850.us61.i
-  %26 = load i64, ptr %25, align 8, !tbaa !56
-  %27 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us58.i, i64 %.02850.us61.i
-  %28 = mul i64 %26, %.sroa.speculated43.us59.i
-  %29 = udiv i64 %28, %.fr.i
-  %30 = trunc i64 %29 to i8
-  store atomic i8 %30, ptr %27 monotonic, align 1
-  %31 = add nuw nsw i64 %.02850.us61.i, 1
-  %exitcond.not.i = icmp eq i64 %31, %invariant.umin.i
-  br i1 %exitcond.not.i, label %..preheader49_crit_edge.us64.preheader.i, label %23, !llvm.loop !204
+25:                                               ; preds = %25, %.lr.ph.us63.i
+  %.02850.us61.i = phi i64 [ 0, %.lr.ph.us63.i ], [ %33, %25 ]
+  %26 = load ptr, ptr %5, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %.02850.us61.i
+  %28 = load i64, ptr %27, align 8, !tbaa !56
+  %29 = getelementptr inbounds nuw [256 x i8], ptr %24, i64 0, i64 %.02850.us61.i
+  %30 = mul i64 %28, %.sroa.speculated43.us59.i
+  %31 = udiv i64 %30, %.fr.i
+  %32 = trunc i64 %31 to i8
+  store atomic i8 %32, ptr %29 monotonic, align 1
+  %33 = add nuw nsw i64 %.02850.us61.i, 1
+  %exitcond.not.i = icmp eq i64 %33, %invariant.umin.i
+  br i1 %exitcond.not.i, label %..preheader49_crit_edge.us64.preheader.i, label %25, !llvm.loop !204
 
-..preheader49_crit_edge.us64.preheader.i:         ; preds = %23
-  %32 = add nuw nsw i64 %storemerge55.us58.i, 1
-  %exitcond68.not.i = icmp eq i64 %32, 257
+..preheader49_crit_edge.us64.preheader.i:         ; preds = %25
+  %34 = add nuw nsw i64 %storemerge55.us58.i, 1
+  %exitcond68.not.i = icmp eq i64 %34, 257
   br i1 %exitcond68.not.i, label %_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE.exit, label %.lr.ph.us63.i, !llvm.loop !205
 
 _ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE.exit: ; preds = %..preheader49_crit_edge.us64.preheader.i, %..preheader_crit_edge.us.preheader.i
-  %33 = tail call ptr @dlopen(ptr noundef nonnull @.str.22, i32 noundef 5) #33
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %_ZN5folly14AccessSpreaderISt6atomicE14pickGetcpuFuncEv.exit, label %35
+  %35 = tail call ptr @dlopen(ptr noundef nonnull @.str.22, i32 noundef 5) #33
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %_ZN5folly14AccessSpreaderISt6atomicE14pickGetcpuFuncEv.exit, label %37
 
-35:                                               ; preds = %_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE.exit
-  %36 = tail call ptr @dlsym(ptr noundef nonnull %33, ptr noundef nonnull @.str.23) #33
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %_ZN5folly14AccessSpreaderISt6atomicE14pickGetcpuFuncEv.exit
+37:                                               ; preds = %_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE.exit
+  %38 = tail call ptr @dlsym(ptr noundef nonnull %35, ptr noundef nonnull @.str.23) #33
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %_ZN5folly14AccessSpreaderISt6atomicE14pickGetcpuFuncEv.exit
 
-38:                                               ; preds = %35
-  %39 = tail call i32 @dlclose(ptr noundef nonnull %33) #33
+40:                                               ; preds = %37
+  %41 = tail call i32 @dlclose(ptr noundef nonnull %35) #33
   br label %_ZN5folly14AccessSpreaderISt6atomicE14pickGetcpuFuncEv.exit
 
-_ZN5folly14AccessSpreaderISt6atomicE14pickGetcpuFuncEv.exit: ; preds = %_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE.exit, %35, %38
-  %.0.i.i = phi ptr [ null, %_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE.exit ], [ null, %38 ], [ %36, %35 ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 65792
+_ZN5folly14AccessSpreaderISt6atomicE14pickGetcpuFuncEv.exit: ; preds = %_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE.exit, %37, %40
+  %.0.i.i = phi ptr [ null, %_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE.exit ], [ null, %40 ], [ %38, %37 ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 65792
   %.not.i1 = icmp eq ptr %.0.i.i, null
-  %41 = select i1 %.not.i1, ptr @_ZN5folly14FallbackGetcpuINS_18SequentialThreadIdEE6getcpuEPjS3_Pv, ptr %.0.i.i
-  %42 = ptrtoint ptr %41 to i64
-  %43 = atomicrmw xchg ptr %40, i64 %42 acq_rel, align 8
+  %43 = select i1 %.not.i1, ptr @_ZN5folly14FallbackGetcpuINS_18SequentialThreadIdEE6getcpuEPjS3_Pv, ptr %.0.i.i
+  %44 = ptrtoint ptr %43 to i64
+  %45 = atomicrmw xchg ptr %42, i64 %44 acq_rel, align 8
   ret i1 true
 }
 
@@ -5688,7 +5690,8 @@ define noundef zeroext i1 @_ZN5folly6detail18AccessSpreaderBase10initializeERNS1
   br i1 %6, label %.split.us, label %.lr.ph.us63
 
 .split.us:                                        ; preds = %3, %..preheader_crit_edge.us.preheader
-  %storemerge55.us = phi i64 [ %11, %..preheader_crit_edge.us.preheader ], [ 0, %3 ]
+  %storemerge55.us = phi i64 [ %12, %..preheader_crit_edge.us.preheader ], [ 0, %3 ]
+  %8 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us
   %.sroa.speculated43.us = tail call i64 @llvm.umax.i64(i64 %storemerge55.us, i64 1)
   br i1 %.not, label %.preheader49.us.preheader, label %.lr.ph.us
 
@@ -5696,76 +5699,77 @@ define noundef zeroext i1 @_ZN5folly6detail18AccessSpreaderBase10initializeERNS1
   br label %.preheader49.us
 
 .preheader49.us:                                  ; preds = %.preheader49.us.preheader, %._crit_edge.us
-  %storemerge3253.us = phi i64 [ %9, %._crit_edge.us ], [ %.fr, %.preheader49.us.preheader ]
-  %8 = sub nuw nsw i64 256, %storemerge3253.us
-  %.sroa.speculated.us = tail call i64 @llvm.umin.i64(i64 %8, i64 %storemerge3253.us)
+  %storemerge3253.us = phi i64 [ %10, %._crit_edge.us ], [ %.fr, %.preheader49.us.preheader ]
+  %9 = sub nuw nsw i64 256, %storemerge3253.us
+  %.sroa.speculated.us = tail call i64 @llvm.umin.i64(i64 %9, i64 %storemerge3253.us)
   %.not65 = icmp eq i64 %storemerge3253.us, 0
   br i1 %.not65, label %._crit_edge.us, label %.lr.ph52.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph52.us, %.preheader49.us
-  %9 = add nuw nsw i64 %.sroa.speculated.us, %storemerge3253.us
-  %10 = icmp ult i64 %9, 256
-  br i1 %10, label %.preheader49.us, label %..preheader_crit_edge.us.preheader, !llvm.loop !200
+  %10 = add nuw nsw i64 %.sroa.speculated.us, %storemerge3253.us
+  %11 = icmp ult i64 %10, 256
+  br i1 %11, label %.preheader49.us, label %..preheader_crit_edge.us.preheader, !llvm.loop !200
 
 ..preheader_crit_edge.us.preheader:               ; preds = %._crit_edge.us
-  %11 = add nuw nsw i64 %storemerge55.us, 1
-  %exitcond71.not = icmp eq i64 %11, 257
+  %12 = add nuw nsw i64 %storemerge55.us, 1
+  %exitcond71.not = icmp eq i64 %12, 257
   br i1 %exitcond71.not, label %.split57.us, label %.split.us, !llvm.loop !201
 
 .lr.ph52.us:                                      ; preds = %.preheader49.us, %.lr.ph52.us
-  %.02751.us = phi i64 [ %16, %.lr.ph52.us ], [ 0, %.preheader49.us ]
-  %12 = add i64 %.02751.us, %storemerge3253.us
-  %13 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us, i64 %12
-  %14 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us, i64 %.02751.us
-  %15 = load atomic i8, ptr %14 monotonic, align 1
-  store atomic i8 %15, ptr %13 monotonic, align 1
-  %16 = add nuw i64 %.02751.us, 1
-  %exitcond70.not = icmp eq i64 %16, %.sroa.speculated.us
+  %.02751.us = phi i64 [ %17, %.lr.ph52.us ], [ 0, %.preheader49.us ]
+  %13 = add i64 %.02751.us, %storemerge3253.us
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %.02751.us
+  %16 = load atomic i8, ptr %15 monotonic, align 1
+  store atomic i8 %16, ptr %14 monotonic, align 1
+  %17 = add nuw i64 %.02751.us, 1
+  %exitcond70.not = icmp eq i64 %17, %.sroa.speculated.us
   br i1 %exitcond70.not, label %._crit_edge.us, label %.lr.ph52.us, !llvm.loop !203
 
 .lr.ph.us:                                        ; preds = %.split.us, %.lr.ph.us
-  %.02850.us = phi i64 [ %24, %.lr.ph.us ], [ 0, %.split.us ]
-  %17 = load ptr, ptr %7, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.02850.us
-  %19 = load i64, ptr %18, align 8, !tbaa !56
-  %20 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us, i64 %.02850.us
-  %21 = mul i64 %19, %.sroa.speculated43.us
-  %22 = udiv i64 %21, %.fr
-  %23 = trunc i64 %22 to i8
-  store atomic i8 %23, ptr %20 monotonic, align 1
-  %24 = add nuw nsw i64 %.02850.us, 1
-  %exitcond69.not = icmp eq i64 %24, %invariant.umin
+  %.02850.us = phi i64 [ %25, %.lr.ph.us ], [ 0, %.split.us ]
+  %18 = load ptr, ptr %7, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %.02850.us
+  %20 = load i64, ptr %19, align 8, !tbaa !56
+  %21 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %.02850.us
+  %22 = mul i64 %20, %.sroa.speculated43.us
+  %23 = udiv i64 %22, %.fr
+  %24 = trunc i64 %23 to i8
+  store atomic i8 %24, ptr %21 monotonic, align 1
+  %25 = add nuw nsw i64 %.02850.us, 1
+  %exitcond69.not = icmp eq i64 %25, %invariant.umin
   br i1 %exitcond69.not, label %.preheader49.us.preheader, label %.lr.ph.us, !llvm.loop !204
 
 .lr.ph.us63:                                      ; preds = %3, %..preheader49_crit_edge.us64.preheader
-  %storemerge55.us58 = phi i64 [ %34, %..preheader49_crit_edge.us64.preheader ], [ 0, %3 ]
+  %storemerge55.us58 = phi i64 [ %36, %..preheader49_crit_edge.us64.preheader ], [ 0, %3 ]
+  %26 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us58
   %.sroa.speculated43.us59 = tail call i64 @llvm.umax.i64(i64 %storemerge55.us58, i64 1)
-  br label %25
+  br label %27
 
-25:                                               ; preds = %.lr.ph.us63, %25
-  %.02850.us61 = phi i64 [ 0, %.lr.ph.us63 ], [ %33, %25 ]
-  %26 = load ptr, ptr %7, align 8, !tbaa !14
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %.02850.us61
-  %28 = load i64, ptr %27, align 8, !tbaa !56
-  %29 = getelementptr inbounds nuw [257 x [256 x i8]], ptr %0, i64 0, i64 %storemerge55.us58, i64 %.02850.us61
-  %30 = mul i64 %28, %.sroa.speculated43.us59
-  %31 = udiv i64 %30, %.fr
-  %32 = trunc i64 %31 to i8
-  store atomic i8 %32, ptr %29 monotonic, align 1
-  %33 = add nuw nsw i64 %.02850.us61, 1
-  %exitcond.not = icmp eq i64 %33, %invariant.umin
-  br i1 %exitcond.not, label %..preheader49_crit_edge.us64.preheader, label %25, !llvm.loop !204
+27:                                               ; preds = %.lr.ph.us63, %27
+  %.02850.us61 = phi i64 [ 0, %.lr.ph.us63 ], [ %35, %27 ]
+  %28 = load ptr, ptr %7, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %.02850.us61
+  %30 = load i64, ptr %29, align 8, !tbaa !56
+  %31 = getelementptr inbounds nuw [256 x i8], ptr %26, i64 0, i64 %.02850.us61
+  %32 = mul i64 %30, %.sroa.speculated43.us59
+  %33 = udiv i64 %32, %.fr
+  %34 = trunc i64 %33 to i8
+  store atomic i8 %34, ptr %31 monotonic, align 1
+  %35 = add nuw nsw i64 %.02850.us61, 1
+  %exitcond.not = icmp eq i64 %35, %invariant.umin
+  br i1 %exitcond.not, label %..preheader49_crit_edge.us64.preheader, label %27, !llvm.loop !204
 
-..preheader49_crit_edge.us64.preheader:           ; preds = %25
-  %34 = add nuw nsw i64 %storemerge55.us58, 1
-  %exitcond68.not = icmp eq i64 %34, 257
+..preheader49_crit_edge.us64.preheader:           ; preds = %27
+  %36 = add nuw nsw i64 %storemerge55.us58, 1
+  %exitcond68.not = icmp eq i64 %36, 257
   br i1 %exitcond68.not, label %.split57.us, label %.lr.ph.us63, !llvm.loop !205
 
 .split57.us:                                      ; preds = %..preheader49_crit_edge.us64.preheader, %..preheader_crit_edge.us.preheader
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 65792
-  %36 = tail call noundef ptr %1()
-  %37 = ptrtoint ptr %36 to i64
-  %38 = atomicrmw xchg ptr %35, i64 %37 acq_rel, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 65792
+  %38 = tail call noundef ptr %1()
+  %39 = ptrtoint ptr %38 to i64
+  %40 = atomicrmw xchg ptr %37, i64 %39 acq_rel, align 8
   ret i1 true
 }
 
@@ -6282,7 +6286,7 @@ __cxx_global_var_init.exit:                       ; preds = %0, %3
   %8 = and i32 %7, 255
   store i32 %8, ptr %1, align 4, !tbaa !199
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 256, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65536), i64 0, i64 %9
   %11 = load atomic i8, ptr %10 monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #33
   ret void

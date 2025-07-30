@@ -23,7 +23,7 @@ define range(i32 -1, 2) i32 @avpriv_mpegaudio_decode_header(ptr noundef writeonl
   %9 = and i32 %1, 3072
   %10 = icmp eq i32 %9, 3072
   %narrow.i = or i1 %10, %or.cond10.i
-  br i1 %narrow.i, label %74, label %11
+  br i1 %narrow.i, label %76, label %11
 
 11:                                               ; preds = %2
   %12 = and i32 %1, 1048576
@@ -79,51 +79,53 @@ define range(i32 -1, 2) i32 @avpriv_mpegaudio_decode_header(ptr noundef writeonl
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink60, ptr %48, align 4, !tbaa !17
   %.not59 = icmp eq i32 %38, 0
-  br i1 %.not59, label %74, label %49
+  br i1 %.not59, label %76, label %49
 
 49:                                               ; preds = %11
   %50 = zext nneg i32 %.sink to i64
-  %51 = xor i32 %17, 3
-  %52 = zext nneg i32 %51 to i64
-  %53 = zext nneg i32 %38 to i64
-  %54 = getelementptr inbounds nuw [2 x [3 x [15 x i16]]], ptr @ff_mpa_bitrate_tab, i64 0, i64 %50, i64 %52, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !10
-  %56 = zext i16 %55 to i32
-  %57 = mul nuw nsw i32 %56, 1000
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %57, ptr %58, align 4, !tbaa !18
-  switch i32 %17, label %68 [
-    i32 3, label %59
-    i32 2, label %64
+  %51 = getelementptr inbounds nuw [2 x [3 x [15 x i16]]], ptr @ff_mpa_bitrate_tab, i64 0, i64 %50
+  %52 = xor i32 %17, 3
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw [3 x [15 x i16]], ptr %51, i64 0, i64 %53
+  %55 = zext nneg i32 %38 to i64
+  %56 = getelementptr inbounds nuw [15 x i16], ptr %54, i64 0, i64 %55
+  %57 = load i16, ptr %56, align 2, !tbaa !10
+  %58 = zext i16 %57 to i32
+  %59 = mul nuw nsw i32 %58, 1000
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %59, ptr %60, align 4, !tbaa !18
+  switch i32 %17, label %70 [
+    i32 3, label %61
+    i32 2, label %66
   ]
 
-59:                                               ; preds = %49
-  %60 = mul nuw nsw i32 %56, 12000
-  %61 = udiv i32 %60, %28
-  %62 = add nuw nsw i32 %61, %40
-  %63 = shl nuw nsw i32 %62, 2
-  br label %73
+61:                                               ; preds = %49
+  %62 = mul nuw nsw i32 %58, 12000
+  %63 = udiv i32 %62, %28
+  %64 = add nuw nsw i32 %63, %40
+  %65 = shl nuw nsw i32 %64, 2
+  br label %75
 
-64:                                               ; preds = %49
-  %65 = mul nuw nsw i32 %56, 144000
-  %66 = udiv i32 %65, %28
-  %67 = add nuw nsw i32 %66, %40
-  br label %73
+66:                                               ; preds = %49
+  %67 = mul nuw nsw i32 %58, 144000
+  %68 = udiv i32 %67, %28
+  %69 = add nuw nsw i32 %68, %40
+  br label %75
 
-68:                                               ; preds = %49
-  %69 = mul nuw nsw i32 %56, 144000
-  %70 = shl nuw nsw i32 %28, %.sink
-  %71 = udiv i32 %69, %70
-  %72 = add nuw nsw i32 %71, %40
-  br label %73
+70:                                               ; preds = %49
+  %71 = mul nuw nsw i32 %58, 144000
+  %72 = shl nuw nsw i32 %28, %.sink
+  %73 = udiv i32 %71, %72
+  %74 = add nuw nsw i32 %73, %40
+  br label %75
 
-73:                                               ; preds = %68, %64, %59
-  %.054 = phi i32 [ %72, %68 ], [ %63, %59 ], [ %67, %64 ]
+75:                                               ; preds = %70, %66, %61
+  %.054 = phi i32 [ %74, %70 ], [ %65, %61 ], [ %69, %66 ]
   store i32 %.054, ptr %0, align 4, !tbaa !19
-  br label %74
+  br label %76
 
-74:                                               ; preds = %11, %2, %73
-  %.0 = phi i32 [ 0, %73 ], [ -1, %2 ], [ 1, %11 ]
+76:                                               ; preds = %11, %2, %75
+  %.0 = phi i32 [ 0, %75 ], [ -1, %2 ], [ 1, %11 ]
   ret i32 %.0
 }
 

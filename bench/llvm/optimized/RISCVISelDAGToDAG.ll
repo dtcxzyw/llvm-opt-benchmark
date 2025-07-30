@@ -28390,16 +28390,17 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv
 
 14:                                               ; preds = %11
   %15 = zext nneg i16 %7 to i64
-  %16 = zext nneg i16 %8 to i64
-  %17 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %15, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !51, !range !52, !noundef !53
-  %19 = trunc nuw i8 %18 to i1
-  %.v.i = select i1 %19, i16 %7, i16 %8
-  %20 = zext nneg i16 %.v.i to i32
+  %16 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %15
+  %17 = zext nneg i16 %8 to i64
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 0, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !51, !range !52, !noundef !53
+  %20 = trunc nuw i8 %19 to i1
+  %.v.i = select i1 %20, i16 %7, i16 %8
+  %21 = zext nneg i16 %.v.i to i32
   br label %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit
 
 _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit: ; preds = %1, %11, %14
-  %.0.i.i = phi i32 [ %20, %14 ], [ 6, %11 ], [ 6, %1 ]
+  %.0.i.i = phi i32 [ %21, %14 ], [ 6, %11 ], [ 6, %1 ]
   ret i32 %.0.i.i
 }
 

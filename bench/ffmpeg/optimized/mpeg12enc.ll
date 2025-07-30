@@ -9231,77 +9231,78 @@ define internal void @mpeg12_encode_init_static() #3 {
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.preheader63, label %1, !llvm.loop !208
 
-.preheader63:                                     ; preds = %1, %44
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %44 ], [ 1, %1 ]
-  %41 = trunc i64 %indvars.iv75 to i32
-  %42 = add i32 %41, -1
-  %43 = trunc i64 %indvars.iv75 to i8
-  br label %45
+.preheader63:                                     ; preds = %1, %45
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %45 ], [ 1, %1 ]
+  %41 = getelementptr inbounds nuw [8 x [16385 x i8]], ptr @mv_penalty, i64 0, i64 %indvars.iv75
+  %42 = trunc i64 %indvars.iv75 to i32
+  %43 = add i32 %42, -1
+  %44 = trunc i64 %indvars.iv75 to i8
+  br label %46
 
-44:                                               ; preds = %58
+45:                                               ; preds = %59
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 8
   br i1 %exitcond78.not, label %.preheader, label %.preheader63, !llvm.loop !209
 
-45:                                               ; preds = %.preheader63, %58
-  %indvars.iv71 = phi i64 [ -8192, %.preheader63 ], [ %indvars.iv.next72, %58 ]
-  %46 = icmp eq i64 %indvars.iv71, 0
-  br i1 %46, label %58, label %47
+46:                                               ; preds = %.preheader63, %59
+  %indvars.iv71 = phi i64 [ -8192, %.preheader63 ], [ %indvars.iv.next72, %59 ]
+  %47 = icmp eq i64 %indvars.iv71, 0
+  br i1 %47, label %59, label %48
 
-47:                                               ; preds = %45
-  %48 = trunc nsw i64 %indvars.iv71 to i32
-  %spec.select62 = tail call i32 @llvm.abs.i32(i32 %48, i1 true)
-  %49 = add nsw i32 %spec.select62, -1
-  %50 = ashr i32 %49, %42
-  %51 = icmp slt i32 %50, 16
-  br i1 %51, label %52, label %57
+48:                                               ; preds = %46
+  %49 = trunc nsw i64 %indvars.iv71 to i32
+  %spec.select62 = tail call i32 @llvm.abs.i32(i32 %49, i1 true)
+  %50 = add nsw i32 %spec.select62, -1
+  %51 = ashr i32 %50, %43
+  %52 = icmp slt i32 %51, 16
+  br i1 %52, label %53, label %58
 
-52:                                               ; preds = %47
-  %53 = add nsw i32 %50, 1
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [17 x [2 x i8]], ptr @ff_mpeg12_mbMotionVectorTable, i64 0, i64 %54, i64 1
-  %56 = load i8, ptr %55, align 1, !tbaa !4
-  br label %57
-
-57:                                               ; preds = %47, %52
-  %.pn = phi i8 [ %56, %52 ], [ 11, %47 ]
-  %.1 = add i8 %.pn, %43
+53:                                               ; preds = %48
+  %54 = add nsw i32 %51, 1
+  %55 = zext nneg i32 %54 to i64
+  %56 = getelementptr inbounds nuw [17 x [2 x i8]], ptr @ff_mpeg12_mbMotionVectorTable, i64 0, i64 %55, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !4
   br label %58
 
-58:                                               ; preds = %45, %57
-  %.058 = phi i8 [ %.1, %57 ], [ 1, %45 ]
-  %59 = add nsw i64 %indvars.iv71, 8192
-  %60 = getelementptr inbounds [8 x [16385 x i8]], ptr @mv_penalty, i64 0, i64 %indvars.iv75, i64 %59
-  store i8 %.058, ptr %60, align 1, !tbaa !4
+58:                                               ; preds = %48, %53
+  %.pn = phi i8 [ %57, %53 ], [ 11, %48 ]
+  %.1 = add i8 %.pn, %44
+  br label %59
+
+59:                                               ; preds = %46, %58
+  %.058 = phi i8 [ %.1, %58 ], [ 1, %46 ]
+  %60 = add nsw i64 %indvars.iv71, 8192
+  %61 = getelementptr inbounds [16385 x i8], ptr %41, i64 0, i64 %60
+  store i8 %.058, ptr %61, align 1, !tbaa !4
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 8193
-  br i1 %exitcond74.not, label %44, label %45, !llvm.loop !210
+  br i1 %exitcond74.not, label %45, label %46, !llvm.loop !210
 
-61:                                               ; preds = %._crit_edge
+62:                                               ; preds = %._crit_edge
   ret void
 
-.preheader:                                       ; preds = %44, %._crit_edge
-  %.05469 = phi i32 [ %71, %._crit_edge ], [ 7, %44 ]
-  %62 = shl i32 8, %.05469
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %45, %._crit_edge
+  %.05469 = phi i32 [ %72, %._crit_edge ], [ 7, %45 ]
+  %63 = shl i32 8, %.05469
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %64 = trunc i32 %.05469 to i8
-  %65 = sub nsw i32 4096, %62
-  %66 = sext i32 %65 to i64
-  %scevgep = getelementptr i8, ptr @fcode_tab, i64 %66
-  %67 = shl i32 16, %.05469
-  %68 = add i32 %67, -16
-  %69 = zext i32 %68 to i64
-  %70 = add nuw nsw i64 %69, 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 %64, i64 %70, i1 false), !tbaa !4
+  %65 = trunc i32 %.05469 to i8
+  %66 = sub nsw i32 4096, %63
+  %67 = sext i32 %66 to i64
+  %scevgep = getelementptr i8, ptr @fcode_tab, i64 %67
+  %68 = shl i32 16, %.05469
+  %69 = add i32 %68, -16
+  %70 = zext i32 %69 to i64
+  %71 = add nuw nsw i64 %70, 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 %65, i64 %71, i1 false), !tbaa !4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %71 = add nsw i32 %.05469, -1
-  %72 = icmp samesign ugt i32 %.05469, 1
-  br i1 %72, label %.preheader, label %61, !llvm.loop !211
+  %72 = add nsw i32 %.05469, -1
+  %73 = icmp samesign ugt i32 %.05469, 1
+  br i1 %73, label %.preheader, label %62, !llvm.loop !211
 }
 
 ; Function Attrs: cold nofree noreturn nounwind

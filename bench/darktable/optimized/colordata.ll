@@ -856,12 +856,12 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %36 = add i32 %35, %21
   br label %37
 
-37:                                               ; preds = %33, %95
-  %indvars.iv79 = phi i64 [ 0, %33 ], [ %indvars.iv.next80, %95 ]
+37:                                               ; preds = %33, %97
+  %indvars.iv79 = phi i64 [ 0, %33 ], [ %indvars.iv.next80, %97 ]
   %38 = getelementptr inbounds nuw [792 x %struct.anon], ptr @_ZZN6LibRaw11adobe_coeffEjPKciE5table, i64 0, i64 %indvars.iv79
   %39 = load i32, ptr %38, align 8, !tbaa !75
   %40 = icmp eq i32 %39, %1
-  br i1 %40, label %41, label %95
+  br i1 %40, label %41, label %97
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -873,7 +873,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 45:                                               ; preds = %41
   %46 = tail call i32 @strncasecmp(ptr noundef %2, ptr noundef nonnull %43, i64 noundef %44) #10
   %.not53 = icmp eq i32 %46, 0
-  br i1 %.not53, label %47, label %95
+  br i1 %.not53, label %47, label %97
 
 47:                                               ; preds = %45, %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 532
@@ -939,46 +939,48 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %.lhs.trunc.us = trunc i64 %indvars.iv87 to i8
   %77 = udiv i8 %.lhs.trunc.us, 3
   %78 = zext nneg i8 %77 to i64
-  %79 = urem i8 %.lhs.trunc.us, 3
-  %80 = zext nneg i8 %79 to i64
-  %81 = getelementptr inbounds nuw [4 x [3 x float]], ptr %72, i64 0, i64 %78, i64 %80
-  store float %76, ptr %81, align 4, !tbaa !83
-  %82 = fpext reassoc nsz arcp contract afn float %76 to double
-  %83 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv87
-  store double %82, ptr %83, align 8, !tbaa !84
+  %79 = getelementptr inbounds nuw [4 x [3 x float]], ptr %72, i64 0, i64 %78
+  %80 = urem i8 %.lhs.trunc.us, 3
+  %81 = zext nneg i8 %80 to i64
+  %82 = getelementptr inbounds nuw [3 x float], ptr %79, i64 0, i64 %81
+  store float %76, ptr %82, align 4, !tbaa !83
+  %83 = fpext reassoc nsz arcp contract afn float %76 to double
+  %84 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv87
+  store double %83, ptr %84, align 8, !tbaa !84
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 12
-  br i1 %exitcond90.not, label %93, label %.split.us, !llvm.loop !85
+  br i1 %exitcond90.not, label %95, label %.split.us, !llvm.loop !85
 
 .split:                                           ; preds = %70, %.split
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.split ], [ 0, %70 ]
-  %84 = getelementptr inbounds nuw [12 x i32], ptr %68, i64 0, i64 %indvars.iv83
-  %85 = load i32, ptr %84, align 4, !tbaa !71
-  %86 = sitofp i32 %85 to float
-  %87 = fmul reassoc nsz arcp contract afn float %86, 0x3F1A36E2E0000000
+  %85 = getelementptr inbounds nuw [12 x i32], ptr %68, i64 0, i64 %indvars.iv83
+  %86 = load i32, ptr %85, align 4, !tbaa !71
+  %87 = sitofp i32 %86 to float
+  %88 = fmul reassoc nsz arcp contract afn float %87, 0x3F1A36E2E0000000
   %.lhs.trunc64 = trunc i64 %indvars.iv83 to i8
-  %88 = udiv i8 %.lhs.trunc64, 3
-  %89 = zext nneg i8 %88 to i64
-  %90 = urem i8 %.lhs.trunc64, 3
-  %91 = zext nneg i8 %90 to i64
-  %92 = getelementptr inbounds nuw [4 x [3 x float]], ptr %72, i64 0, i64 %89, i64 %91
-  store float %87, ptr %92, align 4, !tbaa !83
+  %89 = udiv i8 %.lhs.trunc64, 3
+  %90 = zext nneg i8 %89 to i64
+  %91 = getelementptr inbounds nuw [4 x [3 x float]], ptr %72, i64 0, i64 %90
+  %92 = urem i8 %.lhs.trunc64, 3
+  %93 = zext nneg i8 %92 to i64
+  %94 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %93
+  store float %88, ptr %94, align 4, !tbaa !83
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 12
   br i1 %exitcond86.not, label %.critedge61, label %.split, !llvm.loop !87
 
-93:                                               ; preds = %.split.us
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 153304
-  call void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %94, ptr noundef nonnull %5)
+95:                                               ; preds = %.split.us
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 153304
+  call void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %96, ptr noundef nonnull %5)
   br label %.critedge61
 
-95:                                               ; preds = %45, %37
+97:                                               ; preds = %45, %37
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 792
   br i1 %exitcond82.not, label %.critedge61, label %37, !llvm.loop !88
 
-.critedge61:                                      ; preds = %95, %.split, %67, %93, %4
-  %.0 = phi i32 [ 1, %4 ], [ 1, %67 ], [ 1, %93 ], [ 1, %.split ], [ 0, %95 ]
+.critedge61:                                      ; preds = %97, %.split, %67, %95, %4
+  %.0 = phi i32 [ 1, %4 ], [ 1, %67 ], [ 1, %95 ], [ 1, %.split ], [ 0, %97 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #9
   ret i32 %.0
 }

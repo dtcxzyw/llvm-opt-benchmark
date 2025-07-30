@@ -8051,16 +8051,16 @@ _ZN4llvm12HandleSDNodeC2ENS_7SDValueE.exit:       ; preds = %1, %35
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 784
   br label %51
 
-51:                                               ; preds = %.lr.ph, %94
-  %52 = phi ptr [ %38, %.lr.ph ], [ %96, %94 ]
-  %53 = phi ptr [ %42, %.lr.ph ], [ %95, %94 ]
+51:                                               ; preds = %.lr.ph, %95
+  %52 = phi ptr [ %38, %.lr.ph ], [ %97, %95 ]
+  %53 = phi ptr [ %42, %.lr.ph ], [ %96, %95 ]
   %54 = load ptr, ptr %53, align 8, !tbaa !1078
   store ptr %54, ptr %3, align 8, !tbaa !1070
   %55 = getelementptr inbounds i8, ptr %54, i64 -8
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !1059
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %94, label %59, !llvm.loop !1079
+  br i1 %58, label %95, label %59, !llvm.loop !1079
 
 59:                                               ; preds = %51
   %60 = load ptr, ptr %50, align 8, !tbaa !63
@@ -8117,54 +8117,55 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit: ; preds = %82
   %.pn = load ptr, ptr %50, align 8, !tbaa !63
   %84 = getelementptr inbounds nuw i8, ptr %.pn, i64 5486
   %85 = zext i16 %.sroa.0.025 to i64
-  %86 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %84, i64 0, i64 %85, i64 %83
-  %87 = load i8, ptr %86, align 1, !tbaa !1081
-  %88 = icmp eq i8 %87, 2
-  br i1 %88, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27
+  %86 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %84, i64 0, i64 %85
+  %87 = getelementptr inbounds nuw [496 x i8], ptr %86, i64 0, i64 %83
+  %88 = load i8, ptr %87, align 1, !tbaa !1081
+  %89 = icmp eq i8 %88, 2
+  br i1 %89, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27
 
 _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread: ; preds = %82, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit
-  %89 = load ptr, ptr %8, align 8, !tbaa !479
-  %90 = call noundef ptr @_ZN4llvm12SelectionDAG18mutateStrictFPToFPEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(952) %89, ptr noundef nonnull %55) #30
+  %90 = load ptr, ptr %8, align 8, !tbaa !479
+  %91 = call noundef ptr @_ZN4llvm12SelectionDAG18mutateStrictFPToFPEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(952) %90, ptr noundef nonnull %55) #30
   br label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27
 
 _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27: ; preds = %79, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread, %59, %64
-  %.1 = phi ptr [ %55, %59 ], [ %55, %64 ], [ %90, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread ], [ %55, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit ], [ %55, %79 ]
-  %91 = load ptr, ptr %0, align 8, !tbaa !3
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
-  %93 = load ptr, ptr %92, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef %.1) #30
+  %.1 = phi ptr [ %55, %59 ], [ %55, %64 ], [ %91, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread ], [ %55, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit ], [ %55, %79 ]
+  %92 = load ptr, ptr %0, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
+  %94 = load ptr, ptr %93, align 8
+  call void %94(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef %.1) #30
   %.pre = load ptr, ptr %8, align 8, !tbaa !479
   %.pre31 = load ptr, ptr %3, align 8, !tbaa !1070
-  br label %94
+  br label %95
 
-94:                                               ; preds = %51, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27
-  %95 = phi ptr [ %54, %51 ], [ %.pre31, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27 ]
-  %96 = phi ptr [ %52, %51 ], [ %.pre, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27 ]
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 400
-  %98 = load ptr, ptr %97, align 8, !tbaa !800
-  %.not = icmp eq ptr %95, %98
+95:                                               ; preds = %51, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27
+  %96 = phi ptr [ %54, %51 ], [ %.pre31, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27 ]
+  %97 = phi ptr [ %52, %51 ], [ %.pre, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27 ]
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 400
+  %99 = load ptr, ptr %98, align 8, !tbaa !800
+  %.not = icmp eq ptr %96, %99
   br i1 %.not, label %._crit_edge, label %51
 
-._crit_edge:                                      ; preds = %94
+._crit_edge:                                      ; preds = %95
   %.sroa.0.0.copyload.pre = load ptr, ptr %28, align 8, !tbaa !901
   %.sroa.2.0.copyload.pre = load i32, ptr %29, align 8, !tbaa !816
   %.not.i20 = icmp eq ptr %.sroa.0.0.copyload.pre, null
   br i1 %.not.i20, label %.thread.i, label %._crit_edge.thread
 
 .thread.i:                                        ; preds = %._crit_edge
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 376
-  store ptr null, ptr %99, align 8, !tbaa !901
-  %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %96, i64 384
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 376
+  store ptr null, ptr %100, align 8, !tbaa !901
+  %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %97, i64 384
   store i32 %.sroa.2.0.copyload.pre, ptr %.sroa.5.0..sroa_idx4.i, align 8, !tbaa !816
   br label %_ZN4llvm12SelectionDAG7setRootENS_7SDValueE.exit
 
 ._crit_edge.thread:                               ; preds = %_ZN4llvm12HandleSDNodeC2ENS_7SDValueE.exit, %._crit_edge
-  %.lcssa40 = phi ptr [ %96, %._crit_edge ], [ %38, %_ZN4llvm12HandleSDNodeC2ENS_7SDValueE.exit ]
+  %.lcssa40 = phi ptr [ %97, %._crit_edge ], [ %38, %_ZN4llvm12HandleSDNodeC2ENS_7SDValueE.exit ]
   %.sroa.0.0.copyload39 = phi ptr [ %.sroa.0.0.copyload.pre, %._crit_edge ], [ %.sroa.016.0.copyload, %_ZN4llvm12HandleSDNodeC2ENS_7SDValueE.exit ]
   %.sroa.2.0.copyload38 = phi i32 [ %.sroa.2.0.copyload.pre, %._crit_edge ], [ %.sroa.217.0.copyload, %_ZN4llvm12HandleSDNodeC2ENS_7SDValueE.exit ]
   call void @_ZN4llvm14checkForCyclesEPKNS_6SDNodeEPKNS_12SelectionDAGEb(ptr noundef nonnull %.sroa.0.0.copyload39, ptr noundef nonnull align 8 dereferenceable(952) %.lcssa40, i1 noundef zeroext false) #30
-  %100 = getelementptr inbounds nuw i8, ptr %.lcssa40, i64 376
-  store ptr %.sroa.0.0.copyload39, ptr %100, align 8, !tbaa !901
+  %101 = getelementptr inbounds nuw i8, ptr %.lcssa40, i64 376
+  store ptr %.sroa.0.0.copyload39, ptr %101, align 8, !tbaa !901
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa40, i64 384
   store i32 %.sroa.2.0.copyload38, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !816
   call void @_ZN4llvm14checkForCyclesEPKNS_12SelectionDAGEb(ptr noundef nonnull align 8 dereferenceable(952) %.lcssa40, i1 noundef zeroext false) #30
@@ -8172,18 +8173,18 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread27: ; pre
 
 _ZN4llvm12SelectionDAG7setRootENS_7SDValueE.exit: ; preds = %.thread.i, %._crit_edge.thread
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm12SelectionDAG17DAGUpdateListenerE, i64 16), ptr %4, align 8, !tbaa !3
-  %101 = load ptr, ptr %43, align 8, !tbaa !1074
-  %102 = load ptr, ptr %46, align 8, !tbaa !1083
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 744
-  store ptr %101, ptr %103, align 8, !tbaa !1073
+  %102 = load ptr, ptr %43, align 8, !tbaa !1074
+  %103 = load ptr, ptr %46, align 8, !tbaa !1083
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 744
+  store ptr %102, ptr %104, align 8, !tbaa !1073
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
   call void @_ZN4llvm12HandleSDNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #30
-  %104 = load ptr, ptr %0, align 8, !tbaa !3
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 40
-  %106 = load ptr, ptr %105, align 8
-  call void %106(ptr noundef nonnull align 8 dereferenceable(920) %0) #30
+  %105 = load ptr, ptr %0, align 8, !tbaa !3
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
+  %107 = load ptr, ptr %106, align 8
+  call void %107(ptr noundef nonnull align 8 dereferenceable(920) %0) #30
   ret void
 }
 

@@ -1134,30 +1134,32 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %60 = or disjoint i64 %57, 33
   %61 = lshr exact i64 %indvars.iv125, 1
   %62 = add nuw nsw i64 %61, %53
+  %invariant.gep = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %62
   br label %63
 
 63:                                               ; preds = %.preheader94, %63
   %indvars.iv121 = phi i64 [ 0, %.preheader94 ], [ %indvars.iv.next122, %63 ]
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %64 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr %5, i64 0, i64 %indvars.iv.next122, i64 %57
-  %65 = load i8, ptr %64, align 2, !tbaa !43
-  %66 = zext i8 %65 to i16
-  %67 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr %5, i64 0, i64 %indvars.iv.next122, i64 %58
-  %68 = load i8, ptr %67, align 1, !tbaa !43
-  %69 = zext i8 %68 to i16
-  %70 = add nuw nsw i16 %69, %66
-  %71 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr %5, i64 0, i64 %indvars.iv.next122, i64 %59
-  %72 = load i8, ptr %71, align 2, !tbaa !43
-  %73 = zext i8 %72 to i16
-  %74 = add nuw nsw i16 %70, %73
-  %75 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr %5, i64 0, i64 %indvars.iv.next122, i64 %60
-  %76 = load i8, ptr %75, align 1, !tbaa !43
-  %77 = zext i8 %76 to i16
-  %78 = add nuw nsw i16 %74, %77
-  %79 = lshr i16 %78, 2
-  %80 = trunc nuw i16 %79 to i8
-  %81 = getelementptr inbounds nuw [3 x [256 x i8]], ptr %6, i64 0, i64 %indvars.iv121, i64 %62
-  store i8 %80, ptr %81, align 1, !tbaa !43
+  %64 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr %5, i64 0, i64 %indvars.iv.next122
+  %65 = getelementptr inbounds nuw [1024 x i8], ptr %64, i64 0, i64 %57
+  %66 = load i8, ptr %65, align 2, !tbaa !43
+  %67 = zext i8 %66 to i16
+  %68 = getelementptr inbounds nuw [1024 x i8], ptr %64, i64 0, i64 %58
+  %69 = load i8, ptr %68, align 1, !tbaa !43
+  %70 = zext i8 %69 to i16
+  %71 = add nuw nsw i16 %70, %67
+  %72 = getelementptr inbounds nuw [1024 x i8], ptr %64, i64 0, i64 %59
+  %73 = load i8, ptr %72, align 2, !tbaa !43
+  %74 = zext i8 %73 to i16
+  %75 = add nuw nsw i16 %71, %74
+  %76 = getelementptr inbounds nuw [1024 x i8], ptr %64, i64 0, i64 %60
+  %77 = load i8, ptr %76, align 1, !tbaa !43
+  %78 = zext i8 %77 to i16
+  %79 = add nuw nsw i16 %75, %78
+  %80 = lshr i16 %79, 2
+  %81 = trunc nuw i16 %80 to i8
+  %gep = getelementptr inbounds nuw [3 x [256 x i8]], ptr %invariant.gep, i64 0, i64 %indvars.iv121
+  store i8 %81, ptr %gep, align 1, !tbaa !43
   %exitcond124.not = icmp eq i64 %indvars.iv.next122, 3
   br i1 %exitcond124.not, label %82, label %63, !llvm.loop !78
 

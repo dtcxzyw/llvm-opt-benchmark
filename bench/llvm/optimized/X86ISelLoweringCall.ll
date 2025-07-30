@@ -15202,7 +15202,7 @@ declare i16 @_ZNK4llvm17X86TargetLowering31getPreferredSwitchConditionTypeERNS_1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18TargetLoweringBase20canCombineTruncStoreENS_3EVTES1_b(ptr noundef nonnull align 8 dereferenceable(412423) %0, i16 %1, ptr %2, i16 %3, ptr %4, i1 noundef zeroext %5) unnamed_addr #0 comdat align 2 {
   %.not.i.i = icmp eq i16 %1, 0
-  br i1 %5, label %7, label %18
+  br i1 %5, label %7, label %19
 
 7:                                                ; preds = %6
   br i1 %.not.i.i, label %_ZNK4llvm18TargetLoweringBase17isTruncStoreLegalENS_3EVTES1_.exit, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
@@ -15219,36 +15219,38 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %7
 
 12:                                               ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 340574
-  %14 = zext i16 %3 to i64
-  %15 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %13, i64 0, i64 %9, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !972
-  %17 = icmp eq i8 %16, 0
+  %14 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %13, i64 0, i64 %9
+  %15 = zext i16 %3 to i64
+  %16 = getelementptr inbounds nuw [234 x i8], ptr %14, i64 0, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !972
+  %18 = icmp eq i8 %17, 0
   br label %_ZNK4llvm18TargetLoweringBase17isTruncStoreLegalENS_3EVTES1_.exit
 
-18:                                               ; preds = %6
+19:                                               ; preds = %6
   br i1 %.not.i.i, label %_ZNK4llvm18TargetLoweringBase17isTruncStoreLegalENS_3EVTES1_.exit, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i19
 
-_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i19: ; preds = %18
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %20 = zext i16 %1 to i64
-  %21 = getelementptr inbounds nuw [234 x ptr], ptr %19, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !156
-  %.not.i20 = icmp eq ptr %22, null
+_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i19: ; preds = %19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %21 = zext i16 %1 to i64
+  %22 = getelementptr inbounds nuw [234 x ptr], ptr %20, i64 0, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !156
+  %.not.i20 = icmp eq ptr %23, null
   %.not.i4.i.i21 = icmp eq i16 %3, 0
   %or.cond.i22 = select i1 %.not.i20, i1 true, i1 %.not.i4.i.i21
   br i1 %or.cond.i22, label %_ZNK4llvm18TargetLoweringBase17isTruncStoreLegalENS_3EVTES1_.exit, label %_ZNK4llvm18TargetLoweringBase19getTruncStoreActionENS_3EVTES1_.exit.i
 
 _ZNK4llvm18TargetLoweringBase19getTruncStoreActionENS_3EVTES1_.exit.i: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i19
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 340574
-  %24 = zext i16 %3 to i64
-  %25 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %23, i64 0, i64 %20, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !972
-  %27 = and i8 %26, -5
-  %spec.select.i = icmp eq i8 %27, 0
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 340574
+  %25 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %24, i64 0, i64 %21
+  %26 = zext i16 %3 to i64
+  %27 = getelementptr inbounds nuw [234 x i8], ptr %25, i64 0, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !972
+  %29 = and i8 %28, -5
+  %spec.select.i = icmp eq i8 %29, 0
   br label %_ZNK4llvm18TargetLoweringBase17isTruncStoreLegalENS_3EVTES1_.exit
 
-_ZNK4llvm18TargetLoweringBase17isTruncStoreLegalENS_3EVTES1_.exit: ; preds = %_ZNK4llvm18TargetLoweringBase19getTruncStoreActionENS_3EVTES1_.exit.i, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i19, %18, %12, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %7
-  %.0 = phi i1 [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ false, %7 ], [ %17, %12 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i19 ], [ false, %18 ], [ %spec.select.i, %_ZNK4llvm18TargetLoweringBase19getTruncStoreActionENS_3EVTES1_.exit.i ]
+_ZNK4llvm18TargetLoweringBase17isTruncStoreLegalENS_3EVTES1_.exit: ; preds = %_ZNK4llvm18TargetLoweringBase19getTruncStoreActionENS_3EVTES1_.exit.i, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i19, %19, %12, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %7
+  %.0 = phi i1 [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ false, %7 ], [ %18, %12 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i19 ], [ false, %19 ], [ %spec.select.i, %_ZNK4llvm18TargetLoweringBase19getTruncStoreActionENS_3EVTES1_.exit.i ]
   ret i1 %.0
 }
 
@@ -16052,15 +16054,16 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i: ; preds = %_
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5486
   %13 = zext nneg i32 %1 to i64
   %14 = zext i16 %4 to i64
-  %15 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %12, i64 0, i64 %14, i64 %13
-  %16 = load i8, ptr %15, align 1, !tbaa !972
-  %17 = and i8 %16, -5
-  %spec.select.i = icmp eq i8 %17, 0
+  %15 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %12, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw [496 x i8], ptr %15, i64 0, i64 %13
+  %17 = load i8, ptr %16, align 1, !tbaa !972
+  %18 = and i8 %17, -5
+  %spec.select.i = icmp eq i8 %18, 0
   br label %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit
 
 _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit: ; preds = %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i, %_ZNK4llvm3EVTeqES0_.exit.thread.i, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %7, %6
-  %18 = phi i1 [ false, %6 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ false, %7 ], [ true, %_ZNK4llvm3EVTeqES0_.exit.thread.i ], [ %spec.select.i, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i ]
-  ret i1 %18
+  %19 = phi i1 [ false, %6 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ false, %7 ], [ true, %_ZNK4llvm3EVTeqES0_.exit.thread.i ], [ %spec.select.i, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i ]
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1735,87 +1735,91 @@ GrowNamedColorList.exit:                          ; preds = %21
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %0, align 8
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %29, i64 %31, i32 2, i64 %indvars.iv43
-  store i16 0, ptr %32, align 2
+  %32 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %29, i64 %31, i32 2
+  %33 = getelementptr inbounds nuw [16 x i16], ptr %32, i64 0, i64 %indvars.iv43
+  store i16 0, ptr %33, align 2
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %33 = load i32, ptr %25, align 8
-  %34 = zext i32 %33 to i64
-  %35 = icmp samesign ult i64 %indvars.iv.next44, %34
-  br i1 %35, label %.lr.ph.split.us, label %.preheader, !llvm.loop !16
+  %34 = load i32, ptr %25, align 8
+  %35 = zext i32 %34 to i64
+  %36 = icmp samesign ult i64 %indvars.iv.next44, %35
+  br i1 %36, label %.lr.ph.split.us, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph.split, %.lr.ph.split.us, %24
-  %36 = icmp eq ptr %2, null
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br i1 %36, label %.preheader.split.us, label %.preheader.split
+  %37 = icmp eq ptr %2, null
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br i1 %37, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.preheader.split.us ], [ 0, %.preheader ]
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %0, align 8
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %38, i64 %40, i32 1, i64 %indvars.iv49
-  store i16 0, ptr %41, align 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %0, align 8
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %39, i64 %41, i32 1
+  %43 = getelementptr inbounds nuw [3 x i16], ptr %42, i64 0, i64 %indvars.iv49
+  store i16 0, ptr %43, align 2
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 3
   br i1 %exitcond52.not, label %.split.us, label %.preheader.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %42 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
-  %43 = load i16, ptr %42, align 2
-  %44 = load ptr, ptr %28, align 8
-  %45 = load i32, ptr %0, align 8
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %44, i64 %46, i32 2, i64 %indvars.iv
-  store i16 %43, ptr %47, align 2
+  %44 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %45 = load i16, ptr %44, align 2
+  %46 = load ptr, ptr %28, align 8
+  %47 = load i32, ptr %0, align 8
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %46, i64 %48, i32 2
+  %50 = getelementptr inbounds nuw [16 x i16], ptr %49, i64 0, i64 %indvars.iv
+  store i16 %45, ptr %50, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr %25, align 8
-  %49 = zext i32 %48 to i64
-  %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph.split, label %.preheader, !llvm.loop !19
+  %51 = load i32, ptr %25, align 8
+  %52 = zext i32 %51 to i64
+  %53 = icmp samesign ult i64 %indvars.iv.next, %52
+  br i1 %53, label %.lr.ph.split, label %.preheader, !llvm.loop !19
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.preheader.split ], [ 0, %.preheader ]
-  %51 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv46
-  %52 = load i16, ptr %51, align 2
-  %53 = load ptr, ptr %37, align 8
-  %54 = load i32, ptr %0, align 8
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %53, i64 %55, i32 1, i64 %indvars.iv46
-  store i16 %52, ptr %56, align 2
+  %54 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv46
+  %55 = load i16, ptr %54, align 2
+  %56 = load ptr, ptr %38, align 8
+  %57 = load i32, ptr %0, align 8
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %56, i64 %58, i32 1
+  %60 = getelementptr inbounds nuw [3 x i16], ptr %59, i64 0, i64 %indvars.iv46
+  store i16 %55, ptr %60, align 2
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, 3
   br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !20
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   %.not35 = icmp eq ptr %1, null
-  %57 = load ptr, ptr %37, align 8
-  %58 = load i32, ptr %0, align 8
-  %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %57, i64 %59
-  br i1 %.not35, label %67, label %61
+  %61 = load ptr, ptr %38, align 8
+  %62 = load i32, ptr %0, align 8
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %61, i64 %63
+  br i1 %.not35, label %71, label %65
 
-61:                                               ; preds = %.split.us
-  %62 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 255) #14
-  %63 = load ptr, ptr %37, align 8
-  %64 = load i32, ptr %0, align 8
-  %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %63, i64 %65, i32 0, i64 255
-  store i8 0, ptr %66, align 1
-  br label %68
+65:                                               ; preds = %.split.us
+  %66 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 255) #14
+  %67 = load ptr, ptr %38, align 8
+  %68 = load i32, ptr %0, align 8
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %67, i64 %69, i32 0, i64 255
+  store i8 0, ptr %70, align 1
+  br label %72
 
-67:                                               ; preds = %.split.us
-  store i8 0, ptr %60, align 2
-  br label %68
+71:                                               ; preds = %.split.us
+  store i8 0, ptr %64, align 2
+  br label %72
 
-68:                                               ; preds = %67, %61
-  %69 = load i32, ptr %0, align 8
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %0, align 8
+72:                                               ; preds = %71, %65
+  %73 = load i32, ptr %0, align 8
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %0, align 8
   br label %GrowNamedColorList.exit.thread
 
-GrowNamedColorList.exit.thread:                   ; preds = %21, %20, %4, %68
-  %.030 = phi i32 [ 1, %68 ], [ 0, %4 ], [ 0, %20 ], [ 0, %21 ]
+GrowNamedColorList.exit.thread:                   ; preds = %21, %20, %4, %72
+  %.030 = phi i32 [ 1, %72 ], [ 0, %4 ], [ 0, %20 ], [ 0, %21 ]
   ret i32 %.030
 }
 
@@ -2105,18 +2109,19 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
 34:                                               ; preds = %.lr.ph22, %34
   %indvars.iv27 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next28, %34 ]
   %35 = load ptr, ptr %23, align 8
-  %36 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %35, i64 %24, i32 2, i64 %indvars.iv27
-  %37 = load i16, ptr %36, align 2
-  %38 = uitofp i16 %37 to double
-  %39 = fdiv double %38, 6.553500e+04
-  %40 = fptrunc double %39 to float
-  %41 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv27
-  store float %40, ptr %41, align 4
+  %36 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %35, i64 %24, i32 2
+  %37 = getelementptr inbounds nuw [16 x i16], ptr %36, i64 0, i64 %indvars.iv27
+  %38 = load i16, ptr %37, align 2
+  %39 = uitofp i16 %38 to double
+  %40 = fdiv double %39, 6.553500e+04
+  %41 = fptrunc double %40 to float
+  %42 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv27
+  store float %41, ptr %42, align 4
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %42 = load i32, ptr %21, align 8
-  %43 = zext i32 %42 to i64
-  %44 = icmp samesign ult i64 %indvars.iv.next28, %43
-  br i1 %44, label %34, label %.loopexit, !llvm.loop !23
+  %43 = load i32, ptr %21, align 8
+  %44 = zext i32 %43 to i64
+  %45 = icmp samesign ult i64 %indvars.iv.next28, %44
+  br i1 %45, label %34, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %25, %.preheader
   ret void

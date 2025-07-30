@@ -1585,7 +1585,8 @@ thread-pre-split51.thread:                        ; preds = %521, %514, %thread-
   br label %674
 
 674:                                              ; preds = %658, %666, %671
-  %675 = getelementptr [6 x [9 x ptr]], ptr %344, i64 0, i64 %477, i64 %450
+  %.split = getelementptr [6 x [9 x ptr]], ptr %344, i64 0, i64 %477
+  %675 = getelementptr [9 x ptr], ptr %.split, i64 0, i64 %450
   store ptr %455, ptr %675, align 8
   %676 = getelementptr [27 x ptr], ptr %345, i64 0, i64 %435
   store ptr %455, ptr %676, align 8
@@ -3523,15 +3524,15 @@ define dso_local void @intel_engine_get_instdone(ptr noundef readonly captures(n
   %69 = zext i8 %68 to i64
   %70 = shl nuw i64 1, %40
   %71 = and i64 %70, %69
-  %.not11 = icmp eq i64 %71, 0
-  br i1 %.not11, label %122, label %105
+  %.not13 = icmp eq i64 %71, 0
+  br i1 %.not13, label %122, label %105
 
 72:                                               ; preds = %61
   %73 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %66, i64 %40) #18, !srcloc !92
   %74 = icmp ult i8 %73, 2
   call void @llvm.assume(i1 %74)
-  %.not10 = icmp eq i8 %73, 0
-  br i1 %.not10, label %122, label %105
+  %.not12 = icmp eq i8 %73, 0
+  br i1 %.not12, label %122, label %105
 
 75:                                               ; preds = %39
   %76 = load i32, ptr %3, align 4
@@ -3565,8 +3566,8 @@ define dso_local void @intel_engine_get_instdone(ptr noundef readonly captures(n
   %98 = zext nneg i32 %77 to i64
   %99 = shl nuw i64 1, %98
   %100 = and i64 %99, %97
-  %.not9 = icmp eq i64 %100, 0
-  br i1 %.not9, label %122, label %105
+  %.not11 = icmp eq i64 %100, 0
+  br i1 %.not11, label %122, label %105
 
 101:                                              ; preds = %87
   %102 = sext i32 %77 to i64
@@ -3585,7 +3586,8 @@ define dso_local void @intel_engine_get_instdone(ptr noundef readonly captures(n
   %111 = sext i32 %110 to i64
   %112 = load i32, ptr %4, align 4
   %113 = sext i32 %112 to i64
-  %114 = getelementptr [16 x [8 x i32]], ptr %37, i64 0, i64 %111, i64 %113
+  %.split = getelementptr [16 x [8 x i32]], ptr %37, i64 0, i64 %111
+  %114 = getelementptr [8 x i32], ptr %.split, i64 0, i64 %113
   store i32 %109, ptr %114, align 4
   %115 = load ptr, ptr %35, align 8
   %116 = call i32 @intel_gt_mcr_read(ptr noundef %115, i32 57700, i32 noundef %110, i32 noundef %112) #18
@@ -3593,7 +3595,8 @@ define dso_local void @intel_engine_get_instdone(ptr noundef readonly captures(n
   %118 = sext i32 %117 to i64
   %119 = load i32, ptr %4, align 4
   %120 = sext i32 %119 to i64
-  %121 = getelementptr [16 x [8 x i32]], ptr %38, i64 0, i64 %118, i64 %120
+  %.split9 = getelementptr [16 x [8 x i32]], ptr %38, i64 0, i64 %118
+  %121 = getelementptr [8 x i32], ptr %.split9, i64 0, i64 %120
   store i32 %116, ptr %121, align 4
   br label %122
 
@@ -3663,15 +3666,15 @@ define dso_local void @intel_engine_get_instdone(ptr noundef readonly captures(n
   %169 = zext i8 %168 to i64
   %170 = shl nuw i64 1, %140
   %171 = and i64 %170, %169
-  %.not15 = icmp eq i64 %171, 0
-  br i1 %.not15, label %215, label %205
+  %.not17 = icmp eq i64 %171, 0
+  br i1 %.not17, label %215, label %205
 
 172:                                              ; preds = %161
   %173 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %166, i64 %140) #18, !srcloc !92
   %174 = icmp ult i8 %173, 2
   call void @llvm.assume(i1 %174)
-  %.not14 = icmp eq i8 %173, 0
-  br i1 %.not14, label %215, label %205
+  %.not16 = icmp eq i8 %173, 0
+  br i1 %.not16, label %215, label %205
 
 175:                                              ; preds = %139
   %176 = load i32, ptr %3, align 4
@@ -3705,16 +3708,16 @@ define dso_local void @intel_engine_get_instdone(ptr noundef readonly captures(n
   %198 = zext nneg i32 %177 to i64
   %199 = shl nuw i64 1, %198
   %200 = and i64 %199, %197
-  %.not13 = icmp eq i64 %200, 0
-  br i1 %.not13, label %215, label %205
+  %.not15 = icmp eq i64 %200, 0
+  br i1 %.not15, label %215, label %205
 
 201:                                              ; preds = %187
   %202 = sext i32 %177 to i64
   %203 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %192, i64 %202) #18, !srcloc !92
   %204 = icmp ult i8 %203, 2
   call void @llvm.assume(i1 %204)
-  %.not12 = icmp eq i8 %203, 0
-  br i1 %.not12, label %215, label %205
+  %.not14 = icmp eq i8 %203, 0
+  br i1 %.not14, label %215, label %205
 
 205:                                              ; preds = %193, %167, %201, %172
   %206 = load ptr, ptr %35, align 8
@@ -3725,7 +3728,8 @@ define dso_local void @intel_engine_get_instdone(ptr noundef readonly captures(n
   %211 = sext i32 %210 to i64
   %212 = load i32, ptr %4, align 4
   %213 = sext i32 %212 to i64
-  %214 = getelementptr [16 x [8 x i32]], ptr %138, i64 0, i64 %211, i64 %213
+  %.split10 = getelementptr [16 x [8 x i32]], ptr %138, i64 0, i64 %211
+  %214 = getelementptr [8 x i32], ptr %.split10, i64 0, i64 %213
   store i32 %209, ptr %214, align 4
   br label %215
 

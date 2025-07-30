@@ -124,7 +124,7 @@ define void @_Z12gmx_calc_comPK10gmx_mtop_tPA3_fiPKiPf(ptr noundef %0, ptr nound
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %32
 
-._crit_edge.loopexit:                             ; preds = %60
+._crit_edge.loopexit:                             ; preds = %61
   %.pre = load float, ptr %4, align 4, !tbaa !4
   %.pre36 = load float, ptr %9, align 4, !tbaa !4
   %.pre37 = load float, ptr %10, align 4, !tbaa !4
@@ -134,7 +134,7 @@ define void @_Z12gmx_calc_comPK10gmx_mtop_tPA3_fiPKiPf(ptr noundef %0, ptr nound
   %25 = phi float [ 0.000000e+00, %8 ], [ %.pre37, %._crit_edge.loopexit ]
   %26 = phi float [ 0.000000e+00, %8 ], [ %.pre36, %._crit_edge.loopexit ]
   %27 = phi float [ 0.000000e+00, %8 ], [ %.pre, %._crit_edge.loopexit ]
-  %.021.lcssa = phi float [ 0.000000e+00, %8 ], [ %61, %._crit_edge.loopexit ]
+  %.021.lcssa = phi float [ 0.000000e+00, %8 ], [ %62, %._crit_edge.loopexit ]
   %28 = fdiv float 1.000000e+00, %.021.lcssa
   %29 = fmul float %28, %27
   store float %29, ptr %4, align 4, !tbaa !4
@@ -144,10 +144,10 @@ define void @_Z12gmx_calc_comPK10gmx_mtop_tPA3_fiPKiPf(ptr noundef %0, ptr nound
   store float %31, ptr %10, align 4, !tbaa !4
   ret void
 
-32:                                               ; preds = %.lr.ph, %60
-  %indvars.iv32 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next33, %60 ]
-  %.02128 = phi float [ 0.000000e+00, %.lr.ph ], [ %61, %60 ]
-  %.02326 = phi i32 [ 0, %.lr.ph ], [ %.1, %60 ]
+32:                                               ; preds = %.lr.ph, %61
+  %indvars.iv32 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next33, %61 ]
+  %.02128 = phi float [ 0.000000e+00, %.lr.ph ], [ %62, %61 ]
+  %.02326 = phi i32 [ 0, %.lr.ph ], [ %.1, %61 ]
   %33 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv32
   %34 = load i32, ptr %33, align 4, !tbaa !8
   br label %35
@@ -191,25 +191,26 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %41
   %57 = getelementptr inbounds %struct.t_atom, ptr %55, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !53
   %59 = sext i32 %34 to i64
-  br label %62
+  %60 = getelementptr inbounds [3 x float], ptr %1, i64 %59
+  br label %63
 
-60:                                               ; preds = %62
-  %61 = fadd float %.02128, %58
+61:                                               ; preds = %63
+  %62 = fadd float %.02128, %58
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count
   br i1 %exitcond35.not, label %._crit_edge.loopexit, label %32, !llvm.loop !57
 
-62:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %62
-  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds [3 x float], ptr %1, i64 %59, i64 %indvars.iv
-  %64 = load float, ptr %63, align 4, !tbaa !4
-  %65 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  %66 = load float, ptr %65, align 4, !tbaa !4
-  %67 = tail call float @llvm.fmuladd.f32(float %58, float %64, float %66)
-  store float %67, ptr %65, align 4, !tbaa !4
+63:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %63
+  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %63 ]
+  %64 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv
+  %65 = load float, ptr %64, align 4, !tbaa !4
+  %66 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %67 = load float, ptr %66, align 4, !tbaa !4
+  %68 = tail call float @llvm.fmuladd.f32(float %58, float %65, float %67)
+  store float %68, ptr %66, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %60, label %62, !llvm.loop !58
+  br i1 %exitcond.not, label %61, label %63, !llvm.loop !58
 }
 
 declare noundef zeroext i1 @_Z19gmx_mtop_has_massesPK10gmx_mtop_t(ptr noundef) local_unnamed_addr #3
@@ -255,7 +256,7 @@ define void @_Z14gmx_calc_cog_fPK10gmx_mtop_tPA3_fiPKiPf(ptr noundef %0, ptr nou
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %33
 
-._crit_edge.loopexit:                             ; preds = %61
+._crit_edge.loopexit:                             ; preds = %62
   %.pre = load float, ptr %4, align 4, !tbaa !4
   %.pre38 = load float, ptr %9, align 4, !tbaa !4
   %.pre39 = load float, ptr %10, align 4, !tbaa !4
@@ -265,7 +266,7 @@ define void @_Z14gmx_calc_cog_fPK10gmx_mtop_tPA3_fiPKiPf(ptr noundef %0, ptr nou
   %25 = phi float [ 0.000000e+00, %8 ], [ %.pre39, %._crit_edge.loopexit ]
   %26 = phi float [ 0.000000e+00, %8 ], [ %.pre38, %._crit_edge.loopexit ]
   %27 = phi float [ 0.000000e+00, %8 ], [ %.pre, %._crit_edge.loopexit ]
-  %.022.lcssa = phi float [ 0.000000e+00, %8 ], [ %62, %._crit_edge.loopexit ]
+  %.022.lcssa = phi float [ 0.000000e+00, %8 ], [ %63, %._crit_edge.loopexit ]
   %28 = sitofp i32 %2 to float
   %29 = fdiv float %.022.lcssa, %28
   %30 = fmul float %29, %27
@@ -276,10 +277,10 @@ define void @_Z14gmx_calc_cog_fPK10gmx_mtop_tPA3_fiPKiPf(ptr noundef %0, ptr nou
   store float %32, ptr %10, align 4, !tbaa !4
   ret void
 
-33:                                               ; preds = %.lr.ph, %61
-  %indvars.iv34 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next35, %61 ]
-  %.02230 = phi float [ 0.000000e+00, %.lr.ph ], [ %62, %61 ]
-  %.02528 = phi i32 [ 0, %.lr.ph ], [ %.1, %61 ]
+33:                                               ; preds = %.lr.ph, %62
+  %indvars.iv34 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next35, %62 ]
+  %.02230 = phi float [ 0.000000e+00, %.lr.ph ], [ %63, %62 ]
+  %.02528 = phi i32 [ 0, %.lr.ph ], [ %.1, %62 ]
   %34 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv34
   %35 = load i32, ptr %34, align 4, !tbaa !8
   br label %36
@@ -323,26 +324,27 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %42
   %58 = getelementptr inbounds %struct.t_atom, ptr %56, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !53
   %60 = sext i32 %35 to i64
-  br label %63
+  %61 = getelementptr inbounds [3 x float], ptr %1, i64 %60
+  br label %64
 
-61:                                               ; preds = %63
-  %62 = fadd float %.02230, %59
+62:                                               ; preds = %64
+  %63 = fadd float %.02230, %59
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count
   br i1 %exitcond37.not, label %._crit_edge.loopexit, label %33, !llvm.loop !59
 
-63:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %63
-  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %63 ]
-  %64 = getelementptr inbounds [3 x float], ptr %1, i64 %60, i64 %indvars.iv
-  %65 = load float, ptr %64, align 4, !tbaa !4
-  %66 = fdiv float %65, %59
-  %67 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  %68 = load float, ptr %67, align 4, !tbaa !4
-  %69 = fadd float %68, %66
-  store float %69, ptr %67, align 4, !tbaa !4
+64:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %64
+  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %64 ]
+  %65 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv
+  %66 = load float, ptr %65, align 4, !tbaa !4
+  %67 = fdiv float %66, %59
+  %68 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %69 = load float, ptr %68, align 4, !tbaa !4
+  %70 = fadd float %69, %67
+  store float %70, ptr %68, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %61, label %63, !llvm.loop !60
+  br i1 %exitcond.not, label %62, label %64, !llvm.loop !60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -605,7 +607,7 @@ _Z12gmx_calc_cogPK10gmx_mtop_tPA3_fiPKiPf.exit:   ; preds = %12, %6
   %.139.us = phi i1 [ %.2.us, %69 ], [ %.041.us, %.lr.ph.us ]
   %57 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !4
-  %59 = getelementptr inbounds [3 x float], ptr %1, i64 %44, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !4
   %61 = fsub float %58, %60
   %62 = call noundef float @llvm.fabs.f32(float %61)
@@ -675,7 +677,7 @@ define void @_Z16gmx_calc_com_pbcPK10gmx_mtop_tPA3_fPK5t_pbciPKiPf(ptr noundef %
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %104
 
-._crit_edge.loopexit:                             ; preds = %132
+._crit_edge.loopexit:                             ; preds = %133
   %.pre = load float, ptr %5, align 4, !tbaa !4
   %.pre104 = load float, ptr %12, align 4, !tbaa !4
   %.pre105 = load float, ptr %13, align 4, !tbaa !4
@@ -685,7 +687,7 @@ define void @_Z16gmx_calc_com_pbcPK10gmx_mtop_tPA3_fPK5t_pbciPKiPf(ptr noundef %
   %28 = phi float [ 0.000000e+00, %11 ], [ %.pre105, %._crit_edge.loopexit ]
   %29 = phi float [ 0.000000e+00, %11 ], [ %.pre104, %._crit_edge.loopexit ]
   %30 = phi float [ 0.000000e+00, %11 ], [ %.pre, %._crit_edge.loopexit ]
-  %.053.lcssa = phi float [ 0.000000e+00, %11 ], [ %133, %._crit_edge.loopexit ]
+  %.053.lcssa = phi float [ 0.000000e+00, %11 ], [ %134, %._crit_edge.loopexit ]
   %31 = fdiv float 1.000000e+00, %.053.lcssa
   %32 = fmul float %31, %30
   store float %32, ptr %5, align 4, !tbaa !4
@@ -794,7 +796,7 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit67.us:  ; preds = %59
   %.179.us = phi i1 [ %.2.us, %99 ], [ %.05682.us, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit67.us ]
   %88 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv97
   %89 = load float, ptr %88, align 4, !tbaa !4
-  %90 = getelementptr inbounds [3 x float], ptr %1, i64 %75, i64 %indvars.iv97
+  %90 = getelementptr inbounds nuw [3 x float], ptr %76, i64 0, i64 %indvars.iv97
   %91 = load float, ptr %90, align 4, !tbaa !4
   %92 = fsub float %89, %91
   %93 = call noundef float @llvm.fabs.f32(float %92)
@@ -823,10 +825,10 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit67.us:  ; preds = %59
   %103 = ashr i32 %102, 1
   br label %53, !llvm.loop !26
 
-104:                                              ; preds = %.lr.ph, %132
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next94, %132 ]
-  %.05378 = phi float [ 0.000000e+00, %.lr.ph ], [ %133, %132 ]
-  %.06976 = phi i32 [ 0, %.lr.ph ], [ %.271, %132 ]
+104:                                              ; preds = %.lr.ph, %133
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next94, %133 ]
+  %.05378 = phi float [ 0.000000e+00, %.lr.ph ], [ %134, %133 ]
+  %.06976 = phi i32 [ 0, %.lr.ph ], [ %.271, %133 ]
   %105 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv93
   %106 = load i32, ptr %105, align 4, !tbaa !8
   br label %107
@@ -870,25 +872,26 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %113
   %129 = getelementptr inbounds %struct.t_atom, ptr %127, i64 %128
   %130 = load float, ptr %129, align 4, !tbaa !53
   %131 = sext i32 %106 to i64
-  br label %134
+  %132 = getelementptr inbounds [3 x float], ptr %1, i64 %131
+  br label %135
 
-132:                                              ; preds = %134
-  %133 = fadd float %.05378, %130
+133:                                              ; preds = %135
+  %134 = fadd float %.05378, %130
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
   br i1 %exitcond96.not, label %._crit_edge.loopexit, label %104, !llvm.loop !66
 
-134:                                              ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %134
-  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %134 ]
-  %135 = getelementptr inbounds [3 x float], ptr %1, i64 %131, i64 %indvars.iv
-  %136 = load float, ptr %135, align 4, !tbaa !4
-  %137 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
-  %138 = load float, ptr %137, align 4, !tbaa !4
-  %139 = tail call float @llvm.fmuladd.f32(float %130, float %136, float %138)
-  store float %139, ptr %137, align 4, !tbaa !4
+135:                                              ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %135
+  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %135 ]
+  %136 = getelementptr inbounds nuw [3 x float], ptr %132, i64 0, i64 %indvars.iv
+  %137 = load float, ptr %136, align 4, !tbaa !4
+  %138 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %139 = load float, ptr %138, align 4, !tbaa !4
+  %140 = tail call float @llvm.fmuladd.f32(float %130, float %137, float %139)
+  store float %140, ptr %138, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %132, label %134, !llvm.loop !67
+  br i1 %exitcond.not, label %133, label %135, !llvm.loop !67
 
 .loopexit:                                        ; preds = %86, %.preheader, %._crit_edge
   ret void
@@ -1041,7 +1044,7 @@ define void @_Z18gmx_calc_com_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr nound
   %wide.trip.count = sext i32 %22 to i64
   br label %44
 
-._crit_edge.loopexit:                             ; preds = %72
+._crit_edge.loopexit:                             ; preds = %73
   %.pre53 = load float, ptr %6, align 4, !tbaa !4
   %.pre54 = load float, ptr %10, align 4, !tbaa !4
   %.pre55 = load float, ptr %11, align 4, !tbaa !4
@@ -1052,7 +1055,7 @@ define void @_Z18gmx_calc_com_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr nound
   %35 = phi float [ 0.000000e+00, %19 ], [ %.pre54, %._crit_edge.loopexit ]
   %36 = phi float [ 0.000000e+00, %19 ], [ %.pre53, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.02837, %19 ], [ %.2, %._crit_edge.loopexit ]
-  %.027.lcssa = phi float [ 0.000000e+00, %19 ], [ %73, %._crit_edge.loopexit ]
+  %.027.lcssa = phi float [ 0.000000e+00, %19 ], [ %74, %._crit_edge.loopexit ]
   %37 = fdiv float 1.000000e+00, %.027.lcssa
   %38 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv48
   %39 = fmul float %37, %36
@@ -1067,10 +1070,10 @@ define void @_Z18gmx_calc_com_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr nound
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
   br i1 %exitcond52.not, label %._crit_edge40, label %19, !llvm.loop !73
 
-44:                                               ; preds = %.lr.ph, %72
-  %indvars.iv44 = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next45, %72 ]
-  %.02733 = phi float [ 0.000000e+00, %.lr.ph ], [ %73, %72 ]
-  %.132 = phi i32 [ %.02837, %.lr.ph ], [ %.2, %72 ]
+44:                                               ; preds = %.lr.ph, %73
+  %indvars.iv44 = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next45, %73 ]
+  %.02733 = phi float [ 0.000000e+00, %.lr.ph ], [ %74, %73 ]
+  %.132 = phi i32 [ %.02837, %.lr.ph ], [ %.2, %73 ]
   %45 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv44
   %46 = load i32, ptr %45, align 4, !tbaa !8
   br label %47
@@ -1114,25 +1117,26 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %53
   %69 = getelementptr inbounds %struct.t_atom, ptr %67, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !53
   %71 = sext i32 %46 to i64
-  br label %74
+  %72 = getelementptr inbounds [3 x float], ptr %1, i64 %71
+  br label %75
 
-72:                                               ; preds = %74
-  %73 = fadd float %.02733, %70
+73:                                               ; preds = %75
+  %74 = fadd float %.02733, %70
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
   br i1 %exitcond47.not, label %._crit_edge.loopexit, label %44, !llvm.loop !74
 
-74:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %74
-  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %74 ]
-  %75 = getelementptr inbounds [3 x float], ptr %1, i64 %71, i64 %indvars.iv
-  %76 = load float, ptr %75, align 4, !tbaa !4
-  %77 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
-  %78 = load float, ptr %77, align 4, !tbaa !4
-  %79 = tail call float @llvm.fmuladd.f32(float %70, float %76, float %78)
-  store float %79, ptr %77, align 4, !tbaa !4
+75:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %75
+  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %75 ]
+  %76 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv
+  %77 = load float, ptr %76, align 4, !tbaa !4
+  %78 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %79 = load float, ptr %78, align 4, !tbaa !4
+  %80 = tail call float @llvm.fmuladd.f32(float %70, float %77, float %79)
+  store float %80, ptr %78, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %72, label %74, !llvm.loop !75
+  br i1 %exitcond.not, label %73, label %75, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1194,7 +1198,7 @@ define void @_Z20gmx_calc_cog_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr nou
   %wide.trip.count = sext i32 %22 to i64
   br label %46
 
-._crit_edge.loopexit:                             ; preds = %74
+._crit_edge.loopexit:                             ; preds = %75
   %.pre60 = load float, ptr %6, align 4, !tbaa !4
   %.pre61 = load float, ptr %10, align 4, !tbaa !4
   %.pre62 = load float, ptr %11, align 4, !tbaa !4
@@ -1205,7 +1209,7 @@ define void @_Z20gmx_calc_cog_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr nou
   %35 = phi float [ 0.000000e+00, %19 ], [ %.pre61, %._crit_edge.loopexit ]
   %36 = phi float [ 0.000000e+00, %19 ], [ %.pre60, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.03344, %19 ], [ %.2, %._crit_edge.loopexit ]
-  %.031.lcssa = phi float [ 0.000000e+00, %19 ], [ %75, %._crit_edge.loopexit ]
+  %.031.lcssa = phi float [ 0.000000e+00, %19 ], [ %76, %._crit_edge.loopexit ]
   %37 = sub nsw i32 %22, %20
   %38 = sitofp i32 %37 to float
   %39 = fdiv float %.031.lcssa, %38
@@ -1222,10 +1226,10 @@ define void @_Z20gmx_calc_cog_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr nou
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %._crit_edge47, label %19, !llvm.loop !76
 
-46:                                               ; preds = %.lr.ph, %74
-  %indvars.iv51 = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next52, %74 ]
-  %.03139 = phi float [ 0.000000e+00, %.lr.ph ], [ %75, %74 ]
-  %.138 = phi i32 [ %.03344, %.lr.ph ], [ %.2, %74 ]
+46:                                               ; preds = %.lr.ph, %75
+  %indvars.iv51 = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next52, %75 ]
+  %.03139 = phi float [ 0.000000e+00, %.lr.ph ], [ %76, %75 ]
+  %.138 = phi i32 [ %.03344, %.lr.ph ], [ %.2, %75 ]
   %47 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv51
   %48 = load i32, ptr %47, align 4, !tbaa !8
   br label %49
@@ -1269,26 +1273,27 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %55
   %71 = getelementptr inbounds %struct.t_atom, ptr %69, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !53
   %73 = sext i32 %48 to i64
-  br label %76
+  %74 = getelementptr inbounds [3 x float], ptr %1, i64 %73
+  br label %77
 
-74:                                               ; preds = %76
-  %75 = fadd float %.03139, %72
+75:                                               ; preds = %77
+  %76 = fadd float %.03139, %72
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.loopexit, label %46, !llvm.loop !77
 
-76:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %76
-  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr inbounds [3 x float], ptr %1, i64 %73, i64 %indvars.iv
-  %78 = load float, ptr %77, align 4, !tbaa !4
-  %79 = fdiv float %78, %72
-  %80 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
-  %81 = load float, ptr %80, align 4, !tbaa !4
-  %82 = fadd float %81, %79
-  store float %82, ptr %80, align 4, !tbaa !4
+77:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %77
+  %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %77 ]
+  %78 = getelementptr inbounds nuw [3 x float], ptr %74, i64 0, i64 %indvars.iv
+  %79 = load float, ptr %78, align 4, !tbaa !4
+  %80 = fdiv float %79, %72
+  %81 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %82 = load float, ptr %81, align 4, !tbaa !4
+  %83 = fadd float %82, %80
+  store float %83, ptr %81, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %74, label %76, !llvm.loop !78
+  br i1 %exitcond.not, label %75, label %77, !llvm.loop !78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

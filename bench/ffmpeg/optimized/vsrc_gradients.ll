@@ -404,29 +404,31 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 88
   br label %.preheader
 
-.preheader:                                       ; preds = %132, %135
-  %indvars.iv71 = phi i64 [ 0, %132 ], [ %indvars.iv.next72, %135 ]
-  br label %136
+.preheader:                                       ; preds = %132, %137
+  %indvars.iv71 = phi i64 [ 0, %132 ], [ %indvars.iv.next72, %137 ]
+  %135 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %133, i64 0, i64 %indvars.iv71
+  %136 = getelementptr inbounds nuw [8 x [4 x float]], ptr %134, i64 0, i64 %indvars.iv71
+  br label %138
 
-135:                                              ; preds = %136
+137:                                              ; preds = %138
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 8
   br i1 %exitcond74.not, label %.loopexit, label %.preheader, !llvm.loop !67
 
-136:                                              ; preds = %.preheader, %136
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %136 ]
-  %137 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %133, i64 0, i64 %indvars.iv71, i64 %indvars.iv
-  %138 = load i8, ptr %137, align 1, !tbaa !69
-  %139 = uitofp i8 %138 to float
-  %140 = fdiv nsz float %139, 2.550000e+02
-  %141 = getelementptr inbounds nuw [8 x [4 x float]], ptr %134, i64 0, i64 %indvars.iv71, i64 %indvars.iv
-  store float %140, ptr %141, align 4, !tbaa !70
+138:                                              ; preds = %.preheader, %138
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %138 ]
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 0, i64 %indvars.iv
+  %140 = load i8, ptr %139, align 1, !tbaa !69
+  %141 = uitofp i8 %140 to float
+  %142 = fdiv nsz float %141, 2.550000e+02
+  %143 = getelementptr inbounds nuw [4 x float], ptr %136, i64 0, i64 %indvars.iv
+  store float %142, ptr %143, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %135, label %136, !llvm.loop !71
+  br i1 %exitcond.not, label %137, label %138, !llvm.loop !71
 
-.loopexit:                                        ; preds = %135, %31, %1
-  %.060 = phi i32 [ -22, %1 ], [ -558323010, %31 ], [ 0, %135 ]
+.loopexit:                                        ; preds = %137, %31, %1
+  %.060 = phi i32 [ -22, %1 ], [ -558323010, %31 ], [ 0, %137 ]
   ret i32 %.060
 }
 

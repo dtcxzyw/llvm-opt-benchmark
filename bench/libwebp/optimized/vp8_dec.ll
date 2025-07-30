@@ -1196,7 +1196,7 @@ ParseResiduals.exit:                              ; preds = %145, %151
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   %169 = load i32, ptr %168, align 8, !tbaa !73
   %170 = icmp sgt i32 %169, 0
-  br i1 %170, label %171, label %190
+  br i1 %170, label %171, label %191
 
 171:                                              ; preds = %167
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 2840
@@ -1208,25 +1208,26 @@ ParseResiduals.exit:                              ; preds = %145, %151
   %178 = getelementptr inbounds nuw i8, ptr %13, i64 798
   %179 = load i8, ptr %178, align 2, !tbaa !82
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw i8, ptr %13, i64 768
-  %182 = load i8, ptr %181, align 4, !tbaa !83
-  %183 = zext i8 %182 to i64
-  %184 = getelementptr inbounds nuw [4 x [2 x %struct.VP8FInfo]], ptr %177, i64 0, i64 %180, i64 %183
-  %185 = load i32, ptr %184, align 4
-  store i32 %185, ptr %176, align 1
-  %186 = getelementptr inbounds nuw i8, ptr %176, i64 2
-  %187 = lshr i32 %185, 16
-  %188 = trunc i32 %187 to i8
-  %189 = or i8 %.0, %188
-  store i8 %189, ptr %186, align 1, !tbaa !100
-  br label %190
+  %181 = getelementptr inbounds nuw [4 x [2 x %struct.VP8FInfo]], ptr %177, i64 0, i64 %180
+  %182 = getelementptr inbounds nuw i8, ptr %13, i64 768
+  %183 = load i8, ptr %182, align 4, !tbaa !83
+  %184 = zext i8 %183 to i64
+  %185 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %181, i64 0, i64 %184
+  %186 = load i32, ptr %185, align 4
+  store i32 %186, ptr %176, align 1
+  %187 = getelementptr inbounds nuw i8, ptr %176, i64 2
+  %188 = lshr i32 %186, 16
+  %189 = trunc i32 %188 to i8
+  %190 = or i8 %.0, %189
+  store i8 %190, ptr %187, align 1, !tbaa !100
+  br label %191
 
-190:                                              ; preds = %171, %167
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %192 = load i32, ptr %191, align 8, !tbaa !66
-  %.not32 = icmp eq i32 %192, 0
-  %193 = zext i1 %.not32 to i32
-  ret i32 %193
+191:                                              ; preds = %171, %167
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %193 = load i32, ptr %192, align 8, !tbaa !66
+  %.not32 = icmp eq i32 %193, 0
+  %194 = zext i1 %.not32 to i32
+  ret i32 %194
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

@@ -10839,111 +10839,113 @@ define linkonce_odr dso_local void @_ZN4pbrt12RotateFromToENS_7Vector3IfEES1_(pt
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #24
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %18, %17
-  %indvars.iv12.i = phi i64 [ 0, %17 ], [ %indvars.iv.next13.i, %18 ]
-  br label %45
+.preheader.i:                                     ; preds = %19, %17
+  %indvars.iv12.i = phi i64 [ 0, %17 ], [ %indvars.iv.next13.i, %19 ]
+  %18 = getelementptr inbounds nuw [4 x [4 x float]], ptr %6, i64 0, i64 %indvars.iv12.i
+  br label %46
 
-18:                                               ; preds = %45
+19:                                               ; preds = %46
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond15.not.i = icmp eq i64 %indvars.iv.next13.i, 4
   br i1 %exitcond15.not.i, label %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader, label %.preheader.i, !llvm.loop !470
 
-_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader:  ; preds = %18
-  %19 = fsub float %.sroa.0158.0, %.sroa.072.0.vec.extract
+_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader:  ; preds = %19
+  %20 = fsub float %.sroa.0158.0, %.sroa.072.0.vec.extract
   %.sroa.03.4.vec.extract.i = extractelement <2 x float> %1, i64 1
-  %20 = fsub float %.sroa.8.0, %.sroa.03.4.vec.extract.i
-  %21 = fsub float %.sroa.14.0, %2
-  %22 = fsub float %.sroa.0158.0, %.sroa.068.0.vec.extract
+  %21 = fsub float %.sroa.8.0, %.sroa.03.4.vec.extract.i
+  %22 = fsub float %.sroa.14.0, %2
+  %23 = fsub float %.sroa.0158.0, %.sroa.068.0.vec.extract
   %.sroa.03.4.vec.extract.i77 = extractelement <2 x float> %3, i64 1
-  %23 = fsub float %.sroa.8.0, %.sroa.03.4.vec.extract.i77
-  %24 = fsub float %.sroa.14.0, %4
-  %25 = fmul float %19, %19
+  %24 = fsub float %.sroa.8.0, %.sroa.03.4.vec.extract.i77
+  %25 = fsub float %.sroa.14.0, %4
   %26 = fmul float %20, %20
-  %27 = fadd float %25, %26
-  %28 = fmul float %21, %21
-  %29 = fadd float %28, %27
-  %30 = fdiv float 2.000000e+00, %29
-  %31 = fmul float %22, %22
+  %27 = fmul float %21, %21
+  %28 = fadd float %26, %27
+  %29 = fmul float %22, %22
+  %30 = fadd float %29, %28
+  %31 = fdiv float 2.000000e+00, %30
   %32 = fmul float %23, %23
-  %33 = fadd float %31, %32
-  %34 = fmul float %24, %24
-  %35 = fadd float %34, %33
-  %36 = fdiv float 2.000000e+00, %35
-  %37 = fmul float %19, %22
+  %33 = fmul float %24, %24
+  %34 = fadd float %32, %33
+  %35 = fmul float %25, %25
+  %36 = fadd float %35, %34
+  %37 = fdiv float 2.000000e+00, %36
   %38 = fmul float %20, %23
-  %39 = fadd float %37, %38
-  %40 = fmul float %21, %24
-  %41 = fadd float %40, %39
-  %42 = fmul float %41, 4.000000e+00
-  %43 = fmul float %29, %35
-  %44 = fdiv float %42, %43
+  %39 = fmul float %21, %24
+  %40 = fadd float %38, %39
+  %41 = fmul float %22, %25
+  %42 = fadd float %41, %40
+  %43 = fmul float %42, 4.000000e+00
+  %44 = fmul float %30, %36
+  %45 = fdiv float %43, %44
   br label %.preheader
 
-45:                                               ; preds = %45, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %45 ]
-  %46 = icmp eq i64 %indvars.iv12.i, %indvars.iv.i
-  %47 = uitofp i1 %46 to float
-  %48 = getelementptr inbounds nuw [4 x [4 x float]], ptr %6, i64 0, i64 %indvars.iv12.i, i64 %indvars.iv.i
-  store float %47, ptr %48, align 4, !tbaa !199
+46:                                               ; preds = %46, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %46 ]
+  %47 = icmp eq i64 %indvars.iv12.i, %indvars.iv.i
+  %48 = uitofp i1 %47 to float
+  %49 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %indvars.iv.i
+  store float %48, ptr %49, align 4, !tbaa !199
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %18, label %45, !llvm.loop !471
+  br i1 %exitcond.not.i, label %19, label %46, !llvm.loop !471
 
 .preheader:                                       ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit
   %indvars.iv169 = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader ], [ %indvars.iv.next170, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit ]
-  %49 = getelementptr inbounds nuw [4 x [4 x float]], ptr %6, i64 0, i64 %indvars.iv169
-  %50 = trunc nuw nsw i64 %indvars.iv169 to i32
-  br label %62
+  %50 = getelementptr inbounds nuw [4 x [4 x float]], ptr %6, i64 0, i64 %indvars.iv169
+  %51 = trunc nuw nsw i64 %indvars.iv169 to i32
+  br label %64
 
-51:                                               ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit
+52:                                               ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %52, %51
-  %indvars.iv12.i.i = phi i64 [ 0, %51 ], [ %indvars.iv.next13.i.i, %52 ]
-  br label %53
+.preheader.i.i:                                   ; preds = %54, %52
+  %indvars.iv12.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next13.i.i, %54 ]
+  %53 = getelementptr inbounds nuw [4 x [4 x float]], ptr %7, i64 0, i64 %indvars.iv12.i.i
+  br label %55
 
-52:                                               ; preds = %53
+54:                                               ; preds = %55
   %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next13.i.i, 4
   br i1 %exitcond15.not.i.i, label %.preheader.i82, label %.preheader.i.i, !llvm.loop !470
 
-53:                                               ; preds = %53, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %53 ]
-  %54 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
-  %55 = uitofp i1 %54 to float
-  %56 = getelementptr inbounds nuw [4 x [4 x float]], ptr %7, i64 0, i64 %indvars.iv12.i.i, i64 %indvars.iv.i.i
-  store float %55, ptr %56, align 4, !tbaa !199, !alias.scope !472
+55:                                               ; preds = %55, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %55 ]
+  %56 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
+  %57 = uitofp i1 %56 to float
+  %58 = getelementptr inbounds nuw [4 x float], ptr %53, i64 0, i64 %indvars.iv.i.i
+  store float %57, ptr %58, align 4, !tbaa !199, !alias.scope !472
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %52, label %53, !llvm.loop !471
+  br i1 %exitcond.not.i.i, label %54, label %55, !llvm.loop !471
 
-.preheader.i82:                                   ; preds = %52, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
-  %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ 0, %52 ]
+.preheader.i82:                                   ; preds = %54, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
+  %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ 0, %54 ]
   %invariant.gep.i = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv16.i
-  %57 = getelementptr inbounds nuw [4 x [4 x float]], ptr %7, i64 0, i64 %indvars.iv16.i
-  br label %58
+  %59 = getelementptr inbounds nuw [4 x [4 x float]], ptr %7, i64 0, i64 %indvars.iv16.i
+  br label %60
 
-_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %58
+_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %60
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 4
   br i1 %exitcond19.not.i, label %_ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit, label %.preheader.i82, !llvm.loop !475
 
-58:                                               ; preds = %58, %.preheader.i82
-  %indvars.iv.i83 = phi i64 [ 0, %.preheader.i82 ], [ %indvars.iv.next.i84, %58 ]
+60:                                               ; preds = %60, %.preheader.i82
+  %indvars.iv.i83 = phi i64 [ 0, %.preheader.i82 ], [ %indvars.iv.next.i84, %60 ]
   %gep.i = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv.i83
-  %59 = load float, ptr %gep.i, align 4, !tbaa !199, !noalias !472
-  %60 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i83
-  store float %59, ptr %60, align 4, !tbaa !199, !alias.scope !472
+  %61 = load float, ptr %gep.i, align 4, !tbaa !199, !noalias !472
+  %62 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.i83
+  store float %61, ptr %62, align 4, !tbaa !199, !alias.scope !472
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, 4
-  br i1 %exitcond.not.i85, label %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i, label %58, !llvm.loop !476
+  br i1 %exitcond.not.i85, label %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i, label %60, !llvm.loop !476
 
 _ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %0, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !477
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %61, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !477
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %63, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !477
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #24
   ret void
@@ -10951,105 +10953,105 @@ _ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %_ZN4pbrt
 _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit:            ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 3
-  br i1 %exitcond172.not, label %51, label %.preheader, !llvm.loop !478
+  br i1 %exitcond172.not, label %52, label %.preheader, !llvm.loop !478
 
-62:                                               ; preds = %.preheader, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111
+64:                                               ; preds = %.preheader, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111 ]
-  %63 = icmp eq i64 %indvars.iv169, %indvars.iv
-  %64 = uitofp i1 %63 to float
-  switch i32 %50, label %66 [
+  %65 = icmp eq i64 %indvars.iv169, %indvars.iv
+  %66 = uitofp i1 %65 to float
+  switch i32 %51, label %68 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
-    i32 1, label %65
+    i32 1, label %67
   ]
 
-65:                                               ; preds = %62
+67:                                               ; preds = %64
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
 
-66:                                               ; preds = %62
+68:                                               ; preds = %64
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
 
-_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %62, %65, %66
-  %.0.i.sroa.speculated = phi float [ %20, %65 ], [ %21, %66 ], [ %19, %62 ]
-  %67 = fmul float %30, %.0.i.sroa.speculated
-  %68 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %68, label %70 [
+_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %64, %67, %68
+  %.0.i.sroa.speculated = phi float [ %21, %67 ], [ %22, %68 ], [ %20, %64 ]
+  %69 = fmul float %31, %.0.i.sroa.speculated
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %70, label %72 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87
-    i32 1, label %69
+    i32 1, label %71
   ]
 
-69:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
+71:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87
 
-70:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
+72:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87
 
-_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87:        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit, %69, %70
-  %.0.i86.sroa.speculated = phi float [ %20, %69 ], [ %21, %70 ], [ %19, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit ]
-  %71 = fmul float %67, %.0.i86.sroa.speculated
-  %72 = fsub float %64, %71
-  switch i32 %50, label %74 [
+_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87:        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit, %71, %72
+  %.0.i86.sroa.speculated = phi float [ %21, %71 ], [ %22, %72 ], [ %20, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit ]
+  %73 = fmul float %69, %.0.i86.sroa.speculated
+  %74 = fsub float %66, %73
+  switch i32 %51, label %76 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93
-    i32 1, label %73
+    i32 1, label %75
   ]
 
-73:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87
+75:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93
 
-74:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87
+76:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93
 
-_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93:        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87, %73, %74
-  %.0.i92.sroa.speculated = phi float [ %23, %73 ], [ %24, %74 ], [ %22, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87 ]
-  %75 = fmul float %36, %.0.i92.sroa.speculated
-  switch i32 %68, label %77 [
+_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93:        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87, %75, %76
+  %.0.i92.sroa.speculated = phi float [ %24, %75 ], [ %25, %76 ], [ %23, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87 ]
+  %77 = fmul float %37, %.0.i92.sroa.speculated
+  switch i32 %70, label %79 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95
-    i32 1, label %76
+    i32 1, label %78
   ]
 
-76:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93
+78:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95
 
-77:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93
+79:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95
 
-_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95:        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93, %76, %77
-  %.0.i94.sroa.speculated = phi float [ %23, %76 ], [ %24, %77 ], [ %22, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93 ]
-  %78 = fmul float %75, %.0.i94.sroa.speculated
-  %79 = fsub float %72, %78
-  switch i32 %50, label %81 [
+_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95:        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93, %78, %79
+  %.0.i94.sroa.speculated = phi float [ %24, %78 ], [ %25, %79 ], [ %23, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93 ]
+  %80 = fmul float %77, %.0.i94.sroa.speculated
+  %81 = fsub float %74, %80
+  switch i32 %51, label %83 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109
-    i32 1, label %80
+    i32 1, label %82
   ]
 
-80:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95
+82:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109
 
-81:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95
+83:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109
 
-_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109:       ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95, %80, %81
-  %.0.i108.sroa.speculated = phi float [ %23, %80 ], [ %24, %81 ], [ %22, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95 ]
-  %82 = fmul float %44, %.0.i108.sroa.speculated
-  switch i32 %68, label %84 [
+_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109:       ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95, %82, %83
+  %.0.i108.sroa.speculated = phi float [ %24, %82 ], [ %25, %83 ], [ %23, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95 ]
+  %84 = fmul float %45, %.0.i108.sroa.speculated
+  switch i32 %70, label %86 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111
-    i32 1, label %83
+    i32 1, label %85
   ]
 
-83:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109
+85:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111
 
-84:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109
+86:                                               ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111
 
-_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111:       ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109, %83, %84
-  %.0.i110.sroa.speculated = phi float [ %20, %83 ], [ %21, %84 ], [ %19, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109 ]
-  %85 = fmul float %82, %.0.i110.sroa.speculated
-  %86 = fadd float %79, %85
-  %87 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
-  store float %86, ptr %87, align 4, !tbaa !199
+_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111:       ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109, %85, %86
+  %.0.i110.sroa.speculated = phi float [ %21, %85 ], [ %22, %86 ], [ %20, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109 ]
+  %87 = fmul float %84, %.0.i110.sroa.speculated
+  %88 = fadd float %81, %87
+  %89 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
+  store float %88, ptr %89, align 4, !tbaa !199
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit, label %62, !llvm.loop !479
+  br i1 %exitcond.not, label %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit, label %64, !llvm.loop !479
 }
 
 ; Function Attrs: mustprogress uwtable

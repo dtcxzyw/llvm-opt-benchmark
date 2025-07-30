@@ -1711,9 +1711,9 @@ define internal fastcc void @pinyin_page_proc(ptr noundef captures(none) %0, i16
 
 24:                                               ; preds = %11, %14, %22
   %.034 = phi i16 [ %5, %14 ], [ %5, %11 ], [ %spec.select, %22 ]
-  br label %45
+  br label %46
 
-25:                                               ; preds = %45
+25:                                               ; preds = %46
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 154
   %27 = load i16, ptr %3, align 8, !tbaa !24
   %.not47 = icmp eq i16 %27, 0
@@ -1726,78 +1726,80 @@ define internal fastcc void @pinyin_page_proc(ptr noundef captures(none) %0, i16
   %30 = zext i16 %29 to i64
   br i1 %.not41, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %32 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %33
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %33 ], [ 0, %.lr.ph ]
   %31 = mul nuw nsw i64 %indvars.iv61, 3
-  br label %38
+  %32 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %indvars.iv61
+  br label %39
 
-32:                                               ; preds = %38
+33:                                               ; preds = %39
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %33 = load i16, ptr %3, align 8, !tbaa !24
-  %34 = trunc nuw nsw i64 %indvars.iv.next62 to i16
-  %35 = icmp ugt i16 %33, %34
-  %36 = icmp samesign ult i64 %indvars.iv61, 5
-  %37 = and i1 %36, %35
-  br i1 %37, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !42
+  %34 = load i16, ptr %3, align 8, !tbaa !24
+  %35 = trunc nuw nsw i64 %indvars.iv.next62 to i16
+  %36 = icmp ugt i16 %34, %35
+  %37 = icmp samesign ult i64 %indvars.iv61, 5
+  %38 = and i1 %37, %36
+  br i1 %38, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !42
 
-38:                                               ; preds = %38, %.lr.ph.split.us
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %38 ], [ 0, %.lr.ph.split.us ]
-  %39 = load ptr, ptr %7, align 8, !tbaa !41
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %30
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %31
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv57
-  %43 = load i8, ptr %42, align 1, !tbaa !8
-  %44 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
-  store i8 %43, ptr %44, align 1, !tbaa !8
+39:                                               ; preds = %39, %.lr.ph.split.us
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %39 ], [ 0, %.lr.ph.split.us ]
+  %40 = load ptr, ptr %7, align 8, !tbaa !41
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %30
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %31
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv57
+  %44 = load i8, ptr %43, align 1, !tbaa !8
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 0, i64 %indvars.iv57
+  store i8 %44, ptr %45, align 1, !tbaa !8
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 3
-  br i1 %exitcond60.not, label %32, label %38, !llvm.loop !44
+  br i1 %exitcond60.not, label %33, label %39, !llvm.loop !44
 
-45:                                               ; preds = %24, %45
-  %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %indvars.iv
-  tail call void @lv_memset(ptr noundef nonnull %46, i8 noundef zeroext 0, i64 noundef 4) #6
-  store i8 32, ptr %46, align 4, !tbaa !8
+46:                                               ; preds = %24, %46
+  %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %46 ]
+  %47 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %indvars.iv
+  tail call void @lv_memset(ptr noundef nonnull %47, i8 noundef zeroext 0, i64 noundef 4) #6
+  store i8 32, ptr %47, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %25, label %45, !llvm.loop !45
+  br i1 %exitcond.not, label %25, label %46, !llvm.loop !45
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %52
-  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %52 ], [ 0, %.lr.ph ]
-  %47 = phi i16 [ %54, %52 ], [ 0, %.lr.ph ]
-  %48 = load i16, ptr %26, align 2, !tbaa !22
-  %49 = icmp ne i16 %48, %.034
-  %.not42 = icmp samesign ugt i16 %6, %47
-  %or.cond = select i1 %49, i1 true, i1 %.not42
-  br i1 %or.cond, label %50, label %.loopexit
+.lr.ph.split:                                     ; preds = %.lr.ph, %54
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %54 ], [ 0, %.lr.ph ]
+  %48 = phi i16 [ %56, %54 ], [ 0, %.lr.ph ]
+  %49 = load i16, ptr %26, align 2, !tbaa !22
+  %50 = icmp ne i16 %49, %.034
+  %.not42 = icmp samesign ugt i16 %6, %48
+  %or.cond = select i1 %50, i1 true, i1 %.not42
+  br i1 %or.cond, label %51, label %.loopexit
 
-50:                                               ; preds = %.lr.ph.split
-  %51 = mul nuw nsw i64 %indvars.iv54, 3
-  br label %58
+51:                                               ; preds = %.lr.ph.split
+  %52 = mul nuw nsw i64 %indvars.iv54, 3
+  %53 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %indvars.iv54
+  br label %60
 
-52:                                               ; preds = %58
+54:                                               ; preds = %60
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %53 = load i16, ptr %3, align 8, !tbaa !24
-  %54 = trunc nuw nsw i64 %indvars.iv.next55 to i16
-  %55 = icmp ugt i16 %53, %54
-  %56 = icmp samesign ult i64 %indvars.iv54, 5
-  %57 = and i1 %56, %55
-  br i1 %57, label %.lr.ph.split, label %.loopexit, !llvm.loop !46
+  %55 = load i16, ptr %3, align 8, !tbaa !24
+  %56 = trunc nuw nsw i64 %indvars.iv.next55 to i16
+  %57 = icmp ugt i16 %55, %56
+  %58 = icmp samesign ult i64 %indvars.iv54, 5
+  %59 = and i1 %58, %57
+  br i1 %59, label %.lr.ph.split, label %.loopexit, !llvm.loop !46
 
-58:                                               ; preds = %50, %58
-  %indvars.iv50 = phi i64 [ 0, %50 ], [ %indvars.iv.next51, %58 ]
-  %59 = load ptr, ptr %7, align 8, !tbaa !41
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %30
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %51
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %indvars.iv50
-  %63 = load i8, ptr %62, align 1, !tbaa !8
-  %64 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %indvars.iv54, i64 %indvars.iv50
-  store i8 %63, ptr %64, align 1, !tbaa !8
+60:                                               ; preds = %51, %60
+  %indvars.iv50 = phi i64 [ 0, %51 ], [ %indvars.iv.next51, %60 ]
+  %61 = load ptr, ptr %7, align 8, !tbaa !41
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %30
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %52
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv50
+  %65 = load i8, ptr %64, align 1, !tbaa !8
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 0, i64 %indvars.iv50
+  store i8 %65, ptr %66, align 1, !tbaa !8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 3
-  br i1 %exitcond53.not, label %52, label %58, !llvm.loop !44
+  br i1 %exitcond53.not, label %54, label %60, !llvm.loop !44
 
-.loopexit:                                        ; preds = %.lr.ph.split, %52, %32, %25, %16, %2
+.loopexit:                                        ; preds = %.lr.ph.split, %54, %33, %25, %16, %2
   ret void
 }
 
@@ -1973,7 +1975,7 @@ pinyin_search_matching.exit.thread:               ; preds = %36, %1, %1, %1, %1,
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %39, align 8, !tbaa !41
-  br label %68
+  br label %69
 
 pinyin_search_matching.exit:                      ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i
   %.us-phi.i = phi ptr [ %16, %.preheader.lr.ph.i ], [ %.02943.us.i, %._crit_edge.us.i ]
@@ -1988,7 +1990,7 @@ pinyin_search_matching.exit:                      ; preds = %._crit_edge.us.i, %
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %45, ptr %46, align 8, !tbaa !41
   %47 = icmp eq ptr %45, null
-  br i1 %47, label %68, label %48
+  br i1 %47, label %69, label %48
 
 48:                                               ; preds = %pinyin_search_matching.exit
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 154
@@ -2009,39 +2011,40 @@ pinyin_search_matching.exit:                      ; preds = %._crit_edge.us.i, %
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 6
   br i1 %exitcond38.not, label %.preheader28, label %51, !llvm.loop !51
 
-.preheader:                                       ; preds = %.preheader28, %56
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %56 ], [ 0, %.preheader28 ]
+.preheader:                                       ; preds = %.preheader28, %57
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %57 ], [ 0, %.preheader28 ]
   %53 = mul nuw nsw i64 %indvars.iv44, 3
-  br label %62
+  %54 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %indvars.iv44
+  br label %63
 
-._crit_edge:                                      ; preds = %56, %.preheader28
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %55 = load ptr, ptr %54, align 8, !tbaa !30
-  tail call void @lv_obj_remove_flag(ptr noundef %55, i32 noundef 1) #6
-  br label %68
+._crit_edge:                                      ; preds = %57, %.preheader28
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %56 = load ptr, ptr %55, align 8, !tbaa !30
+  tail call void @lv_obj_remove_flag(ptr noundef %56, i32 noundef 1) #6
+  br label %69
 
-56:                                               ; preds = %62
+57:                                               ; preds = %63
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %57 = load i16, ptr %4, align 8, !tbaa !24
-  %58 = trunc nuw nsw i64 %indvars.iv.next45 to i16
-  %59 = icmp ugt i16 %57, %58
-  %60 = icmp samesign ult i64 %indvars.iv44, 5
-  %61 = and i1 %60, %59
-  br i1 %61, label %.preheader, label %._crit_edge, !llvm.loop !52
+  %58 = load i16, ptr %4, align 8, !tbaa !24
+  %59 = trunc nuw nsw i64 %indvars.iv.next45 to i16
+  %60 = icmp ugt i16 %58, %59
+  %61 = icmp samesign ult i64 %indvars.iv44, 5
+  %62 = and i1 %61, %60
+  br i1 %62, label %.preheader, label %._crit_edge, !llvm.loop !52
 
-62:                                               ; preds = %.preheader, %62
-  %indvars.iv39 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next40, %62 ]
-  %63 = load ptr, ptr %46, align 8, !tbaa !41
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv39
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %53
-  %66 = load i8, ptr %65, align 1, !tbaa !8
-  %67 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %indvars.iv44, i64 %indvars.iv39
-  store i8 %66, ptr %67, align 1, !tbaa !8
+63:                                               ; preds = %.preheader, %63
+  %indvars.iv39 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next40, %63 ]
+  %64 = load ptr, ptr %46, align 8, !tbaa !41
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %indvars.iv39
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %53
+  %67 = load i8, ptr %66, align 1, !tbaa !8
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 0, i64 %indvars.iv39
+  store i8 %67, ptr %68, align 1, !tbaa !8
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, 3
-  br i1 %exitcond43.not, label %56, label %62, !llvm.loop !53
+  br i1 %exitcond43.not, label %57, label %63, !llvm.loop !53
 
-68:                                               ; preds = %pinyin_search_matching.exit.thread, %pinyin_search_matching.exit, %._crit_edge
+69:                                               ; preds = %pinyin_search_matching.exit.thread, %pinyin_search_matching.exit, %._crit_edge
   ret void
 }
 

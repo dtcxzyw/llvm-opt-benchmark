@@ -476,10 +476,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vc1_decode_init_alloc_tabl
   %192 = tail call noalias ptr @av_malloc(i64 noundef %191) #13
   %193 = lshr i32 %.0127155, 1
   %194 = zext nneg i32 %193 to i64
-  %195 = and i32 %.0127155, 1
-  %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %186, i64 0, i64 %194, i64 %196
-  store ptr %192, ptr %197, align 8, !tbaa !81
+  %195 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %186, i64 0, i64 %194
+  %196 = and i32 %.0127155, 1
+  %197 = zext nneg i32 %196 to i64
+  %198 = getelementptr inbounds nuw [2 x ptr], ptr %195, i64 0, i64 %197
+  store ptr %192, ptr %198, align 8, !tbaa !81
   %.not152 = icmp eq ptr %192, null
   br i1 %.not152, label %.loopexit154, label %187
 
@@ -488,14 +489,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vc1_decode_init_alloc_tabl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %167
-  %198 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %181, %167 ]
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 4808
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 4288
-  %201 = load ptr, ptr %200, align 8, !tbaa !90
-  %202 = load i32, ptr %47, align 4, !tbaa !68
-  %203 = load i32, ptr %2, align 8, !tbaa !31
-  %204 = tail call i32 @ff_intrax8_common_init(ptr noundef %198, ptr noundef nonnull %199, ptr noundef %201, i32 noundef %202, i32 noundef %203) #13
-  %. = tail call i32 @llvm.smin.i32(i32 %204, i32 0)
+  %199 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %181, %167 ]
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 4808
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 4288
+  %202 = load ptr, ptr %201, align 8, !tbaa !90
+  %203 = load i32, ptr %47, align 4, !tbaa !68
+  %204 = load i32, ptr %2, align 8, !tbaa !31
+  %205 = tail call i32 @ff_intrax8_common_init(ptr noundef %199, ptr noundef nonnull %200, ptr noundef %202, i32 noundef %203, i32 noundef %204) #13
+  %. = tail call i32 @llvm.smin.i32(i32 %205, i32 0)
   br label %.loopexit154
 
 .loopexit154:                                     ; preds = %189, %.loopexit, %147, %132, %109, %91, %81, %71, %61, %46, %1, %38, %40, %42, %44
@@ -511,53 +512,54 @@ define internal fastcc void @vc1_decode_reset(ptr %.32.val) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %0, %3
-  %.01 = phi i32 [ 0, %0 ], [ %9, %3 ]
+  %.01 = phi i32 [ 0, %0 ], [ %10, %3 ]
   %4 = lshr i32 %.01, 1
   %5 = zext nneg i32 %4 to i64
-  %6 = and i32 %.01, 1
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %2, i64 0, i64 %5, i64 %7
-  tail call void @av_freep(ptr noundef nonnull %8) #13
-  %9 = add nuw nsw i32 %.01, 1
-  %exitcond.not = icmp eq i32 %9, 4
-  br i1 %exitcond.not, label %10, label %3, !llvm.loop !91
+  %6 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %2, i64 0, i64 %5
+  %7 = and i32 %.01, 1
+  %8 = zext nneg i32 %7 to i64
+  %9 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %8
+  tail call void @av_freep(ptr noundef nonnull %9) #13
+  %10 = add nuw nsw i32 %.01, 1
+  %exitcond.not = icmp eq i32 %10, 4
+  br i1 %exitcond.not, label %11, label %3, !llvm.loop !91
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   tail call void @ff_mpv_common_end(ptr noundef nonnull %.32.val) #13
-  %11 = getelementptr inbounds nuw i8, ptr %.32.val, i64 3364
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6968
-  tail call void @av_freep(ptr noundef nonnull %12) #13
-  %13 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6976
+  %12 = getelementptr inbounds nuw i8, ptr %.32.val, i64 3364
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6968
   tail call void @av_freep(ptr noundef nonnull %13) #13
-  %14 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6984
+  %14 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6976
   tail call void @av_freep(ptr noundef nonnull %14) #13
-  %15 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10248
+  %15 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6984
   tail call void @av_freep(ptr noundef nonnull %15) #13
-  %16 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10160
+  %16 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10248
   tail call void @av_freep(ptr noundef nonnull %16) #13
-  %17 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10176
+  %17 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10160
   tail call void @av_freep(ptr noundef nonnull %17) #13
-  %18 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6904
+  %18 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10176
   tail call void @av_freep(ptr noundef nonnull %18) #13
-  %19 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10328
+  %19 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6904
   tail call void @av_freep(ptr noundef nonnull %19) #13
-  %20 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10344
+  %20 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10328
   tail call void @av_freep(ptr noundef nonnull %20) #13
-  %21 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10368
+  %21 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10344
   tail call void @av_freep(ptr noundef nonnull %21) #13
-  %22 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10560
+  %22 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10368
   tail call void @av_freep(ptr noundef nonnull %22) #13
-  %23 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10592
+  %23 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10560
   tail call void @av_freep(ptr noundef nonnull %23) #13
-  %24 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6864
+  %24 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10592
   tail call void @av_freep(ptr noundef nonnull %24) #13
-  %25 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10608
+  %25 = getelementptr inbounds nuw i8, ptr %.32.val, i64 6864
   tail call void @av_freep(ptr noundef nonnull %25) #13
-  %26 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10624
+  %26 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10608
   tail call void @av_freep(ptr noundef nonnull %26) #13
-  %27 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4808
-  tail call void @ff_intrax8_common_end(ptr noundef nonnull %27) #13
+  %27 = getelementptr inbounds nuw i8, ptr %.32.val, i64 10624
+  tail call void @av_freep(ptr noundef nonnull %27) #13
+  %28 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4808
+  tail call void @ff_intrax8_common_end(ptr noundef nonnull %28) #13
   ret void
 }
 
@@ -3157,7 +3159,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vc1_decode_sprites(ptr nou
 
 24:                                               ; preds = %24, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %24 ]
-  %25 = getelementptr inbounds nuw [2 x [7 x i32]], ptr %10, i64 0, i64 %indvars.iv109.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [7 x i32], ptr %15, i64 0, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4, !tbaa !105
   %27 = sdiv i32 %26, 65536
   %28 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)

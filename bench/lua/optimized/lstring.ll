@@ -308,35 +308,36 @@ define hidden void @luaS_clearcache(ptr noundef captures(none) %0) local_unnamed
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %14
-  %indvars.iv14 = phi i64 [ 0, %1 ], [ %indvars.iv.next15, %14 ]
-  br label %4
+.preheader:                                       ; preds = %1, %15
+  %indvars.iv14 = phi i64 [ 0, %1 ], [ %indvars.iv.next15, %15 ]
+  %4 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %2, i64 0, i64 %indvars.iv14
+  br label %5
 
-4:                                                ; preds = %.preheader, %13
-  %5 = phi i1 [ true, %.preheader ], [ false, %13 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %13 ]
-  %6 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %2, i64 0, i64 %indvars.iv14, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !30
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %9 = load i8, ptr %8, align 1, !tbaa !33
-  %10 = and i8 %9, 24
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %13, label %11
+5:                                                ; preds = %.preheader, %14
+  %6 = phi i1 [ true, %.preheader ], [ false, %14 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %14 ]
+  %7 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %10 = load i8, ptr %9, align 1, !tbaa !33
+  %11 = and i8 %10, 24
+  %.not = icmp eq i8 %11, 0
+  br i1 %.not, label %14, label %12
 
-11:                                               ; preds = %4
-  %12 = load ptr, ptr %3, align 8, !tbaa !34
-  store ptr %12, ptr %6, align 8, !tbaa !30
-  br label %13
+12:                                               ; preds = %5
+  %13 = load ptr, ptr %3, align 8, !tbaa !34
+  store ptr %13, ptr %7, align 8, !tbaa !30
+  br label %14
 
-13:                                               ; preds = %4, %11
-  br i1 %5, label %4, label %14
-
-14:                                               ; preds = %13
-  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next15, 53
-  br i1 %exitcond.not, label %15, label %.preheader
+14:                                               ; preds = %5, %12
+  br i1 %6, label %5, label %15
 
 15:                                               ; preds = %14
+  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next15, 53
+  br i1 %exitcond.not, label %16, label %.preheader
+
+16:                                               ; preds = %15
   ret void
 }
 
@@ -356,21 +357,19 @@ define hidden void @luaS_init(ptr noundef %0) local_unnamed_addr #4 {
   tail call void @luaC_fix(ptr noundef %0, ptr noundef %7) #13
   %9 = load ptr, ptr %8, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 552
-  %invariant.gep = getelementptr inbounds i8, ptr %10, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv21 = phi i64 [ 0, %1 ], [ %indvars.iv.next22, %.preheader ]
-  %11 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %10, i64 0, i64 %indvars.iv21, i64 0
+  %11 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %10, i64 0, i64 %indvars.iv21
   store ptr %9, ptr %11, align 8, !tbaa !30
-  %.idx = shl nuw nsw i64 %indvars.iv21, 4
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
-  store ptr %9, ptr %gep, align 8, !tbaa !30
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %9, ptr %12, align 8, !tbaa !30
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next22, 53
-  br i1 %exitcond.not, label %12, label %.preheader
+  br i1 %exitcond.not, label %13, label %.preheader
 
-12:                                               ; preds = %.preheader
+13:                                               ; preds = %.preheader
   ret void
 }
 

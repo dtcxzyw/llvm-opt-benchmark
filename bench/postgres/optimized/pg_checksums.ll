@@ -126,55 +126,56 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 16 dereferenceable(128) @checksumBaseOffsets, i64 128, i1 false)
   br label %.preheader28.i
 
-.preheader28.i:                                   ; preds = %15, %2
-  %indvars.iv36.i = phi i64 [ 0, %2 ], [ %indvars.iv.next37.i, %15 ]
-  br label %6
+.preheader28.i:                                   ; preds = %16, %2
+  %indvars.iv36.i = phi i64 [ 0, %2 ], [ %indvars.iv.next37.i, %16 ]
+  %6 = getelementptr inbounds nuw [64 x [32 x i32]], ptr %0, i64 0, i64 %indvars.iv36.i
+  br label %7
 
-6:                                                ; preds = %6, %.preheader28.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader28.i ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv.i
-  %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds nuw [64 x [32 x i32]], ptr %0, i64 0, i64 %indvars.iv36.i, i64 %indvars.iv.i
-  %10 = load i32, ptr %9, align 4
-  %11 = xor i32 %10, %8
-  %12 = mul i32 %11, 16777619
-  %13 = lshr i32 %11, 17
-  %14 = xor i32 %12, %13
-  store i32 %14, ptr %7, align 4
+7:                                                ; preds = %7, %.preheader28.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader28.i ], [ %indvars.iv.next.i, %7 ]
+  %8 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %11 = load i32, ptr %10, align 4
+  %12 = xor i32 %11, %9
+  %13 = mul i32 %12, 16777619
+  %14 = lshr i32 %12, 17
+  %15 = xor i32 %13, %14
+  store i32 %15, ptr %8, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %15, label %6, !llvm.loop !4
+  br i1 %exitcond.not.i, label %16, label %7, !llvm.loop !4
 
-15:                                               ; preds = %6
+16:                                               ; preds = %7
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 64
   br i1 %exitcond39.not.i, label %.preheader26.i, label %.preheader28.i, !llvm.loop !6
 
-.preheader26.i:                                   ; preds = %15, %23
-  %16 = phi i1 [ false, %23 ], [ true, %15 ]
-  br label %17
+.preheader26.i:                                   ; preds = %16, %24
+  %17 = phi i1 [ false, %24 ], [ true, %16 ]
+  br label %18
 
-17:                                               ; preds = %17, %.preheader26.i
-  %indvars.iv40.i = phi i64 [ 0, %.preheader26.i ], [ %indvars.iv.next41.i, %17 ]
-  %18 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv40.i
-  %19 = load i32, ptr %18, align 4
-  %20 = mul i32 %19, 16777619
-  %21 = lshr i32 %19, 17
-  %22 = xor i32 %20, %21
-  store i32 %22, ptr %18, align 4
+18:                                               ; preds = %18, %.preheader26.i
+  %indvars.iv40.i = phi i64 [ 0, %.preheader26.i ], [ %indvars.iv.next41.i, %18 ]
+  %19 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv40.i
+  %20 = load i32, ptr %19, align 4
+  %21 = mul i32 %20, 16777619
+  %22 = lshr i32 %20, 17
+  %23 = xor i32 %21, %22
+  store i32 %23, ptr %19, align 4
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next41.i, 32
-  br i1 %exitcond43.not.i, label %23, label %17, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %24, label %18, !llvm.loop !7
 
-23:                                               ; preds = %17
-  br i1 %16, label %.preheader26.i, label %.preheader.i, !llvm.loop !8
+24:                                               ; preds = %18
+  br i1 %17, label %.preheader26.i, label %.preheader.i, !llvm.loop !8
 
-.preheader.i:                                     ; preds = %23, %.preheader.i
-  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %23 ]
-  %.034.i = phi i32 [ %26, %.preheader.i ], [ 0, %23 ]
-  %24 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv44.i
-  %25 = load i32, ptr %24, align 4
-  %26 = xor i32 %25, %.034.i
+.preheader.i:                                     ; preds = %24, %.preheader.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %24 ]
+  %.034.i = phi i32 [ %27, %.preheader.i ], [ 0, %24 ]
+  %25 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv44.i
+  %26 = load i32, ptr %25, align 4
+  %27 = xor i32 %26, %.034.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 32
   br i1 %exitcond47.not.i, label %pg_checksum_block.exit, label %.preheader.i, !llvm.loop !9
@@ -182,11 +183,11 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
 pg_checksum_block.exit:                           ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #12
   store i16 %5, ptr %4, align 4
-  %27 = xor i32 %26, %1
-  %28 = urem i32 %27, 65535
-  %29 = trunc nuw i32 %28 to i16
-  %30 = add nuw i16 %29, 1
-  ret i16 %30
+  %28 = xor i32 %27, %1
+  %29 = urem i32 %28, 65535
+  %30 = trunc nuw i32 %29 to i16
+  %31 = add nuw i16 %30, 1
+  ret i16 %31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1032,11 +1033,11 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
 
 17:                                               ; preds = %.thread, %11
   %.046 = phi i64 [ 0, %11 ], [ %.147.ph, %.thread ]
-  %.0 = phi i32 [ 0, %11 ], [ %86, %.thread ]
+  %.0 = phi i32 [ 0, %11 ], [ %87, %.thread ]
   %18 = call i64 @read(i32 noundef %8, ptr noundef nonnull %4, i64 noundef 8192) #12
   %19 = trunc i64 %18 to i32
   switch i32 %19, label %20 [
-    i32 0, label %87
+    i32 0, label %88
     i32 8192, label %24
   ]
 
@@ -1072,184 +1073,185 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 16 dereferenceable(128) @checksumBaseOffsets, i64 128, i1 false)
   br label %.preheader28.i.i
 
-.preheader28.i.i:                                 ; preds = %41, %30
-  %indvars.iv36.i.i = phi i64 [ 0, %30 ], [ %indvars.iv.next37.i.i, %41 ]
-  br label %32
+.preheader28.i.i:                                 ; preds = %42, %30
+  %indvars.iv36.i.i = phi i64 [ 0, %30 ], [ %indvars.iv.next37.i.i, %42 ]
+  %32 = getelementptr inbounds nuw [64 x [32 x i32]], ptr %4, i64 0, i64 %indvars.iv36.i.i
+  br label %33
 
-32:                                               ; preds = %32, %.preheader28.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader28.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %33 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds nuw [64 x [32 x i32]], ptr %4, i64 0, i64 %indvars.iv36.i.i, i64 %indvars.iv.i.i
-  %36 = load i32, ptr %35, align 4
-  %37 = xor i32 %36, %34
-  %38 = mul i32 %37, 16777619
-  %39 = lshr i32 %37, 17
-  %40 = xor i32 %38, %39
-  store i32 %40, ptr %33, align 4
+33:                                               ; preds = %33, %.preheader28.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader28.i.i ], [ %indvars.iv.next.i.i, %33 ]
+  %34 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds nuw [32 x i32], ptr %32, i64 0, i64 %indvars.iv.i.i
+  %37 = load i32, ptr %36, align 4
+  %38 = xor i32 %37, %35
+  %39 = mul i32 %38, 16777619
+  %40 = lshr i32 %38, 17
+  %41 = xor i32 %39, %40
+  store i32 %41, ptr %34, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
-  br i1 %exitcond.not.i.i, label %41, label %32, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %42, label %33, !llvm.loop !4
 
-41:                                               ; preds = %32
+42:                                               ; preds = %33
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %exitcond39.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, 64
   br i1 %exitcond39.not.i.i, label %.preheader26.i.i, label %.preheader28.i.i, !llvm.loop !6
 
-.preheader26.i.i:                                 ; preds = %41, %49
-  %42 = phi i1 [ false, %49 ], [ true, %41 ]
-  br label %43
+.preheader26.i.i:                                 ; preds = %42, %50
+  %43 = phi i1 [ false, %50 ], [ true, %42 ]
+  br label %44
 
-43:                                               ; preds = %43, %.preheader26.i.i
-  %indvars.iv40.i.i = phi i64 [ 0, %.preheader26.i.i ], [ %indvars.iv.next41.i.i, %43 ]
-  %44 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv40.i.i
-  %45 = load i32, ptr %44, align 4
-  %46 = mul i32 %45, 16777619
-  %47 = lshr i32 %45, 17
-  %48 = xor i32 %46, %47
-  store i32 %48, ptr %44, align 4
+44:                                               ; preds = %44, %.preheader26.i.i
+  %indvars.iv40.i.i = phi i64 [ 0, %.preheader26.i.i ], [ %indvars.iv.next41.i.i, %44 ]
+  %45 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv40.i.i
+  %46 = load i32, ptr %45, align 4
+  %47 = mul i32 %46, 16777619
+  %48 = lshr i32 %46, 17
+  %49 = xor i32 %47, %48
+  store i32 %49, ptr %45, align 4
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 32
-  br i1 %exitcond43.not.i.i, label %49, label %43, !llvm.loop !7
+  br i1 %exitcond43.not.i.i, label %50, label %44, !llvm.loop !7
 
-49:                                               ; preds = %43
-  br i1 %42, label %.preheader26.i.i, label %.preheader.i.i, !llvm.loop !8
+50:                                               ; preds = %44
+  br i1 %43, label %.preheader26.i.i, label %.preheader.i.i, !llvm.loop !8
 
-.preheader.i.i:                                   ; preds = %49, %.preheader.i.i
-  %indvars.iv44.i.i = phi i64 [ %indvars.iv.next45.i.i, %.preheader.i.i ], [ 0, %49 ]
-  %.034.i.i = phi i32 [ %52, %.preheader.i.i ], [ 0, %49 ]
-  %50 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv44.i.i
-  %51 = load i32, ptr %50, align 4
-  %52 = xor i32 %51, %.034.i.i
+.preheader.i.i:                                   ; preds = %50, %.preheader.i.i
+  %indvars.iv44.i.i = phi i64 [ %indvars.iv.next45.i.i, %.preheader.i.i ], [ 0, %50 ]
+  %.034.i.i = phi i32 [ %53, %.preheader.i.i ], [ 0, %50 ]
+  %51 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv44.i.i
+  %52 = load i32, ptr %51, align 4
+  %53 = xor i32 %52, %.034.i.i
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next45.i.i, 32
   br i1 %exitcond47.not.i.i, label %pg_checksum_page.exit, label %.preheader.i.i, !llvm.loop !9
 
 pg_checksum_page.exit:                            ; preds = %.preheader.i.i
-  %53 = add i32 %.0, %15
+  %54 = add i32 %.0, %15
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #12
   store i16 %31, ptr %16, align 8
-  %54 = xor i32 %52, %53
-  %55 = urem i32 %54, 65535
-  %56 = trunc nuw i32 %55 to i16
-  %57 = add nuw i16 %56, 1
-  %58 = load i32, ptr @mode, align 4
-  switch i32 %58, label %84 [
-    i32 0, label %59
-    i32 2, label %71
+  %55 = xor i32 %53, %54
+  %56 = urem i32 %55, 65535
+  %57 = trunc nuw i32 %56 to i16
+  %58 = add nuw i16 %57, 1
+  %59 = load i32, ptr @mode, align 4
+  switch i32 %59, label %85 [
+    i32 0, label %60
+    i32 2, label %72
   ]
 
-59:                                               ; preds = %pg_checksum_page.exit
-  %60 = zext i16 %57 to i32
-  %61 = zext i16 %31 to i32
-  %.not57 = icmp eq i16 %57, %31
-  br i1 %.not57, label %84, label %62
+60:                                               ; preds = %pg_checksum_page.exit
+  %61 = zext i16 %58 to i32
+  %62 = zext i16 %31 to i32
+  %.not57 = icmp eq i16 %58, %31
+  br i1 %.not57, label %85, label %63
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr @ControlFile, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 252
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %68
+63:                                               ; preds = %60
+  %64 = load ptr, ptr @ControlFile, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 252
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, 1
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %62
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.83, ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %60, i32 noundef %61) #12
-  br label %68
+68:                                               ; preds = %63
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.83, ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %61, i32 noundef %62) #12
+  br label %69
 
-68:                                               ; preds = %67, %62
-  %69 = load i64, ptr @badblocks, align 8
-  %70 = add i64 %69, 1
-  store i64 %70, ptr @badblocks, align 8
-  br label %84
+69:                                               ; preds = %68, %63
+  %70 = load i64, ptr @badblocks, align 8
+  %71 = add i64 %70, 1
+  store i64 %71, ptr @badblocks, align 8
+  br label %85
 
-71:                                               ; preds = %pg_checksum_page.exit
-  %.not56 = icmp eq i16 %31, %57
-  br i1 %.not56, label %.thread, label %72
+72:                                               ; preds = %pg_checksum_page.exit
+  %.not56 = icmp eq i16 %31, %58
+  br i1 %.not56, label %.thread, label %73
 
-72:                                               ; preds = %71
-  store i16 %57, ptr %16, align 8
-  %73 = tail call i64 @lseek(i32 noundef %8, i64 noundef -8192, i32 noundef 1) #12
-  %74 = icmp slt i64 %73, 0
-  br i1 %74, label %75, label %76
+73:                                               ; preds = %72
+  store i16 %58, ptr %16, align 8
+  %74 = tail call i64 @lseek(i32 noundef %8, i64 noundef -8192, i32 noundef 1) #12
+  %75 = icmp slt i64 %74, 0
+  br i1 %75, label %76, label %77
 
-75:                                               ; preds = %72
+76:                                               ; preds = %73
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.84, i32 noundef %.0, ptr noundef nonnull %0) #12
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
-76:                                               ; preds = %72
-  %77 = add i64 %.046, 1
-  %78 = call i64 @write(i32 noundef %8, ptr noundef nonnull %4, i64 noundef 8192) #12
-  %79 = trunc i64 %78 to i32
-  %.not55 = icmp eq i32 %79, 8192
-  br i1 %.not55, label %84, label %80
+77:                                               ; preds = %73
+  %78 = add i64 %.046, 1
+  %79 = call i64 @write(i32 noundef %8, ptr noundef nonnull %4, i64 noundef 8192) #12
+  %80 = trunc i64 %79 to i32
+  %.not55 = icmp eq i32 %80, 8192
+  br i1 %.not55, label %85, label %81
 
-80:                                               ; preds = %76
-  %81 = icmp slt i32 %79, 0
-  br i1 %81, label %82, label %83
+81:                                               ; preds = %77
+  %82 = icmp slt i32 %80, 0
+  br i1 %82, label %83, label %84
 
-82:                                               ; preds = %80
+83:                                               ; preds = %81
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.85, i32 noundef %.0, ptr noundef nonnull %0) #12
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
-83:                                               ; preds = %80
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.86, i32 noundef %.0, ptr noundef nonnull %0, i32 noundef %79, i32 noundef 8192) #12
+84:                                               ; preds = %81
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.86, i32 noundef %.0, ptr noundef nonnull %0, i32 noundef %80, i32 noundef 8192) #12
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
-84:                                               ; preds = %76, %pg_checksum_page.exit, %59, %68
-  %.2 = phi i64 [ %.046, %68 ], [ %.046, %59 ], [ %.046, %pg_checksum_page.exit ], [ %77, %76 ]
+85:                                               ; preds = %77, %pg_checksum_page.exit, %60, %69
+  %.2 = phi i64 [ %.046, %69 ], [ %.046, %60 ], [ %.046, %pg_checksum_page.exit ], [ %78, %77 ]
   %.b58 = load i1, ptr @showprogress, align 1
-  br i1 %.b58, label %85, label %.thread
+  br i1 %.b58, label %86, label %.thread
 
-85:                                               ; preds = %84
+86:                                               ; preds = %85
   tail call fastcc void @progress_report(i1 noundef zeroext false)
   br label %.thread
 
-.thread:                                          ; preds = %71, %24, %85, %84
-  %.147.ph = phi i64 [ %.2, %84 ], [ %.2, %85 ], [ %.046, %24 ], [ %.046, %71 ]
-  %86 = add i32 %.0, 1
+.thread:                                          ; preds = %72, %24, %86, %85
+  %.147.ph = phi i64 [ %.2, %85 ], [ %.2, %86 ], [ %.046, %24 ], [ %.046, %72 ]
+  %87 = add i32 %.0, 1
   br label %17
 
-87:                                               ; preds = %17
+88:                                               ; preds = %17
   %.b5459 = load i1, ptr @verbose, align 1
-  br i1 %.b5459, label %88, label %96
+  br i1 %.b5459, label %89, label %97
 
-88:                                               ; preds = %87
-  %89 = load i32, ptr @mode, align 4
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %92
+89:                                               ; preds = %88
+  %90 = load i32, ptr @mode, align 4
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %93
 
-91:                                               ; preds = %88
+92:                                               ; preds = %89
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.87, ptr noundef nonnull %0) #12
   %.pr = load i32, ptr @mode, align 4
-  br label %92
+  br label %93
 
-92:                                               ; preds = %91, %88
-  %93 = phi i32 [ %.pr, %91 ], [ %89, %88 ]
-  %94 = icmp eq i32 %93, 2
-  br i1 %94, label %95, label %96
+93:                                               ; preds = %92, %89
+  %94 = phi i32 [ %.pr, %92 ], [ %90, %89 ]
+  %95 = icmp eq i32 %94, 2
+  br i1 %95, label %96, label %97
 
-95:                                               ; preds = %92
+96:                                               ; preds = %93
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.88, ptr noundef nonnull %0) #12
-  br label %96
+  br label %97
 
-96:                                               ; preds = %92, %95, %87
-  %97 = icmp sgt i64 %.046, 0
-  br i1 %97, label %98, label %103
+97:                                               ; preds = %93, %96, %88
+  %98 = icmp sgt i64 %.046, 0
+  br i1 %98, label %99, label %104
 
-98:                                               ; preds = %96
-  %99 = load i64, ptr @files_written, align 8
-  %100 = add i64 %99, 1
-  store i64 %100, ptr @files_written, align 8
-  %101 = load i64, ptr @blocks_written, align 8
-  %102 = add i64 %101, %.046
-  store i64 %102, ptr @blocks_written, align 8
-  br label %103
+99:                                               ; preds = %97
+  %100 = load i64, ptr @files_written, align 8
+  %101 = add i64 %100, 1
+  store i64 %101, ptr @files_written, align 8
+  %102 = load i64, ptr @blocks_written, align 8
+  %103 = add i64 %102, %.046
+  store i64 %103, ptr @blocks_written, align 8
+  br label %104
 
-103:                                              ; preds = %98, %96
-  %104 = tail call i32 @close(i32 noundef %8) #12
+104:                                              ; preds = %99, %97
+  %105 = tail call i32 @close(i32 noundef %8) #12
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #12
   ret void
 }

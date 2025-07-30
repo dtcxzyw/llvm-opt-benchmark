@@ -1606,507 +1606,510 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL16MBCSAddToUnicodeP
   %.0150 = phi i8 [ 0, %15 ], [ %spec.select, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = zext nneg i8 %.0150 to i64
-  %24 = load i8, ptr %1, align 1, !tbaa !15
-  %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %22, i64 0, i64 %23, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !45
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %.lr.ph.preheader, label %._crit_edge
+  %24 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %22, i64 0, i64 %23
+  %25 = load i8, ptr %1, align 1, !tbaa !15
+  %26 = zext i8 %25 to i64
+  %27 = getelementptr inbounds nuw [256 x i32], ptr %24, i64 0, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !45
+  %29 = icmp sgt i32 %28, -1
+  br i1 %29, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %21
-  %29 = zext i32 %2 to i64
-  %30 = icmp eq i32 %2, 1
-  br i1 %30, label %.lr.ph._crit_edge, label %.lr.ph232
+  %30 = zext i32 %2 to i64
+  %31 = icmp eq i32 %2, 1
+  br i1 %31, label %.lr.ph._crit_edge, label %.lr.ph232
 
 .lr.ph:                                           ; preds = %.lr.ph232
-  %31 = icmp eq i64 %indvars.iv.next, %29
-  br i1 %31, label %.lr.ph._crit_edge.loopexit, label %.lr.ph232, !llvm.loop !94
+  %32 = icmp eq i64 %indvars.iv.next, %30
+  br i1 %32, label %.lr.ph._crit_edge.loopexit, label %.lr.ph232, !llvm.loop !94
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %32 = trunc nuw nsw i32 %56 to i8
+  %33 = trunc nuw nsw i32 %57 to i8
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
-  %.1202.lcssa = phi i8 [ %.0150, %.lr.ph.preheader ], [ %32, %.lr.ph._crit_edge.loopexit ]
-  %33 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %34 = zext nneg i8 %.1202.lcssa to i32
-  %35 = ptrtoint ptr %6 to i64
-  %36 = icmp sgt i32 %2, 0
-  br i1 %36, label %.lr.ph.i, label %_ZL10printBytesPcmPKhi.exit
+  %.1202.lcssa = phi i8 [ %.0150, %.lr.ph.preheader ], [ %33, %.lr.ph._crit_edge.loopexit ]
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %35 = zext nneg i8 %.1202.lcssa to i32
+  %36 = ptrtoint ptr %6 to i64
+  %37 = icmp sgt i32 %2, 0
+  br i1 %37, label %.lr.ph.i, label %_ZL10printBytesPcmPKhi.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph._crit_edge, %.lr.ph.i
-  %.020.i = phi ptr [ %47, %.lr.ph.i ], [ %6, %.lr.ph._crit_edge ]
-  %.01219.i = phi i32 [ %49, %.lr.ph.i ], [ %2, %.lr.ph._crit_edge ]
-  %.01318.i = phi ptr [ %48, %.lr.ph.i ], [ %1, %.lr.ph._crit_edge ]
-  %37 = load i8, ptr %.01318.i, align 1, !tbaa !15
-  %38 = lshr i8 %37, 4
-  %39 = icmp ult i8 %37, -96
-  %40 = or disjoint i8 %38, 48
-  %narrow.i.i = add nuw nsw i8 %38, 87
-  %41 = select i1 %39, i8 %40, i8 %narrow.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
-  store i8 %41, ptr %.020.i, align 1, !tbaa !15
-  %43 = and i8 %37, 15
-  %44 = icmp samesign ult i8 %43, 10
-  %45 = or disjoint i8 %43, 48
-  %narrow.i17.i = add nuw nsw i8 %43, 87
-  %46 = select i1 %44, i8 %45, i8 %narrow.i17.i
-  %47 = getelementptr inbounds nuw i8, ptr %.020.i, i64 2
-  store i8 %46, ptr %42, align 1, !tbaa !15
-  %48 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 1
-  %49 = add nsw i32 %.01219.i, -1
-  %50 = icmp samesign ugt i32 %.01219.i, 1
-  %51 = ptrtoint ptr %47 to i64
-  %52 = sub i64 %51, %35
-  %53 = icmp ult i64 %52, 7
-  %or.cond.i = select i1 %50, i1 %53, i1 false
+  %.020.i = phi ptr [ %48, %.lr.ph.i ], [ %6, %.lr.ph._crit_edge ]
+  %.01219.i = phi i32 [ %50, %.lr.ph.i ], [ %2, %.lr.ph._crit_edge ]
+  %.01318.i = phi ptr [ %49, %.lr.ph.i ], [ %1, %.lr.ph._crit_edge ]
+  %38 = load i8, ptr %.01318.i, align 1, !tbaa !15
+  %39 = lshr i8 %38, 4
+  %40 = icmp ult i8 %38, -96
+  %41 = or disjoint i8 %39, 48
+  %narrow.i.i = add nuw nsw i8 %39, 87
+  %42 = select i1 %40, i8 %41, i8 %narrow.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
+  store i8 %42, ptr %.020.i, align 1, !tbaa !15
+  %44 = and i8 %38, 15
+  %45 = icmp samesign ult i8 %44, 10
+  %46 = or disjoint i8 %44, 48
+  %narrow.i17.i = add nuw nsw i8 %44, 87
+  %47 = select i1 %45, i8 %46, i8 %narrow.i17.i
+  %48 = getelementptr inbounds nuw i8, ptr %.020.i, i64 2
+  store i8 %47, ptr %43, align 1, !tbaa !15
+  %49 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 1
+  %50 = add nsw i32 %.01219.i, -1
+  %51 = icmp samesign ugt i32 %.01219.i, 1
+  %52 = ptrtoint ptr %48 to i64
+  %53 = sub i64 %52, %36
+  %54 = icmp ult i64 %53, 7
+  %or.cond.i = select i1 %51, i1 %54, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %_ZL10printBytesPcmPKhi.exit, !llvm.loop !95
 
 _ZL10printBytesPcmPKhi.exit:                      ; preds = %.lr.ph.i, %.lr.ph._crit_edge
-  %.0.lcssa.i = phi ptr [ %6, %.lr.ph._crit_edge ], [ %47, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %6, %.lr.ph._crit_edge ], [ %48, %.lr.ph.i ]
   store i8 0, ptr %.0.lcssa.i, align 1, !tbaa !15
-  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.8, i32 noundef %34, ptr noundef nonnull %6, i32 noundef %3) #16
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.8, i32 noundef %35, ptr noundef nonnull %6, i32 noundef %3) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
 .lr.ph232:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0155201231 = phi i32 [ %58, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %55 = phi i32 [ %64, %.lr.ph ], [ %27, %.lr.ph.preheader ]
+  %.0155201231 = phi i32 [ %59, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %56 = phi i32 [ %66, %.lr.ph ], [ %28, %.lr.ph.preheader ]
   %indvars.iv230 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %56 = lshr i32 %55, 24
-  %57 = and i32 %55, 16777215
-  %58 = add i32 %57, %.0155201231
-  %59 = zext nneg i32 %56 to i64
+  %57 = lshr i32 %56, 24
+  %58 = and i32 %56, 16777215
+  %59 = add i32 %58, %.0155201231
+  %60 = zext nneg i32 %57 to i64
+  %61 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %22, i64 0, i64 %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv230, 1
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv230
-  %61 = load i8, ptr %60, align 1, !tbaa !15
-  %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %22, i64 0, i64 %59, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !45
-  %65 = icmp sgt i32 %64, -1
-  br i1 %65, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !94
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv230
+  %63 = load i8, ptr %62, align 1, !tbaa !15
+  %64 = zext i8 %63 to i64
+  %65 = getelementptr inbounds nuw [256 x i32], ptr %61, i64 0, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !45
+  %67 = icmp sgt i32 %66, -1
+  br i1 %67, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !94
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph232
-  %66 = trunc nuw nsw i32 %56 to i8
-  %67 = trunc nuw i64 %indvars.iv.next to i32
+  %68 = trunc nuw nsw i32 %57 to i8
+  %69 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %21
   %.lcssa200 = phi i64 [ 0, %21 ], [ %indvars.iv230, %._crit_edge.loopexit ]
-  %.0155.lcssa = phi i32 [ 0, %21 ], [ %58, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i8 [ %.0150, %21 ], [ %66, %._crit_edge.loopexit ]
-  %.lcssa196 = phi i64 [ %23, %21 ], [ %59, %._crit_edge.loopexit ]
-  %.lcssa194 = phi i32 [ 1, %21 ], [ %67, %._crit_edge.loopexit ]
-  %.lcssa190 = phi i32 [ %27, %21 ], [ %64, %._crit_edge.loopexit ]
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.lcssa200
-  %69 = icmp slt i32 %.lcssa194, %2
-  br i1 %69, label %70, label %94
+  %.0155.lcssa = phi i32 [ 0, %21 ], [ %59, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i8 [ %.0150, %21 ], [ %68, %._crit_edge.loopexit ]
+  %.lcssa196 = phi i64 [ %23, %21 ], [ %60, %._crit_edge.loopexit ]
+  %.lcssa194 = phi i32 [ 1, %21 ], [ %69, %._crit_edge.loopexit ]
+  %.lcssa190 = phi i32 [ %28, %21 ], [ %66, %._crit_edge.loopexit ]
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %.lcssa200
+  %71 = icmp slt i32 %.lcssa194, %2
+  br i1 %71, label %72, label %96
 
-70:                                               ; preds = %._crit_edge
-  %71 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %72 = sub nsw i32 %2, %.lcssa194
-  %73 = zext nneg i8 %.1.lcssa to i32
-  %74 = ptrtoint ptr %6 to i64
-  %75 = icmp sgt i32 %2, 0
-  br i1 %75, label %.lr.ph.i177, label %_ZL10printBytesPcmPKhi.exit184
+72:                                               ; preds = %._crit_edge
+  %73 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %74 = sub nsw i32 %2, %.lcssa194
+  %75 = zext nneg i8 %.1.lcssa to i32
+  %76 = ptrtoint ptr %6 to i64
+  %77 = icmp sgt i32 %2, 0
+  br i1 %77, label %.lr.ph.i177, label %_ZL10printBytesPcmPKhi.exit184
 
-.lr.ph.i177:                                      ; preds = %70, %.lr.ph.i177
-  %.020.i178 = phi ptr [ %86, %.lr.ph.i177 ], [ %6, %70 ]
-  %.01219.i179 = phi i32 [ %88, %.lr.ph.i177 ], [ %2, %70 ]
-  %.01318.i180 = phi ptr [ %87, %.lr.ph.i177 ], [ %1, %70 ]
-  %76 = load i8, ptr %.01318.i180, align 1, !tbaa !15
-  %77 = lshr i8 %76, 4
-  %78 = icmp ult i8 %76, -96
-  %79 = or disjoint i8 %77, 48
-  %narrow.i.i181 = add nuw nsw i8 %77, 87
-  %80 = select i1 %78, i8 %79, i8 %narrow.i.i181
-  %81 = getelementptr inbounds nuw i8, ptr %.020.i178, i64 1
-  store i8 %80, ptr %.020.i178, align 1, !tbaa !15
-  %82 = and i8 %76, 15
-  %83 = icmp samesign ult i8 %82, 10
-  %84 = or disjoint i8 %82, 48
-  %narrow.i17.i182 = add nuw nsw i8 %82, 87
-  %85 = select i1 %83, i8 %84, i8 %narrow.i17.i182
-  %86 = getelementptr inbounds nuw i8, ptr %.020.i178, i64 2
-  store i8 %85, ptr %81, align 1, !tbaa !15
-  %87 = getelementptr inbounds nuw i8, ptr %.01318.i180, i64 1
-  %88 = add nsw i32 %.01219.i179, -1
-  %89 = icmp samesign ugt i32 %.01219.i179, 1
-  %90 = ptrtoint ptr %86 to i64
-  %91 = sub i64 %90, %74
-  %92 = icmp ult i64 %91, 7
-  %or.cond.i183 = select i1 %89, i1 %92, i1 false
+.lr.ph.i177:                                      ; preds = %72, %.lr.ph.i177
+  %.020.i178 = phi ptr [ %88, %.lr.ph.i177 ], [ %6, %72 ]
+  %.01219.i179 = phi i32 [ %90, %.lr.ph.i177 ], [ %2, %72 ]
+  %.01318.i180 = phi ptr [ %89, %.lr.ph.i177 ], [ %1, %72 ]
+  %78 = load i8, ptr %.01318.i180, align 1, !tbaa !15
+  %79 = lshr i8 %78, 4
+  %80 = icmp ult i8 %78, -96
+  %81 = or disjoint i8 %79, 48
+  %narrow.i.i181 = add nuw nsw i8 %79, 87
+  %82 = select i1 %80, i8 %81, i8 %narrow.i.i181
+  %83 = getelementptr inbounds nuw i8, ptr %.020.i178, i64 1
+  store i8 %82, ptr %.020.i178, align 1, !tbaa !15
+  %84 = and i8 %78, 15
+  %85 = icmp samesign ult i8 %84, 10
+  %86 = or disjoint i8 %84, 48
+  %narrow.i17.i182 = add nuw nsw i8 %84, 87
+  %87 = select i1 %85, i8 %86, i8 %narrow.i17.i182
+  %88 = getelementptr inbounds nuw i8, ptr %.020.i178, i64 2
+  store i8 %87, ptr %83, align 1, !tbaa !15
+  %89 = getelementptr inbounds nuw i8, ptr %.01318.i180, i64 1
+  %90 = add nsw i32 %.01219.i179, -1
+  %91 = icmp samesign ugt i32 %.01219.i179, 1
+  %92 = ptrtoint ptr %88 to i64
+  %93 = sub i64 %92, %76
+  %94 = icmp ult i64 %93, 7
+  %or.cond.i183 = select i1 %91, i1 %94, i1 false
   br i1 %or.cond.i183, label %.lr.ph.i177, label %_ZL10printBytesPcmPKhi.exit184, !llvm.loop !95
 
-_ZL10printBytesPcmPKhi.exit184:                   ; preds = %.lr.ph.i177, %70
-  %.0.lcssa.i176 = phi ptr [ %6, %70 ], [ %86, %.lr.ph.i177 ]
+_ZL10printBytesPcmPKhi.exit184:                   ; preds = %.lr.ph.i177, %72
+  %.0.lcssa.i176 = phi ptr [ %6, %72 ], [ %88, %.lr.ph.i177 ]
   store i8 0, ptr %.0.lcssa.i176, align 1, !tbaa !15
-  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.9, i32 noundef %72, i32 noundef %73, ptr noundef nonnull %6, i32 noundef %3) #16
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.9, i32 noundef %74, i32 noundef %75, ptr noundef nonnull %6, i32 noundef %3) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-94:                                               ; preds = %._crit_edge
-  %95 = lshr i32 %.lcssa190, 20
-  %96 = and i32 %95, 15
-  switch i32 %96, label %309 [
-    i32 7, label %97
-    i32 8, label %101
-    i32 6, label %105
-    i32 2, label %109
-    i32 0, label %109
-    i32 3, label %109
-    i32 1, label %109
-    i32 4, label %146
-    i32 5, label %221
+96:                                               ; preds = %._crit_edge
+  %97 = lshr i32 %.lcssa190, 20
+  %98 = and i32 %97, 15
+  switch i32 %98, label %312 [
+    i32 7, label %99
+    i32 8, label %103
+    i32 6, label %107
+    i32 2, label %111
+    i32 0, label %111
+    i32 3, label %111
+    i32 1, label %111
+    i32 4, label %149
+    i32 5, label %224
   ]
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %99 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull %6) #16
+99:                                               ; preds = %96
+  %100 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %101 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull %6) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-101:                                              ; preds = %94
-  %102 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %103 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull %6) #16
+103:                                              ; preds = %96
+  %104 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %105 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull %6) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-105:                                              ; preds = %94
-  %106 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %107 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.12, i32 noundef %3, ptr noundef nonnull %6) #16
+107:                                              ; preds = %96
+  %108 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %109 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.12, i32 noundef %3, ptr noundef nonnull %6) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-109:                                              ; preds = %94, %94, %94, %94
-  %110 = and i32 %.lcssa190, -2130706433
-  %.not174 = icmp eq i32 %110, -2147418114
-  br i1 %.not174, label %129, label %111
+111:                                              ; preds = %96, %96, %96, %96
+  %112 = and i32 %.lcssa190, -2130706433
+  %.not174 = icmp eq i32 %112, -2147418114
+  br i1 %.not174, label %131, label %113
 
-111:                                              ; preds = %109
-  switch i32 %96, label %114 [
-    i32 0, label %112
-    i32 2, label %112
+113:                                              ; preds = %111
+  switch i32 %98, label %116 [
+    i32 0, label %114
+    i32 2, label %114
   ]
 
-112:                                              ; preds = %111, %111
-  %113 = and i32 %.lcssa190, 1048575
-  br label %117
-
-114:                                              ; preds = %111
+114:                                              ; preds = %113, %113
   %115 = and i32 %.lcssa190, 1048575
-  %116 = add nuw nsw i32 %115, 65536
-  br label %117
+  br label %119
 
-117:                                              ; preds = %114, %112
-  %.0151 = phi i32 [ %113, %112 ], [ %116, %114 ]
-  %118 = icmp sgt i8 %4, -1
-  br i1 %118, label %119, label %123
+116:                                              ; preds = %113
+  %117 = and i32 %.lcssa190, 1048575
+  %118 = add nuw nsw i32 %117, 65536
+  br label %119
 
-119:                                              ; preds = %117
-  %120 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %121 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.13, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.0151) #16
+119:                                              ; preds = %116, %114
+  %.0151 = phi i32 [ %115, %114 ], [ %118, %116 ]
+  %120 = icmp sgt i8 %4, -1
+  br i1 %120, label %121, label %125
+
+121:                                              ; preds = %119
+  %122 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %123 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.13, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.0151) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-123:                                              ; preds = %117
-  %124 = load i8, ptr @VERBOSE, align 1, !tbaa !15
-  %.not175 = icmp eq i8 %124, 0
-  br i1 %.not175, label %129, label %125
+125:                                              ; preds = %119
+  %126 = load i8, ptr @VERBOSE, align 1, !tbaa !15
+  %.not175 = icmp eq i8 %126, 0
+  br i1 %.not175, label %131, label %127
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %127 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.14, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.0151) #16
-  br label %129
+127:                                              ; preds = %125
+  %128 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %129 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.14, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.0151) #16
+  br label %131
 
-129:                                              ; preds = %125, %123, %109
-  %130 = and i32 %.lcssa190, -16777216
-  %131 = icmp eq i8 %4, 3
-  %132 = select i1 %131, i32 2, i32 0
-  %133 = icmp sgt i32 %3, 65535
-  %134 = zext i1 %133 to i32
-  %135 = or disjoint i32 %132, %134
-  %136 = shl nuw nsw i32 %135, 20
-  %137 = or disjoint i32 %130, %136
-  %138 = icmp slt i32 %3, 65536
-  %139 = add nsw i32 %3, -65536
-  %.sink = select i1 %138, i32 %3, i32 %139
-  %140 = or i32 %137, %.sink
-  %141 = load ptr, ptr %7, align 8, !tbaa !18
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %143 = load i8, ptr %68, align 1, !tbaa !15
-  %144 = zext i8 %143 to i64
-  %145 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %142, i64 0, i64 %.lcssa196, i64 %144
-  store i32 %140, ptr %145, align 4, !tbaa !45
+131:                                              ; preds = %127, %125, %111
+  %132 = and i32 %.lcssa190, -16777216
+  %133 = icmp eq i8 %4, 3
+  %134 = select i1 %133, i32 2, i32 0
+  %135 = icmp sgt i32 %3, 65535
+  %136 = zext i1 %135 to i32
+  %137 = or disjoint i32 %134, %136
+  %138 = shl nuw nsw i32 %137, 20
+  %139 = or disjoint i32 %132, %138
+  %140 = icmp slt i32 %3, 65536
+  %141 = add nsw i32 %3, -65536
+  %.sink = select i1 %140, i32 %3, i32 %141
+  %142 = or i32 %139, %.sink
+  %143 = load ptr, ptr %7, align 8, !tbaa !18
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %145 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %144, i64 0, i64 %.lcssa196
+  %146 = load i8, ptr %70, align 1, !tbaa !15
+  %147 = zext i8 %146 to i64
+  %148 = getelementptr inbounds nuw [256 x i32], ptr %145, i64 0, i64 %147
+  store i32 %142, ptr %148, align 4, !tbaa !45
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-146:                                              ; preds = %94
-  %147 = and i32 %.lcssa190, 65535
-  %148 = add i32 %147, %.0155.lcssa
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 65584
-  %150 = load ptr, ptr %149, align 8, !tbaa !23
-  %151 = zext i32 %148 to i64
-  %152 = getelementptr inbounds nuw i16, ptr %150, i64 %151
-  %153 = load i16, ptr %152, align 2, !tbaa !40
-  %154 = zext i16 %153 to i32
-  %.not171 = icmp eq i16 %153, -2
-  br i1 %.not171, label %155, label %172
+149:                                              ; preds = %96
+  %150 = and i32 %.lcssa190, 65535
+  %151 = add i32 %150, %.0155.lcssa
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 65584
+  %153 = load ptr, ptr %152, align 8, !tbaa !23
+  %154 = zext i32 %151 to i64
+  %155 = getelementptr inbounds nuw i16, ptr %153, i64 %154
+  %156 = load i16, ptr %155, align 2, !tbaa !40
+  %157 = zext i16 %156 to i32
+  %.not171 = icmp eq i16 %156, -2
+  br i1 %.not171, label %158, label %175
 
-155:                                              ; preds = %146
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 65576
-  %158 = load i32, ptr %157, align 8, !tbaa !60
-  %159 = tail call i32 @ucm_findFallback(ptr noundef nonnull %156, i32 noundef %158, i32 noundef %148)
-  %160 = icmp sgt i32 %159, -1
-  br i1 %160, label %_ZL14removeFallbackP8MBCSDataj.exit, label %_ZL14removeFallbackP8MBCSDataj.exit.thread
+158:                                              ; preds = %149
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 65576
+  %161 = load i32, ptr %160, align 8, !tbaa !60
+  %162 = tail call i32 @ucm_findFallback(ptr noundef nonnull %159, i32 noundef %161, i32 noundef %151)
+  %163 = icmp sgt i32 %162, -1
+  br i1 %163, label %_ZL14removeFallbackP8MBCSDataj.exit, label %_ZL14removeFallbackP8MBCSDataj.exit.thread
 
-_ZL14removeFallbackP8MBCSDataj.exit:              ; preds = %155
-  %161 = load i32, ptr %157, align 8, !tbaa !60
-  %162 = zext nneg i32 %159 to i64
-  %163 = getelementptr inbounds nuw %struct._MBCSToUFallback, ptr %156, i64 %162
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  %165 = load i32, ptr %164, align 4, !tbaa !96
-  %166 = add nsw i32 %161, -1
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds %struct._MBCSToUFallback, ptr %156, i64 %167
-  %169 = load i32, ptr %168, align 4, !tbaa !98
-  store i32 %169, ptr %163, align 4, !tbaa !98
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
-  %171 = load i32, ptr %170, align 4, !tbaa !96
-  store i32 %171, ptr %164, align 4, !tbaa !96
-  store i32 %166, ptr %157, align 8, !tbaa !60
-  %.not172 = icmp eq i32 %165, -1
-  br i1 %.not172, label %_ZL14removeFallbackP8MBCSDataj.exit.thread, label %172
+_ZL14removeFallbackP8MBCSDataj.exit:              ; preds = %158
+  %164 = load i32, ptr %160, align 8, !tbaa !60
+  %165 = zext nneg i32 %162 to i64
+  %166 = getelementptr inbounds nuw %struct._MBCSToUFallback, ptr %159, i64 %165
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
+  %168 = load i32, ptr %167, align 4, !tbaa !96
+  %169 = add nsw i32 %164, -1
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds %struct._MBCSToUFallback, ptr %159, i64 %170
+  %172 = load i32, ptr %171, align 4, !tbaa !98
+  store i32 %172, ptr %166, align 4, !tbaa !98
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 4
+  %174 = load i32, ptr %173, align 4, !tbaa !96
+  store i32 %174, ptr %167, align 4, !tbaa !96
+  store i32 %169, ptr %160, align 8, !tbaa !60
+  %.not172 = icmp eq i32 %168, -1
+  br i1 %.not172, label %_ZL14removeFallbackP8MBCSDataj.exit.thread, label %175
 
-172:                                              ; preds = %_ZL14removeFallbackP8MBCSDataj.exit, %146
-  %.1152 = phi i32 [ %154, %146 ], [ %165, %_ZL14removeFallbackP8MBCSDataj.exit ]
-  %173 = icmp sgt i8 %4, -1
-  br i1 %173, label %174, label %178
+175:                                              ; preds = %_ZL14removeFallbackP8MBCSDataj.exit, %149
+  %.1152 = phi i32 [ %157, %149 ], [ %168, %_ZL14removeFallbackP8MBCSDataj.exit ]
+  %176 = icmp sgt i8 %4, -1
+  br i1 %176, label %177, label %181
 
-174:                                              ; preds = %172
-  %175 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %176 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.13, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.1152) #16
+177:                                              ; preds = %175
+  %178 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %179 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef nonnull @.str.13, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.1152) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-178:                                              ; preds = %172
-  %179 = load i8, ptr @VERBOSE, align 1, !tbaa !15
-  %.not173 = icmp eq i8 %179, 0
-  br i1 %.not173, label %_ZL14removeFallbackP8MBCSDataj.exit.thread, label %180
+181:                                              ; preds = %175
+  %182 = load i8, ptr @VERBOSE, align 1, !tbaa !15
+  %.not173 = icmp eq i8 %182, 0
+  br i1 %.not173, label %_ZL14removeFallbackP8MBCSDataj.exit.thread, label %183
 
-180:                                              ; preds = %178
-  %181 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %182 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.14, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.1152) #16
+183:                                              ; preds = %181
+  %184 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %185 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.14, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.1152) #16
   br label %_ZL14removeFallbackP8MBCSDataj.exit.thread
 
-_ZL14removeFallbackP8MBCSDataj.exit.thread:       ; preds = %155, %180, %178, %_ZL14removeFallbackP8MBCSDataj.exit
-  %184 = icmp sgt i32 %3, 65535
-  br i1 %184, label %185, label %189
+_ZL14removeFallbackP8MBCSDataj.exit.thread:       ; preds = %158, %183, %181, %_ZL14removeFallbackP8MBCSDataj.exit
+  %187 = icmp sgt i32 %3, 65535
+  br i1 %187, label %188, label %192
 
-185:                                              ; preds = %_ZL14removeFallbackP8MBCSDataj.exit.thread
-  %186 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %187 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.15, i32 noundef %3, ptr noundef nonnull %6) #16
+188:                                              ; preds = %_ZL14removeFallbackP8MBCSDataj.exit.thread
+  %189 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %190 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.15, i32 noundef %3, ptr noundef nonnull %6) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-189:                                              ; preds = %_ZL14removeFallbackP8MBCSDataj.exit.thread
-  %190 = icmp sgt i8 %4, 0
-  br i1 %190, label %191, label %217
+192:                                              ; preds = %_ZL14removeFallbackP8MBCSDataj.exit.thread
+  %193 = icmp sgt i8 %4, 0
+  br i1 %193, label %194, label %220
 
-191:                                              ; preds = %189
-  %192 = load ptr, ptr %149, align 8, !tbaa !23
-  %193 = getelementptr inbounds nuw i16, ptr %192, i64 %151
-  %194 = load i16, ptr %193, align 2, !tbaa !40
-  %195 = icmp eq i16 %194, -2
-  br i1 %195, label %196, label %_ZL11setFallbackP8MBCSDataji.exit
+194:                                              ; preds = %192
+  %195 = load ptr, ptr %152, align 8, !tbaa !23
+  %196 = getelementptr inbounds nuw i16, ptr %195, i64 %154
+  %197 = load i16, ptr %196, align 2, !tbaa !40
+  %198 = icmp eq i16 %197, -2
+  br i1 %198, label %199, label %_ZL11setFallbackP8MBCSDataji.exit
 
-196:                                              ; preds = %191
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 65576
-  %199 = load i32, ptr %198, align 8, !tbaa !60
-  %200 = call i32 @ucm_findFallback(ptr noundef nonnull %197, i32 noundef %199, i32 noundef %148)
-  %201 = icmp sgt i32 %200, -1
-  br i1 %201, label %202, label %206
+199:                                              ; preds = %194
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 65576
+  %202 = load i32, ptr %201, align 8, !tbaa !60
+  %203 = call i32 @ucm_findFallback(ptr noundef nonnull %200, i32 noundef %202, i32 noundef %151)
+  %204 = icmp sgt i32 %203, -1
+  br i1 %204, label %205, label %209
 
-202:                                              ; preds = %196
-  %203 = zext nneg i32 %200 to i64
-  %.idx.i = shl nuw nsw i64 %203, 3
-  %204 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx.i
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  store i32 %3, ptr %205, align 4, !tbaa !96
+205:                                              ; preds = %199
+  %206 = zext nneg i32 %203 to i64
+  %.idx.i = shl nuw nsw i64 %206, 3
+  %207 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx.i
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
+  store i32 %3, ptr %208, align 4, !tbaa !96
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-206:                                              ; preds = %196
-  %207 = load i32, ptr %198, align 8, !tbaa !60
-  %208 = icmp sgt i32 %207, 8191
-  br i1 %208, label %209, label %212
+209:                                              ; preds = %199
+  %210 = load i32, ptr %201, align 8, !tbaa !60
+  %211 = icmp sgt i32 %210, 8191
+  br i1 %211, label %212, label %215
 
-209:                                              ; preds = %206
-  %210 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %211 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef nonnull @.str.17, i32 noundef range(i32 -2147483648, 65536) %3) #16
+212:                                              ; preds = %209
+  %213 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.17, i32 noundef range(i32 -2147483648, 65536) %3) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-212:                                              ; preds = %206
-  %213 = sext i32 %207 to i64
-  %214 = getelementptr inbounds [8192 x %struct._MBCSToUFallback], ptr %197, i64 0, i64 %213
-  store i32 %148, ptr %214, align 8, !tbaa !98
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
-  store i32 %3, ptr %215, align 4, !tbaa !96
-  %216 = add nsw i32 %207, 1
-  store i32 %216, ptr %198, align 8, !tbaa !60
+215:                                              ; preds = %209
+  %216 = sext i32 %210 to i64
+  %217 = getelementptr inbounds [8192 x %struct._MBCSToUFallback], ptr %200, i64 0, i64 %216
+  store i32 %151, ptr %217, align 8, !tbaa !98
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
+  store i32 %3, ptr %218, align 4, !tbaa !96
+  %219 = add nsw i32 %210, 1
+  store i32 %219, ptr %201, align 8, !tbaa !60
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-217:                                              ; preds = %189
-  %218 = trunc i32 %3 to i16
-  %219 = load ptr, ptr %149, align 8, !tbaa !23
-  %220 = getelementptr inbounds nuw i16, ptr %219, i64 %151
-  store i16 %218, ptr %220, align 2, !tbaa !40
+220:                                              ; preds = %192
+  %221 = trunc i32 %3 to i16
+  %222 = load ptr, ptr %152, align 8, !tbaa !23
+  %223 = getelementptr inbounds nuw i16, ptr %222, i64 %154
+  store i16 %221, ptr %223, align 2, !tbaa !40
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-221:                                              ; preds = %94
-  %222 = and i32 %.lcssa190, 65535
-  %223 = add i32 %222, %.0155.lcssa
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 65584
-  %225 = load ptr, ptr %224, align 8, !tbaa !23
-  %226 = zext i32 %223 to i64
-  %227 = getelementptr inbounds nuw i16, ptr %225, i64 %226
-  %228 = load i16, ptr %227, align 2, !tbaa !40
-  %229 = zext i16 %228 to i32
-  %230 = icmp ult i16 %228, -2
-  br i1 %230, label %231, label %264
+224:                                              ; preds = %96
+  %225 = and i32 %.lcssa190, 65535
+  %226 = add i32 %225, %.0155.lcssa
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 65584
+  %228 = load ptr, ptr %227, align 8, !tbaa !23
+  %229 = zext i32 %226 to i64
+  %230 = getelementptr inbounds nuw i16, ptr %228, i64 %229
+  %231 = load i16, ptr %230, align 2, !tbaa !40
+  %232 = zext i16 %231 to i32
+  %233 = icmp ult i16 %231, -2
+  br i1 %233, label %234, label %267
 
-231:                                              ; preds = %221
-  %232 = icmp ult i16 %228, -10240
-  br i1 %232, label %252, label %233
+234:                                              ; preds = %224
+  %235 = icmp ult i16 %231, -10240
+  br i1 %235, label %255, label %236
 
-233:                                              ; preds = %231
-  %234 = icmp samesign ult i16 %228, -8192
-  br i1 %234, label %235, label %246
+236:                                              ; preds = %234
+  %237 = icmp samesign ult i16 %231, -8192
+  br i1 %237, label %238, label %249
 
-235:                                              ; preds = %233
-  %236 = shl nuw nsw i32 %229, 10
-  %237 = and i32 %236, 1047552
-  %238 = add nuw nsw i32 %237, 65536
-  %239 = add i32 %223, 1
-  %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds nuw i16, ptr %225, i64 %240
-  %242 = load i16, ptr %241, align 2, !tbaa !40
-  %243 = and i16 %242, 1023
-  %244 = zext nneg i16 %243 to i32
-  %245 = or disjoint i32 %238, %244
-  br label %252
+238:                                              ; preds = %236
+  %239 = shl nuw nsw i32 %232, 10
+  %240 = and i32 %239, 1047552
+  %241 = add nuw nsw i32 %240, 65536
+  %242 = add i32 %226, 1
+  %243 = zext i32 %242 to i64
+  %244 = getelementptr inbounds nuw i16, ptr %228, i64 %243
+  %245 = load i16, ptr %244, align 2, !tbaa !40
+  %246 = and i16 %245, 1023
+  %247 = zext nneg i16 %246 to i32
+  %248 = or disjoint i32 %241, %247
+  br label %255
 
-246:                                              ; preds = %233
-  %247 = add i32 %223, 1
-  %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds nuw i16, ptr %225, i64 %248
-  %250 = load i16, ptr %249, align 2, !tbaa !40
-  %251 = zext i16 %250 to i32
-  br label %252
+249:                                              ; preds = %236
+  %250 = add i32 %226, 1
+  %251 = zext i32 %250 to i64
+  %252 = getelementptr inbounds nuw i16, ptr %228, i64 %251
+  %253 = load i16, ptr %252, align 2, !tbaa !40
+  %254 = zext i16 %253 to i32
+  br label %255
 
-252:                                              ; preds = %231, %235, %246
-  %.0 = phi i32 [ %245, %235 ], [ %251, %246 ], [ %229, %231 ]
-  %253 = icmp slt i8 %4, 0
-  br i1 %253, label %254, label %260
+255:                                              ; preds = %234, %238, %249
+  %.0 = phi i32 [ %248, %238 ], [ %254, %249 ], [ %232, %234 ]
+  %256 = icmp slt i8 %4, 0
+  br i1 %256, label %257, label %263
 
-254:                                              ; preds = %252
-  %255 = load i8, ptr @VERBOSE, align 1, !tbaa !15
-  %.not = icmp eq i8 %255, 0
-  br i1 %.not, label %.thread188, label %256
+257:                                              ; preds = %255
+  %258 = load i8, ptr @VERBOSE, align 1, !tbaa !15
+  %.not = icmp eq i8 %258, 0
+  br i1 %.not, label %.thread188, label %259
 
-256:                                              ; preds = %254
-  %257 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %258 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %257, ptr noundef nonnull @.str.14, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.0) #16
+259:                                              ; preds = %257
+  %260 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %261 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %260, ptr noundef nonnull @.str.14, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.0) #16
   br label %.thread188
 
-260:                                              ; preds = %252
-  %261 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %262 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %261, ptr noundef nonnull @.str.13, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.0) #16
+263:                                              ; preds = %255
+  %264 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %265 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %264, ptr noundef nonnull @.str.13, i32 noundef %3, ptr noundef nonnull %6, i32 noundef %.0) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-264:                                              ; preds = %221
-  %265 = icmp sgt i8 %4, 0
-  br i1 %265, label %266, label %.thread188
+267:                                              ; preds = %224
+  %268 = icmp sgt i8 %4, 0
+  br i1 %268, label %269, label %.thread188
 
-266:                                              ; preds = %264
-  %267 = icmp slt i32 %3, 65536
-  br i1 %267, label %268, label %273
+269:                                              ; preds = %267
+  %270 = icmp slt i32 %3, 65536
+  br i1 %270, label %271, label %276
 
-268:                                              ; preds = %266
-  %269 = add i32 %223, 1
-  store i16 -8191, ptr %227, align 2, !tbaa !40
-  %270 = trunc i32 %3 to i16
-  %271 = zext i32 %269 to i64
-  %272 = getelementptr inbounds nuw i16, ptr %225, i64 %271
-  store i16 %270, ptr %272, align 2, !tbaa !40
+271:                                              ; preds = %269
+  %272 = add i32 %226, 1
+  store i16 -8191, ptr %230, align 2, !tbaa !40
+  %273 = trunc i32 %3 to i16
+  %274 = zext i32 %272 to i64
+  %275 = getelementptr inbounds nuw i16, ptr %228, i64 %274
+  store i16 %273, ptr %275, align 2, !tbaa !40
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-273:                                              ; preds = %266
-  %274 = lshr i32 %3, 10
-  %275 = trunc i32 %274 to i16
-  %276 = add i16 %275, -9280
-  %277 = add i32 %223, 1
-  store i16 %276, ptr %227, align 2, !tbaa !40
-  %278 = trunc i32 %3 to i16
-  %279 = and i16 %278, 1023
-  %280 = or disjoint i16 %279, -9216
-  %281 = zext i32 %277 to i64
-  %282 = getelementptr inbounds nuw i16, ptr %225, i64 %281
-  store i16 %280, ptr %282, align 2, !tbaa !40
+276:                                              ; preds = %269
+  %277 = lshr i32 %3, 10
+  %278 = trunc i32 %277 to i16
+  %279 = add i16 %278, -9280
+  %280 = add i32 %226, 1
+  store i16 %279, ptr %230, align 2, !tbaa !40
+  %281 = trunc i32 %3 to i16
+  %282 = and i16 %281, 1023
+  %283 = or disjoint i16 %282, -9216
+  %284 = zext i32 %280 to i64
+  %285 = getelementptr inbounds nuw i16, ptr %228, i64 %284
+  store i16 %283, ptr %285, align 2, !tbaa !40
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-.thread188:                                       ; preds = %256, %254, %264
-  %283 = icmp slt i32 %3, 55296
-  br i1 %283, label %284, label %288
+.thread188:                                       ; preds = %259, %257, %267
+  %286 = icmp slt i32 %3, 55296
+  br i1 %286, label %287, label %291
 
-284:                                              ; preds = %.thread188
-  %285 = trunc i32 %3 to i16
-  %286 = load ptr, ptr %224, align 8, !tbaa !23
-  %287 = getelementptr inbounds nuw i16, ptr %286, i64 %226
-  store i16 %285, ptr %287, align 2, !tbaa !40
+287:                                              ; preds = %.thread188
+  %288 = trunc i32 %3 to i16
+  %289 = load ptr, ptr %227, align 8, !tbaa !23
+  %290 = getelementptr inbounds nuw i16, ptr %289, i64 %229
+  store i16 %288, ptr %290, align 2, !tbaa !40
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-288:                                              ; preds = %.thread188
-  %289 = icmp samesign ult i32 %3, 65536
-  br i1 %289, label %290, label %297
+291:                                              ; preds = %.thread188
+  %292 = icmp samesign ult i32 %3, 65536
+  br i1 %292, label %293, label %300
 
-290:                                              ; preds = %288
-  %291 = load ptr, ptr %224, align 8, !tbaa !23
-  %292 = add i32 %223, 1
-  %293 = getelementptr inbounds nuw i16, ptr %291, i64 %226
-  store i16 -8192, ptr %293, align 2, !tbaa !40
-  %294 = trunc nuw i32 %3 to i16
-  %295 = zext i32 %292 to i64
-  %296 = getelementptr inbounds nuw i16, ptr %291, i64 %295
-  store i16 %294, ptr %296, align 2, !tbaa !40
+293:                                              ; preds = %291
+  %294 = load ptr, ptr %227, align 8, !tbaa !23
+  %295 = add i32 %226, 1
+  %296 = getelementptr inbounds nuw i16, ptr %294, i64 %229
+  store i16 -8192, ptr %296, align 2, !tbaa !40
+  %297 = trunc nuw i32 %3 to i16
+  %298 = zext i32 %295 to i64
+  %299 = getelementptr inbounds nuw i16, ptr %294, i64 %298
+  store i16 %297, ptr %299, align 2, !tbaa !40
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-297:                                              ; preds = %288
-  %298 = lshr i32 %3, 10
-  %299 = trunc i32 %298 to i16
-  %300 = add i16 %299, -10304
-  %301 = load ptr, ptr %224, align 8, !tbaa !23
-  %302 = add i32 %223, 1
-  %303 = getelementptr inbounds nuw i16, ptr %301, i64 %226
-  store i16 %300, ptr %303, align 2, !tbaa !40
-  %304 = trunc i32 %3 to i16
-  %305 = and i16 %304, 1023
-  %306 = or disjoint i16 %305, -9216
-  %307 = zext i32 %302 to i64
-  %308 = getelementptr inbounds nuw i16, ptr %301, i64 %307
-  store i16 %306, ptr %308, align 2, !tbaa !40
+300:                                              ; preds = %291
+  %301 = lshr i32 %3, 10
+  %302 = trunc i32 %301 to i16
+  %303 = add i16 %302, -10304
+  %304 = load ptr, ptr %227, align 8, !tbaa !23
+  %305 = add i32 %226, 1
+  %306 = getelementptr inbounds nuw i16, ptr %304, i64 %229
+  store i16 %303, ptr %306, align 2, !tbaa !40
+  %307 = trunc i32 %3 to i16
+  %308 = and i16 %307, 1023
+  %309 = or disjoint i16 %308, -9216
+  %310 = zext i32 %305 to i64
+  %311 = getelementptr inbounds nuw i16, ptr %304, i64 %310
+  store i16 %309, ptr %311, align 2, !tbaa !40
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-309:                                              ; preds = %94
-  %310 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %311 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
-  %312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.16, i32 noundef %.lcssa190, ptr noundef nonnull %6, i32 noundef %3) #16
+312:                                              ; preds = %96
+  %313 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %314 = call fastcc noundef ptr @_ZL10printBytesPcmPKhi(ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2)
+  %315 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.16, i32 noundef %.lcssa190, ptr noundef nonnull %6, i32 noundef %3) #16
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
-_ZL11setFallbackP8MBCSDataji.exit:                ; preds = %260, %212, %209, %202, %129, %191, %217, %284, %297, %290, %273, %268, %309, %185, %174, %119, %105, %101, %97, %_ZL10printBytesPcmPKhi.exit184, %_ZL10printBytesPcmPKhi.exit, %12
-  %.0156 = phi i8 [ 0, %12 ], [ 0, %_ZL10printBytesPcmPKhi.exit ], [ 0, %_ZL10printBytesPcmPKhi.exit184 ], [ 0, %309 ], [ 0, %97 ], [ 0, %101 ], [ 0, %105 ], [ 0, %119 ], [ 0, %174 ], [ 0, %185 ], [ 0, %260 ], [ 1, %268 ], [ 1, %273 ], [ 1, %290 ], [ 1, %297 ], [ 1, %284 ], [ 1, %217 ], [ 1, %191 ], [ 1, %129 ], [ 1, %202 ], [ 0, %209 ], [ 1, %212 ]
+_ZL11setFallbackP8MBCSDataji.exit:                ; preds = %263, %215, %212, %205, %131, %194, %220, %287, %300, %293, %276, %271, %312, %188, %177, %121, %107, %103, %99, %_ZL10printBytesPcmPKhi.exit184, %_ZL10printBytesPcmPKhi.exit, %12
+  %.0156 = phi i8 [ 0, %12 ], [ 0, %_ZL10printBytesPcmPKhi.exit ], [ 0, %_ZL10printBytesPcmPKhi.exit184 ], [ 0, %312 ], [ 0, %99 ], [ 0, %103 ], [ 0, %107 ], [ 0, %121 ], [ 0, %177 ], [ 0, %188 ], [ 0, %263 ], [ 1, %271 ], [ 1, %276 ], [ 1, %293 ], [ 1, %300 ], [ 1, %287 ], [ 1, %220 ], [ 1, %194 ], [ 1, %131 ], [ 1, %205 ], [ 0, %212 ], [ 1, %215 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #17
   ret i8 %.0156
 }

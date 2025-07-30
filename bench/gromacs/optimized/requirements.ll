@@ -1614,59 +1614,60 @@ define void @_ZNK3gmx31OutputRequirementOptionDirector7processEv(ptr dead_on_unw
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %15 ]
   %16 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !111
-  %18 = getelementptr inbounds nuw [3 x [3 x float]], ptr %12, i64 0, i64 %indvars.iv, i64 %indvars.iv
-  store float %17, ptr %18, align 4, !tbaa !111
+  %18 = getelementptr inbounds nuw [3 x [3 x float]], ptr %12, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %indvars.iv
+  store float %17, ptr %19, align 4, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !112
 
 .loopexit:                                        ; preds = %15, %2
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %20 = load i8, ptr %19, align 4, !tbaa !114, !range !107, !noundef !108
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %25
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %21 = load i8, ptr %20, align 4, !tbaa !114, !range !107, !noundef !108
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %.loopexit
+23:                                               ; preds = %.loopexit
   store i32 1, ptr %4, align 4, !tbaa !99
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !115
-  store i32 %24, ptr %5, align 4, !tbaa !100
-  br label %25
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load i32, ptr %24, align 8, !tbaa !115
+  store i32 %25, ptr %5, align 4, !tbaa !100
+  br label %26
 
-25:                                               ; preds = %22, %.loopexit
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %27 = load i8, ptr %26, align 1, !tbaa !116, !range !107, !noundef !108
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load i8, ptr %29, align 8, !range !107
-  %31 = trunc nuw i8 %30 to i1
-  %or.cond = select i1 %28, i1 true, i1 %31
-  br i1 %or.cond, label %.sink.split, label %38
+26:                                               ; preds = %23, %.loopexit
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %28 = load i8, ptr %27, align 1, !tbaa !116, !range !107, !noundef !108
+  %29 = trunc nuw i8 %28 to i1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = load i8, ptr %30, align 8, !range !107
+  %32 = trunc nuw i8 %31 to i1
+  %or.cond = select i1 %29, i1 true, i1 %32
+  br i1 %or.cond, label %.sink.split, label %39
 
-.sink.split:                                      ; preds = %25
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load float, ptr %32, align 8, !tbaa !117
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %33, ptr %34, align 4, !tbaa !118
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %36 = load float, ptr %35, align 4, !tbaa !119
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %36, ptr %37, align 4, !tbaa !120
-  %. = select i1 %31, i32 3, i32 2
-  %.sink = select i1 %28, i32 %., i32 1
+.sink.split:                                      ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load float, ptr %33, align 8, !tbaa !117
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %34, ptr %35, align 4, !tbaa !118
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %37 = load float, ptr %36, align 4, !tbaa !119
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %37, ptr %38, align 4, !tbaa !120
+  %. = select i1 %32, i32 3, i32 2
+  %.sink = select i1 %29, i32 %., i32 1
   store i32 %.sink, ptr %6, align 4, !tbaa !121
-  br label %38
+  br label %39
 
-38:                                               ; preds = %.sink.split, %25
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %40 = load i32, ptr %39, align 4, !tbaa !122
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %40, ptr %41, align 4, !tbaa !123
-  %42 = load i32, ptr %1, align 8, !tbaa !124
-  store i32 %42, ptr %0, align 4, !tbaa !93
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !125
-  store i32 %44, ptr %3, align 4, !tbaa !98
+39:                                               ; preds = %.sink.split, %26
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %41 = load i32, ptr %40, align 4, !tbaa !122
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %41, ptr %42, align 4, !tbaa !123
+  %43 = load i32, ptr %1, align 8, !tbaa !124
+  store i32 %43, ptr %0, align 4, !tbaa !93
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %45 = load i32, ptr %44, align 4, !tbaa !125
+  store i32 %45, ptr %3, align 4, !tbaa !98
   ret void
 }
 

@@ -5068,7 +5068,7 @@ define hidden void @_ZN14Deoptimization23deoptimize_single_frameEP10JavaThread5f
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.pre.i = load i32, ptr %10, align 4
   %.fr.i = freeze i32 %.pre.i
   %11 = and i32 %.fr.i, -256
@@ -5171,7 +5171,7 @@ define hidden void @_ZN14Deoptimization17gather_statisticsENS_11DeoptReasonENS_1
   store i32 %9, ptr %7, align 8
   %10 = add nsw i32 %1, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %6, i64 %11
+  %12 = getelementptr inbounds [6 x [1 x i32]], ptr %7, i64 0, i64 %11
   %.not = icmp eq i32 %2, -1
   %.pre = load i32, ptr %12, align 4
   %.fr = freeze i32 %.pre
@@ -6184,7 +6184,7 @@ _ZNK6Method12java_code_atEi.exit:                 ; preds = %127, %132
   store i32 %143, ptr %141, align 8
   %144 = add nsw i32 %.0.i248, 1
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %140, i64 %145
+  %146 = getelementptr inbounds [6 x [1 x i32]], ptr %141, i64 0, i64 %145
   %.not.i251 = icmp eq i32 %137, -1
   %.pre.i = load i32, ptr %146, align 4
   %.fr.i = freeze i32 %.pre.i
@@ -7761,7 +7761,7 @@ define hidden noundef i32 @_ZN14Deoptimization20deoptimization_countEPKcS1_(ptr 
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %20, label %.preheader
+  br i1 %or.cond, label %22, label %.preheader
 
 .preheader:                                       ; preds = %2
   br i1 %4, label %.preheader.split.us, label %.preheader.split
@@ -7769,32 +7769,33 @@ define hidden noundef i32 @_ZN14Deoptimization20deoptimization_countEPKcS1_(ptr 
 .preheader.split.us:                              ; preds = %.preheader, %.loopexit29.split.us.us
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.loopexit29.split.us.us ], [ 0, %.preheader ]
   %.02434.us = phi i32 [ %.4.us, %.loopexit29.split.us.us ], [ 0, %.preheader ]
-  br i1 %3, label %.loopexit.us.us.preheader, label %_ZN14Deoptimization16trap_reason_nameEi.exit.us
-
-.loopexit.us.us.preheader:                        ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit.us, %.preheader.split.us
-  br label %.loopexit.us.us
+  br i1 %3, label %.split.us.us, label %_ZN14Deoptimization16trap_reason_nameEi.exit.us
 
 _ZN14Deoptimization16trap_reason_nameEi.exit.us:  ; preds = %.preheader.split.us
   %5 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %indvars.iv60
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #23
   %.not.us = icmp eq i32 %7, 0
-  br i1 %.not.us, label %.loopexit.us.us.preheader, label %.loopexit29.split.us.us
+  br i1 %.not.us, label %.split.us.us, label %.loopexit29.split.us.us
+
+.split.us.us:                                     ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit.us, %.preheader.split.us
+  %8 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv60
+  br label %.loopexit.us.us
 
 .loopexit29.split.us.us:                          ; preds = %.loopexit.us.us, %_ZN14Deoptimization16trap_reason_nameEi.exit.us
-  %.4.us = phi i32 [ %.02434.us, %_ZN14Deoptimization16trap_reason_nameEi.exit.us ], [ %11, %.loopexit.us.us ]
+  %.4.us = phi i32 [ %.02434.us, %_ZN14Deoptimization16trap_reason_nameEi.exit.us ], [ %12, %.loopexit.us.us ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 31
   br i1 %exitcond63.not, label %.loopexit30, label %.preheader.split.us, !llvm.loop !81
 
-.loopexit.us.us:                                  ; preds = %.loopexit.us.us.preheader, %.loopexit.us.us
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.loopexit.us.us ], [ 0, %.loopexit.us.us.preheader ]
-  %.132.us.us = phi i32 [ %11, %.loopexit.us.us ], [ %.02434.us, %.loopexit.us.us.preheader ]
+.loopexit.us.us:                                  ; preds = %.loopexit.us.us, %.split.us.us
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.loopexit.us.us ], [ 0, %.split.us.us ]
+  %.132.us.us = phi i32 [ %12, %.loopexit.us.us ], [ %.02434.us, %.split.us.us ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %8 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv60, i64 %indvars.iv.next57
-  %9 = load i32, ptr %8, align 4
-  %10 = lshr i32 %9, 8
-  %11 = add i32 %10, %.132.us.us
+  %9 = getelementptr inbounds nuw [6 x [1 x i32]], ptr %8, i64 0, i64 %indvars.iv.next57
+  %10 = load i32, ptr %9, align 4
+  %11 = lshr i32 %10, 8
+  %12 = add i32 %11, %.132.us.us
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 5
   br i1 %exitcond59.not, label %.loopexit29.split.us.us, label %.loopexit.us.us, !llvm.loop !83
 
@@ -7804,28 +7805,29 @@ _ZN14Deoptimization16trap_reason_nameEi.exit.us:  ; preds = %.preheader.split.us
 .split.us:                                        ; preds = %.preheader.split, %.loopexit29.split.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.loopexit29.split.us ], [ 0, %.preheader.split ]
   %.02434.us38 = phi i32 [ %.3.us, %.loopexit29.split.us ], [ 0, %.preheader.split ]
+  %13 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv52
   br label %_ZN14Deoptimization16trap_action_nameEi.exit.us
 
 _ZN14Deoptimization16trap_action_nameEi.exit.us:  ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge, %.split.us
-  %indvars.iv48 = phi i64 [ %15, %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge ], [ 0, %.split.us ]
+  %indvars.iv48 = phi i64 [ %17, %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge ], [ 0, %.split.us ]
   %.132.us = phi i32 [ %.3.us, %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge ], [ %.02434.us38, %.split.us ]
-  %12 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv48
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %13) #23
-  %.not27.us = icmp eq i32 %14, 0
-  %15 = add nuw nsw i64 %indvars.iv48, 1
+  %14 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv48
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %15) #23
+  %.not27.us = icmp eq i32 %16, 0
+  %17 = add nuw nsw i64 %indvars.iv48, 1
   br i1 %.not27.us, label %.loopexit.us, label %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge
 
 .loopexit.us:                                     ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit.us
-  %16 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv52, i64 %15
-  %17 = load i32, ptr %16, align 4
-  %18 = lshr i32 %17, 8
-  %19 = add i32 %18, %.132.us
+  %18 = getelementptr inbounds nuw [6 x [1 x i32]], ptr %13, i64 0, i64 %17
+  %19 = load i32, ptr %18, align 4
+  %20 = lshr i32 %19, 8
+  %21 = add i32 %20, %.132.us
   br label %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge
 
 _ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge: ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit.us, %.loopexit.us
-  %.3.us = phi i32 [ %19, %.loopexit.us ], [ %.132.us, %_ZN14Deoptimization16trap_action_nameEi.exit.us ]
-  %exitcond51.not = icmp eq i64 %15, 5
+  %.3.us = phi i32 [ %21, %.loopexit.us ], [ %.132.us, %_ZN14Deoptimization16trap_action_nameEi.exit.us ]
+  %exitcond51.not = icmp eq i64 %17, 5
   br i1 %exitcond51.not, label %.loopexit29.split.us, label %_ZN14Deoptimization16trap_action_nameEi.exit.us, !llvm.loop !84
 
 .loopexit29.split.us:                             ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge
@@ -7833,39 +7835,43 @@ _ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge: ; preds = %_ZN14Deop
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 31
   br i1 %exitcond55.not, label %.loopexit30, label %.split.us, !llvm.loop !85
 
-20:                                               ; preds = %2
-  %21 = load i32, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
+22:                                               ; preds = %2
+  %23 = load i32, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   br label %.loopexit30
 
 _ZN14Deoptimization16trap_reason_nameEi.exit:     ; preds = %.preheader.split, %.loopexit29.split
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.loopexit29.split ], [ 0, %.preheader.split ]
   %.02434 = phi i32 [ %.4, %.loopexit29.split ], [ 0, %.preheader.split ]
-  %22 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %indvars.iv44
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %23) #23
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %_ZN14Deoptimization16trap_action_nameEi.exit, label %.loopexit29.split
+  %24 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %indvars.iv44
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %25) #23
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %.split, label %.loopexit29.split
 
-_ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge
-  %indvars.iv = phi i64 [ %28, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge ], [ 0, %_ZN14Deoptimization16trap_reason_nameEi.exit ]
-  %.132 = phi i32 [ %.3, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge ], [ %.02434, %_ZN14Deoptimization16trap_reason_nameEi.exit ]
-  %25 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %26) #23
-  %.not27 = icmp eq i32 %27, 0
-  %28 = add nuw nsw i64 %indvars.iv, 1
+.split:                                           ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit
+  %27 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv44
+  br label %_ZN14Deoptimization16trap_action_nameEi.exit
+
+_ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %.split, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge
+  %indvars.iv = phi i64 [ 0, %.split ], [ %31, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge ]
+  %.132 = phi i32 [ %.02434, %.split ], [ %.3, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge ]
+  %28 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %29) #23
+  %.not27 = icmp eq i32 %30, 0
+  %31 = add nuw nsw i64 %indvars.iv, 1
   br i1 %.not27, label %.loopexit, label %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge
 
 .loopexit:                                        ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit
-  %29 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv44, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = lshr i32 %30, 8
-  %32 = add i32 %31, %.132
+  %32 = getelementptr inbounds nuw [6 x [1 x i32]], ptr %27, i64 0, i64 %31
+  %33 = load i32, ptr %32, align 4
+  %34 = lshr i32 %33, 8
+  %35 = add i32 %34, %.132
   br label %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge
 
 _ZN14Deoptimization16trap_action_nameEi.exit._crit_edge: ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit, %.loopexit
-  %.3 = phi i32 [ %32, %.loopexit ], [ %.132, %_ZN14Deoptimization16trap_action_nameEi.exit ]
-  %exitcond.not = icmp eq i64 %28, 5
+  %.3 = phi i32 [ %35, %.loopexit ], [ %.132, %_ZN14Deoptimization16trap_action_nameEi.exit ]
+  %exitcond.not = icmp eq i64 %31, 5
   br i1 %exitcond.not, label %.loopexit29.split, label %_ZN14Deoptimization16trap_action_nameEi.exit, !llvm.loop !84
 
 .loopexit29.split:                                ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge, %_ZN14Deoptimization16trap_reason_nameEi.exit
@@ -7874,8 +7880,8 @@ _ZN14Deoptimization16trap_action_nameEi.exit._crit_edge: ; preds = %_ZN14Deoptim
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 31
   br i1 %exitcond47.not, label %.loopexit30, label %_ZN14Deoptimization16trap_reason_nameEi.exit, !llvm.loop !86
 
-.loopexit30:                                      ; preds = %.loopexit29.split, %.loopexit29.split.us, %.loopexit29.split.us.us, %20
-  %.021 = phi i32 [ %21, %20 ], [ %.4.us, %.loopexit29.split.us.us ], [ %.3.us, %.loopexit29.split.us ], [ %.4, %.loopexit29.split ]
+.loopexit30:                                      ; preds = %.loopexit29.split, %.loopexit29.split.us, %.loopexit29.split.us.us, %22
+  %.021 = phi i32 [ %23, %22 ], [ %.4.us, %.loopexit29.split.us.us ], [ %.3.us, %.loopexit29.split.us ], [ %.4, %.loopexit29.split ]
   ret i32 %.021
 }
 
@@ -7887,7 +7893,7 @@ define hidden void @_ZN14Deoptimization16print_statisticsEv() local_unnamed_addr
   %1 = alloca [1024 x i8], align 16
   %2 = load i32, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %48, label %3
+  br i1 %.not, label %49, label %3
 
 3:                                                ; preds = %0
   %4 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #22
@@ -7909,89 +7915,90 @@ define hidden void @_ZN14Deoptimization16print_statisticsEv() local_unnamed_addr
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.93, i32 noundef %2, double noundef %12, ptr noundef nonnull @.str.94) #22
   br label %.preheader
 
-.preheader:                                       ; preds = %7, %37
-  %indvars.iv52 = phi i64 [ 0, %7 ], [ %indvars.iv.next53, %37 ]
-  %.050 = phi i32 [ %2, %7 ], [ %.us-phi, %37 ]
-  %13 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %indvars.iv52
-  br label %14
+.preheader:                                       ; preds = %7, %38
+  %indvars.iv52 = phi i64 [ 0, %7 ], [ %indvars.iv.next53, %38 ]
+  %.050 = phi i32 [ %2, %7 ], [ %.us-phi, %38 ]
+  %13 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv52
+  %14 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %indvars.iv52
+  br label %15
 
-.loopexit:                                        ; preds = %_ZN9Bytecodes10is_definedEi.exit.thread, %14
-  %.us-phi = phi i32 [ %.148, %14 ], [ %36, %_ZN9Bytecodes10is_definedEi.exit.thread ]
+.loopexit:                                        ; preds = %_ZN9Bytecodes10is_definedEi.exit.thread, %15
+  %.us-phi = phi i32 [ %.148, %15 ], [ %37, %_ZN9Bytecodes10is_definedEi.exit.thread ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %37, label %14, !llvm.loop !87
+  br i1 %exitcond.not, label %38, label %15, !llvm.loop !87
 
-14:                                               ; preds = %.preheader, %.loopexit
+15:                                               ; preds = %.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.loopexit ]
   %.148 = phi i32 [ %.050, %.preheader ], [ %.us-phi, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv52, i64 %indvars.iv.next
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.loopexit, label %_ZN14Deoptimization16trap_action_nameEi.exit
+  %16 = getelementptr inbounds nuw [6 x [1 x i32]], ptr %13, i64 0, i64 %indvars.iv.next
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %.loopexit, label %_ZN14Deoptimization16trap_action_nameEi.exit
 
-_ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %14
-  %18 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv
-  %19 = and i32 %16, 255
-  %20 = load ptr, ptr %13, align 8
-  %21 = load ptr, ptr %18, align 8
-  %22 = icmp samesign ult i32 %19, 239
-  br i1 %22, label %_ZN9Bytecodes10is_definedEi.exit, label %_ZN9Bytecodes10is_definedEi.exit.thread
+_ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %15
+  %19 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv
+  %20 = and i32 %17, 255
+  %21 = load ptr, ptr %14, align 8
+  %22 = load ptr, ptr %19, align 8
+  %23 = icmp samesign ult i32 %20, 239
+  br i1 %23, label %_ZN9Bytecodes10is_definedEi.exit, label %_ZN9Bytecodes10is_definedEi.exit.thread
 
 _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit
-  %23 = zext nneg i32 %19 to i64
-  %24 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %23
-  %25 = load i16, ptr %24, align 2
-  %.not45 = icmp eq i16 %25, 0
-  br i1 %.not45, label %_ZN9Bytecodes10is_definedEi.exit.thread, label %26
+  %24 = zext nneg i32 %20 to i64
+  %25 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %24
+  %26 = load i16, ptr %25, align 2
+  %.not45 = icmp eq i16 %26, 0
+  br i1 %.not45, label %_ZN9Bytecodes10is_definedEi.exit.thread, label %27
 
-26:                                               ; preds = %_ZN9Bytecodes10is_definedEi.exit
-  %27 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %23
-  %28 = load ptr, ptr %27, align 8
+27:                                               ; preds = %_ZN9Bytecodes10is_definedEi.exit
+  %28 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %24
+  %29 = load ptr, ptr %28, align 8
   br label %_ZN9Bytecodes10is_definedEi.exit.thread
 
-_ZN9Bytecodes10is_definedEi.exit.thread:          ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit, %_ZN9Bytecodes10is_definedEi.exit, %26
-  %29 = phi ptr [ %28, %26 ], [ @.str.96, %_ZN9Bytecodes10is_definedEi.exit ], [ @.str.96, %_ZN14Deoptimization16trap_action_nameEi.exit ]
-  %30 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.95, ptr noundef %20, ptr noundef %21, ptr noundef %29) #22
-  %31 = lshr i32 %16, 8
-  %32 = load ptr, ptr @tty, align 8
-  %33 = mul nuw nsw i32 %31, 100
-  %34 = uitofp nneg i32 %33 to double
-  %35 = fdiv double %34, %10
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull @.str.97, ptr noundef nonnull %1, i32 noundef %31, double noundef %35) #22
-  %36 = sub i32 %.148, %31
+_ZN9Bytecodes10is_definedEi.exit.thread:          ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit, %_ZN9Bytecodes10is_definedEi.exit, %27
+  %30 = phi ptr [ %29, %27 ], [ @.str.96, %_ZN9Bytecodes10is_definedEi.exit ], [ @.str.96, %_ZN14Deoptimization16trap_action_nameEi.exit ]
+  %31 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.95, ptr noundef %21, ptr noundef %22, ptr noundef %30) #22
+  %32 = lshr i32 %17, 8
+  %33 = load ptr, ptr @tty, align 8
+  %34 = mul nuw nsw i32 %32, 100
+  %35 = uitofp nneg i32 %34 to double
+  %36 = fdiv double %35, %10
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull @.str.97, ptr noundef nonnull %1, i32 noundef %32, double noundef %36) #22
+  %37 = sub i32 %.148, %32
   br label %.loopexit
 
-37:                                               ; preds = %.loopexit
+38:                                               ; preds = %.loopexit
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 31
-  br i1 %exitcond55.not, label %38, label %.preheader, !llvm.loop !88
-
-38:                                               ; preds = %37
-  %.not41 = icmp eq i32 %.us-phi, 0
-  br i1 %.not41, label %44, label %39
+  br i1 %exitcond55.not, label %39, label %.preheader, !llvm.loop !88
 
 39:                                               ; preds = %38
-  %40 = load ptr, ptr @tty, align 8
-  %41 = uitofp i32 %.us-phi to double
-  %42 = fmul double %41, 1.000000e+02
-  %43 = fdiv double %42, %10
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull @.str.93, i32 noundef %.us-phi, double noundef %43, ptr noundef nonnull @.str.98) #22
-  br label %44
+  %.not41 = icmp eq i32 %.us-phi, 0
+  br i1 %.not41, label %45, label %40
 
-44:                                               ; preds = %39, %38
-  %45 = load ptr, ptr @xtty, align 8
-  %.not42 = icmp eq ptr %45, null
-  br i1 %.not42, label %47, label %46
+40:                                               ; preds = %39
+  %41 = load ptr, ptr @tty, align 8
+  %42 = uitofp i32 %.us-phi to double
+  %43 = fmul double %42, 1.000000e+02
+  %44 = fdiv double %43, %10
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull @.str.93, i32 noundef %.us-phi, double noundef %44, ptr noundef nonnull @.str.98) #22
+  br label %45
 
-46:                                               ; preds = %44
-  call void @_ZN9xmlStream4tailEPKc(ptr noundef nonnull align 8 dereferenceable(152) %45, ptr noundef nonnull @.str.99) #22
-  br label %47
+45:                                               ; preds = %40, %39
+  %46 = load ptr, ptr @xtty, align 8
+  %.not42 = icmp eq ptr %46, null
+  br i1 %.not42, label %48, label %47
 
-47:                                               ; preds = %46, %44
-  call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %4) #22
+47:                                               ; preds = %45
+  call void @_ZN9xmlStream4tailEPKc(ptr noundef nonnull align 8 dereferenceable(152) %46, ptr noundef nonnull @.str.99) #22
   br label %48
 
-48:                                               ; preds = %47, %0
+48:                                               ; preds = %47, %45
+  call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %4) #22
+  br label %49
+
+49:                                               ; preds = %48, %0
   ret void
 }
 

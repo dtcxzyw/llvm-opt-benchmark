@@ -216,17 +216,21 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_log_register(i8 noundef zeroe
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  br i1 %6, label %.preheader2, label %23
+  br i1 %6, label %.preheader5, label %23
 
-10:                                               ; preds = %.preheader2
-  %11 = add nuw nsw i64 %13, 1
+.preheader5:                                      ; preds = %5
+  %invariant.gep = getelementptr [2 x ptr], ptr @loggers, i64 0, i64 %9
+  br label %13
+
+10:                                               ; preds = %13
+  %11 = add nuw nsw i64 %14, 1
   %12 = icmp eq i64 %11, 11
-  br i1 %12, label %.preheader, label %.preheader2, !llvm.loop !9
+  br i1 %12, label %.preheader, label %13, !llvm.loop !9
 
-.preheader2:                                      ; preds = %5, %10
-  %13 = phi i64 [ %11, %10 ], [ 0, %5 ]
-  %14 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %13, i64 %9
-  %15 = load volatile ptr, ptr %14, align 8
+13:                                               ; preds = %.preheader5, %10
+  %14 = phi i64 [ %11, %10 ], [ 0, %.preheader5 ]
+  %gep = getelementptr [11 x [2 x ptr]], ptr %invariant.gep, i64 0, i64 %14
+  %15 = load volatile ptr, ptr %gep, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %10, label %.loopexit
 
@@ -235,14 +239,16 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_log_register(i8 noundef zeroe
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   %18 = load i32, ptr %7, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %17, i64 %19
+  %.split4 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %17
+  %20 = getelementptr [2 x ptr], ptr %.split4, i64 0, i64 %19
   store volatile ptr %1, ptr %20, align 8
   %21 = add nuw nsw i64 %17, 1
   %22 = icmp eq i64 %21, 11
   br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !11
 
 23:                                               ; preds = %5
-  %24 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %3, i64 %9
+  %.split = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %3
+  %24 = getelementptr [2 x ptr], ptr %.split, i64 0, i64 %9
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %.loopexit
@@ -251,12 +257,12 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_log_register(i8 noundef zeroe
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !12
   %28 = load i32, ptr %7, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %3, i64 %29
+  %30 = getelementptr [2 x ptr], ptr %.split, i64 0, i64 %29
   store volatile ptr %1, ptr %30, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader2, %.preheader, %27, %23
-  %31 = phi i32 [ 0, %27 ], [ -17, %23 ], [ 0, %.preheader ], [ -17, %.preheader2 ]
+.loopexit:                                        ; preds = %13, %.preheader, %27, %23
+  %31 = phi i32 [ 0, %27 ], [ -17, %23 ], [ 0, %.preheader ], [ -17, %13 ]
   tail call void @mutex_unlock(ptr noundef nonnull @nf_log_mutex) #16
   br label %32
 
@@ -275,7 +281,8 @@ define dso_local void @nf_log_unregister(ptr noundef readonly captures(address) 
   %4 = phi i64 [ 0, %1 ], [ %12, %11 ]
   %5 = load i32, ptr %2, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %4, i64 %6
+  %.split = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %4
+  %7 = getelementptr [2 x ptr], ptr %.split, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %10, label %11
@@ -307,12 +314,13 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_log_bind_pf(ptr noundef %0, i
 6:                                                ; preds = %3
   tail call void @mutex_lock(ptr noundef nonnull @nf_log_mutex) #16
   %7 = load ptr, ptr %2, align 8
+  %.split = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %4
   br label %8
 
 8:                                                ; preds = %19, %6
   %9 = phi i1 [ true, %6 ], [ false, %19 ]
   %10 = phi i64 [ 0, %6 ], [ 1, %19 ]
-  %11 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %4, i64 %10
+  %11 = getelementptr [2 x ptr], ptr %.split, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
@@ -417,7 +425,8 @@ define dso_local range(i32 -2, 1) i32 @nf_logger_find_get(i32 noundef %0, i32 no
 28:                                               ; preds = %2
   %29 = sext i32 %0 to i64
   %30 = zext i32 %1 to i64
-  %31 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %29, i64 %30
+  %.split = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %29
+  %31 = getelementptr [2 x ptr], ptr %.split, i64 0, i64 %30
   %32 = load volatile ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread, label %34
@@ -483,7 +492,8 @@ define dso_local void @nf_logger_put(i32 noundef %0, i32 noundef %1) #0 align 16
 21:                                               ; preds = %2
   %22 = sext i32 %0 to i64
   %23 = zext i32 %1 to i64
-  %24 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %22, i64 %23
+  %.split = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %22
+  %24 = getelementptr [2 x ptr], ptr %.split, i64 0, i64 %23
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -525,7 +535,8 @@ define dso_local void @nf_log_packet(ptr noundef %0, i8 noundef zeroext %1, i32 
   %13 = zext i8 %1 to i64
   %14 = load i8, ptr %6, align 4
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %13, i64 %15
+  %.split = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %13
+  %16 = getelementptr [2 x ptr], ptr %.split, i64 0, i64 %15
   br label %21
 
 17:                                               ; preds = %8
@@ -895,7 +906,8 @@ define internal range(i32 -28, 1) i32 @seq_show(ptr noundef %0, ptr noundef read
   %20 = phi i1 [ false, %38 ], [ true, %14 ]
   %21 = phi i64 [ 1, %38 ], [ 0, %14 ]
   %22 = load i64, ptr %1, align 8
-  %23 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %22, i64 %21
+  %.split = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %22
+  %23 = getelementptr [2 x ptr], ptr %.split, i64 0, i64 %21
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %38, label %26
@@ -994,12 +1006,13 @@ define internal i32 @nf_log_proc_dostring(ptr noundef readonly captures(none) %0
   call void @mutex_lock(ptr noundef nonnull @nf_log_mutex) #16
   %28 = shl i64 %11, 32
   %29 = ashr exact i64 %28, 32
+  %.split = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %29
   br label %30
 
 30:                                               ; preds = %41, %27
   %31 = phi i1 [ true, %27 ], [ false, %41 ]
   %32 = phi i64 [ 0, %27 ], [ 1, %41 ]
-  %33 = getelementptr [11 x [2 x ptr]], ptr @loggers, i64 0, i64 %29, i64 %32
+  %33 = getelementptr [2 x ptr], ptr %.split, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %41, label %36

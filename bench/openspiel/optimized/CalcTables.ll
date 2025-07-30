@@ -501,36 +501,37 @@ _Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 168
   br label %29
 
-29:                                               ; preds = %.preheader, %42
-  %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %42 ]
+29:                                               ; preds = %.preheader, %43
+  %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %43 ]
   %30 = getelementptr inbounds nuw [200 x %struct.deal], ptr %10, i64 0, i64 %indvars.iv64
   %31 = load i32, ptr %30, align 4
   %.idx = mul nuw nsw i64 %indvars.iv64, 216
   %32 = getelementptr i8, ptr %28, i64 %.idx
   %33 = sext i32 %31 to i64
-  br label %34
+  %34 = getelementptr inbounds [5 x [4 x i32]], ptr %1, i64 0, i64 %33
+  br label %35
 
-34:                                               ; preds = %29, %34
-  %indvars.iv60 = phi i64 [ 0, %29 ], [ %indvars.iv.next61, %34 ]
-  %35 = getelementptr inbounds nuw [13 x i32], ptr %32, i64 0, i64 %indvars.iv60
-  %36 = load i32, ptr %35, align 4
-  %37 = sub nsw i32 13, %36
-  %38 = getelementptr inbounds nuw [4 x i32], ptr @rho, i64 0, i64 %indvars.iv60
-  %39 = load i32, ptr %38, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [5 x [4 x i32]], ptr %1, i64 0, i64 %33, i64 %40
-  store i32 %37, ptr %41, align 4
+35:                                               ; preds = %29, %35
+  %indvars.iv60 = phi i64 [ 0, %29 ], [ %indvars.iv.next61, %35 ]
+  %36 = getelementptr inbounds nuw [13 x i32], ptr %32, i64 0, i64 %indvars.iv60
+  %37 = load i32, ptr %36, align 4
+  %38 = sub nsw i32 13, %37
+  %39 = getelementptr inbounds nuw [4 x i32], ptr @rho, i64 0, i64 %indvars.iv60
+  %40 = load i32, ptr %39, align 4
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds [4 x i32], ptr %34, i64 0, i64 %41
+  store i32 %38, ptr %42, align 4
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 4
-  br i1 %exitcond63.not, label %42, label %34, !llvm.loop !13
+  br i1 %exitcond63.not, label %43, label %35, !llvm.loop !13
 
-42:                                               ; preds = %34
+43:                                               ; preds = %35
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 5
   br i1 %exitcond67.not, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, label %29, !llvm.loop !14
 
-_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %42, %24, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit
-  %.032 = phi i32 [ %27, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ %25, %24 ], [ 1, %42 ]
+_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %43, %24, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit
+  %.032 = phi i32 [ %27, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ %25, %24 ], [ 1, %43 ]
   ret i32 %.032
 }
 
@@ -708,70 +709,71 @@ _Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %49
   %64 = getelementptr inbounds nuw [200 x %struct.ddTableResults], ptr %61, i64 0, i64 %indvars.iv161
   br label %65
 
-65:                                               ; preds = %.preheader106.us, %71
-  %indvars.iv156 = phi i64 [ 0, %.preheader106.us ], [ %indvars.iv.next157, %71 ]
+65:                                               ; preds = %.preheader106.us, %72
+  %indvars.iv156 = phi i64 [ 0, %.preheader106.us ], [ %indvars.iv.next157, %72 ]
   %66 = add nuw nsw i64 %indvars.iv156, %63
   %67 = getelementptr inbounds nuw [200 x %struct.deal], ptr %59, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   %.idx.us = mul nuw nsw i64 %66, 216
   %69 = getelementptr i8, ptr %60, i64 %.idx.us
   %70 = sext i32 %68 to i64
-  br label %72
+  %71 = getelementptr inbounds [5 x [4 x i32]], ptr %64, i64 0, i64 %70
+  br label %73
 
-71:                                               ; preds = %72
+72:                                               ; preds = %73
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %62
   br i1 %exitcond160.not, label %._crit_edge124.us, label %65, !llvm.loop !19
 
-72:                                               ; preds = %72, %65
-  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %72 ], [ 0, %65 ]
-  %73 = getelementptr inbounds nuw [13 x i32], ptr %69, i64 0, i64 %indvars.iv152
-  %74 = load i32, ptr %73, align 4
-  %75 = sub nsw i32 13, %74
-  %76 = getelementptr inbounds nuw [4 x i32], ptr @rho, i64 0, i64 %indvars.iv152
-  %77 = load i32, ptr %76, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [5 x [4 x i32]], ptr %64, i64 0, i64 %70, i64 %78
-  store i32 %75, ptr %79, align 4
+73:                                               ; preds = %73, %65
+  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %73 ], [ 0, %65 ]
+  %74 = getelementptr inbounds nuw [13 x i32], ptr %69, i64 0, i64 %indvars.iv152
+  %75 = load i32, ptr %74, align 4
+  %76 = sub nsw i32 13, %75
+  %77 = getelementptr inbounds nuw [4 x i32], ptr @rho, i64 0, i64 %indvars.iv152
+  %78 = load i32, ptr %77, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds [4 x i32], ptr %71, i64 0, i64 %79
+  store i32 %76, ptr %80, align 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 4
-  br i1 %exitcond155.not, label %71, label %72, !llvm.loop !20
+  br i1 %exitcond155.not, label %72, label %73, !llvm.loop !20
 
-._crit_edge124.us:                                ; preds = %71
+._crit_edge124.us:                                ; preds = %72
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %80 = load i32, ptr %0, align 4
-  %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next162, %81
-  br i1 %82, label %.preheader106.us, label %._crit_edge126, !llvm.loop !21
+  %81 = load i32, ptr %0, align 4
+  %82 = sext i32 %81 to i64
+  %83 = icmp slt i64 %indvars.iv.next162, %82
+  br i1 %83, label %.preheader106.us, label %._crit_edge126, !llvm.loop !21
 
 ._crit_edge126:                                   ; preds = %._crit_edge124.us
   %or.cond = icmp ult i32 %1, 4
-  %83 = icmp eq i32 %spec.select103, 5
-  %or.cond3 = select i1 %or.cond, i1 %83, i1 false
+  %84 = icmp eq i32 %spec.select103, 5
+  %or.cond3 = select i1 %or.cond, i1 %84, i1 false
   br i1 %or.cond3, label %.preheader, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
 .preheader:                                       ; preds = %._crit_edge126
-  %84 = icmp sgt i32 %80, 0
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br i1 %84, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
+  %85 = icmp sgt i32 %81, 0
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  br i1 %85, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-86:                                               ; preds = %.lr.ph
+87:                                               ; preds = %.lr.ph
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
-  %87 = load i32, ptr %0, align 4
-  %88 = sext i32 %87 to i64
-  %89 = icmp slt i64 %indvars.iv.next165, %88
-  br i1 %89, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, !llvm.loop !23
+  %88 = load i32, ptr %0, align 4
+  %89 = sext i32 %88 to i64
+  %90 = icmp slt i64 %indvars.iv.next165, %89
+  br i1 %90, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, !llvm.loop !23
 
-.lr.ph:                                           ; preds = %.preheader, %86
-  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %86 ], [ 0, %.preheader ]
-  %90 = getelementptr inbounds nuw [200 x %struct.ddTableResults], ptr %85, i64 0, i64 %indvars.iv164
-  %91 = getelementptr inbounds nuw [40 x %struct.parResults], ptr %4, i64 0, i64 %indvars.iv164
-  %92 = call i32 @Par(ptr noundef nonnull %90, ptr noundef %91, i32 noundef %1)
-  %.not99 = icmp eq i32 %92, 1
-  br i1 %.not99, label %86, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
+.lr.ph:                                           ; preds = %.preheader, %87
+  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %87 ], [ 0, %.preheader ]
+  %91 = getelementptr inbounds nuw [200 x %struct.ddTableResults], ptr %86, i64 0, i64 %indvars.iv164
+  %92 = getelementptr inbounds nuw [40 x %struct.parResults], ptr %4, i64 0, i64 %indvars.iv164
+  %93 = call i32 @Par(ptr noundef nonnull %91, ptr noundef %92, i32 noundef %1)
+  %.not99 = icmp eq i32 %93, 1
+  br i1 %.not99, label %87, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %.lr.ph, %86, %53, %.preheader106.lr.ph, %.preheader, %49, %._crit_edge, %._crit_edge126, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, %13, %12
-  %.079 = phi i32 [ -201, %12 ], [ -202, %13 ], [ %52, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ 1, %._crit_edge126 ], [ %50, %49 ], [ -101, %._crit_edge ], [ 1, %.preheader ], [ 1, %.preheader106.lr.ph ], [ 1, %53 ], [ %92, %.lr.ph ], [ 1, %86 ]
+_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %.lr.ph, %87, %53, %.preheader106.lr.ph, %.preheader, %49, %._crit_edge, %._crit_edge126, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, %13, %12
+  %.079 = phi i32 [ -201, %12 ], [ -202, %13 ], [ %52, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ 1, %._crit_edge126 ], [ %50, %49 ], [ -101, %._crit_edge ], [ 1, %.preheader ], [ 1, %.preheader106.lr.ph ], [ 1, %53 ], [ %93, %.lr.ph ], [ 1, %87 ]
   ret i32 %.079
 }
 

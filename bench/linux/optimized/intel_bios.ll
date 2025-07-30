@@ -207,6 +207,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 8:                                                ; preds = %20, %6
   %9 = phi i64 [ 0, %6 ], [ %21, %20 ]
+  %.split14 = getelementptr [3 x i32], ptr @dvo_port_to_port.xelpd_port_mapping, i64 %9
   br label %13
 
 10:                                               ; preds = %18
@@ -216,7 +217,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 13:                                               ; preds = %10, %8
   %14 = phi i64 [ 0, %8 ], [ %11, %10 ]
-  %15 = getelementptr [3 x i32], ptr @dvo_port_to_port.xelpd_port_mapping, i64 %9, i64 %14
+  %15 = getelementptr [3 x i32], ptr %.split14, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %20, label %18
@@ -248,6 +249,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 33:                                               ; preds = %45, %31
   %34 = phi i64 [ 0, %31 ], [ %46, %45 ]
+  %.split = getelementptr [3 x i32], ptr @dvo_port_to_port.adls_port_mapping, i64 %34
   br label %38
 
 35:                                               ; preds = %43
@@ -257,7 +259,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 38:                                               ; preds = %35, %33
   %39 = phi i64 [ 0, %33 ], [ %36, %35 ]
-  %40 = getelementptr [3 x i32], ptr @dvo_port_to_port.adls_port_mapping, i64 %34, i64 %39
+  %40 = getelementptr [3 x i32], ptr %.split, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %45, label %43
@@ -279,10 +281,11 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
   %51 = and i64 %28, 192
   %52 = icmp eq i64 %51, 0
   %53 = zext i8 %1 to i32
-  br i1 %52, label %.preheader, label %.preheader13
+  br i1 %52, label %.preheader, label %.preheader16
 
-.preheader13:                                     ; preds = %50, %65
+.preheader16:                                     ; preds = %50, %65
   %54 = phi i64 [ %66, %65 ], [ 0, %50 ]
+  %.split12 = getelementptr [3 x i32], ptr @dvo_port_to_port.rkl_port_mapping, i64 %54
   br label %58
 
 55:                                               ; preds = %63
@@ -290,9 +293,9 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
   %57 = icmp eq i64 %56, 3
   br i1 %57, label %65, label %58, !llvm.loop !5
 
-58:                                               ; preds = %55, %.preheader13
-  %59 = phi i64 [ 0, %.preheader13 ], [ %56, %55 ]
-  %60 = getelementptr [3 x i32], ptr @dvo_port_to_port.rkl_port_mapping, i64 %54, i64 %59
+58:                                               ; preds = %55, %.preheader16
+  %59 = phi i64 [ 0, %.preheader16 ], [ %56, %55 ]
+  %60 = getelementptr [3 x i32], ptr %.split12, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %65, label %63
@@ -304,7 +307,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 65:                                               ; preds = %58, %55
   %66 = add nuw nsw i64 %54, 1
   %67 = icmp eq i64 %66, 5
-  br i1 %67, label %.loopexit, label %.preheader13, !llvm.loop !8
+  br i1 %67, label %.loopexit, label %.preheader16, !llvm.loop !8
 
 68:                                               ; preds = %63
   %69 = trunc i64 %54 to i32
@@ -312,6 +315,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 .preheader:                                       ; preds = %50, %81
   %70 = phi i64 [ %82, %81 ], [ 0, %50 ]
+  %.split13 = getelementptr [3 x i32], ptr @dvo_port_to_port.port_mapping, i64 %70
   br label %74
 
 71:                                               ; preds = %79
@@ -321,7 +325,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 74:                                               ; preds = %71, %.preheader
   %75 = phi i64 [ 0, %.preheader ], [ %72, %71 ]
-  %76 = getelementptr [3 x i32], ptr @dvo_port_to_port.port_mapping, i64 %70, i64 %75
+  %76 = getelementptr [3 x i32], ptr %.split13, i64 0, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %81, label %79

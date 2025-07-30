@@ -1655,31 +1655,32 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ipcm_decoder_config(ptr no
   %8 = icmp sgt i32 %4, 1
   %9 = icmp ugt i32 %7, 2
   %or.cond = select i1 %8, i1 true, i1 %9
-  br i1 %or.cond, label %23, label %10
+  br i1 %or.cond, label %24, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !28
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %23
+  br i1 %.not, label %13, label %24
 
 13:                                               ; preds = %10
   %14 = sext i32 %4 to i64
-  %15 = zext nneg i32 %7 to i64
-  %16 = getelementptr inbounds [2 x [3 x i32]], ptr @ipcm_decoder_config.sample_fmt, i64 0, i64 %14, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !7
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %17, ptr %18, align 4, !tbaa !26
-  %19 = tail call i32 @avio_rb32(ptr noundef nonnull %1) #10
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %19, ptr %20, align 4, !tbaa !63
-  %21 = sext i32 %2 to i64
-  %22 = tail call i64 @avio_seek(ptr noundef nonnull %1, i64 noundef 0, i32 noundef 1) #10
-  %.not15 = icmp eq i64 %22, %21
+  %15 = getelementptr inbounds [2 x [3 x i32]], ptr @ipcm_decoder_config.sample_fmt, i64 0, i64 %14
+  %16 = zext nneg i32 %7 to i64
+  %17 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %18, ptr %19, align 4, !tbaa !26
+  %20 = tail call i32 @avio_rb32(ptr noundef nonnull %1) #10
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %20, ptr %21, align 4, !tbaa !63
+  %22 = sext i32 %2 to i64
+  %23 = tail call i64 @avio_seek(ptr noundef nonnull %1, i64 noundef 0, i32 noundef 1) #10
+  %.not15 = icmp eq i64 %23, %22
   %. = select i1 %.not15, i32 0, i32 -1094995529
-  br label %23
+  br label %24
 
-23:                                               ; preds = %13, %3, %10
+24:                                               ; preds = %13, %3, %10
   %.0 = phi i32 [ -1094995529, %10 ], [ -1094995529, %3 ], [ %., %13 ]
   ret i32 %.0
 }

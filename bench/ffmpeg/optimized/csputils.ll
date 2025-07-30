@@ -883,8 +883,9 @@ ff_sws_matrix3x3_mul.exit48:                      ; preds = %115
   %164 = load float, ptr %163, align 4, !tbaa !4
   %165 = load float, ptr %162, align 8, !tbaa !4
   %166 = fdiv nsz float %164, %165
-  %167 = getelementptr inbounds nuw [3 x [3 x float]], ptr %6, i64 0, i64 %indvars.iv60, i64 %indvars.iv60
-  store float %166, ptr %167, align 4, !tbaa !4
+  %167 = getelementptr inbounds nuw [3 x [3 x float]], ptr %6, i64 0, i64 %indvars.iv60
+  %168 = getelementptr inbounds nuw [3 x float], ptr %167, i64 0, i64 %indvars.iv60
+  store float %166, ptr %168, align 4, !tbaa !4
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 3
   br i1 %exitcond63.not, label %72, label %.preheader, !llvm.loop !18

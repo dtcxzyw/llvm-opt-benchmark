@@ -405,10 +405,11 @@ define void @_ZN6icu_7714HebrewCalendar4rollENS_8Calendar11EDateFieldsEiR10UErro
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7714HebrewCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZL6LIMITS, i64 0, i64 %4, i64 %5
-  %7 = load i32, ptr %6, align 4, !tbaa !9
-  ret i32 %7
+  %5 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZL6LIMITS, i64 0, i64 %4
+  %6 = zext i32 %2 to i64
+  %7 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %6
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -476,7 +477,7 @@ define noundef range(i32 -128, 128) i32 @_ZNK6icu_7714HebrewCalendar20handleGetM
   %.115.lcssa = phi i32 [ %1, %.preheader ], [ %27, %._crit_edge.loopexit ], [ %9, %.preheader.thread ]
   %.117.off = add nsw i32 %.117.lcssa, -1
   %switch = icmp ult i32 %.117.off, 2
-  br i1 %switch, label %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i, label %41
+  br i1 %switch, label %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i, label %42
 
 _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %._crit_edge
   %28 = add nsw i32 %.115.lcssa, 1
@@ -496,20 +497,21 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %._crit_ed
   %switch.selectcmp13.i = icmp eq i32 %spec.select.i, 353
   %switch.select14.i = select i1 %switch.selectcmp13.i, i64 0, i64 %switch.select.i
   %37 = zext nneg i32 %.117.lcssa to i64
-  %38 = getelementptr inbounds nuw [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %37, i64 %switch.select14.i
-  %39 = load i8, ptr %38, align 1, !tbaa !16
-  %40 = sext i8 %39 to i32
+  %38 = getelementptr inbounds nuw [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %37
+  %39 = getelementptr inbounds nuw [3 x i8], ptr %38, i64 0, i64 %switch.select14.i
+  %40 = load i8, ptr %39, align 1, !tbaa !16
+  %41 = sext i8 %40 to i32
   br label %_ZN6icu_7712_GLOBAL__N_18yearTypeEiR10UErrorCode.exit
 
-41:                                               ; preds = %._crit_edge
-  %42 = zext nneg i32 %.117.lcssa to i64
-  %43 = getelementptr inbounds nuw [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !16
-  %45 = sext i8 %44 to i32
+42:                                               ; preds = %._crit_edge
+  %43 = zext nneg i32 %.117.lcssa to i64
+  %44 = getelementptr inbounds nuw [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !16
+  %46 = sext i8 %45 to i32
   br label %_ZN6icu_7712_GLOBAL__N_18yearTypeEiR10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_18yearTypeEiR10UErrorCode.exit: ; preds = %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i, %33, %4, %41
-  %.0 = phi i32 [ %45, %41 ], [ 0, %4 ], [ %40, %33 ], [ 0, %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i ]
+_ZN6icu_7712_GLOBAL__N_18yearTypeEiR10UErrorCode.exit: ; preds = %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i, %33, %4, %42
+  %.0 = phi i32 [ %46, %42 ], [ 0, %4 ], [ %41, %33 ], [ 0, %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i ]
   ret i32 %.0
 }
 
@@ -670,50 +672,54 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   %40 = select i1 %39, i64 -7, i64 12
   %.not = icmp slt i64 %38, %40
   %.not.fr = freeze i1 %.not
+  %invariant.gep = getelementptr [3 x i16], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %switch.select14.i
+  %invariant.gep79 = getelementptr [3 x i16], ptr @_ZL11MONTH_START, i64 0, i64 %switch.select14.i
   br i1 %.not.fr, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %31, %45
-  %indvars.iv87 = phi i64 [ %indvars.iv.next88, %45 ], [ 0, %31 ]
-  %41 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %indvars.iv87, i64 %switch.select14.i
-  %42 = load i16, ptr %41, align 2, !tbaa !18
-  %43 = sext i16 %42 to i32
-  %44 = icmp sgt i32 %.062, %43
-  br i1 %44, label %45, label %.critedge
+.split.us:                                        ; preds = %31, %44
+  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %44 ], [ 0, %31 ]
+  %gep80.us = getelementptr [14 x [3 x i16]], ptr %invariant.gep79, i64 0, i64 %indvars.iv89
+  %41 = load i16, ptr %gep80.us, align 2, !tbaa !18
+  %42 = sext i16 %41 to i32
+  %43 = icmp sgt i32 %.062, %42
+  br i1 %43, label %44, label %.critedge
 
-45:                                               ; preds = %.split.us
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next88, 14
-  br i1 %exitcond90.not, label %.critedge.thread, label %.split.us, !llvm.loop !20
+44:                                               ; preds = %.split.us
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next90, 14
+  br i1 %exitcond92.not, label %.critedge.thread, label %.split.us, !llvm.loop !20
 
-.split:                                           ; preds = %31, %50
-  %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %31 ]
-  %46 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %indvars.iv, i64 %switch.select14.i
-  %47 = load i16, ptr %46, align 2, !tbaa !18
-  %48 = sext i16 %47 to i32
-  %49 = icmp sgt i32 %.062, %48
-  br i1 %49, label %50, label %.critedge
+.split:                                           ; preds = %31, %48
+  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %31 ]
+  %gep = getelementptr [14 x [3 x i16]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %45 = load i16, ptr %gep, align 2, !tbaa !18
+  %46 = sext i16 %45 to i32
+  %47 = icmp sgt i32 %.062, %46
+  br i1 %47, label %48, label %.critedge
 
-50:                                               ; preds = %.split
+48:                                               ; preds = %.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
   br i1 %exitcond.not, label %.critedge.thread, label %.split, !llvm.loop !22
 
 .critedge:                                        ; preds = %.split, %.split.us
-  %.us-phi.in = phi i64 [ %indvars.iv87, %.split.us ], [ %indvars.iv, %.split ]
+  %.us-phi.in = phi i64 [ %indvars.iv89, %.split.us ], [ %indvars.iv, %.split ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %or.cond = icmp eq i32 %.us-phi, 0
-  br i1 %or.cond, label %.critedge.thread, label %51
+  br i1 %or.cond, label %.critedge.thread, label %49
 
-.critedge.thread:                                 ; preds = %50, %45, %.critedge
+.critedge.thread:                                 ; preds = %48, %44, %.critedge
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %.loopexit
 
-51:                                               ; preds = %.critedge
-  %52 = add nsw i32 %.us-phi, -1
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %53, i64 %switch.select14.i
-  %55 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %53, i64 %switch.select14.i
-  %.in71 = select i1 %.not.fr, ptr %55, ptr %54
+49:                                               ; preds = %.critedge
+  %50 = add nsw i32 %.us-phi, -1
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %51
+  %53 = getelementptr inbounds nuw [3 x i16], ptr %52, i64 0, i64 %switch.select14.i
+  %54 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %51
+  %55 = getelementptr inbounds nuw [3 x i16], ptr %54, i64 0, i64 %switch.select14.i
+  %.in71 = select i1 %.not.fr, ptr %55, ptr %53
   %56 = load i16, ptr %.in71, align 2, !tbaa !18
   %57 = sext i16 %56 to i32
   %58 = sub nsw i32 %.062, %57
@@ -728,7 +734,7 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   %65 = icmp slt i32 %.061, %64
   br i1 %65, label %66, label %69
 
-66:                                               ; preds = %51
+66:                                               ; preds = %49
   %67 = tail call noundef signext i8 @_ZNK6icu_778Calendar9isLenientEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %.not72 = icmp eq i8 %67, 0
   br i1 %.not72, label %68, label %69
@@ -737,8 +743,8 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %.loopexit
 
-69:                                               ; preds = %66, %51
-  %.1 = phi i32 [ %.061, %51 ], [ %64, %66 ]
+69:                                               ; preds = %66, %49
+  %.1 = phi i32 [ %.061, %49 ], [ %64, %66 ]
   %70 = load ptr, ptr %0, align 8, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 296
   %72 = load ptr, ptr %71, align 8
@@ -768,13 +774,13 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   %83 = icmp samesign ugt i32 %.us-phi, 6
   %or.cond3 = select i1 %.not.fr, i1 %83, i1 false
   %84 = add nsw i32 %.us-phi, -2
-  %spec.select = select i1 %or.cond3, i32 %84, i32 %52
+  %spec.select = select i1 %or.cond3, i32 %84, i32 %50
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %spec.select, ptr %85, align 4, !tbaa !9
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 127
   store i8 1, ptr %86, align 1, !tbaa !16
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %52, ptr %87, align 8, !tbaa !9
+  store i32 %50, ptr %87, align 8, !tbaa !9
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 106
   store i8 1, ptr %88, align 2, !tbaa !16
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -937,7 +943,7 @@ define noundef range(i64 -2147168419, 2147864412) i64 @_ZNK6icu_7714HebrewCalend
   store i32 %2, ptr %7, align 4, !tbaa !9
   %8 = load i32, ptr %4, align 4, !tbaa !6
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %78
+  br i1 %9, label %10, label %80
 
 10:                                               ; preds = %5
   %11 = add i32 %2, -235
@@ -954,7 +960,7 @@ define noundef range(i64 -2147168419, 2147864412) i64 @_ZNK6icu_7714HebrewCalend
 
 17:                                               ; preds = %12
   store i32 1, ptr %4, align 4, !tbaa !6
-  br label %78
+  br label %80
 
 18:                                               ; preds = %12
   store i32 %14, ptr %7, align 4, !tbaa !9
@@ -995,7 +1001,7 @@ define noundef range(i64 -2147168419, 2147864412) i64 @_ZNK6icu_7714HebrewCalend
 
 37:                                               ; preds = %26, %23
   store i32 1, ptr %4, align 4, !tbaa !6
-  br label %78
+  br label %80
 
 thread-pre-split:                                 ; preds = %48
   %.pr = load i32, ptr %7, align 4, !tbaa !9
@@ -1025,7 +1031,7 @@ thread-pre-split:                                 ; preds = %48
 
 51:                                               ; preds = %48, %.lr.ph
   store i32 1, ptr %4, align 4, !tbaa !6
-  br label %78
+  br label %80
 
 ._crit_edge:                                      ; preds = %thread-pre-split, %.preheader
   %52 = load i32, ptr %6, align 4, !tbaa !9
@@ -1033,19 +1039,19 @@ thread-pre-split:                                 ; preds = %48
   %54 = sext i32 %53 to i64
   %55 = load i32, ptr %4, align 4, !tbaa !6
   %56 = icmp slt i32 %55, 1
-  br i1 %56, label %57, label %78
+  br i1 %56, label %57, label %80
 
 57:                                               ; preds = %._crit_edge
   %58 = load i32, ptr %7, align 4, !tbaa !9
   %.not22 = icmp eq i32 %58, 0
-  br i1 %.not22, label %76, label %59
+  br i1 %.not22, label %78, label %59
 
 59:                                               ; preds = %57
   %60 = load i32, ptr %6, align 4, !tbaa !9
   %61 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_18yearTypeEiR10UErrorCode(i32 noundef %60, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %62 = load i32, ptr %4, align 4, !tbaa !6
   %63 = icmp slt i32 %62, 1
-  br i1 %63, label %.thread, label %78
+  br i1 %63, label %.thread, label %80
 
 .thread:                                          ; preds = %59
   %64 = load i32, ptr %6, align 4, !tbaa !9
@@ -1058,22 +1064,24 @@ thread-pre-split:                                 ; preds = %48
   %.not = icmp slt i64 %68, %70
   %71 = load i32, ptr %7, align 4
   %72 = sext i32 %71 to i64
-  %73 = zext nneg i32 %61 to i64
-  %74 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %72, i64 %73
-  %75 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %72, i64 %73
-  %.pn.in.in = select i1 %.not, ptr %75, ptr %74
+  %73 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %72
+  %74 = zext nneg i32 %61 to i64
+  %75 = getelementptr inbounds nuw [3 x i16], ptr %73, i64 0, i64 %74
+  %76 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %72
+  %77 = getelementptr inbounds nuw [3 x i16], ptr %76, i64 0, i64 %74
+  %.pn.in.in = select i1 %.not, ptr %77, ptr %75
   %.pn.in = load i16, ptr %.pn.in.in, align 2, !tbaa !18
   %.pn = sext i16 %.pn.in to i64
   %.218 = add nsw i64 %.pn, %54
-  br label %76
-
-76:                                               ; preds = %.thread, %57
-  %.016 = phi i64 [ %54, %57 ], [ %.218, %.thread ]
-  %77 = add nsw i64 %.016, 347997
   br label %78
 
-78:                                               ; preds = %59, %76, %._crit_edge, %5, %51, %37, %17
-  %.0 = phi i64 [ 0, %17 ], [ 0, %37 ], [ 0, %51 ], [ 0, %5 ], [ %77, %76 ], [ 0, %._crit_edge ], [ 0, %59 ]
+78:                                               ; preds = %.thread, %57
+  %.016 = phi i64 [ %54, %57 ], [ %.218, %.thread ]
+  %79 = add nsw i64 %.016, 347997
+  br label %80
+
+80:                                               ; preds = %59, %78, %._crit_edge, %5, %51, %37, %17
+  %.0 = phi i64 [ 0, %17 ], [ 0, %37 ], [ 0, %51 ], [ 0, %5 ], [ %79, %78 ], [ 0, %._crit_edge ], [ 0, %59 ]
   ret i64 %.0
 }
 

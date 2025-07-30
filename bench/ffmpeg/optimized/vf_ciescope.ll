@@ -1849,26 +1849,27 @@ define internal fastcc void @invert_matrix3x3(ptr noundef readonly captures(none
   %57 = fdiv nsz float 1.000000e+00, %56
   br label %.preheader
 
-.preheader:                                       ; preds = %2, %62
-  %indvars.iv72 = phi i64 [ 0, %2 ], [ %indvars.iv.next73, %62 ]
-  br label %58
+.preheader:                                       ; preds = %2, %63
+  %indvars.iv72 = phi i64 [ 0, %2 ], [ %indvars.iv.next73, %63 ]
+  %58 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv72
+  br label %59
 
-58:                                               ; preds = %.preheader, %58
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv72, i64 %indvars.iv
-  %60 = load float, ptr %59, align 4, !tbaa !54
-  %61 = fmul nsz float %57, %60
-  store float %61, ptr %59, align 4, !tbaa !54
+59:                                               ; preds = %.preheader, %59
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
+  %60 = getelementptr inbounds nuw [3 x float], ptr %58, i64 0, i64 %indvars.iv
+  %61 = load float, ptr %60, align 4, !tbaa !54
+  %62 = fmul nsz float %57, %61
+  store float %62, ptr %60, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %62, label %58, !llvm.loop !94
+  br i1 %exitcond.not, label %63, label %59, !llvm.loop !94
 
-62:                                               ; preds = %58
+63:                                               ; preds = %59
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %63, label %.preheader, !llvm.loop !95
+  br i1 %exitcond75.not, label %64, label %.preheader, !llvm.loop !95
 
-63:                                               ; preds = %62
+64:                                               ; preds = %63
   ret void
 }
 

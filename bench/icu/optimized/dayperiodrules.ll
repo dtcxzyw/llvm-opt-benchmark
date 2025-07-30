@@ -1703,8 +1703,8 @@ define linkonce_odr void @_ZN6icu_7722DayPeriodRulesDataSink12processRulesERKNS_
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %32
 
-32:                                               ; preds = %.lr.ph142, %286
-  %.058141 = phi i32 [ 0, %.lr.ph142 ], [ %287, %286 ]
+32:                                               ; preds = %.lr.ph142, %287
+  %.058141 = phi i32 [ 0, %.lr.ph142 ], [ %288, %287 ]
   %33 = load ptr, ptr %10, align 8, !tbaa !46
   %34 = load i32, ptr %4, align 4, !tbaa !13
   %35 = icmp slt i32 %34, 1
@@ -2286,37 +2286,38 @@ _ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCod
   %279 = load ptr, ptr %278, align 8, !tbaa !17
   %280 = load i32, ptr %19, align 4, !tbaa !59
   %281 = sext i32 %280 to i64
-  br label %282
+  %282 = getelementptr inbounds %"class.icu_77::DayPeriodRules", ptr %279, i64 %281, i32 2
+  br label %283
 
-282:                                              ; preds = %282, %.critedge82
-  %indvars.iv.i120 = phi i64 [ 0, %.critedge82 ], [ %indvars.iv.next.i122, %282 ]
-  %283 = getelementptr inbounds %"class.icu_77::DayPeriodRules", ptr %279, i64 %281, i32 2, i64 %indvars.iv.i120
-  %284 = load i32, ptr %283, align 4, !tbaa !34
-  %.not.i121 = icmp ne i32 %284, -1
+283:                                              ; preds = %283, %.critedge82
+  %indvars.iv.i120 = phi i64 [ 0, %.critedge82 ], [ %indvars.iv.next.i122, %283 ]
+  %284 = getelementptr inbounds nuw [24 x i32], ptr %282, i64 0, i64 %indvars.iv.i120
+  %285 = load i32, ptr %284, align 4, !tbaa !34
+  %.not.i121 = icmp ne i32 %285, -1
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i120, 1
   %exitcond.i = icmp ne i64 %indvars.iv.next.i122, 24
   %or.cond.not.i = select i1 %.not.i121, i1 %exitcond.i, i1 false
-  br i1 %or.cond.not.i, label %282, label %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit, !llvm.loop !45
+  br i1 %or.cond.not.i, label %283, label %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit, !llvm.loop !45
 
-_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit: ; preds = %282
-  br i1 %.not.i121, label %286, label %285
+_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit: ; preds = %283
+  br i1 %.not.i121, label %287, label %286
 
-285:                                              ; preds = %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit
+286:                                              ; preds = %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit
   store i32 3, ptr %4, align 4, !tbaa !13
   br label %.critedge84
 
-286:                                              ; preds = %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit
+287:                                              ; preds = %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #21
-  %287 = add nuw nsw i32 %.058141, 1
-  %288 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %1, i32 noundef %287, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not64 = icmp eq i8 %288, 0
+  %288 = add nuw nsw i32 %.058141, 1
+  %289 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %1, i32 noundef %288, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.not64 = icmp eq i8 %289, 0
   br i1 %.not64, label %.loopexit, label %32, !llvm.loop !83
 
-.critedge84:                                      ; preds = %_ZN6icu_7722DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit, %63, %.critedge80, %285
+.critedge84:                                      ; preds = %_ZN6icu_7722DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit, %63, %.critedge80, %286
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %286, %.preheader130, %.critedge84, %5
+.loopexit:                                        ; preds = %287, %.preheader130, %.critedge84, %5
   ret void
 }
 

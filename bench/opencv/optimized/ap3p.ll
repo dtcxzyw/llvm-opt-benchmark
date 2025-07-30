@@ -618,44 +618,53 @@ _ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit: ; preds = %._crit_edge.us.i, 
   %359 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv542
   store double %356, ptr %359, align 8, !tbaa !32
   store double %.pre, ptr %355, align 8, !tbaa !32
-  br label %.preheader.i
+  %360 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 %indvars.iv542
+  %361 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 %indvars.iv.next543
+  br label %362
 
-.preheader.i:                                     ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %358
-  %.05.i = phi i64 [ 0, %358 ], [ %366, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
-  br label %360
+362:                                              ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %358
+  %.05.i = phi i64 [ 0, %358 ], [ %371, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
+  %363 = getelementptr inbounds nuw [3 x [3 x double]], ptr %360, i64 0, i64 %.05.i
+  %364 = getelementptr inbounds nuw [3 x [3 x double]], ptr %361, i64 0, i64 %.05.i
+  br label %365
 
-360:                                              ; preds = %360, %.preheader.i
-  %.05.i.i = phi i64 [ %365, %360 ], [ 0, %.preheader.i ]
-  %361 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 %indvars.iv542, i64 %.05.i, i64 %.05.i.i
-  %362 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 %indvars.iv.next543, i64 %.05.i, i64 %.05.i.i
-  %363 = load double, ptr %361, align 8, !tbaa !32
-  %364 = load double, ptr %362, align 8, !tbaa !32
-  store double %364, ptr %361, align 8, !tbaa !32
-  store double %363, ptr %362, align 8, !tbaa !32
-  %365 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %365, 3
-  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %360, !llvm.loop !40
-
-_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %360
-  %366 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i237 = icmp eq i64 %366, 3
-  br i1 %exitcond.not.i237, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %.preheader.i, !llvm.loop !41
-
-_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit: ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
-  %.05.i238 = phi i64 [ %371, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit ], [ 0, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
-  %367 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvars.iv542, i64 %.05.i238
-  %368 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvars.iv.next543, i64 %.05.i238
+365:                                              ; preds = %365, %362
+  %.05.i.i = phi i64 [ 0, %362 ], [ %370, %365 ]
+  %366 = getelementptr inbounds nuw [3 x double], ptr %363, i64 0, i64 %.05.i.i
+  %367 = getelementptr inbounds nuw [3 x double], ptr %364, i64 0, i64 %.05.i.i
+  %368 = load double, ptr %366, align 8, !tbaa !32
   %369 = load double, ptr %367, align 8, !tbaa !32
-  %370 = load double, ptr %368, align 8, !tbaa !32
-  store double %370, ptr %367, align 8, !tbaa !32
-  store double %369, ptr %368, align 8, !tbaa !32
-  %371 = add nuw nsw i64 %.05.i238, 1
-  %exitcond.not.i239 = icmp eq i64 %371, 3
-  br i1 %exitcond.not.i239, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, !llvm.loop !40
+  store double %369, ptr %366, align 8, !tbaa !32
+  store double %368, ptr %367, align 8, !tbaa !32
+  %370 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %370, 3
+  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %365, !llvm.loop !40
 
-_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit: ; preds = %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
-  %372 = icmp sgt i64 %indvars.iv542, 1
-  br i1 %372, label %354, label %.critedge, !llvm.loop !42
+_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %365
+  %371 = add nuw nsw i64 %.05.i, 1
+  %exitcond.not.i237 = icmp eq i64 %371, 3
+  br i1 %exitcond.not.i237, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %362, !llvm.loop !41
+
+_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit: ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i
+  %372 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvars.iv542
+  %373 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvars.iv.next543
+  br label %374
+
+374:                                              ; preds = %374, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
+  %.05.i238 = phi i64 [ 0, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit ], [ %379, %374 ]
+  %375 = getelementptr inbounds nuw [3 x double], ptr %372, i64 0, i64 %.05.i238
+  %376 = getelementptr inbounds nuw [3 x double], ptr %373, i64 0, i64 %.05.i238
+  %377 = load double, ptr %375, align 8, !tbaa !32
+  %378 = load double, ptr %376, align 8, !tbaa !32
+  store double %378, ptr %375, align 8, !tbaa !32
+  store double %377, ptr %376, align 8, !tbaa !32
+  %379 = add nuw nsw i64 %.05.i238, 1
+  %exitcond.not.i239 = icmp eq i64 %379, 3
+  br i1 %exitcond.not.i239, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit, label %374, !llvm.loop !40
+
+_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit: ; preds = %374
+  %380 = icmp sgt i64 %indvars.iv542, 1
+  br i1 %380, label %354, label %.critedge, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.critedge, %_ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit, %._crit_edge
   %.0233.lcssa550 = phi i32 [ %.1, %._crit_edge ], [ 0, %_ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit ], [ %.1, %.critedge ]

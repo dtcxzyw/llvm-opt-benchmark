@@ -1848,21 +1848,22 @@ define dso_local i64 @sum_zone_node_page_state(i32 noundef %0, i32 noundef %1) l
   %4 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
+  %invariant.gep = getelementptr [10 x %struct.atomic64_t], ptr %5, i64 0, i64 %6
   br label %7
 
 7:                                                ; preds = %7, %2
-  %8 = phi i64 [ 0, %2 ], [ %14, %7 ]
-  %9 = phi i64 [ 0, %2 ], [ %13, %7 ]
-  %10 = getelementptr %struct.zone, ptr %5, i64 %8, i32 36, i64 %6
-  %11 = load volatile i64, ptr %10, align 8
-  %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
-  %13 = add i64 %12, %9
-  %14 = add nuw nsw i64 %8, 1
-  %15 = icmp eq i64 %14, 4
-  br i1 %15, label %16, label %7, !llvm.loop !67
+  %8 = phi i64 [ 0, %2 ], [ %13, %7 ]
+  %9 = phi i64 [ 0, %2 ], [ %12, %7 ]
+  %gep = getelementptr %struct.zone, ptr %invariant.gep, i64 %8, i32 36
+  %10 = load volatile i64, ptr %gep, align 8
+  %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 0)
+  %12 = add i64 %11, %9
+  %13 = add nuw nsw i64 %8, 1
+  %14 = icmp eq i64 %13, 4
+  br i1 %14, label %15, label %7, !llvm.loop !67
 
-16:                                               ; preds = %7
-  ret i64 %13
+15:                                               ; preds = %7
+  ret i64 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
@@ -1871,20 +1872,21 @@ define dso_local i64 @sum_zone_numa_event_state(i32 noundef %0, i32 noundef %1) 
   %4 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
+  %invariant.gep = getelementptr [6 x %struct.atomic64_t], ptr %5, i64 0, i64 %6
   br label %7
 
 7:                                                ; preds = %7, %2
-  %8 = phi i64 [ 0, %2 ], [ %13, %7 ]
-  %9 = phi i64 [ 0, %2 ], [ %12, %7 ]
-  %10 = getelementptr %struct.zone, ptr %5, i64 %8, i32 37, i64 %6
-  %11 = load volatile i64, ptr %10, align 8
-  %12 = add i64 %11, %9
-  %13 = add nuw nsw i64 %8, 1
-  %14 = icmp eq i64 %13, 4
-  br i1 %14, label %15, label %7, !llvm.loop !68
+  %8 = phi i64 [ 0, %2 ], [ %12, %7 ]
+  %9 = phi i64 [ 0, %2 ], [ %11, %7 ]
+  %gep = getelementptr %struct.zone, ptr %invariant.gep, i64 %8, i32 37
+  %10 = load volatile i64, ptr %gep, align 8
+  %11 = add i64 %10, %9
+  %12 = add nuw nsw i64 %8, 1
+  %13 = icmp eq i64 %12, 4
+  br i1 %13, label %14, label %7, !llvm.loop !68
 
-15:                                               ; preds = %7
-  ret i64 %12
+14:                                               ; preds = %7
+  ret i64 %11
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
