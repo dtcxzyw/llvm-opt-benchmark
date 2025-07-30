@@ -3121,7 +3121,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
 if.end.i:                                         ; preds = %for.body.i
   %478 = shl nuw nsw i64 %indvars.iv.i, 2
   %arrayidx.i.i.i = getelementptr inbounds nuw [24 x %"struct.irr::video::S3DVertex"], ptr %vertices.i, i64 0, i64 %478
-  %arrayidx5.i.i = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv.i, i64 0
+  %arrayidx5.i.i = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv.i
   %479 = load i8, ptr %arrayidx5.i.i, align 4, !tbaa !44
   %idxprom6.i.i = zext i8 %479 to i64
   %arrayidx7.i.i = getelementptr inbounds nuw [8 x %struct.LightInfo], ptr %lights, i64 0, i64 %idxprom6.i.i
@@ -4184,7 +4184,7 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   %indvars.iv295 = phi i64 [ 0, %if.then116 ], [ %indvars.iv.next296, %for.cond123.preheader ]
   %arrayidx141 = getelementptr inbounds nuw [6 x %"class.irr::core::vector3d"], ptr @_ZN12_GLOBAL__N_117nodebox_tile_dirsE, i64 0, i64 %indvars.iv295
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %corner) #25
-  %arrayidx130 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295, i64 0
+  %arrayidx130 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295
   %91 = load i8, ptr %arrayidx130, align 4, !tbaa !44
   %idxprom131 = zext i8 %91 to i64
   %arrayidx132 = getelementptr inbounds nuw [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %idxprom131
@@ -4209,7 +4209,7 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   store i48 %retval.sroa.0.0.insert.insert.i254, ptr %ref.tmp134, align 8
   %98 = load ptr, ptr %this, align 8, !tbaa !12
   %call143 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %98)
-  %arrayidx147 = getelementptr inbounds nuw [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295, i64 0
+  %arrayidx147 = getelementptr inbounds nuw [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295
   store i16 %call143, ptr %arrayidx147, align 8, !tbaa.struct !132
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp134) #25
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corner) #25
