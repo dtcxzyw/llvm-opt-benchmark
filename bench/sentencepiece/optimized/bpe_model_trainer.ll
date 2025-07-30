@@ -1484,7 +1484,7 @@ define void @_ZNK13sentencepiece3bpe7Trainer11ComputeFreqEPNS1_6SymbolE(ptr noun
   %42 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.025.030) #29
   br label %43
 
-43:                                               ; preds = %35, %30
+43: ; preds = %35, %30
   %.sroa.025.1 = phi ptr [ %42, %35 ], [ %31, %30 ]
   %.not28 = icmp eq ptr %.sroa.025.1, %8
   br i1 %.not28, label %.loopexit, label %13, !llvm.loop !112

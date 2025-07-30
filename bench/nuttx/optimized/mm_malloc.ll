@@ -47,18 +47,18 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   %15 = call i32 @mm_size2ndx(i64 noundef %11) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds [18 x %struct.mm_freenode_s], ptr %16, i64 0, i64 %17
+  %17 = getelementptr inbounds [18 x %struct.mm_freenode_s], ptr %16, i64 0, i64 %17
   br label %19
 
-19:                                               ; preds = %20, %13
+19:; preds = %20, %13
   %.pn = phi ptr [ %18, %13 ], [ %.048, %20 ]
   %.048.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %.048 = load ptr, ptr %.048.in, align 8
   %.not = icmp eq ptr %.048, null
   br i1 %.not, label %.thread, label %20
 
-20:                                               ; preds = %19
-  %21 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %.048, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, -4
   %.not57 = icmp ult i64 %23, %11

@@ -6235,20 +6235,20 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %11
 
 11:                                               ; preds = %11, %6
-  %12 = phi i64 [ %14, %11 ], [ %.sroa.5.0.copyload, %6 ]
-  %.sroa.06.0.i = phi i64 [ %15, %11 ], [ 0, %6 ]
-  %gep.i = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %invariant.gep.i, i64 %.sroa.06.0.i
-  %13 = getelementptr inbounds nuw ptr, ptr %.sroa.8.0.copyload, i64 %12
-  store ptr %gep.i, ptr %13, align 8, !noalias !1221
-  %14 = add i64 %12, 1
-  %15 = add nuw i64 %.sroa.06.0.i, 1
-  %16 = icmp eq i64 %15, %10
-  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h35a3fb481d90d23cE.exit", label %11
+  %12 = phi i64 [ %15, %11 ], [ %.sroa.5.0.copyload, %6 ]
+  %.sroa.06.0.i = phi i64 [ %16, %11 ], [ 0, %6 ]
+  %13 = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %invariant.gep.i, i64 %.sroa.06.0.i
+  %14 = getelementptr inbounds nuw ptr, ptr %.sroa.8.0.copyload, i64 %12
+  store ptr %13, ptr %14, align 8, !noalias !1221
+  %15 = add i64 %12, 1
+  %16 = add nuw i64 %.sroa.06.0.i, 1
+  %17 = icmp eq i64 %16, %10
+  br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h35a3fb481d90d23cE.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h35a3fb481d90d23cE.exit": ; preds = %11, %3
-  %storemerge = phi i64 [ %.sroa.5.0.copyload, %3 ], [ %14, %11 ]
-  %17 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %17)
+  %storemerge = phi i64 [ %.sroa.5.0.copyload, %3 ], [ %15, %11 ]
+  %18 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %18)
   store i64 %storemerge, ptr %.sroa.0.0.copyload, align 8, !noalias !1233
   ret void
 }
@@ -7837,20 +7837,20 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %11
 
 11:                                               ; preds = %11, %6
-  %12 = phi i64 [ %14, %11 ], [ %.sroa.5.0.copyload, %6 ]
-  %.sroa.06.0.i = phi i64 [ %15, %11 ], [ 0, %6 ]
-  %gep.i = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %invariant.gep.i, i64 %.sroa.06.0.i
-  %13 = getelementptr inbounds nuw ptr, ptr %.sroa.8.0.copyload, i64 %12
-  store ptr %gep.i, ptr %13, align 8, !noalias !1579
-  %14 = add i64 %12, 1
-  %15 = add nuw i64 %.sroa.06.0.i, 1
-  %16 = icmp eq i64 %15, %10
-  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h70df551096cac7b5E.exit", label %11
+  %12 = phi i64 [ %15, %11 ], [ %.sroa.5.0.copyload, %6 ]
+  %.sroa.06.0.i = phi i64 [ %16, %11 ], [ 0, %6 ]
+  %13 = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %invariant.gep.i, i64 %.sroa.06.0.i
+  %14 = getelementptr inbounds nuw ptr, ptr %.sroa.8.0.copyload, i64 %12
+  store ptr %13, ptr %14, align 8, !noalias !1579
+  %15 = add i64 %12, 1
+  %16 = add nuw i64 %.sroa.06.0.i, 1
+  %17 = icmp eq i64 %16, %10
+  br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h70df551096cac7b5E.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h70df551096cac7b5E.exit": ; preds = %11, %3
-  %storemerge = phi i64 [ %.sroa.5.0.copyload, %3 ], [ %14, %11 ]
-  %17 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %17)
+  %storemerge = phi i64 [ %.sroa.5.0.copyload, %3 ], [ %15, %11 ]
+  %18 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %18)
   store i64 %storemerge, ptr %.sroa.0.0.copyload, align 8, !noalias !1591
   ret void
 }

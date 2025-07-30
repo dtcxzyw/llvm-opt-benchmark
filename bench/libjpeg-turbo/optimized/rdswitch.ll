@@ -806,18 +806,18 @@ define dso_local range(i32 0, 2) i32 @set_quant_slots(ptr noundef readonly captu
   store i32 %13, ptr %20, align 8, !tbaa !55
   br label %21
 
-21:                                               ; preds = %23, %17
+21: ; preds = %23, %17
   %.1 = phi ptr [ %.01119, %17 ], [ %24, %23 ]
   %22 = load i8, ptr %.1, align 1, !tbaa !51
   %.not16 = icmp eq i8 %22, 0
   br i1 %.not16, label %.critedge, label %23
 
-23:                                               ; preds = %21
+23: ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not17 = icmp eq i8 %22, 44
   br i1 %.not17, label %.critedge, label %21, !llvm.loop !57
 
-25:                                               ; preds = %6
+25:; preds = %6
   %26 = load i32, ptr %3, align 4, !tbaa !11
   %27 = load ptr, ptr %5, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %27, i64 %indvars.iv
@@ -898,22 +898,22 @@ define dso_local range(i32 0, 2) i32 @set_sample_factors(ptr noundef readonly ca
   store i32 %31, ptr %32, align 4, !tbaa !60
   br label %33
 
-33:                                               ; preds = %35, %27
+33: ; preds = %35, %27
   %.1 = phi ptr [ %.02531, %27 ], [ %36, %35 ]
   %34 = load i8, ptr %.1, align 1, !tbaa !51
   %.not29 = icmp eq i8 %34, 0
   br i1 %.not29, label %.critedge, label %35
 
-35:                                               ; preds = %33
+35: ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not30 = icmp eq i8 %34, 44
   br i1 %.not30, label %.critedge, label %33, !llvm.loop !61
 
-37:                                               ; preds = %8
+37:; preds = %8
   %38 = load ptr, ptr %7, align 8, !tbaa !54
   %39 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %38, i64 %indvars.iv
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i32 1, ptr %40, align 8, !tbaa !59
+  %39 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i32 1, ptr %39, align 8, !tbaa !59
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 1, ptr %41, align 4, !tbaa !60
   br label %.critedge

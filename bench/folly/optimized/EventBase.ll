@@ -8360,16 +8360,16 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE8clearTagEm.exit.
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE10eraseBlankENS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmE.exit
 
 .lr.ph.i:                                         ; preds = %76, %.lr.ph.preheader.i
-  %72 = phi i64 [ %78, %76 ], [ %64, %.lr.ph.preheader.i ]
+  %71 = phi i64 [ %78, %76 ], [ %64, %.lr.ph.preheader.i ]
   %.01027.i = phi i64 [ %77, %76 ], [ %3, %.lr.ph.preheader.i ]
-  %gep.i = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %invariant.gep.i, i64 %72
-  %73 = load i8, ptr %gep.i, align 1, !tbaa !458
+  %72 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %invariant.gep.i, i64 %72
+  %73 = load i8, ptr %72, align 1, !tbaa !458
   %.not.i17.i = icmp eq i8 %73, -2
   br i1 %.not.i17.i, label %76, label %74
 
 74:                                               ; preds = %.lr.ph.i
   %75 = add i8 %73, -1
-  store i8 %75, ptr %gep.i, align 1, !tbaa !458
+  store i8 %75, ptr %72, align 1, !tbaa !458
   br label %76
 
 76:                                               ; preds = %74, %.lr.ph.i
@@ -9479,16 +9479,16 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i: ; preds = %26
   br label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmE.exit
 
 .lr.ph.i.i:                                       ; preds = %55, %.lr.ph.preheader.i.i
-  %51 = phi i64 [ %57, %55 ], [ %43, %.lr.ph.preheader.i.i ]
+  %50 = phi i64 [ %57, %55 ], [ %43, %.lr.ph.preheader.i.i ]
   %.01027.i.i = phi i64 [ %56, %55 ], [ %.sroa.04.0, %.lr.ph.preheader.i.i ]
-  %gep.i.i = getelementptr %"struct.folly::f14::detail::F14Chunk.157", ptr %invariant.gep.i.i, i64 %51
-  %52 = load i8, ptr %gep.i.i, align 1, !tbaa !501
+  %51 = getelementptr %"struct.folly::f14::detail::F14Chunk.157", ptr %invariant.gep.i.i, i64 %50
+  %52 = load i8, ptr %51, align 1, !tbaa !501
   %.not.i17.i.i = icmp eq i8 %52, -2
   br i1 %.not.i17.i.i, label %55, label %53
 
 53:                                               ; preds = %.lr.ph.i.i
   %54 = add i8 %52, -1
-  store i8 %54, ptr %gep.i.i, align 1, !tbaa !501
+  store i8 %54, ptr %51, align 1, !tbaa !501
   br label %55
 
 55:                                               ; preds = %53, %.lr.ph.i.i

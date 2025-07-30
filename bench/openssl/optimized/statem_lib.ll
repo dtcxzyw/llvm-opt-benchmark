@@ -4135,9 +4135,9 @@ ssl_has_cert_type.exit.thread.i.i:                ; preds = %ssl_has_cert_type.e
   %105 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !182
   %.not12.i.i = icmp eq ptr %106, null
-  br i1 %.not12.i.i, label %ssl_has_cert.exit.thread.i, label %ssl_has_cert.exit.i
+  br i1 %.not12.i.i, label %ssl_has_cert.exit.thread.i, label %107
 
-ssl_has_cert.exit.i:                              ; preds = %ssl_has_cert_type.exit.thread.i.i, %96
+107:                                              ; preds = %ssl_has_cert_type.exit.thread.i.i, %96
   %107 = phi ptr [ %98, %96 ], [ %103, %ssl_has_cert_type.exit.thread.i.i ]
   %.sink.i.i = phi ptr [ %100, %96 ], [ %105, %ssl_has_cert_type.exit.thread.i.i ]
   %108 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8

@@ -695,13 +695,13 @@ define internal void @_ZL10forward_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
   store double %21, ptr %19, align 8, !tbaa !73
   br label %22
 
-22:                                               ; preds = %14, %2
+22: ; preds = %14, %2
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !51
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %26, label %34
 
-26:                                               ; preds = %22
+26:; preds = %22
   %27 = zext nneg i32 %24 to i64
   %28 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -751,12 +751,12 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
   store double %22, ptr %20, align 8, !tbaa !73
   br label %23
 
-23:                                               ; preds = %15, %2
+23:; preds = %15, %2
   %24 = load i32, ptr %4, align 8, !tbaa !49
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %26, label %34
 
-26:                                               ; preds = %23
+26:; preds = %23
   %27 = zext nneg i32 %24 to i64
   %28 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16

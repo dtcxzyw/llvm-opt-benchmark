@@ -1706,7 +1706,7 @@ thread-pre-split.i.i.i.i.i.i.i128:                ; preds = %470
   %invariant.gep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %472, i64 8
   br label %481
 
-481:                                              ; preds = %481, %.lr.ph.i.i.i.i.i.i.i.i130
+481:   ; preds = %481, %.lr.ph.i.i.i.i.i.i.i.i130
   %.05.i.i.i.i.i.i.i.i131 = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i130 ], [ %484, %481 ]
   %482 = getelementptr inbounds nuw double, ptr %479, i64 %.05.i.i.i.i.i.i.i.i131
   %gep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"class.std::complex", ptr %invariant.gep.i.i.i.i.i.i.i.i, i64 %.05.i.i.i.i.i.i.i.i131

@@ -1648,47 +1648,47 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
 .lr.ph136:                                        ; preds = %.preheader
   %62 = load ptr, ptr %11, align 8, !tbaa !159
   %63 = zext i32 %35 to i64
-  %invariant.gep138 = getelementptr inbounds nuw %struct.pollfd, ptr %62, i64 %63
+  %invariant.gep = getelementptr inbounds nuw %struct.pollfd, ptr %62, i64 %63
   %invariant.gep140 = getelementptr inbounds nuw i8, ptr %invariant.gep138, i64 6
   br label %64
 
 64:                                               ; preds = %.lr.ph136, %64
-  %.177135 = phi i64 [ 0, %.lr.ph136 ], [ %66, %64 ]
-  %gep141 = getelementptr inbounds nuw %struct.pollfd, ptr %invariant.gep140, i64 %.177135
-  %65 = load i16, ptr %gep141, align 2, !tbaa !160
+  %.177135 = phi i64 [ 0, %.lr.ph136 ], [ %67, %64 ]
+  %gep = getelementptr inbounds nuw %struct.pollfd, ptr %invariant.gep140, i64 %.177135
+  %65 = load i16, ptr %gep, align 2, !tbaa !160
   %.2 = and i16 %65, 7
-  %gep = getelementptr inbounds nuw %struct.curl_waitfd, ptr %invariant.gep, i64 %.177135
-  store i16 %.2, ptr %gep, align 2, !tbaa !162
-  %66 = add nuw nsw i64 %.177135, 1
-  %exitcond144.not = icmp eq i64 %66, %36
-  br i1 %exitcond144.not, label %._crit_edge137, label %64, !llvm.loop !163
+  %66 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %invariant.gep, i64 %.177135
+  store i16 %.2, ptr %66, align 2, !tbaa !162
+  %67 = add nuw nsw i64 %.177135, 1
+  %exitcond140.not = icmp eq i64 %67, %36
+  br i1 %exitcond140.not, label %._crit_edge137, label %64, !llvm.loop !163
 
 ._crit_edge137:                                   ; preds = %64, %.preheader
-  br i1 %6, label %67, label %.thread
+  br i1 %6, label %68, label %.thread
 
-67:                                               ; preds = %._crit_edge137
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %69 = load i32, ptr %68, align 8, !tbaa !28
-  %.not111 = icmp eq i32 %69, -1
-  br i1 %.not111, label %.thread, label %70
+68:                                               ; preds = %._crit_edge137
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %70 = load i32, ptr %69, align 8, !tbaa !28
+  %.not111 = icmp eq i32 %70, -1
+  br i1 %.not111, label %.thread, label %71
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %11, align 8, !tbaa !159
-  %72 = add i32 %35, %2
-  %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %struct.pollfd, ptr %71, i64 %73
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %11, align 8, !tbaa !159
+  %73 = add i32 %35, %2
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds nuw %struct.pollfd, ptr %72, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 6
   %76 = load i16, ptr %75, align 2, !tbaa !160
   %77 = and i16 %76, 1
   %.not112 = icmp eq i16 %77, 0
   br i1 %.not112, label %.thread, label %78
 
-78:                                               ; preds = %70
+78:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #19
   br label %79
 
 79:                                               ; preds = %.backedge, %78
-  %80 = phi i32 [ %.pre, %.backedge ], [ %69, %78 ]
+  %80 = phi i32 [ %.pre, %.backedge ], [ %70, %78 ]
   %81 = call i64 @read(i32 noundef %80, ptr noundef nonnull %12, i64 noundef 64) #19
   %82 = icmp slt i64 %81, 1
   br i1 %82, label %83, label %.backedge
@@ -1704,7 +1704,7 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   br i1 %88, label %.backedge, label %89
 
 .backedge:                                        ; preds = %85, %79
-  %.pre = load i32, ptr %68, align 8, !tbaa !28
+  %.pre = load i32, ptr %69, align 8, !tbaa !28
   br label %79
 
 89:                                               ; preds = %83, %85
@@ -1712,7 +1712,7 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #19
   br label %.thread
 
-.thread:                                          ; preds = %61, %70, %89, %67, %._crit_edge137, %49
+.thread:                                          ; preds = %61, %71, %89, %68, %._crit_edge137, %49
   %.081 = phi i32 [ 0, %49 ], [ 0, %61 ], [ %59, %._crit_edge137 ], [ %59, %67 ], [ %59, %70 ], [ %90, %89 ]
   %.not116 = icmp eq ptr %4, null
   br i1 %.not116, label %92, label %91

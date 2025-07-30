@@ -86,12 +86,12 @@ define noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_li
   %.not = icmp eq i32 %7, 0
   %.not.i = icmp eq ptr @dlopen, null
   %or.cond34 = or i1 %.not.i, %.not
-  br i1 %or.cond34, label %25, label %8
+  br i1 %or.cond34, label %26, label %8
 
 8:                                                ; preds = %5
   %9 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 261) #7
   %.not9.i = icmp eq ptr %9, null
-  br i1 %.not9.i, label %25, label %10
+  br i1 %.not9.i, label %26, label %10
 
 10:                                               ; preds = %8
   %.not.i.i = icmp eq ptr @dlsym, null
@@ -124,14 +124,14 @@ define noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_li
   br i1 %exitcond.not.i.i, label %.critedge30.preheader40.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 .critedge30.i.i:                                  ; preds = %.critedge30.i.i, %.critedge30.preheader40.i.i
-  %.037.i.i = phi i64 [ %22, %.critedge30.i.i ], [ 0, %.critedge30.preheader40.i.i ]
+  %.037.i.i = phi i64 [ %23, %.critedge30.i.i ], [ 0, %.critedge30.preheader40.i.i ]
   %19 = getelementptr inbounds nuw [20 x ptr], ptr %6, i64 0, i64 %.037.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !11
-  %gep.i.i = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %invariant.gep.i.i, i64 %.037.i.i
-  %21 = load ptr, ptr %gep.i.i, align 8, !tbaa !14
-  store ptr %20, ptr %21, align 8, !tbaa !11
-  %22 = add nuw nsw i64 %.037.i.i, 1
-  %exitcond42.not.i.i = icmp eq i64 %22, %2
+  %21 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %invariant.gep.i.i, i64 %.037.i.i
+  %22 = load ptr, ptr %21, align 8, !tbaa !14
+  store ptr %20, ptr %22, align 8, !tbaa !11
+  %23 = add nuw nsw i64 %.037.i.i, 1
+  %exitcond42.not.i.i = icmp eq i64 %23, %2
   br i1 %exitcond42.not.i.i, label %.thread, label %.critedge30.i.i, !llvm.loop !15
 
 _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.i: ; preds = %.lr.ph.i.i
@@ -140,56 +140,56 @@ _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.i: 
 
 _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thread.i: ; preds = %_ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.i, %10
   %.not14.i = icmp eq ptr @dlclose, null
-  br i1 %.not14.i, label %25, label %23
+  br i1 %.not14.i, label %26, label %24
 
-23:                                               ; preds = %_ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thread.i
-  %24 = tail call i32 @dlclose(ptr noundef nonnull %9) #7
-  br label %25
+24:                                               ; preds = %_ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thread.i
+  %25 = tail call i32 @dlclose(ptr noundef nonnull %9) #7
+  br label %26
 
 .thread:                                          ; preds = %.critedge30.i.i, %12
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #7
   %.not.i24 = icmp eq ptr %3, null
-  br i1 %.not.i24, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %38
+  br i1 %.not.i24, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %40
 
-25:                                               ; preds = %5, %8, %_ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thread.i, %23
-  %26 = and i32 %4, 4
-  %.not22 = icmp eq i32 %26, 0
-  br i1 %.not22, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %27
+26:                                               ; preds = %5, %8, %_ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thread.i, %24
+  %27 = and i32 %4, 4
+  %.not22 = icmp eq i32 %27, 0
+  br i1 %.not22, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %28
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   %invariant.gep.i = getelementptr i8, ptr %1, i64 16
   %28 = icmp eq i64 %2, 0
   br i1 %28, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %.lr.ph.i
 
-29:                                               ; preds = %.lr.ph.i
-  %30 = add nuw i64 %.01421.i, 1
-  %exitcond.not.i = icmp eq i64 %30, %2
+30:                                               ; preds = %.lr.ph.i
+  %31 = add nuw i64 %.01421.i, 1
+  %exitcond.not.i = icmp eq i64 %31, %2
   br i1 %exitcond.not.i, label %.lr.ph23.i, label %.lr.ph.i, !llvm.loop !16
 
-.lr.ph.i:                                         ; preds = %27, %29
-  %.01421.i = phi i64 [ %30, %29 ], [ 0, %27 ]
-  %gep.i = getelementptr %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %invariant.gep.i, i64 %.01421.i
-  %31 = load ptr, ptr %gep.i, align 8, !tbaa !17
-  %.not.i23 = icmp eq ptr %31, null
-  br i1 %.not.i23, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %29
+.lr.ph.i:                                         ; preds = %28, %30
+  %.01421.i = phi i64 [ %31, %29 ], [ 0, %27 ]
+  %32 = getelementptr %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %invariant.gep.i, i64 %.01421.i
+  %33 = load ptr, ptr %32, align 8, !tbaa !17
+  %.not.i23 = icmp eq ptr %33, null
+  br i1 %.not.i23, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %30
 
-.lr.ph23.i:                                       ; preds = %29, %.lr.ph23.i
-  %.022.i = phi i64 [ %37, %.lr.ph23.i ], [ 0, %29 ]
-  %32 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.022.i
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !17
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !14
-  store ptr %34, ptr %36, align 8, !tbaa !11
-  %37 = add nuw i64 %.022.i, 1
-  %exitcond27.not.i = icmp eq i64 %37, %2
+.lr.ph23.i:                                       ; preds = %30, %.lr.ph23.i
+  %.022.i = phi i64 [ %39, %.lr.ph23.i ], [ 0, %29 ]
+  %34 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.022.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !14
+  store ptr %36, ptr %38, align 8, !tbaa !11
+  %39 = add nuw i64 %.022.i, 1
+  %exitcond27.not.i = icmp eq i64 %39, %2
   br i1 %exitcond27.not.i, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %.lr.ph23.i, !llvm.loop !18
 
-38:                                               ; preds = %.thread
+40:                                               ; preds = %.thread
   store ptr %9, ptr %3, align 8, !tbaa !11
   br label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit
 
-_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit: ; preds = %.lr.ph.i, %.lr.ph23.i, %25, %38, %.thread, %27
+_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit: ; preds = %.lr.ph.i, %.lr.ph23.i, %26, %40, %.thread, %28
   %.017 = phi i1 [ true, %27 ], [ true, %.thread ], [ true, %38 ], [ false, %25 ], [ true, %.lr.ph23.i ], [ false, %.lr.ph.i ]
   ret i1 %.017
 }

@@ -159,7 +159,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %invariant.gep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 32
   br label %5
 
-5:                                                ; preds = %5, %.lr.ph.i
+5:; preds = %5, %.lr.ph.i
   %6 = phi i64 [ %.sroa.4.0.copyload, %.lr.ph.i ], [ %8, %5 ]
   %.sroa.0.06.i = phi i64 [ %0, %.lr.ph.i ], [ %7, %5 ]
   %7 = add nuw i64 %.sroa.0.06.i, 1
@@ -2714,8 +2714,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h968f09dc8f70e3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !711)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !712)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !713)
-  %gep = getelementptr { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %invariant.gep, i64 %9
-  store i8 0, ptr %gep, align 8, !noalias !701
+  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %invariant.gep, i64 %9
+  store i8 0, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !701
   %11 = add i64 %9, 1
   %exitcond.not = icmp eq i64 %10, %1
   br i1 %exitcond.not, label %._crit_edge, label %8
@@ -3322,11 +3322,11 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %4 = load ptr, ptr %3, align 8, !alias.scope !891, !noalias !892, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !891, !noalias !892, !noundef !4
-  %7 = getelementptr inbounds { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %4, i64 %6
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %4, i64 %6
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !noalias !891
-  %8 = add i64 %6, 1
-  store i64 %8, ptr %5, align 8, !alias.scope !891, !noalias !892
+  %7 = add i64 %6, 1
+  store i64 %7, ptr %5, align 8, !alias.scope !891, !noalias !892
   ret void
 }
 

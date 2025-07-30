@@ -13581,38 +13581,38 @@ define void @"_ZN4core3ptr73drop_in_place$LT$$u5b$pyo3_macros_backend..params..G
 "_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit": ; preds = %4, %2
   %.sroa.0.0 = phi i64 [ 0, %2 ], [ %5, %4 ]
   %3 = icmp eq i64 %.sroa.0.0, %1
-  br i1 %3, label %6, label %4
+  br i1 %3, label %7, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit"
   %5 = add i64 %.sroa.0.0, 1
-  %gep = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep, i64 0, i64 %.sroa.0.0
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %gep)
-          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit" unwind label %8
+  %6 = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep, i64 0, i64 %.sroa.0.0
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %6)
+          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit" unwind label %9
 
-6:                                                ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit"
+7:                                                ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit"
   ret void
 
-"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7": ; preds = %10, %8
-  %.sroa.0.1 = phi i64 [ %5, %8 ], [ %11, %10 ]
-  %7 = icmp eq i64 %.sroa.0.1, %1
-  br i1 %7, label %12, label %10
+"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7": ; preds = %11, %9
+  %.sroa.0.1 = phi i64 [ %5, %8 ], [ %12, %11 ]
+  %8 = icmp eq i64 %.sroa.0.1, %1
+  br i1 %8, label %14, label %11
 
-8:                                                ; preds = %4
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %4
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7"
 
-10:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7"
-  %11 = add i64 %.sroa.0.1, 1
-  %gep9 = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep, i64 0, i64 %.sroa.0.1
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %gep9)
-          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7" unwind label %13
+11:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7"
+  %12 = add i64 %.sroa.0.1, 1
+  %13 = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep, i64 0, i64 %.sroa.0.1
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %13)
+          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7" unwind label %15
 
-12:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7"
-  resume { ptr, i32 } %9
+14:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7"
+  resume { ptr, i32 } %10
 
-13:                                               ; preds = %10
-  %14 = landingpad { ptr, i32 }
+15:                                               ; preds = %11
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
@@ -15810,63 +15810,63 @@ define void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_back
 
 8:                                                ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit.i.i"
   %9 = add i64 %.sroa.0.0.i.i, 1
-  %gep.i.i = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep.i.i, i64 0, i64 %.sroa.0.0.i.i
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %gep.i.i)
-          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit.i.i" unwind label %11
+  %10 = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep.i.i, i64 0, i64 %.sroa.0.0.i.i
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %10)
+          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit.i.i" unwind label %12
 
-"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i.i": ; preds = %13, %11
-  %.sroa.0.1.i.i = phi i64 [ %9, %11 ], [ %14, %13 ]
-  %10 = icmp eq i64 %.sroa.0.1.i.i, %6
-  br i1 %10, label %.body, label %13
+"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i.i": ; preds = %14, %12
+  %.sroa.0.1.i.i = phi i64 [ %9, %12 ], [ %15, %14 ]
+  %11 = icmp eq i64 %.sroa.0.1.i.i, %6
+  br i1 %11, label %.body, label %14
 
-11:                                               ; preds = %8
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %8
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i.i"
 
-13:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i.i"
-  %14 = add i64 %.sroa.0.1.i.i, 1
-  %gep9.i.i = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep.i.i, i64 0, i64 %.sroa.0.1.i.i
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %gep9.i.i)
-          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i.i" unwind label %15
+14:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i.i"
+  %15 = add i64 %.sroa.0.1.i.i, 1
+  %16 = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep.i.i, i64 0, i64 %.sroa.0.1.i.i
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %16)
+          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i.i" unwind label %17
 
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %14
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i.i"
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..raw_vec..RawVec$LT$pyo3_macros_backend..params..GilRefChecker$GT$$GT$17hb4a8461a29a6018fE"(ptr align 8 %0) #9
-          to label %25 unwind label %23
+          to label %25 unwind label %25
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5395726b99aae10cE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6935b69c8b9fc569E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr align 8 %0)
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load i64, ptr %17, align 8
-  %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %"_ZN4core3ptr93drop_in_place$LT$alloc..raw_vec..RawVec$LT$pyo3_macros_backend..params..GilRefChecker$GT$$GT$17hb4a8461a29a6018fE.exit", label %19
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %20 = load i64, ptr %19, align 8
+  %.not.i.i = icmp eq i64 %20, 0
+  br i1 %.not.i.i, label %"_ZN4core3ptr93drop_in_place$LT$alloc..raw_vec..RawVec$LT$pyo3_macros_backend..params..GilRefChecker$GT$$GT$17hb4a8461a29a6018fE.exit", label %21
 
-19:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5395726b99aae10cE.exit"
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %22 = load i64, ptr %21, align 8
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %5, ptr %20, i64 %18, i64 %22)
+21:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5395726b99aae10cE.exit"
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load i64, ptr %23, align 8
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %5, ptr %22, i64 %20, i64 %24)
   br label %"_ZN4core3ptr93drop_in_place$LT$alloc..raw_vec..RawVec$LT$pyo3_macros_backend..params..GilRefChecker$GT$$GT$17hb4a8461a29a6018fE.exit"
 
-"_ZN4core3ptr93drop_in_place$LT$alloc..raw_vec..RawVec$LT$pyo3_macros_backend..params..GilRefChecker$GT$$GT$17hb4a8461a29a6018fE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5395726b99aae10cE.exit", %19
+"_ZN4core3ptr93drop_in_place$LT$alloc..raw_vec..RawVec$LT$pyo3_macros_backend..params..GilRefChecker$GT$$GT$17hb4a8461a29a6018fE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5395726b99aae10cE.exit", %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 
-23:                                               ; preds = %.body
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %.body
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-25:                                               ; preds = %.body
-  resume { ptr, i32 } %12
+27:                                               ; preds = %.body
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -20070,31 +20070,31 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 
 7:                                                ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit.i"
   %8 = add i64 %.sroa.0.0.i, 1
-  %gep.i = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep.i, i64 0, i64 %.sroa.0.0.i
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %gep.i)
-          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit.i" unwind label %10
+  %9 = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep.i, i64 0, i64 %.sroa.0.0.i
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %9)
+          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit.i" unwind label %11
 
-"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i": ; preds = %12, %10
-  %.sroa.0.1.i = phi i64 [ %8, %10 ], [ %13, %12 ]
-  %9 = icmp eq i64 %.sroa.0.1.i, %5
-  br i1 %9, label %14, label %12
+"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i": ; preds = %13, %11
+  %.sroa.0.1.i = phi i64 [ %8, %11 ], [ %14, %13 ]
+  %10 = icmp eq i64 %.sroa.0.1.i, %5
+  br i1 %10, label %16, label %13
 
-10:                                               ; preds = %7
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i"
 
-12:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i"
-  %13 = add i64 %.sroa.0.1.i, 1
-  %gep9.i = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep.i, i64 0, i64 %.sroa.0.1.i
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %gep9.i)
-          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i" unwind label %15
+13:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i"
+  %14 = add i64 %.sroa.0.1.i, 1
+  %15 = getelementptr [0 x { i64, [3 x i64] }], ptr %invariant.gep.i, i64 0, i64 %.sroa.0.1.i
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %15)
+          to label %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i" unwind label %17
 
-14:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i"
-  resume { ptr, i32 } %11
+16:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..params..GilRefChecker$GT$17hcb2b9460cc4231efE.exit7.i"
+  resume { ptr, i32 } %12
 
-15:                                               ; preds = %12
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable

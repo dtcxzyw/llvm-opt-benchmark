@@ -19483,13 +19483,13 @@ _ZN9itertools9Itertools13sorted_by_key17h0798b5eb764f287bE.exit: ; preds = %4, %
 128:                                              ; preds = %123
   %129 = add nuw nsw i64 %116, 288230376151711743
   %130 = and i64 %129, 288230376151711743
-  %invariant.gep.i.i.i = getelementptr i8, ptr %125, i64 112
+  %invariant.gep.i = getelementptr i8, ptr %125, i64 112
   br label %131
 
 131:                                              ; preds = %.noexc174, %128
   %.sroa.07.0.i.i.i = phi i64 [ %.val.i.i, %128 ], [ %.sroa.0.0.i.i.i.i.i.i, %.noexc174 ]
   %.sroa.09.0.i.i.i = phi i64 [ 0, %128 ], [ %134, %.noexc174 ]
-  %gep.i.i.i = getelementptr { { ptr, i64 }, { ptr, [3 x i64] }, i64, i8, [7 x i8] }, ptr %invariant.gep.i.i.i, i64 %.sroa.09.0.i.i.i
+  %gep.i.i.i = getelementptr { { ptr, i64 }, { ptr, [3 x i64] }, i64, i8, [7 x i8] }, ptr %invariant.gep.i, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %gep.i.i.i, align 8, !noundef !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26), !noalias !2815
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27), !noalias !2815

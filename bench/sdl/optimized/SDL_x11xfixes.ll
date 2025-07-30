@@ -32,14 +32,14 @@ define hidden void @X11_InitXfixes(ptr noundef readonly captures(none) %0) local
   %10 = load i64, ptr %9, align 8
   %11 = load i32, ptr @SDL_X11_HAVE_XFIXES, align 4
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %43, label %12
+  br i1 %.not, label %41, label %12
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr @X11_XQueryExtension, align 8
   %14 = load ptr, ptr %8, align 8
   %15 = call i32 %13(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %.not11 = icmp eq i32 %15, 0
-  br i1 %.not11, label %43, label %16
+  br i1 %.not11, label %41, label %16
 
 16:                                               ; preds = %12
   %17 = load i32, ptr %4, align 4
@@ -71,13 +71,13 @@ define hidden void @X11_InitXfixes(ptr noundef readonly captures(none) %0) local
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 5, ptr %2, align 4
   store i32 0, ptr %3, align 4
-  %41 = load ptr, ptr @X11_XFixesQueryVersion, align 8
-  %42 = call i32 %41(ptr noundef %40, ptr noundef nonnull %2, ptr noundef nonnull %3) #7
+  %39 = load ptr, ptr @X11_XFixesQueryVersion, align 8
+  %40 = call i32 %41(ptr noundef %40, ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %43
+  br label %41
 
-43:                                               ; preds = %16, %1, %12
+41:                                               ; preds = %16, %1, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7

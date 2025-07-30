@@ -99,7 +99,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %5, %for.inc ], [ %1, %entry ]
   %i.011 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %i.011
+  %second = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %i.011
   %second = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %3 = load ptr, ptr %second, align 8
   invoke void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -846,9 +846,9 @@ _ZN3re28PODArrayIPNS_6RegexpEEC2Ei.exit:          ; preds = %"_ZSt4sortIN9__gnu_
   %call5.i3.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i8) #22
   %cmp24.not = icmp eq i32 %11, 0
   %.pre = load ptr, ptr %elem_, align 8
-  br i1 %cmp24.not, label %for.end, label %invoke.cont21.lr.ph
+  br i1 %cmp24.not, label %for.end, label %invoke.cont21
 
-invoke.cont21.lr.ph:                              ; preds = %_ZN3re28PODArrayIPNS_6RegexpEEC2Ei.exit
+invoke.cont21:                                    ; preds = %_ZN3re28PODArrayIPNS_6RegexpEEC2Ei.exit
   %invariant.gep = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   br label %invoke.cont21
 

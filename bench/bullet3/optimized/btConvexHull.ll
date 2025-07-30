@@ -639,8 +639,8 @@ _ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i: ; preds = %70, %_ZNK
 
 73:                                               ; preds = %73, %.lr.ph.i29
   %indvars.iv.i31 = phi i64 [ %72, %.lr.ph.i29 ], [ %indvars.iv.next.i32, %73 ]
-  %gep = getelementptr %class.btPlane, ptr %invariant.gep, i64 %indvars.iv.i31
-  store float 0.000000e+00, ptr %gep, align 4, !tbaa !4
+  %.sroa.4.0..sroa_idx = getelementptr %class.btPlane, ptr %invariant.gep, i64 %indvars.iv.i31
+  store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4
   %indvars.iv.next.i32 = add nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i30
   br i1 %exitcond.not.i33, label %.loopexit, label %73, !llvm.loop !43

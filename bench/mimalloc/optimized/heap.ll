@@ -880,15 +880,15 @@ define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(a
   %21 = load i64, ptr %20, align 16, !tbaa !61
   %22 = lshr i64 %19, %21
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 160
-  %24 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %23, i64 0, i64 %22
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %26 = load atomic i64, ptr %25 monotonic, align 8
-  %27 = inttoptr i64 %26 to ptr
-  %28 = icmp eq ptr %0, %27
+  %23 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %23, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %25 = load atomic i64, ptr %24 monotonic, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %27 = icmp eq ptr %0, %26
   br label %mi_heap_of_block.exit
 
 mi_heap_of_block.exit:                            ; preds = %18, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ %28, %18 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %2 ], [ %27, %18 ], [ false, %6 ]
   ret i1 %.0
 }
 

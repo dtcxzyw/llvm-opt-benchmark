@@ -1203,8 +1203,8 @@ compile_file.exit:                                ; preds = %187, %190, %195
   br i1 %.not134, label %215, label %211
 
 211:                                              ; preds = %207
-  %gep = getelementptr inbounds nuw [11 x %struct.FeatureEntry], ptr getelementptr inbounds nuw (i8, ptr @feature_list, i64 8), i64 0, i64 %indvars.iv239
-  %212 = load ptr, ptr %gep, align 8, !tbaa !39
+  %212 = getelementptr inbounds nuw [11 x %struct.FeatureEntry], ptr getelementptr inbounds nuw (i8, ptr @feature_list, i64 8), i64 0, i64 %indvars.iv239
+  %213 = load ptr, ptr %212, align 8, !tbaa !39
   %.not135 = icmp eq ptr %212, null
   br i1 %.not135, label %215, label %213
 

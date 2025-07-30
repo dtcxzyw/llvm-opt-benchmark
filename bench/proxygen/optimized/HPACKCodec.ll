@@ -2518,16 +2518,16 @@ _ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit: ; preds = %entry,
 for.body:                                         ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit, %for.body
   %i.032 = phi i64 [ %inc, %for.body ], [ 0, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit ]
   %2 = load ptr, ptr %head_, align 8
-  %arrayidx = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %2, i64 %i.032
+  %node = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %2, i64 %i.032
   %node = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %conv = trunc i64 %i.032 to i32
   %bf.value.i = and i32 %conv, 2147483647
   store i32 %bf.value.i, ptr %node, align 8
-  %next.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
+  %next.i = getelementptr inbounds nuw i8, ptr %node, i64 48
   store ptr %head_, ptr %next.i, align 8
-  %prev.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
+  %prev.i = getelementptr inbounds nuw i8, ptr %node, i64 40
   store ptr %head_, ptr %prev.i, align 8
-  %parent.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
+  %parent.i = getelementptr inbounds nuw i8, ptr %node, i64 32
   store ptr %head_, ptr %parent.i, align 8
   %inc = add nuw i64 %i.032, 1
   %exitcond.not = icmp eq i64 %inc, %1
@@ -2556,7 +2556,7 @@ _ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit21: ; preds = %for.
 for.body8:                                        ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit21, %for.inc20
   %i5.034 = phi i64 [ %inc21, %for.inc20 ], [ 0, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit21 ]
   %6 = load ptr, ptr %call3, align 8
-  %arrayidx10 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %6, i64 %i5.034
+  %node11 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %6, i64 %i5.034
   %node11 = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 24
   %bf.load.i = load i32, ptr %node11, align 8
   %bf.cast.i = icmp slt i32 %bf.load.i, 0
@@ -2566,12 +2566,12 @@ if.then:                                          ; preds = %for.body8
   %conv16 = trunc i64 %i5.034 to i32
   %bf.set5.i = or i32 %conv16, -2147483648
   store i32 %bf.set5.i, ptr %node11, align 8
-  %parent.i23 = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 32
+  %parent.i23 = getelementptr inbounds nuw i8, ptr %node11, i64 32
   store ptr %call3, ptr %parent.i23, align 8
-  %prev.i24 = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 40
+  %prev.i24 = getelementptr inbounds nuw i8, ptr %node11, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev.i24, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %call3, align 8
-  %arrayidx18 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %7, i64 %i5.034
+  %node19 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %7, i64 %i5.034
   %node19 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 24
   tail call void @_ZN5folly18threadlocal_detail15ThreadEntryNode10initIfZeroEb(ptr noundef nonnull align 8 dereferenceable(32) %node19, i1 noundef zeroext false)
   br label %for.inc20

@@ -3937,7 +3937,7 @@ define linkonce_odr dso_local void @_ZN12SubstVisitor5visitEP10AstWordSel(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %158, label %8
+  br i1 %.not, label %156, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4235,26 +4235,26 @@ _ZNK13SubstVarEntry11getWordStepEi.exit:          ; preds = %_ZNK13SubstVarEntry
 
 150:                                              ; preds = %144, %145
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
-  br label %158
+  br label %156
 
 _ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread: ; preds = %_ZN12SubstVisitor9getEntrypEP9AstVarRef.exit._ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread_crit_edge, %106, %_ZN13SubstVarEntry9substWordEP7AstNodei.exit
   %.pre-phi = phi i64 [ %.pre49, %_ZN12SubstVisitor9getEntrypEP9AstVarRef.exit._ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread_crit_edge ], [ %107, %106 ], [ %107, %_ZN13SubstVarEntry9substWordEP7AstNodei.exit ]
-  %151 = phi ptr [ %.pre, %_ZN12SubstVisitor9getEntrypEP9AstVarRef.exit._ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread_crit_edge ], [ %108, %106 ], [ %108, %_ZN13SubstVarEntry9substWordEP7AstNodei.exit ]
-  %152 = getelementptr inbounds nuw %class.SubstVarWord, ptr %151, i64 %.pre-phi
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 12
+  %150 = phi ptr [ %.pre, %_ZN12SubstVisitor9getEntrypEP9AstVarRef.exit._ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread_crit_edge ], [ %108, %106 ], [ %108, %_ZN13SubstVarEntry9substWordEP7AstNodei.exit ]
+  %151 = getelementptr inbounds nuw %class.SubstVarWord, ptr %150, i64 %.pre-phi
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 12
   store i8 1, ptr %153, align 4, !tbaa !131
   %154 = getelementptr inbounds nuw i8, ptr %100, i64 9
   store i8 1, ptr %154, align 1, !tbaa !190
   br label %158
 
 .critedge:                                        ; preds = %25, %33, %_ZN12SubstVisitor10isSubstVarEP6AstVar.exit, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit
-  %155 = load ptr, ptr %15, align 8, !tbaa !15
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 288
-  %157 = load ptr, ptr %156, align 8
+  %153 = load ptr, ptr %15, align 8, !tbaa !15
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 288
+  %155 = load ptr, ptr %154, align 8
   tail call void %157(ptr noundef nonnull align 8 dereferenceable(152) %15, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br label %158
+  br label %156
 
-158:                                              ; preds = %.critedge, %_ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread, %150, %2
+156:                                              ; preds = %.critedge, %_ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread, %150, %2
   ret void
 }
 
@@ -5735,23 +5735,23 @@ _ZNK13SubstVarEntry14getWordAssignpEi.exit:       ; preds = %_ZNK13SubstVarEntry
   br i1 %.not, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, label %18
 
 _ZNK13SubstVarEntry14getWordAssignpEi.exit.thread: ; preds = %_ZNK13SubstVarEntry14getWordAssignpEi.exit
-  %.phi.trans.insert8 = getelementptr inbounds nuw i8, ptr %15, i64 13
-  %.pre9 = load i8, ptr %.phi.trans.insert8, align 1, !tbaa !133, !range !57
-  %17 = trunc nuw i8 %.pre9 to i1
+  %.phi.trans.insert7 = getelementptr inbounds nuw i8, ptr %15, i64 13
+  %.pre8 = load i8, ptr %.phi.trans.insert7, align 1, !tbaa !133, !range !57
+  %17 = trunc nuw i8 %.pre8 to i1
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit, %_ZNK13SubstVarEntry9wordNumOkEi.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 29
   store i8 1, ptr %19, align 1, !tbaa !167
-  %.phi.trans.insert10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre11 = load ptr, ptr %.phi.trans.insert10, align 8, !tbaa !130
+  %.phi.trans.insert9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.pre10 = load ptr, ptr %.phi.trans.insert9, align 8, !tbaa !130
   %.pre13 = sext i32 %1 to i64
   br label %20
 
 20:                                               ; preds = %18, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread
-  %.pre-phi14 = phi i64 [ %.pre13, %18 ], [ %13, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread ]
+  %21 = phi i64 [ %.pre13, %18 ], [ %13, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread ]
   %21 = phi ptr [ %.pre11, %18 ], [ %14, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread ]
-  %22 = getelementptr inbounds nuw %class.SubstVarWord, ptr %21, i64 %.pre-phi14
+  %23 = getelementptr inbounds nuw %class.SubstVarWord, ptr %21, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 13
   store i8 1, ptr %23, align 1, !tbaa !133
   ret void
@@ -5787,9 +5787,9 @@ _ZNK13SubstVarEntry14getWordAssignpEi.exit:       ; preds = %_ZNK13SubstVarEntry
   br i1 %.not, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, label %20
 
 _ZNK13SubstVarEntry14getWordAssignpEi.exit.thread: ; preds = %_ZNK13SubstVarEntry14getWordAssignpEi.exit
-  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %17, i64 13
-  %.pre15 = load i8, ptr %.phi.trans.insert14, align 1, !tbaa !133, !range !57
-  %19 = trunc nuw i8 %.pre15 to i1
+  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %17, i64 13
+  %.pre14 = load i8, ptr %.phi.trans.insert13, align 1, !tbaa !133, !range !57
+  %19 = trunc nuw i8 %.pre14 to i1
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit, %_ZNK13SubstVarEntry9wordNumOkEi.exit

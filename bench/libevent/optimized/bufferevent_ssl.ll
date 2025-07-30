@@ -2263,33 +2263,33 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   %.172166 = phi i32 [ %.172, %89 ], [ %.172, %.thread ], [ 1, %.split131.us ]
   %.175 = phi i32 [ %93, %89 ], [ %.074.ph121, %.thread ], [ %12, %.split131.us ]
   %.not90 = icmp eq i32 %.175, 0
-  br i1 %.not90, label %.loopexit, label %94
+  br i1 %.not90, label %.loopexit, label %93
 
-94:                                               ; preds = %.thread.thread
-  %95 = call i32 @evbuffer_commit_space(ptr noundef %5, ptr noundef nonnull %3, i32 noundef %.175) #7
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %97 = load ptr, ptr %96, align 8
-  %.not91 = icmp eq ptr %97, null
-  br i1 %.not91, label %.loopexit, label %98
+93:                                               ; preds = %.thread.thread
+  %94 = call i32 @evbuffer_commit_space(ptr noundef %5, ptr noundef nonnull %3, i32 noundef %.175) #7
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %96 = load ptr, ptr %95, align 8
+  %.not91 = icmp eq ptr %96, null
+  br i1 %.not91, label %.loopexit, label %97
 
-98:                                               ; preds = %94
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %100 = load i64, ptr %99, align 8
-  %.not92 = icmp eq i64 %100, 0
-  br i1 %.not92, label %101, label %104
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %99 = load i64, ptr %98, align 8
+  %.not92 = icmp eq i64 %99, 0
+  br i1 %.not92, label %100, label %103
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %103 = load i64, ptr %102, align 8
-  %.not93 = icmp eq i64 %103, 0
-  br i1 %.not93, label %.loopexit, label %104
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %102 = load i64, ptr %101, align 8
+  %.not93 = icmp eq i64 %102, 0
+  br i1 %.not93, label %.loopexit, label %103
 
-104:                                              ; preds = %101, %98
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %106 = call i32 @event_add(ptr noundef nonnull %105, ptr noundef nonnull %99) #7
+103:                                              ; preds = %100, %97
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = call i32 @event_add(ptr noundef nonnull %104, ptr noundef nonnull %98) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %38, %.preheader, %68, %81, %.thread.thread, %101, %104, %94, %8, %2
+.loopexit:                                        ; preds = %38, %.preheader, %68, %81, %.thread.thread, %100, %103, %93, %8, %2
   %.0 = phi i32 [ 0, %2 ], [ 4, %8 ], [ %.172166, %94 ], [ %.172166, %104 ], [ %.172166, %101 ], [ %.172166, %.thread.thread ], [ %69, %68 ], [ %82, %81 ], [ 0, %.preheader ], [ 5, %38 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
   ret i32 %.0

@@ -332,7 +332,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %or.cond = select i1 %38, i1 true, i1 %39
   br i1 %or.cond, label %41, label %40
 
-40:                                               ; preds = %10
+40:; preds = %10
   tail call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.8) #14
   br label %59
 
@@ -340,7 +340,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %42 = icmp sgt i32 %34, 1023
   br i1 %42, label %59, label %43
 
-43:                                               ; preds = %41
+42:                                               ; preds = %41
   %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef %24, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #14
   %45 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %32, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #14
   %46 = load i32, ptr %14, align 8, !tbaa !24
@@ -350,8 +350,8 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   store ptr %33, ptr %49, align 8, !tbaa !37
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i32 %3, ptr %50, align 4, !tbaa !38
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store i32 %4, ptr %51, align 8, !tbaa !39
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  store i32 %4, ptr %49, align 8, !tbaa !39
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store double %5, ptr %52, align 8, !tbaa !40
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -361,13 +361,13 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store double %8, ptr %55, align 8, !tbaa !43
   %56 = sitofp i64 %9 to double
-  %57 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  store double %56, ptr %57, align 8, !tbaa !44
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 64
+  store double %56, ptr %55, align 8, !tbaa !44
   %58 = add nsw i32 %46, 1
   store i32 %58, ptr %14, align 8, !tbaa !24
   br label %59
 
-59:                                               ; preds = %41, %43, %40
+59:; preds = %41, %43, %40
   %.0 = phi i32 [ 0, %43 ], [ -9992, %40 ], [ -9985, %41 ]
   ret i32 %.0
 }

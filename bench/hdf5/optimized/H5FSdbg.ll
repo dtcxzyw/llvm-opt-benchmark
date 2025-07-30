@@ -194,18 +194,18 @@ define range(i32 -1, 1) i32 @H5FS_sect_debug(ptr noundef readonly captures(none)
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %30, label %23
 
-23:                                               ; preds = %14
+23:; preds = %14
   %24 = tail call i32 %22(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %30
 
-26:                                               ; preds = %23
+26:; preds = %23
   %27 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !20
   %28 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !20
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FS_sect_debug, i32 noundef 176, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.25) #7
   br label %30
 
-30:                                               ; preds = %26, %23, %14, %11
+30:; preds = %26, %23, %14, %11
   %.0 = phi i32 [ -1, %26 ], [ 0, %23 ], [ 0, %14 ], [ 0, %11 ]
   ret i32 %.0
 }

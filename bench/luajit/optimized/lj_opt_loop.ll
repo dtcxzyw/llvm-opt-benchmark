@@ -155,7 +155,7 @@ lj_snap_grow_buf.exit.i:                          ; preds = %29, %3
   %46 = icmp ugt i32 %43, %45
   br i1 %46, label %47, label %lj_snap_grow_map.exit.i, !prof !55
 
-47:                                               ; preds = %lj_snap_grow_buf.exit.i
+47: ; preds = %lj_snap_grow_buf.exit.i
   tail call void @lj_snap_grow_map_(ptr noundef nonnull %5, i32 noundef %43) #4
   %.pre.i = load ptr, ptr %34, align 8, !tbaa !56
   %.phi.trans.insert.i = getelementptr inbounds nuw %struct.SnapShot, ptr %.pre.i, i64 %37
@@ -164,15 +164,15 @@ lj_snap_grow_buf.exit.i:                          ; preds = %29, %3
   br label %lj_snap_grow_map.exit.i
 
 lj_snap_grow_map.exit.i:                          ; preds = %47, %lj_snap_grow_buf.exit.i
-  %48 = phi i8 [ %40, %lj_snap_grow_buf.exit.i ], [ %.pre199.i, %47 ]
+  %47 = phi i8 [ %40, %lj_snap_grow_buf.exit.i ], [ %.pre199.i, %47 ]
   %49 = phi ptr [ %35, %lj_snap_grow_buf.exit.i ], [ %.pre.i, %47 ]
-  %50 = getelementptr inbounds nuw %struct.SnapShot, ptr %49, i64 %37
+  %49 = getelementptr inbounds nuw %struct.SnapShot, ptr %49, i64 %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %52 = load ptr, ptr %51, align 8, !tbaa !60
+  %51 = load ptr, ptr %51, align 8, !tbaa !60
   %53 = load i32, ptr %50, align 4, !tbaa !61
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %52, i64 %54
-  %56 = zext i8 %48 to i64
+  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %54
+  %56 = zext i8 %47 to i64
   %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
   store i32 -16777216, ptr %57, align 4, !tbaa !62
   %58 = icmp ugt i32 %7, 32769
@@ -447,22 +447,22 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
 
 210:                                              ; preds = %206
   %211 = icmp samesign ult i32 %203, 32768
-  %.phi.trans.insert202.i = getelementptr inbounds nuw i8, ptr %208, i64 4
-  %.pre203.i = load i8, ptr %.phi.trans.insert202.i, align 4, !tbaa !53
-  br i1 %211, label %._crit_edge201.i, label %212
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %208, i64 4
+  %.pre200.i = load i8, ptr %.phi.trans.insert.i, align 4, !tbaa !53
+  br i1 %211, label %._crit_edge199.i, label %212
 
 212:                                              ; preds = %210
-  %213 = zext i8 %.pre203.i to i32
+  %213 = zext i8 %.pre200.i to i32
   %214 = and i32 %213, 64
   %.not155.i = icmp ne i32 %214, 0
   %215 = and i32 %213, 31
   %216 = icmp samesign ult i32 %215, 3
   %or.cond158.i = select i1 %.not155.i, i1 true, i1 %216
-  br i1 %or.cond158.i, label %._crit_edge201.i, label %217
+  br i1 %or.cond158.i, label %._crit_edge199.i, label %217
 
 217:                                              ; preds = %212
-  %218 = or i8 %.pre203.i, 64
-  store i8 %218, ptr %.phi.trans.insert202.i, align 4, !tbaa !53
+  %218 = or i8 %.pre200.i, 64
+  store i8 %218, ptr %.phi.trans.insert.i, align 4, !tbaa !53
   %219 = icmp ugt i32 %.0137188.i, 63
   br i1 %219, label %220, label %221
 
@@ -475,10 +475,10 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %223 = zext nneg i32 %.0137188.i to i64
   %224 = getelementptr inbounds nuw [64 x i16], ptr %4, i64 0, i64 %223
   store i16 %202, ptr %224, align 2, !tbaa !52
-  br label %._crit_edge201.i
+  br label %._crit_edge199.i
 
-._crit_edge201.i:                                 ; preds = %221, %212, %210
-  %225 = phi i8 [ %.pre203.i, %212 ], [ %218, %221 ], [ %.pre203.i, %210 ]
+._crit_edge199.i:                                 ; preds = %221, %212, %210
+  %225 = phi i8 [ %.pre200.i, %212 ], [ %218, %221 ], [ %.pre200.i, %210 ]
   %.3.i = phi i32 [ %.0137188.i, %212 ], [ %222, %221 ], [ %.0137188.i, %210 ]
   %226 = zext i8 %.sroa.0.0.copyload.i to i32
   %227 = zext i8 %225 to i32
@@ -487,7 +487,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %.thread171.i, label %231
 
-231:                                              ; preds = %._crit_edge201.i
+231:                                              ; preds = %._crit_edge199.i
   %232 = and i32 %226, 31
   %233 = add nsw i32 %232, -15
   %234 = icmp ult i32 %233, 5
@@ -519,9 +519,9 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   unreachable
 
 247:                                              ; preds = %245, %241
-  %.sink213.i = phi i16 [ 23310, %241 ], [ 23443, %245 ]
+  %.sink210.i = phi i16 [ 23310, %241 ], [ 23443, %245 ]
   %.sink.i = phi i16 [ 467, %241 ], [ 12910, %245 ]
-  store i16 %.sink213.i, ptr %18, align 4, !tbaa !53
+  store i16 %.sink210.i, ptr %18, align 4, !tbaa !53
   store i16 %202, ptr %17, align 8, !tbaa !53
   store i16 %.sink.i, ptr %19, align 2, !tbaa !53
   %248 = tail call i32 @lj_opt_fold(ptr noundef nonnull %5) #4
@@ -603,7 +603,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   store i16 %282, ptr %285, align 2, !tbaa !52
   br label %.thread171.i
 
-.thread171.i:                                     ; preds = %281, %273, %270, %262, %258, %255, %253, %235, %._crit_edge201.i, %197, %194
+.thread171.i:                                     ; preds = %281, %273, %270, %262, %258, %255, %253, %235, %._crit_edge199.i, %197, %194
   %.8.i = phi i32 [ %.0137188.i, %194 ], [ %.0137188.i, %197 ], [ %.3.i, %235 ], [ %.3.i, %._crit_edge201.i ], [ %.5.i, %270 ], [ %.5.i, %273 ], [ %283, %281 ], [ %.0137188.i, %262 ], [ %.0137188.i, %253 ], [ %.0137188.i, %258 ], [ %.0137188.i, %255 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -614,7 +614,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %286 = getelementptr inbounds nuw i8, ptr %5, i64 182
   %287 = load i8, ptr %286, align 2, !tbaa !67
   %.not.i = icmp sgt i8 %287, -1
-  %.pre204.i = load ptr, ptr %34, align 8, !tbaa !56
+  %.pre201.i = load ptr, ptr %34, align 8, !tbaa !56
   br i1 %.not.i, label %288, label %294
 
 288:                                              ; preds = %._crit_edge.i
@@ -622,14 +622,14 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %290 = add i16 %289, -1
   store i16 %290, ptr %21, align 2, !tbaa !27
   %291 = zext i16 %290 to i64
-  %292 = getelementptr inbounds nuw %struct.SnapShot, ptr %.pre204.i, i64 %291
+  %292 = getelementptr inbounds nuw %struct.SnapShot, ptr %.pre201.i, i64 %291
   %293 = load i32, ptr %292, align 4, !tbaa !61
   store i32 %293, ptr %30, align 4, !tbaa !28
   br label %294
 
 294:                                              ; preds = %288, %._crit_edge.i
   %295 = load ptr, ptr %51, align 8, !tbaa !60
-  %296 = getelementptr inbounds nuw i8, ptr %.pre204.i, i64 10
+  %296 = getelementptr inbounds nuw i8, ptr %.pre201.i, i64 10
   %297 = load i8, ptr %296, align 2, !tbaa !57
   %298 = zext i8 %297 to i64
   %299 = getelementptr inbounds nuw i32, ptr %295, i64 %298

@@ -1006,13 +1006,13 @@ define internal fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8alloca
   %31 = getelementptr i8, ptr %0, i64 8
   %.val4.i = load i64, ptr %31, align 8, !noalias !130
   %32 = icmp eq ptr %.val.i, null
-  br i1 %32, label %49, label %33
+  br i1 %32, label %49, label %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
 
-33:                                               ; preds = %.noexc
+"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i": ; preds = %.noexc
   %invariant.gep.i.i.i.i = getelementptr i8, ptr %.val.i, i64 48
-  br label %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
+  br label %34
 
-"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i": ; preds = %35, %33
+"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i":; preds = %35, %33
   %.0.i.i.i.i = phi i64 [ 0, %33 ], [ %36, %35 ]
   %34 = icmp eq i64 %.0.i.i.i.i, %.val4.i
   br i1 %34, label %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i", label %35

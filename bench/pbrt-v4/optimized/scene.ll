@@ -24049,7 +24049,7 @@ _ZNSt12shared_mutex11lock_sharedEv.exit._crit_edge: ; preds = %_ZNSt12shared_mut
 _ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit: ; preds = %31
   %.sroa.03.0.copyload = load i64, ptr %33, align 8, !tbaa !156
   %37 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.02.0.copyload
-  br i1 %37, label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit32, label %79
+  br i1 %37, label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit32, label %72
 
 38:                                               ; preds = %31
   %39 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %0) #35
@@ -24090,13 +24090,13 @@ _ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit: ; pred
   br label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit33
 
 .preheader:                                       ; preds = %_ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit
-  %58 = load ptr, ptr %11, align 8, !tbaa !631
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %50 to i64
-  %61 = sub i64 %59, %60
-  %62 = sdiv exact i64 %61, 24
+  %54 = load ptr, ptr %11, align 8, !tbaa !631
+  %55 = ptrtoint ptr %54 to i64
+  %56 = ptrtoint ptr %50 to i64
+  %57 = sub i64 %55, %56
+  %58 = sdiv exact i64 %57, 24
   %invariant.gep = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %.rhs.trunc36 = trunc i64 %62 to i32
+  %.rhs.trunc36 = trunc i64 %58 to i32
   br label %63
 
 63:                                               ; preds = %.preheader, %69
@@ -24108,16 +24108,16 @@ _ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit: ; pred
   %.not = icmp ugt i64 %62, %66
   br i1 %.not, label %69, label %67
 
-67:                                               ; preds = %63
+65:                                               ; preds = %63
   %68 = urem i32 %64, %.rhs.trunc36
   %.pre = zext i32 %68 to i64
-  br label %69
+  br label %.loopexit
 
-69:                                               ; preds = %67, %63
-  %.pre-phi = phi i64 [ %.pre, %67 ], [ %66, %63 ]
+.loopexit:                                        ; preds = %67, %63
+  %.pre-phi60 = phi i64 [ %.pre, %67 ], [ %66, %63 ]
   %.3 = phi i32 [ %68, %67 ], [ %64, %63 ]
-  %gep = getelementptr inbounds nuw %"class.pstd::optional.475", ptr %invariant.gep, i64 %.pre-phi
-  %70 = load i8, ptr %gep, align 8, !tbaa !633, !range !168, !noundef !169
+  %70 = getelementptr inbounds nuw %"class.pstd::optional.475", ptr %invariant.gep, i64 %.pre-phi60
+  %70 = load i8, ptr %70, align 8, !tbaa !633, !range !168, !noundef !169
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %63, label %.loopexit, !llvm.loop !636
 
@@ -24146,22 +24146,22 @@ _ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5
   store i8 1, ptr %76, align 8, !tbaa !633
   br label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit32
 
-79:                                               ; preds = %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit
-  %80 = add i32 %.02546, %indvars58
+72:                                               ; preds = %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit
+  %73 = add i32 %.02546, %indvars58
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %81 = zext i32 %80 to i64
-  %.not31 = icmp ugt i64 %28, %81
-  br i1 %.not31, label %_ZNSt12shared_mutex11lock_sharedEv.exit, label %82
+  %74 = zext i32 %73 to i64
+  %.not31 = icmp ugt i64 %28, %74
+  br i1 %.not31, label %_ZNSt12shared_mutex11lock_sharedEv.exit, label %75
 
-82:                                               ; preds = %79
-  %83 = urem i32 %80, %.rhs.trunc
+75:                                               ; preds = %72
+  %76 = urem i32 %73, %.rhs.trunc
   br label %_ZNSt12shared_mutex11lock_sharedEv.exit
 
-_ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %82, %79
-  %.4 = phi i32 [ %83, %82 ], [ %80, %79 ]
+_ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %75, %72
+  %.4 = phi i32 [ %76, %82 ], [ %73, %79 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #35
-  %84 = trunc nuw i64 %indvars.iv.next to i32
-  store i32 %84, ptr %3, align 4, !tbaa !158
+  %77 = trunc nuw i64 %indvars.iv.next to i32
+  store i32 %77, ptr %3, align 4, !tbaa !158
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
   store i64 %28, ptr %4, align 8, !tbaa !156
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
@@ -24169,7 +24169,7 @@ _ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %82, %79
 
 _ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit32: ; preds = %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit, %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit33
   %.pn = phi ptr [ %77, %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit33 ], [ %33, %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit ]
-  %85 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %0) #35
+  %78 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %0) #35
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
   ret ptr %.0

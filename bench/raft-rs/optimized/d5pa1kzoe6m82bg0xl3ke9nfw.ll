@@ -749,14 +749,14 @@ _ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit: ; pr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load i8, ptr %23, align 8, !range !60, !noundef !3
   %.not = icmp eq i8 %24, 2
-  br i1 %.not, label %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread, label %37
+  br i1 %.not, label %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread, label %36
 
 25:                                               ; preds = %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit
   %26 = load i64, ptr %3, align 8, !noundef !3
   %27 = sub i64 %1, %26
   %28 = load i64, ptr %7, align 8, !noundef !3
   %29 = icmp ult i64 %27, %28
-  br i1 %29, label %30, label %36
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -766,27 +766,27 @@ _ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit: ; pr
   %35 = load i64, ptr %34, align 8, !noundef !3
   br label %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread
 
-36:                                               ; preds = %25
+35:                                               ; preds = %25
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %27, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.405696f00169ec64be3b53d97337bf05.33) #16
   unreachable
 
-37:                                               ; preds = %22
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = tail call noundef nonnull align 8 ptr @_ZN10raft_proto6protos7eraftpb8Snapshot12get_metadata17hc1182593ed535826E(ptr noundef nonnull align 8 %38)
-  %40 = load i64, ptr %39, align 8, !noundef !3
-  %41 = icmp eq i64 %1, %40
-  br i1 %41, label %44, label %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread
+36:                                               ; preds = %22
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %38 = tail call noundef nonnull align 8 ptr @_ZN10raft_proto6protos7eraftpb8Snapshot12get_metadata17hc1182593ed535826E(ptr noundef nonnull align 8 %37)
+  %39 = load i64, ptr %38, align 8, !noundef !3
+  %40 = icmp eq i64 %1, %39
+  br i1 %40, label %43, label %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread
 
-_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread: ; preds = %11, %37, %22, %30, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit, %44
-  %.sroa.7.1 = phi i64 [ %46, %44 ], [ %35, %30 ], [ undef, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit ], [ undef, %22 ], [ undef, %37 ], [ undef, %11 ]
+_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread: ; preds = %11, %36, %22, %30, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit, %43
+  %.sroa.7.1 = phi i64 [ %45, %44 ], [ %35, %30 ], [ undef, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit ], [ undef, %22 ], [ undef, %37 ], [ undef, %11 ]
   %.sroa.0.1 = phi i64 [ 1, %44 ], [ 1, %30 ], [ 0, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit ], [ 0, %22 ], [ 0, %37 ], [ 0, %11 ]
-  %42 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %43 = insertvalue { i64, i64 } %42, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %43
+  %41 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %42 = insertvalue { i64, i64 } %41, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %42
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %46 = load i64, ptr %45, align 8, !noundef !3
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %45 = load i64, ptr %44, align 8, !noundef !3
   br label %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread
 }
 

@@ -84,8 +84,8 @@ if.then.i:                                        ; preds = %for.cond.i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %gep.i = getelementptr [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %invariant.gep.i, i64 0, i64 %idxprom.i
-  store i8 1, ptr %gep.i, align 8, !noalias !8
+  %mbEscapePresent.i = getelementptr [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %invariant.gep.i, i64 0, i64 %idxprom.i
+  store i8 1, ptr %mbEscapePresent.i, align 8, !noalias !8
   br label %for.inc99.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1292,8 +1292,8 @@ if.then.i:                                        ; preds = %for.cond.i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %gep.i = getelementptr [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %invariant.gep.i, i64 0, i64 %idxprom.i
-  store i8 1, ptr %gep.i, align 8, !noalias !37
+  %mbEscapePresent.i = getelementptr [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %invariant.gep.i, i64 0, i64 %idxprom.i
+  store i8 1, ptr %mbEscapePresent.i, align 8, !noalias !37
   br label %for.inc99.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -2492,8 +2492,8 @@ if.then.i:                                        ; preds = %for.cond.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %gep.i = getelementptr [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %invariant.gep.i, i64 0, i64 %idxprom.i
-  store i8 1, ptr %gep.i, align 8, !noalias !65
+  %mbEscapePresent.i = getelementptr [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %invariant.gep.i, i64 0, i64 %idxprom.i
+  store i8 1, ptr %mbEscapePresent.i, align 8, !noalias !65
   br label %for.inc93.i
 
 if.else.i:                                        ; preds = %if.then.i

@@ -581,7 +581,7 @@ define i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   %invariant.gep = getelementptr i8, ptr %2, i64 8
   br label %9
 
-9:                                                ; preds = %.preheader, %9
+9:; preds = %.preheader, %9
   %.071 = phi i64 [ 0, %.preheader ], [ %12, %9 ]
   %.06070 = phi i64 [ 0, %.preheader ], [ %11, %9 ]
   %gep = getelementptr %struct.nghttp2_origin_entry, ptr %invariant.gep, i64 %.071

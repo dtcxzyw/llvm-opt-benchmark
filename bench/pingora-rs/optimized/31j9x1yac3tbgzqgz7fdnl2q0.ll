@@ -23,7 +23,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %invariant.gep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 32
   br label %5
 
-5:                                                ; preds = %5, %.lr.ph.i
+5:; preds = %5, %.lr.ph.i
   %6 = phi i64 [ %.sroa.4.0.copyload, %.lr.ph.i ], [ %8, %5 ]
   %.sroa.0.010.i = phi i64 [ %0, %.lr.ph.i ], [ %7, %5 ]
   %7 = add nuw i64 %.sroa.0.010.i, 1

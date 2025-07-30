@@ -2762,19 +2762,19 @@ define i32 @cli_map_getvalue_size(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !49
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %18
+  br i1 %.not, label %4, label %17
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !51
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %18, label %8
+  br i1 %7, label %17, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !52
   %.not9 = icmp ult i32 %6, %10
-  br i1 %.not9, label %11, label %18
+  br i1 %.not9, label %11, label %17
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2785,7 +2785,7 @@ define i32 @cli_map_getvalue_size(ptr noundef readonly captures(none) %0) local_
   %17 = load i32, ptr %16, align 8, !tbaa !55
   br label %18
 
-18:                                               ; preds = %4, %8, %1, %11
+17:                                               ; preds = %4, %8, %1, %11
   %.0 = phi i32 [ %17, %11 ], [ %3, %1 ], [ -1, %8 ], [ -1, %4 ]
   ret i32 %.0
 }

@@ -189,7 +189,7 @@ define hidden void @_ZN3ue217minimize_hopcroftERNS_7raw_dfaERKNS_4GreyE(ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 55
   %15 = load i8, ptr %14, align 1, !range !5, !noundef !6
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %801
+  br i1 %16, label %17, label %800
 
 17:                                               ; preds = %2
   %18 = tail call noundef zeroext i1 @_ZN3ue27is_deadERKNS_7raw_dfaE(ptr noundef nonnull align 8 dereferenceable(560) %0)
@@ -1807,7 +1807,7 @@ _ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i: ; preds = %615, %
 
 .noexc.i42:                                       ; preds = %629
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #21
-          to label %.noexc unwind label %802
+          to label %.noexc unwind label %801
 
 .noexc:                                           ; preds = %.noexc.i42
   unreachable
@@ -1819,7 +1819,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %629
 .noexc13.i:                                       ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i
   %631 = shl nuw nsw i64 %627, 1
   %632 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %631) #22
-          to label %.noexc43 unwind label %802
+          to label %.noexc43 unwind label %801
 
 .noexc43:                                         ; preds = %.noexc13.i
   store i16 0, ptr %632, align 2
@@ -2200,7 +2200,7 @@ _ZNSt6vectorItSaItEED2Ev.exit46.i.i:              ; preds = %759, %758, %650
   call void @_ZNSt3mapItmSt4lessItESaISt4pairIKtmEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
   %.not.i.i.i19.i = icmp eq ptr %.sroa.021.0.i, null
-  br i1 %.not.i.i.i19.i, label %.body, label %800
+  br i1 %.not.i.i.i19.i, label %.body, label %799
 
 760:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
@@ -2235,56 +2235,56 @@ _ZNSt6vectorItSaItEED2Ev.exit46.i.i:              ; preds = %759, %758, %650
   br i1 %778, label %.preheader.i16.i, label %_ZNSt6vectorItSaItEED2Ev.exit.i, !llvm.loop !87
 
 .lr.ph.i17.i:                                     ; preds = %.preheader.i16.i, %.lr.ph.i17.i
-  %.02526.i.i = phi i64 [ %787, %.lr.ph.i17.i ], [ 0, %.preheader.i16.i ]
-  %779 = load ptr, ptr %19, align 8
-  %780 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %779, i64 %.027.i.i
-  %781 = load ptr, ptr %780, align 8
-  %782 = getelementptr inbounds nuw i16, ptr %781, i64 %.02526.i.i
-  %783 = load i16, ptr %782, align 2
-  %784 = zext i16 %783 to i64
-  %785 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %784
-  %786 = load i16, ptr %785, align 2
-  store i16 %786, ptr %782, align 2
-  %787 = add nuw i64 %.02526.i.i, 1
-  %788 = load i64, ptr %13, align 8
-  %789 = icmp ult i64 %787, %788
-  br i1 %789, label %.lr.ph.i17.i, label %._crit_edge.i18.i, !llvm.loop !88
+  %.02526.i.i = phi i64 [ %786, %.lr.ph.i17.i ], [ 0, %.preheader.i16.i ]
+  %778 = load ptr, ptr %19, align 8
+  %779 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %778, i64 %.027.i.i
+  %780 = load ptr, ptr %779, align 8
+  %781 = getelementptr inbounds nuw i16, ptr %780, i64 %.02526.i.i
+  %782 = load i16, ptr %781, align 2
+  %783 = zext i16 %782 to i64
+  %784 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %783
+  %785 = load i16, ptr %784, align 2
+  store i16 %785, ptr %781, align 2
+  %786 = add nuw i64 %.02526.i.i, 1
+  %787 = load i64, ptr %13, align 8
+  %788 = icmp ult i64 %786, %787
+  br i1 %788, label %.lr.ph.i17.i, label %._crit_edge.i18.i, !llvm.loop !88
 
 _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %._crit_edge.i18.i, %760
-  %790 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %791 = load i16, ptr %790, align 2
-  %792 = zext i16 %791 to i64
-  %793 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %792
-  %794 = load i16, ptr %793, align 2
-  store i16 %794, ptr %790, align 2
-  %795 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %796 = load i16, ptr %795, align 8
-  %797 = zext i16 %796 to i64
-  %798 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %797
-  %799 = load i16, ptr %798, align 2
-  store i16 %799, ptr %795, align 8
+  %789 = getelementptr inbounds nuw i8, ptr %0, i64 42
+  %790 = load i16, ptr %789, align 2
+  %791 = zext i16 %790 to i64
+  %792 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %791
+  %793 = load i16, ptr %792, align 2
+  store i16 %793, ptr %789, align 2
+  %794 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %795 = load i16, ptr %794, align 8
+  %796 = zext i16 %795 to i64
+  %797 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %796
+  %798 = load i16, ptr %797, align 2
+  store i16 %798, ptr %794, align 8
   call void @_ZdlPv(ptr noundef nonnull %.sroa.021.0.i) #24
   br label %_ZN3ue2L7new_dfaERNS_7raw_dfaERKNS_12_GLOBAL__N_112HopcroftInfoE.exit
 
-800:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit46.i.i
+799:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit46.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.021.0.i) #24
   br label %.body
 
 _ZN3ue2L7new_dfaERNS_7raw_dfaERKNS_12_GLOBAL__N_112HopcroftInfoE.exit: ; preds = %_ZNSt6vectorItSaItEED2Ev.exit.i, %616
   call fastcc void @_ZN3ue212_GLOBAL__N_112HopcroftInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %13) #20
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %13) #20
-  br label %801
+  br label %800
 
-801:                                              ; preds = %2, %_ZN3ue2L7new_dfaERNS_7raw_dfaERKNS_12_GLOBAL__N_112HopcroftInfoE.exit
+800:                                              ; preds = %2, %_ZN3ue2L7new_dfaERNS_7raw_dfaERKNS_12_GLOBAL__N_112HopcroftInfoE.exit
   ret void
 
-802:                                              ; preds = %.noexc13.i, %.noexc.i42
-  %803 = landingpad { ptr, i32 }
+801:                                              ; preds = %.noexc13.i, %.noexc.i42
+  %802 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %802, %800, %_ZNSt6vectorItSaItEED2Ev.exit46.i.i, %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i ], [ %803, %802 ], [ %.pn37.pn.i.i, %800 ], [ %.pn37.pn.i.i, %_ZNSt6vectorItSaItEED2Ev.exit46.i.i ]
+.body:                                            ; preds = %801, %799, %_ZNSt6vectorItSaItEED2Ev.exit46.i.i, %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i ], [ %802, %802 ], [ %.pn37.pn.i.i, %800 ], [ %.pn37.pn.i.i, %_ZNSt6vectorItSaItEED2Ev.exit46.i.i ]
   call fastcc void @_ZN3ue212_GLOBAL__N_112HopcroftInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %13) #20
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %13) #20
   br label %common.resume

@@ -455,17 +455,17 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.018.i = phi i64 [ %2, %6 ], [ %12, %11 ]
-  %.017.i = phi i64 [ 0, %6 ], [ %13, %11 ]
-  %gep.i = getelementptr { { i64, ptr }, i64 }, ptr %invariant.gep.i, i64 %.017.i
-  %.val.i = load i64, ptr %gep.i, align 8, !noundef !4
-  %12 = add i64 %.val.i, %.018.i
-  %13 = add nuw i64 %.017.i, 1
-  %14 = icmp eq i64 %13, %10
-  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5334a18044d5485bE.llvm.16538095213602398362.exit", label %11
+  %.018.i = phi i64 [ %2, %6 ], [ %13, %11 ]
+  %.017.i = phi i64 [ 0, %6 ], [ %14, %11 ]
+  %12 = getelementptr { { i64, ptr }, i64 }, ptr %invariant.gep.i, i64 %.017.i
+  %.val.i = load i64, ptr %12, align 8, !noundef !4
+  %13 = add i64 %.val.i, %.018.i
+  %14 = add nuw i64 %.017.i, 1
+  %15 = icmp eq i64 %14, %10
+  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5334a18044d5485bE.llvm.16538095213602398362.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5334a18044d5485bE.llvm.16538095213602398362.exit": ; preds = %11, %3
-  %.0.i = phi i64 [ %2, %3 ], [ %12, %11 ]
+  %.0.i = phi i64 [ %2, %3 ], [ %13, %11 ]
   ret i64 %.0.i
 }
 
@@ -8577,17 +8577,17 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.018 = phi i64 [ %2, %6 ], [ %12, %11 ]
-  %.017 = phi i64 [ 0, %6 ], [ %13, %11 ]
-  %gep = getelementptr { { i64, ptr }, i64 }, ptr %invariant.gep, i64 %.017
-  %.val = load i64, ptr %gep, align 8, !noundef !4
-  %12 = add i64 %.val, %.018
-  %13 = add nuw i64 %.017, 1
-  %14 = icmp eq i64 %13, %10
-  br i1 %14, label %.loopexit, label %11
+  %.018 = phi i64 [ %2, %6 ], [ %13, %11 ]
+  %.017 = phi i64 [ 0, %6 ], [ %14, %11 ]
+  %12 = getelementptr { { i64, ptr }, i64 }, ptr %invariant.gep, i64 %.017
+  %.val = load i64, ptr %12, align 8, !noundef !4
+  %13 = add i64 %.val, %.018
+  %14 = add nuw i64 %.017, 1
+  %15 = icmp eq i64 %14, %10
+  br i1 %15, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %11, %3
-  %.0 = phi i64 [ %2, %3 ], [ %12, %11 ]
+  %.0 = phi i64 [ %2, %3 ], [ %13, %11 ]
   ret i64 %.0
 }
 

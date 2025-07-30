@@ -751,7 +751,7 @@ define internal void @gdb_chr_receive(ptr readnone captures(none) %0, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gdb_chr_event(ptr noundef captures(none) %0, i32 noundef %1) #2 {
   %cond = icmp eq i32 %1, 1
-  br i1 %cond, label %.preheader, label %19
+  br i1 %cond, label %.preheader, label %18
 
 .preheader:                                       ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4168
@@ -772,22 +772,22 @@ define internal void @gdb_chr_event(ptr noundef captures(none) %0, i32 noundef %
   %11 = zext i1 %.not to i8
   store i8 %11, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = load i32, ptr %3, align 8
-  %13 = sext i32 %12 to i64
-  %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %7, label %._crit_edge, !llvm.loop !11
+  %11 = load i32, ptr %3, align 8
+  %12 = sext i32 %11 to i64
+  %13 = icmp slt i64 %indvars.iv.next, %12
+  br i1 %13, label %7, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %7, %.preheader
-  %15 = tail call ptr @gdb_first_attached_cpu() #16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %17, align 8
-  %18 = tail call i32 @vm_stop(i32 noundef 4) #16
+  %14 = tail call ptr @gdb_first_attached_cpu() #16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %14, ptr %16, align 8
+  %17 = tail call i32 @vm_stop(i32 noundef 4) #16
   tail call void @replay_gdb_attached() #16
-  br label %19
+  br label %18
 
-19:                                               ; preds = %2, %._crit_edge
+18:                                               ; preds = %2, %._crit_edge
   ret void
 }
 

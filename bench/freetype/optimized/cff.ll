@@ -10040,14 +10040,14 @@ define internal fastcc void @cff_vstore_done(ptr noundef captures(none) %0, ptr 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr null, ptr %25, align 8, !tbaa !483
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %26 = load i32, ptr %0, align 8, !tbaa !477
-  %27 = zext i32 %26 to i64
-  %28 = icmp samesign ult i64 %indvars.iv.next33, %27
-  br i1 %28, label %.lr.ph28, label %.loopexit, !llvm.loop !614
+  %24 = load i32, ptr %0, align 8, !tbaa !477
+  %25 = zext i32 %24 to i64
+  %26 = icmp samesign ult i64 %indvars.iv.next33, %25
+  br i1 %26, label %.lr.ph28, label %.loopexit, !llvm.loop !614
 
 .loopexit:                                        ; preds = %.lr.ph28, %.preheader, %.loopexit25
-  %29 = phi ptr [ %17, %.preheader ], [ null, %.loopexit25 ], [ %23, %.lr.ph28 ]
-  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %29) #19
+  %27 = phi ptr [ %17, %.preheader ], [ null, %.loopexit25 ], [ %23, %.lr.ph28 ]
+  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %27) #19
   store ptr null, ptr %16, align 8, !tbaa !478
   ret void
 }

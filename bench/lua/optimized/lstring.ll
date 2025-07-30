@@ -777,19 +777,19 @@ define hidden ptr @luaS_newudata(ptr noundef %0, i64 noundef %1, i16 noundef zer
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %wide.trip.count = zext i16 %2 to i64
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %18
+19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %gep = getelementptr inbounds nuw [1 x %union.UValue], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [1 x %union.UValue], ptr %18, i64 0, i64 %indvars.iv
   store i8 0, ptr %gep, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18
+  br i1 %exitcond.not, label %._crit_edge, label %19
 
-._crit_edge:                                      ; preds = %18, %12
+._crit_edge:                                      ; preds = %19, %12
   ret ptr %14
 }
 

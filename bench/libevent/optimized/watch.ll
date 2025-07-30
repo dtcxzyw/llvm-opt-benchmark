@@ -137,9 +137,9 @@ define void @evwatch_free(ptr noundef %0) local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw [2 x %struct.evwatch_list], ptr %15, i64 0, i64 %18
   br label %20
 
-20:                                               ; preds = %9, %13
+20:; preds = %9, %13
   %.sink17 = phi ptr [ %19, %13 ], [ %10, %9 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
   store ptr %12, ptr %21, align 8
   %22 = load ptr, ptr %0, align 8
   store ptr %22, ptr %12, align 8
@@ -149,12 +149,12 @@ define void @evwatch_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not16 = icmp eq ptr %25, null
   br i1 %.not16, label %29, label %26
 
-26:                                               ; preds = %20
+26:; preds = %20
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %28 = tail call i32 %27(i32 noundef 0, ptr noundef nonnull %25) #5
   br label %29
 
-29:                                               ; preds = %26, %20
+29:       ; preds = %26, %20
   tail call void @event_mm_free_(ptr noundef nonnull %0) #5
   ret void
 }

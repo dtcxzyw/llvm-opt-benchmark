@@ -29091,28 +29091,28 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$fish..ast..JobConjunctionCon
 
 24:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7.i"
   %25 = add i64 %.sroa.0.1.i, 1
-  %gep = getelementptr { { { i32, [2 x i32] }, i8, [3 x i8] }, { { i32, [3 x i32] }, { i32, [3 x i32] }, { i32, [11 x i32] }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } } }, { { i32, [2 x i32] } }, [1 x i32] }, ptr %invariant.gep, i64 %.sroa.0.1.i
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$fish..ast..JobPipeline$GT$17h695245df0c2536b8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %gep)
-          to label %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7.i" unwind label %26, !noalias !3884
+  %26 = getelementptr { { { i32, [2 x i32] }, i8, [3 x i8] }, { { i32, [3 x i32] }, { i32, [3 x i32] }, { i32, [11 x i32] }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } } }, { { i32, [2 x i32] } }, [1 x i32] }, ptr %invariant.gep, i64 %.sroa.0.1.i
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$fish..ast..JobPipeline$GT$17h695245df0c2536b8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %26)
+          to label %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7.i" unwind label %27, !noalias !3884
 
-26:                                               ; preds = %24
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30, !noalias !3884
   unreachable
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i1": ; preds = %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7.i"
-  %28 = mul nuw nsw i64 %4, 144
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef %28, i64 noundef 8) #33, !noalias !3884
+  %29 = mul nuw nsw i64 %4, 144
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef %29, i64 noundef 8) #33, !noalias !3884
   resume { ptr, i32 } %eh.lpad-body4
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$fish..ast..JobConjunctionContinuation$u5d$$GT$$GT$17h95cbbb966f027e8bE.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit.i"
-  %29 = icmp eq i64 %4, 0
-  br i1 %29, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21d1e0b9cb3533f7E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i"
+  %30 = icmp eq i64 %4, 0
+  br i1 %30, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21d1e0b9cb3533f7E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i": ; preds = %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$fish..ast..JobConjunctionContinuation$u5d$$GT$$GT$17h95cbbb966f027e8bE.exit"
-  %30 = mul nuw nsw i64 %4, 144
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef %30, i64 noundef 8) #33, !noalias !3884
+  %31 = mul nuw nsw i64 %4, 144
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef %31, i64 noundef 8) #33, !noalias !3884
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21d1e0b9cb3533f7E.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21d1e0b9cb3533f7E.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$fish..ast..JobConjunctionContinuation$u5d$$GT$$GT$17h95cbbb966f027e8bE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i"
@@ -30500,7 +30500,7 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$$u5b$fish..ast..Job
 "_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7": ; preds = %23, %.body
   %.sroa.0.1 = phi i64 [ %6, %.body ], [ %24, %23 ]
   %20 = icmp eq i64 %.sroa.0.1, %1
-  br i1 %20, label %25, label %23
+  br i1 %20, label %26, label %23
 
 21:                                               ; preds = %15
   %22 = landingpad { ptr, i32 }
@@ -30514,15 +30514,15 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$$u5b$fish..ast..Job
 
 23:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7"
   %24 = add i64 %.sroa.0.1, 1
-  %gep = getelementptr { { { i32, [2 x i32] }, i8, [3 x i8] }, { { i32, [3 x i32] }, { i32, [3 x i32] }, { i32, [11 x i32] }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } } }, { { i32, [2 x i32] } }, [1 x i32] }, ptr %invariant.gep, i64 %.sroa.0.1
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$fish..ast..JobPipeline$GT$17h695245df0c2536b8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %gep)
-          to label %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7" unwind label %26
+  %25 = getelementptr { { { i32, [2 x i32] }, i8, [3 x i8] }, { { i32, [3 x i32] }, { i32, [3 x i32] }, { i32, [11 x i32] }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } } }, { { i32, [2 x i32] } }, [1 x i32] }, ptr %invariant.gep, i64 %.sroa.0.1
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$fish..ast..JobPipeline$GT$17h695245df0c2536b8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %25)
+          to label %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7" unwind label %27
 
-25:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7"
+26:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$fish..ast..JobConjunctionContinuation$GT$17hebf9bc902ecfcde8E.exit7"
   resume { ptr, i32 } %eh.lpad-body
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %23
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30
   unreachable

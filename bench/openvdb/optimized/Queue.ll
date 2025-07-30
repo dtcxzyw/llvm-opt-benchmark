@@ -2852,7 +2852,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %xor.i.i.i.i.i.i
   %17 = load atomic i64, ptr %arrayidx.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %17 to ptr
-  %arrayidx4.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i
+  %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i
   %node_list.i.i = getelementptr inbounds nuw i8, ptr %arrayidx4.i.i.i, i64 8
   %18 = load atomic i64, ptr %node_list.i.i acquire, align 8
   %cmp.i.i.i18 = icmp eq i64 %18, 3
@@ -3655,7 +3655,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %xor.i.i.i.i.i.i
   %17 = load atomic i64, ptr %arrayidx.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %17 to ptr
-  %arrayidx4.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i
+  %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i
   %node_list.i.i = getelementptr inbounds nuw i8, ptr %arrayidx4.i.i.i, i64 8
   %18 = load atomic i64, ptr %node_list.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %18, 3
@@ -4061,7 +4061,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %xor.i.i.i.i.i.i
   %32 = load atomic i64, ptr %arrayidx.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %32 to ptr
-  %arrayidx4.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i
+  %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i
   %node_list.i.i = getelementptr inbounds nuw i8, ptr %arrayidx4.i.i.i, i64 8
   %33 = load atomic i64, ptr %node_list.i.i acquire, align 8
   %cmp.i.i.i65 = icmp eq i64 %33, 3
@@ -4617,8 +4617,8 @@ do.body.i.i:                                      ; preds = %_ZN3tbb6detail2d213
 
 for.body.i.i:                                     ; preds = %for.inc15.i.i, %do.body.i.i
   %i.026.i.i = phi i64 [ 0, %do.body.i.i ], [ %inc.i.i, %for.inc15.i.i ]
-  %gep.i.i = getelementptr %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %invariant.gep.i.i, i64 %i.026.i.i
-  %6 = load atomic i64, ptr %gep.i.i monotonic, align 8
+  %node_list.i.i = getelementptr %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %invariant.gep.i.i, i64 %i.026.i.i
+  %6 = load atomic i64, ptr %node_list.i.i monotonic, align 8
   %cmp.i24.i.i = icmp ugt i64 %6, 63
   br i1 %cmp.i24.i.i, label %for.body9.i.i, label %for.inc15.i.i
 
@@ -4627,12 +4627,12 @@ for.body9.i.i:                                    ; preds = %for.body.i.i, %.noe
   %n.0.i.i = inttoptr i64 %n.0.in25.i.i to ptr
   %7 = load ptr, ptr %n.0.i.i, align 8
   %8 = ptrtoint ptr %7 to i64
-  store atomic i64 %8, ptr %gep.i.i monotonic, align 8
+  store atomic i64 %8, ptr %node_list.i.i monotonic, align 8
   invoke void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %n.0.i.i)
           to label %.noexc.i unwind label %terminate.lpad.loopexit.i
 
 .noexc.i:                                         ; preds = %for.body9.i.i
-  %9 = load atomic i64, ptr %gep.i.i monotonic, align 8
+  %9 = load atomic i64, ptr %node_list.i.i monotonic, align 8
   %cmp.i.i.i = icmp ugt i64 %9, 63
   br i1 %cmp.i.i.i, label %for.body9.i.i, label %for.inc15.i.i, !llvm.loop !34
 

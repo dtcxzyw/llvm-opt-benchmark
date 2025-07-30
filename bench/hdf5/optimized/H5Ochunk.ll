@@ -442,7 +442,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_resize(ptr noundef %0, ptr noundef %1) l
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %30, !prof !25
+  br i1 %8, label %9, label %29, !prof !25
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -457,7 +457,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_resize(ptr noundef %0, ptr noundef %1) l
   %17 = load i64, ptr %16, align 8, !tbaa !43
   %18 = tail call i32 @H5AC_resize_entry(ptr noundef %0, i64 noundef %17) #4
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %.sink.split, label %30
+  br i1 %19, label %.sink.split, label %29
 
 20:                                               ; preds = %9
   %21 = zext i32 %11 to i64
@@ -470,12 +470,12 @@ define range(i32 -1, 1) i32 @H5O__chunk_resize(ptr noundef %0, ptr noundef %1) l
 
 .sink.split:                                      ; preds = %20, %15
   %.sink = phi i32 [ 273, %15 ], [ 278, %20 ]
-  %27 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !3
-  %28 = load i64, ptr @H5E_CANTRESIZE_g, align 8, !tbaa !3
-  %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__chunk_resize, i32 noundef %.sink, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.11) #4
-  br label %30
+  %26 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !3
+  %27 = load i64, ptr @H5E_CANTRESIZE_g, align 8, !tbaa !3
+  %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__chunk_resize, i32 noundef %.sink, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.11) #4
+  br label %29
 
-30:                                               ; preds = %.sink.split, %20, %15, %2
+29:                                               ; preds = %.sink.split, %20, %15, %2
   %.0 = phi i32 [ 0, %15 ], [ 0, %20 ], [ 0, %2 ], [ -1, %.sink.split ]
   ret i32 %.0
 }

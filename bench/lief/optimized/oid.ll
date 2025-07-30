@@ -1378,7 +1378,7 @@ oid_subidentifier_num_bytes.exit:                 ; preds = %4
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %.not21 = icmp ugt i64 %10, %.0.i
-  br i1 %.not21, label %11, label %23
+  br i1 %.not21, label %11, label %24
 
 11:                                               ; preds = %oid_subidentifier_num_bytes.exit
   %12 = trunc i32 %2 to i8
@@ -1389,26 +1389,26 @@ oid_subidentifier_num_bytes.exit:                 ; preds = %4
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %15 = load ptr, ptr %0, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %6
-  store ptr %16, ptr %0, align 8, !tbaa !19
-  br label %23
+  %16 = load ptr, ptr %0, align 8, !tbaa !19
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %6
+  store ptr %17, ptr %0, align 8, !tbaa !19
+  br label %24
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.024 = phi i64 [ %22, %.lr.ph ], [ 2, %11 ]
+  %.024 = phi i64 [ %23, %.lr.ph ], [ 2, %11 ]
   %.019.in23 = phi i32 [ %.019, %.lr.ph ], [ %2, %11 ]
   %.019 = lshr i32 %.019.in23, 7
-  %17 = trunc i32 %.019 to i8
-  %18 = or i8 %17, -128
-  %19 = load ptr, ptr %0, align 8, !tbaa !19
-  %20 = sub nuw nsw i64 %6, %.024
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
-  store i8 %18, ptr %21, align 1, !tbaa !48
-  %22 = add nuw nsw i64 %.024, 1
-  %exitcond = icmp eq i64 %22, %indvars.iv
+  %18 = trunc i32 %.019 to i8
+  %19 = or i8 %18, -128
+  %20 = load ptr, ptr %0, align 8, !tbaa !19
+  %21 = sub nuw nsw i64 %6, %.024
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  store i8 %19, ptr %22, align 1, !tbaa !48
+  %23 = add nuw nsw i64 %.024, 1
+  %exitcond = icmp eq i64 %23, %indvars.iv
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
-23:                                               ; preds = %oid_subidentifier_num_bytes.exit, %._crit_edge
+24:                                               ; preds = %oid_subidentifier_num_bytes.exit, %._crit_edge
   %.018 = phi i32 [ 0, %._crit_edge ], [ -11, %oid_subidentifier_num_bytes.exit ]
   ret i32 %.018
 }

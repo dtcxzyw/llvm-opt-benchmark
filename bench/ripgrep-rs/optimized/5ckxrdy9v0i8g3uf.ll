@@ -306,13 +306,13 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1
   store i64 %11, ptr %12, align 8
   br label %15
 
-13:                                               ; preds = %3
+13: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %14, align 8
   store ptr null, ptr %0, align 8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit", %13
+14:                                               ; preds = %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit", %13
   ret void
 }
 

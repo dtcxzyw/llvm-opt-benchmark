@@ -1103,12 +1103,12 @@ define internal ptr @gc_get_count(ptr readnone captures(none) %0, ptr readnone c
   %11 = load i32, ptr %10, align 8, !tbaa !26
   %12 = sext i32 %11 to i64
   %13 = getelementptr [2 x %struct.gc_generation], ptr %9, i64 0, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %16 = xor i32 %11, 1
   %17 = sext i32 %16 to i64
   %18 = getelementptr [2 x %struct.gc_generation], ptr %9, i64 0, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !27
   %21 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.20, i32 noundef %8, i32 noundef %15, i32 noundef %20) #5
   ret ptr %21

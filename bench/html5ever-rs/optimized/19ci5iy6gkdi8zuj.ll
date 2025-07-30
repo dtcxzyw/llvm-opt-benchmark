@@ -228,50 +228,50 @@ define hidden void @"_ZN4core3ptr181drop_in_place$LT$$u5b$lock_api..mutex..Mutex
   %.08 = phi i64 [ %4, %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit" ], [ 0, %2 ]
   %4 = add nuw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %gep = getelementptr [0 x { { { i8 } }, [7 x i8], ptr }], ptr %invariant.gep, i64 0, i64 %.08
+  %5 = getelementptr [0 x { { { i8 } }, [7 x i8], ptr }], ptr %invariant.gep, i64 0, i64 %.08
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %5 = load ptr, ptr %gep, align 8, !alias.scope !74, !noundef !4
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit", label %7
+  %6 = load ptr, ptr %5, align 8, !alias.scope !74, !noundef !4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit", label %8
 
-7:                                                ; preds = %.lr.ph
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h11de4d5a29c45fe6E"(ptr noalias noundef align 8 dereferenceable(40) %5)
+8:                                                ; preds = %.lr.ph
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h11de4d5a29c45fe6E"(ptr noalias noundef align 8 dereferenceable(40) %6)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17h2b7bb2bce3bd6bbaE.llvm.5870598909725602671.exit.i.i.i" unwind label %.body, !noalias !75
 
-.body:                                            ; preds = %7
-  %8 = landingpad { ptr, i32 }
+.body:                                            ; preds = %8
+  %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 40, i64 noundef 8) #17, !noalias !75
-  br label %10
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 40, i64 noundef 8) #17, !noalias !75
+  br label %11
 
-"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17h2b7bb2bce3bd6bbaE.llvm.5870598909725602671.exit.i.i.i": ; preds = %7
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 40, i64 noundef 8) #17, !noalias !75
+"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17h2b7bb2bce3bd6bbaE.llvm.5870598909725602671.exit.i.i.i": ; preds = %8
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 40, i64 noundef 8) #17, !noalias !75
   br label %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit"
 
 "_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit": ; preds = %.lr.ph, %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17h2b7bb2bce3bd6bbaE.llvm.5870598909725602671.exit.i.i.i"
-  %9 = icmp eq i64 %4, %1
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %10 = icmp eq i64 %4, %1
+  br i1 %10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit", %2
   ret void
 
-10:                                               ; preds = %12, %.body
-  %.1 = phi i64 [ %4, %.body ], [ %14, %12 ]
-  %11 = icmp eq i64 %.1, %1
-  br i1 %11, label %15, label %12
+11:                                               ; preds = %13, %.body
+  %.1 = phi i64 [ %4, %.body ], [ %15, %12 ]
+  %12 = icmp eq i64 %.1, %1
+  br i1 %12, label %16, label %13
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds [0 x { { { i8 } }, [7 x i8], ptr }], ptr %0, i64 0, i64 %.1
-  %14 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #18
-          to label %10 unwind label %16
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds [0 x { { { i8 } }, [7 x i8], ptr }], ptr %0, i64 0, i64 %.1
+  %15 = add i64 %.1, 1
+  invoke void @"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #18
+          to label %11 unwind label %17
 
-15:                                               ; preds = %10
-  resume { ptr, i32 } %8
+16:                                               ; preds = %11
+  resume { ptr, i32 } %9
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #19
   unreachable
@@ -291,60 +291,60 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$LT$$u5b$l
   %.08.i = phi i64 [ %6, %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit.i" ], [ 0, %1 ]
   %6 = add nuw i64 %.08.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %gep.i = getelementptr [0 x { { { i8 } }, [7 x i8], ptr }], ptr %invariant.gep.i, i64 0, i64 %.08.i
+  %7 = getelementptr [0 x { { { i8 } }, [7 x i8], ptr }], ptr %invariant.gep.i, i64 0, i64 %.08.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %7 = load ptr, ptr %gep.i, align 8, !alias.scope !90, !noundef !4
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit.i", label %9
+  %8 = load ptr, ptr %7, align 8, !alias.scope !90, !noundef !4
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit.i", label %10
 
-9:                                                ; preds = %.lr.ph.i
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h11de4d5a29c45fe6E"(ptr noalias noundef align 8 dereferenceable(40) %7)
+10:                                               ; preds = %.lr.ph.i
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h11de4d5a29c45fe6E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17h2b7bb2bce3bd6bbaE.llvm.5870598909725602671.exit.i.i.i.i" unwind label %.body.i, !noalias !91
 
-.body.i:                                          ; preds = %9
-  %10 = landingpad { ptr, i32 }
+.body.i:                                          ; preds = %10
+  %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef 40, i64 noundef 8) #17, !noalias !91
-  br label %12
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 40, i64 noundef 8) #17, !noalias !91
+  br label %13
 
-"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17h2b7bb2bce3bd6bbaE.llvm.5870598909725602671.exit.i.i.i.i": ; preds = %9
-  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef 40, i64 noundef 8) #17, !noalias !91
+"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17h2b7bb2bce3bd6bbaE.llvm.5870598909725602671.exit.i.i.i.i": ; preds = %10
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 40, i64 noundef 8) #17, !noalias !91
   br label %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit.i"
 
 "_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit.i": ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17h2b7bb2bce3bd6bbaE.llvm.5870598909725602671.exit.i.i.i.i", %.lr.ph.i
-  %11 = icmp eq i64 %6, %4
-  br i1 %11, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5870598909725602671.exit.i1", label %.lr.ph.i
+  %12 = icmp eq i64 %6, %4
+  br i1 %12, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5870598909725602671.exit.i1", label %.lr.ph.i
 
-12:                                               ; preds = %14, %.body.i
-  %.1.i = phi i64 [ %6, %.body.i ], [ %16, %14 ]
-  %13 = icmp eq i64 %.1.i, %4
-  br i1 %13, label %20, label %14
+13:                                               ; preds = %15, %.body.i
+  %.1.i = phi i64 [ %6, %.body.i ], [ %17, %15 ]
+  %14 = icmp eq i64 %.1.i, %4
+  br i1 %14, label %21, label %15
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds [0 x { { { i8 } }, [7 x i8], ptr }], ptr %2, i64 0, i64 %.1.i
-  %16 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15) #18
-          to label %12 unwind label %17
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds [0 x { { { i8 } }, [7 x i8], ptr }], ptr %2, i64 0, i64 %.1.i
+  %17 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16) #18
+          to label %12 unwind label %18
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %15
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #19, !noalias !78
   unreachable
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5870598909725602671.exit.i1": ; preds = %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671.exit.i"
-  %19 = shl nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef 8) #17, !noalias !94
+  %20 = shl nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %110, i64 noundef 8) #17, !noalias !94
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3c5ead6e36c9e9eeE.llvm.5870598909725602671.exit2"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3c5ead6e36c9e9eeE.llvm.5870598909725602671.exit2": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5870598909725602671.exit.i1"
   ret void
 
-20:                                               ; preds = %12
-  %21 = shl nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %21, i64 noundef 8) #17, !noalias !97
-  resume { ptr, i32 } %10
+21:                                               ; preds = %13
+  %22 = shl nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %22, i64 noundef 8) #17, !noalias !97
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

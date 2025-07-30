@@ -1675,16 +1675,16 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %45
 
-45:                                               ; preds = %.lr.ph354, %77
+45:                                               ; preds = %.lr.ph354, %76
   %.0352 = phi i1 [ true, %.lr.ph354 ], [ %.1, %77 ]
-  %.sroa.0329.0351 = phi ptr [ %39, %.lr.ph354 ], [ %78, %77 ]
+  %.sroa.0329.0351 = phi ptr [ %39, %.lr.ph354 ], [ %77, %77 ]
   %46 = load i64, ptr %.sroa.0329.0351, align 8
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %47, i64 %46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 144
   %50 = load i8, ptr %49, align 1
   %51 = trunc i8 %50 to i1
-  br i1 %51, label %77, label %52
+  br i1 %51, label %76, label %52
 
 52:                                               ; preds = %45
   br i1 %.0352, label %53, label %54
@@ -1718,54 +1718,54 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
     i64 1, label %66
   ]
 
-66:                                               ; preds = %60
-  %67 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %.sroa.012.0.copyload.i = load i64, ptr %67, align 8
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %.sroa.012.0.copyload.i = load i64, ptr %66, align 8
   %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 24
   %.sroa.213.0.copyload.i = load ptr, ptr %.sroa.213.0..sroa_idx.i, align 8
-  %68 = ptrtoint ptr %.sroa.213.0.copyload.i to i64
-  store i64 %68, ptr %3, align 16
+  %67 = ptrtoint ptr %.sroa.213.0.copyload.i to i64
+  store i64 %67, ptr %3, align 16
   store i64 %.sroa.012.0.copyload.i, ptr %43, align 8
   br label %.invoke
 
-.invoke:                                          ; preds = %72, %66
-  %69 = phi ptr [ @.str.8, %66 ], [ @.str.9, %72 ]
-  %70 = phi i64 [ 2, %66 ], [ 6, %72 ]
-  %71 = phi ptr [ %3, %66 ], [ %4, %72 ]
-  invoke void @_ZN3fmt2v86vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %1, ptr nonnull %69, i64 %70, i64 13, ptr nonnull %71)
+.invoke:                                          ; preds = %71, %65
+  %68 = phi ptr [ @.str.8, %66 ], [ @.str.9, %72 ]
+  %69 = phi i64 [ 2, %66 ], [ 6, %72 ]
+  %70 = phi ptr [ %3, %66 ], [ %4, %72 ]
+  invoke void @_ZN3fmt2v86vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %1, ptr nonnull %68, i64 %69, i64 13, ptr nonnull %70)
           to label %75 unwind label %.loopexit
 
-72:                                               ; preds = %60
-  %73 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %.sroa.012.0.copyload.i311 = load i64, ptr %73, align 8
+71:                                               ; preds = %60
+  %72 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %.sroa.012.0.copyload.i311 = load i64, ptr %72, align 8
   %.sroa.213.0..sroa_idx.i312 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %.sroa.213.0.copyload.i313 = load ptr, ptr %.sroa.213.0..sroa_idx.i312, align 8
-  %74 = ptrtoint ptr %.sroa.213.0.copyload.i313 to i64
-  store i64 %74, ptr %4, align 16
+  %73 = ptrtoint ptr %.sroa.213.0.copyload.i313 to i64
+  store i64 %73, ptr %4, align 16
   store i64 %.sroa.012.0.copyload.i311, ptr %44, align 8
   br label %.invoke
 
-75:                                               ; preds = %.invoke, %60
-  br i1 %57, label %76, label %77
+74:                                               ; preds = %.invoke, %60
+  br i1 %57, label %75, label %76
 
-76:                                               ; preds = %75
+75:                                               ; preds = %74
   invoke void @_ZN3fmt2v86vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %1, ptr nonnull @.str.10, i64 1, i64 0, ptr nonnull %10)
           to label %77 unwind label %.loopexit
 
-77:                                               ; preds = %75, %76, %45
+76:                                               ; preds = %74, %75, %45
   %.1 = phi i1 [ %.0352, %45 ], [ false, %76 ], [ false, %75 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0329.0351, i64 8
-  %.not344 = icmp eq ptr %78, %41
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0329.0351, i64 8
+  %.not344 = icmp eq ptr %77, %41
   br i1 %.not344, label %._crit_edge355, label %45
 
-._crit_edge355:                                   ; preds = %77, %37
+._crit_edge355:                                   ; preds = %76, %37
   invoke void @_ZN3fmt2v86vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %1, ptr nonnull @.str.11, i64 1, i64 0, ptr nonnull %11)
           to label %79 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-79:                                               ; preds = %._crit_edge355
+78:                                               ; preds = %._crit_edge355
   ret void
 
-.loopexit:                                        ; preds = %.invoke, %53, %54, %59, %76
+.loopexit:                                        ; preds = %.invoke, %53, %54, %59, %75
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
@@ -1782,8 +1782,8 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit345, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp346, %.loopexit.split-lp.loopexit.split-lp ]
-  %80 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %80) #20
+  %79 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %79) #20
   unreachable
 }
 

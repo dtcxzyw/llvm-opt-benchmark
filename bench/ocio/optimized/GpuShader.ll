@@ -1329,7 +1329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
   store ptr %48, ptr %2, align 8, !tbaa !79
   ret void
 
-49:                                               ; preds = %29
+48:                                               ; preds = %29
   unreachable
 }
 
@@ -1791,7 +1791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
   store ptr %48, ptr %2, align 8, !tbaa !79
   ret void
 
-49:                                               ; preds = %29
+48:                                               ; preds = %29
   unreachable
 }
 

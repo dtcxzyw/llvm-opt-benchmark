@@ -1313,11 +1313,11 @@ ZSTD_ldm_generateSequences_internal.exit._crit_edge: ; preds = %ZSTD_ldm_generat
   store i32 %415, ptr %413, align 4, !tbaa !63
   br label %418
 
-416:                                              ; preds = %406
+416:; preds = %406
   %417 = add i64 %46, %.05687
   br label %418
 
-418:                                              ; preds = %409, %416
+418: ; preds = %409, %416
   %.15778 = phi i64 [ %.0.i69, %409 ], [ %417, %416 ]
   %419 = add nuw nsw i64 %.05588, 1
   %exitcond.not = icmp eq i64 %419, %16

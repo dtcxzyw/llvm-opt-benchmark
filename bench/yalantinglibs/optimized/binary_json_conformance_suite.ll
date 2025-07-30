@@ -6214,7 +6214,7 @@ invoke.cont31:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i)
   %119 = load i64, ptr %i, align 8
   %120 = load ptr, ptr %values, align 8
-  %add.ptr.i141 = getelementptr inbounds %"struct.std::pair", ptr %120, i64 %119
+  %second = getelementptr inbounds %"struct.std::pair", ptr %120, i64 %119
   %second = getelementptr inbounds nuw i8, ptr %add.ptr.i141, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i142)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i)
@@ -6266,7 +6266,7 @@ sw.bb.i:                                          ; preds = %invoke.cont31
   store i8 0, ptr %arrayidx.i.i.i.i.i.i, align 8, !alias.scope !44
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !38
-  %_M_string_length.i.i.i144 = getelementptr inbounds nuw i8, ptr %add.ptr.i141, i64 40
+  %_M_string_length.i.i.i144 = getelementptr inbounds nuw i8, ptr %second, i64 40
   %121 = load i64, ptr %_M_string_length.i.i.i144, align 8
   %122 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %121, %122
@@ -6326,7 +6326,7 @@ sw.bb1.i:                                         ; preds = %invoke.cont31
   store i8 0, ptr %arrayidx.i.i.i.i.i9.i, align 4, !alias.scope !51
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i7.i) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i7.i), !noalias !45
-  %_M_string_length.i.i10.i = getelementptr inbounds nuw i8, ptr %add.ptr.i141, i64 40
+  %_M_string_length.i.i10.i = getelementptr inbounds nuw i8, ptr %second, i64 40
   %127 = load i64, ptr %_M_string_length.i.i10.i, align 8
   %128 = load i64, ptr %_M_string_length.i.i.i.i.i.i8.i, align 8
   %cmp.i12.i = icmp eq i64 %127, %128
@@ -6385,7 +6385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.i: ; preds = %i
   store i8 0, ptr %arrayidx.i.i.i.i1500, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1490) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1490)
-  %_M_string_length.i.i24.i = getelementptr inbounds nuw i8, ptr %add.ptr.i141, i64 40
+  %_M_string_length.i.i24.i = getelementptr inbounds nuw i8, ptr %second, i64 40
   %133 = load i64, ptr %_M_string_length.i.i24.i, align 8
   %134 = load i64, ptr %_M_string_length.i.i.i.i.i1499, align 8
   %cmp.i26.i = icmp eq i64 %133, %134
@@ -6445,7 +6445,7 @@ sw.bb7.i:                                         ; preds = %invoke.cont31, %inv
   store i8 0, ptr %arrayidx.i.i.i.i.i40.i, align 8, !alias.scope !61
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i38.i) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i38.i), !noalias !55
-  %_M_string_length.i.i41.i = getelementptr inbounds nuw i8, ptr %add.ptr.i141, i64 40
+  %_M_string_length.i.i41.i = getelementptr inbounds nuw i8, ptr %second, i64 40
   %139 = load i64, ptr %_M_string_length.i.i41.i, align 8
   %140 = load i64, ptr %_M_string_length.i.i.i.i.i.i39.i, align 8
   %cmp.i43.i = icmp eq i64 %139, %140
@@ -6505,7 +6505,7 @@ sw.bb10.i:                                        ; preds = %invoke.cont31, %inv
   store i8 0, ptr %arrayidx.i.i.i.i.i57.i, align 4, !alias.scope !68
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i55.i) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i55.i), !noalias !62
-  %_M_string_length.i.i58.i = getelementptr inbounds nuw i8, ptr %add.ptr.i141, i64 40
+  %_M_string_length.i.i58.i = getelementptr inbounds nuw i8, ptr %second, i64 40
   %145 = load i64, ptr %_M_string_length.i.i58.i, align 8
   %146 = load i64, ptr %_M_string_length.i.i.i.i.i.i56.i, align 8
   %cmp.i60.i = icmp eq i64 %145, %146
@@ -6599,7 +6599,7 @@ lpad.i.i:                                         ; preds = %sw.bb13.i
 invoke.cont18.i:                                  ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  %_M_string_length.i.i73.i = getelementptr inbounds nuw i8, ptr %add.ptr.i141, i64 40
+  %_M_string_length.i.i73.i = getelementptr inbounds nuw i8, ptr %second, i64 40
   %154 = load i64, ptr %_M_string_length.i.i73.i, align 8
   %155 = load i64, ptr %_M_string_length.i4.i74.i, align 8
   %cmp.i75.i = icmp eq i64 %154, %155
@@ -6774,7 +6774,7 @@ invoke.cont43:                                    ; preds = %if.then.i.i.i.i.i15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1512)
   %166 = load i64, ptr %i, align 8
   %167 = load ptr, ptr %values, align 8
-  %add.ptr.i165 = getelementptr inbounds %"struct.std::pair", ptr %167, i64 %166
+  %second46 = getelementptr inbounds %"struct.std::pair", ptr %167, i64 %166
   %second46 = getelementptr inbounds nuw i8, ptr %add.ptr.i165, i64 32
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %expected_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(32) %second46, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %cleanup.action unwind label %lpad47
@@ -9820,7 +9820,7 @@ invoke.cont182:                                   ; preds = %if.then.i.i.i.i.i18
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i1872)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1873)
   %410 = load ptr, ptr %values, align 8
-  %add.ptr.i441 = getelementptr inbounds %"struct.std::pair", ptr %410, i64 %i156.04295
+  %second184 = getelementptr inbounds %"struct.std::pair", ptr %410, i64 %i156.04295
   %second184 = getelementptr inbounds nuw i8, ptr %add.ptr.i441, i64 32
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp177, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(32) %second184, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont186 unwind label %lpad185
@@ -10111,10 +10111,10 @@ invoke.cont194:                                   ; preds = %.noexc505, %if.end.
   %arrayidx.i.i.i.i.i498 = getelementptr inbounds i8, ptr %434, i64 %add.i.i.i.i487
   store i8 0, ptr %arrayidx.i.i.i.i.i498, align 1
   %435 = load ptr, ptr %values, align 8
-  %add.ptr.i507 = getelementptr inbounds %"struct.std::pair", ptr %435, i64 %i156.04295
+  %second197 = getelementptr inbounds %"struct.std::pair", ptr %435, i64 %i156.04295
   %second197 = getelementptr inbounds nuw i8, ptr %add.ptr.i507, i64 32
   %436 = load ptr, ptr %second197, align 8
-  %_M_string_length.i.i.i508 = getelementptr inbounds nuw i8, ptr %add.ptr.i507, i64 40
+  %_M_string_length.i.i.i508 = getelementptr inbounds nuw i8, ptr %second197, i64 40
   %437 = load i64, ptr %_M_string_length.i.i.i508, align 8
   %438 = load i64, ptr %_M_string_length.i.i.i367, align 8
   %sub3.i.i.i.i510 = sub i64 9223372036854775807, %438
@@ -10620,10 +10620,10 @@ invoke.cont217:                                   ; preds = %.noexc604, %if.end.
   %arrayidx.i.i.i.i.i597 = getelementptr inbounds i8, ptr %473, i64 %add.i.i.i.i586
   store i8 0, ptr %arrayidx.i.i.i.i.i597, align 1
   %474 = load ptr, ptr %values, align 8
-  %add.ptr.i606 = getelementptr inbounds %"struct.std::pair", ptr %474, i64 %i156.04295
+  %second220 = getelementptr inbounds %"struct.std::pair", ptr %474, i64 %i156.04295
   %second220 = getelementptr inbounds nuw i8, ptr %add.ptr.i606, i64 32
   %475 = load ptr, ptr %second220, align 8
-  %_M_string_length.i.i.i607 = getelementptr inbounds nuw i8, ptr %add.ptr.i606, i64 40
+  %_M_string_length.i.i.i607 = getelementptr inbounds nuw i8, ptr %second220, i64 40
   %476 = load i64, ptr %_M_string_length.i.i.i607, align 8
   %477 = load i64, ptr %_M_string_length.i.i.i375, align 8
   %sub3.i.i.i.i609 = sub i64 9223372036854775807, %477
@@ -11242,7 +11242,7 @@ invoke.cont247:                                   ; preds = %if.then.i.i.i.i.i24
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i2407)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i2408)
   %518 = load ptr, ptr %values, align 8
-  %add.ptr.i712 = getelementptr inbounds %"struct.std::pair", ptr %518, i64 %i156.04295
+  %second249 = getelementptr inbounds %"struct.std::pair", ptr %518, i64 %i156.04295
   %second249 = getelementptr inbounds nuw i8, ptr %add.ptr.i712, i64 32
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp242, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp243, ptr noundef nonnull align 8 dereferenceable(32) %second249, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont251 unwind label %lpad250
@@ -13434,7 +13434,7 @@ invoke.cont434:                                   ; preds = %if.then.i.i.i.i.i26
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i2587)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i2588)
   %764 = load ptr, ptr %values, align 8
-  %add.ptr.i1305 = getelementptr inbounds %"struct.std::pair", ptr %764, i64 %i408.04301
+  %second436 = getelementptr inbounds %"struct.std::pair", ptr %764, i64 %i408.04301
   %second436 = getelementptr inbounds nuw i8, ptr %add.ptr.i1305, i64 32
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp429, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp430, ptr noundef nonnull align 8 dereferenceable(32) %second436, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont438 unwind label %lpad437

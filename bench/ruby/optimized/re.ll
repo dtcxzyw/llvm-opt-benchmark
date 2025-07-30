@@ -6291,7 +6291,7 @@ backref_number_check.exit:                        ; preds = %10
 
 21:                                               ; preds = %backref_number_check.exit
   %22 = tail call i64 @rb_assoc_new(i64 noundef 4, i64 noundef 4) #29
-  br label %45
+  br label %44
 
 23:                                               ; preds = %backref_number_check.exit
   tail call fastcc void @update_char_offset(i64 noundef %0)
@@ -6323,22 +6323,22 @@ rb_long2num_inline.exit:                          ; preds = %29, %32
   %or.cond.i14 = icmp sgt i64 %38, -1
   br i1 %or.cond.i14, label %39, label %42
 
-39:                                               ; preds = %rb_long2num_inline.exit
+39:; preds = %rb_long2num_inline.exit
   %40 = shl nsw i64 %37, 1
   %41 = or disjoint i64 %40, 1
   br label %rb_long2num_inline.exit16
 
-42:                                               ; preds = %rb_long2num_inline.exit
-  %43 = tail call i64 @rb_int2big(i64 noundef %37) #29
+41:                                               ; preds = %rb_long2num_inline.exit
+  %42 = tail call i64 @rb_int2big(i64 noundef %37) #29
   br label %rb_long2num_inline.exit16
 
-rb_long2num_inline.exit16:                        ; preds = %39, %42
-  %.0.i15 = phi i64 [ %41, %39 ], [ %43, %42 ]
-  %44 = tail call i64 @rb_assoc_new(i64 noundef %.0.i, i64 noundef %.0.i15) #29
-  br label %45
+rb_long2num_inline.exit16:                        ; preds = %39, %41
+  %.0.i15 = phi i64 [ %41, %39 ], [ %42, %42 ]
+  %43 = tail call i64 @rb_assoc_new(i64 noundef %.0.i, i64 noundef %.0.i15) #29
+  br label %44
 
-45:                                               ; preds = %rb_long2num_inline.exit16, %21
-  %.0 = phi i64 [ %22, %21 ], [ %44, %rb_long2num_inline.exit16 ]
+44:                                               ; preds = %rb_long2num_inline.exit16, %21
+  %.0 = phi i64 [ %22, %21 ], [ %43, %rb_long2num_inline.exit16 ]
   ret i64 %.0
 }
 
@@ -6656,17 +6656,17 @@ backref_number_check.exit:                        ; preds = %10
   %or.cond.i = icmp sgt i64 %27, -1
   br i1 %or.cond.i, label %28, label %31
 
-28:                                               ; preds = %21
-  %29 = shl nsw i64 %26, 1
-  %30 = or disjoint i64 %29, 1
+27:                                               ; preds = %21
+  %28 = shl nsw i64 %26, 1
+  %29 = or disjoint i64 %28, 1
   br label %rb_long2num_inline.exit
 
-31:                                               ; preds = %21
-  %32 = tail call i64 @rb_int2big(i64 noundef %26) #29
+30:                                               ; preds = %21
+  %31 = tail call i64 @rb_int2big(i64 noundef %26) #29
   br label %rb_long2num_inline.exit
 
-rb_long2num_inline.exit:                          ; preds = %31, %28, %backref_number_check.exit
-  %.0 = phi i64 [ 4, %backref_number_check.exit ], [ %30, %28 ], [ %32, %31 ]
+rb_long2num_inline.exit:                          ; preds = %30, %27, %backref_number_check.exit
+  %.0 = phi i64 [ 4, %backref_number_check.exit ], [ %29, %28 ], [ %31, %31 ]
   ret i64 %.0
 }
 

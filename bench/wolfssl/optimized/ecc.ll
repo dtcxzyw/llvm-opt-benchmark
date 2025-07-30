@@ -2045,7 +2045,7 @@ define range(i32 0, 2) i32 @wc_ecc_is_valid_idx(i32 noundef %0) local_unnamed_ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @wc_ecc_get_curve_id(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %0, 5
-  br i1 %or.cond, label %2, label %7
+  br i1 %or.cond, label %2, label %6
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
@@ -2054,7 +2054,7 @@ define i32 @wc_ecc_get_curve_id(i32 noundef %0) local_unnamed_addr #0 {
   %6 = load i32, ptr %5, align 4, !tbaa !3
   br label %7
 
-7:                                                ; preds = %1, %2
+6:                                                ; preds = %1, %2
   %.0 = phi i32 [ %6, %2 ], [ -1, %1 ]
   ret i32 %.0
 }

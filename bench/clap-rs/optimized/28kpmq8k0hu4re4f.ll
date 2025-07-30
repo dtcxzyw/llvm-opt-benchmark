@@ -5367,13 +5367,13 @@ define hidden noundef zeroext i1 @_ZN12clap_builder6parser7matches11matched_arg1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit", label %5
 
-5:                                                ; preds = %1
+5: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %invariant.gep.i.i.i = getelementptr i8, ptr %7, i64 16
   br label %8
 
-8:                                                ; preds = %8, %5
+8:; preds = %8, %5
   %.018.i.i.i = phi i64 [ 0, %5 ], [ %9, %8 ]
   %.017.i.i.i = phi i64 [ 0, %5 ], [ %10, %8 ]
   %gep.i.i.i = getelementptr { { i64, ptr }, i64 }, ptr %invariant.gep.i.i.i, i64 %.017.i.i.i

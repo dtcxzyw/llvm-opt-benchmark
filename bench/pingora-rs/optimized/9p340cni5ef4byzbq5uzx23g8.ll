@@ -7513,10 +7513,10 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a9f4d9a269dd838E.exit.i.i.i"
   %invariant.gep.i.i.i.i.i.i = getelementptr i8, ptr %13, i64 72
-  br label %16
+  br label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc5c34e904aaf33b2E.exit"
 
-16:                                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
-  %17 = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %19, %16 ]
+"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc5c34e904aaf33b2E.exit": ; preds = %16, %.lr.ph.i.i.i.i.i.i
+  %.val4.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %19, %16 ]
   %.sroa.0.010.i.i.i.i.i.i = phi i64 [ %1, %.lr.ph.i.i.i.i.i.i ], [ %18, %16 ]
   %18 = add nuw i64 %.sroa.0.010.i.i.i.i.i.i, 1
   %gep.i.i.i.i.i.i = getelementptr { { { [9 x i64] } }, { i8 }, [7 x i8] }, ptr %invariant.gep.i.i.i.i.i.i, i64 %17
@@ -7530,8 +7530,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   store i64 %9, ptr %0, align 8, !alias.scope !512, !noalias !532
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !512, !noalias !532
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.val4.i.i.i.i.i.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !512, !noalias !532
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.val4.i.i.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !512, !noalias !532
   ret void
 }
 

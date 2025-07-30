@@ -11649,7 +11649,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %invariant.gep.i.i.i.i.i = getelementptr i8, ptr %14, i64 32
   br label %15
 
-15:                                               ; preds = %15, %.lr.ph.i.i.i.i.i
+15:; preds = %15, %.lr.ph.i.i.i.i.i
   %16 = phi i64 [ %12, %.lr.ph.i.i.i.i.i ], [ %18, %15 ]
   %.sroa.0.06.i.i.i.i.i = phi i64 [ %1, %.lr.ph.i.i.i.i.i ], [ %17, %15 ]
   %17 = add nuw i64 %.sroa.0.06.i.i.i.i.i, 1
@@ -11663,22 +11663,22 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr126drop_in_place$LT$alloc..vec..Vec$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$GT$$GT$17h8294ac7c52d09f98E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #26
-          to label %24 unwind label %22
+          to label %23 unwind label %21
 
 .loopexit:                                        ; preds = %15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7417e10604a93b84E.exit.i.i"
-  %21 = phi i64 [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7417e10604a93b84E.exit.i.i" ], [ %18, %15 ]
-  store i64 %21, ptr %9, align 8, !alias.scope !2138, !noalias !2154
+  %20 = phi i64 [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7417e10604a93b84E.exit.i.i" ], [ %18, %15 ]
+  store i64 %20, ptr %9, align 8, !alias.scope !2138, !noalias !2154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-22:                                               ; preds = %19
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7bbd4fcd6f160435E() #25
   unreachable
 
-24:                                               ; preds = %19
+23:                                               ; preds = %19
   resume { ptr, i32 } %20
 }
 
@@ -22679,7 +22679,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %invariant.gep.i.i.i.i.i.i = getelementptr i8, ptr %14, i64 32
   br label %15
 
-15:                                               ; preds = %15, %.lr.ph.i.i.i.i.i.i
+15:; preds = %15, %.lr.ph.i.i.i.i.i.i
   %16 = phi i64 [ %12, %.lr.ph.i.i.i.i.i.i ], [ %18, %15 ]
   %.sroa.0.06.i.i.i.i.i.i = phi i64 [ %1, %.lr.ph.i.i.i.i.i.i ], [ %17, %15 ]
   %17 = add nuw i64 %.sroa.0.06.i.i.i.i.i.i, 1
@@ -22693,20 +22693,20 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr126drop_in_place$LT$alloc..vec..Vec$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$GT$$GT$17h8294ac7c52d09f98E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #26
-          to label %23 unwind label %21, !noalias !4163
+          to label %22 unwind label %20, !noalias !4163
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7bbd4fcd6f160435E() #25, !noalias !4163
   unreachable
 
-23:                                               ; preds = %19
+22:                                               ; preds = %19
   resume { ptr, i32 } %20
 
 "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc7634af1e56c525aE.llvm.6776338100628702967.exit": ; preds = %15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7417e10604a93b84E.exit.i.i.i"
-  %24 = phi i64 [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7417e10604a93b84E.exit.i.i.i" ], [ %18, %15 ]
-  store i64 %24, ptr %9, align 8, !alias.scope !4166, !noalias !4182
+  %23 = phi i64 [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7417e10604a93b84E.exit.i.i.i" ], [ %18, %15 ]
+  store i64 %23, ptr %9, align 8, !alias.scope !4166, !noalias !4182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4163
   ret void

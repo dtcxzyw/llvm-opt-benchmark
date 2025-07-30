@@ -1184,7 +1184,7 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %8, %11
   %invariant.gep.i = getelementptr i8, ptr %28, i64 16
   br label %32
 
-32:                                               ; preds = %32, %.preheader.i
+32:; preds = %32, %.preheader.i
   %.1.i = phi i32 [ %34, %32 ], [ %31, %.preheader.i ]
   %33 = sext i32 %.1.i to i64
   %gep.i = getelementptr %"class.cv::TreeNode", ptr %invariant.gep.i, i64 %33

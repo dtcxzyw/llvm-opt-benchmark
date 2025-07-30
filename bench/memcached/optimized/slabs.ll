@@ -1431,40 +1431,40 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @slabs_pick_any_for_rea
   %slabs_pick_any_for_reassign.cur.promoted = load i32, ptr @slabs_pick_any_for_reassign.cur, align 4
   br label %3
 
-3:                                                ; preds = %1, %14
-  %.07 = phi i32 [ 64, %1 ], [ %15, %14 ]
+3:                                                ; preds = %1, %15
+  %.07 = phi i32 [ 64, %1 ], [ %16, %14 ]
   %spec.store.select56 = phi i32 [ %slabs_pick_any_for_reassign.cur.promoted, %1 ], [ %spec.store.select, %14 ]
   %4 = add nsw i32 %spec.store.select56, 1
   %5 = icmp sgt i32 %spec.store.select56, 63
   %spec.store.select = select i1 %5, i32 1, i32 %4
   %6 = icmp eq i32 %spec.store.select, %0
-  br i1 %6, label %14, label %7
+  br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
   %8 = sext i32 %spec.store.select to i64
-  %gep = getelementptr [64 x %struct.slabclass_t], ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), i64 0, i64 %8
-  %9 = load i32, ptr %gep, align 4, !tbaa !13
-  %10 = icmp ugt i32 %9, 1
-  br i1 %10, label %11, label %14
+  %9 = getelementptr [64 x %struct.slabclass_t], ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), i64 0, i64 %8
+  %10 = load i32, ptr %9, align 4, !tbaa !13
+  %11 = icmp ugt i32 %10, 1
+  br i1 %11, label %12, label %15
 
-11:                                               ; preds = %7
+12:                                               ; preds = %7
   store i32 %spec.store.select, ptr @slabs_pick_any_for_reassign.cur, align 4
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
-  %13 = load i32, ptr @slabs_pick_any_for_reassign.cur, align 4, !tbaa !17
-  br label %19
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
+  %14 = load i32, ptr @slabs_pick_any_for_reassign.cur, align 4, !tbaa !17
+  br label %20
 
-14:                                               ; preds = %7, %3
-  %15 = add nsw i32 %.07, -1
-  %16 = icmp samesign ugt i32 %.07, 1
-  br i1 %16, label %3, label %17, !llvm.loop !69
+15:                                               ; preds = %7, %3
+  %16 = add nsw i32 %.07, -1
+  %17 = icmp samesign ugt i32 %.07, 1
+  br i1 %17, label %3, label %18, !llvm.loop !69
 
-17:                                               ; preds = %14
+18:                                               ; preds = %15
   store i32 %spec.store.select, ptr @slabs_pick_any_for_reassign.cur, align 4
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
-  br label %19
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
+  br label %20
 
-19:                                               ; preds = %17, %11
-  %.04 = phi i32 [ %13, %11 ], [ -1, %17 ]
+20:                                               ; preds = %18, %12
+  %.04 = phi i32 [ %14, %11 ], [ -1, %17 ]
   ret i32 %.04
 }
 

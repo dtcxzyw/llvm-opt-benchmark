@@ -237,55 +237,55 @@ define range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeonly capture
   %exitcond227.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count226
   br i1 %exitcond227.not, label %.preheader, label %106, !llvm.loop !18
 
-118:                                              ; preds = %.preheader, %140
+118:                                              ; preds = %.preheader, %141
   %indvars.iv228 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next229, %140 ]
   %.0149202 = phi i32 [ 0, %.preheader ], [ %.1150, %140 ]
   %119 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv228
   %120 = load i16, ptr %119, align 2, !tbaa !3
   switch i16 %120, label %127 [
     i16 0, label %121
-    i16 -1, label %122
-    i16 1, label %122
+    i16 -1, label %123
+    i16 1, label %123
   ]
 
 121:                                              ; preds = %118
-  %gep = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %invariant.gep, i64 %indvars.iv228
-  store i32 %105, ptr %gep, align 4, !tbaa !19
-  br label %140
+  %122 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %invariant.gep, i64 %indvars.iv228
+  store i32 %105, ptr %122, align 4, !tbaa !19
+  br label %141
 
-122:                                              ; preds = %118, %118
-  %123 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  store i32 %103, ptr %124, align 4, !tbaa !19
-  %125 = add i32 %.0149202, -1
-  store i32 %125, ptr %123, align 4, !tbaa !22
-  %126 = add i32 %.0149202, 1
-  br label %140
+123:                                              ; preds = %118, %118
+  %124 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
+  store i32 %103, ptr %125, align 4, !tbaa !19
+  %126 = add i32 %.0149202, -1
+  store i32 %126, ptr %124, align 4, !tbaa !22
+  %127 = add i32 %.0149202, 1
+  br label %141
 
-127:                                              ; preds = %118
-  %128 = sext i16 %120 to i32
-  %129 = add nsw i32 %128, -1
-  %130 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %129, i1 true)
-  %131 = xor i32 %130, 31
-  %132 = sub i32 %3, %131
-  %133 = shl i32 %128, %132
-  %134 = shl i32 %132, 16
-  %135 = sub i32 %134, %133
-  %136 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  store i32 %135, ptr %137, align 4, !tbaa !19
-  %138 = sub i32 %.0149202, %128
-  store i32 %138, ptr %136, align 4, !tbaa !22
-  %139 = add i32 %.0149202, %128
-  br label %140
+128:                                              ; preds = %118
+  %129 = sext i16 %120 to i32
+  %130 = add nsw i32 %129, -1
+  %131 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %130, i1 true)
+  %132 = xor i32 %131, 31
+  %133 = sub i32 %3, %132
+  %134 = shl i32 %129, %133
+  %135 = shl i32 %133, 16
+  %136 = sub i32 %135, %134
+  %137 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
+  store i32 %136, ptr %138, align 4, !tbaa !19
+  %139 = sub i32 %.0149202, %129
+  store i32 %139, ptr %137, align 4, !tbaa !22
+  %140 = add i32 %.0149202, %129
+  br label %141
 
-140:                                              ; preds = %121, %122, %127
-  %.1150 = phi i32 [ %139, %127 ], [ %.0149202, %121 ], [ %126, %122 ]
+141:                                              ; preds = %121, %123, %128
+  %.1150 = phi i32 [ %140, %127 ], [ %.0149202, %121 ], [ %127, %122 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond233 = icmp eq i64 %indvars.iv.next229, %wide.trip.count232
   br i1 %exitcond233, label %.loopexit, label %118, !llvm.loop !23
 
-.loopexit:                                        ; preds = %140, %6
+.loopexit:                                        ; preds = %141, %6
   %.0 = phi i64 [ -44, %6 ], [ 0, %140 ]
   ret i64 %.0
 }

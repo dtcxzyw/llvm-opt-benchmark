@@ -2696,16 +2696,16 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
 
 10:                                               ; preds = %8
   %11 = icmp eq i64 %4, 0
-  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h914063353a945ba8E.exit", label %12
+  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h914063353a945ba8E.exit", label %.preheader
 
-12:                                               ; preds = %10
-  %invariant.gep.i = getelementptr i8, ptr %3, i64 32
+.preheader:                                       ; preds = %10
+  %12 = getelementptr i8, ptr %3, i64 32
   br label %13
 
-13:                                               ; preds = %13, %12
+13:                                               ; preds = %13, %.preheader
   %.sroa.07.0.i = phi i64 [ 0, %12 ], [ %14, %13 ]
   %.sroa.09.0.i = phi i64 [ 0, %12 ], [ %15, %13 ]
-  %gep.i = getelementptr { ptr, ptr, i64 }, ptr %invariant.gep.i, i64 %.sroa.09.0.i
+  %gep.i = getelementptr { ptr, ptr, i64 }, ptr %12, i64 %.sroa.09.0.i
   %.val.i = load i64, ptr %gep.i, align 8, !noundef !3
   %14 = add i64 %.val.i, %.sroa.07.0.i
   %15 = add nuw i64 %.sroa.09.0.i, 1
@@ -2715,18 +2715,18 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h914063353a945ba8E.exit": ; preds = %13, %10, %8
   %.sroa.01.0 = phi i64 [ %7, %8 ], [ 0, %10 ], [ %14, %13 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %4, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 -1, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %.sroa.01.0, ptr %22, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %3, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %4, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 -1, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %.sroa.01.0, ptr %23, align 8
   ret void
 }
 
