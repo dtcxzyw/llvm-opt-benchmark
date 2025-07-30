@@ -2356,12 +2356,8 @@ invoke.cont39:                                    ; preds = %if.then.i.i1088, %_
   store i64 %24, ptr %m_mesh_origin24, align 8, !tbaa.struct !128
   %m_last_noise_center25 = getelementptr inbounds nuw i8, ptr %this, i64 424
   %25 = extractelement <2 x i16> %6, i64 1
-  %center_of_drawing_in_noise_i.sroa.8.0.insert.ext = zext i16 %25 to i32
-  %center_of_drawing_in_noise_i.sroa.8.0.insert.shift = shl nuw i32 %center_of_drawing_in_noise_i.sroa.8.0.insert.ext, 16
   %26 = extractelement <2 x i16> %6, i64 0
-  %center_of_drawing_in_noise_i.sroa.0.0.insert.ext = zext i16 %26 to i32
-  %center_of_drawing_in_noise_i.sroa.0.0.insert.insert = or disjoint i32 %center_of_drawing_in_noise_i.sroa.8.0.insert.shift, %center_of_drawing_in_noise_i.sroa.0.0.insert.ext
-  store i32 %center_of_drawing_in_noise_i.sroa.0.0.insert.insert, ptr %m_last_noise_center25, align 8, !tbaa.struct !129
+  store <2 x i16> %6, ptr %m_last_noise_center25, align 8, !tbaa.struct !129
   store i8 1, ptr %m_mesh_valid, align 4, !tbaa !124
   %m_enable_3d = getelementptr inbounds nuw i8, ptr %this, i64 492
   %27 = load i8, ptr %m_enable_3d, align 4, !tbaa !122, !range !69, !noundef !121

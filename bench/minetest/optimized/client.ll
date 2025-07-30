@@ -20556,13 +20556,8 @@ if.end:                                           ; preds = %entry
 return:                                           ; preds = %if.end, %entry
   %retval.sroa.0.0 = phi i16 [ %conv14, %if.end ], [ %pos.sroa.0.0.extract.trunc, %entry ]
   %25 = phi <2 x i16> [ %24, %if.end ], [ %3, %entry ]
-  %26 = extractelement <2 x i16> %25, i64 1
-  %retval.sroa.5.0.insert.ext = zext i16 %26 to i48
-  %retval.sroa.5.0.insert.shift = shl nuw i48 %retval.sroa.5.0.insert.ext, 32
-  %27 = extractelement <2 x i16> %25, i64 0
-  %retval.sroa.3.0.insert.ext = zext i16 %27 to i48
-  %retval.sroa.3.0.insert.shift = shl nuw nsw i48 %retval.sroa.3.0.insert.ext, 16
-  %retval.sroa.3.0.insert.insert = or disjoint i48 %retval.sroa.5.0.insert.shift, %retval.sroa.3.0.insert.shift
+  %retval.sroa.3.0.insert.insert.v = shufflevector <2 x i16> %25, <2 x i16> <i16 0, i16 poison>, <3 x i32> <i32 2, i32 0, i32 1>
+  %retval.sroa.3.0.insert.insert = bitcast <3 x i16> %retval.sroa.3.0.insert.insert.v to i48
   %retval.sroa.0.0.insert.ext = zext i16 %retval.sroa.0.0 to i48
   %retval.sroa.0.0.insert.insert = or disjoint i48 %retval.sroa.3.0.insert.insert, %retval.sroa.0.0.insert.ext
   ret i48 %retval.sroa.0.0.insert.insert
