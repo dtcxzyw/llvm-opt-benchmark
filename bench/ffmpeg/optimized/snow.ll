@@ -710,7 +710,7 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
 
 .preheader333.preheader:                          ; preds = %.preheader333.lr.ph
   %41 = zext nneg i32 %smax466 to i64
-  %42 = mul nsw i64 %41, %40
+  %42 = mul nsw i64 %40, %41
   %scevgep = getelementptr i8, ptr %2, i64 %42
   br label %._crit_edge352
 

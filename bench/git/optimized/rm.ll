@@ -479,6 +479,7 @@ matches_skip_worktree.exit:                       ; preds = %151, %152
 .lr.ph.i.i:                                       ; preds = %193
   %200 = load ptr, ptr %196, align 8, !tbaa !48
   %201 = zext nneg i32 %194 to i64
+  %wide.trip.count.i.i = zext i32 %198 to i64
   br label %202
 
 202:                                              ; preds = %212, %.lr.ph.i.i
@@ -499,8 +500,7 @@ matches_skip_worktree.exit:                       ; preds = %151, %152
 
 212:                                              ; preds = %207
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
-  %exitcond.not.i.i = icmp eq i32 %198, %lftr.wideiv.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %get_ours_cache_pos.exit.thread.i, label %202, !llvm.loop !70
 
 get_ours_cache_pos.exit.i:                        ; preds = %207
@@ -638,11 +638,12 @@ oidclr.exit:                                      ; preds = %245, %.split.loop.e
 .lr.ph.i.i111:                                    ; preds = %265
   %273 = load ptr, ptr %269, align 8, !tbaa !48
   %274 = zext nneg i32 %266 to i64
+  %wide.trip.count.i.i112 = zext i32 %271 to i64
   br label %275
 
 275:                                              ; preds = %285, %.lr.ph.i.i111
-  %indvars.iv.i.i112 = phi i64 [ %274, %.lr.ph.i.i111 ], [ %indvars.iv.next.i.i113, %285 ]
-  %276 = getelementptr inbounds nuw ptr, ptr %273, i64 %indvars.iv.i.i112
+  %indvars.iv.i.i113 = phi i64 [ %274, %.lr.ph.i.i111 ], [ %indvars.iv.next.i.i114, %285 ]
+  %276 = getelementptr inbounds nuw ptr, ptr %273, i64 %indvars.iv.i.i113
   %277 = load ptr, ptr %276, align 8, !tbaa !49
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 108
   %279 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %278, ptr noundef nonnull readonly dereferenceable(1) %257) #17
@@ -657,13 +658,12 @@ oidclr.exit:                                      ; preds = %245, %.split.loop.e
   br i1 %284, label %get_ours_cache_pos.exit.i116, label %285
 
 285:                                              ; preds = %280
-  %indvars.iv.next.i.i113 = add nuw nsw i64 %indvars.iv.i.i112, 1
-  %lftr.wideiv.i.i114 = trunc i64 %indvars.iv.next.i.i113 to i32
-  %exitcond.not.i.i115 = icmp eq i32 %271, %lftr.wideiv.i.i114
+  %indvars.iv.next.i.i114 = add nuw nsw i64 %indvars.iv.i.i113, 1
+  %exitcond.not.i.i115 = icmp eq i64 %indvars.iv.next.i.i114, %wide.trip.count.i.i112
   br i1 %exitcond.not.i.i115, label %get_ours_cache_pos.exit.thread.i107, label %275, !llvm.loop !70
 
 get_ours_cache_pos.exit.i116:                     ; preds = %280
-  %286 = and i64 %indvars.iv.i.i112, 4294967295
+  %286 = and i64 %indvars.iv.i.i113, 4294967295
   %287 = getelementptr inbounds nuw ptr, ptr %273, i64 %286
   %288 = load ptr, ptr %287, align 8, !tbaa !49
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 52
@@ -673,7 +673,7 @@ get_ours_cache_pos.exit.i116:                     ; preds = %280
   br i1 %292, label %293, label %get_ours_cache_pos.exit.thread.i107
 
 293:                                              ; preds = %get_ours_cache_pos.exit.i116
-  %294 = trunc nuw nsw i64 %indvars.iv.i.i112 to i32
+  %294 = trunc nuw nsw i64 %indvars.iv.i.i113 to i32
   %295 = call i32 @is_empty_dir(ptr noundef nonnull %257) #15
   %.not.i117 = icmp eq i32 %295, 0
   br i1 %.not.i117, label %296, label %get_ours_cache_pos.exit.thread.i107

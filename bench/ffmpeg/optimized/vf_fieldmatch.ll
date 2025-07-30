@@ -2644,7 +2644,7 @@ fill_buf.exit:                                    ; preds = %219, %43, %.prehead
 
 .lr.ph636.split.preheader:                        ; preds = %.lr.ph636
   %365 = zext nneg i32 %smax743 to i64
-  %366 = mul nsw i64 %365, %346
+  %366 = mul nsw i64 %346, %365
   %scevgep737 = getelementptr i8, ptr %338, i64 %366
   br label %.preheader583
 

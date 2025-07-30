@@ -696,7 +696,7 @@ free_frames.exit64.i:                             ; preds = %.lr.ph.i60.i, %99
   br label %106
 
 ._crit_edge41.us.i.i:                             ; preds = %._crit_edge.us.i.i
-  %121 = add i32 %.in.i.i, -1
+  %121 = add nsw i32 %.in.i.i, -1
   %122 = getelementptr inbounds i8, ptr %.2.i, i64 %105
   %.not.us.i.i = icmp eq i32 %121, 0
   br i1 %.not.us.i.i, label %copy_samples.exit.i, label %.preheader31.us.i.i, !llvm.loop !85
@@ -769,7 +769,7 @@ free_frames.exit64.i:                             ; preds = %.lr.ph.i60.i, %99
   br label %129
 
 ._crit_edge41.us.i90.i:                           ; preds = %._crit_edge.us.i86.i
-  %145 = add i32 %.in.i82.i, -1
+  %145 = add nsw i32 %.in.i82.i, -1
   %146 = getelementptr inbounds i8, ptr %.4.i, i64 %128
   %.not.us.i91.i = icmp eq i32 %145, 0
   br i1 %.not.us.i91.i, label %copy_samples.exit.i, label %.preheader31.us.i81.i, !llvm.loop !85
@@ -842,7 +842,7 @@ free_frames.exit64.i:                             ; preds = %.lr.ph.i60.i, %99
   br label %153
 
 ._crit_edge41.us.i116.i:                          ; preds = %._crit_edge.us.i112.i
-  %169 = add i32 %.in.i108.i, -1
+  %169 = add nsw i32 %.in.i108.i, -1
   %170 = getelementptr inbounds i8, ptr %.6.i, i64 %152
   %.not.us.i117.i = icmp eq i32 %169, 0
   br i1 %.not.us.i117.i, label %copy_samples.exit.i, label %.preheader31.us.i107.i, !llvm.loop !85
@@ -915,7 +915,7 @@ free_frames.exit64.i:                             ; preds = %.lr.ph.i60.i, %99
   br label %178
 
 ._crit_edge41.us.i142.i:                          ; preds = %._crit_edge.us.i138.i
-  %193 = add i32 %.in.i134.i, -1
+  %193 = add nsw i32 %.in.i134.i, -1
   %194 = getelementptr inbounds i8, ptr %.8.i, i64 %176
   %.not.us.i143.i = icmp eq i32 %193, 0
   br i1 %.not.us.i143.i, label %copy_samples.exit.i, label %.preheader31.us.i133.i, !llvm.loop !85
