@@ -1488,7 +1488,7 @@ define internal noundef range(i32 0, 2) i32 @i915_sample(ptr noundef %0) #0 alig
   %250 = zext i32 %249 to i64
   %251 = mul nuw nsw i64 %250, %15
   %252 = getelementptr inbounds nuw i8, ptr %203, i64 9856
-  %253 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %252, i64 0, i64 %208, i64 0
+  %253 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %252, i64 0, i64 %208
   %254 = load i64, ptr %253, align 8
   %255 = add i64 %251, %254
   store i64 %255, ptr %253, align 8
@@ -2466,7 +2466,7 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
 
 42:                                               ; preds = %39
   %43 = getelementptr i8, ptr %.152.val, i64 448
-  %44 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %43, i64 0, i64 %40, i64 0
+  %44 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %43, i64 0, i64 %40
   %45 = load i64, ptr %44, align 8
   %46 = udiv i64 %45, 1000000
   br label %132

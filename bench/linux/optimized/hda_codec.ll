@@ -6919,7 +6919,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_pcms(ptr nou
 
 32:                                               ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr [4 x [5 x i32]], ptr @get_empty_pcm_device.audio_idx, i64 0, i64 %33, i64 0
+  %34 = getelementptr [4 x [5 x i32]], ptr @get_empty_pcm_device.audio_idx, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   br label %46
 

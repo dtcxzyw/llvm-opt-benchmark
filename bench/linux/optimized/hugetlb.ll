@@ -14058,7 +14058,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr nou
 .preheader:                                       ; preds = %11, %14
   %17 = phi i32 [ %15, %14 ], [ 0, %11 ]
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1, i64 0
+  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %.critedge, label %22
@@ -14139,7 +14139,7 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
 .preheader:                                       ; preds = %28, %31
   %34 = phi i32 [ %32, %31 ], [ 0, %28 ]
   %35 = sext i32 %34 to i64
-  %36 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %35, i32 1, i64 0
+  %36 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %35, i32 1
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, %0
   br i1 %38, label %.critedge, label %39
@@ -14221,7 +14221,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
 .preheader32:                                     ; preds = %17, %20
   %23 = phi i32 [ %21, %20 ], [ 0, %17 ]
   %24 = sext i32 %23 to i64
-  %25 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %24, i32 1, i64 0
+  %25 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %24, i32 1
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %0
   br i1 %27, label %32, label %28
@@ -14803,7 +14803,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr no
 .preheader:                                       ; preds = %11, %14
   %17 = phi i32 [ %15, %14 ], [ 0, %11 ]
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1, i64 0
+  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %26, label %22
@@ -14881,7 +14881,7 @@ define internal i64 @nr_hugepages_store(ptr noundef readnone captures(address) %
 .preheader.i:                                     ; preds = %16, %19
   %22 = phi i32 [ %20, %19 ], [ 0, %16 ]
   %23 = sext i32 %22 to i64
-  %24 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %23, i32 1, i64 0
+  %24 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %23, i32 1
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %0
   br i1 %26, label %.critedge.i, label %27
@@ -16178,7 +16178,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr 
 .preheader:                                       ; preds = %11, %14
   %17 = phi i32 [ %15, %14 ], [ 0, %11 ]
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1, i64 0
+  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %26, label %22
@@ -16247,7 +16247,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @surplus_hugepages_show(p
 .preheader:                                       ; preds = %11, %14
   %17 = phi i32 [ %15, %14 ], [ 0, %11 ]
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1, i64 0
+  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %26, label %22
@@ -17014,7 +17014,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_
 .preheader:                                       ; preds = %11, %14
   %17 = phi i32 [ %15, %14 ], [ 0, %11 ]
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1, i64 0
+  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %.critedge, label %22
@@ -17069,7 +17069,7 @@ define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone captures
 .preheader:                                       ; preds = %13, %16
   %19 = phi i32 [ %17, %16 ], [ 0, %13 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %20, i32 1, i64 0
+  %21 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %20, i32 1
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %0
   br i1 %23, label %.critedge, label %24
@@ -17145,7 +17145,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr 
 .preheader:                                       ; preds = %11, %14
   %17 = phi i32 [ %15, %14 ], [ 0, %11 ]
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1, i64 0
+  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %.critedge, label %22
@@ -17198,7 +17198,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_s
 .preheader:                                       ; preds = %11, %14
   %17 = phi i32 [ %15, %14 ], [ 0, %11 ]
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1, i64 0
+  %19 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %18, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %26, label %22
@@ -17276,7 +17276,7 @@ define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone captures(
 .preheader.i:                                     ; preds = %16, %19
   %22 = phi i32 [ %20, %19 ], [ 0, %16 ]
   %23 = sext i32 %22 to i64
-  %24 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %23, i32 1, i64 0
+  %24 = getelementptr [64 x %struct.node_hstate], ptr @node_hstates, i64 0, i64 %23, i32 1
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %0
   br i1 %26, label %.critedge.i, label %27

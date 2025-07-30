@@ -2229,7 +2229,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_submission_setup(ptr n
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4256
   %142 = load i8, ptr %70, align 8
   %143 = zext i8 %142 to i64
-  %144 = getelementptr [6 x [9 x ptr]], ptr %141, i64 0, i64 %143, i64 0
+  %144 = getelementptr [6 x [9 x ptr]], ptr %141, i64 0, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.preheader, label %.loopexit

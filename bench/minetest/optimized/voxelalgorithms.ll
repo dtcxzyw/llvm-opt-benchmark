@@ -4545,7 +4545,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %9 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i, i8 %8)
   %cond.i = select i1 %bf.cast.not.i.i, i8 %bf.clear.i, i8 %9
   %cmp40 = icmp eq i8 %cond.i, 15
-  %arrayidx44 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 0
+  %arrayidx44 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv
   %frombool45 = zext i1 %cmp40 to i8
   store i8 %frombool45, ptr %arrayidx44, align 1, !tbaa !118
   %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4

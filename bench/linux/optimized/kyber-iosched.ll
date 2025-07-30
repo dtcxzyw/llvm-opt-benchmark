@@ -1576,7 +1576,7 @@ define internal void @kyber_completed_request(ptr noundef readonly captures(none
 
 33:                                               ; preds = %24, %13
   %34 = phi i64 [ %32, %24 ], [ 0, %13 ]
-  %.split = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %17, i64 0, i64 %.ph, i64 0
+  %.split = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %17, i64 0, i64 %.ph
   %35 = getelementptr [8 x %struct.atomic_t], ptr %.split, i64 0, i64 %34
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, ptr elementtype(i32) %35) #18, !srcloc !42
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1679,8 +1679,8 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
 
 23:                                               ; preds = %47, %15
   %24 = phi i64 [ 0, %15 ], [ %48, %47 ]
-  %25 = getelementptr [3 x [2 x [8 x i32]]], ptr %3, i64 0, i64 %24, i64 0
-  %26 = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %22, i64 0, i64 %24, i64 0
+  %25 = getelementptr [3 x [2 x [8 x i32]]], ptr %3, i64 0, i64 %24
+  %26 = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %22, i64 0, i64 %24
   br label %27
 
 27:                                               ; preds = %27, %23

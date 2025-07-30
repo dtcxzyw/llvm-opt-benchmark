@@ -4969,7 +4969,7 @@ entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 312
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %Items, align 8, !tbaa !82
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2, i64 0
+  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2
   store i8 1, ptr %arrayidx, align 4, !tbaa !131
   %Color = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2, i64 0, i32 1
   store i32 %color.coerce, ptr %Color, align 4, !tbaa !52
@@ -5025,7 +5025,7 @@ entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 312
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %Items, align 8, !tbaa !82
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2, i64 0
+  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2
   store i8 0, ptr %arrayidx, align 4, !tbaa !131
   %arrayidx.1 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2, i64 1
   store i8 0, ptr %arrayidx.1, align 4, !tbaa !131
