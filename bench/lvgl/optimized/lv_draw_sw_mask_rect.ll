@@ -123,28 +123,28 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %78 = icmp eq i32 %69, 0
   br i1 %78, label %90, label %.preheader.us
 
-.preheader.us:                                    ; preds = %71, %89
-  %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 0, %71 ]
-  %79 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv
-  %80 = load i8, ptr %79, align 1, !tbaa !34
-  %.not65.us = icmp eq i8 %80, -1
-  br i1 %.not65.us, label %89, label %81
+79:                                               ; preds = %.preheader.us, %89
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %89 ]
+  %80 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv
+  %81 = load i8, ptr %80, align 1, !tbaa !34
+  %.not65.us = icmp eq i8 %81, -1
+  br i1 %.not65.us, label %89, label %82
 
-81:                                               ; preds = %.preheader.us
-  %82 = zext i8 %80 to i16
-  %83 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %77, i64 %indvars.iv, i32 3
-  %84 = load i8, ptr %83, align 1, !tbaa !35
+82:                                               ; preds = %79
+  %83 = zext i8 %81 to i16
+  %gep.us = getelementptr inbounds nuw %struct.lv_color32_t, ptr %invariant.gep.us, i64 %indvars.iv
+  %84 = load i8, ptr %gep.us, align 1, !tbaa !35
   %85 = zext i8 %84 to i16
-  %86 = mul nuw i16 %85, %82
+  %86 = mul nuw i16 %85, %83
   %87 = lshr i16 %86, 8
   %88 = trunc nuw i16 %87 to i8
-  store i8 %88, ptr %83, align 1, !tbaa !35
+  store i8 %88, ptr %gep.us, align 1, !tbaa !35
   br label %89
 
-89:                                               ; preds = %81, %.preheader.us
+89:                                               ; preds = %82, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %61
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !37
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %79, !llvm.loop !37
 
 90:                                               ; preds = %71
   call void @lv_memset(ptr noundef %77, i8 noundef zeroext 0, i64 noundef range(i64 0, 17179869181) %67) #4
@@ -155,6 +155,10 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %92 = load i32, ptr %65, align 4, !tbaa !33
   %.not.us.not = icmp slt i32 %.06268.us, %92
   br i1 %.not.us.not, label %.lr.ph69.split.us, label %._crit_edge, !llvm.loop !39
+
+.preheader.us:                                    ; preds = %71
+  %invariant.gep.us = getelementptr inbounds nuw i8, ptr %77, i64 3
+  br label %79
 
 .lr.ph69.split:                                   ; preds = %.lr.ph69, %.preheader
   %.06268 = phi i32 [ %105, %.preheader ], [ %64, %.lr.ph69 ]

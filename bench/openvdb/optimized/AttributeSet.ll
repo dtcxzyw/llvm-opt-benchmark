@@ -4143,7 +4143,8 @@ define noundef zeroext i1 @_ZNK7openvdb5v11_06points12AttributeSet8isSharedEm(pt
 entry:
   %mAttrs = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mAttrs, align 8
-  %_M_refcount.i = getelementptr inbounds %"class.std::shared_ptr.18", ptr %0, i64 %pos, i32 0, i32 1
+  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.18", ptr %0, i64 %pos
+  %_M_refcount.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %1 = load ptr, ptr %_M_refcount.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNKSt12__shared_ptrIN7openvdb5v11_06points14AttributeArrayELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit, label %cond.true.i.i
@@ -5345,6 +5346,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %groupsToDrop.sroa.0.0296 = phi ptr [ null, %for.body.lr.ph ], [ %groupsToDrop.sroa.0.1, %for.inc ]
   %groupsToDrop.sroa.8.0294 = phi ptr [ null, %for.body.lr.ph ], [ %groupsToDrop.sroa.8.1, %for.inc ]
   %groupsToDrop.sroa.14.0292 = phi ptr [ null, %for.body.lr.ph ], [ %groupsToDrop.sroa.14.1, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"struct.openvdb::v11_0::points::AttributeSet::Util::NameAndType", ptr %3, i64 %storemerge300
   %4 = load atomic i8, ptr @_ZGVZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13attributeTypeB5cxx11EvE9sTypeNameB5cxx11 acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %4, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont5, !prof !14
@@ -5376,7 +5378,7 @@ lpad.i:                                           ; preds = %init.i
   br label %ehcleanup
 
 invoke.cont5:                                     ; preds = %invoke.cont.i, %init.check.i, %for.body
-  %type = getelementptr inbounds %"struct.openvdb::v11_0::points::AttributeSet::Util::NameAndType", ptr %3, i64 %storemerge300, i32 1
+  %type = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %call8 = call noundef zeroext i1 @_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EbRKSt4pairIT_T0_ESB_(ptr noundef nonnull align 8 dereferenceable(64) %type, ptr noundef nonnull align 8 dereferenceable(64) @_ZZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13attributeTypeB5cxx11EvE9sTypeNameB5cxx11)
   br i1 %call8, label %if.then9, label %for.inc
 

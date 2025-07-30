@@ -693,6 +693,9 @@ default.unreachable2225:                          ; preds = %132
   %242 = load i32, ptr %45, align 8, !tbaa !35
   %notmask = shl nsw i32 -1, %242
   %243 = xor i32 %notmask, -1
+  %invariant.gep2551 = getelementptr inbounds nuw i8, ptr %241, i64 1
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %241, i64 1
+  %invariant.gep2553 = getelementptr i8, ptr %241, i64 2
   br label %.preheader814
 
 .preheader814:                                    ; preds = %.preheader814.lr.ph, %365
@@ -704,8 +707,8 @@ default.unreachable2225:                          ; preds = %132
   %244 = trunc i64 %.196181432 to i32
   %245 = and i32 %243, %244
   %246 = zext nneg i32 %245 to i64
-  %.sroa.18.0..sroa_idx1366 = getelementptr inbounds nuw %struct.code, ptr %241, i64 %246, i32 1
-  %.sroa.18.0.copyload1367 = load i8, ptr %.sroa.18.0..sroa_idx1366, align 1, !tbaa !32
+  %gep2552 = getelementptr inbounds nuw %struct.code, ptr %invariant.gep2551, i64 %246
+  %.sroa.18.0.copyload1367 = load i8, ptr %gep2552, align 1, !tbaa !32
   %247 = zext i8 %.sroa.18.0.copyload1367 to i32
   %.not7601368 = icmp ult i32 %.191433, %247
   br i1 %.not7601368, label %.lr.ph1373.preheader, label %._crit_edge1374
@@ -733,8 +736,8 @@ default.unreachable2225:                          ; preds = %132
   %257 = trunc i64 %256 to i32
   %258 = and i32 %243, %257
   %259 = zext nneg i32 %258 to i64
-  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw %struct.code, ptr %241, i64 %259, i32 1
-  %.sroa.18.0.copyload = load i8, ptr %.sroa.18.0..sroa_idx, align 1, !tbaa !32
+  %gep = getelementptr inbounds nuw %struct.code, ptr %invariant.gep, i64 %259
+  %.sroa.18.0.copyload = load i8, ptr %gep, align 1, !tbaa !32
   %260 = zext i8 %.sroa.18.0.copyload to i64
   %.not760 = icmp samesign ult i64 %indvars.iv.next2148, %260
   br i1 %.not760, label %.lr.ph1373, label %._crit_edge1374.loopexit
@@ -752,8 +755,8 @@ default.unreachable2225:                          ; preds = %132
   %.21620.lcssa = phi i64 [ %.196181432, %.preheader814 ], [ %256, %._crit_edge1374.loopexit ]
   %.21.lcssa = phi i32 [ %.191433, %.preheader814 ], [ %262, %._crit_edge1374.loopexit ]
   %.sroa.18.0.copyload.lcssa = phi i8 [ %.sroa.18.0.copyload1367, %.preheader814 ], [ %.sroa.18.0.copyload, %._crit_edge1374.loopexit ]
-  %.sroa.41.0..sroa_idx.le = getelementptr inbounds nuw %struct.code, ptr %241, i64 %263, i32 2
-  %.sroa.41.0.copyload.le = load i16, ptr %.sroa.41.0..sroa_idx.le, align 2, !tbaa !40
+  %gep2554 = getelementptr %struct.code, ptr %invariant.gep2553, i64 %263
+  %.sroa.41.0.copyload.le = load i16, ptr %gep2554, align 2, !tbaa !40
   %264 = icmp ult i16 %.sroa.41.0.copyload.le, 16
   br i1 %264, label %.preheader804, label %284
 
@@ -1565,11 +1568,11 @@ default.unreachable2225:                          ; preds = %132
   br label %595
 
 595:                                              ; preds = %593, %589
-  %.sink2571 = phi i32 [ %594, %593 ], [ %592, %589 ]
+  %.sink2575 = phi i32 [ %594, %593 ], [ %592, %589 ]
   %.4581 = phi i32 [ %586, %593 ], [ %590, %589 ]
-  %.sink2569 = load ptr, ptr %53, align 8, !tbaa !46
-  %596 = zext i32 %.sink2571 to i64
-  %597 = getelementptr inbounds nuw i8, ptr %.sink2569, i64 %596
+  %.sink2573 = load ptr, ptr %53, align 8, !tbaa !46
+  %596 = zext i32 %.sink2575 to i64
+  %597 = getelementptr inbounds nuw i8, ptr %.sink2573, i64 %596
   %598 = load i32, ptr %36, align 4, !tbaa !29
   %spec.select794 = tail call i32 @llvm.umin.i32(i32 %.4581, i32 %598)
   br label %604
@@ -1834,8 +1837,8 @@ default.unreachable2225:                          ; preds = %132
   %.not789 = icmp eq i32 %686, 0
   %.not790 = icmp eq i32 %.4589, %.06402063
   %or.cond803 = select i1 %685, i1 true, i1 %.not790
-  %or.cond2572 = select i1 %.not789, i1 %or.cond803, i1 false
-  br i1 %or.cond2572, label %updatewindow.exit.thread, label %687
+  %or.cond2576 = select i1 %.not789, i1 %or.cond803, i1 false
+  br i1 %or.cond2576, label %updatewindow.exit.thread, label %687
 
 687:                                              ; preds = %.loopexit
   %688 = load ptr, ptr %5, align 8, !tbaa !3
@@ -2368,14 +2371,14 @@ select.unfold.preheader:                          ; preds = %112
   %150 = zext nneg i32 %125 to i64
   %151 = getelementptr inbounds nuw %struct.code, ptr %149, i64 %150
   store i8 %148, ptr %151, align 2, !tbaa !51
-  %152 = getelementptr inbounds nuw %struct.code, ptr %149, i64 %150, i32 1
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   store i8 %70, ptr %152, align 1, !tbaa !53
   %153 = ptrtoint ptr %129 to i64
   %154 = ptrtoint ptr %149 to i64
   %155 = sub i64 %153, %154
   %156 = lshr exact i64 %155, 2
   %157 = trunc i64 %156 to i16
-  %158 = getelementptr inbounds nuw %struct.code, ptr %149, i64 %150, i32 2
+  %158 = getelementptr inbounds nuw i8, ptr %151, i64 2
   store i16 %157, ptr %158, align 2, !tbaa !54
   br label %.outer
 

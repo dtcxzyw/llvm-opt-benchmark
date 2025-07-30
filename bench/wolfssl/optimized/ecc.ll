@@ -82,12 +82,13 @@ define ptr @wc_ecc_get_name(i32 noundef %0) local_unnamed_addr #1 {
 wc_ecc_get_curve_idx.exit:                        ; preds = %2
   %sext = shl i64 %indvars.iv.i, 32
   %9 = ashr exact i64 %sext, 32
-  %10 = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %9, i32 2
-  %11 = load ptr, ptr %10, align 8, !tbaa !12
+  %10 = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !12
   br label %wc_ecc_get_curve_idx.exit.thread
 
 wc_ecc_get_curve_idx.exit.thread:                 ; preds = %7, %wc_ecc_get_curve_idx.exit
-  %.0 = phi ptr [ %11, %wc_ecc_get_curve_idx.exit ], [ null, %7 ]
+  %.0 = phi ptr [ %12, %wc_ecc_get_curve_idx.exit ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -2044,16 +2045,17 @@ define range(i32 0, 2) i32 @wc_ecc_is_valid_idx(i32 noundef %0) local_unnamed_ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @wc_ecc_get_curve_id(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %0, 5
-  br i1 %or.cond, label %2, label %6
+  br i1 %or.cond, label %2, label %7
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %3, i32 1
-  %5 = load i32, ptr %4, align 4, !tbaa !3
-  br label %6
+  %4 = getelementptr inbounds nuw [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !3
+  br label %7
 
-6:                                                ; preds = %1, %2
-  %.0 = phi i32 [ %5, %2 ], [ -1, %1 ]
+7:                                                ; preds = %1, %2
+  %.0 = phi i32 [ %6, %2 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -2184,12 +2186,13 @@ define i32 @wc_ecc_get_curve_id_from_name(ptr noundef readonly captures(address_
 
 wc_ecc_get_curve_idx_from_name.exit:              ; preds = %6
   %11 = and i64 %indvars.iv.i, 4294967295
-  %12 = getelementptr inbounds nuw [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %11, i32 1
-  %13 = load i32, ptr %12, align 4, !tbaa !3
+  %12 = getelementptr inbounds nuw [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !3
   br label %wc_ecc_get_curve_idx_from_name.exit.thread
 
 wc_ecc_get_curve_idx_from_name.exit.thread:       ; preds = %9, %1, %wc_ecc_get_curve_idx_from_name.exit
-  %.0 = phi i32 [ %13, %wc_ecc_get_curve_idx_from_name.exit ], [ -173, %1 ], [ -1, %9 ]
+  %.0 = phi i32 [ %14, %wc_ecc_get_curve_idx_from_name.exit ], [ -173, %1 ], [ -1, %9 ]
   ret i32 %.0
 }
 

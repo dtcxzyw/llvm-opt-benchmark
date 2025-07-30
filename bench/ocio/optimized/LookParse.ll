@@ -2832,7 +2832,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseRe
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
-  %90 = phi ptr [ %87, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ %104, %.lr.ph ]
+  %90 = phi ptr [ %87, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ %105, %.lr.ph ]
   %91 = add i32 %.01216, 1
   %92 = zext i32 %91 to i64
   %93 = load ptr, ptr %3, align 8, !tbaa !35
@@ -2844,27 +2844,29 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseRe
   br i1 %98, label %9, label %._crit_edge19, !llvm.loop !83
 
 .lr.ph:                                           ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit, %.lr.ph
-  %99 = phi ptr [ %106, %.lr.ph ], [ %88, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
-  %100 = phi i64 [ %109, %.lr.ph ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
-  %.015 = phi i32 [ %108, %.lr.ph ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
-  %101 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %99, i64 %100, i32 1
-  %102 = load i32, ptr %101, align 8, !tbaa !24
-  %103 = call noundef i32 @_ZN19OpenColorIO_v2_5dev28GetInverseTransformDirectionENS_18TransformDirectionE(i32 noundef %102)
-  %104 = load ptr, ptr %0, align 8, !tbaa !32
-  %105 = getelementptr inbounds nuw %"class.std::vector", ptr %104, i64 %11
-  %106 = load ptr, ptr %105, align 8, !tbaa !30
-  %107 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %106, i64 %100, i32 1
-  store i32 %103, ptr %107, align 8, !tbaa !24
-  %108 = add i32 %.015, 1
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !27
-  %112 = ptrtoint ptr %111 to i64
-  %113 = ptrtoint ptr %106 to i64
-  %114 = sub i64 %112, %113
-  %115 = sdiv exact i64 %114, 40
-  %116 = icmp ugt i64 %115, %109
-  br i1 %116, label %.lr.ph, label %._crit_edge, !llvm.loop !84
+  %99 = phi ptr [ %107, %.lr.ph ], [ %88, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
+  %100 = phi i64 [ %111, %.lr.ph ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
+  %.015 = phi i32 [ %110, %.lr.ph ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
+  %101 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %99, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
+  %103 = load i32, ptr %102, align 8, !tbaa !24
+  %104 = call noundef i32 @_ZN19OpenColorIO_v2_5dev28GetInverseTransformDirectionENS_18TransformDirectionE(i32 noundef %103)
+  %105 = load ptr, ptr %0, align 8, !tbaa !32
+  %106 = getelementptr inbounds nuw %"class.std::vector", ptr %105, i64 %11
+  %107 = load ptr, ptr %106, align 8, !tbaa !30
+  %108 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %107, i64 %100
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  store i32 %104, ptr %109, align 8, !tbaa !24
+  %110 = add i32 %.015, 1
+  %111 = zext i32 %110 to i64
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %113 = load ptr, ptr %112, align 8, !tbaa !27
+  %114 = ptrtoint ptr %113 to i64
+  %115 = ptrtoint ptr %107 to i64
+  %116 = sub i64 %114, %115
+  %117 = sdiv exact i64 %116, 40
+  %118 = icmp ugt i64 %117, %111
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 }
 
 declare noundef i32 @_ZN19OpenColorIO_v2_5dev28GetInverseTransformDirectionENS_18TransformDirectionE(i32 noundef) local_unnamed_addr #0

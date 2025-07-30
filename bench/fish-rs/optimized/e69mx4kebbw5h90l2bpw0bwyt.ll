@@ -59427,23 +59427,24 @@ define { i64, i64 } @_ZN4fish21reader_history_search19ReaderHistorySearch19searc
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
   %10 = icmp ult i64 %7, %9
-  br i1 %10, label %11, label %22
+  br i1 %10, label %11, label %23
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64 }, ptr %13, i64 %7, i32 0, i32 0, i32 1
-  %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = icmp ult i64 %17, 2305843009213693952
-  tail call void @llvm.assume(i1 %18)
-  %19 = add i64 %17, %15
-  %20 = insertvalue { i64, i64 } poison, i64 %15, 0
-  %21 = insertvalue { i64, i64 } %20, i64 %19, 1
-  ret { i64, i64 } %21
+  %16 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64 }, ptr %13, i64 %7
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = icmp ult i64 %18, 2305843009213693952
+  tail call void @llvm.assume(i1 %19)
+  %20 = add i64 %18, %15
+  %21 = insertvalue { i64, i64 } poison, i64 %15, 0
+  %22 = insertvalue { i64, i64 } %21, i64 %20, 1
+  ret { i64, i64 } %22
 
-22:                                               ; preds = %5
+23:                                               ; preds = %5
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %7, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb71500b7c601d0c05b6c58f9f119b67.837) #32
   unreachable
 }
@@ -59453,56 +59454,57 @@ define void @_ZN4fish21reader_history_search19ReaderHistorySearch22search_range_
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %4 = load i8, ptr %3, align 8, !range !5988, !alias.scope !6001, !noundef !3
   %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %32, label %5
+  br i1 %.not, label %33, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %7 = load i64, ptr %6, align 8, !alias.scope !6004, !noundef !3
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %32, label %9
+  br i1 %8, label %33, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !3
   %12 = icmp ult i64 %7, %11
-  br i1 %12, label %13, label %31
+  br i1 %12, label %13, label %32
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64 }, ptr %15, i64 %7, i32 1
-  %19 = load i64, ptr %18, align 8, !noundef !3
+  %18 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64 }, ptr %15, i64 %7
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %20 = load i64, ptr %19, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6007)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6010)
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load i64, ptr %20, align 8, !range !138, !alias.scope !6013, !noundef !3
-  %.not.i.i = icmp eq i64 %21, -9223372036854775808
-  br i1 %.not.i.i, label %22, label %_ZN4fish21reader_history_search19ReaderHistorySearch13search_string17h58eea65f84026addE.exit, !prof !139
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %22 = load i64, ptr %21, align 8, !range !138, !alias.scope !6013, !noundef !3
+  %.not.i.i = icmp eq i64 %22, -9223372036854775808
+  br i1 %.not.i.i, label %23, label %_ZN4fish21reader_history_search19ReaderHistorySearch13search_string17h58eea65f84026addE.exit, !prof !139
 
-22:                                               ; preds = %13
+23:                                               ; preds = %13
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb71500b7c601d0c05b6c58f9f119b67.850) #32, !noalias !6013
   unreachable
 
 _ZN4fish21reader_history_search19ReaderHistorySearch13search_string17h58eea65f84026addE.exit: ; preds = %13
-  %23 = add i64 %19, %17
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %25 = load i64, ptr %24, align 8, !alias.scope !6014, !noundef !3
-  %26 = tail call { i32, i32 } @_ZN4fish15parse_constants11SourceRange3new17he1a688aaeb7d0534E(i64 noundef %23, i64 noundef %25)
-  %27 = extractvalue { i32, i32 } %26, 0
-  %28 = extractvalue { i32, i32 } %26, 1
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = add i64 %20, %17
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %26 = load i64, ptr %25, align 8, !alias.scope !6014, !noundef !3
+  %27 = tail call { i32, i32 } @_ZN4fish15parse_constants11SourceRange3new17he1a688aaeb7d0534E(i64 noundef %24, i64 noundef %26)
+  %28 = extractvalue { i32, i32 } %27, 0
+  %29 = extractvalue { i32, i32 } %27, 1
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %28, ptr %30, align 4
-  br label %32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %29, ptr %31, align 4
+  br label %33
 
-31:                                               ; preds = %9
+32:                                               ; preds = %9
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %7, i64 noundef %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb71500b7c601d0c05b6c58f9f119b67.838) #32
   unreachable
 
-32:                                               ; preds = %2, %5, %_ZN4fish21reader_history_search19ReaderHistorySearch13search_string17h58eea65f84026addE.exit
+33:                                               ; preds = %2, %5, %_ZN4fish21reader_history_search19ReaderHistorySearch13search_string17h58eea65f84026addE.exit
   %storemerge = phi i32 [ 1, %_ZN4fish21reader_history_search19ReaderHistorySearch13search_string17h58eea65f84026addE.exit ], [ 0, %5 ], [ 0, %2 ]
   store i32 %storemerge, ptr %0, align 4
   ret void

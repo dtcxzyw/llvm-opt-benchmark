@@ -320,7 +320,7 @@ define internal ptr @mempool_multiple_alloc_callback(ptr noundef %0, i64 noundef
 
 14:                                               ; preds = %2
   %15 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %5) #6
-  br label %55
+  br label %57
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -358,26 +358,28 @@ define internal ptr @mempool_multiple_alloc_callback(ptr noundef %0, i64 noundef
   %40 = load ptr, ptr %24, align 8
   %41 = getelementptr inbounds ptr, ptr %40, i64 %21
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.mpool_dict_s, ptr %42, i64 %23, i32 1
-  store ptr %12, ptr %43, align 8
-  %44 = load i64, ptr %9, align 8
-  %45 = add i64 %44, %1
-  %46 = load ptr, ptr %24, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %21
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct.mpool_dict_s, ptr %48, i64 %23, i32 2
-  store i64 %45, ptr %49, align 8
-  %50 = load i64, ptr %17, align 8
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %17, align 8
-  store i64 %50, ptr %12, align 8
-  %52 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %5) #6
-  %53 = load i64, ptr %9, align 8
-  %54 = getelementptr inbounds i8, ptr %12, i64 %53
-  br label %55
+  %43 = getelementptr inbounds %struct.mpool_dict_s, ptr %42, i64 %23
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store ptr %12, ptr %44, align 8
+  %45 = load i64, ptr %9, align 8
+  %46 = add i64 %45, %1
+  %47 = load ptr, ptr %24, align 8
+  %48 = getelementptr inbounds ptr, ptr %47, i64 %21
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.mpool_dict_s, ptr %49, i64 %23
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  store i64 %46, ptr %51, align 8
+  %52 = load i64, ptr %17, align 8
+  %53 = add i64 %52, 1
+  store i64 %53, ptr %17, align 8
+  store i64 %52, ptr %12, align 8
+  %54 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %5) #6
+  %55 = load i64, ptr %9, align 8
+  %56 = getelementptr inbounds i8, ptr %12, i64 %55
+  br label %57
 
-55:                                               ; preds = %37, %14
-  %.0 = phi ptr [ null, %14 ], [ %54, %37 ]
+57:                                               ; preds = %37, %14
+  %.0 = phi ptr [ null, %14 ], [ %56, %37 ]
   ret ptr %.0
 }
 

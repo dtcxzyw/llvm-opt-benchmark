@@ -180,7 +180,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_debug(ptr noundef readonly captures(none)
 11:                                               ; preds = %5
   %12 = xor i1 %9, true
   %13 = select i1 %7, i1 true, i1 %12
-  br i1 %13, label %14, label %29, !prof !10
+  br i1 %13, label %14, label %30, !prof !10
 
 14:                                               ; preds = %.thread, %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -188,24 +188,25 @@ define range(i32 -1, 1) i32 @H5FS_sect_debug(ptr noundef readonly captures(none)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !46
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %16, i64 %19, i32 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !48
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %29, label %22
+  %20 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %16, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
+  %22 = load ptr, ptr %21, align 8, !tbaa !48
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %30, label %23
 
-22:                                               ; preds = %14
-  %23 = tail call i32 %21(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %29
+23:                                               ; preds = %14
+  %24 = tail call i32 %22(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %30
 
-25:                                               ; preds = %22
-  %26 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !20
-  %27 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !20
-  %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FS_sect_debug, i32 noundef 176, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.25) #7
-  br label %29
+26:                                               ; preds = %23
+  %27 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !20
+  %28 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !20
+  %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FS_sect_debug, i32 noundef 176, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.25) #7
+  br label %30
 
-29:                                               ; preds = %25, %22, %14, %11
-  %.0 = phi i32 [ -1, %25 ], [ 0, %22 ], [ 0, %14 ], [ 0, %11 ]
+30:                                               ; preds = %26, %23, %14, %11
+  %.0 = phi i32 [ -1, %26 ], [ 0, %23 ], [ 0, %14 ], [ 0, %11 ]
   ret i32 %.0
 }
 

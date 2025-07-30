@@ -4674,8 +4674,7 @@ define i64 @mi_malloc_good_size(i64 noundef %0) local_unnamed_addr #13 personali
 
 _ZL6mi_binm.exit.i:                               ; preds = %11, %7
   %.0.i.i = phi i64 [ %10, %7 ], [ %18, %11 ]
-  %.idx.i.i = mul nuw nsw i64 %.0.i.i, 24
-  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx.i.i
+  %19 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 0, i64 %.0.i.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !62
   br label %mi_good_size.exit
@@ -4734,8 +4733,7 @@ define i64 @mi_good_size(i64 noundef %0) local_unnamed_addr #13 personality ptr 
 
 _ZL6mi_binm.exit:                                 ; preds = %7, %11
   %.0.i = phi i64 [ %10, %7 ], [ %18, %11 ]
-  %.idx.i = mul nuw nsw i64 %.0.i, 24
-  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx.i
+  %19 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 0, i64 %.0.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !62
   br label %_ZL12_mi_align_upmm.exit
@@ -19679,8 +19677,7 @@ _ZL6mi_binm.exit:                                 ; preds = %5, %9, %11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i64 @_Z12_mi_bin_sizem(i64 noundef %0) local_unnamed_addr #8 {
-  %.idx = mul nuw nsw i64 %0, 24
-  %2 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx
+  %2 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 0, i64 %0
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !62
   ret i64 %4
@@ -30546,8 +30543,7 @@ _ZL23mi_heap_buf_print_countP13mi_heap_buf_sPKcP15mi_stat_count_sb.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL27mi_heap_buf_print_count_binP13mi_heap_buf_sPKcP15mi_stat_count_smb(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 74) %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [128 x i8], align 16
-  %.idx.i = mul nuw nsw i64 %2, 24
-  %6 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx.i
+  %6 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 0, i64 %2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !62
   %9 = icmp ult i64 %8, 8193
@@ -31373,8 +31369,7 @@ define internal fastcc noundef ptr @_ZL38mi_heap_malloc_zero_aligned_at_genericP
 
 _ZL6mi_binm.exit.i.i:                             ; preds = %21, %18
   %.0.i.i.i = phi i64 [ %20, %18 ], [ %28, %21 ]
-  %.idx.i.i.i = mul nuw nsw i64 %.0.i.i.i, 24
-  %29 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx.i.i.i
+  %29 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 0, i64 %.0.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !62
   br label %_ZL30mi_malloc_is_naturally_alignedmm.exit

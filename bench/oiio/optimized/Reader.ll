@@ -5,6 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.dpx::Block" = type { i32, i32, i32, i32 }
+%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -345,18 +346,17 @@ declare noundef i32 @_ZNK3dpx6Header6HeightEv(ptr noundef nonnull align 4 derefe
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3dpx6Reader9ReadBlockEiPhRNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(2144) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(16) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %or.cond = icmp ugt i32 %1, 7
-  br i1 %or.cond, label %.thread69, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+  br i1 %or.cond, label %.thread65, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 788
-  %narrow.i = mul nuw nsw i32 %1, 72
-  %7 = zext nneg i32 %narrow.i to i64
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %7 = zext nneg i32 %1 to i64
+  %8 = getelementptr inbounds nuw [8 x %"struct.dpx::ImageElement"], ptr %6, i64 0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = load i8, ptr %9, align 8, !tbaa !29
   %11 = icmp eq i8 %10, -1
-  br i1 %11, label %.thread69, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
+  br i1 %11, label %.thread65, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
 
 _ZNK3dpx13GenericHeader13ImageEncodingEi.exit:    ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
   %12 = tail call noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %5, i32 noundef %1)
@@ -434,7 +434,7 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %38
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8
   %61 = tail call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %45, i64 noundef %57, i32 noundef 0)
-  br i1 %61, label %62, label %.thread69
+  br i1 %61, label %62, label %.thread65
 
 62:                                               ; preds = %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
   %63 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %5)
@@ -455,60 +455,58 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %38
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef i64 %78(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef %2, i64 noundef %74)
   %.not = icmp eq i64 %79, %74
-  br i1 %.not, label %80, label %.thread69
+  br i1 %.not, label %80, label %.thread65
 
 80:                                               ; preds = %62
   %81 = load i32, ptr %5, align 8, !tbaa !35
   %82 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %5, i32 noundef %81)
-  br i1 %82, label %83, label %.thread69
+  br i1 %82, label %83, label %.thread65
 
 83:                                               ; preds = %80
   tail call void @_ZN3dpx21EndianSwapImageBufferENS_8DataSizeEPvi(i32 noundef %18, ptr noundef %2, i32 noundef %70)
-  br label %.thread69
+  br label %.thread65
 
 84:                                               ; preds = %38, %37, %32, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  %86 = zext nneg i32 %1 to i64
-  %87 = getelementptr inbounds nuw [8 x ptr], ptr %85, i64 0, i64 %86
-  %88 = load ptr, ptr %87, align 8, !tbaa !19
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %95, label %100
+  %86 = getelementptr inbounds nuw [8 x ptr], ptr %85, i64 0, i64 %7
+  %87 = load ptr, ptr %86, align 8, !tbaa !19
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %93, label %98
 
 .thread:                                          ; preds = %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  %91 = zext nneg i32 %1 to i64
-  %92 = getelementptr inbounds nuw [8 x ptr], ptr %90, i64 0, i64 %91
-  %93 = load ptr, ptr %92, align 8, !tbaa !19
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread69, label %100
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 2072
+  %90 = getelementptr inbounds nuw [8 x ptr], ptr %89, i64 0, i64 %7
+  %91 = load ptr, ptr %90, align 8, !tbaa !19
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %.thread65, label %98
 
-95:                                               ; preds = %84
-  %96 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
-  invoke void @_ZN3dpx5CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %96)
-          to label %97 unwind label %98
+93:                                               ; preds = %84
+  %94 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
+  invoke void @_ZN3dpx5CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %94)
+          to label %95 unwind label %96
 
-97:                                               ; preds = %95
-  store ptr %96, ptr %87, align 8, !tbaa !19
-  br label %100
+95:                                               ; preds = %93
+  store ptr %94, ptr %86, align 8, !tbaa !19
+  br label %98
 
-98:                                               ; preds = %95
-  %99 = landingpad { ptr, i32 }
+96:                                               ; preds = %93
+  %97 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef 16) #16
-  resume { ptr, i32 } %99
+  tail call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 16) #16
+  resume { ptr, i32 } %97
 
-100:                                              ; preds = %.thread, %97, %84
-  %101 = phi ptr [ %93, %.thread ], [ %96, %97 ], [ %88, %84 ]
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 2136
-  %103 = load ptr, ptr %102, align 8, !tbaa !6
-  %104 = load ptr, ptr %101, align 8, !tbaa !3
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 4 dereferenceable(2049) %5, ptr noundef %103, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %2, i32 noundef %18)
-  br label %.thread69
+98:                                               ; preds = %.thread, %95, %84
+  %99 = phi ptr [ %91, %.thread ], [ %94, %95 ], [ %87, %84 ]
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 2136
+  %101 = load ptr, ptr %100, align 8, !tbaa !6
+  %102 = load ptr, ptr %99, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %104 = load ptr, ptr %103, align 8
+  %105 = tail call noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 4 dereferenceable(2049) %5, ptr noundef %101, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %2, i32 noundef %18)
+  br label %.thread65
 
-.thread69:                                        ; preds = %.thread, %100, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %80, %83, %62, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ %107, %100 ], [ false, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %80 ], [ true, %83 ], [ false, %62 ], [ false, %.thread ]
+.thread65:                                        ; preds = %.thread, %98, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %80, %83, %62, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ %105, %98 ], [ false, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %80 ], [ true, %83 ], [ false, %62 ], [ false, %.thread ]
   ret i1 %.0
 }
 

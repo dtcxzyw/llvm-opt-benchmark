@@ -4139,18 +4139,18 @@ define linkonce_odr void @_ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLin1ELin1EL
 .lr.ph33.split.us:                                ; preds = %.lr.ph33, %._crit_edge.split.us42.thread
   %14 = phi ptr [ %52, %._crit_edge.split.us42.thread ], [ %6, %.lr.ph33 ]
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %._crit_edge.split.us42.thread ], [ 0, %.lr.ph33 ]
-  %15 = getelementptr inbounds nuw %"class.std::map", ptr %14, i64 %indvars.iv48, i32 0, i32 0, i32 1, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8, !tbaa !114
-  %17 = getelementptr inbounds nuw %"class.std::map", ptr %14, i64 %indvars.iv48
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.not19.us = icmp eq ptr %16, %18
+  %15 = getelementptr inbounds nuw %"class.std::map", ptr %14, i64 %indvars.iv48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8, !tbaa !114
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.not19.us = icmp eq ptr %17, %18
   %.pre52 = load i8, ptr %13, align 8, !tbaa !74, !range !85
   br i1 %.not19.us, label %._crit_edge.split.us42, label %.lr.ph.us
 
 .lr.ph.split.split.us41:                          ; preds = %.lr.ph.us, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us37
   %19 = phi ptr [ %38, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us37 ], [ %14, %.lr.ph.us ]
   %20 = phi ptr [ %39, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us37 ], [ %14, %.lr.ph.us ]
-  %.sroa.015.020.us35 = phi ptr [ %40, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us37 ], [ %16, %.lr.ph.us ]
+  %.sroa.015.020.us35 = phi ptr [ %40, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us37 ], [ %17, %.lr.ph.us ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.015.020.us35, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !132
   %23 = load i8, ptr %13, align 8, !tbaa !74, !range !85, !noundef !64
@@ -4199,7 +4199,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us37:
 ._crit_edge.split.us42:                           ; preds = %._crit_edge.split.us42.loopexit, %.lr.ph33.split.us
   %43 = phi ptr [ %14, %.lr.ph33.split.us ], [ %38, %._crit_edge.split.us42.loopexit ]
   %44 = phi i8 [ %.pre52, %.lr.ph33.split.us ], [ %.pre51, %._crit_edge.split.us42.loopexit ]
-  %.lcssa18.us = phi ptr [ %17, %.lr.ph33.split.us ], [ %41, %._crit_edge.split.us42.loopexit ]
+  %.lcssa18.us = phi ptr [ %15, %.lr.ph33.split.us ], [ %41, %._crit_edge.split.us42.loopexit ]
   %.lcssa.us = phi ptr [ %18, %.lr.ph33.split.us ], [ %42, %._crit_edge.split.us42.loopexit ]
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %._crit_edge.split.us42.thread
@@ -4239,7 +4239,7 @@ _ZNSt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS3_
   br i1 %60, label %.lr.ph.split.split.us41, label %.lr.ph.split.split.us.us
 
 .lr.ph.split.split.us.us:                         ; preds = %.lr.ph.us, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us25.us
-  %.sroa.015.020.us23.us = phi ptr [ %71, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us25.us ], [ %16, %.lr.ph.us ]
+  %.sroa.015.020.us23.us = phi ptr [ %71, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us25.us ], [ %17, %.lr.ph.us ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.015.020.us23.us, i64 40
   %62 = load ptr, ptr %61, align 8, !tbaa !132
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4270,6 +4270,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us25.
 
 .lr.ph33.split.split:                             ; preds = %.lr.ph33
   %wide.trip.count = and i64 %10, 2147483647
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %74
 
 ._crit_edge34:                                    ; preds = %._crit_edge.split.us, %._crit_edge.split.us42.thread, %2
@@ -4277,18 +4278,19 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us25.
 
 74:                                               ; preds = %.lr.ph33.split.split, %._crit_edge.split.us
   %indvars.iv = phi i64 [ 0, %.lr.ph33.split.split ], [ %indvars.iv.next, %._crit_edge.split.us ]
-  %75 = getelementptr inbounds nuw %"class.std::map", ptr %6, i64 %indvars.iv, i32 0, i32 0, i32 1, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8, !tbaa !114
-  %77 = getelementptr inbounds nuw %"class.std::map", ptr %6, i64 %indvars.iv, i32 0, i32 0, i32 1
-  %.not19 = icmp eq ptr %76, %77
+  %75 = getelementptr inbounds nuw %"class.std::map", ptr %6, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %77 = load ptr, ptr %76, align 8, !tbaa !114
+  %gep = getelementptr inbounds nuw %"class.std::map", ptr %invariant.gep, i64 %indvars.iv
+  %.not19 = icmp eq ptr %77, %gep
   br i1 %.not19, label %._crit_edge.split.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %74
-  %78 = getelementptr inbounds nuw %"class.std::map", ptr %6, i64 %indvars.iv, i32 0, i32 0, i32 1
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
   br label %79
 
 79:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us, %.lr.ph
-  %.sroa.015.020.us = phi ptr [ %76, %.lr.ph ], [ %90, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us ]
+  %.sroa.015.020.us = phi ptr [ %77, %.lr.ph ], [ %90, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us ]
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.015.020.us, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !132
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8

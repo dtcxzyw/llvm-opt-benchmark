@@ -292,12 +292,13 @@ err_get_state.exit.i:                             ; preds = %5, %0
   %13 = add i32 %8, 1
   %14 = and i32 %13, 15
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [16 x %struct.err_error_st], ptr %.06.i.i, i64 0, i64 %15, i32 2
-  %17 = load i32, ptr %16, align 8, !tbaa !13
+  %16 = getelementptr inbounds nuw [16 x %struct.err_error_st], ptr %.06.i.i, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i32, ptr %17, align 8, !tbaa !13
   br label %get_error_values.exit
 
 get_error_values.exit:                            ; preds = %3, %5, %err_get_state.exit.i, %12
-  %.0.i = phi i32 [ 0, %err_get_state.exit.i ], [ %17, %12 ], [ 0, %3 ], [ 0, %5 ]
+  %.0.i = phi i32 [ 0, %err_get_state.exit.i ], [ %18, %12 ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0.i
 }
 
@@ -394,12 +395,13 @@ err_get_state.exit.i:                             ; preds = %5, %0
 
 12:                                               ; preds = %err_get_state.exit.i
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw [16 x %struct.err_error_st], ptr %.06.i.i, i64 0, i64 %13, i32 2
-  %15 = load i32, ptr %14, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw [16 x %struct.err_error_st], ptr %.06.i.i, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load i32, ptr %15, align 8, !tbaa !13
   br label %get_error_values.exit
 
 get_error_values.exit:                            ; preds = %3, %5, %err_get_state.exit.i, %12
-  %.0.i = phi i32 [ 0, %err_get_state.exit.i ], [ %15, %12 ], [ 0, %3 ], [ 0, %5 ]
+  %.0.i = phi i32 [ 0, %err_get_state.exit.i ], [ %16, %12 ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0.i
 }
 
@@ -1291,10 +1293,11 @@ err_get_state.exit:                               ; preds = %0, %5
 
 12:                                               ; preds = %err_get_state.exit
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw [16 x %struct.err_error_st], ptr %.06.i, i64 0, i64 %13, i32 4
-  %15 = load i8, ptr %14, align 2, !tbaa !17
-  %16 = or i8 %15, 32
-  store i8 %16, ptr %14, align 2, !tbaa !17
+  %14 = getelementptr inbounds nuw [16 x %struct.err_error_st], ptr %.06.i, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 22
+  %16 = load i8, ptr %15, align 2, !tbaa !17
+  %17 = or i8 %16, 32
+  store i8 %17, ptr %15, align 2, !tbaa !17
   br label %err_get_state.exit.thread
 
 err_get_state.exit.thread:                        ; preds = %5, %3, %err_get_state.exit, %12

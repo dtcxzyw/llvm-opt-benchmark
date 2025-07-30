@@ -1440,8 +1440,8 @@ define void @_ZNK13sentencepiece3bpe7Trainer11ComputeFreqEPNS1_6SymbolE(ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %13
 
-13:                                               ; preds = %.lr.ph, %42
-  %.sroa.025.030 = phi ptr [ %7, %.lr.ph ], [ %.sroa.025.1, %42 ]
+13:                                               ; preds = %.lr.ph, %43
+  %.sroa.025.030 = phi ptr [ %7, %.lr.ph ], [ %.sroa.025.1, %43 ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.025.030, i64 32
   %15 = load i64, ptr %14, align 8, !tbaa !24
   %16 = load ptr, ptr %1, align 8, !tbaa !98
@@ -1471,24 +1471,25 @@ define void @_ZNK13sentencepiece3bpe7Trainer11ComputeFreqEPNS1_6SymbolE(ptr noun
   %33 = load i64, ptr %11, align 8, !tbaa !45
   %34 = add i64 %33, -1
   store i64 %34, ptr %11, align 8, !tbaa !45
-  br label %42
+  br label %43
 
 35:                                               ; preds = %25
   %36 = load ptr, ptr %12, align 8, !tbaa !104
-  %37 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %36, i64 %17, i32 1
-  %38 = load i64, ptr %37, align 8, !tbaa !107
-  %39 = load i64, ptr %3, align 8, !tbaa !68
-  %40 = add i64 %39, %38
-  store i64 %40, ptr %3, align 8, !tbaa !68
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.025.030) #29
-  br label %42
+  %37 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %36, i64 %17
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %39 = load i64, ptr %38, align 8, !tbaa !107
+  %40 = load i64, ptr %3, align 8, !tbaa !68
+  %41 = add i64 %40, %39
+  store i64 %41, ptr %3, align 8, !tbaa !68
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.025.030) #29
+  br label %43
 
-42:                                               ; preds = %35, %30
-  %.sroa.025.1 = phi ptr [ %41, %35 ], [ %31, %30 ]
+43:                                               ; preds = %35, %30
+  %.sroa.025.1 = phi ptr [ %42, %35 ], [ %31, %30 ]
   %.not28 = icmp eq ptr %.sroa.025.1, %8
   br i1 %.not28, label %.loopexit, label %13, !llvm.loop !112
 
-.loopexit:                                        ; preds = %42, %5, %2
+.loopexit:                                        ; preds = %43, %5, %2
   ret void
 }
 

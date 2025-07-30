@@ -1006,25 +1006,29 @@ define internal fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8alloca
   %31 = getelementptr i8, ptr %0, i64 8
   %.val4.i = load i64, ptr %31, align 8, !noalias !130
   %32 = icmp eq ptr %.val.i, null
-  br i1 %32, label %49, label %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
+  br i1 %32, label %49, label %33
 
-"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i": ; preds = %.noexc, %34
-  %.0.i.i.i.i = phi i64 [ %35, %34 ], [ 0, %.noexc ]
-  %33 = icmp eq i64 %.0.i.i.i.i, %.val4.i
-  br i1 %33, label %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i", label %34
+33:                                               ; preds = %.noexc
+  %invariant.gep.i.i.i.i = getelementptr i8, ptr %.val.i, i64 48
+  br label %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
 
-34:                                               ; preds = %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
-  %35 = add i64 %.0.i.i.i.i, 1
-  %36 = getelementptr inbounds [0 x { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }], ptr %.val.i, i64 0, i64 %.0.i.i.i.i, i32 0, i32 0, i32 0, i32 4, i32 3
-  invoke void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cfe619e77ab9df1E.llvm.1799741712541865863"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36)
+"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i": ; preds = %35, %33
+  %.0.i.i.i.i = phi i64 [ 0, %33 ], [ %36, %35 ]
+  %34 = icmp eq i64 %.0.i.i.i.i, %.val4.i
+  br i1 %34, label %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i", label %35
+
+35:                                               ; preds = %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
+  %36 = add i64 %.0.i.i.i.i, 1
+  %gep.i.i.i.i = getelementptr [0 x { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }], ptr %invariant.gep.i.i.i.i, i64 0, i64 %.0.i.i.i.i
+  invoke void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cfe619e77ab9df1E.llvm.1799741712541865863"(ptr noalias noundef nonnull align 8 dereferenceable(32) %gep.i.i.i.i)
           to label %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i" unwind label %39, !noalias !130
 
 37:                                               ; preds = %41, %39
-  %.1.i.i.i.i = phi i64 [ %35, %39 ], [ %43, %41 ]
+  %.1.i.i.i.i = phi i64 [ %36, %39 ], [ %43, %41 ]
   %38 = icmp eq i64 %.1.i.i.i.i, %.val4.i
   br i1 %38, label %.body.thread11, label %41
 
-39:                                               ; preds = %34
+39:                                               ; preds = %35
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %37

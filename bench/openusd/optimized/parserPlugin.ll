@@ -4061,7 +4061,8 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit144: 
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit147: ; preds = %372
   %.pre357 = load ptr, ptr %.0.i, align 8
-  %.phi.trans.insert355 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre357, i64 %indvars.iv315, i32 1
+  %.phi.trans.insert354 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre357, i64 %indvars.iv315
+  %.phi.trans.insert355 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert354, i64 8
   %.pre356 = load ptr, ptr %.phi.trans.insert355, align 8
   br i1 %373, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit147._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit147.thread279_crit_edge, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit147.thread
 
@@ -4141,7 +4142,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit155: ; preds 
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit155._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit155.thread280_crit_edge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit155
   %.pre361 = load ptr, ptr %.0.i, align 8
-  %.phi.trans.insert363 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre361, i64 %indvars.iv315, i32 1
+  %.phi.trans.insert362 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre361, i64 %indvars.iv315
+  %.phi.trans.insert363 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert362, i64 8
   %.pre364 = load ptr, ptr %.phi.trans.insert363, align 8
   %.pre371 = ptrtoint ptr %.pre364 to i64
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit155.thread280
@@ -4314,7 +4316,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_7VtArrayIfEEEERKT_.exit: ; pr
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit176: ; preds = %468
   %470 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %458, ptr noundef nonnull align 8 dereferenceable(16) @_ZTId)
   %.pre345 = load ptr, ptr %.0.i, align 8
-  %.phi.trans.insert343 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre345, i64 %indvars.iv311, i32 1
+  %.phi.trans.insert342 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre345, i64 %indvars.iv311
+  %.phi.trans.insert343 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert342, i64 8
   %.pre344 = load ptr, ptr %.phi.trans.insert343, align 8
   br i1 %470, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit176._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit176.thread281_crit_edge, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit176.thread
 
@@ -4371,7 +4374,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit182: ; preds 
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit182._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit182.thread282_crit_edge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit182
   %.pre349 = load ptr, ptr %.0.i, align 8
-  %.phi.trans.insert351 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre349, i64 %indvars.iv311, i32 1
+  %.phi.trans.insert350 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre349, i64 %indvars.iv311
+  %.phi.trans.insert351 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert350, i64 8
   %.pre352 = load ptr, ptr %.phi.trans.insert351, align 8
   %.pre374 = ptrtoint ptr %.pre352 to i64
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit182.thread282
@@ -4533,7 +4537,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit195: ; preds = %_ZNK32
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit199: ; preds = %564
   %.pre333 = load ptr, ptr %.0.i, align 8
-  %.phi.trans.insert331 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre333, i64 %indvars.iv, i32 1
+  %.phi.trans.insert = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre333, i64 %indvars.iv
+  %.phi.trans.insert331 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre332 = load ptr, ptr %.phi.trans.insert331, align 8
   br i1 %565, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit199._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit199.thread283_crit_edge, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit199.thread
 
@@ -4613,7 +4618,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit207: ; preds 
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit207._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit207.thread284_crit_edge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit207
   %.pre337 = load ptr, ptr %.0.i, align 8
-  %.phi.trans.insert339 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre337, i64 %indvars.iv, i32 1
+  %.phi.trans.insert338 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %.pre337, i64 %indvars.iv
+  %.phi.trans.insert339 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert338, i64 8
   %.pre340 = load ptr, ptr %.phi.trans.insert339, align 8
   %.pre378 = ptrtoint ptr %.pre340 to i64
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit207.thread284

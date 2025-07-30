@@ -1200,19 +1200,21 @@ compile_file.exit:                                ; preds = %187, %190, %195
   %209 = shl nuw nsw i64 1, %indvars.iv239
   %210 = and i64 %208, %209
   %.not134 = icmp eq i64 %210, 0
-  %.not135 = icmp eq i64 %indvars.iv239, 9
-  %or.cond = or i1 %.not135, %.not134
-  br i1 %or.cond, label %215, label %211
+  br i1 %.not134, label %215, label %211
 
 211:                                              ; preds = %207
-  %212 = getelementptr inbounds nuw [11 x %struct.FeatureEntry], ptr @feature_list, i64 0, i64 %indvars.iv239, i32 1
-  %213 = load ptr, ptr %212, align 8, !tbaa !39
-  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %145, ptr noundef nonnull @.str.21, ptr noundef %213) #17
+  %gep = getelementptr inbounds nuw [11 x %struct.FeatureEntry], ptr getelementptr inbounds nuw (i8, ptr @feature_list, i64 8), i64 0, i64 %indvars.iv239
+  %212 = load ptr, ptr %gep, align 8, !tbaa !39
+  %.not135 = icmp eq ptr %212, null
+  br i1 %.not135, label %215, label %213
+
+213:                                              ; preds = %211
+  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %145, ptr noundef nonnull @.str.21, ptr noundef nonnull %212) #17
   %.pre254 = load i64, ptr @feature_bitmap, align 8, !tbaa !25
   br label %215
 
-215:                                              ; preds = %207, %211
-  %216 = phi i64 [ %208, %207 ], [ %.pre254, %211 ]
+215:                                              ; preds = %207, %211, %213
+  %216 = phi i64 [ %208, %207 ], [ %208, %211 ], [ %.pre254, %213 ]
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next240, 11
   br i1 %exitcond242.not, label %217, label %207, !llvm.loop !40

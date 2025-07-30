@@ -2017,20 +2017,19 @@ hufUnpackEncTable.exit:                           ; preds = %282, %300, %getBits
 
 362:                                              ; preds = %359, %358
   %363 = phi ptr [ %361, %359 ], [ @internal_exr_free, %358 ]
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 524304
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 524304
   br label %364
 
 364:                                              ; preds = %367, %362
   %indvars.iv.i84 = phi i64 [ 0, %362 ], [ %indvars.iv.next.i85, %367 ]
-  %.idx = shl nuw nsw i64 %indvars.iv.i84, 4
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %365 = load ptr, ptr %gep, align 8, !tbaa !99
+  %gep.i = getelementptr inbounds nuw %struct._HufDec, ptr %invariant.gep.i, i64 %indvars.iv.i84
+  %365 = load ptr, ptr %gep.i, align 8, !tbaa !99
   %.not12.i = icmp eq ptr %365, null
   br i1 %.not12.i, label %367, label %366
 
 366:                                              ; preds = %364
   tail call void %363(ptr noundef nonnull %365) #10
-  store ptr null, ptr %gep, align 8, !tbaa !99
+  store ptr null, ptr %gep.i, align 8, !tbaa !99
   br label %367
 
 367:                                              ; preds = %366, %364

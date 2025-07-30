@@ -2687,14 +2687,12 @@ define noundef range(i8 0, 4) i8 @_ZN3git6status9GitStatus3get17hf353843cd49339f
   br label %25
 
 25:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit", %26
-  %.sroa.0.0 = phi i8 [ %29, %26 ], [ 3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit" ]
+  %.sroa.0.0 = phi i8 [ %28, %26 ], [ 3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit" ]
   ret i8 %.sroa.0.0
 
 26:                                               ; preds = %.lr.ph.i
-  %.idx = shl nsw i64 %11, 5
-  %27 = getelementptr i8, ptr %9, i64 %.idx
-  %28 = getelementptr i8, ptr %27, i64 24
-  %29 = load i8, ptr %28, align 8, !range !142, !noundef !4
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %28 = load i8, ptr %27, align 8, !range !142, !noundef !4
   br label %25
 }
 

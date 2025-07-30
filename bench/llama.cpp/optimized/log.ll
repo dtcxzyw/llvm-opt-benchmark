@@ -331,7 +331,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 7:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
-  br label %26
+  br label %27
 
 9:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   store i8 0, ptr %4, align 2, !tbaa !45
@@ -339,25 +339,26 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load i64, ptr %11, align 8, !tbaa !48
   %13 = load ptr, ptr %10, align 8, !tbaa !39
-  %14 = getelementptr inbounds nuw %struct.common_log_entry, ptr %13, i64 %12, i32 5
-  store i8 1, ptr %14, align 8, !tbaa !49
-  %15 = add i64 %12, 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %17 = load ptr, ptr %16, align 8, !tbaa !40
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %13 to i64
-  %20 = sub i64 %18, %19
-  %21 = sdiv exact i64 %20, 48
-  %22 = urem i64 %15, %21
-  store i64 %22, ptr %11, align 8, !tbaa !48
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #24
-  %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
-  br label %26
+  %14 = getelementptr inbounds nuw %struct.common_log_entry, ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store i8 1, ptr %15, align 8, !tbaa !49
+  %16 = add i64 %12, 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %13 to i64
+  %21 = sub i64 %19, %20
+  %22 = sdiv exact i64 %21, 48
+  %23 = urem i64 %16, %22
+  store i64 %23, ptr %11, align 8, !tbaa !48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %24) #24
+  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
+  br label %27
 
-26:                                               ; preds = %7, %9
+27:                                               ; preds = %7, %9
   ret void
 }
 
@@ -505,7 +506,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %10 = load i8, ptr %9, align 2, !tbaa !45, !range !46, !noundef !47
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %152
+  br i1 %11, label %12, label %153
 
 12:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -550,7 +551,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
-  br label %154
+  br label %155
 
 43:                                               ; preds = %34, %12
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -593,7 +594,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %70 = load i64, ptr %69, align 8, !tbaa !64
   %71 = icmp eq i64 %68, %70
-  br i1 %71, label %72, label %150
+  br i1 %71, label %72, label %151
 
 72:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
@@ -684,7 +685,7 @@ _ZN16common_log_entryaSEOS_.exit:                 ; preds = %81, %97
   %118 = icmp ult i64 %113, %117
   br i1 %118, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %140
+._crit_edge.loopexit:                             ; preds = %141
   %.pre = load ptr, ptr %13, align 8, !tbaa !39
   %.pre48 = load ptr, ptr %61, align 8, !tbaa !40
   br label %._crit_edge
@@ -692,7 +693,7 @@ _ZN16common_log_entryaSEOS_.exit:                 ; preds = %81, %97
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %115
   %119 = phi ptr [ %106, %115 ], [ %.pre48, %._crit_edge.loopexit ]
   %120 = phi ptr [ %107, %115 ], [ %.pre, %._crit_edge.loopexit ]
-  %.lcssa = phi ptr [ %77, %115 ], [ %142, %._crit_edge.loopexit ]
+  %.lcssa = phi ptr [ %77, %115 ], [ %143, %._crit_edge.loopexit ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %122 = load ptr, ptr %121, align 8, !tbaa !43
   store ptr %.lcssa, ptr %13, align 8, !tbaa !39
@@ -735,52 +736,53 @@ _ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8
 
 _ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exit.i.i.i, %132
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
-  br label %150
+  br label %151
 
 136:                                              ; preds = %_ZNSt6vectorI16common_log_entrySaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %75
   %137 = landingpad { ptr, i32 }
           cleanup
-  br label %149
+  br label %150
 
-.lr.ph:                                           ; preds = %115, %140
-  %138 = phi ptr [ %142, %140 ], [ %77, %115 ]
-  %.043 = phi i64 [ %141, %140 ], [ %113, %115 ]
-  %139 = getelementptr inbounds nuw %struct.common_log_entry, ptr %138, i64 %.043, i32 4
-  invoke void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %139, i64 noundef 256)
-          to label %140 unwind label %147
+.lr.ph:                                           ; preds = %115, %141
+  %138 = phi ptr [ %143, %141 ], [ %77, %115 ]
+  %.043 = phi i64 [ %142, %141 ], [ %113, %115 ]
+  %139 = getelementptr inbounds nuw %struct.common_log_entry, ptr %138, i64 %.043
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  invoke void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %140, i64 noundef 256)
+          to label %141 unwind label %148
 
-140:                                              ; preds = %.lr.ph
-  %141 = add nuw i64 %.043, 1
-  %142 = load ptr, ptr %6, align 8, !tbaa !39
-  %143 = ptrtoint ptr %142 to i64
-  %144 = sub i64 %116, %143
-  %145 = sdiv exact i64 %144, 48
-  %146 = icmp ult i64 %141, %145
-  br i1 %146, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !66
+141:                                              ; preds = %.lr.ph
+  %142 = add nuw i64 %.043, 1
+  %143 = load ptr, ptr %6, align 8, !tbaa !39
+  %144 = ptrtoint ptr %143 to i64
+  %145 = sub i64 %116, %144
+  %146 = sdiv exact i64 %145, 48
+  %147 = icmp ult i64 %142, %146
+  br i1 %147, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !66
 
-147:                                              ; preds = %.lr.ph
-  %148 = landingpad { ptr, i32 }
+148:                                              ; preds = %.lr.ph
+  %149 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorI16common_log_entrySaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
-  br label %149
+  br label %150
 
-149:                                              ; preds = %147, %136
-  %.pn = phi { ptr, i32 } [ %148, %147 ], [ %137, %136 ]
+150:                                              ; preds = %148, %136
+  %.pn = phi { ptr, i32 } [ %149, %148 ], [ %137, %136 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
-  br label %154
+  br label %155
 
-150:                                              ; preds = %_ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit, %57
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %151) #24
-  br label %152
+151:                                              ; preds = %_ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit, %57
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %152) #24
+  br label %153
 
-152:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %150
-  %153 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
+153:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %151
+  %154 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   ret void
 
-154:                                              ; preds = %149, %41
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %149 ], [ %42, %41 ]
-  %155 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
+155:                                              ; preds = %150, %41
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %150 ], [ %42, %41 ]
+  %156 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   resume { ptr, i32 } %.pn.pn
 }
 

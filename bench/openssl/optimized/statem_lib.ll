@@ -4124,7 +4124,7 @@ ssl_has_cert_type.exit.i.i:                       ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %.pre39.i, i64 32
   %98 = load ptr, ptr %97, align 8, !tbaa !223
   %99 = and i64 %.01833.i, 2147483647
-  %100 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %98, i64 %99, i32 1
+  %100 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %98, i64 %99
   br label %ssl_has_cert.exit.i
 
 ssl_has_cert_type.exit.thread.i.i:                ; preds = %ssl_has_cert_type.exit.i.i, %.ssl_has_cert_type.exit.thread.i_crit_edge.i
@@ -4135,25 +4135,22 @@ ssl_has_cert_type.exit.thread.i.i:                ; preds = %ssl_has_cert_type.e
   %105 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !182
   %.not12.i.i = icmp eq ptr %106, null
-  br i1 %.not12.i.i, label %ssl_has_cert.exit.thread.i, label %107
+  br i1 %.not12.i.i, label %ssl_has_cert.exit.thread.i, label %ssl_has_cert.exit.i
 
-107:                                              ; preds = %ssl_has_cert_type.exit.thread.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %ssl_has_cert.exit.i
-
-ssl_has_cert.exit.i:                              ; preds = %107, %96
-  %109 = phi ptr [ %98, %96 ], [ %103, %107 ]
-  %.0.shrunk.i.in.in.i = phi ptr [ %100, %96 ], [ %108, %107 ]
-  %.0.shrunk.i.in.i = load ptr, ptr %.0.shrunk.i.in.in.i, align 8, !tbaa !117
-  %.0.shrunk.i.not.i = icmp eq ptr %.0.shrunk.i.in.i, null
-  br i1 %.0.shrunk.i.not.i, label %ssl_has_cert.exit.thread.i, label %110
+ssl_has_cert.exit.i:                              ; preds = %ssl_has_cert_type.exit.thread.i.i, %96
+  %107 = phi ptr [ %98, %96 ], [ %103, %ssl_has_cert_type.exit.thread.i.i ]
+  %.sink.i.i = phi ptr [ %100, %96 ], [ %105, %ssl_has_cert_type.exit.thread.i.i ]
+  %108 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
+  %109 = load ptr, ptr %108, align 8, !tbaa !117
+  %.not32.i = icmp eq ptr %109, null
+  br i1 %.not32.i, label %ssl_has_cert.exit.thread.i, label %110
 
 110:                                              ; preds = %ssl_has_cert.exit.i
   %.not28.i = icmp eq i64 %.01833.i, 3
   br i1 %.not28.i, label %111, label %is_tls13_capable.exit.thread
 
 111:                                              ; preds = %110
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 128
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 128
   %113 = load ptr, ptr %112, align 8, !tbaa !117
   %114 = tail call i32 @ssl_get_EC_curve_nid(ptr noundef %113) #11
   %115 = tail call i32 @tls_check_sigalg_curve(ptr noundef nonnull %0, i32 noundef %114) #11

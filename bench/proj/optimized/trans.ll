@@ -1702,13 +1702,13 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define ptr @proj_trans_get_last_used_operation(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %19, label %3
+  br i1 %2, label %20, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %5 = load i32, ptr %4, align 8, !tbaa !78
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %19, label %7
+  br i1 %6, label %20, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -1721,17 +1721,18 @@ define ptr @proj_trans_get_last_used_operation(ptr noundef %0) local_unnamed_add
 
 14:                                               ; preds = %7
   %15 = zext nneg i32 %5 to i64
-  %16 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %9, i64 %15, i32 10
-  %17 = load ptr, ptr %16, align 8, !tbaa !79
+  %16 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  %18 = load ptr, ptr %17, align 8, !tbaa !79
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %14
-  %.sink = phi ptr [ %17, %14 ], [ %0, %7 ]
-  %18 = tail call ptr @proj_clone(ptr noundef %13, ptr noundef %.sink)
-  br label %19
+  %.sink = phi ptr [ %18, %14 ], [ %0, %7 ]
+  %19 = tail call ptr @proj_clone(ptr noundef %13, ptr noundef %.sink)
+  br label %20
 
-19:                                               ; preds = %.sink.split, %1, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %18, %.sink.split ]
+20:                                               ; preds = %.sink.split, %1, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %19, %.sink.split ]
   ret ptr %.0
 }
 

@@ -2766,34 +2766,34 @@ tailrecurse:                                      ; preds = %69, %2
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
   %16 = and i32 %15, 127
-  switch i32 %16, label %84 [
+  switch i32 %16, label %85 [
     i32 13, label %17
     i32 16, label %17
     i32 26, label %18
     i32 17, label %39
     i32 9, label %69
     i32 15, label %72
-    i32 0, label %83
-    i32 1, label %83
-    i32 2, label %83
-    i32 4, label %83
-    i32 10, label %83
-    i32 11, label %83
-    i32 12, label %83
-    i32 14, label %83
-    i32 19, label %83
-    i32 20, label %83
-    i32 21, label %83
-    i32 23, label %83
-    i32 24, label %83
-    i32 25, label %83
-    i32 8, label %83
-    i32 3, label %83
-    i32 5, label %83
-    i32 6, label %83
-    i32 7, label %83
-    i32 18, label %83
-    i32 22, label %83
+    i32 0, label %84
+    i32 1, label %84
+    i32 2, label %84
+    i32 4, label %84
+    i32 10, label %84
+    i32 11, label %84
+    i32 12, label %84
+    i32 14, label %84
+    i32 19, label %84
+    i32 20, label %84
+    i32 21, label %84
+    i32 23, label %84
+    i32 24, label %84
+    i32 25, label %84
+    i32 8, label %84
+    i32 3, label %84
+    i32 5, label %84
+    i32 6, label %84
+    i32 7, label %84
+    i32 18, label %84
+    i32 22, label %84
   ]
 
 17:                                               ; preds = %12, %12
@@ -2916,17 +2916,18 @@ common.ret166:                                    ; preds = %66, %68, %44, %37, 
   %77 = load i32, ptr %76, align 4
   %78 = load ptr, ptr @decl_arena, align 8
   %79 = zext i32 %77 to i64
-  %80 = getelementptr inbounds nuw %struct.Decl_, ptr %78, i64 %79, i32 10
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %81) #10
+  %80 = getelementptr inbounds nuw %struct.Decl_, ptr %78, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 72
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %82) #10
   %.pre = load ptr, ptr %73, align 8
   br label %common.ret166
 
-83:                                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
+84:                                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.llvm_get_ref, ptr noundef nonnull @.str.10, i32 noundef 1195) #12
   unreachable
 
-84:                                               ; preds = %12
+85:                                               ; preds = %12
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.llvm_get_ref, ptr noundef nonnull @.str.10, i32 noundef 1197) #12
   unreachable
 }

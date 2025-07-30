@@ -1695,8 +1695,9 @@ define void @_ZN4base5debug14ScopedActivity12ChangeActionEh(ptr noundef nonnull 
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = add i32 %9, -1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %14, i64 %16, i32 3
-  store i8 %3, ptr %17, align 8, !tbaa !11
+  %17 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %14, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
+  store i8 %3, ptr %18, align 8, !tbaa !11
   br label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit
 
 _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit: ; preds = %2, %5, %12
@@ -1730,8 +1731,9 @@ define void @_ZN4base5debug14ScopedActivity10ChangeInfoEi(ptr noundef nonnull re
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = add i32 %10, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %15, i64 %17, i32 5
-  store i64 %.sroa.0.0.insert.insert.i, ptr %18, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %15, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  store i64 %.sroa.0.0.insert.insert.i, ptr %19, align 8, !tbaa !12
   br label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit
 
 _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit: ; preds = %2, %6, %13

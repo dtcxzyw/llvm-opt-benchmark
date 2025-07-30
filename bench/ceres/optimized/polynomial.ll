@@ -1702,22 +1702,26 @@ thread-pre-split.i.i.i.i.i.i.i128:                ; preds = %470
   %480 = icmp sgt i64 %478, 0
   br i1 %480, label %.lr.ph.i.i.i.i.i.i.i.i130, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_12CwiseUnaryOpINS_8internal14scalar_imag_opISt7complexIdEEEKNS0_IS7_Lin1ELi1ELi0ELin1ELi1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
-.lr.ph.i.i.i.i.i.i.i.i130:                        ; preds = %477, %.lr.ph.i.i.i.i.i.i.i.i130
-  %.05.i.i.i.i.i.i.i.i131 = phi i64 [ %484, %.lr.ph.i.i.i.i.i.i.i.i130 ], [ 0, %477 ]
-  %481 = getelementptr inbounds nuw double, ptr %479, i64 %.05.i.i.i.i.i.i.i.i131
-  %482 = getelementptr inbounds nuw %"class.std::complex", ptr %472, i64 %.05.i.i.i.i.i.i.i.i131, i32 0, i32 1
-  %483 = load double, ptr %482, align 8, !tbaa !19
-  store double %483, ptr %481, align 8, !tbaa !19
+.lr.ph.i.i.i.i.i.i.i.i130:                        ; preds = %477
+  %invariant.gep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %472, i64 8
+  br label %481
+
+481:                                              ; preds = %481, %.lr.ph.i.i.i.i.i.i.i.i130
+  %.05.i.i.i.i.i.i.i.i131 = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i130 ], [ %484, %481 ]
+  %482 = getelementptr inbounds nuw double, ptr %479, i64 %.05.i.i.i.i.i.i.i.i131
+  %gep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"class.std::complex", ptr %invariant.gep.i.i.i.i.i.i.i.i, i64 %.05.i.i.i.i.i.i.i.i131
+  %483 = load double, ptr %gep.i.i.i.i.i.i.i.i, align 8, !tbaa !19
+  store double %483, ptr %482, align 8, !tbaa !19
   %484 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i131, 1
   %exitcond.not.i.i.i.i.i.i.i.i132 = icmp eq i64 %484, %478
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i132, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_12CwiseUnaryOpINS_8internal14scalar_imag_opISt7complexIdEEEKNS0_IS7_Lin1ELi1ELi0ELin1ELi1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i130, !llvm.loop !73
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i132, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_12CwiseUnaryOpINS_8internal14scalar_imag_opISt7complexIdEEEKNS0_IS7_Lin1ELi1ELi0ELin1ELi1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit, label %481, !llvm.loop !73
 
 485:                                              ; preds = %thread-pre-split.i.i.i.i.i.i.i128
   %486 = landingpad { ptr, i32 }
           cleanup
   br label %507
 
-_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_12CwiseUnaryOpINS_8internal14scalar_imag_opISt7complexIdEEEKNS0_IS7_Lin1ELi1ELi0ELin1ELi1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i130, %477, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_12CwiseUnaryOpINS_8internal14scalar_real_opISt7complexIdEEEKNS0_IS7_Lin1ELi1ELi0ELin1ELi1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit
+_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_12CwiseUnaryOpINS_8internal14scalar_imag_opISt7complexIdEEEKNS0_IS7_Lin1ELi1ELi0ELin1ELi1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %481, %477, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_12CwiseUnaryOpINS_8internal14scalar_real_opISt7complexIdEEEKNS0_IS7_Lin1ELi1ELi0ELin1ELi1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit
   %487 = getelementptr inbounds nuw i8, ptr %16, i64 216
   %488 = load ptr, ptr %487, align 8, !tbaa !13
   call void @free(ptr noundef %488) #30

@@ -217,15 +217,19 @@ stop_progress.exit:                               ; preds = %69, %71
   call void @stop_progress_msg(ptr noundef nonnull %35, ptr noundef %.0.i.i) #10
   br i1 %.not55, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %stop_progress.exit, %.preheader
-  %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.preheader ], [ 0, %stop_progress.exit ]
-  %73 = getelementptr inbounds nuw [20 x %struct.thread_data], ptr %4, i64 0, i64 %indvars.iv90, i32 2
-  call void @clear_pathspec(ptr noundef nonnull %73) #10
+.preheader:                                       ; preds = %stop_progress.exit
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %73
+
+73:                                               ; preds = %.preheader, %73
+  %indvars.iv90 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next91, %73 ]
+  %gep = getelementptr inbounds nuw [20 x %struct.thread_data], ptr %invariant.gep, i64 0, i64 %indvars.iv90
+  call void @clear_pathspec(ptr noundef nonnull %gep) #10
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count82
-  br i1 %exitcond94.not, label %.loopexit, label %.preheader, !llvm.loop !46
+  br i1 %exitcond94.not, label %.loopexit, label %73, !llvm.loop !46
 
-.loopexit:                                        ; preds = %.preheader, %stop_progress.exit
+.loopexit:                                        ; preds = %73, %stop_progress.exit
   %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8, !tbaa !47
   %trace_perf_key.val58 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %.not.i = icmp eq i32 %trace_perf_key.val, 0

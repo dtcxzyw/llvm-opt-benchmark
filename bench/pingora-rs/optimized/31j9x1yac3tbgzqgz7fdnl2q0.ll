@@ -14,25 +14,29 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %4 = icmp ult i64 %0, %1
   br i1 %4, label %.lr.ph.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hbebbec2a2d9b6a57E.exit
 
-.lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %5 = phi i64 [ %7, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
-  %.sroa.0.010.i = phi i64 [ %6, %.lr.ph.i ], [ %0, %3 ]
-  %6 = add nuw i64 %.sroa.0.010.i, 1
-  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %.sroa.7.0.copyload, i64 %5, i32 1
-  store i8 0, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !3
-  %7 = add i64 %5, 1
-  %exitcond.not.i = icmp eq i64 %6, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hbebbec2a2d9b6a57E.exit, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %3
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
+  %invariant.gep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 32
+  br label %5
 
-_ZN4core4iter6traits8iterator8Iterator4fold17hbebbec2a2d9b6a57E.exit: ; preds = %.lr.ph.i, %3
-  %.val4.i = phi i64 [ %.sroa.4.0.copyload, %3 ], [ %7, %.lr.ph.i ]
-  %8 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %8)
+5:                                                ; preds = %5, %.lr.ph.i
+  %6 = phi i64 [ %.sroa.4.0.copyload, %.lr.ph.i ], [ %8, %5 ]
+  %.sroa.0.010.i = phi i64 [ %0, %.lr.ph.i ], [ %7, %5 ]
+  %7 = add nuw i64 %.sroa.0.010.i, 1
+  %gep.i = getelementptr { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %invariant.gep.i, i64 %6
+  store i8 0, ptr %gep.i, align 8, !noalias !3
+  %8 = add i64 %6, 1
+  %exitcond.not.i = icmp eq i64 %7, %1
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hbebbec2a2d9b6a57E.exit, label %5
+
+_ZN4core4iter6traits8iterator8Iterator4fold17hbebbec2a2d9b6a57E.exit: ; preds = %5, %3
+  %.val4.i = phi i64 [ %.sroa.4.0.copyload, %3 ], [ %8, %5 ]
+  %9 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %9)
   store i64 %.val4.i, ptr %.sroa.0.0.copyload, align 8, !noalias !12
   ret void
 }

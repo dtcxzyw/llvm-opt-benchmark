@@ -2762,6 +2762,7 @@ define dso_local i64 @uv_now(ptr noundef readonly captures(none) %0) local_unnam
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i64 @uv__count_bufs(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #15 {
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2771,16 +2772,16 @@ define dso_local i64 @uv__count_bufs(ptr noundef readonly captures(none) %0, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.08 = phi i64 [ 0, %.lr.ph.preheader ], [ %5, %.lr.ph ]
-  %3 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %0, i64 %indvars.iv, i32 1
-  %4 = load i64, ptr %3, align 8, !tbaa !60
-  %5 = add i64 %4, %.08
+  %.08 = phi i64 [ 0, %.lr.ph.preheader ], [ %4, %.lr.ph ]
+  %gep = getelementptr inbounds nuw %struct.uv_buf_t, ptr %invariant.gep, i64 %indvars.iv
+  %3 = load i64, ptr %gep, align 8, !tbaa !60
+  %4 = add i64 %3, %.08
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i64 [ 0, %2 ], [ %5, %.lr.ph ]
+  %.0.lcssa = phi i64 [ 0, %2 ], [ %4, %.lr.ph ]
   ret i64 %.0.lcssa
 }
 

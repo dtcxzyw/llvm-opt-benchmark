@@ -1545,54 +1545,55 @@ define internal fastcc void @print_process_lstopo_misc(ptr noundef %0) unnamed_a
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   br label %23
 
-23:                                               ; preds = %.lr.ph, %46
-  %24 = phi i32 [ %21, %.lr.ph ], [ %47, %46 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
+23:                                               ; preds = %.lr.ph, %47
+  %24 = phi i32 [ %21, %.lr.ph ], [ %48, %47 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %25 = load ptr, ptr %22, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %25, i64 %indvars.iv, i32 1
-  %27 = load ptr, ptr %26, align 8, !tbaa !45
-  %.not21 = icmp eq ptr %27, null
-  br i1 %.not21, label %46, label %28
+  %26 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !45
+  %.not21 = icmp eq ptr %28, null
+  br i1 %.not21, label %47, label %29
 
-28:                                               ; preds = %23
+29:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 150, ptr nonnull %4) #16
-  %29 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %25, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %31 = load i8, ptr %30, align 4, !tbaa !34
   %.not22 = icmp eq i8 %31, 0
-  %32 = load i64, ptr %29, align 8, !tbaa !47
+  %32 = load i64, ptr %26, align 8, !tbaa !47
   br i1 %.not22, label %35, label %33
 
-33:                                               ; preds = %28
+33:                                               ; preds = %29
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 150, ptr noundef nonnull @.str.90, ptr noundef nonnull %2, i64 noundef %32, ptr noundef nonnull %30) #16
   br label %37
 
-35:                                               ; preds = %28
+35:                                               ; preds = %29
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 150, ptr noundef nonnull @.str.91, ptr noundef nonnull %2, i64 noundef %32) #16
   br label %37
 
 37:                                               ; preds = %35, %33
   %38 = load ptr, ptr %22, align 8, !tbaa !44
-  %39 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %38, i64 %indvars.iv, i32 1
-  %40 = load ptr, ptr %39, align 8, !tbaa !45
-  %41 = call i32 @hwloc_bitmap_asprintf(ptr noundef nonnull %3, ptr noundef %40) #16
-  %42 = load ptr, ptr @lstopo_misc_output, align 8, !tbaa !11
-  %43 = load ptr, ptr %3, align 8, !tbaa !8
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.92, ptr noundef nonnull %4, ptr noundef %43) #16
-  %45 = load ptr, ptr %3, align 8, !tbaa !8
-  call void @free(ptr noundef %45) #16
+  %39 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %38, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !45
+  %42 = call i32 @hwloc_bitmap_asprintf(ptr noundef nonnull %3, ptr noundef %41) #16
+  %43 = load ptr, ptr @lstopo_misc_output, align 8, !tbaa !11
+  %44 = load ptr, ptr %3, align 8, !tbaa !8
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.92, ptr noundef nonnull %4, ptr noundef %44) #16
+  %46 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @free(ptr noundef %46) #16
   call void @llvm.lifetime.end.p0(i64 150, ptr nonnull %4) #16
   %.pre = load i32, ptr %20, align 4, !tbaa !42
-  br label %46
+  br label %47
 
-46:                                               ; preds = %23, %37
-  %47 = phi i32 [ %24, %23 ], [ %.pre, %37 ]
+47:                                               ; preds = %23, %37
+  %48 = phi i32 [ %24, %23 ], [ %.pre, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = zext i32 %47 to i64
-  %49 = icmp samesign ult i64 %indvars.iv.next, %48
-  br i1 %49, label %23, label %.loopexit, !llvm.loop !64
+  %49 = zext i32 %48 to i64
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
+  br i1 %50, label %23, label %.loopexit, !llvm.loop !64
 
-.loopexit:                                        ; preds = %46, %12
+.loopexit:                                        ; preds = %47, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2) #16
   ret void

@@ -4,6 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
+%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -58,9 +59,8 @@ define hidden noundef zeroext i1 @_ZN3dpx17ElementReadStream4ReadERKNS_6HeaderEi
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 780
-  %narrow.i = mul nuw nsw i32 %2, 72
-  %9 = zext nneg i32 %narrow.i to i64
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %9 = zext nneg i32 %2 to i64
+  %10 = getelementptr inbounds nuw [8 x %"struct.dpx::ImageElement"], ptr %8, i64 0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !11
   %13 = zext i32 %12 to i64
@@ -107,9 +107,8 @@ define hidden void @_ZN3dpx17ElementReadStream15EndianDataCheckERKNS_6HeaderEiPv
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 780
-  %narrow.i = mul nuw nsw i32 %2, 72
-  %10 = zext nneg i32 %narrow.i to i64
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %10 = zext nneg i32 %2 to i64
+  %11 = getelementptr inbounds nuw [8 x %"struct.dpx::ImageElement"], ptr %9, i64 0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 23
   %13 = load i8, ptr %12, align 1, !tbaa !18
   switch i8 %13, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread [
@@ -145,54 +144,54 @@ _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %_ZNK3dpx13GenericHe
   %26 = shl i64 %4, 31
   %27 = ashr i64 %26, 32
   %28 = and i64 %4, 8589934590
-  %.not.i.i.i15 = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i15, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i16
+  %.not.i.i.i14 = icmp eq i64 %28, 0
+  br i1 %.not.i.i.i14, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i15
 
-.lr.ph.i.i.i16:                                   ; preds = %25, %.lr.ph.i.i.i16
-  %.06.i.i.i17 = phi i64 [ %32, %.lr.ph.i.i.i16 ], [ 0, %25 ]
-  %29 = getelementptr inbounds nuw i16, ptr %3, i64 %.06.i.i.i17
+.lr.ph.i.i.i15:                                   ; preds = %25, %.lr.ph.i.i.i15
+  %.06.i.i.i16 = phi i64 [ %32, %.lr.ph.i.i.i15 ], [ 0, %25 ]
+  %29 = getelementptr inbounds nuw i16, ptr %3, i64 %.06.i.i.i16
   %30 = load i16, ptr %29, align 2, !tbaa !23
   %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
   store i16 %31, ptr %29, align 2, !tbaa !23
-  %32 = add nuw i64 %.06.i.i.i17, 1
-  %exitcond.not.i.i.i18 = icmp eq i64 %32, %27
-  br i1 %exitcond.not.i.i.i18, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i16, !llvm.loop !24
+  %32 = add nuw i64 %.06.i.i.i16, 1
+  %exitcond.not.i.i.i17 = icmp eq i64 %32, %27
+  br i1 %exitcond.not.i.i.i17, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i15, !llvm.loop !24
 
 33:                                               ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit
   %34 = shl i64 %4, 31
   %35 = ashr i64 %34, 32
   %36 = and i64 %4, 8589934590
-  %.not.i.i.i19 = icmp eq i64 %36, 0
-  br i1 %.not.i.i.i19, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i20
+  %.not.i.i.i18 = icmp eq i64 %36, 0
+  br i1 %.not.i.i.i18, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i19
 
-.lr.ph.i.i.i20:                                   ; preds = %33, %.lr.ph.i.i.i20
-  %.06.i.i.i21 = phi i64 [ %40, %.lr.ph.i.i.i20 ], [ 0, %33 ]
-  %37 = getelementptr inbounds nuw i16, ptr %3, i64 %.06.i.i.i21
+.lr.ph.i.i.i19:                                   ; preds = %33, %.lr.ph.i.i.i19
+  %.06.i.i.i20 = phi i64 [ %40, %.lr.ph.i.i.i19 ], [ 0, %33 ]
+  %37 = getelementptr inbounds nuw i16, ptr %3, i64 %.06.i.i.i20
   %38 = load i16, ptr %37, align 2, !tbaa !23
   %39 = tail call noundef i16 @llvm.bswap.i16(i16 %38)
   store i16 %39, ptr %37, align 2, !tbaa !23
-  %40 = add nuw i64 %.06.i.i.i21, 1
-  %exitcond.not.i.i.i22 = icmp eq i64 %40, %35
-  br i1 %exitcond.not.i.i.i22, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i20, !llvm.loop !24
+  %40 = add nuw i64 %.06.i.i.i20, 1
+  %exitcond.not.i.i.i21 = icmp eq i64 %40, %35
+  br i1 %exitcond.not.i.i.i21, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i19, !llvm.loop !24
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit.thread:   ; preds = %8, %_ZNK3dpx13GenericHeader8BitDepthEi.exit
   %41 = shl i64 %4, 30
   %42 = ashr i64 %41, 32
   %43 = and i64 %4, 17179869180
-  %.not.i.i.i24 = icmp eq i64 %43, 0
-  br i1 %.not.i.i.i24, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i25
+  %.not.i.i.i23 = icmp eq i64 %43, 0
+  br i1 %.not.i.i.i23, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i24
 
-.lr.ph.i.i.i25:                                   ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread, %.lr.ph.i.i.i25
-  %.06.i.i.i26 = phi i64 [ %47, %.lr.ph.i.i.i25 ], [ 0, %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread ]
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.06.i.i.i26
+.lr.ph.i.i.i24:                                   ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread, %.lr.ph.i.i.i24
+  %.06.i.i.i25 = phi i64 [ %47, %.lr.ph.i.i.i24 ], [ 0, %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread ]
+  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.06.i.i.i25
   %45 = load i32, ptr %44, align 4, !tbaa !20
   %46 = tail call noundef i32 @llvm.bswap.i32(i32 %45)
   store i32 %46, ptr %44, align 4, !tbaa !20
-  %47 = add nuw i64 %.06.i.i.i26, 1
-  %exitcond.not.i.i.i27 = icmp eq i64 %47, %42
-  br i1 %exitcond.not.i.i.i27, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i25, !llvm.loop !21
+  %47 = add nuw i64 %.06.i.i.i25, 1
+  %exitcond.not.i.i.i26 = icmp eq i64 %47, %42
+  br i1 %exitcond.not.i.i.i26, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i24, !llvm.loop !21
 
-_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit: ; preds = %.lr.ph.i.i.i20, %.lr.ph.i.i.i16, %.lr.ph.i.i.i, %.lr.ph.i.i.i25, %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread, %33, %25, %17, %_ZNK3dpx13GenericHeader8BitDepthEi.exit, %5
+_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit: ; preds = %.lr.ph.i.i.i19, %.lr.ph.i.i.i15, %.lr.ph.i.i.i, %.lr.ph.i.i.i24, %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread, %33, %25, %17, %_ZNK3dpx13GenericHeader8BitDepthEi.exit, %5
   ret void
 }
 
@@ -203,9 +202,8 @@ define hidden noundef zeroext i1 @_ZN3dpx17ElementReadStream10ReadDirectERKNS_6H
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 780
-  %narrow.i = mul nuw nsw i32 %2, 72
-  %9 = zext nneg i32 %narrow.i to i64
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %9 = zext nneg i32 %2 to i64
+  %10 = getelementptr inbounds nuw [8 x %"struct.dpx::ImageElement"], ptr %8, i64 0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !11
   %13 = zext i32 %12 to i64

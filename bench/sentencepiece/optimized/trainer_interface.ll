@@ -20627,36 +20627,38 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN13sentencepiece16TrainerIn
 
 .lr.ph.split.us.i.i.i:                            ; preds = %.lr.ph.i.i.i
   %25 = load ptr, ptr %22, align 8, !tbaa !524
+  %invariant.gep.i.i.i = getelementptr i8, ptr %11, i64 32
   br label %._crit_edge.i.us.i.i.i
 
 ._crit_edge.i.us.i.i.i:                           ; preds = %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.us.i.i.i, %.lr.ph.split.us.i.i.i
-  %.04.us.i.i.i = phi i64 [ %7, %.lr.ph.split.us.i.i.i ], [ %31, %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.us.i.i.i ]
-  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %.04.us.i.i.i, i32 1
-  %.pre.i.us.i.i.i = load i64, ptr %26, align 8, !tbaa !229
-  %27 = load i64, ptr %21, align 8, !tbaa !279
-  %28 = icmp ult i64 %.pre.i.us.i.i.i, %27
-  br i1 %28, label %29, label %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.us.i.i.i
+  %.04.us.i.i.i = phi i64 [ %7, %.lr.ph.split.us.i.i.i ], [ %30, %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.us.i.i.i ]
+  %gep.i.i.i = getelementptr %"struct.std::pair", ptr %invariant.gep.i.i.i, i64 %.04.us.i.i.i
+  %.pre.i.us.i.i.i = load i64, ptr %gep.i.i.i, align 8, !tbaa !229
+  %26 = load i64, ptr %21, align 8, !tbaa !279
+  %27 = icmp ult i64 %.pre.i.us.i.i.i, %26
+  br i1 %27, label %28, label %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.us.i.i.i
 
-29:                                               ; preds = %._crit_edge.i.us.i.i.i
-  store i64 0, ptr %26, align 8, !tbaa !229
+28:                                               ; preds = %._crit_edge.i.us.i.i.i
+  store i64 0, ptr %gep.i.i.i, align 8, !tbaa !229
   br label %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.us.i.i.i
 
-_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.us.i.i.i: ; preds = %29, %._crit_edge.i.us.i.i.i
-  %30 = load i64, ptr %25, align 8, !tbaa !229
-  %31 = add i64 %30, %.04.us.i.i.i
-  %32 = icmp ult i64 %31, %15
-  br i1 %32, label %._crit_edge.i.us.i.i.i, label %"_ZSt10__invoke_rIvRZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", !llvm.loop !525
+_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.us.i.i.i: ; preds = %28, %._crit_edge.i.us.i.i.i
+  %29 = load i64, ptr %25, align 8, !tbaa !229
+  %30 = add i64 %29, %.04.us.i.i.i
+  %31 = icmp ult i64 %30, %15
+  br i1 %31, label %._crit_edge.i.us.i.i.i, label %"_ZSt10__invoke_rIvRZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", !llvm.loop !525
 
 .lr.ph.splitthread-pre-split.i.i.i:               ; preds = %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i
   %.pr.i.i.i = load float, ptr %17, align 8, !tbaa !278
   br label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i, %.lr.ph.splitthread-pre-split.i.i.i
-  %33 = phi float [ %.pr.i.i.i, %.lr.ph.splitthread-pre-split.i.i.i ], [ %23, %.lr.ph.i.i.i ]
-  %34 = phi ptr [ %54, %.lr.ph.splitthread-pre-split.i.i.i ], [ %11, %.lr.ph.i.i.i ]
+  %32 = phi float [ %.pr.i.i.i, %.lr.ph.splitthread-pre-split.i.i.i ], [ %23, %.lr.ph.i.i.i ]
+  %33 = phi ptr [ %54, %.lr.ph.splitthread-pre-split.i.i.i ], [ %11, %.lr.ph.i.i.i ]
   %.04.i.i.i = phi i64 [ %52, %.lr.ph.splitthread-pre-split.i.i.i ], [ %7, %.lr.ph.i.i.i ]
-  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %.04.i.i.i, i32 1
-  %36 = fcmp ogt float %33, 0.000000e+00
+  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %.04.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = fcmp ogt float %32, 0.000000e+00
   br i1 %36, label %37, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.split.i.i.i
@@ -20666,7 +20668,7 @@ _ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engi
 37:                                               ; preds = %.lr.ph.split.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #30
   store float 0.000000e+00, ptr %2, align 4, !tbaa !526
-  store float %33, ptr %18, align 4, !tbaa !528
+  store float %32, ptr %18, align 4, !tbaa !528
   store float 0.000000e+00, ptr %19, align 4, !tbaa !529
   store i8 0, ptr %20, align 4, !tbaa !531
   %38 = call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %2, ptr noundef nonnull align 8 dereferenceable(5000) %5, ptr noundef nonnull align 4 dereferenceable(13) %2)

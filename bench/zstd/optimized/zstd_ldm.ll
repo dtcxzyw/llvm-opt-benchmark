@@ -444,10 +444,10 @@ define range(i64 -119, 1) i64 @ZSTD_ldm_generateSequences(ptr noundef captures(n
   %.pre = load i64, ptr %17, align 8, !tbaa !36
   br label %34
 
-34:                                               ; preds = %.lr.ph, %417
-  %35 = phi i64 [ %.pre, %.lr.ph ], [ %407, %417 ]
-  %.05588 = phi i64 [ 0, %.lr.ph ], [ %418, %417 ]
-  %.05687 = phi i64 [ 0, %.lr.ph ], [ %.15778, %417 ]
+34:                                               ; preds = %.lr.ph, %418
+  %35 = phi i64 [ %.pre, %.lr.ph ], [ %407, %418 ]
+  %.05588 = phi i64 [ 0, %.lr.ph ], [ %419, %418 ]
+  %.05687 = phi i64 [ 0, %.lr.ph ], [ %.15778, %418 ]
   %36 = load i64, ptr %18, align 8, !tbaa !38
   %37 = icmp ult i64 %35, %36
   br i1 %37, label %38, label %.critedge
@@ -1301,29 +1301,30 @@ ZSTD_ldm_generateSequences_internal.exit._crit_edge: ; preds = %ZSTD_ldm_generat
   %407 = phi i64 [ %35, %ZSTD_ldm_generateSequences_internal.exit.thread ], [ %.pre103, %ZSTD_ldm_generateSequences_internal.exit._crit_edge ]
   %.0.i69 = phi i64 [ %46, %ZSTD_ldm_generateSequences_internal.exit.thread ], [ %.pre-phi112, %ZSTD_ldm_generateSequences_internal.exit._crit_edge ]
   %408 = icmp ult i64 %35, %407
-  br i1 %408, label %409, label %415
+  br i1 %408, label %409, label %416
 
 409:                                              ; preds = %406
   %410 = trunc i64 %.05687 to i32
   %411 = load ptr, ptr %1, align 8, !tbaa !62
-  %412 = getelementptr inbounds nuw %struct.rawSeq, ptr %411, i64 %35, i32 1
-  %413 = load i32, ptr %412, align 4, !tbaa !63
-  %414 = add i32 %413, %410
-  store i32 %414, ptr %412, align 4, !tbaa !63
-  br label %417
+  %412 = getelementptr inbounds nuw %struct.rawSeq, ptr %411, i64 %35
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 4
+  %414 = load i32, ptr %413, align 4, !tbaa !63
+  %415 = add i32 %414, %410
+  store i32 %415, ptr %413, align 4, !tbaa !63
+  br label %418
 
-415:                                              ; preds = %406
-  %416 = add i64 %46, %.05687
-  br label %417
+416:                                              ; preds = %406
+  %417 = add i64 %46, %.05687
+  br label %418
 
-417:                                              ; preds = %409, %415
-  %.15778 = phi i64 [ %.0.i69, %409 ], [ %416, %415 ]
-  %418 = add nuw nsw i64 %.05588, 1
-  %exitcond.not = icmp eq i64 %418, %16
+418:                                              ; preds = %409, %416
+  %.15778 = phi i64 [ %.0.i69, %409 ], [ %417, %416 ]
+  %419 = add nuw nsw i64 %.05588, 1
+  %exitcond.not = icmp eq i64 %419, %16
   br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !69
 
-.critedge:                                        ; preds = %417, %34, %ZSTD_ldm_generateSequences_internal.exit, %5, %ZSTD_ldm_generateSequences_internal.exit.thread72
-  %.2 = phi i64 [ -70, %ZSTD_ldm_generateSequences_internal.exit.thread72 ], [ 0, %5 ], [ 0, %417 ], [ 0, %34 ], [ %.pre-phi112, %ZSTD_ldm_generateSequences_internal.exit ]
+.critedge:                                        ; preds = %418, %34, %ZSTD_ldm_generateSequences_internal.exit, %5, %ZSTD_ldm_generateSequences_internal.exit.thread72
+  %.2 = phi i64 [ -70, %ZSTD_ldm_generateSequences_internal.exit.thread72 ], [ 0, %5 ], [ 0, %418 ], [ 0, %34 ], [ %.pre-phi112, %ZSTD_ldm_generateSequences_internal.exit ]
   ret i64 %.2
 }
 

@@ -1180,22 +1180,26 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %8, %11
   %.not.i = icmp eq i32 %31, -1
   br i1 %.not.i, label %._crit_edge, label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit, %.preheader.i
-  %.1.i = phi i32 [ %34, %.preheader.i ], [ %31, %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit ]
-  %32 = sext i32 %.1.i to i64
-  %33 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %28, i64 %32, i32 4
-  %34 = load i32, ptr %33, align 8, !tbaa !106
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %.lr.ph, label %.preheader.i
+.preheader.i:                                     ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit
+  %invariant.gep.i = getelementptr i8, ptr %28, i64 16
+  br label %32
 
-.lr.ph:                                           ; preds = %.preheader.i
+32:                                               ; preds = %32, %.preheader.i
+  %.1.i = phi i32 [ %34, %32 ], [ %31, %.preheader.i ]
+  %33 = sext i32 %.1.i to i64
+  %gep.i = getelementptr %"class.cv::TreeNode", ptr %invariant.gep.i, i64 %33
+  %34 = load i32, ptr %gep.i, align 8, !tbaa !106
+  %35 = icmp eq i32 %34, -1
+  br i1 %35, label %.lr.ph, label %32
+
+.lr.ph:                                           ; preds = %32
   store i32 %.1.i, ptr %2, align 4, !tbaa !39
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %37
 
 37:                                               ; preds = %.lr.ph, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit
   %38 = phi ptr [ %28, %.lr.ph ], [ %45, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
-  %storemerge5 = phi i32 [ %.1.i, %.lr.ph ], [ %49, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
+  %storemerge5 = phi i32 [ %.1.i, %.lr.ph ], [ %50, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
   %39 = load ptr, ptr %3, align 8, !tbaa !92
   %40 = load ptr, ptr %36, align 8, !tbaa !93
   %41 = getelementptr inbounds i8, ptr %40, i64 -4
@@ -1218,10 +1222,11 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %42, %44
   %45 = phi ptr [ %38, %42 ], [ %.pre6, %44 ]
   %46 = load i32, ptr %2, align 4, !tbaa !39
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %45, i64 %47, i32 3
-  %49 = load i32, ptr %48, align 4, !tbaa !107
-  store i32 %49, ptr %2, align 4, !tbaa !39
-  %.not = icmp eq i32 %49, -1
+  %48 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %45, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  %50 = load i32, ptr %49, align 4, !tbaa !107
+  store i32 %50, ptr %2, align 4, !tbaa !39
+  %.not = icmp eq i32 %50, -1
   br i1 %.not, label %._crit_edge, label %37, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit, %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit

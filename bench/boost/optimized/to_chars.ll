@@ -3452,7 +3452,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128
   %.sroa.039.0.insert.ext = zext i64 %2 to i128
   %.sroa.039.0.insert.insert = or disjoint i128 %.sroa.240.0.insert.shift, %.sroa.039.0.insert.ext
   %7 = icmp ugt ptr %0, %1
-  br i1 %7, label %69, label %8
+  br i1 %7, label %68, label %8
 
 8:                                                ; preds = %4
   %9 = ptrtoint ptr %1 to i64
@@ -3461,7 +3461,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128
   %12 = tail call noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(i64 noundef %2, i64 noundef %3) #15
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %11, %13
-  br i1 %14, label %69, label %15
+  br i1 %14, label %68, label %15
 
 15:                                               ; preds = %8
   %16 = icmp ult i128 %.sroa.039.0.insert.insert, 18446744073709551615
@@ -3471,7 +3471,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128
   %18 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15
   %19 = extractvalue { ptr, i32 } %18, 0
   %20 = extractvalue { ptr, i32 } %18, 1
-  br label %69
+  br label %68
 
 21:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #15
@@ -3562,28 +3562,29 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit:  ; preds = %45
   %62 = sub nsw i64 0, %59
   %63 = getelementptr inbounds i8, ptr %61, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %63, i64 %59, i1 false)
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.not53 = icmp eq i64 %indvars.iv, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55, %.lr.ph
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.lr.ph ], [ %indvars.iv, %55 ]
-  %.052 = phi i64 [ %66, %.lr.ph ], [ %59, %55 ]
+  %.052 = phi i64 [ %65, %.lr.ph ], [ %59, %55 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 %.052
-  %65 = getelementptr inbounds nuw [5 x [10 x i8]], ptr %5, i64 0, i64 %indvars.iv.next56, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %64, ptr noundef nonnull align 1 dereferenceable(9) %65, i64 9, i1 false)
-  %66 = add nsw i64 %.052, 9
-  %67 = icmp sgt i64 %indvars.iv55, 1
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  %gep = getelementptr inbounds nuw [5 x [10 x i8]], ptr %invariant.gep, i64 0, i64 %indvars.iv.next56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %64, ptr noundef nonnull align 1 dereferenceable(9) %gep, i64 9, i1 false)
+  %65 = add nsw i64 %.052, 9
+  %66 = icmp sgt i64 %indvars.iv55, 1
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
-  %68 = getelementptr inbounds i8, ptr %0, i64 %13
+  %67 = getelementptr inbounds i8, ptr %0, i64 %13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #15
-  br label %69
+  br label %68
 
-69:                                               ; preds = %17, %._crit_edge, %8, %4
-  %.sroa.041.0 = phi ptr [ %1, %4 ], [ %19, %17 ], [ %68, %._crit_edge ], [ %1, %8 ]
+68:                                               ; preds = %17, %._crit_edge, %8, %4
+  %.sroa.041.0 = phi ptr [ %1, %4 ], [ %19, %17 ], [ %67, %._crit_edge ], [ %1, %8 ]
   %.sroa.5.0 = phi i32 [ 22, %4 ], [ %20, %17 ], [ 0, %._crit_edge ], [ 75, %8 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.041.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1

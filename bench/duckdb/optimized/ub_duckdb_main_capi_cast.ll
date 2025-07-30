@@ -286,12 +286,13 @@ _Z21CanUseDeprecatedFetchP13duckdb_resultmm.exit: ; preds = %6
 10:                                               ; preds = %_Z21CanUseDeprecatedFetchP13duckdb_resultmm.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw %struct.duckdb_column, ptr %12, i64 %1, i32 1
-  %14 = load ptr, ptr %13, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %2
-  %16 = load i8, ptr %15, align 1, !tbaa !24, !range !26, !noundef !27
-  %17 = trunc nuw i8 %16 to i1
-  %not. = xor i1 %17, true
+  %13 = getelementptr inbounds nuw %struct.duckdb_column, ptr %12, i64 %1
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %2
+  %17 = load i8, ptr %16, align 1, !tbaa !24, !range !26, !noundef !27
+  %18 = trunc nuw i8 %17 to i1
+  %not. = xor i1 %18, true
   br label %_Z21CanUseDeprecatedFetchP13duckdb_resultmm.exit.thread
 
 _Z21CanUseDeprecatedFetchP13duckdb_resultmm.exit.thread: ; preds = %6, %4, %3, %10, %_Z21CanUseDeprecatedFetchP13duckdb_resultmm.exit

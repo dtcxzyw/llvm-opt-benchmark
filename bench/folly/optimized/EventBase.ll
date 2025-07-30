@@ -8343,28 +8343,33 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE8clearTagEm.exit.
   %64 = and i64 %3, %63
   %65 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %60, i64 %64
   %66 = icmp eq ptr %65, %51
-  br i1 %66, label %.thread.i, label %.lr.ph.i
+  br i1 %66, label %.thread.i, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %57
+  %invariant.gep.i = getelementptr i8, ptr %60, i64 15
+  br label %.lr.ph.i
 
 .thread.i:                                        ; preds = %76, %57
   %.011.lcssa.i = phi i8 [ 0, %57 ], [ -16, %76 ]
   %67 = phi i64 [ %64, %57 ], [ %78, %76 ]
-  %68 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %60, i64 %67, i32 1
-  %69 = load i8, ptr %68, align 2, !tbaa !454
-  %70 = add i8 %69, %.011.lcssa.i
-  store i8 %70, ptr %68, align 2, !tbaa !454
+  %68 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %60, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 14
+  %70 = load i8, ptr %69, align 2, !tbaa !454
+  %71 = add i8 %70, %.011.lcssa.i
+  store i8 %71, ptr %69, align 2, !tbaa !454
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE10eraseBlankENS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmE.exit
 
-.lr.ph.i:                                         ; preds = %57, %76
-  %71 = phi i64 [ %78, %76 ], [ %64, %57 ]
-  %.01027.i = phi i64 [ %77, %76 ], [ %3, %57 ]
-  %72 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %60, i64 %71, i32 2
-  %73 = load i8, ptr %72, align 1, !tbaa !458
+.lr.ph.i:                                         ; preds = %76, %.lr.ph.preheader.i
+  %72 = phi i64 [ %78, %76 ], [ %64, %.lr.ph.preheader.i ]
+  %.01027.i = phi i64 [ %77, %76 ], [ %3, %.lr.ph.preheader.i ]
+  %gep.i = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %invariant.gep.i, i64 %72
+  %73 = load i8, ptr %gep.i, align 1, !tbaa !458
   %.not.i17.i = icmp eq i8 %73, -2
   br i1 %.not.i17.i, label %76, label %74
 
 74:                                               ; preds = %.lr.ph.i
   %75 = add i8 %73, -1
-  store i8 %75, ptr %72, align 1, !tbaa !458
+  store i8 %75, ptr %gep.i, align 1, !tbaa !458
   br label %76
 
 76:                                               ; preds = %74, %.lr.ph.i
@@ -9457,28 +9462,33 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i: ; preds = %26
   %43 = and i64 %.sroa.04.0, %42
   %44 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %39, i64 %43
   %45 = icmp eq ptr %44, %6
-  br i1 %45, label %.thread.i.i, label %.lr.ph.i.i
+  br i1 %45, label %.thread.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %37
+  %invariant.gep.i.i = getelementptr i8, ptr %39, i64 15
+  br label %.lr.ph.i.i
 
 .thread.i.i:                                      ; preds = %55, %37
   %.011.lcssa.i.i = phi i8 [ 0, %37 ], [ -16, %55 ]
   %46 = phi i64 [ %43, %37 ], [ %57, %55 ]
-  %47 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %39, i64 %46, i32 1
-  %48 = load i8, ptr %47, align 2, !tbaa !459
-  %49 = add i8 %48, %.011.lcssa.i.i
-  store i8 %49, ptr %47, align 2, !tbaa !459
+  %47 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %39, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 14
+  %49 = load i8, ptr %48, align 2, !tbaa !459
+  %50 = add i8 %49, %.011.lcssa.i.i
+  store i8 %50, ptr %48, align 2, !tbaa !459
   br label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmE.exit
 
-.lr.ph.i.i:                                       ; preds = %37, %55
-  %50 = phi i64 [ %57, %55 ], [ %43, %37 ]
-  %.01027.i.i = phi i64 [ %56, %55 ], [ %.sroa.04.0, %37 ]
-  %51 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %39, i64 %50, i32 2
-  %52 = load i8, ptr %51, align 1, !tbaa !501
+.lr.ph.i.i:                                       ; preds = %55, %.lr.ph.preheader.i.i
+  %51 = phi i64 [ %57, %55 ], [ %43, %.lr.ph.preheader.i.i ]
+  %.01027.i.i = phi i64 [ %56, %55 ], [ %.sroa.04.0, %.lr.ph.preheader.i.i ]
+  %gep.i.i = getelementptr %"struct.folly::f14::detail::F14Chunk.157", ptr %invariant.gep.i.i, i64 %51
+  %52 = load i8, ptr %gep.i.i, align 1, !tbaa !501
   %.not.i17.i.i = icmp eq i8 %52, -2
   br i1 %.not.i17.i.i, label %55, label %53
 
 53:                                               ; preds = %.lr.ph.i.i
   %54 = add i8 %52, -1
-  store i8 %54, ptr %51, align 1, !tbaa !501
+  store i8 %54, ptr %gep.i.i, align 1, !tbaa !501
   br label %55
 
 55:                                               ; preds = %53, %.lr.ph.i.i

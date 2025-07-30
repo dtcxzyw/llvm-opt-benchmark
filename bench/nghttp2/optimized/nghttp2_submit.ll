@@ -577,17 +577,21 @@ define i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   %.not68 = icmp eq i64 %3, 0
   br i1 %.not68, label %41, label %.preheader
 
-.preheader:                                       ; preds = %8, %.preheader
-  %.071 = phi i64 [ %12, %.preheader ], [ 0, %8 ]
-  %.06070 = phi i64 [ %11, %.preheader ], [ 0, %8 ]
-  %9 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.071, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !48
+.preheader:                                       ; preds = %8
+  %invariant.gep = getelementptr i8, ptr %2, i64 8
+  br label %9
+
+9:                                                ; preds = %.preheader, %9
+  %.071 = phi i64 [ 0, %.preheader ], [ %12, %9 ]
+  %.06070 = phi i64 [ 0, %.preheader ], [ %11, %9 ]
+  %gep = getelementptr %struct.nghttp2_origin_entry, ptr %invariant.gep, i64 %.071
+  %10 = load i64, ptr %gep, align 8, !tbaa !48
   %11 = add i64 %10, %.06070
   %12 = add nuw i64 %.071, 1
   %exitcond.not = icmp eq i64 %12, %3
-  br i1 %exitcond.not, label %13, label %.preheader, !llvm.loop !50
+  br i1 %exitcond.not, label %13, label %9, !llvm.loop !50
 
-13:                                               ; preds = %.preheader
+13:                                               ; preds = %9
   %14 = shl i64 %3, 1
   %15 = add i64 %11, %14
   %16 = icmp ugt i64 %15, 16384

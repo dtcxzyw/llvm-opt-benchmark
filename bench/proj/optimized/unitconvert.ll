@@ -682,35 +682,37 @@ define internal void @_ZL10forward_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
   store double %11, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !68
   %12 = load i32, ptr %4, align 8, !tbaa !49
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %14, label %21
+  br i1 %13, label %14, label %22
 
 14:                                               ; preds = %2
   %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %15, i32 1
-  %17 = load ptr, ptr %16, align 8, !tbaa !72
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load double, ptr %18, align 8, !tbaa !73
-  %20 = tail call noundef double %17(double noundef %19)
-  store double %20, ptr %18, align 8, !tbaa !73
-  br label %21
+  %16 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load double, ptr %19, align 8, !tbaa !73
+  %21 = tail call noundef double %18(double noundef %20)
+  store double %21, ptr %19, align 8, !tbaa !73
+  br label %22
 
-21:                                               ; preds = %14, %2
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !51
-  %24 = icmp sgt i32 %23, -1
-  br i1 %24, label %25, label %32
+22:                                               ; preds = %14, %2
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !51
+  %25 = icmp sgt i32 %24, -1
+  br i1 %25, label %26, label %34
 
-25:                                               ; preds = %21
-  %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %26, i32 2
-  %28 = load ptr, ptr %27, align 16, !tbaa !74
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load double, ptr %29, align 8, !tbaa !73
-  %31 = tail call noundef double %28(double noundef %30)
-  store double %31, ptr %29, align 8, !tbaa !73
-  br label %32
+26:                                               ; preds = %22
+  %27 = zext nneg i32 %24 to i64
+  %28 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 16, !tbaa !74
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %32 = load double, ptr %31, align 8, !tbaa !73
+  %33 = tail call noundef double %30(double noundef %32)
+  store double %33, ptr %31, align 8, !tbaa !73
+  br label %34
 
-32:                                               ; preds = %25, %21
+34:                                               ; preds = %26, %22
   ret void
 }
 
@@ -736,34 +738,36 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !51
   %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %15, label %22
+  br i1 %14, label %15, label %23
 
 15:                                               ; preds = %2
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %16, i32 1
-  %18 = load ptr, ptr %17, align 8, !tbaa !72
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load double, ptr %19, align 8, !tbaa !73
-  %21 = tail call noundef double %18(double noundef %20)
-  store double %21, ptr %19, align 8, !tbaa !73
-  br label %22
+  %17 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load double, ptr %20, align 8, !tbaa !73
+  %22 = tail call noundef double %19(double noundef %21)
+  store double %22, ptr %20, align 8, !tbaa !73
+  br label %23
 
-22:                                               ; preds = %15, %2
-  %23 = load i32, ptr %4, align 8, !tbaa !49
-  %24 = icmp sgt i32 %23, -1
-  br i1 %24, label %25, label %32
+23:                                               ; preds = %15, %2
+  %24 = load i32, ptr %4, align 8, !tbaa !49
+  %25 = icmp sgt i32 %24, -1
+  br i1 %25, label %26, label %34
 
-25:                                               ; preds = %22
-  %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %26, i32 2
-  %28 = load ptr, ptr %27, align 16, !tbaa !74
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load double, ptr %29, align 8, !tbaa !73
-  %31 = tail call noundef double %28(double noundef %30)
-  store double %31, ptr %29, align 8, !tbaa !73
-  br label %32
+26:                                               ; preds = %23
+  %27 = zext nneg i32 %24 to i64
+  %28 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 16, !tbaa !74
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %32 = load double, ptr %31, align 8, !tbaa !73
+  %33 = tail call noundef double %30(double noundef %32)
+  store double %33, ptr %31, align 8, !tbaa !73
+  br label %34
 
-32:                                               ; preds = %25, %22
+34:                                               ; preds = %26, %23
   ret void
 }
 

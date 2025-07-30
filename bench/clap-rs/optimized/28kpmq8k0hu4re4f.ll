@@ -5362,29 +5362,33 @@ define noundef i64 @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg8nu
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg20all_val_groups_empty17h5e8ad122df41447cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit", label %.preheader
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %3 = load i64, ptr %2, align 8, !noundef !4
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit", label %5
 
-.preheader:                                       ; preds = %1, %.preheader
-  %.018.i.i.i = phi i64 [ %8, %.preheader ], [ 0, %1 ]
-  %.017.i.i.i = phi i64 [ %9, %.preheader ], [ 0, %1 ]
-  %7 = getelementptr { { i64, ptr }, i64 }, ptr %3, i64 %.017.i.i.i, i32 1
-  %.val22.i.i.i = load i64, ptr %7, align 8, !noalias !1100, !noundef !4
-  %8 = add i64 %.val22.i.i.i, %.018.i.i.i
-  %9 = add nuw i64 %.017.i.i.i, 1
-  %10 = icmp eq i64 %9, %5
-  br i1 %10, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit", label %.preheader
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  %invariant.gep.i.i.i = getelementptr i8, ptr %7, i64 16
+  br label %8
 
-"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit": ; preds = %.preheader
-  %11 = icmp eq i64 %8, 0
+8:                                                ; preds = %8, %5
+  %.018.i.i.i = phi i64 [ 0, %5 ], [ %9, %8 ]
+  %.017.i.i.i = phi i64 [ 0, %5 ], [ %10, %8 ]
+  %gep.i.i.i = getelementptr { { i64, ptr }, i64 }, ptr %invariant.gep.i.i.i, i64 %.017.i.i.i
+  %.val22.i.i.i = load i64, ptr %gep.i.i.i, align 8, !noalias !1100, !noundef !4
+  %9 = add i64 %.val22.i.i.i, %.018.i.i.i
+  %10 = add nuw i64 %.017.i.i.i, 1
+  %11 = icmp eq i64 %10, %3
+  br i1 %11, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit", label %8
+
+"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit": ; preds = %8
+  %12 = icmp eq i64 %9, 0
   br label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit"
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit", %1
-  %.0.i.i = phi i1 [ true, %1 ], [ %11, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit" ]
+  %.0.i.i = phi i1 [ true, %1 ], [ %12, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit" ]
   ret i1 %.0.i.i
 }
 

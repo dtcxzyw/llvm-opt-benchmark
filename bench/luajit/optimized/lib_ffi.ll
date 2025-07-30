@@ -1603,44 +1603,48 @@ ffi_clib_index.exit:                              ; preds = %20
   %55 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %54
   %56 = load i32, ptr %55, align 8, !tbaa !52
   %57 = icmp slt i32 %56, -1879048192
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  br i1 %57, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %66
-  %58 = phi i32 [ %70, %66 ], [ %56, %.preheader ]
-  %59 = phi i64 [ %68, %66 ], [ %54, %.preheader ]
-  %.02635 = phi i32 [ %.127, %66 ], [ 0, %.preheader ]
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %48, i64 4
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %65
+  %58 = phi i32 [ %69, %65 ], [ %56, %.lr.ph.preheader ]
+  %59 = phi i64 [ %67, %65 ], [ %54, %.lr.ph.preheader ]
+  %.02635 = phi i32 [ %.127, %65 ], [ 0, %.lr.ph.preheader ]
   %60 = and i32 %58, 16711680
   %61 = icmp eq i32 %60, 65536
-  br i1 %61, label %62, label %66
+  br i1 %61, label %62, label %65
 
 62:                                               ; preds = %.lr.ph
-  %63 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %59, i32 1
-  %64 = load i32, ptr %63, align 4, !tbaa !58
-  %65 = or i32 %64, %.02635
-  br label %66
+  %gep = getelementptr inbounds nuw %struct.CType, ptr %invariant.gep, i64 %59
+  %63 = load i32, ptr %gep, align 4, !tbaa !58
+  %64 = or i32 %63, %.02635
+  br label %65
 
-66:                                               ; preds = %62, %.lr.ph
-  %.127 = phi i32 [ %65, %62 ], [ %.02635, %.lr.ph ]
-  %67 = and i32 %58, 65535
-  %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %68
-  %70 = load i32, ptr %69, align 8, !tbaa !52
-  %71 = icmp slt i32 %70, -1879048192
-  br i1 %71, label %.lr.ph, label %._crit_edge
+65:                                               ; preds = %62, %.lr.ph
+  %.127 = phi i32 [ %64, %62 ], [ %.02635, %.lr.ph ]
+  %66 = and i32 %58, 65535
+  %67 = zext nneg i32 %66 to i64
+  %68 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %67
+  %69 = load i32, ptr %68, align 8, !tbaa !52
+  %70 = icmp slt i32 %69, -1879048192
+  br i1 %70, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %66, %.preheader
-  %.026.lcssa = phi i32 [ 0, %.preheader ], [ %.127, %66 ]
-  %.lcssa34 = phi ptr [ %55, %.preheader ], [ %69, %66 ]
-  %.lcssa = phi i32 [ %56, %.preheader ], [ %70, %66 ]
-  %72 = or i32 %.lcssa, %.026.lcssa
-  %73 = and i32 %72, 33554432
-  %.not.not = icmp eq i32 %73, 0
-  br i1 %.not.not, label %74, label %.critedge33
+._crit_edge:                                      ; preds = %65, %.preheader
+  %.026.lcssa = phi i32 [ 0, %.preheader ], [ %.127, %65 ]
+  %.lcssa34 = phi ptr [ %55, %.preheader ], [ %68, %65 ]
+  %.lcssa = phi i32 [ %56, %.preheader ], [ %69, %65 ]
+  %71 = or i32 %.lcssa, %.026.lcssa
+  %72 = and i32 %71, 33554432
+  %.not.not = icmp eq i32 %72, 0
+  br i1 %.not.not, label %73, label %.critedge33
 
-74:                                               ; preds = %._crit_edge
-  %75 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %76 = load ptr, ptr %75, align 8, !tbaa !56
-  tail call void @lj_cconv_ct_tv(ptr noundef nonnull %41, ptr noundef nonnull %.lcssa34, ptr noundef %76, ptr noundef nonnull %29, i32 noundef 0) #9
+73:                                               ; preds = %._crit_edge
+  %74 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %75 = load ptr, ptr %74, align 8, !tbaa !56
+  tail call void @lj_cconv_ct_tv(ptr noundef nonnull %41, ptr noundef nonnull %.lcssa34, ptr noundef %75, ptr noundef nonnull %29, i32 noundef 0) #9
   ret i32 0
 
 .critedge33:                                      ; preds = %35, %._crit_edge, %32, %ffi_clib_index.exit

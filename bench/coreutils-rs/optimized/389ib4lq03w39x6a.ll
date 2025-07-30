@@ -1622,19 +1622,23 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
 .split35.i:                                       ; preds = %74
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !267
   %.not38.i = icmp eq i64 %78, 0
-  br i1 %.not38.i, label %.loopexit, label %.split.i
+  br i1 %.not38.i, label %.loopexit, label %.split.i.preheader
 
-.split.i:                                         ; preds = %.split35.i, %._crit_edge.i
-  %.promoted = phi i64 [ %.promoted89, %._crit_edge.i ], [ %78, %.split35.i ]
-  %89 = phi i64 [ %100, %._crit_edge.i ], [ %78, %.split35.i ]
-  %.sroa.01.036.i = phi i64 [ %90, %._crit_edge.i ], [ 0, %.split35.i ]
+.split.i.preheader:                               ; preds = %.split35.i
+  %invariant.gep = getelementptr i8, ptr %76, i64 8
+  br label %.split.i
+
+.split.i:                                         ; preds = %.split.i.preheader, %._crit_edge.i
+  %.promoted = phi i64 [ %.promoted91, %._crit_edge.i ], [ %78, %.split.i.preheader ]
+  %89 = phi i64 [ %100, %._crit_edge.i ], [ %78, %.split.i.preheader ]
+  %.sroa.01.036.i = phi i64 [ %90, %._crit_edge.i ], [ 0, %.split.i.preheader ]
   %90 = add nuw i64 %.sroa.01.036.i, 1
   %91 = icmp ult i64 %90, %89
   br i1 %91, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.split.i
-  %.phi.trans.insert.i = getelementptr inbounds [0 x { i64, i64 }], ptr %76, i64 0, i64 %.sroa.01.036.i, i32 1
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !267
+  %gep = getelementptr [0 x { i64, i64 }], ptr %invariant.gep, i64 0, i64 %.sroa.01.036.i
+  %.pre.i = load i64, ptr %gep, align 8, !noalias !267
   %92 = getelementptr inbounds [0 x { i64, i64 }], ptr %76, i64 0, i64 %90
   %93 = load i64, ptr %92, align 8, !noalias !267, !noundef !13
   %94 = add i64 %.pre.i, 1
@@ -1653,7 +1657,7 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
   br i1 %.not.i, label %._crit_edge.i.loopexit.sink.split, label %101
 
 ._crit_edge.i.loopexit.sink.split:                ; preds = %101, %.lr.ph.i
-  store i64 %.0.sroa.speculated.i.i, ptr %.phi.trans.insert.i, align 8, !noalias !267
+  store i64 %.0.sroa.speculated.i.i, ptr %gep, align 8, !noalias !267
   br label %._crit_edge.i.loopexit
 
 ._crit_edge.i.loopexit:                           ; preds = %._crit_edge.i.loopexit.sink.split, %.lr.ph.preheader.i
@@ -1663,7 +1667,7 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.split.i
-  %.promoted89 = phi i64 [ %.promoted, %.split.i ], [ %99, %._crit_edge.i.loopexit ]
+  %.promoted91 = phi i64 [ %.promoted, %.split.i ], [ %99, %._crit_edge.i.loopexit ]
   %100 = phi i64 [ %89, %.split.i ], [ %.ph, %._crit_edge.i.loopexit ]
   %exitcond.not.i = icmp eq i64 %90, %78
   br i1 %exitcond.not.i, label %.loopexit, label %.split.i

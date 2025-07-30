@@ -491,7 +491,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
 
 30:                                               ; preds = %28
   invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #26
-          to label %53 unwind label %34
+          to label %54 unwind label %34
 
 31:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16, %_ZNSolsEj.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %15
   %32 = landingpad { ptr, i32 }
@@ -541,14 +541,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34
 
 46:                                               ; preds = %3
   %47 = zext i32 %1 to i64
-  %48 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %9, i64 %47, i32 1
-  %49 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderDesc11UniformDataaSERKS1_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull align 8 dereferenceable(232) %48)
-  %50 = load ptr, ptr %6, align 8, !tbaa !44
-  %51 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %50, i64 %47
-  %52 = load ptr, ptr %51, align 8, !tbaa !45
-  ret ptr %52
+  %48 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %9, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %50 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderDesc11UniformDataaSERKS1_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull align 8 dereferenceable(232) %49)
+  %51 = load ptr, ptr %6, align 8, !tbaa !44
+  %52 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %51, i64 %47
+  %53 = load ptr, ptr %52, align 8, !tbaa !45
+  ret ptr %53
 
-53:                                               ; preds = %30
+54:                                               ; preds = %30
   unreachable
 }
 
@@ -1273,7 +1274,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
 
 29:                                               ; preds = %27
   invoke void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #26
-          to label %48 unwind label %33
+          to label %49 unwind label %33
 
 30:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15, %_ZNSolsEj.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %15
   %31 = landingpad { ptr, i32 }
@@ -1322,12 +1323,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
   resume { ptr, i32 } %.pn.pn
 
 45:                                               ; preds = %3
-  %46 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Texture", ptr %10, i64 %6, i32 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !59
-  store ptr %47, ptr %2, align 8, !tbaa !79
+  %46 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Texture", ptr %10, i64 %6
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 88
+  %48 = load ptr, ptr %47, align 8, !tbaa !59
+  store ptr %48, ptr %2, align 8, !tbaa !79
   ret void
 
-48:                                               ; preds = %29
+49:                                               ; preds = %29
   unreachable
 }
 
@@ -1734,7 +1736,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
 
 29:                                               ; preds = %27
   invoke void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #26
-          to label %48 unwind label %33
+          to label %49 unwind label %33
 
 30:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15, %_ZNSolsEj.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %15
   %31 = landingpad { ptr, i32 }
@@ -1783,12 +1785,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
   resume { ptr, i32 } %.pn.pn
 
 45:                                               ; preds = %3
-  %46 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Texture", ptr %10, i64 %6, i32 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !59
-  store ptr %47, ptr %2, align 8, !tbaa !79
+  %46 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Texture", ptr %10, i64 %6
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 88
+  %48 = load ptr, ptr %47, align 8, !tbaa !59
+  store ptr %48, ptr %2, align 8, !tbaa !79
   ret void
 
-48:                                               ; preds = %29
+49:                                               ; preds = %29
   unreachable
 }
 

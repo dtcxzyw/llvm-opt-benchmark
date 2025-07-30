@@ -10029,23 +10029,25 @@ define internal fastcc void @cff_vstore_done(ptr noundef captures(none) %0, ptr 
   br i1 %.not30, label %.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.preheader, %.lr.ph28
-  %19 = phi ptr [ %22, %.lr.ph28 ], [ %17, %.preheader ]
+  %19 = phi ptr [ %23, %.lr.ph28 ], [ %17, %.preheader ]
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.lr.ph28 ], [ 0, %.preheader ]
-  %20 = getelementptr inbounds nuw %struct.CFF_VarData_, ptr %19, i64 %indvars.iv32, i32 1
-  %21 = load ptr, ptr %20, align 8, !tbaa !483
-  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %21) #19
-  %22 = load ptr, ptr %16, align 8, !tbaa !478
-  %23 = getelementptr inbounds nuw %struct.CFF_VarData_, ptr %22, i64 %indvars.iv32, i32 1
-  store ptr null, ptr %23, align 8, !tbaa !483
+  %20 = getelementptr inbounds nuw %struct.CFF_VarData_, ptr %19, i64 %indvars.iv32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !483
+  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %22) #19
+  %23 = load ptr, ptr %16, align 8, !tbaa !478
+  %24 = getelementptr inbounds nuw %struct.CFF_VarData_, ptr %23, i64 %indvars.iv32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr null, ptr %25, align 8, !tbaa !483
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %24 = load i32, ptr %0, align 8, !tbaa !477
-  %25 = zext i32 %24 to i64
-  %26 = icmp samesign ult i64 %indvars.iv.next33, %25
-  br i1 %26, label %.lr.ph28, label %.loopexit, !llvm.loop !614
+  %26 = load i32, ptr %0, align 8, !tbaa !477
+  %27 = zext i32 %26 to i64
+  %28 = icmp samesign ult i64 %indvars.iv.next33, %27
+  br i1 %28, label %.lr.ph28, label %.loopexit, !llvm.loop !614
 
 .loopexit:                                        ; preds = %.lr.ph28, %.preheader, %.loopexit25
-  %27 = phi ptr [ %17, %.preheader ], [ null, %.loopexit25 ], [ %22, %.lr.ph28 ]
-  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %27) #19
+  %29 = phi ptr [ %17, %.preheader ], [ null, %.loopexit25 ], [ %23, %.lr.ph28 ]
+  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %29) #19
   store ptr null, ptr %16, align 8, !tbaa !478
   ret void
 }

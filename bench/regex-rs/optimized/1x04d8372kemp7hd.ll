@@ -142,17 +142,18 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %8 = ptrtoint ptr %0 to i64
   %9 = sub nuw i64 %7, %8
   %10 = lshr exact i64 %9, 4
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %11, %6
   %.018.i = phi i64 [ %2, %6 ], [ %.0.sroa.speculated.i.i.i.i, %11 ]
-  %.017.i = phi i64 [ 0, %6 ], [ %13, %11 ]
-  %12 = getelementptr { ptr, i64 }, ptr %0, i64 %.017.i, i32 1
-  %.val22.i = load i64, ptr %12, align 8, !noundef !9
+  %.017.i = phi i64 [ 0, %6 ], [ %12, %11 ]
+  %gep.i = getelementptr { ptr, i64 }, ptr %invariant.gep.i, i64 %.017.i
+  %.val22.i = load i64, ptr %gep.i, align 8, !noundef !9
   %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.018.i, i64 %.val22.i)
-  %13 = add nuw i64 %.017.i, 1
-  %14 = icmp eq i64 %13, %10
-  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1d7e99d365d8fafeE.llvm.8347807780687254574.exit", label %11
+  %12 = add nuw i64 %.017.i, 1
+  %13 = icmp eq i64 %12, %10
+  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1d7e99d365d8fafeE.llvm.8347807780687254574.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1d7e99d365d8fafeE.llvm.8347807780687254574.exit": ; preds = %11, %3
   %.0.i = phi i64 [ %2, %3 ], [ %.0.sroa.speculated.i.i.i.i, %11 ]
@@ -1630,17 +1631,18 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %8 = ptrtoint ptr %0 to i64
   %9 = sub nuw i64 %7, %8
   %10 = lshr exact i64 %9, 4
+  %invariant.gep = getelementptr i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %11, %6
   %.018 = phi i64 [ %2, %6 ], [ %.0.sroa.speculated.i.i.i, %11 ]
-  %.017 = phi i64 [ 0, %6 ], [ %13, %11 ]
-  %12 = getelementptr { ptr, i64 }, ptr %0, i64 %.017, i32 1
-  %.val22 = load i64, ptr %12, align 8, !noundef !9
+  %.017 = phi i64 [ 0, %6 ], [ %12, %11 ]
+  %gep = getelementptr { ptr, i64 }, ptr %invariant.gep, i64 %.017
+  %.val22 = load i64, ptr %gep, align 8, !noundef !9
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.018, i64 %.val22)
-  %13 = add nuw i64 %.017, 1
-  %14 = icmp eq i64 %13, %10
-  br i1 %14, label %.loopexit, label %11
+  %12 = add nuw i64 %.017, 1
+  %13 = icmp eq i64 %12, %10
+  br i1 %13, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %11, %3
   %.0 = phi i64 [ %2, %3 ], [ %.0.sroa.speculated.i.i.i, %11 ]

@@ -751,9 +751,8 @@ tok_backup.exit310.i.i:                           ; preds = %248
   %264 = load i32, ptr %16, align 8, !tbaa !22
   %265 = load i32, ptr %4, align 8, !tbaa !13
   %266 = sext i32 %265 to i64
-  %.idx.i.i = mul nsw i64 %266, 96
-  %267 = getelementptr i8, ptr %0, i64 2896
-  %268 = getelementptr i8, ptr %267, i64 %.idx.i.i
+  %267 = getelementptr [150 x %struct._tokenizer_mode], ptr %3, i64 0, i64 %266
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 40
   %269 = load i32, ptr %268, align 8, !tbaa !41
   store i32 %269, ptr %16, align 8, !tbaa !22
   %270 = load i32, ptr %118, align 8, !tbaa !32

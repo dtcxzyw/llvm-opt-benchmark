@@ -3,6 +3,8 @@ source_filename = "bench/nuttx/original/mm_malloc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%struct.mm_freenode_s = type { i64, i64, ptr, ptr }
+
 ; Function Attrs: nounwind allocsize(1) uwtable
 define noalias noundef ptr @mm_malloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
@@ -43,33 +45,30 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
 13:                                               ; preds = %free_delaylist.exit
   %14 = call i32 @mm_lock(ptr noundef nonnull %0) #4
   %15 = call i32 @mm_size2ndx(i64 noundef %11) #4
-  %16 = sext i32 %15 to i64
-  %.idx = shl nsw i64 %16, 5
-  %17 = getelementptr i8, ptr %0, i64 96
-  %18 = getelementptr i8, ptr %17, i64 %.idx
-  %.04861 = load ptr, ptr %18, align 8
-  %.not62 = icmp eq ptr %.04861, null
-  br i1 %.not62, label %.thread, label %.lr.ph
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %17 = sext i32 %15 to i64
+  %18 = getelementptr inbounds [18 x %struct.mm_freenode_s], ptr %16, i64 0, i64 %17
+  br label %19
 
-.lr.ph:                                           ; preds = %13, %22
-  %.04863 = phi ptr [ %.048, %22 ], [ %.04861, %13 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.04863, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, -4
-  %.not57 = icmp ult i64 %21, %11
-  br i1 %.not57, label %22, label %24
-
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %.04863, i64 16
-  %.048 = load ptr, ptr %23, align 8
+19:                                               ; preds = %20, %13
+  %.pn = phi ptr [ %18, %13 ], [ %.048, %20 ]
+  %.048.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
+  %.048 = load ptr, ptr %.048.in, align 8
   %.not = icmp eq ptr %.048, null
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.thread, label %20
 
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %.04863, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %.04863, i64 16
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %22, -4
+  %.not57 = icmp ult i64 %23, %11
+  br i1 %.not57, label %19, label %24, !llvm.loop !11
+
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %.04863, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.048, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %27, ptr %30, align 8
@@ -83,13 +82,13 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   br label %34
 
 34:                                               ; preds = %31, %24
-  %35 = getelementptr inbounds i8, ptr %.04863, i64 %21
-  %36 = sub i64 %21, %11
+  %35 = getelementptr inbounds i8, ptr %.048, i64 %23
+  %36 = sub i64 %23, %11
   %37 = icmp ugt i64 %36, 31
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %.04863, i64 %11
+  %39 = getelementptr inbounds i8, ptr %.048, i64 %11
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %36, ptr %40, align 8
   %41 = load i64, ptr %25, align 8
@@ -129,8 +128,8 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   store i64 %60, ptr %25, align 8
   br label %.thread
 
-.thread:                                          ; preds = %22, %13, %58
-  %.050 = phi ptr [ %26, %58 ], [ null, %13 ], [ null, %22 ]
+.thread:                                          ; preds = %19, %58
+  %.050 = phi ptr [ %26, %58 ], [ null, %19 ]
   call void @mm_unlock(ptr noundef nonnull %0) #4
   br label %61
 

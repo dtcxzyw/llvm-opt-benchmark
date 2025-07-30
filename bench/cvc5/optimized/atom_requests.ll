@@ -1289,9 +1289,10 @@ define hidden void @_ZN4cvc58internal12AtomRequests13atom_iterator4nextEv(ptr no
   %4 = load i64, ptr %3, align 8, !tbaa !98
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !47
-  %7 = getelementptr inbounds nuw %"struct.cvc5::internal::AtomRequests::Element", ptr %6, i64 %4, i32 1
-  %8 = load i64, ptr %7, align 8, !tbaa !83
-  store i64 %8, ptr %3, align 8, !tbaa !98
+  %7 = getelementptr inbounds nuw %"struct.cvc5::internal::AtomRequests::Element", ptr %6, i64 %4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load i64, ptr %8, align 8, !tbaa !83
+  store i64 %9, ptr %3, align 8, !tbaa !98
   ret void
 }
 

@@ -639,7 +639,7 @@ gv_calloc.exit83:                                 ; preds = %gv_calloc.exit83.pr
   %56 = fdiv double %55, 7.200000e+01
   %57 = getelementptr inbounds nuw %struct.pointf_s, ptr %46, i64 %.076102
   store double %56, ptr %57, align 8, !tbaa !38
-  %58 = getelementptr inbounds nuw %struct.pointf_s, ptr %49, i64 %.076102, i32 1
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %59 = load double, ptr %58, align 8, !tbaa !39
   %60 = fdiv double %59, 7.200000e+01
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1383,7 +1383,8 @@ gv_calloc.exit:                                   ; preds = %12
 
 .lr.ph46:                                         ; preds = %24
   %23 = add nsw i32 %1, -1
-  %wide.trip.count51 = zext nneg i32 %1 to i64
+  %invariant.gep = getelementptr i8, ptr %21, i64 8
+  %wide.trip.count53 = zext nneg i32 %1 to i64
   br label %33
 
 24:                                               ; preds = %.lr.ph, %24
@@ -1396,19 +1397,19 @@ gv_calloc.exit:                                   ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load double, ptr %29, align 8, !tbaa !39
   %31 = fsub double %30, %3
-  %32 = getelementptr inbounds nuw %struct.pointf_s, ptr %21, i64 %indvars.iv, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store double %31, ptr %32, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph46, label %24, !llvm.loop !64
 
 33:                                               ; preds = %.lr.ph46, %75
-  %indvars.iv48 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next49, %75 ]
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next51, %75 ]
   %.045 = phi double [ 0.000000e+00, %.lr.ph46 ], [ %.1, %75 ]
-  %34 = trunc nuw nsw i64 %indvars.iv48 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv50 to i32
   %35 = add i32 %23, %34
   %36 = srem i32 %35, %1
-  %37 = getelementptr inbounds nuw %struct.pointf_s, ptr %21, i64 %indvars.iv48
+  %37 = getelementptr inbounds nuw %struct.pointf_s, ptr %21, i64 %indvars.iv50
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load double, ptr %38, align 8, !tbaa !39
   %40 = fcmp oeq double %39, 0.000000e+00
@@ -1432,19 +1433,19 @@ gv_calloc.exit:                                   ; preds = %12
 52:                                               ; preds = %41, %33
   %53 = fcmp ult double %39, 0.000000e+00
   %.phi.trans.insert = sext i32 %36 to i64
-  %.phi.trans.insert54 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert, i32 1
-  %.pre = load double, ptr %.phi.trans.insert54, align 8, !tbaa !39
+  %gep48.phi.trans.insert = getelementptr %struct.pointf_s, ptr %invariant.gep, i64 %.phi.trans.insert
+  %.pre = load double, ptr %gep48.phi.trans.insert, align 8, !tbaa !39
   %54 = fcmp ugt double %.pre, 0.000000e+00
-  %or.cond56 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond56, label %._crit_edge53, label %57
+  %or.cond57 = select i1 %53, i1 true, i1 %54
+  br i1 %or.cond57, label %._crit_edge55, label %57
 
-._crit_edge53:                                    ; preds = %52
+._crit_edge55:                                    ; preds = %52
   %55 = fcmp ult double %.pre, 0.000000e+00
   %56 = fcmp ugt double %39, 0.000000e+00
   %or.cond41 = or i1 %56, %55
   br i1 %or.cond41, label %75, label %57
 
-57:                                               ; preds = %52, %._crit_edge53
+57:                                               ; preds = %52, %._crit_edge55
   %58 = load double, ptr %37, align 8, !tbaa !38
   %59 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert
   %60 = load double, ptr %59, align 8, !tbaa !38
@@ -1473,11 +1474,11 @@ gv_calloc.exit:                                   ; preds = %12
   %74 = fadd double %.045, 1.000000e+00
   br label %75
 
-75:                                               ; preds = %._crit_edge53, %71, %73, %67, %47
-  %.1 = phi double [ %.045, %47 ], [ %72, %71 ], [ %74, %73 ], [ %.045, %67 ], [ %.045, %._crit_edge53 ]
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %._crit_edge.loopexit, label %33, !llvm.loop !65
+75:                                               ; preds = %._crit_edge55, %71, %73, %67, %47
+  %.1 = phi double [ %.045, %47 ], [ %72, %71 ], [ %74, %73 ], [ %.045, %67 ], [ %.045, %._crit_edge55 ]
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
+  br i1 %exitcond54.not, label %._crit_edge.loopexit, label %33, !llvm.loop !65
 
 ._crit_edge.loopexit:                             ; preds = %75
   %76 = fptosi double %.1 to i32

@@ -3068,7 +3068,8 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   store ptr %34, ptr %11, align 8, !tbaa !78
   %36 = getelementptr inbounds nuw i32, ptr %30, i64 %28
   store ptr %36, ptr %13, align 8, !tbaa !80
-  %.phi.trans.insert8 = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %8, i32 0, i32 0, i32 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %8
+  %.phi.trans.insert8 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre9 = load ptr, ptr %.phi.trans.insert8, align 8, !tbaa !78
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -6991,7 +6992,8 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   store ptr %68, ptr %45, align 8, !tbaa !78
   %70 = getelementptr inbounds nuw i32, ptr %64, i64 %62
   store ptr %70, ptr %47, align 8, !tbaa !80
-  %.phi.trans.insert78 = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %42, i32 0, i32 0, i32 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %42
+  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre79 = load ptr, ptr %.phi.trans.insert78, align 8, !tbaa !78
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -9362,7 +9364,8 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   store ptr %48, ptr %25, align 8, !tbaa !78
   %50 = getelementptr inbounds nuw i32, ptr %44, i64 %42
   store ptr %50, ptr %27, align 8, !tbaa !80
-  %.phi.trans.insert14 = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %22, i32 0, i32 0, i32 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %22
+  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8, !tbaa !78
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 

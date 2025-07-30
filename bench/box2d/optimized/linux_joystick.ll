@@ -131,8 +131,7 @@ define hidden void @_glfwDetectJoystickConnectionLinux() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %24, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %24 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 8216
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 2180), i64 %.idx
+  %gep = getelementptr inbounds nuw [16 x %struct._GLFWjoystick], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 2180), i64 0, i64 %indvars.iv
   %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %gep, ptr noundef nonnull dereferenceable(1) %3) #14
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %26

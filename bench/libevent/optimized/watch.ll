@@ -4,6 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
+%struct.evwatch_list = type { ptr, ptr }
 
 @evthread_lock_fns_ = external local_unnamed_addr global %struct.evthread_lock_callbacks, align 8
 
@@ -125,39 +126,35 @@ define void @evwatch_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not15 = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  br i1 %.not15, label %15, label %13
+  br i1 %.not15, label %13, label %20
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %12, ptr %14, align 8
-  br label %22
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1176
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load i32, ptr %16, align 8
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw [2 x %struct.evwatch_list], ptr %15, i64 0, i64 %18
+  br label %20
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i32, ptr %17, align 8
-  %19 = zext i32 %18 to i64
-  %.idx = shl nuw nsw i64 %19, 4
-  %20 = getelementptr i8, ptr %16, i64 1184
-  %21 = getelementptr i8, ptr %20, i64 %.idx
+20:                                               ; preds = %9, %13
+  %.sink17 = phi ptr [ %19, %13 ], [ %10, %9 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
   store ptr %12, ptr %21, align 8
-  br label %22
+  %22 = load ptr, ptr %0, align 8
+  store ptr %22, ptr %12, align 8
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 952
+  %25 = load ptr, ptr %24, align 8
+  %.not16 = icmp eq ptr %25, null
+  br i1 %.not16, label %29, label %26
 
-22:                                               ; preds = %15, %13
-  %23 = load ptr, ptr %0, align 8
-  store ptr %23, ptr %12, align 8
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 952
-  %26 = load ptr, ptr %25, align 8
-  %.not16 = icmp eq ptr %26, null
-  br i1 %.not16, label %30, label %27
+26:                                               ; preds = %20
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %28 = tail call i32 %27(i32 noundef 0, ptr noundef nonnull %25) #5
+  br label %29
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %29 = tail call i32 %28(i32 noundef 0, ptr noundef nonnull %26) #5
-  br label %30
-
-30:                                               ; preds = %27, %22
+29:                                               ; preds = %26, %20
   tail call void @event_mm_free_(ptr noundef nonnull %0) #5
   ret void
 }

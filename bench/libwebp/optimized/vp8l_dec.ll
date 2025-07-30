@@ -774,32 +774,31 @@ define internal fastcc void @VP8LClear(ptr noundef nonnull %0) unnamed_addr #1 {
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %15 = getelementptr i8, ptr %0, i64 296
-  br label %16
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 296
+  br label %15
 
-16:                                               ; preds = %.lr.ph, %16
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %17 = getelementptr i8, ptr %15, i64 %.idx
-  %18 = load ptr, ptr %17, align 8, !tbaa !59
-  tail call void @WebPSafeFree(ptr noundef %18) #8
-  store ptr null, ptr %17, align 8, !tbaa !59
+15:                                               ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+  %gep = getelementptr inbounds nuw [4 x %struct.VP8LTransform], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %16 = load ptr, ptr %gep, align 8, !tbaa !59
+  tail call void @WebPSafeFree(ptr noundef %16) #8
+  store ptr null, ptr %gep, align 8, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %12, align 8, !tbaa !58
-  %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %16, label %._crit_edge, !llvm.loop !61
+  %17 = load i32, ptr %12, align 8, !tbaa !58
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  br i1 %19, label %15, label %._crit_edge, !llvm.loop !61
 
-._crit_edge:                                      ; preds = %16, %1
+._crit_edge:                                      ; preds = %15, %1
   store i32 0, ptr %12, align 8, !tbaa !58
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i32 0, ptr %22, align 8, !tbaa !62
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %24 = load ptr, ptr %23, align 8, !tbaa !63
-  tail call void @WebPSafeFree(ptr noundef %24) #8
-  store ptr null, ptr %23, align 8, !tbaa !63
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %25, align 8, !tbaa !64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store i32 0, ptr %20, align 8, !tbaa !62
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %22 = load ptr, ptr %21, align 8, !tbaa !63
+  tail call void @WebPSafeFree(ptr noundef %22) #8
+  store ptr null, ptr %21, align 8, !tbaa !63
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %23, align 8, !tbaa !64
   ret void
 }
 

@@ -492,7 +492,7 @@ define internal fastcc void @mi_segment_free(ptr noundef %0, ptr noundef capture
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !tbaa !54, !range !37, !noundef !38
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %122, label %6
+  br i1 %5, label %120, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -757,29 +757,28 @@ mi_segment_raw_page_size.exit.i:                  ; preds = %108, %106
   br i1 %.not24.i, label %mi_segment_os_free.exit, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %mi_segment_raw_page_size.exit.i
-  %115 = getelementptr i8, ptr %0, i64 161
-  br label %116
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 161
+  br label %115
 
-116:                                              ; preds = %116, %.lr.ph.i11
-  %.023.i = phi i64 [ 0, %.lr.ph.i11 ], [ %121, %116 ]
-  %.02022.i = phi i64 [ 0, %.lr.ph.i11 ], [ %spec.select.i, %116 ]
-  %.idx.i = mul nuw nsw i64 %.023.i, 80
-  %117 = getelementptr i8, ptr %115, i64 %.idx.i
-  %118 = load i8, ptr %117, align 1
-  %119 = and i8 %118, 2
-  %.not.i12 = icmp eq i8 %119, 0
-  %120 = select i1 %.not.i12, i64 0, i64 %112
-  %spec.select.i = add i64 %120, %.02022.i
-  %121 = add nuw i64 %.023.i, 1
-  %exitcond.not.i = icmp eq i64 %121, %114
-  br i1 %exitcond.not.i, label %mi_segment_os_free.exit, label %116, !llvm.loop !64
+115:                                              ; preds = %115, %.lr.ph.i11
+  %.023.i = phi i64 [ 0, %.lr.ph.i11 ], [ %119, %115 ]
+  %.02022.i = phi i64 [ 0, %.lr.ph.i11 ], [ %spec.select.i, %115 ]
+  %gep.i = getelementptr [1 x %struct.mi_page_s], ptr %invariant.gep.i, i64 0, i64 %.023.i
+  %116 = load i8, ptr %gep.i, align 1
+  %117 = and i8 %116, 2
+  %.not.i12 = icmp eq i8 %117, 0
+  %118 = select i1 %.not.i12, i64 0, i64 %112
+  %spec.select.i = add i64 %118, %.02022.i
+  %119 = add nuw i64 %.023.i, 1
+  %exitcond.not.i = icmp eq i64 %119, %114
+  br i1 %exitcond.not.i, label %mi_segment_os_free.exit, label %115, !llvm.loop !64
 
-mi_segment_os_free.exit:                          ; preds = %116, %mi_segment_raw_page_size.exit.i
-  %.020.lcssa.i = phi i64 [ 0, %mi_segment_raw_page_size.exit.i ], [ %spec.select.i, %116 ]
+mi_segment_os_free.exit:                          ; preds = %115, %mi_segment_raw_page_size.exit.i
+  %.020.lcssa.i = phi i64 [ 0, %mi_segment_raw_page_size.exit.i ], [ %spec.select.i, %115 ]
   tail call void @_mi_arena_free(ptr noundef nonnull %0, i64 noundef %73, i64 noundef %.020.lcssa.i, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %0) #8
-  br label %122
+  br label %120
 
-122:                                              ; preds = %2, %mi_segment_os_free.exit
+120:                                              ; preds = %2, %mi_segment_os_free.exit
   ret void
 }
 

@@ -3785,62 +3785,63 @@ define internal fastcc i64 @"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb
 46:                                               ; preds = %9
   %47 = add nsw i32 %1, -2
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [8 x %"class.ZXing::Nullable"], ptr %12, i64 0, i64 %48, i32 1
-  %50 = load double, ptr %49, align 8, !tbaa !100
-  %51 = fptosi double %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %53 = load double, ptr %52, align 8, !tbaa !101
-  %54 = fptosi double %53 to i32
-  %55 = getelementptr inbounds nuw i8, ptr %10, i64 196
-  %56 = load i32, ptr %55, align 4, !tbaa !179
-  %57 = add nsw i32 %56, %51
+  %49 = getelementptr inbounds nuw [8 x %"class.ZXing::Nullable"], ptr %12, i64 0, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load double, ptr %50, align 8, !tbaa !100
+  %52 = fptosi double %51 to i32
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %54 = load double, ptr %53, align 8, !tbaa !101
+  %55 = fptosi double %54 to i32
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 196
+  %57 = load i32, ptr %56, align 4, !tbaa !179
+  %58 = add nsw i32 %57, %52
   %.val11 = load ptr, ptr %20, align 8
-  %58 = getelementptr i8, ptr %20, i64 40
-  %.val12 = load i32, ptr %58, align 8, !tbaa !102
+  %59 = getelementptr i8, ptr %20, i64 40
+  %.val12 = load i32, ptr %59, align 8, !tbaa !102
   switch i32 %.val12, label %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24" [
-    i32 90, label %59
-    i32 180, label %64
-    i32 270, label %72
+    i32 90, label %60
+    i32 180, label %65
+    i32 270, label %73
   ]
 
-59:                                               ; preds = %46
-  %60 = getelementptr inbounds nuw i8, ptr %.val11, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !104
-  %62 = xor i32 %54, -1
-  %63 = add i32 %61, %62
+60:                                               ; preds = %46
+  %61 = getelementptr inbounds nuw i8, ptr %.val11, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !104
+  %63 = xor i32 %55, -1
+  %64 = add i32 %62, %63
   br label %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24"
 
-64:                                               ; preds = %46
-  %65 = load i32, ptr %.val11, align 8, !tbaa !109
-  %66 = xor i32 %57, -1
-  %67 = add i32 %65, %66
-  %68 = getelementptr inbounds nuw i8, ptr %.val11, i64 4
-  %69 = load i32, ptr %68, align 4, !tbaa !104
-  %70 = xor i32 %54, -1
-  %71 = add i32 %69, %70
+65:                                               ; preds = %46
+  %66 = load i32, ptr %.val11, align 8, !tbaa !109
+  %67 = xor i32 %58, -1
+  %68 = add i32 %66, %67
+  %69 = getelementptr inbounds nuw i8, ptr %.val11, i64 4
+  %70 = load i32, ptr %69, align 4, !tbaa !104
+  %71 = xor i32 %55, -1
+  %72 = add i32 %70, %71
   br label %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24"
 
-72:                                               ; preds = %46
-  %73 = load i32, ptr %.val11, align 8, !tbaa !109
-  %74 = xor i32 %57, -1
-  %75 = add i32 %73, %74
+73:                                               ; preds = %46
+  %74 = load i32, ptr %.val11, align 8, !tbaa !109
+  %75 = xor i32 %58, -1
+  %76 = add i32 %74, %75
   br label %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24"
 
-"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24": ; preds = %46, %59, %64, %72
-  %.sroa.5.0.i18 = phi i32 [ %57, %59 ], [ %71, %64 ], [ %75, %72 ], [ %54, %46 ]
-  %.sroa.0.0.i19 = phi i32 [ %63, %59 ], [ %67, %64 ], [ %54, %72 ], [ %57, %46 ]
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %77 = load ptr, ptr %76, align 8, !tbaa !185
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 36
-  %79 = load i32, ptr %78, align 4, !tbaa !186
-  %80 = add nsw i32 %79, -1
-  %81 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.i19, i32 0)
-  %.sroa.speculated30 = tail call i32 @llvm.smin.i32(i32 %81, i32 %80)
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %83 = load i32, ptr %82, align 8, !tbaa !189
-  %84 = add nsw i32 %83, -1
-  %85 = tail call i32 @llvm.smax.i32(i32 %.sroa.5.0.i18, i32 0)
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %85, i32 %84)
+"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24": ; preds = %46, %60, %65, %73
+  %.sroa.5.0.i18 = phi i32 [ %58, %60 ], [ %72, %65 ], [ %76, %73 ], [ %55, %46 ]
+  %.sroa.0.0.i19 = phi i32 [ %64, %60 ], [ %68, %65 ], [ %55, %73 ], [ %58, %46 ]
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !185
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 36
+  %80 = load i32, ptr %79, align 4, !tbaa !186
+  %81 = add nsw i32 %80, -1
+  %82 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.i19, i32 0)
+  %.sroa.speculated30 = tail call i32 @llvm.smin.i32(i32 %82, i32 %81)
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  %84 = load i32, ptr %83, align 8, !tbaa !189
+  %85 = add nsw i32 %84, -1
+  %86 = tail call i32 @llvm.smax.i32(i32 %.sroa.5.0.i18, i32 0)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %86, i32 %85)
   br label %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit"
 
 "_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit": ; preds = %42, %34, %29, %21, %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24"
