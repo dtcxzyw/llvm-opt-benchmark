@@ -73,18 +73,18 @@ define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #
   %20 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = and i8 %21, -3
-  %or.cond.not = icmp eq i8 %22, 1
+  %23 = icmp eq i8 %22, 1
   br i1 %or.cond.not, label %26, label %25
 
-23:                                               ; preds = %12
+23:; preds = %12
   %24 = add nsw i32 %0, -129
   %.not17 = icmp ult i32 %24, 126
   br i1 %.not17, label %25, label %26
 
-25:                                               ; preds = %17, %23, %13, %2, %6
+25:; preds = %17, %23, %13, %2, %6
   br label %26
 
-26:                                               ; preds = %17, %23, %11, %6, %25
+26:; preds = %17, %23, %11, %6, %25
   %.014 = phi i32 [ -400, %25 ], [ 2, %17 ], [ 4, %6 ], [ -400, %11 ], [ 1, %23 ]
   ret i32 %.014
 }

@@ -648,7 +648,7 @@ define noalias noundef ptr @Rwr_ManGetPractical(ptr noundef readonly captures(no
   %10 = icmp eq i16 %9, 0
   br i1 %10, label %11, label %4
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
   ret ptr %calloc
 }
 

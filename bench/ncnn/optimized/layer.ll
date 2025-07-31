@@ -7461,13 +7461,13 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN4ncnn18create_layer_naiveEi.exit, label %12
 
-12:                                               ; preds = %9
+10:                                               ; preds = %9
   %13 = tail call noundef ptr %11(ptr noundef null)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %8, ptr %14, align 8, !tbaa !51
   br label %_ZN4ncnn18create_layer_naiveEi.exit
 
-_ZN4ncnn18create_layer_naiveEi.exit:              ; preds = %7, %12, %9, %_ZN4ncnn14layer_to_indexEPKc.exit
+_ZN4ncnn18create_layer_naiveEi.exit:              ; preds = %7, %10, %9, %_ZN4ncnn14layer_to_indexEPKc.exit
   %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %13, %12 ], [ null, %9 ], [ null, %7 ]
   ret ptr %.0
 }
@@ -7484,7 +7484,7 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEi(i32 noundef %0) local_
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
-6:                                                ; preds = %2
+6:; preds = %2
   %7 = tail call noundef ptr %5(ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %0, ptr %8, align 8, !tbaa !51

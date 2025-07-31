@@ -46914,7 +46914,7 @@ define noalias noundef ptr @EncodeDataBase64(ptr noundef readonly captures(none)
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %38, %.preheader46
+.preheader:                                       ; preds = %39, %.preheader46
   %11 = srem i32 %1, 3
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [3 x i32], ptr @EncodeDataBase64.modTable, i64 0, i64 %12
@@ -46923,87 +46923,87 @@ define noalias noundef ptr @EncodeDataBase64(ptr noundef readonly captures(none)
   br i1 %15, label %.lr.ph50.preheader, label %.loopexit
 
 .lr.ph50.preheader:                               ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %14 to i64
+  %14 = zext nneg i32 %14 to i64
   br label %.lr.ph50
 
-.lr.ph:                                           ; preds = %.preheader46, %38
+.lr.ph:                                           ; preds = %.preheader46, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %.preheader46 ]
   %.04148 = phi i32 [ %.3, %38 ], [ 0, %.preheader46 ]
-  %16 = add nsw i32 %.04148, 1
-  %17 = sext i32 %.04148 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  %21 = icmp slt i32 %16, %1
-  br i1 %21, label %22, label %29
+  %17 = add nsw i32 %.04148, 1
+  %18 = sext i32 %.04148 to i64
+  %19 = getelementptr inbounds i8, ptr %0, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  %22 = icmp slt i32 %17, %1
+  br i1 %22, label %23, label %30
 
-22:                                               ; preds = %.lr.ph
-  %23 = add nsw i32 %.04148, 2
-  %24 = sext i32 %16 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i32
-  %28 = shl nuw nsw i32 %27, 8
-  br label %29
+23:                                               ; preds = %.lr.ph
+  %24 = add nsw i32 %.04148, 2
+  %25 = sext i32 %17 to i64
+  %26 = getelementptr inbounds i8, ptr %0, i64 %25
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  %29 = shl nuw nsw i32 %28, 8
+  br label %30
 
-29:                                               ; preds = %.lr.ph, %22
-  %.2 = phi i32 [ %23, %22 ], [ %16, %.lr.ph ]
-  %30 = phi i32 [ %28, %22 ], [ 0, %.lr.ph ]
-  %31 = icmp slt i32 %.2, %1
-  br i1 %31, label %32, label %38
+30:                                               ; preds = %.lr.ph, %23
+  %.2 = phi i32 [ %24, %22 ], [ %17, %.lr.ph ]
+  %31 = phi i32 [ %29, %22 ], [ 0, %.lr.ph ]
+  %32 = icmp slt i32 %.2, %1
+  br i1 %32, label %33, label %39
 
-32:                                               ; preds = %29
-  %33 = add nsw i32 %.2, 1
-  %34 = sext i32 %.2 to i64
-  %35 = getelementptr inbounds i8, ptr %0, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i32
-  br label %38
+33:                                               ; preds = %30
+  %34 = add nsw i32 %.2, 1
+  %35 = sext i32 %.2 to i64
+  %36 = getelementptr inbounds i8, ptr %0, i64 %35
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  br label %39
 
-38:                                               ; preds = %29, %32
-  %.3 = phi i32 [ %33, %32 ], [ %.2, %29 ]
-  %39 = phi i32 [ %37, %32 ], [ 0, %29 ]
-  %40 = shl nuw nsw i32 %20, 16
-  %41 = add nuw nsw i32 %30, %40
-  %42 = or disjoint i32 %39, %30
-  %43 = lshr i32 %41, 18
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  store i8 %46, ptr %47, align 1
-  %48 = lshr i32 %41, 12
-  %49 = and i32 %48, 63
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = getelementptr i8, ptr %47, i64 1
-  store i8 %52, ptr %53, align 1
-  %54 = lshr i32 %42, 6
-  %55 = and i32 %54, 63
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 1
-  %59 = getelementptr i8, ptr %47, i64 2
-  store i8 %58, ptr %59, align 1
-  %60 = and i32 %39, 63
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1
+39:                                               ; preds = %30, %33
+  %.3 = phi i32 [ %34, %32 ], [ %.2, %29 ]
+  %40 = phi i32 [ %38, %32 ], [ 0, %29 ]
+  %41 = shl nuw nsw i32 %21, 16
+  %42 = add nuw nsw i32 %31, %41
+  %43 = or disjoint i32 %40, %31
+  %44 = lshr i32 %42, 18
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %45
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
+  store i8 %47, ptr %48, align 1
+  %49 = lshr i32 %42, 12
+  %50 = and i32 %49, 63
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = getelementptr i8, ptr %48, i64 1
+  store i8 %53, ptr %54, align 1
+  %55 = lshr i32 %43, 6
+  %56 = and i32 %55, 63
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %57
+  %59 = load i8, ptr %58, align 1
+  %60 = getelementptr i8, ptr %48, i64 2
+  store i8 %59, ptr %60, align 1
+  %61 = and i32 %40, 63
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %62
+  %64 = load i8, ptr %63, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %64 = getelementptr inbounds nuw i8, ptr %47, i64 3
-  store i8 %63, ptr %64, align 1
-  %65 = icmp slt i32 %.3, %1
-  br i1 %65, label %.lr.ph, label %.preheader
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 3
+  store i8 %64, ptr %65, align 1
+  %66 = icmp slt i32 %.3, %1
+  br i1 %66, label %.lr.ph, label %.preheader
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
   %indvars.iv52 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next53, %.lr.ph50 ]
-  %66 = trunc i64 %indvars.iv52 to i32
-  %67 = xor i32 %66, -1
-  %68 = add i32 %6, %67
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %8, i64 %69
-  store i8 61, ptr %70, align 1
+  %67 = trunc i64 %indvars.iv52 to i32
+  %68 = xor i32 %67, -1
+  %69 = add i32 %6, %68
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i8, ptr %8, i64 %70
+  store i8 61, ptr %71, align 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph50

@@ -7723,12 +7723,12 @@ my_try_val_to_str_idx.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
   store i8 %22, ptr %55, align 1
   %56 = load i32, ptr @ansi_a_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %56, ptr noundef %1, ptr noundef %54)
-  br i1 %50, label %67, label %57
+  br i1 %50, label %69, label %57
 
 57:                                               ; preds = %49
   %58 = add i32 %21, -1
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %67, label %60
+  br i1 %59, label %69, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr [63 x ptr], ptr @bsmap_msg_fcn, i64 0, i64 %.04851
@@ -7738,13 +7738,13 @@ my_try_val_to_str_idx.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
 
 64:                                               ; preds = %60
   %65 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_miss_bsmap_msg_diss, ptr noundef %0, i32 noundef 1, i32 noundef %58, ptr noundef nonnull @.str.1752)
-  br label %67
+  br label %69
 
 66:                                               ; preds = %60
   call void %62(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef 1, i32 noundef %58, ptr noundef nonnull %5)
   br label %67
 
-67:                                               ; preds = %64, %66, %57, %49
+69:                                               ; preds = %64, %66, %57, %49
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #7
   ret void
 }
@@ -11956,7 +11956,7 @@ define internal fastcc void @dissect_dtap_common(ptr noundef %0, ptr noundef %1,
 
 8:                                                ; preds = %4
   %9 = tail call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %98
+  br label %100
 
 10:                                               ; preds = %4
   %11 = zext i1 %3 to i8
@@ -12100,12 +12100,12 @@ switch.lookup:                                    ; preds = %61
   store i8 %31, ptr %86, align 1
   %87 = load i32, ptr @ansi_a_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %87, ptr noundef %1, ptr noundef %85)
-  br i1 %59, label %98, label %88
+  br i1 %59, label %100, label %88
 
 88:                                               ; preds = %81
   %89 = sub i32 %6, %84
   %90 = icmp eq i32 %6, %84
-  br i1 %90, label %98, label %91
+  br i1 %90, label %100, label %91
 
 91:                                               ; preds = %88
   %92 = getelementptr [38 x ptr], ptr @dtap_msg_fcn, i64 0, i64 %.08184
@@ -12115,13 +12115,13 @@ switch.lookup:                                    ; preds = %61
 
 95:                                               ; preds = %91
   %96 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.074, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_miss_dtap_msg_diss, ptr noundef %0, i32 noundef %84, i32 noundef %89, ptr noundef nonnull @.str.1752)
-  br label %98
+  br label %100
 
 97:                                               ; preds = %91
   call void %93(ptr noundef %0, ptr noundef %1, ptr noundef %.074, i32 noundef %84, i32 noundef %89, ptr noundef nonnull %5)
   br label %98
 
-98:                                               ; preds = %95, %97, %88, %81, %8
+100:                                              ; preds = %95, %97, %88, %81, %8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #7
   ret void
 }

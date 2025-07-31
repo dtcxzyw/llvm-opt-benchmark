@@ -56,10 +56,10 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %.07498 = phi ptr [ null, %.thread ], [ %8, %.thread101 ]
   %.07597 = phi i32 [ 0, %.thread ], [ 4, %.thread101 ]
   call void @zend_wrong_parameter_error(i32 noundef %.072100, i32 noundef %.07399, ptr noundef null, i32 noundef %.07597, ptr noundef %.07498) #5
-  br label %59
+  br label %61
 
 .preheader:                                       ; preds = %.critedge
-  store i8 %46, ptr %4, align 4
+  store i8 %48, ptr %4, align 4
   %20 = icmp samesign ult i64 %.2, 4
   br i1 %20, label %.lr.ph112.preheader, label %._crit_edge
 
@@ -71,10 +71,10 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
-  %.0109 = phi i64 [ %47, %.critedge ], [ 0, %.lr.ph.preheader ]
+  %.0109 = phi i64 [ %49, %.critedge ], [ 0, %.lr.ph.preheader ]
   %.067108 = phi i64 [ %.2, %.critedge ], [ 0, %.lr.ph.preheader ]
   %.068107 = phi i64 [ %.169, %.critedge ], [ -1, %.lr.ph.preheader ]
-  %22 = phi i8 [ %46, %.critedge ], [ undef, %.lr.ph.preheader ]
+  %22 = phi i8 [ %48, %.critedge ], [ undef, %.lr.ph.preheader ]
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 %.0109
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = zext i8 %24 to i64
@@ -109,42 +109,42 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %.not81 = icmp eq i8 %40, 0
   br i1 %.not81, label %.critedge, label %43
 
-43:                                               ; preds = %42
+43:  ; preds = %42
   %44 = add nuw nsw i64 %.067108, 1
   %45 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %.067108
   store i8 %40, ptr %45, align 1, !tbaa !4
   br label %.critedge
 
 .critedge:                                        ; preds = %42, %43, %.lr.ph, %37, %31
-  %46 = phi i8 [ %32, %31 ], [ %22, %37 ], [ %22, %.lr.ph ], [ %22, %43 ], [ %22, %42 ]
+  %48 = phi i8 [ %32, %31 ], [ %22, %37 ], [ %22, %.lr.ph ], [ %22, %43 ], [ %22, %42 ]
   %.169 = phi i64 [ %36, %31 ], [ %.068107, %37 ], [ %.068107, %.lr.ph ], [ %41, %43 ], [ 0, %42 ]
   %.2 = phi i64 [ 1, %31 ], [ %.067108, %37 ], [ %.067108, %.lr.ph ], [ %44, %43 ], [ %.067108, %42 ]
-  %47 = add nuw i64 %.0109, 1
-  %48 = icmp ult i64 %47, %16
-  %49 = icmp samesign ult i64 %.2, 4
-  %50 = select i1 %48, i1 %49, i1 false
-  br i1 %50, label %.lr.ph, label %.preheader
+  %49 = add nuw i64 %.0109, 1
+  %50 = icmp ult i64 %49, %16
+  %51 = icmp samesign ult i64 %.2, 4
+  %52 = select i1 %50, i1 %51, i1 false
+  br i1 %52, label %.lr.ph, label %.preheader
 
 ._crit_edge:                                      ; preds = %.preheader, %.lr.ph112.preheader
-  %51 = call noalias ptr @_emalloc_32() #5
-  store i32 1, ptr %51, align 4, !tbaa !18
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store i32 22, ptr %52, align 4, !tbaa !4
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 0, ptr %53, align 8, !tbaa !19
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i64 4, ptr %54, align 8, !tbaa !9
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %56 = load i32, ptr %4, align 4
-  store i32 %56, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %51, i64 28
-  store i8 0, ptr %57, align 1, !tbaa !4
-  store ptr %51, ptr %1, align 8, !tbaa !4
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %58, align 8, !tbaa !4
-  br label %59
+  %53 = call noalias ptr @_emalloc_32() #5
+  store i32 1, ptr %53, align 4, !tbaa !18
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 22, ptr %54, align 4, !tbaa !4
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i64 0, ptr %55, align 8, !tbaa !19
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store i64 4, ptr %56, align 8, !tbaa !9
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %58 = load i32, ptr %4, align 4
+  store i32 %58, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 28
+  store i8 0, ptr %59, align 1, !tbaa !4
+  store ptr %53, ptr %1, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %60, align 8, !tbaa !4
+  br label %61
 
-59:                                               ; preds = %19, %._crit_edge
+61:                                               ; preds = %19, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #5
   ret void
 }

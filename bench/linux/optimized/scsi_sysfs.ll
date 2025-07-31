@@ -2726,21 +2726,21 @@ define internal i64 @sdev_show_blacklist(ptr noundef readonly captures(none) %0,
   %19 = select i1 %18, ptr @.str.41, ptr @.str.96
   br label %30
 
-20:                                               ; preds = %12
+30:                                               ; preds = %12
   %21 = getelementptr [34 x ptr], ptr @sdev_bflags_name, i64 0, i64 %6
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
+  %33 = icmp eq ptr %22, null
   %24 = getelementptr i8, ptr %2, i64 %7
   %25 = sub i64 4096, %7
   %26 = icmp eq i64 %7, 0
   %27 = select i1 %26, ptr @.str.41, ptr @.str.96
-  br i1 %23, label %30, label %28
+  br i1 %23, label %30, label %36
 
-28:                                               ; preds = %20
+36:                                               ; preds = %30
   %29 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %24, i64 noundef %25, ptr noundef nonnull @.str.39, ptr noundef nonnull %27, ptr noundef nonnull %22) #15
   br label %36
 
-30:                                               ; preds = %.thread, %20
+30:; preds = %.thread, %30
   %31 = phi ptr [ %19, %.thread ], [ %27, %20 ]
   %32 = phi i64 [ %17, %.thread ], [ %25, %20 ]
   %33 = phi ptr [ %16, %.thread ], [ %24, %20 ]

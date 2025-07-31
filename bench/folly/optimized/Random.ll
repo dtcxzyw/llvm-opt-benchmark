@@ -5016,7 +5016,7 @@ _ZSt4fillIPjjEvT_S1_RKT0_.exit:
   %53 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.1.i)
   %54 = and i32 %53, 1
   %.not.i = icmp eq i32 %54, 0
-  br i1 %.not.i, label %65, label %_ZN9__gnu_cxx33simd_fast_mersenne_twister_engineIjLm19937ELm122ELm18ELm1ELm11ELm1ELj3758096367ELj3724462975ELj3220897791ELj3221225462ELj1ELj0ELj0ELj331998852EE23_M_period_certificationEv.exit
+  br i1 %.not.i, label %66, label %_ZN9__gnu_cxx33simd_fast_mersenne_twister_engineIjLm19937ELm122ELm18ELm1ELm11ELm1ELj3758096367ELj3724462975ELj3220897791ELj3221225462ELj1ELj0ELj0ELj331998852EE23_M_period_certificationEv.exit
 
 55:                                               ; preds = %63, %50
   %.01420.i = phi i64 [ 0, %50 ], [ %64, %63 ]
@@ -5026,7 +5026,7 @@ _ZSt4fillIPjjEvT_S1_RKT0_.exit:
   %.not18.i = icmp eq i32 %57, 0
   br i1 %.not18.i, label %63, label %58
 
-58:                                               ; preds = %55
+58:; preds = %55
   %59 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %.01420.i
   %60 = load i32, ptr %59, align 4, !tbaa !66
   %61 = and i32 %60, %57
@@ -5039,55 +5039,55 @@ _ZSt4fillIPjjEvT_S1_RKT0_.exit:
   %exitcond.not.i = icmp eq i64 %64, 4
   br i1 %exitcond.not.i, label %52, label %55, !llvm.loop !261
 
-65:                                               ; preds = %52
-  %66 = load i32, ptr %0, align 16, !tbaa !66
-  %67 = xor i32 %66, 1
-  store i32 %67, ptr %0, align 16, !tbaa !66
+66:                                               ; preds = %52
+  %67 = load i32, ptr %0, align 16, !tbaa !66
+  %68 = xor i32 %67, 1
+  store i32 %68, ptr %0, align 16, !tbaa !66
   br label %_ZN9__gnu_cxx33simd_fast_mersenne_twister_engineIjLm19937ELm122ELm18ELm1ELm11ELm1ELj3758096367ELj3724462975ELj3220897791ELj3221225462ELj1ELj0ELj0ELj331998852EE23_M_period_certificationEv.exit
 
-_ZN9__gnu_cxx33simd_fast_mersenne_twister_engineIjLm19937ELm122ELm18ELm1ELm11ELm1ELj3758096367ELj3724462975ELj3220897791ELj3221225462ELj1ELj0ELj0ELj331998852EE23_M_period_certificationEv.exit: ; preds = %52, %65
+_ZN9__gnu_cxx33simd_fast_mersenne_twister_engineIjLm19937ELm122ELm18ELm1ELm11ELm1ELj3758096367ELj3724462975ELj3220897791ELj3221225462ELj1ELj0ELj0ELj331998852EE23_M_period_certificationEv.exit: ; preds = %52, %66
   call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %2) #6
   ret void
 
 .preheader:                                       ; preds = %19, %.preheader
-  %.057 = phi i64 [ %68, %.preheader ], [ 0, %19 ]
-  %68 = add nuw nsw i64 %.057, 1
-  %69 = icmp eq i64 %68, 624
-  %70 = select i1 %69, i64 0, i64 %68
-  %.fr = freeze i64 %70
-  %71 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %.fr
-  %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = add i64 %.fr, 306
+  %.057 = phi i64 [ %69, %.preheader ], [ 0, %19 ]
+  %69 = add nuw nsw i64 %.057, 1
+  %70 = icmp eq i64 %69, 624
+  %71 = select i1 %70, i64 0, i64 %69
+  %.fr = freeze i64 %71
+  %72 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %.fr
+  %73 = load i32, ptr %72, align 4, !tbaa !66
+  %74 = add i64 %.fr, 306
   %.urem = add i64 %.fr, -318
-  %.cmp = icmp ult i64 %73, 624
-  %74 = select i1 %.cmp, i64 %73, i64 %.urem
-  %75 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !66
-  %77 = add i32 %76, %72
-  %78 = add i64 %.fr, 623
+  %.cmp = icmp ult i64 %74, 624
+  %75 = select i1 %.cmp, i64 %74, i64 %.urem
+  %76 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !66
+  %78 = add i32 %77, %73
+  %79 = add i64 %.fr, 623
   %.urem50 = add i64 %.fr, -1
-  %.cmp51 = icmp ult i64 %78, 624
-  %79 = select i1 %.cmp51, i64 %78, i64 %.urem50
-  %80 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !66
-  %82 = add i32 %77, %81
-  %83 = lshr i32 %82, 27
-  %84 = xor i32 %83, %82
-  %85 = mul i32 %84, 1566083941
-  %86 = xor i32 %85, %76
-  store i32 %86, ptr %75, align 4, !tbaa !66
-  %87 = trunc nuw nsw i64 %.fr to i32
-  %88 = sub i32 %85, %87
-  %89 = add i64 %.fr, 317
+  %.cmp51 = icmp ult i64 %79, 624
+  %80 = select i1 %.cmp51, i64 %79, i64 %.urem50
+  %81 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !66
+  %83 = add i32 %78, %82
+  %84 = lshr i32 %83, 27
+  %85 = xor i32 %84, %83
+  %86 = mul i32 %85, 1566083941
+  %87 = xor i32 %86, %77
+  store i32 %87, ptr %76, align 4, !tbaa !66
+  %88 = trunc nuw nsw i64 %.fr to i32
+  %89 = sub i32 %86, %88
+  %90 = add i64 %.fr, 317
   %.urem53 = add i64 %.fr, -307
-  %.cmp54 = icmp ult i64 %89, 624
-  %90 = select i1 %.cmp54, i64 %89, i64 %.urem53
-  %91 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !66
-  %93 = xor i32 %88, %92
-  store i32 %93, ptr %91, align 4, !tbaa !66
-  store i32 %88, ptr %71, align 4, !tbaa !66
-  %exitcond58.not = icmp eq i64 %68, 624
+  %.cmp54 = icmp ult i64 %90, 624
+  %91 = select i1 %.cmp54, i64 %90, i64 %.urem53
+  %92 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !66
+  %94 = xor i32 %89, %93
+  store i32 %94, ptr %92, align 4, !tbaa !66
+  store i32 %89, ptr %72, align 4, !tbaa !66
+  %exitcond58.not = icmp eq i64 %69, 624
   br i1 %exitcond58.not, label %50, label %.preheader, !llvm.loop !262
 }
 

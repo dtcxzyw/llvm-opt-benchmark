@@ -235,15 +235,15 @@ declare i32 @onigenc_always_true_is_allowed_reverse_match(ptr noundef, ptr nound
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #2 {
   %3 = icmp ult ptr %0, %1
-  br i1 %3, label %.lr.ph, label %.loopexit15
+  br i1 %3, label %.lr.ph21, label %.loopexit15
 
-.lr.ph:                                           ; preds = %2, %.loopexit
+.lr.ph21:                                         ; preds = %2, %.loopexit
   %.01220 = phi ptr [ %.1, %.loopexit ], [ %0, %2 ]
   %4 = load i8, ptr %.01220, align 1, !tbaa !4
   %.not = icmp slt i8 %4, -64
   br i1 %.not, label %.loopexit15, label %5
 
-5:                                                ; preds = %.lr.ph
+5:                                                ; preds = %.lr.ph21
   %6 = getelementptr inbounds nuw i8, ptr %.01220, i64 1
   %7 = zext i8 %4 to i64
   %8 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %7
@@ -251,34 +251,34 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %5
+.preheader.preheader:; preds = %5
   %scevgep = getelementptr i8, ptr %.01220, i64 2
   %11 = zext nneg i32 %9 to i64
   %12 = getelementptr i8, ptr %scevgep, i64 %11
   %scevgep24 = getelementptr i8, ptr %12, i64 -2
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %17
+.preheader:; preds = %.preheader.preheader, %17
   %.01119 = phi i32 [ %19, %17 ], [ 1, %.preheader.preheader ]
   %.218 = phi ptr [ %18, %17 ], [ %6, %.preheader.preheader ]
   %13 = icmp eq ptr %.218, %1
   br i1 %13, label %.loopexit15, label %14
 
-14:                                               ; preds = %.preheader
+14:; preds = %.preheader
   %15 = load i8, ptr %.218, align 1, !tbaa !4
   %16 = icmp slt i8 %15, -64
   br i1 %16, label %17, label %.loopexit15
 
-17:                                               ; preds = %14
+17:; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.218, i64 1
   %19 = add nuw nsw i32 %.01119, 1
   %exitcond.not = icmp eq i32 %19, %9
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.loopexit:                                        ; preds = %17, %5
+.loopexit:; preds = %17, %5
   %.1 = phi ptr [ %6, %5 ], [ %scevgep24, %17 ]
   %20 = icmp ult ptr %.1, %1
-  br i1 %20, label %.lr.ph, label %.loopexit15, !llvm.loop !16
+  br i1 %20, label %.lr.ph21, label %.loopexit15, !llvm.loop !16
 
 .loopexit15:                                      ; preds = %.lr.ph, %.loopexit, %14, %.preheader, %2
   %.0 = phi i32 [ 1, %2 ], [ 0, %.preheader ], [ 0, %14 ], [ 0, %.lr.ph ], [ 1, %.loopexit ]

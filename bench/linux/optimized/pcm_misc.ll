@@ -88,8 +88,8 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_unsigned(i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %1
-  %15 = phi i32 [ -22, %1 ], [ -22, %3 ], [ %spec.select, %8 ]
-  ret i32 %15
+  %12 = phi i32 [ -22, %1 ], [ -22, %3 ], [ %spec.select, %8 ]
+  ret i32 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -162,8 +162,8 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_big_endian(i32 noundef
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %1
-  %15 = phi i32 [ -22, %1 ], [ -22, %3 ], [ %spec.select, %8 ]
-  ret i32 %15
+  %12 = phi i32 [ -22, %1 ], [ -22, %3 ], [ %spec.select, %8 ]
+  ret i32 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

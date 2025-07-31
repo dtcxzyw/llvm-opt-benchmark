@@ -4563,9 +4563,9 @@ define internal range(i32 -1094995529, 1) i32 @vp6_parse_coeff_huffman(ptr nound
 
 19:                                               ; preds = %1, %.loopexit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.loopexit ]
-  %.091140 = phi i32 [ 0, %1 ], [ %spec.select, %.loopexit ]
+  %.091139 = phi i32 [ 0, %1 ], [ %spec.select, %.loopexit ]
   %20 = icmp samesign ugt i64 %indvars.iv, 3
-  %spec.select = select i1 %20, i32 1, i32 %.091140
+  %spec.select = select i1 %20, i32 1, i32 %.091139
   %21 = zext nneg i32 %spec.select to i64
   %22 = getelementptr inbounds nuw [2 x %struct.VLC], ptr %5, i64 0, i64 %21
   %invariant.gep = getelementptr [2 x i32], ptr %6, i64 0, i64 %21
@@ -4591,13 +4591,13 @@ define internal range(i32 -1094995529, 1) i32 @vp6_parse_coeff_huffman(ptr nound
   %31 = add i32 %29, -1
   store i32 %31, ptr %gep, align 4, !tbaa !97
   %.not105 = icmp eq i32 %.093, 0
-  br i1 %.not105, label %.thread, label %.loopexit.loopexit
+  br i1 %.not105, label %.thread, label %.loopexit
 
 32:                                               ; preds = %27, %25
   %.val = load i32, ptr %7, align 8, !tbaa !141
-  %.val110 = load i32, ptr %8, align 4, !tbaa !138
-  %.not134 = icmp sgt i32 %.val110, %.val
-  br i1 %.not134, label %33, label %.loopexit135
+  %.val109 = load i32, ptr %8, align 4, !tbaa !138
+  %.not133 = icmp sgt i32 %.val109, %.val
+  br i1 %.not133, label %33, label %.loopexit134
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %.077, i64 8
@@ -4766,8 +4766,8 @@ get_vlc2.exit:                                    ; preds = %33, %54
   br label %vp6_get_nb_null.exit
 
 vp6_get_nb_null.exit:                             ; preds = %112, %123, %135
-  %.0.i111 = phi i32 [ %134, %123 ], [ %160, %135 ], [ %120, %112 ]
-  store i32 %.0.i111, ptr %invariant.gep, align 4, !tbaa !97
+  %.0.i110 = phi i32 [ %134, %123 ], [ %160, %135 ], [ %120, %112 ]
+  store i32 %.0.i110, ptr %invariant.gep, align 4, !tbaa !97
   br label %.thread
 
 161:                                              ; preds = %get_vlc2.exit
@@ -4804,7 +4804,7 @@ vp6_get_nb_null.exit:                             ; preds = %112, %123, %135
   %184 = tail call i32 @llvm.umin.i32(i32 %36, i32 %183)
   store i32 %184, ptr %7, align 8, !tbaa !141
   %185 = add nuw nsw i32 %182, 2
-  br label %vp6_get_nb_null.exit114
+  br label %vp6_get_nb_null.exit113
 
 186:                                              ; preds = %163
   %187 = lshr i32 %173, 3
@@ -4813,34 +4813,34 @@ vp6_get_nb_null.exit:                             ; preds = %112, %123, %135
   %190 = load i8, ptr %189, align 1, !tbaa !61
   %191 = icmp slt i32 %173, %36
   %192 = zext i1 %191 to i32
-  %spec.select.i.i112 = add i32 %173, %192
+  %spec.select.i.i111 = add i32 %173, %192
   %193 = zext i8 %190 to i32
   %194 = and i32 %173, 7
   %195 = shl nuw nsw i32 %193, %194
-  store i32 %spec.select.i.i112, ptr %7, align 8, !tbaa !141
+  store i32 %spec.select.i.i111, ptr %7, align 8, !tbaa !141
   %196 = lshr i32 %195, 5
   %197 = and i32 %196, 4
   %198 = add nuw nsw i32 %197, 6
   %199 = or disjoint i32 %197, 2
-  %200 = lshr i32 %spec.select.i.i112, 3
+  %200 = lshr i32 %spec.select.i.i111, 3
   %201 = zext nneg i32 %200 to i64
   %202 = getelementptr inbounds nuw i8, ptr %37, i64 %201
   %203 = load i32, ptr %202, align 1, !tbaa !61
   %204 = tail call i32 @llvm.bswap.i32(i32 %203)
-  %205 = and i32 %spec.select.i.i112, 7
+  %205 = and i32 %spec.select.i.i111, 7
   %206 = shl i32 %204, %205
   %207 = sub nuw nsw i32 32, %199
   %208 = lshr i32 %206, %207
-  %209 = add i32 %199, %spec.select.i.i112
+  %209 = add i32 %199, %spec.select.i.i111
   %210 = tail call i32 @llvm.umin.i32(i32 %36, i32 %209)
   store i32 %210, ptr %7, align 8, !tbaa !141
   %211 = add nuw nsw i32 %198, %208
-  br label %vp6_get_nb_null.exit114
+  br label %vp6_get_nb_null.exit113
 
-vp6_get_nb_null.exit114:                          ; preds = %163, %174, %186
-  %.0.i113 = phi i32 [ %185, %174 ], [ %211, %186 ], [ %171, %163 ]
+vp6_get_nb_null.exit113:                          ; preds = %163, %174, %186
+  %.0.i112 = phi i32 [ %185, %174 ], [ %211, %186 ], [ %171, %163 ]
   %212 = getelementptr inbounds nuw [2 x i32], ptr %16, i64 0, i64 %21
-  store i32 %.0.i113, ptr %212, align 4, !tbaa !97
+  store i32 %.0.i112, ptr %212, align 4, !tbaa !97
   br label %.loopexit
 
 213:                                              ; preds = %get_vlc2.exit
@@ -4919,7 +4919,7 @@ vp6_get_nb_null.exit114:                          ; preds = %163, %174, %186
   %.082 = phi i32 [ 1, %30 ], [ 1, %vp6_get_nb_null.exit ], [ %111, %100 ], [ %98, %77 ], [ 1, %257 ]
   %267 = add nsw i32 %.082, %.093
   %268 = icmp sgt i32 %267, 63
-  br i1 %268, label %.loopexit.loopexit, label %269
+  br i1 %268, label %.loopexit, label %269
 
 269:                                              ; preds = %.thread
   %270 = sext i32 %267 to i64
@@ -4932,12 +4932,12 @@ vp6_get_nb_null.exit114:                          ; preds = %163, %174, %186
   %275 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %274, i64 0, i64 %spec.select106
   br label %25
 
-.loopexit.loopexit:                               ; preds = %30, %.thread
-  %.194.ph.ph = phi i32 [ %267, %.thread ], [ %.093, %30 ]
-  %276 = tail call i32 @llvm.smin.i32(i32 %.194.ph.ph, i32 63)
+.loopexit:                                        ; preds = %30, %.thread
+  %.194.ph = phi i32 [ %267, %.thread ], [ %.093, %30 ]
+  %282 = tail call i32 @llvm.smin.i32(i32 %.194.ph, i32 63)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %161, %vp6_get_nb_null.exit114
+.loopexit:; preds = %.loopexit, %161, %vp6_get_nb_null.exit114
   %.194.ph = phi i32 [ 1, %vp6_get_nb_null.exit114 ], [ %.093, %161 ], [ %276, %.loopexit.loopexit ]
   %277 = sext i32 %.194.ph to i64
   %278 = getelementptr inbounds [64 x i8], ptr %17, i64 0, i64 %277
@@ -4947,9 +4947,9 @@ vp6_get_nb_null.exit114:                          ; preds = %163, %174, %186
   store i32 %280, ptr %281, align 4, !tbaa !97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit135, label %19, !llvm.loop !155
+  br i1 %exitcond.not, label %.loopexit134, label %19, !llvm.loop !155
 
-.loopexit135:                                     ; preds = %.loopexit, %32
+.loopexit134:                                     ; preds = %.loopexit, %32
   %.3 = phi i32 [ -1094995529, %32 ], [ 0, %.loopexit ]
   ret i32 %.3
 }

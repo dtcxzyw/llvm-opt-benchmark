@@ -250,24 +250,24 @@ define dso_local i32 @zend_get_opcode_flags(i8 noundef zeroext %0) local_unnamed
 define dso_local zeroext range(i8 0, -45) i8 @zend_get_opcode_id(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   br label %3
 
-3:                                                ; preds = %2, %9
+3:                                                ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %9 ]
   %4 = getelementptr inbounds nuw [210 x ptr], ptr @zend_vm_opcodes_names, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !5
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %9, label %6
+  br i1 %.not, label %10, label %6
 
-6:                                                ; preds = %3
+5:                                                ; preds = %3
   %7 = tail call i32 @strncmp(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %1) #3
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.split.loop.exit, label %9
+  br i1 %8, label %.split.loop.exit, label %10
 
-9:                                                ; preds = %3, %6
+10:                                               ; preds = %3, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 209
   br i1 %exitcond.not, label %.split.loop.exit18, label %3
 
-.split.loop.exit:                                 ; preds = %6
+11:                                               ; preds = %5
   %10 = trunc nuw i64 %indvars.iv to i8
   br label %.split.loop.exit18
 

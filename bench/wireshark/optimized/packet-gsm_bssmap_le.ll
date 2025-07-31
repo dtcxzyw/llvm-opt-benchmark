@@ -683,7 +683,7 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   call void @tap_queue_packet(i32 noundef %49, ptr noundef %1, ptr noundef %47)
   %50 = icmp ult i32 %18, 2
   %or.cond = select i1 %30, i1 true, i1 %50
-  br i1 %or.cond, label %63, label %51
+  br i1 %or.cond, label %65, label %51
 
 51:                                               ; preds = %46
   %52 = load i32, ptr %5, align 4
@@ -697,14 +697,14 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   %58 = load i32, ptr @hf_gsm_bssmap_le_message_elements, align 4
   %59 = add i32 %18, -1
   %60 = call ptr @proto_tree_add_item(ptr noundef %.051, i32 noundef %58, ptr noundef %0, i32 noundef 1, i32 noundef %59, i32 noundef 0)
-  br label %63
+  br label %65
 
 61:                                               ; preds = %51
   %62 = add i32 %18, -1
   call void %55(ptr noundef %0, ptr noundef %.051, ptr noundef %1, i32 noundef 1, i32 noundef %62)
   br label %63
 
-63:                                               ; preds = %57, %61, %46
+65:                                               ; preds = %57, %61, %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   ret i32 %18
 }

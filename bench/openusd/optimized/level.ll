@@ -5473,8 +5473,8 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level19isSingleC
 _ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArrayIiEE.exit: ; preds = %.lr.ph.i, %4
   %.08.lcssa.i = phi i16 [ %.0.copyload.i.i, %4 ], [ %27, %.lr.ph.i ]
   %28 = and i16 %.08.lcssa.i, 1799
-  %or.cond44 = icmp eq i16 %28, 512
-  br i1 %or.cond44, label %29, label %149
+  %or.cond45 = icmp eq i16 %28, 512
+  br i1 %or.cond45, label %29, label %150
 
 29:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArrayIiEE.exit
   %30 = and i16 %.0.copyload.i.i, 1920
@@ -5512,48 +5512,48 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArr
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %149, label %63
 
-63:                                               ; preds = %29
+103:                                              ; preds = %29
   %64 = zext nneg i32 %61 to i64
   %65 = getelementptr inbounds nuw i32, ptr %15, i64 %64
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %70 = shl nsw i32 %66, 1
-  %71 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %109, align 8
   %72 = sext i32 %70 to i64
   %73 = getelementptr i32, ptr %71, i64 %72
   %74 = getelementptr i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %68, i64 %76
+  %77 = getelementptr inbounds i32, ptr %108, i64 %76
   %78 = add nuw nsw i32 %61, 1
   %79 = and i32 %78, 3
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i32, ptr %15, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = shl nsw i32 %82, 1
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr i32, ptr %71, i64 %84
-  %86 = getelementptr i8, ptr %85, i64 4
+  %122 = sext i32 %83 to i64
+  %123 = getelementptr i32, ptr %71, i64 %122
+  %86 = getelementptr i8, ptr %123, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i32, ptr %68, i64 %88
   %90 = load i32, ptr %77, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %92 = sext i32 %90 to i64
-  %93 = load ptr, ptr %91, align 8
-  %94 = getelementptr inbounds float, ptr %93, i64 %92
-  %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %97 = load i32, ptr %96, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds float, ptr %93, i64 %98
-  %100 = load float, ptr %99, align 4
-  %101 = fcmp oeq float %95, %100
-  br i1 %101, label %102, label %149
+  %93 = load ptr, ptr %127, align 8
+  %130 = getelementptr inbounds float, ptr %93, i64 %92
+  %131 = load float, ptr %130, align 4
+  %132 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %133 = load i32, ptr %132, align 4
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds float, ptr %93, i64 %134
+  %136 = load float, ptr %135, align 4
+  %137 = fcmp oeq float %131, %136
+  br i1 %137, label %138, label %150
 
-102:                                              ; preds = %63
+138:                                              ; preds = %63
   %103 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %104 to i64
@@ -5565,9 +5565,9 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArr
   %111 = getelementptr inbounds float, ptr %93, i64 %110
   %112 = load float, ptr %111, align 4
   %113 = fcmp oeq float %107, %112
-  br i1 %113, label %114, label %149
+  br i1 %113, label %114, label %150
 
-114:                                              ; preds = %102
+114:; preds = %138
   %115 = load i32, ptr %89, align 4
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds float, ptr %93, i64 %116
@@ -5610,15 +5610,15 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArr
   store float %146, ptr %2, align 4
   br label %147
 
-147:                                              ; preds = %138, %137
-  %.not40 = icmp eq ptr %3, null
-  br i1 %.not40, label %149, label %148
+148:                                              ; preds = %138, %137
+  %.not41 = icmp eq ptr %3, null
+  br i1 %.not41, label %150, label %149
 
-148:                                              ; preds = %147
+149:                                              ; preds = %148
   store i32 %61, ptr %3, align 4
-  br label %149
+  br label %150
 
-149:                                              ; preds = %147, %148, %63, %102, %114, %125, %29, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArrayIiEE.exit
+150:                                              ; preds = %148, %149, %103, %102, %114, %125, %29, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArrayIiEE.exit
   %.0 = phi i1 [ false, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArrayIiEE.exit ], [ false, %29 ], [ false, %125 ], [ false, %114 ], [ false, %102 ], [ false, %63 ], [ true, %148 ], [ true, %147 ]
   ret i1 %.0
 }

@@ -421,33 +421,33 @@ _ZNK11hb_ot_map_t10get_1_maskEj.exit.thread:      ; preds = %26, %_ZNK11hb_ot_ma
   %29 = phi i8 [ %spec.select, %_ZNK11hb_ot_map_t10get_1_maskEj.exit ], [ 0, %26 ]
   %30 = or disjoint i8 %29, %8
   store i8 %30, ptr %7, align 8
-  br label %.lr.ph.preheader.i.i.i.i.i.i22.us51
+  br label %.lr.ph.preheader.i.i.i.i.i.i22.us52
 
 _ZNK11hb_ot_map_t10get_1_maskEj.exit31.us:        ; preds = %3, %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us
   %31 = phi i8 [ %37, %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us ], [ %8, %3 ]
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us ], [ 0, %3 ]
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us ], [ 0, %3 ]
   %32 = and i8 %31, 1
   %.not20.us = icmp eq i8 %32, 0
-  %33 = lshr i64 44, %indvars.iv74
+  %33 = lshr i64 44, %indvars.iv76
   %34 = trunc nuw nsw i64 %33 to i8
   %.mux.us = and i8 %34, 1
   %35 = select i1 %.not20.us, i8 0, i8 %.mux.us
   %36 = and i8 %31, -2
   %37 = or disjoint i8 %35, %36
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next75, 7
-  br i1 %exitcond77.not, label %.loopexit.loopexit, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us, !llvm.loop !8
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond79.not = icmp eq i64 %indvars.iv.next77, 7
+  br i1 %exitcond79.not, label %.loopexit.loopexit, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us, !llvm.loop !8
 
-.lr.ph.preheader.i.i.i.i.i.i22.us51:              ; preds = %_ZNK11hb_ot_map_t10get_1_maskEj.exit.thread, %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us64
+.lr.ph.preheader.i.i.i.i.i.i22.us52:              ; preds = %_ZNK11hb_ot_map_t10get_1_maskEj.exit.thread, %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us67
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us64 ], [ 0, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.thread ]
   %38 = getelementptr inbounds nuw [8 x i32], ptr @_ZL15arabic_features, i64 0, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
-  br label %.lr.ph.i.i.i.i.i.i23.us52
+  br label %.lr.ph.i.i.i.i.i.i23.us53
 
-.lr.ph.i.i.i.i.i.i23.us52:                        ; preds = %54, %.lr.ph.preheader.i.i.i.i.i.i22.us51
-  %.0193.i.i.i.i.i.i24.us53 = phi i32 [ %.1.i.i.i.i.i.i28.us59, %54 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i22.us51 ]
-  %.0202.i.i.i.i.i.i25.us54 = phi i32 [ %.121.i.i.i.i.i.i27.us58, %54 ], [ %13, %.lr.ph.preheader.i.i.i.i.i.i22.us51 ]
-  %40 = add i32 %.0202.i.i.i.i.i.i25.us54, %.0193.i.i.i.i.i.i24.us53
+.lr.ph.i.i.i.i.i.i23.us53:                        ; preds = %54, %.lr.ph.preheader.i.i.i.i.i.i22.us52
+  %.0193.i.i.i.i.i.i24.us54 = phi i32 [ %.1.i.i.i.i.i.i28.us60, %54 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i22.us51 ]
+  %.0202.i.i.i.i.i.i25.us55 = phi i32 [ %.121.i.i.i.i.i.i27.us59, %54 ], [ %13, %.lr.ph.preheader.i.i.i.i.i.i22.us51 ]
+  %40 = add i32 %.0202.i.i.i.i.i.i25.us55, %.0193.i.i.i.i.i.i24.us54
   %41 = lshr i32 %40, 1
   %42 = zext nneg i32 %41 to i64
   %43 = mul nuw nsw i64 %42, 36
@@ -456,39 +456,39 @@ _ZNK11hb_ot_map_t10get_1_maskEj.exit31.us:        ; preds = %3, %_ZNK11hb_ot_map
   %46 = icmp ult i32 %39, %45
   br i1 %46, label %52, label %47
 
-47:                                               ; preds = %.lr.ph.i.i.i.i.i.i23.us52
-  %.not23.i.i.i.i.i.i26.us55 = icmp eq i32 %39, %45
-  br i1 %.not23.i.i.i.i.i.i26.us55, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i30.us56, label %48
+47:                                               ; preds = %.lr.ph.i.i.i.i.i.i23.us53
+  %.not23.i.i.i.i.i.i26.us56 = icmp eq i32 %39, %45
+  br i1 %.not23.i.i.i.i.i.i26.us56, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i30.us57, label %48
 
 48:                                               ; preds = %47
   %49 = add nuw nsw i32 %41, 1
   br label %54
 
-_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i30.us56: ; preds = %47
+_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i30.us57: ; preds = %47
   %50 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %10, i64 %42, i32 5
   %51 = load i32, ptr %50, align 4
-  br label %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us61
+  br label %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us62
 
-52:                                               ; preds = %.lr.ph.i.i.i.i.i.i23.us52
+52:                                               ; preds = %.lr.ph.i.i.i.i.i.i23.us53
   %53 = add nsw i32 %41, -1
   br label %54
 
 54:                                               ; preds = %52, %48
-  %.121.i.i.i.i.i.i27.us58 = phi i32 [ %53, %52 ], [ %.0202.i.i.i.i.i.i25.us54, %48 ]
-  %.1.i.i.i.i.i.i28.us59 = phi i32 [ %.0193.i.i.i.i.i.i24.us53, %52 ], [ %49, %48 ]
-  %.not.not.i.i.i.i.i.i29.us60 = icmp sgt i32 %.1.i.i.i.i.i.i28.us59, %.121.i.i.i.i.i.i27.us58
-  br i1 %.not.not.i.i.i.i.i.i29.us60, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us61, label %.lr.ph.i.i.i.i.i.i23.us52, !llvm.loop !6
+  %.121.i.i.i.i.i.i27.us59 = phi i32 [ %53, %52 ], [ %.0202.i.i.i.i.i.i25.us55, %48 ]
+  %.1.i.i.i.i.i.i28.us60 = phi i32 [ %.0193.i.i.i.i.i.i24.us54, %52 ], [ %49, %48 ]
+  %.not.not.i.i.i.i.i.i29.us61 = icmp sgt i32 %.1.i.i.i.i.i.i28.us60, %.121.i.i.i.i.i.i27.us59
+  br i1 %.not.not.i.i.i.i.i.i29.us61, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us62, label %.lr.ph.i.i.i.i.i.i23.us53, !llvm.loop !6
 
-_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us61:      ; preds = %54, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i30.us56
+_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us62:      ; preds = %54, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i30.us57
   %55 = phi i32 [ %51, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i30.us56 ], [ 0, %54 ]
   %56 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 0, i64 %indvars.iv
   store i32 %55, ptr %56, align 4
   %57 = load i8, ptr %7, align 8
   %58 = and i8 %57, 1
-  %.not20.us62 = icmp eq i8 %58, 0
-  br i1 %.not20.us62, label %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us64, label %59
+  %.not20.us63 = icmp eq i8 %58, 0
+  br i1 %.not20.us63, label %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us67, label %59
 
-59:                                               ; preds = %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us61
+59:                                               ; preds = %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us62
   %60 = and i32 %39, 254
   %61 = icmp eq i32 %60, 50
   br i1 %61, label %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us64, label %.lr.ph.i.i.i.i.i.i34.us
@@ -517,7 +517,7 @@ _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enab
   %72 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %10, i64 %64, i32 6
   %73 = load i8, ptr %72, align 4
   %74 = and i8 %73, 1
-  br label %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us64
+  br label %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us67
 
 75:                                               ; preds = %.lr.ph.i.i.i.i.i.i34.us
   %76 = add nsw i32 %63, -1
@@ -527,22 +527,22 @@ _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enab
   %.121.i.i.i.i.i.i38.us = phi i32 [ %76, %75 ], [ %.0202.i.i.i.i.i.i36.us, %70 ]
   %.1.i.i.i.i.i.i39.us = phi i32 [ %.0193.i.i.i.i.i.i35.us, %75 ], [ %71, %70 ]
   %.not.not.i.i.i.i.i.i40.us = icmp sgt i32 %.1.i.i.i.i.i.i39.us, %.121.i.i.i.i.i.i38.us
-  br i1 %.not.not.i.i.i.i.i.i40.us, label %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us64, label %.lr.ph.i.i.i.i.i.i34.us, !llvm.loop !6
+  br i1 %.not.not.i.i.i.i.i.i40.us, label %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us67, label %.lr.ph.i.i.i.i.i.i34.us, !llvm.loop !6
 
-_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us64:    ; preds = %77, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i41.us, %59, %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us61
+_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us67:    ; preds = %77, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i41.us, %59, %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us62
   %78 = phi i8 [ 0, %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us61 ], [ 1, %59 ], [ %74, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i41.us ], [ 0, %77 ]
   %79 = and i8 %57, -2
   %80 = or disjoint i8 %78, %79
   store i8 %80, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.preheader.i.i.i.i.i.i22.us51, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.preheader.i.i.i.i.i.i22.us52, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us
   store i8 %37, ptr %7, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us64, %.loopexit.loopexit, %1
+.loopexit:                                        ; preds = %_ZNK11hb_ot_map_t14needs_fallbackEj.exit.us67, %.loopexit.loopexit, %1
   ret ptr %2
 }
 

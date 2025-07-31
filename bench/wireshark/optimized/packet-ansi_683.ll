@@ -687,7 +687,7 @@ define internal i32 @dissect_ansi_683(ptr noundef %0, ptr noundef %1, ptr nounde
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = load i32, ptr %10, align 4
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %34
+  br i1 %18, label %19, label %37
 
 19:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
@@ -715,35 +715,35 @@ define internal i32 @dissect_ansi_683(ptr noundef %0, ptr noundef %1, ptr nounde
 
 dissect_ansi_683_for_message.exit:                ; preds = %19, %24, %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  br label %48
+  br label %51
 
-34:                                               ; preds = %4
+37:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %36 = zext i8 %35 to i32
-  %37 = call ptr @try_val_to_str_idx(i32 noundef %36, ptr noundef nonnull @rev_msg_type_strings, ptr noundef nonnull %5)
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %dissect_ansi_683_rev_message.exit, label %39
+  %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %39 = zext i8 %38 to i32
+  %40 = call ptr @try_val_to_str_idx(i32 noundef %39, ptr noundef nonnull @rev_msg_type_strings, ptr noundef nonnull %5)
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %dissect_ansi_683_rev_message.exit, label %42
 
-39:                                               ; preds = %34
-  %40 = load i32, ptr @hf_ansi_683_rev_msg_type, align 4
-  %41 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %40, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %36)
-  %42 = load i32, ptr %5, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr [25 x ptr], ptr @ansi_683_rev_msg_fcn, i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 @tvb_reported_length(ptr noundef %0)
-  %47 = add i32 %46, -1
-  call void %45(ptr noundef %0, ptr noundef %1, ptr noundef %16, i32 noundef %47, i32 noundef 1)
+42:                                               ; preds = %37
+  %43 = load i32, ptr @hf_ansi_683_rev_msg_type, align 4
+  %44 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %39)
+  %45 = load i32, ptr %5, align 4
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr [25 x ptr], ptr @ansi_683_rev_msg_fcn, i64 0, i64 %46
+  %48 = load ptr, ptr %47, align 8
+  %49 = call i32 @tvb_reported_length(ptr noundef %0)
+  %50 = add i32 %49, -1
+  call void %45(ptr noundef %0, ptr noundef %1, ptr noundef %16, i32 noundef %50, i32 noundef 1)
   br label %dissect_ansi_683_rev_message.exit
 
-dissect_ansi_683_rev_message.exit:                ; preds = %34, %39
+dissect_ansi_683_rev_message.exit:                ; preds = %37, %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  br label %48
+  br label %51
 
-48:                                               ; preds = %dissect_ansi_683_rev_message.exit, %dissect_ansi_683_for_message.exit
-  %49 = call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %49
+51:                                               ; preds = %dissect_ansi_683_rev_message.exit, %dissect_ansi_683_for_message.exit
+  %52 = call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %52
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

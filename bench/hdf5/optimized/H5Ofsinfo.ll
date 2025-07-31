@@ -1013,21 +1013,21 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_set_version(i32 noundef %0, i32 noundef 
   %13 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !13
   %14 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !13
   %15 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O_fsinfo_set_version, i32 noundef 433, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.2) #6
-  br label %33
+  br label %34
 
 16:                                               ; preds = %._crit_edge, %3
   %.pre-phi18 = phi i1 [ %.pre17, %._crit_edge ], [ %7, %3 ]
   %.pre-phi = phi i1 [ %.pre16, %._crit_edge ], [ %5, %3 ]
   %17 = xor i1 %.pre-phi18, true
   %18 = select i1 %.pre-phi, i1 true, i1 %17
-  br i1 %18, label %19, label %33, !prof !12
+  br i1 %18, label %19, label %34, !prof !12
 
 19:                                               ; preds = %16
   %20 = sext i32 %0 to i64
   %21 = getelementptr inbounds [7 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !36
-  %.not = icmp eq i32 %22, 256
-  %.012 = select i1 %.not, i32 1, i32 %22
+  %.not.inv = icmp eq i32 %22, 256
+  %.012 = select i1 %.not.inv, i32 1, i32 %22
   %23 = sext i32 %1 to i64
   %24 = getelementptr inbounds [7 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !36
@@ -1036,17 +1036,17 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_set_version(i32 noundef %0, i32 noundef 
   %or.cond = select i1 %26, i1 true, i1 %27
   br i1 %or.cond, label %28, label %32
 
-28:                                               ; preds = %19
+28:; preds = %19
   %29 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %30 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !13
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O_fsinfo_set_version, i32 noundef 447, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.3) #6
   br label %33
 
-32:                                               ; preds = %19
+32:; preds = %19
   store i32 %.012, ptr %2, align 8, !tbaa !27
-  br label %33
+  br label %34
 
-33:                                               ; preds = %12, %28, %32, %16
+34:                                               ; preds = %12, %28, %32, %16
   %.0 = phi i32 [ -1, %12 ], [ -1, %28 ], [ 0, %32 ], [ 0, %16 ]
   ret i32 %.0
 }
@@ -1098,18 +1098,18 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_check_version(i32 noundef %0, ptr nounde
   %22 = icmp eq i32 %21, 256
   br i1 %22, label %26, label %23
 
-23:                                               ; preds = %18
+20:                                               ; preds = %18
   %24 = load i32, ptr %1, align 8, !tbaa !27
   %25 = icmp ugt i32 %24, %21
   br i1 %25, label %26, label %30
 
-26:                                               ; preds = %18, %23
+26:                                               ; preds = %18, %20
   %27 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %28 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !13
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O_fsinfo_check_version, i32 noundef 478, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.3) #6
   br label %30
 
-30:                                               ; preds = %11, %26, %23, %15
+30:                                               ; preds = %11, %26, %20, %15
   %.0 = phi i32 [ -1, %11 ], [ -1, %26 ], [ 0, %23 ], [ 0, %15 ]
   ret i32 %.0
 }

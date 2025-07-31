@@ -12036,7 +12036,7 @@ _ZN2cvL5gfMulEhh.exit218:                         ; preds = %353
   %or.cond.i219 = or i1 %374, %375
   br i1 %or.cond.i219, label %_ZN2cvL5gfMulEhh.exit222, label %376
 
-376:                                              ; preds = %_ZN2cvL5gfMulEhh.exit218
+376:; preds = %_ZN2cvL5gfMulEhh.exit218
   %377 = xor i8 %373, 1
   %378 = zext i8 %.0107364 to i64
   %379 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %378

@@ -361,15 +361,15 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
   %13 = icmp slt i8 %12, 0
   br i1 %13, label %_ZNK6icu_7710EmojiProps21hasBinaryPropertyImplEi9UProperty.exit, label %14
 
-14:                                               ; preds = %8
+14:; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !33
+  %16 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !33
   %19 = icmp ult i32 %0, 65536
   br i1 %19, label %20, label %29
 
-20:                                               ; preds = %14
+20:; preds = %13
   %21 = load ptr, ptr %16, align 8, !tbaa !34
   %22 = lshr i32 %0, 6
   %23 = zext nneg i32 %22 to i64
@@ -380,33 +380,33 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
   %28 = add nuw nsw i32 %27, %26
   br label %44
 
-29:                                               ; preds = %14
+29:; preds = %14
   %30 = icmp ult i32 %0, 1114112
   br i1 %30, label %31, label %40
 
-31:                                               ; preds = %29
+31:; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %33 = load i32, ptr %32, align 8, !tbaa !38
   %.not.i = icmp slt i32 %0, %33
   br i1 %.not.i, label %38, label %34
 
-34:                                               ; preds = %31
+34:  ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %36 = load i32, ptr %35, align 4, !tbaa !39
   %37 = add nsw i32 %36, -2
   br label %44
 
-38:                                               ; preds = %31
+38:; preds = %31
   %39 = call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %16, i32 noundef %0)
   br label %44
 
-40:                                               ; preds = %29
+40:; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %42 = load i32, ptr %41, align 4, !tbaa !39
   %43 = add nsw i32 %42, -1
   br label %44
 
-44:                                               ; preds = %40, %38, %34, %20
+44:; preds = %40, %38, %34, %20
   %45 = phi i32 [ %28, %20 ], [ %43, %40 ], [ %37, %34 ], [ %39, %38 ]
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %18, i64 %46
@@ -419,16 +419,16 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
   br label %_ZNK6icu_7710EmojiProps21hasBinaryPropertyImplEi9UProperty.exit
 
 _ZNK6icu_7710EmojiProps21hasBinaryPropertyImplEi9UProperty.exit: ; preds = %44, %8, %2
-  %54 = phi i8 [ 0, %2 ], [ %53, %44 ], [ 0, %8 ]
+  %55 = phi i8 [ 0, %2 ], [ %53, %44 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  ret i8 %54
+  ret i8 %55
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryPropertyImplEi9UProperty(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = add i32 %2, -72
   %or.cond = icmp ult i32 %4, -15
-  br i1 %or.cond, label %51, label %5
+  br i1 %or.cond, label %52, label %5
 
 5:                                                ; preds = %3
   %6 = add nsw i32 %2, -57
@@ -438,15 +438,15 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
   %10 = icmp slt i8 %9, 0
   br i1 %10, label %51, label %11
 
-11:                                               ; preds = %5
+11:; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !33
+  %13 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !33
   %16 = icmp ult i32 %1, 65536
   br i1 %16, label %17, label %26
 
-17:                                               ; preds = %11
+17:; preds = %11
   %18 = load ptr, ptr %13, align 8, !tbaa !34
   %19 = lshr i32 %1, 6
   %20 = zext nneg i32 %19 to i64
@@ -457,33 +457,33 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
   %25 = add nuw nsw i32 %24, %23
   br label %41
 
-26:                                               ; preds = %11
+26:; preds = %11
   %27 = icmp ult i32 %1, 1114112
   br i1 %27, label %28, label %37
 
-28:                                               ; preds = %26
+28:; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !38
   %.not = icmp slt i32 %1, %30
   br i1 %.not, label %35, label %31
 
-31:                                               ; preds = %28
+31:; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %33 = load i32, ptr %32, align 4, !tbaa !39
   %34 = add nsw i32 %33, -2
   br label %41
 
-35:                                               ; preds = %28
+35:; preds = %28
   %36 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %13, i32 noundef %1)
   br label %41
 
-37:                                               ; preds = %26
+37:; preds = %26
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !39
   %40 = add nsw i32 %39, -1
   br label %41
 
-41:                                               ; preds = %37, %35, %31, %17
+41:; preds = %37, %35, %31, %17
   %42 = phi i32 [ %25, %17 ], [ %40, %37 ], [ %34, %31 ], [ %36, %35 ]
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %15, i64 %43
@@ -495,7 +495,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
   %50 = and i8 %49, 1
   br label %51
 
-51:                                               ; preds = %41, %5, %3
+52:                                               ; preds = %41, %5, %3
   %.0 = phi i8 [ 0, %3 ], [ %50, %41 ], [ 0, %5 ]
   ret i8 %.0
 }

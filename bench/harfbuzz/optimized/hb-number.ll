@@ -157,8 +157,8 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.preheader.i
-  %.058134.i = phi ptr [ %12, %11 ], [ %5, %.lr.ph.preheader.i ]
-  %10 = load i8, ptr %.058134.i, align 1, !tbaa !9
+  %.058135.i = phi ptr [ %12, %11 ], [ %5, %.lr.ph.preheader.i ]
+  %10 = load i8, ptr %.058135.i, align 1, !tbaa !9
   switch i8 %10, label %.critedge.loopexit.i [
     i8 32, label %11
     i8 13, label %11
@@ -169,27 +169,27 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   ]
 
 11:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %12 = getelementptr inbounds nuw i8, ptr %.058134.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.058135.i, i64 1
   %exitcond.not.i = icmp eq ptr %12, %1
   br i1 %exitcond.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 .critedge.loopexit.i:                             ; preds = %11, %.lr.ph.i
-  %.058.lcssa.ph.i = phi ptr [ %scevgep.i, %11 ], [ %.058134.i, %.lr.ph.i ]
+  %.058.lcssa.ph.i = phi ptr [ %scevgep.i, %11 ], [ %.058135.i, %.lr.ph.i ]
   %.pre.i = ptrtoint ptr %.058.lcssa.ph.i to i64
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.loopexit.i, %4
-  %.058.lcssa137.pre-phi.i = phi i64 [ %.pre.i, %.critedge.loopexit.i ], [ %6, %4 ]
+  %.058.lcssa138.pre-phi.i = phi i64 [ %.pre.i, %.critedge.loopexit.i ], [ %6, %4 ]
   %.058.lcssa.i = phi ptr [ %.058.lcssa.ph.i, %.critedge.loopexit.i ], [ %5, %4 ]
   %13 = icmp eq ptr %.058.lcssa.i, %1
-  br i1 %13, label %_ZL9strtod_rlPKcPS0_.exit, label %.preheader133.preheader.i
+  br i1 %13, label %_ZL9strtod_rlPKcPS0_.exit, label %.preheader134.preheader.i
 
-.preheader133.preheader.i:                        ; preds = %.critedge.i
-  %14 = sub i64 %7, %.058.lcssa137.pre-phi.i
-  %scevgep138.i = getelementptr i8, ptr %.058.lcssa.i, i64 %14
-  br label %.preheader133.i
+.preheader134.preheader.i:                        ; preds = %.critedge.i
+  %14 = sub i64 %7, %.058.lcssa138.pre-phi.i
+  %scevgep139.i = getelementptr i8, ptr %.058.lcssa.i, i64 %14
+  br label %.preheader134.i
 
-.preheader133.i:                                  ; preds = %66, %.preheader133.preheader.i
+.preheader134.i:                                  ; preds = %69, %.preheader134.preheader.i
   %.179.i = phi i8 [ %.280.i, %66 ], [ 0, %.preheader133.preheader.i ]
   %.176.i = phi i1 [ %.277.i, %66 ], [ false, %.preheader133.preheader.i ]
   %.173.i = phi i1 [ %.274.i, %66 ], [ false, %.preheader133.preheader.i ]
@@ -198,7 +198,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %.065.i = phi i32 [ %43, %66 ], [ 1, %.preheader133.preheader.i ]
   %.163.i = phi double [ %.264.i, %66 ], [ 0.000000e+00, %.preheader133.preheader.i ]
   %.160.i = phi double [ %.261.i, %66 ], [ 0.000000e+00, %.preheader133.preheader.i ]
-  %.2.i = phi ptr [ %67, %66 ], [ %.058.lcssa.i, %.preheader133.preheader.i ]
+  %.2.i = phi ptr [ %70, %66 ], [ %.058.lcssa.i, %.preheader133.preheader.i ]
   %15 = shl nsw i32 %.065.i, 1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr @_ZL25_double_parser_trans_keys, i64 %16
@@ -217,7 +217,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %.not.i = icmp sgt i32 %27, %29
   br i1 %.not.i, label %35, label %30
 
-30:                                               ; preds = %.preheader133.i
+30:                                               ; preds = %.preheader134.i
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %32 = load i8, ptr %31, align 1, !tbaa !9
   %33 = zext i8 %32 to i32
@@ -226,7 +226,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %spec.select.i = select i1 %.not88.i, i32 %25, i32 %34
   br label %35
 
-35:                                               ; preds = %30, %.preheader133.i
+35:                                               ; preds = %30, %.preheader134.i
   %36 = phi i32 [ %25, %.preheader133.i ], [ %spec.select.i, %30 ]
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %22, i64 %37
@@ -238,46 +238,46 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %44 = getelementptr inbounds [10 x i8], ptr @_ZL28_double_parser_trans_actions, i64 0, i64 %40
   %45 = load i8, ptr %44, align 1, !tbaa !9
   switch i8 %45, label %64 [
-    i8 5, label %59
+    i8 5, label %62
     i8 1, label %46
-    i8 4, label %47
+    i8 4, label %50
     i8 2, label %48
     i8 3, label %52
   ]
 
-46:                                               ; preds = %35
-  br label %64
+49:                                               ; preds = %35
+  br label %67
 
-47:                                               ; preds = %35
-  br label %64
+50:                                               ; preds = %35
+  br label %67
 
-48:                                               ; preds = %35
-  %49 = add nsw i32 %29, -48
-  %50 = sitofp i32 %49 to double
-  %51 = tail call double @llvm.fmuladd.f64(double %.160.i, double 1.000000e+01, double %50)
-  br label %64
+51:                                               ; preds = %35
+  %52 = add nsw i32 %29, -48
+  %53 = sitofp i32 %52 to double
+  %54 = tail call double @llvm.fmuladd.f64(double %.160.i, double 1.000000e+01, double %53)
+  br label %67
 
-52:                                               ; preds = %35
-  %53 = fcmp ugt double %.163.i, 0x42F9999999999990
-  br i1 %53, label %64, label %54, !prof !17
+55:                                               ; preds = %35
+  %56 = fcmp ugt double %.163.i, 0x42F9999999999990
+  br i1 %56, label %67, label %57, !prof !17
 
-54:                                               ; preds = %52
-  %55 = add nsw i32 %29, -48
-  %56 = sitofp i32 %55 to double
-  %57 = tail call double @llvm.fmuladd.f64(double %.163.i, double 1.000000e+01, double %56)
-  %58 = fadd double %.167.i, 1.000000e+00
-  br label %64
+57:                                               ; preds = %55
+  %58 = add nsw i32 %29, -48
+  %59 = sitofp i32 %58 to double
+  %60 = tail call double @llvm.fmuladd.f64(double %.163.i, double 1.000000e+01, double %59)
+  %61 = fadd double %.167.i, 1.000000e+00
+  br label %67
 
-59:                                               ; preds = %35
-  %60 = mul i32 %.170.i, 10
-  %61 = add i32 %60, -48
-  %62 = add i32 %61, %29
-  %63 = icmp ugt i32 %62, 2047
-  %.176..i = select i1 %63, i1 true, i1 %.176.i
-  %..170.i = select i1 %63, i32 %.170.i, i32 %62, !prof !17
-  br label %64
+62:                                               ; preds = %35
+  %63 = mul i32 %.170.i, 10
+  %64 = add i32 %63, -48
+  %65 = add i32 %64, %29
+  %66 = icmp ugt i32 %65, 2047
+  %.176..i = select i1 %66, i1 true, i1 %.176.i
+  %..170.i = select i1 %66, i32 %.170.i, i32 %65, !prof !17
+  br label %67
 
-64:                                               ; preds = %59, %54, %52, %48, %47, %46, %35
+67:                                               ; preds = %62, %57, %55, %51, %50, %49, %35
   %.280.i = phi i8 [ %.179.i, %46 ], [ 1, %47 ], [ %.179.i, %48 ], [ %.179.i, %54 ], [ %.179.i, %52 ], [ %.179.i, %35 ], [ %.179.i, %59 ]
   %.277.i = phi i1 [ %.176.i, %46 ], [ %.176.i, %47 ], [ %.176.i, %48 ], [ %.176.i, %54 ], [ %.176.i, %52 ], [ %.176.i, %35 ], [ %.176..i, %59 ]
   %.274.i = phi i1 [ true, %46 ], [ %.173.i, %47 ], [ %.173.i, %48 ], [ %.173.i, %54 ], [ %.173.i, %52 ], [ %.173.i, %35 ], [ %.173.i, %59 ]
@@ -285,142 +285,142 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %.268.i = phi double [ %.167.i, %46 ], [ %.167.i, %47 ], [ %.167.i, %48 ], [ %58, %54 ], [ %.167.i, %52 ], [ %.167.i, %35 ], [ %.167.i, %59 ]
   %.264.i = phi double [ %.163.i, %46 ], [ %.163.i, %47 ], [ %.163.i, %48 ], [ %57, %54 ], [ %.163.i, %52 ], [ %.163.i, %35 ], [ %.163.i, %59 ]
   %.261.i = phi double [ %.160.i, %46 ], [ %.160.i, %47 ], [ %51, %48 ], [ %.160.i, %54 ], [ %.160.i, %52 ], [ %.160.i, %35 ], [ %.160.i, %59 ]
-  %65 = icmp eq i8 %39, 1
-  br i1 %65, label %68, label %66
+  %68 = icmp eq i8 %39, 1
+  br i1 %68, label %71, label %69
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  %.not89.i = icmp eq ptr %67, %1
-  br i1 %.not89.i, label %68, label %.preheader133.i
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
+  %.not90.i = icmp eq ptr %70, %1
+  br i1 %.not90.i, label %71, label %.preheader134.i
 
-68:                                               ; preds = %66, %64
-  %.1.i = phi ptr [ %.2.i, %64 ], [ %scevgep138.i, %66 ]
-  %69 = fcmp une double %.268.i, 0.000000e+00
-  br i1 %69, label %70, label %82
+71:                                               ; preds = %69, %67
+  %.1.i = phi ptr [ %.2.i, %64 ], [ %scevgep139.i, %66 ]
+  %72 = fcmp une double %.268.i, 0.000000e+00
+  br i1 %72, label %73, label %85
 
-70:                                               ; preds = %68
-  %71 = fptoui double %.268.i to i32
-  br label %72
+73:                                               ; preds = %71
+  %74 = fptoui double %.268.i to i32
+  br label %75
 
-72:                                               ; preds = %77, %70
-  %.012.i.i = phi ptr [ @_ZZL6_pow10jE13_powers_of_10, %70 ], [ %78, %77 ]
+75:                                               ; preds = %80, %73
+  %.012.i.i = phi ptr [ @_ZZL6_pow10jE13_powers_of_10, %70 ], [ %81, %77 ]
   %.0711.i.i = phi double [ 1.000000e+00, %70 ], [ %.1.i.i, %77 ]
-  %.0810.i.i = phi i32 [ 256, %70 ], [ %79, %77 ]
-  %73 = and i32 %.0810.i.i, %71
-  %.not9.i.i = icmp eq i32 %73, 0
-  br i1 %.not9.i.i, label %77, label %74
+  %.0810.i.i = phi i32 [ 256, %70 ], [ %82, %77 ]
+  %76 = and i32 %.0810.i.i, %74
+  %.not9.i.i = icmp eq i32 %76, 0
+  br i1 %.not9.i.i, label %80, label %77
 
-74:                                               ; preds = %72
-  %75 = load double, ptr %.012.i.i, align 8, !tbaa !18
-  %76 = fmul double %.0711.i.i, %75
-  br label %77
+77:                                               ; preds = %75
+  %78 = load double, ptr %.012.i.i, align 8, !tbaa !18
+  %79 = fmul double %.0711.i.i, %78
+  br label %80
 
-77:                                               ; preds = %74, %72
-  %.1.i.i = phi double [ %76, %74 ], [ %.0711.i.i, %72 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
-  %79 = lshr i32 %.0810.i.i, 1
+80:                                               ; preds = %77, %75
+  %.1.i.i = phi double [ %79, %74 ], [ %.0711.i.i, %72 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
+  %82 = lshr i32 %.0810.i.i, 1
   %.not.i.i = icmp samesign ult i32 %.0810.i.i, 2
-  br i1 %.not.i.i, label %_ZL6_pow10j.exit.i, label %72, !llvm.loop !20
+  br i1 %.not.i.i, label %_ZL6_pow10j.exit.i, label %75, !llvm.loop !20
 
-_ZL6_pow10j.exit.i:                               ; preds = %77
-  %80 = fdiv double %.264.i, %.1.i.i
-  %81 = fadd double %.261.i, %80
-  br label %82
+_ZL6_pow10j.exit.i:                               ; preds = %80
+  %83 = fdiv double %.264.i, %.1.i.i
+  %84 = fadd double %.261.i, %83
+  br label %85
 
-82:                                               ; preds = %_ZL6_pow10j.exit.i, %68
-  %.3.i = phi double [ %81, %_ZL6_pow10j.exit.i ], [ %.261.i, %68 ]
-  %83 = fneg double %.3.i
-  %.4.i = select i1 %.274.i, double %83, double %.3.i
-  br i1 %.277.i, label %84, label %92, !prof !21
+85:                                               ; preds = %_ZL6_pow10j.exit.i, %71
+  %.3.i = phi double [ %84, %_ZL6_pow10j.exit.i ], [ %.261.i, %68 ]
+  %86 = fneg double %.3.i
+  %.4.i = select i1 %.274.i, double %86, double %.3.i
+  br i1 %.277.i, label %87, label %95, !prof !21
 
-84:                                               ; preds = %82
-  %85 = fcmp oeq double %.3.i, 0.000000e+00
-  br i1 %85, label %_ZL9strtod_rlPKcPS0_.exit, label %86
+87:                                               ; preds = %85
+  %88 = fcmp oeq double %.3.i, 0.000000e+00
+  br i1 %88, label %_ZL9strtod_rlPKcPS0_.exit, label %89
 
-86:                                               ; preds = %84
-  %87 = trunc nuw i8 %.280.i to i1
-  br i1 %87, label %88, label %90
+89:                                               ; preds = %87
+  %90 = trunc nuw i8 %.280.i to i1
+  br i1 %90, label %91, label %93
 
-88:                                               ; preds = %86
-  %89 = select i1 %.274.i, double 0x8010000000000000, double 0x10000000000000
+91:                                               ; preds = %89
+  %92 = select i1 %.274.i, double 0x8010000000000000, double 0x10000000000000
   br label %_ZL9strtod_rlPKcPS0_.exit
 
-90:                                               ; preds = %86
-  %91 = select i1 %.274.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
+93:                                               ; preds = %89
+  %94 = select i1 %.274.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
   br label %_ZL9strtod_rlPKcPS0_.exit
 
-92:                                               ; preds = %82
-  %.not90.i = icmp eq i32 %.271.i, 0
-  br i1 %.not90.i, label %_ZL9strtod_rlPKcPS0_.exit, label %93
+95:                                               ; preds = %85
+  %.not91.i = icmp eq i32 %.271.i, 0
+  br i1 %.not91.i, label %_ZL9strtod_rlPKcPS0_.exit, label %96
 
-93:                                               ; preds = %92
-  %94 = trunc nuw i8 %.280.i to i1
-  br i1 %94, label %.preheader.i, label %.preheader132.i
+96:                                               ; preds = %95
+  %97 = trunc nuw i8 %.280.i to i1
+  br i1 %97, label %.preheader.i, label %.preheader133.i
 
-.preheader.i:                                     ; preds = %93, %99
-  %.012.i91.i = phi ptr [ %100, %99 ], [ @_ZZL6_pow10jE13_powers_of_10, %93 ]
-  %.0711.i92.i = phi double [ %.1.i95.i, %99 ], [ 1.000000e+00, %93 ]
-  %.0810.i93.i = phi i32 [ %101, %99 ], [ 256, %93 ]
-  %95 = and i32 %.0810.i93.i, %.271.i
-  %.not9.i94.i = icmp eq i32 %95, 0
-  br i1 %.not9.i94.i, label %99, label %96
+.preheader.i:                                     ; preds = %96, %102
+  %.012.i92.i = phi ptr [ %103, %99 ], [ @_ZZL6_pow10jE13_powers_of_10, %93 ]
+  %.0711.i93.i = phi double [ %.1.i96.i, %99 ], [ 1.000000e+00, %93 ]
+  %.0810.i94.i = phi i32 [ %104, %99 ], [ 256, %93 ]
+  %98 = and i32 %.0810.i94.i, %.271.i
+  %.not9.i95.i = icmp eq i32 %98, 0
+  br i1 %.not9.i95.i, label %102, label %99
 
-96:                                               ; preds = %.preheader.i
-  %97 = load double, ptr %.012.i91.i, align 8, !tbaa !18
-  %98 = fmul double %.0711.i92.i, %97
-  br label %99
+99:                                               ; preds = %.preheader.i
+  %100 = load double, ptr %.012.i92.i, align 8, !tbaa !18
+  %101 = fmul double %.0711.i93.i, %100
+  br label %102
 
-99:                                               ; preds = %96, %.preheader.i
-  %.1.i95.i = phi double [ %98, %96 ], [ %.0711.i92.i, %.preheader.i ]
-  %100 = getelementptr inbounds nuw i8, ptr %.012.i91.i, i64 8
-  %101 = lshr i32 %.0810.i93.i, 1
-  %.not.i96.i = icmp samesign ult i32 %.0810.i93.i, 2
-  br i1 %.not.i96.i, label %_ZL6_pow10j.exit97.i, label %.preheader.i, !llvm.loop !20
+102:                                              ; preds = %99, %.preheader.i
+  %.1.i96.i = phi double [ %101, %96 ], [ %.0711.i93.i, %.preheader.i ]
+  %103 = getelementptr inbounds nuw i8, ptr %.012.i92.i, i64 8
+  %104 = lshr i32 %.0810.i94.i, 1
+  %.not.i97.i = icmp samesign ult i32 %.0810.i94.i, 2
+  br i1 %.not.i97.i, label %_ZL6_pow10j.exit98.i, label %.preheader.i, !llvm.loop !20
 
-_ZL6_pow10j.exit97.i:                             ; preds = %99
-  %102 = fdiv double %.4.i, %.1.i95.i
+_ZL6_pow10j.exit98.i:                             ; preds = %102
+  %105 = fdiv double %.4.i, %.1.i96.i
   br label %_ZL9strtod_rlPKcPS0_.exit
 
-.preheader132.i:                                  ; preds = %93, %107
-  %.012.i98.i = phi ptr [ %108, %107 ], [ @_ZZL6_pow10jE13_powers_of_10, %93 ]
-  %.0711.i99.i = phi double [ %.1.i102.i, %107 ], [ 1.000000e+00, %93 ]
-  %.0810.i100.i = phi i32 [ %109, %107 ], [ 256, %93 ]
-  %103 = and i32 %.0810.i100.i, %.271.i
-  %.not9.i101.i = icmp eq i32 %103, 0
-  br i1 %.not9.i101.i, label %107, label %104
+.preheader133.i:                                  ; preds = %96, %110
+  %.012.i99.i = phi ptr [ %111, %107 ], [ @_ZZL6_pow10jE13_powers_of_10, %93 ]
+  %.0711.i100.i = phi double [ %.1.i103.i, %107 ], [ 1.000000e+00, %93 ]
+  %.0810.i101.i = phi i32 [ %112, %107 ], [ 256, %93 ]
+  %106 = and i32 %.0810.i101.i, %.271.i
+  %.not9.i102.i = icmp eq i32 %106, 0
+  br i1 %.not9.i102.i, label %110, label %107
 
-104:                                              ; preds = %.preheader132.i
-  %105 = load double, ptr %.012.i98.i, align 8, !tbaa !18
-  %106 = fmul double %.0711.i99.i, %105
-  br label %107
+107:                                              ; preds = %.preheader133.i
+  %108 = load double, ptr %.012.i99.i, align 8, !tbaa !18
+  %109 = fmul double %.0711.i100.i, %108
+  br label %110
 
-107:                                              ; preds = %104, %.preheader132.i
-  %.1.i102.i = phi double [ %106, %104 ], [ %.0711.i99.i, %.preheader132.i ]
-  %108 = getelementptr inbounds nuw i8, ptr %.012.i98.i, i64 8
-  %109 = lshr i32 %.0810.i100.i, 1
-  %.not.i103.i = icmp samesign ult i32 %.0810.i100.i, 2
-  br i1 %.not.i103.i, label %_ZL6_pow10j.exit104.i, label %.preheader132.i, !llvm.loop !20
+110:                                              ; preds = %107, %.preheader133.i
+  %.1.i103.i = phi double [ %109, %104 ], [ %.0711.i100.i, %.preheader132.i ]
+  %111 = getelementptr inbounds nuw i8, ptr %.012.i99.i, i64 8
+  %112 = lshr i32 %.0810.i101.i, 1
+  %.not.i104.i = icmp samesign ult i32 %.0810.i101.i, 2
+  br i1 %.not.i104.i, label %_ZL6_pow10j.exit105.i, label %.preheader133.i, !llvm.loop !20
 
-_ZL6_pow10j.exit104.i:                            ; preds = %107
-  %110 = fmul double %.4.i, %.1.i102.i
+_ZL6_pow10j.exit105.i:                            ; preds = %110
+  %113 = fmul double %.4.i, %.1.i103.i
   br label %_ZL9strtod_rlPKcPS0_.exit
 
-_ZL9strtod_rlPKcPS0_.exit:                        ; preds = %.critedge.i, %84, %88, %90, %92, %_ZL6_pow10j.exit97.i, %_ZL6_pow10j.exit104.i
+_ZL9strtod_rlPKcPS0_.exit:                        ; preds = %.critedge.i, %87, %91, %93, %95, %_ZL6_pow10j.exit98.i, %_ZL6_pow10j.exit105.i
   %.010 = phi ptr [ %1, %.critedge.i ], [ %.1.i, %84 ], [ %.1.i, %88 ], [ %.1.i, %90 ], [ %.1.i, %92 ], [ %.1.i, %_ZL6_pow10j.exit97.i ], [ %.1.i, %_ZL6_pow10j.exit104.i ]
-  %.0.i = phi double [ 0.000000e+00, %.critedge.i ], [ %.4.i, %84 ], [ %89, %88 ], [ %91, %90 ], [ %.4.i, %92 ], [ %102, %_ZL6_pow10j.exit97.i ], [ %110, %_ZL6_pow10j.exit104.i ]
+  %.0.i = phi double [ 0.000000e+00, %.critedge.i ], [ %.4.i, %84 ], [ %92, %88 ], [ %94, %90 ], [ %.4.i, %92 ], [ %105, %_ZL6_pow10j.exit97.i ], [ %113, %_ZL6_pow10j.exit104.i ]
   store double %.0.i, ptr %2, align 8, !tbaa !18
-  %111 = icmp eq ptr %5, %.010
-  br i1 %111, label %115, label %112, !prof !17
+  %114 = icmp eq ptr %5, %.010
+  br i1 %114, label %118, label %115, !prof !17
 
-112:                                              ; preds = %_ZL9strtod_rlPKcPS0_.exit
+115:                                              ; preds = %_ZL9strtod_rlPKcPS0_.exit
   store ptr %.010, ptr %0, align 8, !tbaa !4
-  %113 = icmp eq ptr %1, %.010
+  %116 = icmp eq ptr %1, %.010
   %not. = xor i1 %3, true
-  %114 = or i1 %113, %not.
-  br label %115
+  %117 = or i1 %116, %not.
+  br label %118
 
-115:                                              ; preds = %_ZL9strtod_rlPKcPS0_.exit, %112
-  %.0 = phi i1 [ %114, %112 ], [ false, %_ZL9strtod_rlPKcPS0_.exit ]
+118:                                              ; preds = %_ZL9strtod_rlPKcPS0_.exit, %115
+  %.0 = phi i1 [ %117, %112 ], [ false, %_ZL9strtod_rlPKcPS0_.exit ]
   ret i1 %.0
 }
 

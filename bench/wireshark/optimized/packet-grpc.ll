@@ -257,19 +257,19 @@ define hidden void @proto_reg_handoff_grpc() local_unnamed_addr #0 {
   br i1 %exitcond25, label %.preheader, label %.preheader17, !llvm.loop !8
 
 .preheader:                                       ; preds = %.preheader17, %.preheader
-  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.preheader ], [ 0, %.preheader17 ]
+  %indvars.iv25 = phi i64 [ %indvars.iv.next27, %.preheader ], [ 0, %.preheader17 ]
   %12 = phi ptr [ %16, %.preheader ], [ @.str.38, %.preheader17 ]
   %13 = load ptr, ptr @grpc_web_text_handle, align 8
   tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef %13)
   %14 = load ptr, ptr @grpc_web_text_handle, align 8
   tail call void @dissector_add_string(ptr noundef nonnull @.str.41, ptr noundef nonnull %12, ptr noundef %14)
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv25, 1
   %15 = getelementptr [3 x ptr], ptr @__const.proto_reg_handoff_grpc.content_types_web_text, i64 0, i64 %indvars.iv.next27
   %16 = load ptr, ptr %15, align 8
   %exitcond29 = icmp eq i64 %indvars.iv.next27, 2
   br i1 %exitcond29, label %17, label %.preheader, !llvm.loop !9
 
-17:                                               ; preds = %.preheader
+17:; preds = %.preheader
   %18 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.42)
   store i32 %18, ptr @proto_http, align 4
   %19 = load i32, ptr @proto_grpc, align 4

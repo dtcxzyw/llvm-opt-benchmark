@@ -2663,14 +2663,14 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   br label %110
 
 110:                                              ; preds = %.lr.ph, %134
-  %.041.i120 = phi i64 [ %107, %.lr.ph ], [ %114, %134 ]
-  %.1119 = phi i64 [ 0, %.lr.ph ], [ %113, %134 ]
+  %.041.i119 = phi i64 [ %107, %.lr.ph ], [ %114, %134 ]
+  %.1118 = phi i64 [ 0, %.lr.ph ], [ %113, %134 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #9
   store i64 0, ptr %19, align 8, !tbaa !17
-  %111 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.041.i120, ptr noundef %18, i32 noundef %109, i32 noundef range(i32 0, 2) %4, ptr noundef %19)
+  %111 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.041.i119, ptr noundef %18, i32 noundef %109, i32 noundef range(i32 0, 2) %4, ptr noundef %19)
   %112 = load i64, ptr %19, align 8, !tbaa !17
-  %113 = add nsw i64 %112, %.1119
-  %114 = sub nsw i64 %.041.i120, %112
+  %113 = add nsw i64 %112, %.1118
+  %114 = sub nsw i64 %.041.i119, %112
   br i1 %105, label %115, label %134
 
 115:                                              ; preds = %110
@@ -2686,8 +2686,8 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
 
 121:                                              ; preds = %115
   %122 = and i64 %117, 1
-  %.not.i.i96 = icmp eq i64 %122, 0
-  br i1 %.not.i.i96, label %125, label %123
+  %.not.i.i95 = icmp eq i64 %122, 0
+  br i1 %.not.i.i95, label %125, label %123
 
 123:                                              ; preds = %121
   %124 = call i64 @rb_fix2int(i64 noundef %117) #9
@@ -2698,8 +2698,8 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   br label %ossl_asn1_tag.exit
 
 ossl_asn1_tag.exit:                               ; preds = %123, %125
-  %.0.i.i97 = phi i64 [ %124, %123 ], [ %126, %125 ]
-  %127 = and i64 %.0.i.i97, 4294967295
+  %.0.i.i96 = phi i64 [ %124, %123 ], [ %126, %125 ]
+  %127 = and i64 %.0.i.i96, 4294967295
   %128 = icmp eq i64 %127, 0
   br i1 %128, label %129, label %134
 
@@ -2742,19 +2742,19 @@ ossl_asn1_tag.exit:                               ; preds = %123, %125
   %143 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 %.0, ptr %143, align 8, !tbaa !17
   %144 = load i64, ptr @cASN1Sequence, align 8, !tbaa !17
-  %.pr.i89 = load i64, ptr @int_ossl_asn1_decode0_cons.rbimpl_id, align 8, !tbaa !17
-  %.not4.i90 = icmp eq i64 %.pr.i89, 0
-  br i1 %.not4.i90, label %.lr.ph.i93, label %rbimpl_intern_const.exit95
+  %.pr.i88 = load i64, ptr @int_ossl_asn1_decode0_cons.rbimpl_id, align 8, !tbaa !17
+  %.not4.i89 = icmp eq i64 %.pr.i88, 0
+  br i1 %.not4.i89, label %.lr.ph.i92, label %rbimpl_intern_const.exit94
 
-.lr.ph.i93:                                       ; preds = %140, %.lr.ph.i93
+.lr.ph.i92:                                       ; preds = %140, %.lr.ph.i92
   %145 = call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 3) #9
   store i64 %145, ptr @int_ossl_asn1_decode0_cons.rbimpl_id, align 8, !tbaa !17
-  %.not.i94 = icmp eq i64 %145, 0
-  br i1 %.not.i94, label %.lr.ph.i93, label %rbimpl_intern_const.exit95, !llvm.loop !23
+  %.not.i93 = icmp eq i64 %145, 0
+  br i1 %.not.i93, label %.lr.ph.i92, label %rbimpl_intern_const.exit94, !llvm.loop !23
 
-rbimpl_intern_const.exit95:                       ; preds = %.lr.ph.i93, %140
-  %.lcssa.i92 = phi i64 [ %.pr.i89, %140 ], [ %145, %.lr.ph.i93 ]
-  %146 = call i64 @rb_funcallv_public(i64 noundef %144, i64 noundef %.lcssa.i92, i32 noundef 4, ptr noundef nonnull %20) #9
+rbimpl_intern_const.exit94:                       ; preds = %.lr.ph.i92, %140
+  %.lcssa.i91 = phi i64 [ %.pr.i88, %140 ], [ %145, %.lr.ph.i93 ]
+  %146 = call i64 @rb_funcallv_public(i64 noundef %144, i64 noundef %.lcssa.i91, i32 noundef 4, ptr noundef nonnull %20) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #9
   br label %int_ossl_asn1_decode0_cons.exit
 
@@ -2768,19 +2768,19 @@ rbimpl_intern_const.exit95:                       ; preds = %.lr.ph.i93, %140
   %150 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %.0, ptr %150, align 8, !tbaa !17
   %151 = load i64, ptr @cASN1Set, align 8, !tbaa !17
-  %.pr.i82 = load i64, ptr @int_ossl_asn1_decode0_cons.rbimpl_id.68, align 8, !tbaa !17
-  %.not4.i83 = icmp eq i64 %.pr.i82, 0
-  br i1 %.not4.i83, label %.lr.ph.i86, label %rbimpl_intern_const.exit88
+  %.pr.i81 = load i64, ptr @int_ossl_asn1_decode0_cons.rbimpl_id.68, align 8, !tbaa !17
+  %.not4.i82 = icmp eq i64 %.pr.i81, 0
+  br i1 %.not4.i82, label %.lr.ph.i85, label %rbimpl_intern_const.exit87
 
-.lr.ph.i86:                                       ; preds = %147, %.lr.ph.i86
+.lr.ph.i85:                                       ; preds = %147, %.lr.ph.i85
   %152 = call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 3) #9
   store i64 %152, ptr @int_ossl_asn1_decode0_cons.rbimpl_id.68, align 8, !tbaa !17
-  %.not.i87 = icmp eq i64 %152, 0
-  br i1 %.not.i87, label %.lr.ph.i86, label %rbimpl_intern_const.exit88, !llvm.loop !23
+  %.not.i86 = icmp eq i64 %152, 0
+  br i1 %.not.i86, label %.lr.ph.i85, label %rbimpl_intern_const.exit87, !llvm.loop !23
 
-rbimpl_intern_const.exit88:                       ; preds = %.lr.ph.i86, %147
-  %.lcssa.i85 = phi i64 [ %.pr.i82, %147 ], [ %152, %.lr.ph.i86 ]
-  %153 = call i64 @rb_funcallv_public(i64 noundef %151, i64 noundef %.lcssa.i85, i32 noundef 4, ptr noundef nonnull %21) #9
+rbimpl_intern_const.exit87:                       ; preds = %.lr.ph.i85, %147
+  %.lcssa.i84 = phi i64 [ %.pr.i81, %147 ], [ %152, %.lr.ph.i86 ]
+  %153 = call i64 @rb_funcallv_public(i64 noundef %151, i64 noundef %.lcssa.i84, i32 noundef 4, ptr noundef nonnull %21) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #9
   br label %int_ossl_asn1_decode0_cons.exit
 
@@ -2797,19 +2797,19 @@ rbimpl_intern_const.exit88:                       ; preds = %.lr.ph.i86, %147
   %160 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %.0, ptr %160, align 8, !tbaa !17
   %161 = load i64, ptr @cASN1Constructive, align 8, !tbaa !17
-  %.pr.i75 = load i64, ptr @int_ossl_asn1_decode0_cons.rbimpl_id.69, align 8, !tbaa !17
-  %.not4.i76 = icmp eq i64 %.pr.i75, 0
-  br i1 %.not4.i76, label %.lr.ph.i79, label %rbimpl_intern_const.exit81
+  %.pr.i74 = load i64, ptr @int_ossl_asn1_decode0_cons.rbimpl_id.69, align 8, !tbaa !17
+  %.not4.i75 = icmp eq i64 %.pr.i74, 0
+  br i1 %.not4.i75, label %.lr.ph.i78, label %rbimpl_intern_const.exit80
 
-.lr.ph.i79:                                       ; preds = %154, %.lr.ph.i79
+.lr.ph.i78:                                       ; preds = %154, %.lr.ph.i78
   %162 = call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 3) #9
   store i64 %162, ptr @int_ossl_asn1_decode0_cons.rbimpl_id.69, align 8, !tbaa !17
-  %.not.i80 = icmp eq i64 %162, 0
-  br i1 %.not.i80, label %.lr.ph.i79, label %rbimpl_intern_const.exit81, !llvm.loop !23
+  %.not.i79 = icmp eq i64 %162, 0
+  br i1 %.not.i79, label %.lr.ph.i78, label %rbimpl_intern_const.exit80, !llvm.loop !23
 
-rbimpl_intern_const.exit81:                       ; preds = %.lr.ph.i79, %154
-  %.lcssa.i78 = phi i64 [ %.pr.i75, %154 ], [ %162, %.lr.ph.i79 ]
-  %163 = call i64 @rb_funcallv_public(i64 noundef %161, i64 noundef %.lcssa.i78, i32 noundef 4, ptr noundef nonnull %22) #9
+rbimpl_intern_const.exit80:                       ; preds = %.lr.ph.i78, %154
+  %.lcssa.i77 = phi i64 [ %.pr.i74, %154 ], [ %162, %.lr.ph.i79 ]
+  %163 = call i64 @rb_funcallv_public(i64 noundef %161, i64 noundef %.lcssa.i77, i32 noundef 4, ptr noundef nonnull %22) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #9
   br label %int_ossl_asn1_decode0_cons.exit
 
@@ -2825,14 +2825,14 @@ rbimpl_intern_const.exit81:                       ; preds = %.lr.ph.i79, %154
   store i64 %.0, ptr %169, align 16, !tbaa !17
   %170 = load i64, ptr @cASN1Data, align 8, !tbaa !17
   %.pr.i = load i64, ptr @int_ossl_asn1_decode0_cons.rbimpl_id.70, align 8, !tbaa !17
-  %.not4.i72 = icmp eq i64 %.pr.i, 0
-  br i1 %.not4.i72, label %.lr.ph.i, label %rbimpl_intern_const.exit
+  %.not4.i71 = icmp eq i64 %.pr.i, 0
+  br i1 %.not4.i71, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %164, %.lr.ph.i
   %171 = call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 3) #9
   store i64 %171, ptr @int_ossl_asn1_decode0_cons.rbimpl_id.70, align 8, !tbaa !17
-  %.not.i74 = icmp eq i64 %171, 0
-  br i1 %.not.i74, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !23
+  %.not.i73 = icmp eq i64 %171, 0
+  br i1 %.not.i73, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !23
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %164
   %.lcssa.i = phi i64 [ %.pr.i, %164 ], [ %171, %.lr.ph.i ]
@@ -2840,7 +2840,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %164
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #9
   br label %int_ossl_asn1_decode0_cons.exit
 
-int_ossl_asn1_decode0_cons.exit:                  ; preds = %rbimpl_intern_const.exit, %rbimpl_intern_const.exit81, %rbimpl_intern_const.exit88, %rbimpl_intern_const.exit95
+int_ossl_asn1_decode0_cons.exit:                  ; preds = %rbimpl_intern_const.exit, %rbimpl_intern_const.exit80, %rbimpl_intern_const.exit87, %rbimpl_intern_const.exit94
   %.0.i68 = phi i64 [ %146, %rbimpl_intern_const.exit95 ], [ %153, %rbimpl_intern_const.exit88 ], [ %163, %rbimpl_intern_const.exit81 ], [ %172, %rbimpl_intern_const.exit ]
   %173 = load i64, ptr @sivINDEFINITE_LENGTH, align 8, !tbaa !17
   %. = select i1 %105, i64 20, i64 0
@@ -2849,7 +2849,7 @@ int_ossl_asn1_decode0_cons.exit:                  ; preds = %rbimpl_intern_const
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #9
   %176 = add nsw i64 %.2, %51
   %.pr = load i64, ptr %25, align 8, !tbaa !17
-  br label %331
+  br label %333
 
 177:                                              ; preds = %97
   %178 = and i32 %30, 1
@@ -3162,8 +3162,8 @@ decode_time.exit.i:                               ; preds = %282
 300:                                              ; preds = %293
   %301 = getelementptr inbounds [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %299, i32 1
   %302 = load ptr, ptr %301, align 8, !tbaa !91
-  %.not.i71 = icmp eq ptr %302, null
-  br i1 %.not.i71, label %._crit_edge.i, label %303
+  %.not.not.i = icmp eq ptr %302, null
+  br i1 %.not.not.i, label %._crit_edge.i, label %303
 
 303:                                              ; preds = %300
   %304 = icmp eq i32 %185, 0
@@ -3190,90 +3190,90 @@ decode_time.exit.i:                               ; preds = %282
   %310 = load i64, ptr %302, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #9
   store i64 %.0.i70, ptr %16, align 16, !tbaa !17
-  %311 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %312 = shl nsw i64 %299, 1
-  %313 = or disjoint i64 %312, 1
-  store i64 %313, ptr %311, align 8, !tbaa !17
-  %314 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 4, ptr %314, align 16, !tbaa !17
-  %315 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 %.0, ptr %315, align 8, !tbaa !17
+  %313 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %314 = shl nsw i64 %299, 1
+  %315 = or disjoint i64 %314, 1
+  store i64 %315, ptr %313, align 8, !tbaa !17
+  %316 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 4, ptr %316, align 16, !tbaa !17
+  %317 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store i64 %.0, ptr %317, align 8, !tbaa !17
   %.pr.i79.i = load i64, ptr @int_ossl_asn1_decode0_prim.rbimpl_id.72, align 8, !tbaa !17
   %.not4.i80.i = icmp eq i64 %.pr.i79.i, 0
   br i1 %.not4.i80.i, label %.lr.ph.i82.i, label %.loopexit.i
 
 .lr.ph.i82.i:                                     ; preds = %309, %.lr.ph.i82.i
-  %316 = call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 3) #9
-  store i64 %316, ptr @int_ossl_asn1_decode0_prim.rbimpl_id.72, align 8, !tbaa !17
-  %.not.i83.i = icmp eq i64 %316, 0
+  %318 = call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 3) #9
+  store i64 %318, ptr @int_ossl_asn1_decode0_prim.rbimpl_id.72, align 8, !tbaa !17
+  %.not.i83.i = icmp eq i64 %318, 0
   br i1 %.not.i83.i, label %.lr.ph.i82.i, label %.loopexit.i, !llvm.loop !23
 
 .loopexit.i:                                      ; preds = %.lr.ph.i82.i, %309
-  %.lcssa.i81.i = phi i64 [ %.pr.i79.i, %309 ], [ %316, %.lr.ph.i82.i ]
-  %317 = call i64 @rb_funcallv_public(i64 noundef %310, i64 noundef %.lcssa.i81.i, i32 noundef 4, ptr noundef nonnull %16) #9
+  %.lcssa.i81.i = phi i64 [ %.pr.i79.i, %309 ], [ %318, %.lr.ph.i82.i ]
+  %319 = call i64 @rb_funcallv_public(i64 noundef %310, i64 noundef %.lcssa.i81.i, i32 noundef 4, ptr noundef nonnull %16) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #9
-  %318 = icmp eq i32 %185, 3
-  br i1 %318, label %rb_long2num_inline.exit.i, label %int_ossl_asn1_decode0_prim.exit
+  %320 = icmp eq i32 %185, 3
+  br i1 %320, label %rb_long2num_inline.exit.i, label %int_ossl_asn1_decode0_prim.exit
 
 rb_long2num_inline.exit.i:                        ; preds = %.loopexit.i
-  %319 = load i64, ptr @sivUNUSED_BITS, align 8, !tbaa !17
-  %320 = call i64 @rb_ivar_set(i64 noundef %317, i64 noundef %319, i64 noundef %.092.i) #9
+  %321 = load i64, ptr @sivUNUSED_BITS, align 8, !tbaa !17
+  %322 = call i64 @rb_ivar_set(i64 noundef %319, i64 noundef %321, i64 noundef %.092.i) #9
   br label %int_ossl_asn1_decode0_prim.exit
 
 ._crit_edge.i:                                    ; preds = %300, %293
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #9
   store i64 %.0.i70, ptr %17, align 16, !tbaa !17
-  %321 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %322 = shl nsw i64 %299, 1
-  %323 = or disjoint i64 %322, 1
-  store i64 %323, ptr %321, align 8, !tbaa !17
-  %324 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %.0, ptr %324, align 16, !tbaa !17
-  %325 = load i64, ptr @cASN1Data, align 8, !tbaa !17
+  %323 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %324 = shl nsw i64 %299, 1
+  %325 = or disjoint i64 %324, 1
+  store i64 %325, ptr %323, align 8, !tbaa !17
+  %326 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 %.0, ptr %326, align 16, !tbaa !17
+  %327 = load i64, ptr @cASN1Data, align 8, !tbaa !17
   %.pr.i86.i = load i64, ptr @int_ossl_asn1_decode0_prim.rbimpl_id.73, align 8, !tbaa !17
   %.not4.i87.i = icmp eq i64 %.pr.i86.i, 0
   br i1 %.not4.i87.i, label %.lr.ph.i89.i, label %rbimpl_intern_const.exit91.i
 
 .lr.ph.i89.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i89.i
-  %326 = call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 3) #9
-  store i64 %326, ptr @int_ossl_asn1_decode0_prim.rbimpl_id.73, align 8, !tbaa !17
-  %.not.i90.i = icmp eq i64 %326, 0
+  %328 = call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 3) #9
+  store i64 %328, ptr @int_ossl_asn1_decode0_prim.rbimpl_id.73, align 8, !tbaa !17
+  %.not.i90.i = icmp eq i64 %328, 0
   br i1 %.not.i90.i, label %.lr.ph.i89.i, label %rbimpl_intern_const.exit91.i, !llvm.loop !23
 
 rbimpl_intern_const.exit91.i:                     ; preds = %.lr.ph.i89.i, %._crit_edge.i
-  %.lcssa.i88.i = phi i64 [ %.pr.i86.i, %._crit_edge.i ], [ %326, %.lr.ph.i89.i ]
-  %327 = call i64 @rb_funcallv_public(i64 noundef %325, i64 noundef %.lcssa.i88.i, i32 noundef 3, ptr noundef nonnull %17) #9
+  %.lcssa.i88.i = phi i64 [ %.pr.i86.i, %._crit_edge.i ], [ %328, %.lr.ph.i89.i ]
+  %329 = call i64 @rb_funcallv_public(i64 noundef %327, i64 noundef %.lcssa.i88.i, i32 noundef 3, ptr noundef nonnull %17) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #9
   br label %int_ossl_asn1_decode0_prim.exit
 
 int_ossl_asn1_decode0_prim.exit:                  ; preds = %.thread.i, %.loopexit.i, %rb_long2num_inline.exit.i, %rbimpl_intern_const.exit91.i
-  %.1.i = phi i64 [ %327, %rbimpl_intern_const.exit91.i ], [ %317, %rb_long2num_inline.exit.i ], [ %317, %.loopexit.i ], [ %308, %.thread.i ]
-  %328 = load i64, ptr %25, align 8, !tbaa !17
-  %329 = add i64 %51, %28
-  %330 = add i64 %329, %328
-  br label %331
+  %.1.i = phi i64 [ %329, %rbimpl_intern_const.exit91.i ], [ %319, %rb_long2num_inline.exit.i ], [ %319, %.loopexit.i ], [ %308, %.thread.i ]
+  %330 = load i64, ptr %25, align 8, !tbaa !17
+  %331 = add i64 %51, %28
+  %332 = add i64 %331, %330
+  br label %333
 
-331:                                              ; preds = %int_ossl_asn1_decode0_cons.exit, %int_ossl_asn1_decode0_prim.exit
-  %332 = phi i64 [ %.pr, %int_ossl_asn1_decode0_cons.exit ], [ %328, %int_ossl_asn1_decode0_prim.exit ]
-  %.0106 = phi i64 [ %176, %int_ossl_asn1_decode0_cons.exit ], [ %294, %int_ossl_asn1_decode0_prim.exit ]
-  %.0105 = phi i64 [ %175, %int_ossl_asn1_decode0_cons.exit ], [ %330, %int_ossl_asn1_decode0_prim.exit ]
+333:                                              ; preds = %int_ossl_asn1_decode0_cons.exit, %int_ossl_asn1_decode0_prim.exit
+  %334 = phi i64 [ %.pr, %int_ossl_asn1_decode0_cons.exit ], [ %330, %int_ossl_asn1_decode0_prim.exit ]
+  %.0105 = phi i64 [ %176, %int_ossl_asn1_decode0_cons.exit ], [ %294, %int_ossl_asn1_decode0_prim.exit ]
+  %.0104 = phi i64 [ %175, %int_ossl_asn1_decode0_cons.exit ], [ %332, %int_ossl_asn1_decode0_prim.exit ]
   %.045 = phi i64 [ %.0.i68, %int_ossl_asn1_decode0_cons.exit ], [ %.1.i, %int_ossl_asn1_decode0_prim.exit ]
-  store i64 %.0106, ptr %5, align 8, !tbaa !17
-  %.not56 = icmp eq i64 %332, 0
-  br i1 %.not56, label %337, label %333
-
-333:                                              ; preds = %331
-  %334 = add nsw i64 %332, %51
-  %.not57 = icmp eq i64 %.0106, %334
-  br i1 %.not57, label %337, label %335
+  store i64 %.0105, ptr %5, align 8, !tbaa !17
+  %.not56 = icmp eq i64 %334, 0
+  br i1 %.not56, label %339, label %335
 
 335:                                              ; preds = %333
-  %336 = load i64, ptr @eASN1Error, align 8, !tbaa !17
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %336, ptr noundef nonnull @.str.66, i64 noundef %.0106, i64 noundef %334) #10
+  %336 = add nsw i64 %334, %51
+  %.not57 = icmp eq i64 %.0105, %336
+  br i1 %.not57, label %339, label %337
+
+337:                                              ; preds = %335
+  %338 = load i64, ptr @eASN1Error, align 8, !tbaa !17
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %338, ptr noundef nonnull @.str.66, i64 noundef %.0105, i64 noundef %336) #10
   unreachable
 
-337:                                              ; preds = %333, %331
-  store i64 %.0105, ptr %2, align 8, !tbaa !17
+339:                                              ; preds = %335, %333
+  store i64 %.0104, ptr %2, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #9

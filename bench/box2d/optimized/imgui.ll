@@ -1919,69 +1919,69 @@ define dso_local noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1
   %17 = icmp ult ptr %16, %.0
   br i1 %17, label %18, label %20
 
-18:                                               ; preds = %3
-  %19 = load i8, ptr %16, align 1, !tbaa !205
-  br label %20
+20:                                               ; preds = %3
+  %21 = load i8, ptr %16, align 1, !tbaa !205
+  br label %22
 
-20:                                               ; preds = %3, %18
-  %21 = phi i8 [ %19, %18 ], [ 0, %3 ]
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %23 = icmp ult ptr %22, %.0
-  br i1 %23, label %24, label %26
+22:                                               ; preds = %3, %20
+  %23 = phi i8 [ %21, %18 ], [ 0, %3 ]
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %25 = icmp ult ptr %24, %.0
+  br i1 %25, label %26, label %28
 
-24:                                               ; preds = %20
-  %25 = load i8, ptr %22, align 1, !tbaa !205
-  br label %26
+26:                                               ; preds = %22
+  %27 = load i8, ptr %24, align 1, !tbaa !205
+  br label %28
 
-26:                                               ; preds = %20, %24
-  %27 = phi i8 [ %25, %24 ], [ 0, %20 ]
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %29 = icmp ult ptr %28, %.0
-  br i1 %29, label %30, label %32
+28:                                               ; preds = %22, %26
+  %29 = phi i8 [ %27, %24 ], [ 0, %20 ]
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %31 = icmp ult ptr %30, %.0
+  br i1 %31, label %32, label %34
 
-30:                                               ; preds = %26
-  %31 = load i8, ptr %28, align 1, !tbaa !205
-  br label %32
+32:                                               ; preds = %28
+  %33 = load i8, ptr %30, align 1, !tbaa !205
+  br label %34
 
-32:                                               ; preds = %26, %30
-  %33 = phi i8 [ %31, %30 ], [ 0, %26 ]
-  %34 = zext i8 %spec.select to i32
-  %35 = sext i8 %8 to i64
-  %36 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E5masks, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !221
-  %38 = and i32 %37, %34
-  %39 = shl nuw nsw i32 %38, 18
-  %40 = zext i8 %21 to i32
-  %41 = shl nuw nsw i32 %40, 12
-  %42 = and i32 %41, 258048
-  %43 = or disjoint i32 %39, %42
-  %44 = zext i8 %27 to i32
-  %45 = shl nuw nsw i32 %44, 6
-  %46 = and i32 %45, 4032
-  %47 = or disjoint i32 %43, %46
-  %48 = zext i8 %33 to i32
-  %49 = and i32 %48, 63
-  %50 = or disjoint i32 %47, %49
-  %51 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shiftc, i64 0, i64 %35
-  %52 = load i32, ptr %51, align 4, !tbaa !221
-  %53 = lshr i32 %50, %52
-  store i32 %53, ptr %0, align 4, !tbaa !221
-  %54 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E4mins, i64 0, i64 %35
-  %55 = load i32, ptr %54, align 4, !tbaa !221
-  %56 = icmp ult i32 %53, %55
-  %57 = select i1 %56, i32 64, i32 0
-  %.mask = and i32 %53, 2147481600
-  %58 = icmp eq i32 %.mask, 55296
-  %59 = select i1 %58, i32 128, i32 0
-  %60 = icmp samesign ugt i32 %53, 65535
-  %61 = select i1 %60, i32 256, i32 0
-  %62 = lshr i32 %40, 2
-  %63 = and i32 %62, 48
-  %64 = lshr i32 %44, 4
-  %65 = and i32 %64, 12
-  %66 = lshr i32 %48, 6
-  %67 = or disjoint i32 %65, %63
-  %68 = or disjoint i32 %67, %66
+34:                                               ; preds = %28, %32
+  %35 = phi i8 [ %33, %30 ], [ 0, %26 ]
+  %36 = zext i8 %spec.select to i32
+  %37 = sext i8 %8 to i64
+  %38 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E5masks, i64 0, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !221
+  %40 = and i32 %39, %36
+  %41 = shl nuw nsw i32 %40, 18
+  %42 = zext i8 %23 to i32
+  %43 = shl nuw nsw i32 %42, 12
+  %44 = and i32 %43, 258048
+  %45 = or disjoint i32 %41, %44
+  %46 = zext i8 %29 to i32
+  %47 = shl nuw nsw i32 %46, 6
+  %48 = and i32 %47, 4032
+  %49 = or disjoint i32 %45, %48
+  %50 = zext i8 %35 to i32
+  %51 = and i32 %50, 63
+  %52 = or disjoint i32 %49, %51
+  %53 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shiftc, i64 0, i64 %37
+  %54 = load i32, ptr %53, align 4, !tbaa !221
+  %55 = lshr i32 %52, %54
+  store i32 %55, ptr %0, align 4, !tbaa !221
+  %56 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E4mins, i64 0, i64 %37
+  %57 = load i32, ptr %56, align 4, !tbaa !221
+  %58 = icmp ult i32 %55, %57
+  %59 = select i1 %58, i32 64, i32 0
+  %.mask = and i32 %55, 2147481600
+  %60 = icmp eq i32 %.mask, 55296
+  %61 = select i1 %60, i32 128, i32 0
+  %62 = icmp samesign ugt i32 %55, 65535
+  %63 = select i1 %62, i32 256, i32 0
+  %64 = lshr i32 %42, 2
+  %65 = and i32 %64, 48
+  %66 = lshr i32 %46, 4
+  %67 = and i32 %66, 12
+  %68 = lshr i32 %50, 6
+  %69 = or disjoint i32 %67, %65
+  %70 = or disjoint i32 %69, %68
   %69 = or disjoint i32 %68, %57
   %70 = or disjoint i32 %69, %61
   %71 = or disjoint i32 %70, %59
@@ -1992,9 +1992,9 @@ define dso_local noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1
   %.not53 = icmp eq i32 %75, 0
   br i1 %.not53, label %89, label %76
 
-76:                                               ; preds = %32
+76:; preds = %32
   %77 = icmp ne i8 %spec.select, 0
-  %78 = zext i1 %77 to i32
+  %78 = zext i1 %77 to i34
   %79 = icmp ne i8 %21, 0
   %80 = zext i1 %79 to i32
   %81 = add nuw nsw i32 %80, %78
@@ -2006,9 +2006,9 @@ define dso_local noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1
   %87 = add nuw nsw i32 %84, %86
   %88 = tail call noundef i32 @llvm.smin.i32(i32 %11, i32 %87)
   store i32 65533, ptr %0, align 4, !tbaa !221
-  br label %89
+  br label %91
 
-89:                                               ; preds = %76, %32
+91:                                               ; preds = %76, %34
   %.047 = phi i32 [ %88, %76 ], [ %11, %32 ]
   ret i32 %.047
 }

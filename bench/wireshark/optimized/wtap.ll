@@ -1822,7 +1822,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define ptr @wtap_strerror(i32 noundef %0) local_unnamed_addr #12 {
   %2 = icmp slt i32 %0, 0
-  br i1 %2, label %3, label %13
+  br i1 %2, label %3, label %15
 
 3:                                                ; preds = %1
   %4 = icmp samesign ult i32 %0, -27
@@ -1830,22 +1830,22 @@ define ptr @wtap_strerror(i32 noundef %0) local_unnamed_addr #12 {
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @wtap_strerror.errbuf, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull @.str.30, i32 noundef %0)
-  br label %15
+  br label %17
 
 7:                                                ; preds = %3
   %8 = xor i32 %0, -1
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr [27 x ptr], ptr @wtap_errlist, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
+  %.not = icmp eq ptr %11, null
   %.str.31. = select i1 %12, ptr @.str.31, ptr %11
   br label %15
 
-13:                                               ; preds = %1
-  %14 = tail call ptr @g_strerror(i32 noundef %0) #22
-  br label %15
+15:                                               ; preds = %1
+  %16 = tail call ptr @g_strerror(i32 noundef %0) #22
+  br label %17
 
-15:                                               ; preds = %7, %13, %5
+17:                                               ; preds = %7, %15, %5
   %.0 = phi ptr [ @wtap_strerror.errbuf, %5 ], [ %14, %13 ], [ %.str.31., %7 ]
   ret ptr %.0
 }

@@ -138,7 +138,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
     i32 32, label %.lr.ph129
   ]
 
-63:                                               ; preds = %57, %.lr.ph129
+.lr.ph129.preheader:                              ; preds = %57, %.lr.ph129
   tail call void @_efree(ptr noundef nonnull %16) #9
   br label %83
 

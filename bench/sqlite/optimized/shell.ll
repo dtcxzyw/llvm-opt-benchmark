@@ -4831,7 +4831,7 @@ skipNonB64.exit.i:                                ; preds = %139, %thread-pre-sp
   %153 = icmp eq i8 %152, 0
   br i1 %153, label %fromBase64.exit, label %154
 
-154:                                              ; preds = %skipNonB64.exit.i
+154: ; preds = %skipNonB64.exit.i
   %155 = sub nsw i32 %148, %149
   %156 = sext i8 %152 to i32
   br label %157
@@ -5197,11 +5197,11 @@ toBase85.exit:                                    ; preds = %95, %.lr.ph.i66.pre
   %126 = icmp eq i8 %125, 10
   %127 = sext i1 %126 to i32
   %spec.select.i = add nsw i32 %5, %127
-  %.not.i53 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not.i53, label %fromBase85.exit, label %.lr.ph88.i
+  %.not95.i = icmp eq i32 %spec.select.i, 0
+  br i1 %.not95.i, label %fromBase85.exit, label %.lr.ph88.i
 
 .lr.ph88.i:                                       ; preds = %121, %193
-  %.087.i = phi ptr [ %.3.i55, %193 ], [ %111, %121 ]
+  %.087.i = phi ptr [ %.3.i54, %193 ], [ %111, %121 ]
   %.14186.i = phi i32 [ %.4.i, %193 ], [ %spec.select.i, %121 ]
   %.05285.i = phi ptr [ %.254.i, %193 ], [ %118, %121 ]
   %128 = zext nneg i32 %.14186.i to i64
@@ -5234,8 +5234,8 @@ skipNonB85.exit.i:                                ; preds = %138, %132, %129
   %.0.lcssa.i.i = phi ptr [ %.09.i.i, %129 ], [ %scevgep.i.i, %138 ], [ %.09.i.i, %132 ]
   %141 = ptrtoint ptr %.0.lcssa.i.i to i64
   %142 = ptrtoint ptr %.087.i to i64
-  %.neg.i54 = sub i64 %142, %141
-  %143 = trunc i64 %.neg.i54 to i32
+  %.neg.i53 = sub i64 %142, %141
+  %143 = trunc i64 %.neg.i53 to i32
   %144 = add i32 %.14186.i, %143
   %145 = tail call i32 @llvm.smin.i32(i32 %144, i32 5)
   %146 = sext i32 %145 to i64
@@ -5247,9 +5247,9 @@ skipNonB85.exit.i:                                ; preds = %138, %132, %129
 
 .preheader.i:                                     ; preds = %skipNonB85.exit.i
   %151 = icmp sgt i32 %144, 0
-  br i1 %151, label %.lr.ph.i56, label %.thread.i
+  br i1 %151, label %.lr.ph.i55, label %.thread.i
 
-.lr.ph.i56:                                       ; preds = %.preheader.i, %169
+.lr.ph.i55:                                       ; preds = %.preheader.i, %167
   %.276.i = phi ptr [ %152, %169 ], [ %.0.lcssa.i.i, %.preheader.i ]
   %.34375.i = phi i32 [ %167, %169 ], [ %144, %.preheader.i ]
   %.04674.i = phi i32 [ %175, %169 ], [ %145, %.preheader.i ]
@@ -5273,7 +5273,7 @@ skipNonB85.exit.i:                                ; preds = %138, %132, %129
   %168 = icmp eq i8 %166, 0
   br i1 %168, label %.thread.i, label %169
 
-169:                                              ; preds = %.lr.ph.i56
+167:                                              ; preds = %.lr.ph.i55
   %170 = zext i8 %166 to i64
   %171 = sext i8 %153 to i64
   %172 = mul i64 %.04973.i, 85
@@ -5281,13 +5281,13 @@ skipNonB85.exit.i:                                ; preds = %138, %132, %129
   %174 = sub i64 %173, %170
   %175 = add nsw i32 %.04674.i, -1
   %176 = icmp sgt i32 %.04674.i, 1
-  br i1 %176, label %.lr.ph.i56, label %.thread.i
+  br i1 %176, label %.lr.ph.i55, label %.thread.i
 
-.thread.i:                                        ; preds = %169, %.lr.ph.i56, %.preheader.i
+.thread.i:                                        ; preds = %167, %.lr.ph.i55, %.preheader.i
   %.049.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %174, %169 ], [ %.04973.i, %.lr.ph.i56 ]
   %.046.lcssa.i = phi i32 [ %145, %.preheader.i ], [ 0, %169 ], [ %.04674.i, %.lr.ph.i56 ]
   %.4.i = phi i32 [ %144, %.preheader.i ], [ %167, %.lr.ph.i56 ], [ %167, %169 ]
-  %.3.i55 = phi ptr [ %.0.lcssa.i.i, %.preheader.i ], [ %152, %.lr.ph.i56 ], [ %152, %169 ]
+  %.3.i54 = phi ptr [ %.0.lcssa.i.i, %.preheader.i ], [ %152, %.lr.ph.i56 ], [ %152, %169 ]
   %177 = sub nsw i32 %149, %.046.lcssa.i
   switch i32 %177, label %193 [
     i32 4, label %178

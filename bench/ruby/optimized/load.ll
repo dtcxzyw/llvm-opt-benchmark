@@ -2420,11 +2420,11 @@ select.unfold:                                    ; preds = %75, %.thread172, %.
 .thread192:                                       ; preds = %96
   store ptr %102, ptr %5, align 8, !tbaa !98
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #7
-  br label %152
+  br label %151
 
 103:                                              ; preds = %96
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #7
-  br i1 %.not159, label %104, label %152
+  br i1 %.not159, label %104, label %151
 
 104:                                              ; preds = %103, %89, %.critedge
   %105 = ptrtoint ptr %1 to i64
@@ -2433,13 +2433,13 @@ select.unfold:                                    ; preds = %75, %.thread172, %.
   br i1 %.not160, label %111, label %107
 
 107:                                              ; preds = %104
-  br i1 %.not, label %152, label %108
+  br i1 %.not, label %151, label %108
 
 108:                                              ; preds = %107
   %109 = load i64, ptr %8, align 8, !tbaa !42
   %110 = inttoptr i64 %109 to ptr
   store ptr %110, ptr %5, align 8, !tbaa !98
-  br label %152
+  br label %151
 
 111:                                              ; preds = %104
   br i1 %12, label %112, label %114
@@ -2477,8 +2477,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %124 = ptrtoint ptr %.sroa.2.0.i to i64
   br label %125
 
-125:                                              ; preds = %ruby_nonempty_memcpy.exit, %136
-  %126 = phi ptr [ @.str.17, %ruby_nonempty_memcpy.exit ], [ %139, %136 ]
+125:                                              ; preds = %ruby_nonempty_memcpy.exit, %137
+  %.0130203 = phi ptr [ @.str.17, %ruby_nonempty_memcpy.exit ], [ %139, %136 ]
   %.0130203 = phi i64 [ 0, %ruby_nonempty_memcpy.exit ], [ %137, %136 ]
   %127 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %123, ptr noundef nonnull dereferenceable(1) %126, i64 noundef 4) #7
   %128 = call i32 @rb_st_get_key(ptr noundef %.val167, i64 noundef %124, ptr noundef nonnull %8) #7
@@ -2497,53 +2497,53 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
 
 134:                                              ; preds = %131, %129
   %.not165 = icmp eq i64 %.0130203, 0
-  %135 = select i1 %.not165, i32 114, i32 115
+  %136 = select i1 %.not165, i32 114, i32 115
   br label %.thread186
 
-136:                                              ; preds = %125
-  %137 = add nuw nsw i64 %.0130203, 1
-  %138 = getelementptr [3 x ptr], ptr @loadable_ext, i64 0, i64 %137
+137:                                              ; preds = %125
+  %138 = add nuw nsw i64 %.0130203, 1
+  %138 = getelementptr [3 x ptr], ptr @loadable_ext, i64 0, i64 %138
   %139 = load ptr, ptr %138, align 8, !tbaa !98
   %exitcond = icmp eq i64 %137, 2
   br i1 %exitcond, label %.preheader, label %125, !llvm.loop !181
 
-140:                                              ; preds = %.preheader
-  br i1 %141, label %.preheader, label %150, !llvm.loop !182
+139:                                              ; preds = %.preheader
+  br i1 %140, label %.preheader, label %149, !llvm.loop !182
 
-.preheader:                                       ; preds = %136, %140
-  %141 = phi i1 [ false, %140 ], [ true, %136 ]
+.preheader:                                       ; preds = %137, %139
+  %140 = phi i1 [ false, %140 ], [ true, %136 ]
   %.1131204 = phi i64 [ 1, %140 ], [ 0, %136 ]
-  %142 = getelementptr [2 x [4 x i8]], ptr @rb_feature_p.so_ext, i64 0, i64 %.1131204
-  %143 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %123, ptr noundef nonnull dereferenceable(1) %142, i64 noundef 4) #7
-  %144 = call i32 @rb_st_get_key(ptr noundef %.val167, i64 noundef %124, ptr noundef nonnull %8) #7
-  %.not163 = icmp eq i32 %144, 0
-  br i1 %.not163, label %140, label %145
+  %141 = getelementptr [2 x [4 x i8]], ptr @rb_feature_p.so_ext, i64 0, i64 %.1131204
+  %142 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %123, ptr noundef nonnull dereferenceable(1) %141, i64 noundef 4) #7
+  %143 = call i32 @rb_st_get_key(ptr noundef %.val167, i64 noundef %124, ptr noundef nonnull %8) #7
+  %.not163 = icmp eq i32 %143, 0
+  br i1 %.not163, label %139, label %144
 
-145:                                              ; preds = %.preheader
-  %146 = call i64 @rb_str_resize(i64 noundef %116, i64 noundef 0) #7
-  br i1 %.not, label %.thread186, label %147
+144:                                              ; preds = %.preheader
+  %145 = call i64 @rb_str_resize(i64 noundef %116, i64 noundef 0) #7
+  br i1 %.not, label %.thread186, label %146
 
-147:                                              ; preds = %145
-  %148 = load i64, ptr %8, align 8, !tbaa !42
-  %149 = inttoptr i64 %148 to ptr
-  store ptr %149, ptr %5, align 8, !tbaa !98
+146:                                              ; preds = %144
+  %147 = load i64, ptr %8, align 8, !tbaa !42
+  %148 = inttoptr i64 %147 to ptr
+  store ptr %148, ptr %5, align 8, !tbaa !98
   br label %.thread186
 
-150:                                              ; preds = %140
-  %151 = call i64 @rb_str_resize(i64 noundef %116, i64 noundef 0) #7
+149:                                              ; preds = %139
+  %150 = call i64 @rb_str_resize(i64 noundef %116, i64 noundef 0) #7
   br label %.thread186
 
-152:                                              ; preds = %103, %.thread192, %107, %108
-  br i1 %12, label %153, label %.thread186
+151:                                              ; preds = %103, %.thread192, %107, %108
+  br i1 %12, label %152, label %.thread186
 
-153:                                              ; preds = %152
-  %154 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.17) #25
-  %.not166 = icmp eq i32 %154, 0
-  %155 = select i1 %.not166, i32 114, i32 115
+152:                                              ; preds = %151
+  %153 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.17) #25
+  %.not166 = icmp eq i32 %153, 0
+  %154 = select i1 %.not166, i32 114, i32 115
   br label %.thread186
 
-.thread186:                                       ; preds = %.thread172, %77, %.tail, %75, %145, %147, %112, %134, %150, %152, %153
-  %.3 = phi i32 [ %155, %153 ], [ 117, %152 ], [ 0, %150 ], [ 115, %145 ], [ 115, %147 ], [ 0, %112 ], [ %135, %134 ], [ 117, %75 ], [ 115, %.tail ], [ 115, %77 ], [ 114, %.thread172 ]
+.thread186:                                       ; preds = %.thread172, %77, %.tail, %75, %144, %146, %112, %134, %149, %151, %152
+  %.3 = phi i32 [ %154, %153 ], [ 117, %152 ], [ 0, %150 ], [ 115, %145 ], [ 115, %147 ], [ 0, %112 ], [ %136, %134 ], [ 117, %75 ], [ 115, %.tail ], [ 115, %77 ], [ 114, %.thread172 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   ret i32 %.3

@@ -1482,8 +1482,8 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15parse_from_lineEPc(ptr no
   store ptr %0, ptr %12, align 8
   %18 = load i8, ptr %0, align 1
   switch i8 %18, label %19 [
-    i8 0, label %325
-    i8 35, label %325
+    i8 0, label %327
+    i8 35, label %327
   ]
 
 19:                                               ; preds = %1
@@ -1572,11 +1572,11 @@ _ZL17match_option_namePKcPiPci.exit:              ; preds = %.preheader.i
   %71 = phi ptr [ %39, %_ZL17match_option_namePKcPiPci.exit.thread ], [ %56, %_ZL17match_option_namePKcPiPci.exit ]
   %72 = phi ptr [ %38, %_ZL17match_option_namePKcPiPci.exit.thread ], [ %55, %_ZL17match_option_namePKcPiPci.exit ]
   call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
-  br label %311
+  br label %313
 
 73:                                               ; preds = %_ZL17match_option_namePKcPiPci.exit
   store i8 1, ptr @_ZN14CompilerOracle6_quietE, align 1
-  br label %311
+  br label %313
 
 74:                                               ; preds = %_ZL17match_option_namePKcPiPci.exit
   %75 = load ptr, ptr @tty, align 8
@@ -1753,7 +1753,7 @@ _ZL17match_option_namePKcPiPci.exit:              ; preds = %.preheader.i
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %160, ptr noundef nonnull @.str.112) #19
   %161 = load ptr, ptr @tty, align 8
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %161) #19
-  br label %311
+  br label %313
 
 162:                                              ; preds = %_ZL17match_option_namePKcPiPci.exit
   %163 = load i8, ptr %51, align 1
@@ -1772,7 +1772,7 @@ _ZL10skip_commaRPc.exit:                          ; preds = %162, %165
 
 169:                                              ; preds = %_ZL10skip_commaRPc.exit
   call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
-  br label %311
+  br label %313
 
 170:                                              ; preds = %_ZL10skip_commaRPc.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -1789,7 +1789,7 @@ _ZL10skip_commaRPc.exit:                          ; preds = %162, %165
   %178 = icmp eq i32 %177, 1
   br i1 %178, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %170, %269
+.lr.ph:                                           ; preds = %170, %270
   %179 = load i32, ptr %13, align 4
   %180 = load ptr, ptr %12, align 8
   %181 = sext i32 %179 to i64
@@ -1920,7 +1920,7 @@ _ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit: 
 
 238:                                              ; preds = %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
   call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
-  br label %311
+  br label %313
 
 239:                                              ; preds = %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
   %240 = load i32, ptr %13, align 4
@@ -1928,7 +1928,7 @@ _ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit: 
   %242 = sext i32 %240 to i64
   %243 = getelementptr inbounds i8, ptr %241, i64 %242
   store ptr %243, ptr %12, align 8
-  br label %269
+  br label %270
 
 _ZN14CompilerOracle17parse_option_typeEPKc.exit.thread: ; preds = %189, %_ZN14CompilerOracle17parse_option_typeEPKc.exit
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
@@ -1968,158 +1968,158 @@ _ZL17match_option_namePKcPiPci.exit48:            ; preds = %.preheader.i43
 
 .loopexit:                                        ; preds = %_ZL17match_option_namePKcPiPci.exit48, %_ZL17match_option_namePKcPiPci.exit48.thread
   call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
-  br label %311
+  br label %313
 
 256:                                              ; preds = %_ZL17match_option_namePKcPiPci.exit48
   %sext67 = shl i64 %indvars.iv.i44, 32
   %257 = ashr exact i64 %sext67, 32
   %258 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %257
   %259 = load i32, ptr %258, align 4
-  %260 = icmp eq i32 %259, 2
-  br i1 %260, label %261, label %262
+  %.not68 = icmp eq i32 %259, 2
+  br i1 %.not68, label %261, label %262
 
-261:                                              ; preds = %256
+260:                                              ; preds = %256
   call fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %183, i32 noundef %254, i1 noundef zeroext true)
   %.pre = load ptr, ptr %12, align 8
-  br label %269
+  br label %270
 
-262:                                              ; preds = %256
+261:                                              ; preds = %256
   %263 = sext i32 %259 to i64
   %264 = getelementptr inbounds [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %263
   %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %257
-  %267 = load ptr, ptr %266, align 8
+  %265 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %257
+  %266 = load ptr, ptr %265, align 8
   %268 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.22, ptr noundef %265, ptr noundef %267) #19
   call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
-  br label %311
+  br label %313
 
-269:                                              ; preds = %261, %239
-  %270 = phi ptr [ %.pre, %261 ], [ %243, %239 ]
+270:                                              ; preds = %260, %239
+  %271 = phi ptr [ %.pre, %261 ], [ %243, %239 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  %271 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %270, ptr noundef nonnull @.str.115, ptr noundef nonnull %3) #19
-  %272 = load i32, ptr %3, align 4
-  %273 = load ptr, ptr %12, align 8
-  %274 = sext i32 %272 to i64
-  %275 = getelementptr inbounds i8, ptr %273, i64 %274
-  store ptr %275, ptr %12, align 8
+  %272 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %271, ptr noundef nonnull @.str.115, ptr noundef nonnull %3) #19
+  %273 = load i32, ptr %3, align 4
+  %274 = load ptr, ptr %12, align 8
+  %275 = sext i32 %273 to i64
+  %276 = getelementptr inbounds i8, ptr %274, i64 %275
+  store ptr %276, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %276 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %275, ptr noundef nonnull @.str.21, ptr noundef nonnull %15, ptr noundef nonnull %13) #19
-  %277 = icmp eq i32 %276, 1
-  br i1 %277, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %277 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %276, ptr noundef nonnull @.str.21, ptr noundef nonnull %15, ptr noundef nonnull %13) #19
+  %278 = icmp eq i32 %277, 1
+  br i1 %278, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %269, %170
+._crit_edge:                                      ; preds = %270, %170
   call void @_ZN24TypedMethodOptionMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %167) #19
   call void @_Z8FreeHeapPv(ptr noundef nonnull %167) #19
-  br label %311
+  br label %313
 
-278:                                              ; preds = %_ZL17match_option_namePKcPiPci.exit
-  %sext68 = shl i64 %indvars.iv.i, 32
-  %279 = ashr exact i64 %sext68, 32
-  %280 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %279
-  %281 = load i32, ptr %280, align 4
+279:                                              ; preds = %_ZL17match_option_namePKcPiPci.exit
+  %sext69 = shl i64 %indvars.iv.i, 32
+  %280 = ashr exact i64 %sext69, 32
+  %281 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %280
+  %282 = load i32, ptr %281, align 4
   store i32 0, ptr %17, align 4
-  %282 = load i8, ptr %51, align 1
-  %283 = icmp eq i8 %282, 44
-  br i1 %283, label %284, label %_ZL10skip_commaRPc.exit49
+  %283 = load i8, ptr %51, align 1
+  %284 = icmp eq i8 %283, 44
+  br i1 %284, label %285, label %_ZL10skip_commaRPc.exit49
 
-284:                                              ; preds = %278
-  %285 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %285, ptr %12, align 8
+285:                                              ; preds = %279
+  %286 = getelementptr inbounds nuw i8, ptr %51, i64 1
+  store ptr %286, ptr %12, align 8
   br label %_ZL10skip_commaRPc.exit49
 
-_ZL10skip_commaRPc.exit49:                        ; preds = %278, %284
-  %286 = call noundef ptr @_ZN24TypedMethodOptionMatcher20parse_method_patternERPcS0_i(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %14, i32 noundef 1024)
-  %287 = icmp eq ptr %286, null
-  br i1 %287, label %288, label %289
-
-288:                                              ; preds = %_ZL10skip_commaRPc.exit49
-  call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
-  br label %311
+_ZL10skip_commaRPc.exit49:                        ; preds = %279, %285
+  %287 = call noundef ptr @_ZN24TypedMethodOptionMatcher20parse_method_patternERPcS0_i(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %14, i32 noundef 1024)
+  %288 = icmp eq ptr %287, null
+  br i1 %288, label %289, label %290
 
 289:                                              ; preds = %_ZL10skip_commaRPc.exit49
+  call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
+  br label %313
+
+290:                                              ; preds = %_ZL10skip_commaRPc.exit49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %290 = load ptr, ptr %12, align 8
-  %291 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %290, ptr noundef nonnull @.str.115, ptr noundef nonnull %2) #19
-  %292 = load i32, ptr %2, align 4
-  %293 = load ptr, ptr %12, align 8
-  %294 = sext i32 %292 to i64
-  %295 = getelementptr inbounds i8, ptr %293, i64 %294
-  store ptr %295, ptr %12, align 8
+  %291 = load ptr, ptr %12, align 8
+  %292 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %291, ptr noundef nonnull @.str.115, ptr noundef nonnull %2) #19
+  %293 = load i32, ptr %2, align 4
+  %294 = load ptr, ptr %12, align 8
+  %295 = sext i32 %293 to i64
+  %296 = getelementptr inbounds i8, ptr %294, i64 %295
+  store ptr %296, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %296 = load i8, ptr %295, align 1
-  %297 = icmp eq i8 %296, 0
-  br i1 %297, label %298, label %308
+  %297 = load i8, ptr %296, align 1
+  %298 = icmp eq i8 %297, 0
+  br i1 %298, label %299, label %310
 
-298:                                              ; preds = %289
+299:                                              ; preds = %290
   %299 = icmp eq i32 %281, 2
   br i1 %299, label %300, label %301
 
-300:                                              ; preds = %298
+300:; preds = %298
   call fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef nonnull %286, i32 noundef %47, i1 noundef zeroext true)
   br label %311
 
-301:                                              ; preds = %298
+301:; preds = %298
   %302 = icmp eq i64 %indvars.iv.i, 13
   br i1 %302, label %303, label %304
 
-303:                                              ; preds = %301
+303:; preds = %301
   call fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef nonnull %286, i32 noundef 13, i64 noundef 1)
-  br label %311
+  br label %313
 
-304:                                              ; preds = %301
+304:; preds = %301
   %305 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %279
   %306 = load ptr, ptr %305, align 8
   %307 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.23, ptr noundef %306) #19
   call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
-  br label %311
+  br label %313
 
-308:                                              ; preds = %289
-  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %281, ptr noundef nonnull %295, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull %286, i32 noundef %47, ptr noundef %14)
-  %309 = load i8, ptr %14, align 16
-  %.not = icmp eq i8 %309, 0
-  br i1 %.not, label %311, label %310
+310:                                              ; preds = %290
+  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %282, ptr noundef nonnull %296, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull %287, i32 noundef %47, ptr noundef %14)
+  %311 = load i8, ptr %14, align 16
+  %.not = icmp eq i8 %311, 0
+  br i1 %.not, label %313, label %312
 
-310:                                              ; preds = %308
+312:                                              ; preds = %310
   call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
-  br label %311
+  br label %313
 
-311:                                              ; preds = %._crit_edge, %308, %310, %304, %303, %300, %288, %262, %.loopexit, %238, %169, %74, %73, %64
-  %312 = phi i64 [ %65, %64 ], [ %63, %73 ], [ %63, %74 ], [ %63, %169 ], [ %63, %238 ], [ %63, %.loopexit ], [ %63, %262 ], [ %63, %288 ], [ %63, %300 ], [ %63, %303 ], [ %63, %304 ], [ %63, %310 ], [ %63, %308 ], [ %63, %._crit_edge ]
-  %313 = phi ptr [ %66, %64 ], [ %61, %73 ], [ %61, %74 ], [ %61, %169 ], [ %61, %238 ], [ %61, %.loopexit ], [ %61, %262 ], [ %61, %288 ], [ %61, %300 ], [ %61, %303 ], [ %61, %304 ], [ %61, %310 ], [ %61, %308 ], [ %61, %._crit_edge ]
-  %314 = phi ptr [ %67, %64 ], [ %60, %73 ], [ %60, %74 ], [ %60, %169 ], [ %60, %238 ], [ %60, %.loopexit ], [ %60, %262 ], [ %60, %288 ], [ %60, %300 ], [ %60, %303 ], [ %60, %304 ], [ %60, %310 ], [ %60, %308 ], [ %60, %._crit_edge ]
-  %315 = phi ptr [ %68, %64 ], [ %59, %73 ], [ %59, %74 ], [ %59, %169 ], [ %59, %238 ], [ %59, %.loopexit ], [ %59, %262 ], [ %59, %288 ], [ %59, %300 ], [ %59, %303 ], [ %59, %304 ], [ %59, %310 ], [ %59, %308 ], [ %59, %._crit_edge ]
-  %316 = phi ptr [ %69, %64 ], [ %58, %73 ], [ %58, %74 ], [ %58, %169 ], [ %58, %238 ], [ %58, %.loopexit ], [ %58, %262 ], [ %58, %288 ], [ %58, %300 ], [ %58, %303 ], [ %58, %304 ], [ %58, %310 ], [ %58, %308 ], [ %58, %._crit_edge ]
-  %317 = phi ptr [ %70, %64 ], [ %57, %73 ], [ %57, %74 ], [ %57, %169 ], [ %57, %238 ], [ %57, %.loopexit ], [ %57, %262 ], [ %57, %288 ], [ %57, %300 ], [ %57, %303 ], [ %57, %304 ], [ %57, %310 ], [ %57, %308 ], [ %57, %._crit_edge ]
-  %318 = phi ptr [ %71, %64 ], [ %56, %73 ], [ %56, %74 ], [ %56, %169 ], [ %56, %238 ], [ %56, %.loopexit ], [ %56, %262 ], [ %56, %288 ], [ %56, %300 ], [ %56, %303 ], [ %56, %304 ], [ %56, %310 ], [ %56, %308 ], [ %56, %._crit_edge ]
-  %319 = phi ptr [ %72, %64 ], [ %55, %73 ], [ %55, %74 ], [ %55, %169 ], [ %55, %238 ], [ %55, %.loopexit ], [ %55, %262 ], [ %55, %288 ], [ %55, %300 ], [ %55, %303 ], [ %55, %304 ], [ %55, %310 ], [ %55, %308 ], [ %55, %._crit_edge ]
+313:                                              ; preds = %._crit_edge, %310, %312, %304, %303, %300, %289, %261, %.loopexit, %238, %169, %74, %73, %64
+  %314 = phi i64 [ %65, %64 ], [ %63, %73 ], [ %63, %74 ], [ %63, %169 ], [ %63, %238 ], [ %63, %.loopexit ], [ %63, %262 ], [ %63, %288 ], [ %63, %300 ], [ %63, %303 ], [ %63, %304 ], [ %63, %310 ], [ %63, %308 ], [ %63, %._crit_edge ]
+  %315 = phi ptr [ %66, %64 ], [ %61, %73 ], [ %61, %74 ], [ %61, %169 ], [ %61, %238 ], [ %61, %.loopexit ], [ %61, %262 ], [ %61, %288 ], [ %61, %300 ], [ %61, %303 ], [ %61, %304 ], [ %61, %310 ], [ %61, %308 ], [ %61, %._crit_edge ]
+  %316 = phi ptr [ %67, %64 ], [ %60, %73 ], [ %60, %74 ], [ %60, %169 ], [ %60, %238 ], [ %60, %.loopexit ], [ %60, %262 ], [ %60, %288 ], [ %60, %300 ], [ %60, %303 ], [ %60, %304 ], [ %60, %310 ], [ %60, %308 ], [ %60, %._crit_edge ]
+  %317 = phi ptr [ %68, %64 ], [ %59, %73 ], [ %59, %74 ], [ %59, %169 ], [ %59, %238 ], [ %59, %.loopexit ], [ %59, %262 ], [ %59, %288 ], [ %59, %300 ], [ %59, %303 ], [ %59, %304 ], [ %59, %310 ], [ %59, %308 ], [ %59, %._crit_edge ]
+  %318 = phi ptr [ %69, %64 ], [ %58, %73 ], [ %58, %74 ], [ %58, %169 ], [ %58, %238 ], [ %58, %.loopexit ], [ %58, %262 ], [ %58, %288 ], [ %58, %300 ], [ %58, %303 ], [ %58, %304 ], [ %58, %310 ], [ %58, %308 ], [ %58, %._crit_edge ]
+  %319 = phi ptr [ %70, %64 ], [ %57, %73 ], [ %57, %74 ], [ %57, %169 ], [ %57, %238 ], [ %57, %.loopexit ], [ %57, %262 ], [ %57, %288 ], [ %57, %300 ], [ %57, %303 ], [ %57, %304 ], [ %57, %310 ], [ %57, %308 ], [ %57, %._crit_edge ]
+  %320 = phi ptr [ %71, %64 ], [ %56, %73 ], [ %56, %74 ], [ %56, %169 ], [ %56, %238 ], [ %56, %.loopexit ], [ %56, %262 ], [ %56, %288 ], [ %56, %300 ], [ %56, %303 ], [ %56, %304 ], [ %56, %310 ], [ %56, %308 ], [ %56, %._crit_edge ]
+  %321 = phi ptr [ %72, %64 ], [ %55, %73 ], [ %55, %74 ], [ %55, %169 ], [ %55, %238 ], [ %55, %.loopexit ], [ %55, %262 ], [ %55, %288 ], [ %55, %300 ], [ %55, %303 ], [ %55, %304 ], [ %55, %310 ], [ %55, %308 ], [ %55, %._crit_edge ]
   %.1 = phi i1 [ false, %64 ], [ true, %73 ], [ true, %74 ], [ false, %169 ], [ false, %238 ], [ false, %.loopexit ], [ false, %262 ], [ false, %288 ], [ true, %300 ], [ true, %303 ], [ false, %304 ], [ false, %310 ], [ true, %308 ], [ true, %._crit_edge ]
-  %320 = load ptr, ptr %317, align 8
-  %.not.i.i.i.i = icmp eq ptr %320, null
-  br i1 %.not.i.i.i.i, label %322, label %321
+  %322 = load ptr, ptr %319, align 8
+  %.not.i.i.i.i = icmp eq ptr %322, null
+  br i1 %.not.i.i.i.i, label %324, label %323
 
-321:                                              ; preds = %311
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %319, i64 noundef %312) #19
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %317) #19
-  br label %322
+323:                                              ; preds = %313
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %321, i64 noundef %314) #19
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %319) #19
+  br label %324
 
-322:                                              ; preds = %321, %311
-  %323 = load ptr, ptr %316, align 8
-  %.not8.i.i.i.i = icmp eq ptr %323, %315
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %324
+324:                                              ; preds = %323, %313
+  %325 = load ptr, ptr %318, align 8
+  %.not8.i.i.i.i = icmp eq ptr %325, %317
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %326
 
-324:                                              ; preds = %322
+326:                                              ; preds = %324
   store ptr %317, ptr %318, align 8
   store ptr %315, ptr %316, align 8
   store ptr %313, ptr %314, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %322, %324
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %324, %326
   call void @_ZN2os4freeEPv(ptr noundef %20) #19
-  br label %325
+  br label %327
 
-325:                                              ; preds = %1, %1, %_ZN12ResourceMarkD2Ev.exit
+327:                                              ; preds = %1, %1, %_ZN12ResourceMarkD2Ev.exit
   %.0 = phi i1 [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }

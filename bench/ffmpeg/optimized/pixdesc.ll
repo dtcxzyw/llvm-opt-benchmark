@@ -2419,29 +2419,29 @@ define ptr @av_color_primaries_name(i32 noundef %0) local_unnamed_addr #3 {
 define range(i32 -22, 23) i32 @av_color_primaries_from_name(ptr noundef %0) local_unnamed_addr #4 {
   br label %2
 
-2:                                                ; preds = %1, %7
+2:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
   %3 = getelementptr inbounds nuw [23 x ptr], ptr @color_primaries_names, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %7, label %5
+  br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #15
   %.not9 = icmp eq i32 %6, 0
   br i1 %.not9, label %7, label %.split.loop.exit12
 
-7:                                                ; preds = %5, %2
+9:                                                ; preds = %5, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
   br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !57
 
 .split.loop.exit12:                               ; preds = %5
-  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %7, %.split.loop.exit12
-  %.06 = phi i32 [ %8, %.split.loop.exit12 ], [ -22, %7 ]
+.split.loop.exit:                                 ; preds = %9, %.split.loop.exit12
+  %.06 = phi i32 [ %10, %.split.loop.exit12 ], [ -22, %7 ]
   ret i32 %.06
 }
 

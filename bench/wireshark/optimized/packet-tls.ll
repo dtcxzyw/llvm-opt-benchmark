@@ -1628,29 +1628,29 @@ define hidden noundef zeroext i1 @tls_get_cipher_info(ptr noundef %0, i16 nounde
 
 36:                                               ; preds = %20
   %.not42 = icmp eq ptr %2, null
-  br i1 %.not42, label %38, label %37
+  br i1 %.not42, label %37, label %36
 
-37:                                               ; preds = %36
+36:                                               ; preds = %36
   store i32 %26, ptr %2, align 4
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %36
+37:                                               ; preds = %36, %36
   %.not43 = icmp eq ptr %3, null
-  br i1 %.not43, label %40, label %39
+  br i1 %.not43, label %39, label %38
 
-39:                                               ; preds = %38
+38:                                               ; preds = %37
   store i32 %25, ptr %3, align 4
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %38
+39:                                               ; preds = %38, %37
   %.not44 = icmp eq ptr %4, null
-  br i1 %.not44, label %.thread, label %41
+  br i1 %.not44, label %.thread, label %40
 
-41:                                               ; preds = %40
+40:                                               ; preds = %39
   store i32 %32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %9, %7, %17, %40, %41, %20
+.thread:                                          ; preds = %9, %7, %17, %39, %40, %20
   %.2 = phi i1 [ false, %17 ], [ true, %40 ], [ true, %41 ], [ false, %20 ], [ false, %7 ], [ false, %9 ]
   ret i1 %.2
 }

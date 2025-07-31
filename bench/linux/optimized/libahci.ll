@@ -1062,7 +1062,7 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_read(ptr noundef readonl
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.thread, label %30
 
-30:                                               ; preds = %26
+30: ; preds = %26
   %31 = sext i32 %28 to i64
   %32 = getelementptr i8, ptr %16, i64 %31
   %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #12, !srcloc !11
@@ -1070,8 +1070,8 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_read(ptr noundef readonl
   br label %.thread
 
 .thread:                                          ; preds = %3, %21, %30, %26
-  %34 = phi i32 [ 0, %30 ], [ -22, %26 ], [ -22, %21 ], [ -22, %3 ]
-  ret i32 %34
+  %32 = phi i32 [ 0, %30 ], [ -22, %26 ], [ -22, %21 ], [ -22, %3 ]
+  ret i32 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1117,8 +1117,8 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_write(ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %3, %21, %30, %26
-  %33 = phi i32 [ 0, %30 ], [ -22, %26 ], [ -22, %21 ], [ -22, %3 ]
-  ret i32 %33
+  %31 = phi i32 [ 0, %30 ], [ -22, %26 ], [ -22, %21 ], [ -22, %3 ]
+  ret i32 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

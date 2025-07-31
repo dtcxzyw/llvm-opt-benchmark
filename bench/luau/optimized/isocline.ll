@@ -21392,12 +21392,12 @@ define internal fastcc void @edit_show_help(ptr noundef nonnull %0, ptr noundef 
   br label %8
 
 .critedge:                                        ; preds = %21
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   tail call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
   ret void
 
-8:                                                ; preds = %21, %2
+16:                                               ; preds = %21, %2
   %9 = phi ptr [ @.str.3, %2 ], [ %24, %21 ]
   %.019 = phi i64 [ 0, %2 ], [ %22, %21 ]
   %10 = or disjoint i64 %.019, 1
@@ -21423,8 +21423,8 @@ define internal fastcc void @edit_show_help(ptr noundef nonnull %0, ptr noundef 
   %22 = add nuw nsw i64 %.019, 2
   %23 = getelementptr inbounds nuw [104 x ptr], ptr @help, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 16, !tbaa !56
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.critedge, label %8, !llvm.loop !337
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %.critedge, label %8, !llvm.loop !337
 }
 
 ; Function Attrs: nounwind uwtable

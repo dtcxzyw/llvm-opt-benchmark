@@ -1560,13 +1560,13 @@ hda_get_input_pin_label.exit:                     ; preds = %76, %78, %80, %81
   %98 = icmp eq ptr %97, null
   br i1 %98, label %102, label %hda_get_input_pin_label.exit.thread
 
-hda_get_input_pin_label.exit.thread:              ; preds = %41, %.preheader, %59, %89, %86, %71, %.loopexit, %91, %92, %93, %94, %95, %25, %19, %hda_get_input_pin_label.exit
+hda_get_input_pin_label.exit.thread:; preds = %41, %.preheader, %59, %89, %86, %71, %.loopexit, %91, %92, %93, %94, %95, %25, %19, %hda_get_input_pin_label.exit
   %99 = phi ptr [ %97, %hda_get_input_pin_label.exit ], [ %spec.select.i, %89 ], [ @.str.32, %86 ], [ @.str.32, %71 ], [ @.str.35, %.loopexit ], [ @.str.36, %91 ], [ @.str.37, %92 ], [ @.str.38, %93 ], [ @.str.31, %94 ], [ @.str.39, %95 ], [ %22, %25 ], [ %22, %19 ], [ %61, %59 ], [ %22, %.preheader ], [ %22, %41 ]
   %100 = sext i32 %4 to i64
   %101 = tail call i64 @strscpy(ptr noundef %3, ptr noundef nonnull %99, i64 noundef %100) #11
   br label %102
 
-102:                                              ; preds = %hda_get_input_pin_label.exit.thread, %hda_get_input_pin_label.exit, %18, %17, %16, %10
+102: ; preds = %hda_get_input_pin_label.exit.thread, %hda_get_input_pin_label.exit, %18, %17, %16, %10
   %103 = phi i32 [ 1, %hda_get_input_pin_label.exit.thread ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 0, %10 ], [ 0, %hda_get_input_pin_label.exit ]
   ret i32 %103
 }
@@ -1660,7 +1660,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 
 58:                                               ; preds = %56
   %59 = icmp eq ptr %6, null
-  br i1 %59, label %.thread25, label %.thread25.sink.split
+  br i1 %59, label %.thread25, label %154
 
 60:                                               ; preds = %56
   %61 = and i64 %44, 2147483647
@@ -1669,7 +1669,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread21, label %.thread25
 
-.thread21:                                        ; preds = %48, %37, %51, %60
+61:                                               ; preds = %48, %37, %51, %60
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %67 = load i32, ptr %66, align 4
@@ -1703,16 +1703,16 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 
 84:                                               ; preds = %82
   %85 = icmp ugt i32 %67, 4
-  br i1 %85, label %86, label %88
+  br i1 %85, label %86, label %89
 
 86:                                               ; preds = %84
   %87 = icmp eq ptr %6, null
-  br i1 %87, label %.thread25, label %.thread25.sink.split
+  br i1 %87, label %.thread25, label %154
 
-88:                                               ; preds = %84
-  %89 = and i64 %72, 2147483647
-  %90 = getelementptr [4 x ptr], ptr @check_output_sfx.channel_sfx, i64 0, i64 %89
-  %91 = load ptr, ptr %90, align 8
+89:                                               ; preds = %84
+  %90 = and i64 %72, 2147483647
+  %91 = getelementptr [4 x ptr], ptr @check_output_sfx.channel_sfx, i64 0, i64 %90
+  %92 = load ptr, ptr %91, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.thread27, label %.thread25
 
@@ -1831,24 +1831,24 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   %151 = icmp sgt i32 %150, -1
   %152 = icmp ne ptr %6, null
   %153 = and i1 %152, %151
-  br i1 %153, label %.thread25.sink.split, label %.thread25
+  br i1 %153, label %154, label %.thread25
 
-.thread25.sink.split:                             ; preds = %.loopexit, %86, %58
+154:                                              ; preds = %.loopexit, %86, %58
   %.sink = phi i32 [ %52, %58 ], [ %80, %86 ], [ %150, %.loopexit ]
   store i32 %.sink, ptr %6, align 4
   br label %.thread25
 
-.thread25:                                        ; preds = %117, %.thread25.sink.split, %.thread35, %120, %58, %54, %86, %82, %60, %.loopexit, %88, %34
-  %154 = phi ptr [ %91, %88 ], [ @.str.40, %34 ], [ @.str.40, %.loopexit ], [ @.str.40, %86 ], [ @.str.40, %82 ], [ %63, %60 ], [ @.str.40, %54 ], [ @.str.40, %58 ], [ @.str.40, %120 ], [ @.str.40, %.thread35 ], [ @.str.40, %.thread25.sink.split ], [ @.str.40, %117 ]
-  %155 = icmp eq i32 %35, 2
-  %156 = icmp eq i32 %35, 5
-  %157 = select i1 %156, ptr @.str.43, ptr @.str.40
-  %158 = select i1 %155, ptr @.str.42, ptr %157
-  %159 = icmp eq i32 %18, 0
-  %160 = and i1 %17, %159
-  %161 = select i1 %160, ptr @.str.15, ptr %3
-  %162 = sext i32 %5 to i64
-  %163 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %4, i64 noundef %162, ptr noundef nonnull @.str.41, ptr noundef nonnull %158, ptr noundef %161, ptr noundef nonnull %154) #11
+.thread25:                                        ; preds = %117, %154, %.thread35, %120, %58, %54, %86, %82, %60, %.loopexit, %88, %34
+  %155 = phi ptr [ %92, %88 ], [ @.str.40, %34 ], [ @.str.40, %.loopexit ], [ @.str.40, %86 ], [ @.str.40, %82 ], [ %63, %60 ], [ @.str.40, %54 ], [ @.str.40, %58 ], [ @.str.40, %120 ], [ @.str.40, %.thread35 ], [ @.str.40, %.thread25.sink.split ], [ @.str.40, %117 ]
+  %156 = icmp eq i32 %35, 2
+  %157 = icmp eq i32 %35, 5
+  %158 = select i1 %157, ptr @.str.43, ptr @.str.40
+  %159 = select i1 %156, ptr @.str.42, ptr %158
+  %160 = icmp eq i32 %18, 0
+  %161 = and i1 %17, %160
+  %162 = select i1 %161, ptr @.str.15, ptr %3
+  %163 = sext i32 %5 to i64
+  %164 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %4, i64 noundef %163, ptr noundef nonnull @.str.41, ptr noundef nonnull %159, ptr noundef %162, ptr noundef nonnull %155) #11
   ret void
 }
 

@@ -1464,9 +1464,9 @@ define internal i32 @dissect_gsm_sms(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %4, %34, %36, %11
-  %37 = call i32 @tvb_captured_length(ptr noundef %0)
+  %39 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  ret i32 %37
+  ret i32 %39
 }
 
 ; Function Attrs: null_pointer_is_valid

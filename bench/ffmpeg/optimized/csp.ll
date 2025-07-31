@@ -214,17 +214,17 @@ declare i64 @av_add_q(i64, i64) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define double @av_csp_approximate_trc_gamma(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i32 %0, 18
-  br i1 %2, label %8, label %3
+  br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
   %5 = getelementptr inbounds nuw [19 x double], ptr @approximate_gamma, i64 0, i64 %4
-  %6 = load double, ptr %5, align 8, !tbaa !16
+  %6 = load double, ptr %5, align 10, !tbaa !16
   %7 = fcmp nsz ogt double %6, 0.000000e+00
   %. = select nsz i1 %7, double %6, double 0.000000e+00
   br label %8
 
-8:                                                ; preds = %3, %1
+10:                                               ; preds = %3, %1
   %.0 = phi nsz double [ 0.000000e+00, %1 ], [ %., %3 ]
   ret double %.0
 }
