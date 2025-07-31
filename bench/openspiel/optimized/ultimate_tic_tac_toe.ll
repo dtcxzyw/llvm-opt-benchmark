@@ -681,11 +681,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %80 = load i32, ptr %79, align 4
   %81 = tail call noundef zeroext i1 @_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi(ptr noundef nonnull align 4 dereferenceable(36) %78, i32 noundef %80)
-  br i1 %81, label %82, label %.lr.ph.i.i.i.i.i.i.preheader
-
-.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %76
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %.lr.ph.i.i.i.i.i.i
+  br i1 %81, label %82, label %.lr.ph.i.i.i.i.i.i
 
 82:                                               ; preds = %76
   %83 = load i32, ptr %79, align 4
@@ -693,9 +689,9 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
   store i32 %83, ptr %84, align 8
   br label %132
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %104
-  %.044.i.i.i.i.i.i = phi i64 [ %105, %104 ], [ 2, %.lr.ph.i.i.i.i.i.i.preheader ]
-  %.02943.i.i.i.i.i.idx.i = phi i64 [ %.02943.i.i.i.i.i.add3.i, %104 ], [ 80, %.lr.ph.i.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %76, %104
+  %.044.i.i.i.i.i.i = phi i64 [ %105, %104 ], [ 2, %76 ]
+  %.02943.i.i.i.i.i.idx.i = phi i64 [ %.02943.i.i.i.i.i.add3.i, %104 ], [ 80, %76 ]
   %.02943.i.i.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.02943.i.i.i.i.i.idx.i
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02943.i.i.i.i.i.ptr.i, align 8
   %85 = load ptr, ptr %.029.val.i.i.i.i.i.i, align 8
@@ -715,8 +711,8 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
   br i1 %93, label %"_ZSt6any_ofIPKSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EEZNKS1_20ultimate_tic_tac_toe16UltimateTTTState22AllLocalStatesTerminalEvE3$_0EbT_SB_T0_.exit.loopexit.i", label %94
 
 94:                                               ; preds = %89
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.02943.i.i.i.i.i.idx.i
-  %.val30.i.i.i.i.i.i = load ptr, ptr %gep, align 8
+  %.ptr5.i = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.ptr.i, i64 16
+  %.val30.i.i.i.i.i.i = load ptr, ptr %.ptr5.i, align 8
   %95 = load ptr, ptr %.val30.i.i.i.i.i.i, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 88
   %97 = load ptr, ptr %96, align 8

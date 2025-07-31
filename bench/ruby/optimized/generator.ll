@@ -4283,8 +4283,8 @@ define internal fastcc void @convert_UTF8_to_ASCII_only_JSON(ptr noundef nonnull
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.lr.ph, %full_escape_UTF8_char.exit
-  %.promoted.i33 = phi ptr [ %.promoted.i32, %.lr.ph.preheader.i.lr.ph ], [ %305, %full_escape_UTF8_char.exit ]
-  %8 = phi ptr [ %4, %.lr.ph.preheader.i.lr.ph ], [ %306, %full_escape_UTF8_char.exit ]
+  %.promoted.i33 = phi ptr [ %.promoted.i32, %.lr.ph.preheader.i.lr.ph ], [ %307, %full_escape_UTF8_char.exit ]
+  %8 = phi ptr [ %4, %.lr.ph.preheader.i.lr.ph ], [ %308, %full_escape_UTF8_char.exit ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.preheader.i
@@ -4345,7 +4345,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %26, %19
   br label %._crit_edge.i
 
 ._crit_edge.i.loopexit12:                         ; preds = %full_escape_UTF8_char.exit, %2
-  %.promoted.i.lcssa31 = phi ptr [ %.promoted.i32, %2 ], [ %305, %full_escape_UTF8_char.exit ]
+  %.promoted.i.lcssa31 = phi ptr [ %.promoted.i32, %2 ], [ %307, %full_escape_UTF8_char.exit ]
   %.promoted21.i.le30 = ptrtoint ptr %.promoted.i.lcssa31 to i64
   br label %._crit_edge.i
 
@@ -4780,69 +4780,70 @@ fbuffer_append.exit77.i:                          ; preds = %246, %220
   %276 = lshr i32 %214, 8
   %277 = and i32 %276, 3
   %278 = zext nneg i32 %277 to i64
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.100, i64 12), i64 %278
-  %279 = load i8, ptr %gep, align 1, !tbaa !59
-  %280 = lshr i32 %219, 4
-  %281 = and i32 %280, 15
-  %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw i8, ptr @.str.100, i64 %282
-  %284 = load i8, ptr %283, align 1, !tbaa !59
-  %285 = and i32 %218, 15
-  %286 = zext nneg i32 %285 to i64
-  %287 = getelementptr inbounds nuw i8, ptr @.str.100, i64 %286
-  %288 = load i8, ptr %287, align 1, !tbaa !59
-  %289 = load ptr, ptr %6, align 8, !tbaa !69
-  %290 = getelementptr inbounds nuw i8, ptr %289, i64 24
-  %291 = load i64, ptr %290, align 8, !tbaa !47
-  %292 = getelementptr inbounds nuw i8, ptr %289, i64 16
-  %293 = load i64, ptr %292, align 8, !tbaa !56
-  %294 = sub i64 %291, %293
-  %295 = icmp ult i64 %294, 12
-  br i1 %295, label %296, label %fbuffer_append.exit79.i, !prof !58
+  %279 = getelementptr inbounds nuw i8, ptr @.str.100, i64 %278
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 12
+  %281 = load i8, ptr %280, align 1, !tbaa !59
+  %282 = lshr i32 %219, 4
+  %283 = and i32 %282, 15
+  %284 = zext nneg i32 %283 to i64
+  %285 = getelementptr inbounds nuw i8, ptr @.str.100, i64 %284
+  %286 = load i8, ptr %285, align 1, !tbaa !59
+  %287 = and i32 %218, 15
+  %288 = zext nneg i32 %287 to i64
+  %289 = getelementptr inbounds nuw i8, ptr @.str.100, i64 %288
+  %290 = load i8, ptr %289, align 1, !tbaa !59
+  %291 = load ptr, ptr %6, align 8, !tbaa !69
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 24
+  %293 = load i64, ptr %292, align 8, !tbaa !47
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 16
+  %295 = load i64, ptr %294, align 8, !tbaa !56
+  %296 = sub i64 %293, %295
+  %297 = icmp ult i64 %296, 12
+  br i1 %297, label %298, label %fbuffer_append.exit79.i, !prof !58
 
-296:                                              ; preds = %253
-  tail call fastcc void @fbuffer_do_inc_capa(ptr noundef nonnull %289, i64 noundef range(i64 1, 0) 12)
-  %.pre.i78.i = load i64, ptr %292, align 8, !tbaa !56
+298:                                              ; preds = %253
+  tail call fastcc void @fbuffer_do_inc_capa(ptr noundef nonnull %291, i64 noundef range(i64 1, 0) 12)
+  %.pre.i78.i = load i64, ptr %294, align 8, !tbaa !56
   br label %fbuffer_append.exit79.i
 
-fbuffer_append.exit79.i:                          ; preds = %296, %253
-  %297 = phi i64 [ %.pre.i78.i, %296 ], [ %293, %253 ]
-  %298 = getelementptr inbounds nuw i8, ptr %289, i64 32
-  %299 = load ptr, ptr %298, align 8, !tbaa !46
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 %297
-  store i16 30044, ptr %300, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 2
+fbuffer_append.exit79.i:                          ; preds = %298, %253
+  %299 = phi i64 [ %.pre.i78.i, %298 ], [ %295, %253 ]
+  %300 = getelementptr inbounds nuw i8, ptr %291, i64 32
+  %301 = load ptr, ptr %300, align 8, !tbaa !46
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 %299
+  store i16 30044, ptr %302, align 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 2
   store i8 %261, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 3
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 3
   store i8 %266, ptr %.sroa.7.0..sroa_idx, align 1
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 4
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 4
   store i8 %271, ptr %.sroa.9.0..sroa_idx, align 1
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 5
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 5
   store i8 %275, ptr %.sroa.11.0..sroa_idx, align 1
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 6
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 6
   store i16 30044, ptr %.sroa.13.0..sroa_idx, align 1
-  %.sroa.1397.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 8
+  %.sroa.1397.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i8 100, ptr %.sroa.1397.0..sroa_idx, align 1
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 9
-  store i8 %279, ptr %.sroa.14.0..sroa_idx, align 1
-  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 10
-  store i8 %284, ptr %.sroa.15.0..sroa_idx, align 1
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 11
-  store i8 %288, ptr %.sroa.16.0..sroa_idx, align 1
-  %301 = load i64, ptr %292, align 8, !tbaa !56
-  %302 = add i64 %301, 12
-  store i64 %302, ptr %292, align 8, !tbaa !56
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 9
+  store i8 %281, ptr %.sroa.14.0..sroa_idx, align 1
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 10
+  store i8 %286, ptr %.sroa.15.0..sroa_idx, align 1
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 11
+  store i8 %290, ptr %.sroa.16.0..sroa_idx, align 1
+  %303 = load i64, ptr %294, align 8, !tbaa !56
+  %304 = add i64 %303, 12
+  store i64 %304, ptr %294, align 8, !tbaa !56
   br label %full_escape_UTF8_char.exit
 
 full_escape_UTF8_char.exit:                       ; preds = %fbuffer_append.exit77.i, %fbuffer_append.exit79.i, %fbuffer_append.exit.i, %fbuffer_append.exit61.i, %fbuffer_append.exit63.i, %fbuffer_append.exit65.i, %fbuffer_append.exit67.i, %fbuffer_append.exit69.i, %fbuffer_append.exit71.i, %fbuffer_append.exit73.i, %fbuffer_append.exit75.i
-  %303 = load ptr, ptr %0, align 8, !tbaa !74
-  %304 = zext nneg i8 %59 to i64
-  %305 = getelementptr inbounds nuw i8, ptr %303, i64 %304
-  store ptr %305, ptr %0, align 8, !tbaa !74
-  store ptr %305, ptr %7, align 8, !tbaa !75
-  %306 = load ptr, ptr %3, align 8, !tbaa !76
-  %307 = icmp ult ptr %305, %306
-  br i1 %307, label %.lr.ph.preheader.i, label %._crit_edge.i.loopexit12
+  %305 = load ptr, ptr %0, align 8, !tbaa !74
+  %306 = zext nneg i8 %59 to i64
+  %307 = getelementptr inbounds nuw i8, ptr %305, i64 %306
+  store ptr %307, ptr %0, align 8, !tbaa !74
+  store ptr %307, ptr %7, align 8, !tbaa !75
+  %308 = load ptr, ptr %3, align 8, !tbaa !76
+  %309 = icmp ult ptr %307, %308
+  br i1 %309, label %.lr.ph.preheader.i, label %._crit_edge.i.loopexit12
 
 .loopexit:                                        ; preds = %search_ascii_only_escape.exit, %search_ascii_only_escape.exit.thread
   ret void

@@ -5778,31 +5778,32 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux14light_functionI
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %1, i64 136
   %9 = load ptr, ptr %8, align 8, !tbaa !82
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %gep7.i = getelementptr i8, ptr %invariant.gep.i, i64 %11
-  %12 = load i32, ptr %gep7.i, align 8, !tbaa !102
-  %13 = icmp eq i32 %12, 0
-  %14 = icmp ne ptr %5, %7
-  %or.cond8.i = select i1 %13, i1 %14, i1 false
-  br i1 %or.cond8.i, label %.lr.ph.i, label %_ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcEclERNS1_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS1_10attributes17named_scope_entryE.exit
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %14 = load i32, ptr %13, align 8, !tbaa !102
+  %15 = icmp eq i32 %14, 0
+  %16 = icmp ne ptr %5, %7
+  %or.cond7.i = select i1 %15, i1 %16, i1 false
+  br i1 %or.cond7.i, label %.lr.ph.i, label %_ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcEclERNS1_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS1_10attributes17named_scope_entryE.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.sroa.04.09.i = phi ptr [ %17, %.lr.ph.i ], [ %5, %3 ]
-  %15 = load ptr, ptr %.sroa.04.09.i, align 8, !tbaa !32
-  %16 = load ptr, ptr %15, align 8, !tbaa !28
-  tail call void %16(ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(376) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i, i64 8
-  %18 = load ptr, ptr %8, align 8, !tbaa !82
-  %19 = getelementptr i8, ptr %18, i64 -24
-  %20 = load i64, ptr %19, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %20
-  %21 = load i32, ptr %gep.i, align 8, !tbaa !102
-  %22 = icmp eq i32 %21, 0
-  %23 = icmp ne ptr %17, %7
-  %or.cond.i = select i1 %22, i1 %23, i1 false
+  %.sroa.04.08.i = phi ptr [ %19, %.lr.ph.i ], [ %5, %3 ]
+  %17 = load ptr, ptr %.sroa.04.08.i, align 8, !tbaa !32
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  tail call void %18(ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(376) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
+  %20 = load ptr, ptr %8, align 8, !tbaa !82
+  %21 = getelementptr i8, ptr %20, i64 -24
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %8, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %25 = load i32, ptr %24, align 8, !tbaa !102
+  %26 = icmp eq i32 %25, 0
+  %27 = icmp ne ptr %19, %7
+  %or.cond.i = select i1 %26, i1 %27, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %_ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcEclERNS1_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS1_10attributes17named_scope_entryE.exit, !llvm.loop !170
 
 _ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcEclERNS1_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS1_10attributes17named_scope_entryE.exit: ; preds = %.lr.ph.i, %3
@@ -8466,31 +8467,32 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux14light_functionI
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %1, i64 184
   %9 = load ptr, ptr %8, align 8, !tbaa !82
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %gep7.i = getelementptr i8, ptr %invariant.gep.i, i64 %11
-  %12 = load i32, ptr %gep7.i, align 8, !tbaa !102
-  %13 = icmp eq i32 %12, 0
-  %14 = icmp ne ptr %5, %7
-  %or.cond8.i = select i1 %13, i1 %14, i1 false
-  br i1 %or.cond8.i, label %.lr.ph.i, label %_ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwEclERNS1_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS1_10attributes17named_scope_entryE.exit
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %14 = load i32, ptr %13, align 8, !tbaa !102
+  %15 = icmp eq i32 %14, 0
+  %16 = icmp ne ptr %5, %7
+  %or.cond7.i = select i1 %15, i1 %16, i1 false
+  br i1 %or.cond7.i, label %.lr.ph.i, label %_ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwEclERNS1_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS1_10attributes17named_scope_entryE.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.sroa.04.09.i = phi ptr [ %17, %.lr.ph.i ], [ %5, %3 ]
-  %15 = load ptr, ptr %.sroa.04.09.i, align 8, !tbaa !59
-  %16 = load ptr, ptr %15, align 8, !tbaa !55
-  tail call void %16(ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(424) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i, i64 8
-  %18 = load ptr, ptr %8, align 8, !tbaa !82
-  %19 = getelementptr i8, ptr %18, i64 -24
-  %20 = load i64, ptr %19, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %20
-  %21 = load i32, ptr %gep.i, align 8, !tbaa !102
-  %22 = icmp eq i32 %21, 0
-  %23 = icmp ne ptr %17, %7
-  %or.cond.i = select i1 %22, i1 %23, i1 false
+  %.sroa.04.08.i = phi ptr [ %19, %.lr.ph.i ], [ %5, %3 ]
+  %17 = load ptr, ptr %.sroa.04.08.i, align 8, !tbaa !59
+  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  tail call void %18(ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(424) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
+  %20 = load ptr, ptr %8, align 8, !tbaa !82
+  %21 = getelementptr i8, ptr %20, i64 -24
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %8, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %25 = load i32, ptr %24, align 8, !tbaa !102
+  %26 = icmp eq i32 %25, 0
+  %27 = icmp ne ptr %19, %7
+  %or.cond.i = select i1 %26, i1 %27, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %_ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwEclERNS1_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS1_10attributes17named_scope_entryE.exit, !llvm.loop !250
 
 _ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwEclERNS1_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS1_10attributes17named_scope_entryE.exit: ; preds = %.lr.ph.i, %3

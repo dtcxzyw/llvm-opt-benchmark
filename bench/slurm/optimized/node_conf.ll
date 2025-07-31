@@ -1210,13 +1210,13 @@ define dso_local range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) lo
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 0) #15
-  br label %48
+  br label %50
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %48, label %13
+  br i1 %.not, label %50, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -1242,15 +1242,11 @@ define dso_local range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) lo
   store ptr %24, ptr %2, align 8
   %25 = load i32, ptr %24, align 4
   %.not3842 = icmp eq i32 %25, -1
-  br i1 %.not3842, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not3842, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %20
-  %invariant.gep = getelementptr i8, ptr %24, i64 4
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
-  %26 = phi i32 [ %25, %.lr.ph.preheader ], [ %43, %38 ]
+.lr.ph:                                           ; preds = %20, %40
+  %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %20 ]
+  %26 = phi i32 [ %45, %40 ], [ %25, %20 ]
   %27 = load i16, ptr %3, align 8
   %28 = zext i16 %27 to i32
   %29 = sdiv i32 %26, %28
@@ -1262,38 +1258,39 @@ define dso_local range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) lo
   br label %.loopexit
 
 32:                                               ; preds = %.lr.ph
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %33 = load i32, ptr %gep, align 4
-  %34 = sdiv i32 %33, %28
-  %35 = icmp ugt i32 %34, %16
-  br i1 %35, label %36, label %38
+  %33 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %34 = getelementptr i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = sdiv i32 %35, %28
+  %37 = icmp ugt i32 %36, %16
+  br i1 %37, label %38, label %40
 
-36:                                               ; preds = %32
-  %37 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.build_node_spec_bitmap) #15
-  br label %38
+38:                                               ; preds = %32
+  %39 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.build_node_spec_bitmap) #15
+  br label %40
 
-38:                                               ; preds = %32, %36
-  %.0 = phi i32 [ %16, %36 ], [ %34, %32 ]
-  %39 = load ptr, ptr %17, align 8
-  %40 = zext nneg i32 %29 to i64
-  %41 = zext nneg i32 %.0 to i64
-  tail call void @bit_nclear(ptr noundef %39, i64 noundef %40, i64 noundef %41) #15
+40:                                               ; preds = %32, %38
+  %.0 = phi i32 [ %16, %38 ], [ %36, %32 ]
+  %41 = load ptr, ptr %17, align 8
+  %42 = zext nneg i32 %29 to i64
+  %43 = zext nneg i32 %.0 to i64
+  tail call void @bit_nclear(ptr noundef %41, i64 noundef %42, i64 noundef %43) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %42 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next
-  %43 = load i32, ptr %42, align 4
-  %.not38 = icmp eq i32 %43, -1
+  %44 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next
+  %45 = load i32, ptr %44, align 4
+  %.not38 = icmp eq i32 %45, -1
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %38, %20, %.thread
-  %44 = load ptr, ptr %17, align 8
-  %45 = tail call i32 @bit_clear_count(ptr noundef %44) #15
-  %46 = trunc i32 %45 to i16
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i16 %46, ptr %47, align 8
+.loopexit:                                        ; preds = %40, %20, %.thread
+  %46 = load ptr, ptr %17, align 8
+  %47 = tail call i32 @bit_clear_count(ptr noundef %46) #15
+  %48 = trunc i32 %47 to i16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i16 %48, ptr %49, align 8
   call void @slurm_xfree(ptr noundef nonnull %2) #15
-  br label %48
+  br label %50
 
-48:                                               ; preds = %10, %.loopexit, %6
+50:                                               ; preds = %10, %.loopexit, %6
   %.029 = phi i32 [ -1, %6 ], [ 0, %.loopexit ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
   ret i32 %.029

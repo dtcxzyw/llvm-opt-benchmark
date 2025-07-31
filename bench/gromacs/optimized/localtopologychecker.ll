@@ -1354,28 +1354,25 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc89.i.i, %_ZNS
   %.not64.us.us.i.i.i = or i1 %.162.us.us.i.i.i, %391
   br i1 %.not64.us.us.i.i.i, label %._crit_edge10.split.us.us.i.i.i, label %363, !llvm.loop !225
 
-392:                                              ; preds = %.preheader.us.us.i.i.i, %392
-  %indvars.iv34.i.i.i = phi i64 [ 0, %.preheader.us.us.i.i.i ], [ %indvars.iv.next35.i.i.i, %392 ]
-  %.25.us.us.i.i.i = phi i1 [ true, %.preheader.us.us.i.i.i ], [ %spec.select.us.us.i.i.i, %392 ]
+.preheader.us.us.i.i.i:                           ; preds = %377, %.preheader.us.us.i.i.i
+  %indvars.iv34.i.i.i = phi i64 [ %indvars.iv.next35.i.i.i, %.preheader.us.us.i.i.i ], [ 0, %377 ]
+  %.25.us.us.i.i.i = phi i1 [ %spec.select.us.us.i.i.i, %.preheader.us.us.i.i.i ], [ true, %377 ]
   %indvars.iv.next35.i.i.i = add nuw nsw i64 %indvars.iv34.i.i.i, 1
-  %393 = getelementptr inbounds nuw i32, ptr %332, i64 %indvars.iv.next35.i.i.i
-  %394 = load i32, ptr %393, align 4, !tbaa !182, !noalias !214
-  %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds i32, ptr %309, i64 %395
-  %397 = load i32, ptr %396, align 4, !tbaa !182, !noalias !214
-  %gep52.i.i.i = getelementptr i32, ptr %invariant.gep51.i.i.i, i64 %indvars.iv34.i.i.i
-  %398 = load i32, ptr %gep52.i.i.i, align 4, !tbaa !182, !noalias !214
+  %392 = getelementptr inbounds nuw i32, ptr %332, i64 %indvars.iv.next35.i.i.i
+  %393 = load i32, ptr %392, align 4, !tbaa !182, !noalias !214
+  %394 = sext i32 %393 to i64
+  %395 = getelementptr inbounds i32, ptr %309, i64 %394
+  %396 = load i32, ptr %395, align 4, !tbaa !182, !noalias !214
+  %gep.i.i.i = getelementptr i32, ptr %367, i64 %indvars.iv34.i.i.i
+  %397 = getelementptr i8, ptr %gep.i.i.i, i64 8
+  %398 = load i32, ptr %397, align 4, !tbaa !182, !noalias !214
   %399 = add nsw i32 %398, %344
-  %.not.us.us.i.i.i = icmp eq i32 %397, %399
+  %.not.us.us.i.i.i = icmp eq i32 %396, %399
   %spec.select.us.us.i.i.i = select i1 %.not.us.us.i.i.i, i1 %.25.us.us.i.i.i, i1 false
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next35.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.us.i.i.i, label %392, !llvm.loop !226
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.us.i.i.i, label %.preheader.us.us.i.i.i, !llvm.loop !226
 
-.preheader.us.us.i.i.i:                           ; preds = %377
-  %invariant.gep51.i.i.i = getelementptr i8, ptr %367, i64 8
-  br label %392
-
-._crit_edge.us.us.i.i.i:                          ; preds = %392
+._crit_edge.us.us.i.i.i:                          ; preds = %.preheader.us.us.i.i.i
   br i1 %spec.select.us.us.i.i.i, label %382, label %383
 
 ._crit_edge10.split.us.us.i.i.i:                  ; preds = %.noexc90.i.i

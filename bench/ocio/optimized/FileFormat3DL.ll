@@ -2766,16 +2766,12 @@ cdce.end.preheader:                               ; preds = %_ZNSt6vectorIfSaIfE
   %104 = ptrtoint ptr %.sroa.0137.0 to i64
   %105 = sub i64 %103, %104
   %106 = ashr exact i64 %105, 2
-  %.not198 = icmp eq ptr %.0.i.i.i.i.i, %.sroa.0137.0
-  br i1 %.not198, label %cdce.end._crit_edge, label %.lr.ph
+  %.not196 = icmp eq ptr %.0.i.i.i.i.i, %.sroa.0137.0
+  br i1 %.not196, label %cdce.end._crit_edge, label %.lr.ph
 
 cdce.end._crit_edge:                              ; preds = %cdce.end, %cdce.end.preheader
   %107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.29, i64 noundef 1)
           to label %cdce.end191.preheader unwind label %112
-
-cdce.end191.preheader:                            ; preds = %cdce.end._crit_edge
-  %invariant.gep195 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  br label %137
 
 108:                                              ; preds = %94, %93
   %109 = landingpad { ptr, i32 }
@@ -2841,29 +2837,29 @@ cdce.end:                                         ; preds = %119
           cleanup
   br label %.thread
 
-137:                                              ; preds = %cdce.end191.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117
-  %indvars.iv = phi i64 [ 0, %cdce.end191.preheader ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117 ]
-  %138 = mul nuw nsw i64 %indvars.iv, 3
-  %139 = getelementptr inbounds nuw float, ptr %55, i64 %138
-  %140 = load float, ptr %139, align 4, !tbaa !116
-  %141 = fcmp ogt float %140, 0.000000e+00
-  %.sroa.speculated2.i106 = select i1 %141, float %140, float 0.000000e+00
-  %142 = fcmp ogt float %.sroa.speculated2.i106, 1.000000e+00
-  %.sroa.speculated.i107 = select i1 %142, float 1.000000e+00, float %.sroa.speculated2.i106
-  %143 = fmul float %.sroa.speculated.i107, 4.095000e+03
-  %144 = call float @llvm.round.f32(float %143)
-  %145 = fptosi float %144 to i32
-  %gep = getelementptr inbounds nuw float, ptr %59, i64 %138
-  %146 = load float, ptr %gep, align 4, !tbaa !116
-  %147 = fcmp ogt float %146, 0.000000e+00
-  %.sroa.speculated2.i108 = select i1 %147, float %146, float 0.000000e+00
-  %148 = fcmp ogt float %.sroa.speculated2.i108, 1.000000e+00
-  %.sroa.speculated.i109 = select i1 %148, float 1.000000e+00, float %.sroa.speculated2.i108
-  %149 = fmul float %.sroa.speculated.i109, 4.095000e+03
-  %150 = call float @llvm.round.f32(float %149)
-  %151 = fptosi float %150 to i32
-  %gep196 = getelementptr inbounds nuw float, ptr %invariant.gep195, i64 %138
-  %152 = load float, ptr %gep196, align 4, !tbaa !116
+cdce.end191.preheader:                            ; preds = %cdce.end._crit_edge, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117 ], [ 0, %cdce.end._crit_edge ]
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
+  %137 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
+  %138 = load float, ptr %137, align 4, !tbaa !116
+  %139 = fcmp ogt float %138, 0.000000e+00
+  %.sroa.speculated2.i106 = select i1 %139, float %138, float 0.000000e+00
+  %140 = fcmp ogt float %.sroa.speculated2.i106, 1.000000e+00
+  %.sroa.speculated.i107 = select i1 %140, float 1.000000e+00, float %.sroa.speculated2.i106
+  %141 = fmul float %.sroa.speculated.i107, 4.095000e+03
+  %142 = call float @llvm.round.f32(float %141)
+  %143 = fptosi float %142 to i32
+  %144 = getelementptr inbounds nuw i8, ptr %137, i64 4
+  %145 = load float, ptr %144, align 4, !tbaa !116
+  %146 = fcmp ogt float %145, 0.000000e+00
+  %.sroa.speculated2.i108 = select i1 %146, float %145, float 0.000000e+00
+  %147 = fcmp ogt float %.sroa.speculated2.i108, 1.000000e+00
+  %.sroa.speculated.i109 = select i1 %147, float 1.000000e+00, float %.sroa.speculated2.i108
+  %148 = fmul float %.sroa.speculated.i109, 4.095000e+03
+  %149 = call float @llvm.round.f32(float %148)
+  %150 = fptosi float %149 to i32
+  %151 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %152 = load float, ptr %151, align 4, !tbaa !116
   %153 = fcmp ogt float %152, 0.000000e+00
   %.sroa.speculated2.i110 = select i1 %153, float %152, float 0.000000e+00
   %154 = fcmp ogt float %.sroa.speculated2.i110, 1.000000e+00
@@ -2871,15 +2867,15 @@ cdce.end:                                         ; preds = %119
   %155 = fmul float %.sroa.speculated.i111, 4.095000e+03
   %156 = call float @llvm.round.f32(float %155)
   %157 = fptosi float %156 to i32
-  %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %145)
+  %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %143)
           to label %159 unwind label %167
 
-159:                                              ; preds = %137
+159:                                              ; preds = %cdce.end191.preheader
   %160 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull @.str.28, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113 unwind label %167
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113: ; preds = %159
-  %161 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %158, i32 noundef %151)
+  %161 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %158, i32 noundef %150)
           to label %162 unwind label %167
 
 162:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113
@@ -2897,9 +2893,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115: ; preds = %162
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117: ; preds = %165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %62
-  br i1 %exitcond.not, label %133, label %137, !llvm.loop !137
+  br i1 %exitcond.not, label %133, label %cdce.end191.preheader, !llvm.loop !137
 
-167:                                              ; preds = %165, %162, %159, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113, %137
+167:                                              ; preds = %165, %162, %159, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113, %cdce.end191.preheader
   %168 = landingpad { ptr, i32 }
           cleanup
   br label %.thread

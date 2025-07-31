@@ -8328,20 +8328,16 @@ define internal fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef readonl
   br i1 %26, label %.lr.ph63, label %._crit_edge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %13, label %.lr.ph47.preheader, label %._crit_edge
-
-.lr.ph47.preheader:                               ; preds = %.lr.ph.split.split
-  %invariant.gep = getelementptr i8, ptr %.fr, i64 -4
-  br label %.lr.ph47
+  br i1 %13, label %.lr.ph47, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %33, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.preheader ], [ %22, %.lr.ph.split.us ], [ %38, %33 ]
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.preheader ], [ %22, %.lr.ph.split.us ], [ %40, %33 ]
   ret ptr %.0.lcssa
 
-.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %33
-  %indvars.iv50 = phi i64 [ 1, %.lr.ph47.preheader ], [ %indvars.iv.next51, %33 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next, %33 ]
-  %.03144 = phi ptr [ null, %.lr.ph47.preheader ], [ %38, %33 ]
+.lr.ph47:                                         ; preds = %.lr.ph.split.split, %33
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %33 ], [ 1, %.lr.ph.split.split ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph.split.split ]
+  %.03144 = phi ptr [ %40, %33 ], [ null, %.lr.ph.split.split ]
   %27 = load ptr, ptr %10, align 8
   %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
@@ -8357,17 +8353,18 @@ define internal fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef readonl
   %.019 = phi ptr [ %32, %31 ], [ %29, %.lr.ph47 ]
   %34 = trunc i64 %indvars.iv50 to i16
   %35 = tail call ptr @makeTargetEntry(ptr noundef %.019, i16 noundef signext %34, ptr noundef null, i1 noundef zeroext false) #12
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv50
-  %36 = load i32, ptr %gep, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i32 %36, ptr %37, align 8
-  %38 = tail call ptr @lappend(ptr noundef %.03144, ptr noundef %35) #12
+  %36 = getelementptr i32, ptr %.fr, i64 %indvars.iv50
+  %37 = getelementptr i8, ptr %36, i64 -4
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store i32 %38, ptr %39, align 8
+  %40 = tail call ptr @lappend(ptr noundef %.03144, ptr noundef %35) #12
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = load i32, ptr %9, align 4
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph47, label %._crit_edge
+  %41 = load i32, ptr %9, align 4
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next, %42
+  br i1 %43, label %.lr.ph47, label %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable

@@ -59,15 +59,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %29 = load i64, ptr %19, align 8
   %30 = shl nsw i64 %29, 1
-  %invariant.gep.us = getelementptr i8, ptr %28, i64 4
   %31 = icmp eq i64 %indvars.iv.next84, %20
   %32 = trunc nuw nsw i64 %indvars.iv.next84 to i32
   %iv.rem = select i1 %31, i32 0, i32 %32
   br label %33
 
-33:                                               ; preds = %.lr.ph.us, %59
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %59 ]
-  %.175.us = phi i32 [ %.077.us, %.lr.ph.us ], [ %.2.us, %59 ]
+33:                                               ; preds = %.lr.ph.us, %60
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %60 ]
+  %.175.us = phi i32 [ %.077.us, %.lr.ph.us ], [ %.2.us, %60 ]
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = uitofp nneg i32 %34 to double
   %36 = fdiv double %35, %15
@@ -80,7 +79,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %41 = getelementptr i8, ptr %39, i64 %.idx
   store double %36, ptr %41, align 8, !tbaa !8
   %.not.us = icmp eq i64 %indvars.iv, 0
-  br i1 %.not.us, label %59, label %42
+  br i1 %.not.us, label %60, label %42
 
 42:                                               ; preds = %33
   %43 = add nsw i64 %indvars.iv, -1
@@ -97,24 +96,24 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %52 = getelementptr i32, ptr %47, i64 %30
   %53 = trunc nuw i64 %38 to i32
   store i32 %53, ptr %52, align 4, !tbaa !4
-  %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %46
-  store i32 %51, ptr %gep.us, align 4, !tbaa !4
-  %54 = getelementptr i32, ptr %gep.us, i64 %29
-  %55 = trunc i64 %37 to i32
-  %56 = add i32 %iv.rem, %55
-  store i32 %56, ptr %54, align 4, !tbaa !4
-  %57 = getelementptr i32, ptr %gep.us, i64 %30
-  store i32 %53, ptr %57, align 4, !tbaa !4
-  %58 = add nsw i32 %.175.us, 2
-  br label %59
+  %54 = getelementptr i8, ptr %47, i64 4
+  store i32 %51, ptr %54, align 4, !tbaa !4
+  %55 = getelementptr i32, ptr %54, i64 %29
+  %56 = trunc i64 %37 to i32
+  %57 = add i32 %iv.rem, %56
+  store i32 %57, ptr %55, align 4, !tbaa !4
+  %58 = getelementptr i32, ptr %54, i64 %30
+  store i32 %53, ptr %58, align 4, !tbaa !4
+  %59 = add nsw i32 %.175.us, 2
+  br label %60
 
-59:                                               ; preds = %42, %33
-  %.2.us = phi i32 [ %58, %42 ], [ %.175.us, %33 ]
+60:                                               ; preds = %42, %33
+  %.2.us = phi i32 [ %59, %42 ], [ %.175.us, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond82.not, label %._crit_edge.us, label %33, !llvm.loop !10
 
-._crit_edge.us:                                   ; preds = %59
+._crit_edge.us:                                   ; preds = %60
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %20
   br i1 %exitcond87.not, label %._crit_edge79, label %.lr.ph.us, !llvm.loop !12
 
@@ -122,14 +121,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   ret void
 
 .lr.ph78.split:                                   ; preds = %.lr.ph78, %.lr.ph78.split
-  %.07276 = phi i32 [ %65, %.lr.ph78.split ], [ 0, %.lr.ph78 ]
-  %60 = uitofp nneg i32 %.07276 to double
-  %61 = fmul double %60, 0x401921FB54442D18
-  %62 = fdiv double %61, %13
-  %63 = tail call double @cos(double noundef %62) #6, !tbaa !4
-  %64 = tail call double @sin(double noundef %62) #6, !tbaa !4
-  %65 = add nuw nsw i32 %.07276, 1
-  %exitcond.not = icmp eq i32 %65, %0
+  %.07276 = phi i32 [ %66, %.lr.ph78.split ], [ 0, %.lr.ph78 ]
+  %61 = uitofp nneg i32 %.07276 to double
+  %62 = fmul double %61, 0x401921FB54442D18
+  %63 = fdiv double %62, %13
+  %64 = tail call double @cos(double noundef %63) #6, !tbaa !4
+  %65 = tail call double @sin(double noundef %63) #6, !tbaa !4
+  %66 = add nuw nsw i32 %.07276, 1
+  %exitcond.not = icmp eq i32 %66, %0
   br i1 %exitcond.not, label %._crit_edge79, label %.lr.ph78.split, !llvm.loop !14
 }
 

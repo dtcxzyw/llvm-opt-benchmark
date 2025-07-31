@@ -748,13 +748,13 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !48
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %30
+  br i1 %7, label %8, label %32
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !53
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %33, label %11
+  br i1 %.not, label %35, label %11
 
 11:                                               ; preds = %8
   %12 = tail call i32 @xmlStrlen(ptr noundef %1) #11
@@ -765,51 +765,48 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
 .preheader:                                       ; preds = %11
   %14 = load ptr, ptr %2, align 8, !tbaa !61
   %.not2829 = icmp eq ptr %14, null
-  br i1 %.not2829, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not2829, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = phi ptr [ %14, %.lr.ph.preheader ], [ %23, %.lr.ph ]
-  %.131 = phi ptr [ %13, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
+  %15 = phi ptr [ %25, %.lr.ph ], [ %14, %.preheader ]
+  %.131 = phi ptr [ %22, %.lr.ph ], [ %13, %.preheader ]
+  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv
-  %16 = load ptr, ptr %gep, align 8, !tbaa !61
-  %17 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, ptr noundef %16) #11
-  %18 = trunc i64 %17 to i32
-  %19 = load ptr, ptr %4, align 8, !tbaa !61
-  %20 = call ptr @xmlStrncat(ptr noundef %.131, ptr noundef %19, i32 noundef %18) #11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !61
+  %19 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, ptr noundef %18) #11
+  %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %4, align 8, !tbaa !61
-  call void @_efree(ptr noundef %21) #11
+  %22 = call ptr @xmlStrncat(ptr noundef %.131, ptr noundef %21, i32 noundef %20) #11
+  %23 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @_efree(ptr noundef %23) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
-  %23 = load ptr, ptr %22, align 8, !tbaa !61
-  %.not28 = icmp eq ptr %23, null
+  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %25 = load ptr, ptr %24, align 8, !tbaa !61
+  %.not28 = icmp eq ptr %25, null
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
-  %.0 = phi ptr [ %13, %11 ], [ %13, %.preheader ], [ %20, %.lr.ph ]
-  %24 = call ptr @xmlStrncat(ptr noundef %.0, ptr noundef nonnull @.str.6, i32 noundef 1) #11
-  %25 = load ptr, ptr %9, align 8, !tbaa !53
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !47
-  %28 = call i32 @xmlStrlen(ptr noundef %24) #11
-  call void %25(ptr noundef %27, ptr noundef %24, i32 noundef %28) #11
-  %29 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  call void %29(ptr noundef %24) #11
-  br label %33
+  %.0 = phi ptr [ %13, %11 ], [ %13, %.preheader ], [ %22, %.lr.ph ]
+  %26 = call ptr @xmlStrncat(ptr noundef %.0, ptr noundef nonnull @.str.6, i32 noundef 1) #11
+  %27 = load ptr, ptr %9, align 8, !tbaa !53
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !47
+  %30 = call i32 @xmlStrlen(ptr noundef %26) #11
+  call void %27(ptr noundef %29, ptr noundef %26, i32 noundef %30) #11
+  %31 = load ptr, ptr @xmlFree, align 8, !tbaa !72
+  call void %31(ptr noundef %26) #11
+  br label %35
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !47
-  tail call void %6(ptr noundef %32, ptr noundef %1, ptr noundef %2) #11
-  br label %33
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !47
+  tail call void %6(ptr noundef %34, ptr noundef %1, ptr noundef %2) #11
+  br label %35
 
-33:                                               ; preds = %8, %.loopexit, %30
+35:                                               ; preds = %8, %.loopexit, %32
   ret void
 }
 

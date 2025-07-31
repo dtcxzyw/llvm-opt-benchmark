@@ -143,9 +143,9 @@ define dso_local range(i32 0, 2) i32 @filter_provider_set_filter(i32 noundef %0,
   %or.cond65 = select i1 %or.cond, i1 true, i1 %10
   br i1 %or.cond65, label %.thread72, label %.preheader
 
-.preheader:                                       ; preds = %2, %34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %2 ]
-  %.05079 = phi ptr [ %35, %34 ], [ %4, %2 ]
+.preheader:                                       ; preds = %2, %36
+  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %2 ]
+  %.05079 = phi ptr [ %37, %36 ], [ %4, %2 ]
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05079, i32 58)
   %.not58.not = icmp eq ptr %strchr, null
   br i1 %.not58.not, label %12, label %11
@@ -199,33 +199,34 @@ define dso_local range(i32 0, 2) i32 @filter_provider_set_filter(i32 noundef %0,
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8, !tbaa !28
   %31 = sext i32 %30 to i64
   %.idx = mul nsw i64 %31, 200
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 24), i64 %.idx
-  %32 = getelementptr inbounds nuw [6 x %struct.ossl_algorithm_st], ptr %gep, i64 0, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %.04677, i64 32, i1 false), !tbaa.struct !29
+  %32 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %.idx
+  %33 = getelementptr i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw [6 x %struct.ossl_algorithm_st], ptr %33, i64 0, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %.04677, i64 32, i1 false), !tbaa.struct !29
   %.pr = load ptr, ptr %.04677, align 8, !tbaa !24
-  %33 = icmp eq ptr %.pr, null
-  br i1 %33, label %.thread72, label %34
+  %35 = icmp eq ptr %.pr, null
+  br i1 %35, label %.thread72, label %36
 
-34:                                               ; preds = %29
+36:                                               ; preds = %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
-  br i1 %.not58.not, label %36, label %.preheader, !llvm.loop !31
+  %37 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
+  br i1 %.not58.not, label %38, label %.preheader, !llvm.loop !31
 
-36:                                               ; preds = %34
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8, !tbaa !28
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [10 x %struct.anon], ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 0, i64 %38
-  store i32 %0, ptr %39, align 8, !tbaa !32
-  %40 = load i32, ptr %3, align 4, !tbaa !22
-  store i32 %40, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2020), align 4, !tbaa !34
-  %41 = add nsw i32 %37, 1
-  store i32 %41, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8, !tbaa !28
+38:                                               ; preds = %36
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8, !tbaa !28
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds [10 x %struct.anon], ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 0, i64 %40
+  store i32 %0, ptr %41, align 8, !tbaa !32
+  %42 = load i32, ptr %3, align 4, !tbaa !22
+  store i32 %42, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2020), align 4, !tbaa !34
+  %43 = add nsw i32 %39, 1
+  store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8, !tbaa !28
   br label %.thread72
 
-.thread72:                                        ; preds = %29, %25, %12, %26, %36, %2
-  %.051 = phi i32 [ 0, %2 ], [ 1, %36 ], [ 0, %26 ], [ 0, %12 ], [ 0, %25 ], [ 0, %29 ]
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8, !tbaa !18
-  call void @OSSL_PROVIDER_unquery_operation(ptr noundef %42, i32 noundef %0, ptr noundef %6) #7
+.thread72:                                        ; preds = %29, %25, %12, %26, %38, %2
+  %.051 = phi i32 [ 0, %2 ], [ 1, %38 ], [ 0, %26 ], [ 0, %12 ], [ 0, %25 ], [ 0, %29 ]
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8, !tbaa !18
+  call void @OSSL_PROVIDER_unquery_operation(ptr noundef %44, i32 noundef %0, ptr noundef %6) #7
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 264) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   ret i32 %.051
@@ -351,13 +352,14 @@ define internal void @filter_unquery(ptr readnone captures(none) %0, i32 noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 200
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 24), i64 %.idx
-  %14 = icmp eq ptr %gep, %2
-  br i1 %14, label %.loopexit, label %13
+  %14 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %.idx
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = icmp eq ptr %15, %2
+  br i1 %16, label %.loopexit, label %13
 
 ._crit_edge:                                      ; preds = %13, %10
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8, !tbaa !18
-  tail call void @OSSL_PROVIDER_unquery_operation(ptr noundef %15, i32 noundef %1, ptr noundef %2) #7
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8, !tbaa !18
+  tail call void @OSSL_PROVIDER_unquery_operation(ptr noundef %17, i32 noundef %1, ptr noundef %2) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge

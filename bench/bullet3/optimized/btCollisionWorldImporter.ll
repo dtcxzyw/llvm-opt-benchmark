@@ -4426,23 +4426,19 @@ define linkonce_odr dso_local void @_ZN9btHashMapI12btHashStringP16btCollisionSh
   %25 = load ptr, ptr %24, align 8
   br i1 %22, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %invariant.gep.i = getelementptr i8, ptr %19, i64 8
-  br label %26
-
-26:                                               ; preds = %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i, %.lr.ph.split.us.i
-  %.015.us.i = phi i32 [ %.013.i, %.lr.ph.split.us.i ], [ %.0.us.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i ]
-  %27 = sext i32 %.015.us.i to i64
-  %gep.i = getelementptr %struct.btHashString, ptr %invariant.gep.i, i64 %27
-  %28 = load i64, ptr %gep.i, align 8, !tbaa !138
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i
+  %.015.us.i = phi i32 [ %.0.us.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i ], [ %.013.i, %.lr.ph.i ]
+  %26 = sext i32 %.015.us.i to i64
+  %27 = getelementptr inbounds %struct.btHashString, ptr %19, i64 %26, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8, !tbaa !138
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %_ZNK9btHashMapI12btHashStringP16btCollisionShapeE9findIndexERKS0_.exit, label %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i
 
-_ZNK12btHashString6equalsERKS_.exit.thread12.us.i: ; preds = %26
-  %30 = getelementptr inbounds i32, ptr %25, i64 %27
+_ZNK12btHashString6equalsERKS_.exit.thread12.us.i: ; preds = %.lr.ph.split.us.i
+  %30 = getelementptr inbounds i32, ptr %25, i64 %26
   %.0.us.i = load i32, ptr %30, align 4, !tbaa !195
   %.not11.us.i = icmp eq i32 %.0.us.i, -1
-  br i1 %.not11.us.i, label %.loopexit, label %26, !llvm.loop !307
+  br i1 %.not11.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !307
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.i
   %.015.i = phi i32 [ %.0.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.i ], [ %.013.i, %.lr.ph.i ]
@@ -4465,8 +4461,8 @@ _ZNK12btHashString6equalsERKS_.exit.thread12.i:   ; preds = %_ZNK12btHashString6
   %.not11.i = icmp eq i32 %.0.i, -1
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !309
 
-_ZNK9btHashMapI12btHashStringP16btCollisionShapeE9findIndexERKS0_.exit: ; preds = %_ZNK12btHashString6equalsERKS_.exit.i, %26
-  %.pre-phi = phi i64 [ %27, %26 ], [ %31, %_ZNK12btHashString6equalsERKS_.exit.i ]
+_ZNK9btHashMapI12btHashStringP16btCollisionShapeE9findIndexERKS0_.exit: ; preds = %_ZNK12btHashString6equalsERKS_.exit.i, %.lr.ph.split.us.i
+  %.pre-phi = phi i64 [ %26, %.lr.ph.split.us.i ], [ %31, %_ZNK12btHashString6equalsERKS_.exit.i ]
   %39 = load ptr, ptr %2, align 8, !tbaa !171
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8, !tbaa !69
@@ -7409,23 +7405,19 @@ _ZN12btHashStringC2EPKc.exit:                     ; preds = %.lr.ph.i, %16
   %46 = load ptr, ptr %45, align 8
   br i1 %44, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
-  %invariant.gep.i.i = getelementptr i8, ptr %42, i64 8
-  br label %47
-
-47:                                               ; preds = %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i, %.lr.ph.split.us.i.i
-  %.015.us.i.i = phi i32 [ %.013.i.i, %.lr.ph.split.us.i.i ], [ %.0.us.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i ]
-  %48 = sext i32 %.015.us.i.i to i64
-  %gep.i.i = getelementptr %struct.btHashString, ptr %invariant.gep.i.i, i64 %48
-  %49 = load i64, ptr %gep.i.i, align 8, !tbaa !138
+.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i
+  %.015.us.i.i = phi i32 [ %.0.us.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
+  %47 = sext i32 %.015.us.i.i to i64
+  %48 = getelementptr inbounds %struct.btHashString, ptr %42, i64 %47, i32 0, i32 1
+  %49 = load i64, ptr %48, align 8, !tbaa !138
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %_ZNK9btHashMapI12btHashStringP17btCollisionObjectE9findIndexERKS0_.exit.i, label %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i
 
-_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i: ; preds = %47
-  %51 = getelementptr inbounds i32, ptr %46, i64 %48
+_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i: ; preds = %.lr.ph.split.us.i.i
+  %51 = getelementptr inbounds i32, ptr %46, i64 %47
   %.0.us.i.i = load i32, ptr %51, align 4, !tbaa !195
   %.not11.us.i.i = icmp eq i32 %.0.us.i.i, -1
-  br i1 %.not11.us.i.i, label %_ZN9btHashMapI12btHashStringP17btCollisionObjectE4findERKS0_.exit, label %47, !llvm.loop !441
+  br i1 %.not11.us.i.i, label %_ZN9btHashMapI12btHashStringP17btCollisionObjectE4findERKS0_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !441
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.i.i
   %.015.i.i = phi i32 [ %.0.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
@@ -7448,8 +7440,8 @@ _ZNK12btHashString6equalsERKS_.exit.thread12.i.i: ; preds = %_ZNK12btHashString6
   %.not11.i.i = icmp eq i32 %.0.i.i, -1
   br i1 %.not11.i.i, label %_ZN9btHashMapI12btHashStringP17btCollisionObjectE4findERKS0_.exit, label %.lr.ph.split.i.i, !llvm.loop !442
 
-_ZNK9btHashMapI12btHashStringP17btCollisionObjectE9findIndexERKS0_.exit.i: ; preds = %_ZNK12btHashString6equalsERKS_.exit.i.i, %47
-  %.pre-phi.i = phi i64 [ %48, %47 ], [ %52, %_ZNK12btHashString6equalsERKS_.exit.i.i ]
+_ZNK9btHashMapI12btHashStringP17btCollisionObjectE9findIndexERKS0_.exit.i: ; preds = %_ZNK12btHashString6equalsERKS_.exit.i.i, %.lr.ph.split.us.i.i
+  %.pre-phi.i = phi i64 [ %47, %.lr.ph.split.us.i.i ], [ %52, %_ZNK12btHashString6equalsERKS_.exit.i.i ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %61 = load ptr, ptr %60, align 8, !tbaa !73
   %62 = getelementptr inbounds ptr, ptr %61, i64 %.pre-phi.i
@@ -7806,23 +7798,19 @@ define linkonce_odr dso_local void @_ZN9btHashMapI12btHashStringP17btCollisionOb
   %25 = load ptr, ptr %24, align 8
   br i1 %22, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %invariant.gep.i = getelementptr i8, ptr %19, i64 8
-  br label %26
-
-26:                                               ; preds = %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i, %.lr.ph.split.us.i
-  %.015.us.i = phi i32 [ %.013.i, %.lr.ph.split.us.i ], [ %.0.us.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i ]
-  %27 = sext i32 %.015.us.i to i64
-  %gep.i = getelementptr %struct.btHashString, ptr %invariant.gep.i, i64 %27
-  %28 = load i64, ptr %gep.i, align 8, !tbaa !138
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i
+  %.015.us.i = phi i32 [ %.0.us.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i ], [ %.013.i, %.lr.ph.i ]
+  %26 = sext i32 %.015.us.i to i64
+  %27 = getelementptr inbounds %struct.btHashString, ptr %19, i64 %26, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8, !tbaa !138
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %_ZNK9btHashMapI12btHashStringP17btCollisionObjectE9findIndexERKS0_.exit, label %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i
 
-_ZNK12btHashString6equalsERKS_.exit.thread12.us.i: ; preds = %26
-  %30 = getelementptr inbounds i32, ptr %25, i64 %27
+_ZNK12btHashString6equalsERKS_.exit.thread12.us.i: ; preds = %.lr.ph.split.us.i
+  %30 = getelementptr inbounds i32, ptr %25, i64 %26
   %.0.us.i = load i32, ptr %30, align 4, !tbaa !195
   %.not11.us.i = icmp eq i32 %.0.us.i, -1
-  br i1 %.not11.us.i, label %.loopexit, label %26, !llvm.loop !441
+  br i1 %.not11.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !441
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.i
   %.015.i = phi i32 [ %.0.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.i ], [ %.013.i, %.lr.ph.i ]
@@ -7845,8 +7833,8 @@ _ZNK12btHashString6equalsERKS_.exit.thread12.i:   ; preds = %_ZNK12btHashString6
   %.not11.i = icmp eq i32 %.0.i, -1
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !442
 
-_ZNK9btHashMapI12btHashStringP17btCollisionObjectE9findIndexERKS0_.exit: ; preds = %_ZNK12btHashString6equalsERKS_.exit.i, %26
-  %.pre-phi = phi i64 [ %27, %26 ], [ %31, %_ZNK12btHashString6equalsERKS_.exit.i ]
+_ZNK9btHashMapI12btHashStringP17btCollisionObjectE9findIndexERKS0_.exit: ; preds = %_ZNK12btHashString6equalsERKS_.exit.i, %.lr.ph.split.us.i
+  %.pre-phi = phi i64 [ %26, %.lr.ph.split.us.i ], [ %31, %_ZNK12btHashString6equalsERKS_.exit.i ]
   %39 = load ptr, ptr %2, align 8, !tbaa !203
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8, !tbaa !73
@@ -10576,23 +10564,19 @@ _ZN12btHashStringC2EPKc.exit:                     ; preds = %.lr.ph.i, %16
   %46 = load ptr, ptr %45, align 8
   br i1 %44, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
-  %invariant.gep.i.i = getelementptr i8, ptr %42, i64 8
-  br label %47
-
-47:                                               ; preds = %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i, %.lr.ph.split.us.i.i
-  %.015.us.i.i = phi i32 [ %.013.i.i, %.lr.ph.split.us.i.i ], [ %.0.us.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i ]
-  %48 = sext i32 %.015.us.i.i to i64
-  %gep.i.i = getelementptr %struct.btHashString, ptr %invariant.gep.i.i, i64 %48
-  %49 = load i64, ptr %gep.i.i, align 8, !tbaa !138
+.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i
+  %.015.us.i.i = phi i32 [ %.0.us.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
+  %47 = sext i32 %.015.us.i.i to i64
+  %48 = getelementptr inbounds %struct.btHashString, ptr %42, i64 %47, i32 0, i32 1
+  %49 = load i64, ptr %48, align 8, !tbaa !138
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %_ZNK9btHashMapI12btHashStringP16btCollisionShapeE9findIndexERKS0_.exit.i, label %_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i
 
-_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i: ; preds = %47
-  %51 = getelementptr inbounds i32, ptr %46, i64 %48
+_ZNK12btHashString6equalsERKS_.exit.thread12.us.i.i: ; preds = %.lr.ph.split.us.i.i
+  %51 = getelementptr inbounds i32, ptr %46, i64 %47
   %.0.us.i.i = load i32, ptr %51, align 4, !tbaa !195
   %.not11.us.i.i = icmp eq i32 %.0.us.i.i, -1
-  br i1 %.not11.us.i.i, label %_ZN9btHashMapI12btHashStringP16btCollisionShapeE4findERKS0_.exit, label %47, !llvm.loop !307
+  br i1 %.not11.us.i.i, label %_ZN9btHashMapI12btHashStringP16btCollisionShapeE4findERKS0_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !307
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.i.i
   %.015.i.i = phi i32 [ %.0.i.i, %_ZNK12btHashString6equalsERKS_.exit.thread12.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
@@ -10615,8 +10599,8 @@ _ZNK12btHashString6equalsERKS_.exit.thread12.i.i: ; preds = %_ZNK12btHashString6
   %.not11.i.i = icmp eq i32 %.0.i.i, -1
   br i1 %.not11.i.i, label %_ZN9btHashMapI12btHashStringP16btCollisionShapeE4findERKS0_.exit, label %.lr.ph.split.i.i, !llvm.loop !309
 
-_ZNK9btHashMapI12btHashStringP16btCollisionShapeE9findIndexERKS0_.exit.i: ; preds = %_ZNK12btHashString6equalsERKS_.exit.i.i, %47
-  %.pre-phi.i = phi i64 [ %48, %47 ], [ %52, %_ZNK12btHashString6equalsERKS_.exit.i.i ]
+_ZNK9btHashMapI12btHashStringP16btCollisionShapeE9findIndexERKS0_.exit.i: ; preds = %_ZNK12btHashString6equalsERKS_.exit.i.i, %.lr.ph.split.us.i.i
+  %.pre-phi.i = phi i64 [ %47, %.lr.ph.split.us.i.i ], [ %52, %_ZNK12btHashString6equalsERKS_.exit.i.i ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %61 = load ptr, ptr %60, align 8, !tbaa !69
   %62 = getelementptr inbounds ptr, ptr %61, i64 %.pre-phi.i

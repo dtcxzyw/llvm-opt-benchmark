@@ -1665,21 +1665,22 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL10luauF_byteP9lua_Sta
   br i1 %.not43, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %34
-  %invariant.gep = getelementptr i8, ptr %17, i64 23
-  %39 = zext nneg i32 %19 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = zext nneg i32 %19 to i64
   %wide.trip.count = zext nneg i32 %36 to i64
-  %invariant.gep50 = getelementptr i8, ptr %invariant.gep, i64 %39
+  %invariant.gep = getelementptr i8, ptr %39, i64 %40
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
-  %gep51 = getelementptr i8, ptr %invariant.gep50, i64 %indvars.iv
-  %41 = load i8, ptr %gep51, align 1, !tbaa !9
-  %42 = uitofp i8 %41 to double
-  store double %42, ptr %40, align 8, !tbaa !9
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store i32 3, ptr %43, align 4, !tbaa !4
+  %41 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %42 = getelementptr i8, ptr %gep, i64 -1
+  %43 = load i8, ptr %42, align 1, !tbaa !9
+  %44 = uitofp i8 %43 to double
+  store double %44, ptr %41, align 8, !tbaa !9
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  store i32 3, ptr %45, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !35

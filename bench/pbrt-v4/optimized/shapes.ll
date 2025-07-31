@@ -21421,12 +21421,10 @@ _ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorI
   %69 = sub i64 %67, %68
   %70 = ashr exact i64 %69, 2
   %71 = udiv i64 %70, 3
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %invariant.gep10 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.not = icmp ult i64 %70, 3
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %130, %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEC2ESA_.exit
+._crit_edge:                                      ; preds = %131, %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEC2ESA_.exit
   %72 = load ptr, ptr %0, align 8, !tbaa !173
   %73 = load ptr, ptr %17, align 8, !tbaa !192
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -21439,7 +21437,7 @@ _ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorI
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %79, align 8
   %80 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
-          to label %.noexc25 unwind label %150
+          to label %.noexc25 unwind label %151
 
 .noexc25:                                         ; preds = %._crit_edge
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -21509,11 +21507,11 @@ _ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorI
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %109 = load ptr, ptr %78, align 8, !tbaa !453
   %.not.i.i24 = icmp eq ptr %109, null
-  br i1 %.not.i.i24, label %133, label %110
+  br i1 %.not.i.i24, label %134, label %110
 
 110:                                              ; preds = %108
   %111 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
-          to label %133 unwind label %112
+          to label %134 unwind label %112
 
 112:                                              ; preds = %110
   %113 = landingpad { ptr, i32 }
@@ -21546,119 +21544,119 @@ _ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorI
 123:                                              ; preds = %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE7reserveEm.exit.i.i, %_ZNSt6vectorIiSaIiEE5clearEv.exit
   %124 = landingpad { ptr, i32 }
           cleanup
-  br label %152
+  br label %153
 
-.lr.ph:                                           ; preds = %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEC2ESA_.exit, %130
-  %indvars.iv = phi i64 [ %indvars.iv.next, %130 ], [ 0, %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEC2ESA_.exit ]
-  %125 = mul nuw nsw i64 %indvars.iv, 3
-  %126 = getelementptr inbounds nuw i32, ptr %39, i64 %125
-  %127 = load i32, ptr %126, align 4, !tbaa !15
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %125
-  %128 = load i32, ptr %gep, align 4, !tbaa !15
-  %gep11 = getelementptr inbounds nuw i32, ptr %invariant.gep10, i64 %125
-  %129 = load i32, ptr %gep11, align 4, !tbaa !15
-  invoke fastcc void @"_ZN4pbrt11TriQuadMesh6RefineIRZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EEvOT_fiiiRNS_7HashMapISL_IiiEiNS_11HashIntPairENSW_INSU_8optionalISL_IS14_iEEEEEEE"(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, float noundef %3, i32 noundef %127, i32 noundef %128, i32 noundef %129, ptr noundef nonnull align 8 dereferenceable(40) %8)
-          to label %130 unwind label %131
-
-130:                                              ; preds = %.lr.ph
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond14.not = icmp eq i64 %indvars.iv.next, %71
-  br i1 %exitcond14.not, label %._crit_edge, label %.lr.ph, !llvm.loop !458
+.lr.ph:                                           ; preds = %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEC2ESA_.exit, %131
+  %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEC2ESA_.exit ]
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
+  %125 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
+  %126 = load i32, ptr %125, align 4, !tbaa !15
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %128 = load i32, ptr %127, align 4, !tbaa !15
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %130 = load i32, ptr %129, align 4, !tbaa !15
+  invoke fastcc void @"_ZN4pbrt11TriQuadMesh6RefineIRZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EEvOT_fiiiRNS_7HashMapISL_IiiEiNS_11HashIntPairENSW_INSU_8optionalISL_IS14_iEEEEEEE"(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, float noundef %3, i32 noundef %126, i32 noundef %128, i32 noundef %130, ptr noundef nonnull align 8 dereferenceable(40) %8)
+          to label %131 unwind label %132
 
 131:                                              ; preds = %.lr.ph
-  %132 = landingpad { ptr, i32 }
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond12.not = icmp eq i64 %indvars.iv.next, %71
+  br i1 %exitcond12.not, label %._crit_edge, label %.lr.ph, !llvm.loop !458
+
+132:                                              ; preds = %.lr.ph
+  %133 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-133:                                              ; preds = %110, %108
+134:                                              ; preds = %110, %108
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   invoke void @_ZN4pbrt11TriQuadMesh14ComputeNormalsEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
-          to label %134 unwind label %150
+          to label %135 unwind label %151
 
-134:                                              ; preds = %133
-  %135 = load i64, ptr %45, align 8, !tbaa !433
-  %.not.i.i.i26 = icmp eq i64 %135, 0
+135:                                              ; preds = %134
+  %136 = load i64, ptr %45, align 8, !tbaa !433
+  %.not.i.i.i26 = icmp eq i64 %136, 0
   %.pre.i.i = load ptr, ptr %43, align 8, !tbaa !437
   br i1 %.not.i.i.i26, label %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.i.i, label %.lr.ph.i.i.i27
 
-.lr.ph.i.i.i27:                                   ; preds = %134, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29
-  %indvars.iv.i.i.i28 = phi i64 [ %indvars.iv.next.i.i.i30, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29 ], [ 0, %134 ]
-  %136 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %.pre.i.i, i64 %indvars.iv.i.i.i28, i32 1
-  %137 = load i8, ptr %136, align 4, !tbaa !438, !range !19, !noundef !20
-  %138 = trunc nuw i8 %137 to i1
-  br i1 %138, label %_ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i.i.i.i.i31, label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29
+.lr.ph.i.i.i27:                                   ; preds = %135, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29
+  %indvars.iv.i.i.i28 = phi i64 [ %indvars.iv.next.i.i.i30, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29 ], [ 0, %135 ]
+  %137 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %.pre.i.i, i64 %indvars.iv.i.i.i28, i32 1
+  %138 = load i8, ptr %137, align 4, !tbaa !438, !range !19, !noundef !20
+  %139 = trunc nuw i8 %138 to i1
+  br i1 %139, label %_ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i.i.i.i.i31, label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29
 
 _ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i.i.i.i.i31: ; preds = %.lr.ph.i.i.i27
-  store i8 0, ptr %136, align 4, !tbaa !438
+  store i8 0, ptr %137, align 4, !tbaa !438
   br label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29: ; preds = %_ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i.i.i.i.i31, %.lr.ph.i.i.i27
   %indvars.iv.next.i.i.i30 = add nuw nsw i64 %indvars.iv.i.i.i28, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i30, %135
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i30, %136
   br i1 %exitcond.not.i.i.i, label %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.thread.i.i, label %.lr.ph.i.i.i27, !llvm.loop !459
 
 _ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.thread.i.i: ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29
   store i64 0, ptr %45, align 8, !tbaa !433
-  br label %139
+  br label %140
 
-_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.i.i: ; preds = %134
+_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.i.i: ; preds = %135
   %.not.i.i.i.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit, label %139
+  br i1 %.not.i.i.i.i.i, label %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit, label %140
 
-139:                                              ; preds = %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.i.i, %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.thread.i.i
-  %140 = load i64, ptr %44, align 8, !tbaa !441
-  %141 = shl i64 %140, 4
-  %142 = load ptr, ptr %8, align 8, !tbaa !442
-  %143 = load ptr, ptr %142, align 8, !tbaa !56
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %145 = load ptr, ptr %144, align 8
-  invoke void %145(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull %.pre.i.i, i64 noundef %141, i64 noundef 4)
-          to label %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit unwind label %146
+140:                                              ; preds = %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.i.i, %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.thread.i.i
+  %141 = load i64, ptr %44, align 8, !tbaa !441
+  %142 = shl i64 %141, 4
+  %143 = load ptr, ptr %8, align 8, !tbaa !442
+  %144 = load ptr, ptr %143, align 8, !tbaa !56
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  %146 = load ptr, ptr %145, align 8
+  invoke void %146(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull %.pre.i.i, i64 noundef %142, i64 noundef 4)
+          to label %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit unwind label %147
 
-146:                                              ; preds = %139
-  %147 = landingpad { ptr, i32 }
+147:                                              ; preds = %140
+  %148 = landingpad { ptr, i32 }
           catch ptr null
-  %148 = extractvalue { ptr, i32 } %147, 0
-  call void @__clang_call_terminate(ptr %148) #34
+  %149 = extractvalue { ptr, i32 } %148, 0
+  call void @__clang_call_terminate(ptr %149) #34
   unreachable
 
-_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit: ; preds = %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.i.i, %139
+_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit: ; preds = %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.i.i, %140
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #31
   %.not.i.i.i32 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i32, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %149
+  br i1 %.not.i.i.i32, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %150
 
-149:                                              ; preds = %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit
+150:                                              ; preds = %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit
   call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %69) #32
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit, %149
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit, %150
   ret void
 
-150:                                              ; preds = %._crit_edge, %133
-  %151 = landingpad { ptr, i32 }
+151:                                              ; preds = %._crit_edge, %134
+  %152 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %150, %116, %.body.i, %131
-  %.pn = phi { ptr, i32 } [ %132, %131 ], [ %151, %150 ], [ %101, %116 ], [ %101, %.body.i ]
+.body:                                            ; preds = %151, %116, %.body.i, %132
+  %.pn = phi { ptr, i32 } [ %133, %132 ], [ %152, %151 ], [ %101, %116 ], [ %101, %.body.i ]
   call void @_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #31
-  br label %152
+  br label %153
 
-152:                                              ; preds = %.body, %123
+153:                                              ; preds = %.body, %123
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %124, %123 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #31
   %.not.i.i.i33 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIiSaIiEED2Ev.exit34, label %153
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIiSaIiEED2Ev.exit34, label %154
 
-153:                                              ; preds = %152
-  %154 = ptrtoint ptr %40 to i64
-  %155 = ptrtoint ptr %39 to i64
-  %156 = sub i64 %154, %155
-  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %156) #32
+154:                                              ; preds = %153
+  %155 = ptrtoint ptr %40 to i64
+  %156 = ptrtoint ptr %39 to i64
+  %157 = sub i64 %155, %156
+  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %157) #32
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit34
 
-_ZNSt6vectorIiSaIiEED2Ev.exit34:                  ; preds = %121, %152, %153, %23
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %122, %121 ], [ %.pn.pn, %152 ], [ %.pn.pn, %153 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit34:                  ; preds = %121, %153, %154, %23
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %122, %121 ], [ %.pn.pn, %153 ], [ %.pn.pn, %154 ]
   call void @_ZN4pbrt11TriQuadMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #31
   resume { ptr, i32 } %.pn.pn.pn.pn
 }

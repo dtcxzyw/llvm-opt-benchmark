@@ -3102,17 +3102,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr noundef
   %35 = shl i32 255, %34
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %invariant.gep = getelementptr i8, ptr %5, i64 -1
   %38 = zext nneg i32 %28 to i64
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -1
   %41 = and i32 %23, 255
   %42 = zext nneg i32 %25 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %42
-  %43 = xor i32 %35, -1
-  %44 = trunc i32 %35 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %42
-  %46 = getelementptr inbounds i8, ptr %45, i64 -1
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %42
+  %44 = getelementptr inbounds i8, ptr %43, i64 -1
+  %45 = xor i32 %35, -1
+  %46 = trunc i32 %35 to i8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %110
@@ -3151,17 +3149,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr noundef
 
 66:                                               ; preds = %61
   %67 = and i8 %.079105, %55
-  %68 = icmp eq ptr %.081104, %gep
+  %68 = icmp eq ptr %.081104, %44
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %66
   %70 = zext i8 %67 to i32
-  %71 = and i32 %70, %43
+  %71 = and i32 %70, %45
   %.not = icmp eq i32 %71, 0
   br i1 %.not, label %72, label %.critedge.thread
 
 72:                                               ; preds = %69
-  %73 = and i8 %67, %44
+  %73 = and i8 %67, %46
   br label %74
 
 74:                                               ; preds = %66, %72, %61
@@ -3176,7 +3174,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr noundef
 
 81:                                               ; preds = %74
   %82 = getelementptr inbounds nuw i8, ptr %.081104, i64 1
-  %83 = icmp eq ptr %82, %45
+  %83 = icmp eq ptr %82, %43
   br i1 %83, label %.critedge, label %84
 
 84:                                               ; preds = %81
@@ -3185,17 +3183,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr noundef
 
 86:                                               ; preds = %84
   %87 = and i8 %.077106, %58
-  %88 = icmp eq ptr %82, %46
+  %88 = icmp eq ptr %82, %44
   br i1 %88, label %89, label %94
 
 89:                                               ; preds = %86
   %90 = zext i8 %87 to i32
-  %91 = and i32 %90, %43
+  %91 = and i32 %90, %45
   %.not90 = icmp eq i32 %91, 0
   br i1 %.not90, label %92, label %.critedge.thread
 
 92:                                               ; preds = %89
-  %93 = and i8 %87, %44
+  %93 = and i8 %87, %46
   br label %94
 
 94:                                               ; preds = %86, %92, %84

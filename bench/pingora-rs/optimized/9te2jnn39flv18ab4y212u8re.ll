@@ -6581,7 +6581,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %144 = icmp eq i64 %135, 0
   br i1 %144, label %.loopexit60, label %.lr.ph.preheader
 
-.loopexit:                                        ; preds = %593, %145, %.loopexit60
+.loopexit:                                        ; preds = %.lr.ph98.preheader, %145, %.loopexit60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %57)
   br i1 %136, label %155, label %150, !prof !466
 
@@ -6592,10 +6592,6 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx100
   %149 = icmp eq i64 %138, 0
   br i1 %149, label %.loopexit, label %.lr.ph98.preheader
-
-.lr.ph98.preheader:                               ; preds = %145
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %64, i64 8208
-  br label %593
 
 150:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
@@ -7671,29 +7667,30 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   invoke void @"_ZN4core3ptr105drop_in_place$LT$brotli..enc..find_stride..EntropyTally$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h977b062ce6b60000E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %56) #19
           to label %.thread33.thread51 unwind label %589
 
-593:                                              ; preds = %593, %.lr.ph98.preheader
-  %.sroa.73.097 = phi i64 [ %594, %593 ], [ 0, %.lr.ph98.preheader ]
-  %.sroa.01.096 = phi ptr [ %595, %593 ], [ %147, %.lr.ph98.preheader ]
-  %594 = add nuw nsw i64 %.sroa.73.097, 1
-  %595 = getelementptr inbounds nuw i8, ptr %.sroa.01.096, i64 4
-  %596 = load i32, ptr %.sroa.01.096, align 4, !noundef !3
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.sroa.73.097
-  %597 = trunc i32 %596 to i8
-  store i8 %597, ptr %gep, align 1
-  %598 = icmp eq ptr %595, %148
-  br i1 %598, label %.loopexit, label %593
+.lr.ph98.preheader:                               ; preds = %145, %.lr.ph98.preheader
+  %.sroa.73.097 = phi i64 [ %593, %.lr.ph98.preheader ], [ 0, %145 ]
+  %.sroa.01.096 = phi ptr [ %594, %.lr.ph98.preheader ], [ %147, %145 ]
+  %593 = add nuw nsw i64 %.sroa.73.097, 1
+  %594 = getelementptr inbounds nuw i8, ptr %.sroa.01.096, i64 4
+  %595 = load i32, ptr %.sroa.01.096, align 4, !noundef !3
+  %596 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.73.097
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 8208
+  %598 = trunc i32 %595 to i8
+  store i8 %598, ptr %597, align 1
+  %599 = icmp eq ptr %594, %148
+  br i1 %599, label %.loopexit, label %.lr.ph98.preheader
 
 .lr.ph.preheader:                                 ; preds = %140, %.lr.ph.preheader
-  %.sroa.0.095 = phi ptr [ %600, %.lr.ph.preheader ], [ %142, %140 ]
-  %.sroa.7.094 = phi i64 [ %599, %.lr.ph.preheader ], [ 0, %140 ]
-  %599 = add nuw nsw i64 %.sroa.7.094, 1
-  %600 = getelementptr inbounds nuw i8, ptr %.sroa.0.095, i64 4
-  %601 = load i32, ptr %.sroa.0.095, align 4, !noundef !3
-  %602 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.7.094
-  %603 = trunc i32 %601 to i8
-  store i8 %603, ptr %602, align 1
-  %604 = icmp eq ptr %600, %143
-  br i1 %604, label %.loopexit60, label %.lr.ph.preheader
+  %.sroa.0.095 = phi ptr [ %601, %.lr.ph.preheader ], [ %142, %140 ]
+  %.sroa.7.094 = phi i64 [ %600, %.lr.ph.preheader ], [ 0, %140 ]
+  %600 = add nuw nsw i64 %.sroa.7.094, 1
+  %601 = getelementptr inbounds nuw i8, ptr %.sroa.0.095, i64 4
+  %602 = load i32, ptr %.sroa.0.095, align 4, !noundef !3
+  %603 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.7.094
+  %604 = trunc i32 %602 to i8
+  store i8 %604, ptr %603, align 1
+  %605 = icmp eq ptr %601, %143
+  br i1 %605, label %.loopexit60, label %.lr.ph.preheader
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7956,7 +7953,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %144 = icmp eq i64 %135, 0
   br i1 %144, label %.loopexit60, label %.lr.ph.preheader
 
-.loopexit:                                        ; preds = %593, %145, %.loopexit60
+.loopexit:                                        ; preds = %.lr.ph98.preheader, %145, %.loopexit60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %57)
   br i1 %136, label %155, label %150, !prof !466
 
@@ -7967,10 +7964,6 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx100
   %149 = icmp eq i64 %138, 0
   br i1 %149, label %.loopexit, label %.lr.ph98.preheader
-
-.lr.ph98.preheader:                               ; preds = %145
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %64, i64 8208
-  br label %593
 
 150:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
@@ -9046,29 +9039,30 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   invoke void @"_ZN4core3ptr105drop_in_place$LT$brotli..enc..find_stride..EntropyTally$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h977b062ce6b60000E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %56) #19
           to label %.thread33.thread51 unwind label %589
 
-593:                                              ; preds = %593, %.lr.ph98.preheader
-  %.sroa.73.097 = phi i64 [ %594, %593 ], [ 0, %.lr.ph98.preheader ]
-  %.sroa.01.096 = phi ptr [ %595, %593 ], [ %147, %.lr.ph98.preheader ]
-  %594 = add nuw nsw i64 %.sroa.73.097, 1
-  %595 = getelementptr inbounds nuw i8, ptr %.sroa.01.096, i64 4
-  %596 = load i32, ptr %.sroa.01.096, align 4, !noundef !3
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.sroa.73.097
-  %597 = trunc i32 %596 to i8
-  store i8 %597, ptr %gep, align 1
-  %598 = icmp eq ptr %595, %148
-  br i1 %598, label %.loopexit, label %593
+.lr.ph98.preheader:                               ; preds = %145, %.lr.ph98.preheader
+  %.sroa.73.097 = phi i64 [ %593, %.lr.ph98.preheader ], [ 0, %145 ]
+  %.sroa.01.096 = phi ptr [ %594, %.lr.ph98.preheader ], [ %147, %145 ]
+  %593 = add nuw nsw i64 %.sroa.73.097, 1
+  %594 = getelementptr inbounds nuw i8, ptr %.sroa.01.096, i64 4
+  %595 = load i32, ptr %.sroa.01.096, align 4, !noundef !3
+  %596 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.73.097
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 8208
+  %598 = trunc i32 %595 to i8
+  store i8 %598, ptr %597, align 1
+  %599 = icmp eq ptr %594, %148
+  br i1 %599, label %.loopexit, label %.lr.ph98.preheader
 
 .lr.ph.preheader:                                 ; preds = %140, %.lr.ph.preheader
-  %.sroa.0.095 = phi ptr [ %600, %.lr.ph.preheader ], [ %142, %140 ]
-  %.sroa.7.094 = phi i64 [ %599, %.lr.ph.preheader ], [ 0, %140 ]
-  %599 = add nuw nsw i64 %.sroa.7.094, 1
-  %600 = getelementptr inbounds nuw i8, ptr %.sroa.0.095, i64 4
-  %601 = load i32, ptr %.sroa.0.095, align 4, !noundef !3
-  %602 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.7.094
-  %603 = trunc i32 %601 to i8
-  store i8 %603, ptr %602, align 1
-  %604 = icmp eq ptr %600, %143
-  br i1 %604, label %.loopexit60, label %.lr.ph.preheader
+  %.sroa.0.095 = phi ptr [ %601, %.lr.ph.preheader ], [ %142, %140 ]
+  %.sroa.7.094 = phi i64 [ %600, %.lr.ph.preheader ], [ 0, %140 ]
+  %600 = add nuw nsw i64 %.sroa.7.094, 1
+  %601 = getelementptr inbounds nuw i8, ptr %.sroa.0.095, i64 4
+  %602 = load i32, ptr %.sroa.0.095, align 4, !noundef !3
+  %603 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.7.094
+  %604 = trunc i32 %602 to i8
+  store i8 %604, ptr %603, align 1
+  %605 = icmp eq ptr %601, %143
+  br i1 %605, label %.loopexit60, label %.lr.ph.preheader
 }
 
 ; Function Attrs: nonlazybind uwtable

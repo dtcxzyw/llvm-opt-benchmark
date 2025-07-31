@@ -713,7 +713,6 @@ thread-pre-split:                                 ; preds = %42
   %182 = mul nsw i64 %indvars.iv750.i, %166
   %183 = load ptr, ptr %105, align 8, !tbaa !94
   %184 = load ptr, ptr %106, align 8, !tbaa !95
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = sext i32 %169 to i64
   %186 = sext i32 %170 to i64
   br label %187
@@ -778,11 +777,10 @@ thread-pre-split:                                 ; preds = %42
   %227 = fneg nsz double %209
   %228 = call nsz double @llvm.fmuladd.f64(double %227, double %226, double %225)
   store double %228, ptr %207, align 8, !tbaa !83
-  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %200
-  %229 = load double, ptr %gep.i, align 8, !tbaa !83
+  %229 = load double, ptr %214, align 8, !tbaa !83
   store double %229, ptr %219, align 8, !tbaa !83
   %230 = load double, ptr %201, align 8, !tbaa !83
-  store double %230, ptr %gep.i, align 8, !tbaa !83
+  store double %230, ptr %214, align 8, !tbaa !83
   %231 = load ptr, ptr %113, align 8, !tbaa !98
   %232 = getelementptr inbounds nuw double, ptr %231, i64 %200
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8

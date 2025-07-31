@@ -307,7 +307,6 @@ define noundef zeroext i1 @_ZN3g2o28EdgeSE2OdomDifferentialCalib4readERSi(ptr no
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 16 dereferenceable(304) %0, ptr noundef nonnull align 16 dereferenceable(24) %6)
-  %invariant.gep29.i = getelementptr i8, ptr %1, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %17
 
@@ -316,70 +315,72 @@ define noundef zeroext i1 @_ZN3g2o28EdgeSE2OdomDifferentialCalib4readERSi(ptr no
   %18 = load ptr, ptr %1, align 8, !tbaa !3
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %gep30.i = getelementptr i8, ptr %invariant.gep29.i, i64 %20
-  %21 = load i32, ptr %gep30.i, align 8, !tbaa !49
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.lr.ph.i, label %_ZN3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE21readInformationMatrixERSi.exit
+  %21 = getelementptr inbounds i8, ptr %1, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %23 = load i32, ptr %22, align 8, !tbaa !49
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %.lr.ph.i, label %_ZN3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE21readInformationMatrixERSi.exit
 
 .lr.ph.i:                                         ; preds = %17
-  %23 = getelementptr double, ptr %16, i64 %indvars.iv.i
+  %25 = getelementptr double, ptr %16, i64 %indvars.iv.i
   %.idx.i.i.i24.i = mul nuw nsw i64 %indvars.iv.i, 24
-  %invariant.gep27.i = getelementptr i8, ptr %16, i64 %.idx.i.i.i24.i
-  br label %24
+  %invariant.gep.i = getelementptr i8, ptr %16, i64 %.idx.i.i.i24.i
+  br label %26
 
-24:                                               ; preds = %35, %.lr.ph.i
-  %indvars.iv32.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next33.i, %35 ]
-  %25 = load ptr, ptr %1, align 8, !tbaa !3
-  %26 = getelementptr i8, ptr %25, i64 -24
-  %27 = load i64, ptr %26, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep29.i, i64 %27
-  %28 = load i32, ptr %gep.i, align 8, !tbaa !49
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %.critedge2.i
+26:                                               ; preds = %39, %.lr.ph.i
+  %indvars.iv28.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next29.i, %39 ]
+  %27 = load ptr, ptr %1, align 8, !tbaa !3
+  %28 = getelementptr i8, ptr %27, i64 -24
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %32 = load i32, ptr %31, align 8, !tbaa !49
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %35, %24
+.critedge2.i:                                     ; preds = %39, %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond36.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond36.not.i, label %.critedge2..critedge_crit_edge.i, label %17, !llvm.loop !59
+  %exitcond32.not.i = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %exitcond32.not.i, label %.critedge2..critedge_crit_edge.i, label %17, !llvm.loop !59
 
 .critedge2..critedge_crit_edge.i:                 ; preds = %.critedge2.i
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !3
   %.phi.trans.insert.i = getelementptr i8, ptr %.pre.i, i64 -24
-  %.pre37.i = load i64, ptr %.phi.trans.insert.i, align 8
+  %.pre33.i = load i64, ptr %.phi.trans.insert.i, align 8
+  %.phi.trans.insert34.i = getelementptr inbounds i8, ptr %1, i64 %.pre33.i
+  %.phi.trans.insert35.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert34.i, i64 32
+  %.pre36.i = load i32, ptr %.phi.trans.insert35.i, align 8, !tbaa !49
   br label %_ZN3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE21readInformationMatrixERSi.exit, !llvm.loop !59
 
-30:                                               ; preds = %24
-  %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv32.i, 24
-  %31 = getelementptr i8, ptr %23, i64 %.idx.i.i.i.i
-  %32 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %31)
-  %.not.i = icmp eq i64 %indvars.iv.i, %indvars.iv32.i
-  br i1 %.not.i, label %35, label %33
+34:                                               ; preds = %26
+  %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv28.i, 24
+  %35 = getelementptr i8, ptr %25, i64 %.idx.i.i.i.i
+  %36 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %.not.i = icmp eq i64 %indvars.iv.i, %indvars.iv28.i
+  br i1 %.not.i, label %39, label %37
 
-33:                                               ; preds = %30
-  %34 = load double, ptr %31, align 8, !tbaa !47
-  %gep28.i = getelementptr double, ptr %invariant.gep27.i, i64 %indvars.iv32.i
-  store double %34, ptr %gep28.i, align 8, !tbaa !47
-  br label %35
+37:                                               ; preds = %34
+  %38 = load double, ptr %35, align 8, !tbaa !47
+  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv28.i
+  store double %38, ptr %gep.i, align 8, !tbaa !47
+  br label %39
 
-35:                                               ; preds = %33, %30
-  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, 3
-  br i1 %exitcond.not.i, label %.critedge2.i, label %24, !llvm.loop !61
+39:                                               ; preds = %37, %34
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next29.i, 3
+  br i1 %exitcond.not.i, label %.critedge2.i, label %26, !llvm.loop !61
 
 _ZN3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE21readInformationMatrixERSi.exit: ; preds = %17, %.critedge2..critedge_crit_edge.i
-  %36 = phi i64 [ %.pre37.i, %.critedge2..critedge_crit_edge.i ], [ %20, %17 ]
-  %37 = getelementptr inbounds i8, ptr %1, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !49
-  %40 = icmp eq i32 %39, 0
-  %41 = and i32 %39, 2
-  %42 = icmp ne i32 %41, 0
-  %43 = or i1 %40, %42
+  %40 = phi i32 [ %.pre36.i, %.critedge2..critedge_crit_edge.i ], [ %23, %17 ]
+  %41 = icmp eq i32 %40, 0
+  %42 = and i32 %40, 2
+  %43 = icmp ne i32 %42, 0
+  %44 = or i1 %41, %43
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  ret i1 %43
+  ret i1 %44
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
